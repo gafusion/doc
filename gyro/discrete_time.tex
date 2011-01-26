@@ -1,0 +1,387 @@
+%===================================================================
+\chapter{Temporal Discretization}\label{chap.time}
+
+The gyrokinetic treatment of electrons is particularly 
+problematic in simulations because of the emergence of 
+a host of numerical instabilities connected with the 
+discretization of the electron parallel motion.  The 
+presence of the potential in the advection term, 
+
+$$
+\frac{\partial h}{\partial t} + \frac{v_\parallel(\theta)}{q R_0}
+\frac{\partial}{\partial\theta}\left( h - \alpha \dphi \right) 
++ \cdots = 0 \quad .
+$$
+
+\noindent
+give rise to stability considerations much more troublesome 
+than the simple electron parallel Courant limit.
+Here, $\alpha = n_e/T_e$.  Physically, the parallel term
+gives rise to the (pathological) high-frequency 
+{\it electrostatic Alfv\'en} wave \cite{lee:2001}.  
+At $\beta=0$, we have
+
+$$
+\omega_{\rm H} = \frac{k_\parallel}{k_r} 
+\sqrt{\frac{m_i}{m_e}} \, \Omega_{ci} \quad .$$
+
+\noindent
+The frequency of this mode increases indefinitely as 
+$m_e$ decreases, as also as $k_r$ decreases -- that is, 
+as the radial box size grows.  To overcome this severe
+and intrinsic simulation difficulty, we were finally 
+presuaded to treat the electron advection implicitly
+
+We experimented with a variety of recently-developed 
+implicit-explicit (IMEX) Runge-Kutta (RK) schemes 
+\cite{ascher:1995,ascher:1997,pareschi:2000,pareschi:2002,
+kennedy:2003}, settling on the newest IMEX-SSP schemes of 
+Pareschi and Russo \cite{pareschi:2002}.
+
+%-----------------------------------------------------------------------
+\subsection{Reduction to canonical form}
+
+With all spatial operators discretized, the GKM system 
+has the form
+%
+\begin{align}
+{\dot h}_\si = &~\rhss(\{h_\si\},h_e) \, , 
+  \quad \si = 1, \ldots, n_{\rm ion} 
+  \label{imexi} \\
+{\dot h}_e    = &~\rhse(\{h_\si\},h_e) + \rhsei(\{h_\si\},h_e) 
+  \label{imexe}
+\end{align}
+
+where $\{h_\si\} = h_1,\ldots,h_{n_{\rm ion}}$.  In 
+Eqs.~(\ref{imexi}) and (\ref{imexe}), the use of a tilde
+on the RHS represents a {\it nonstiff} term, while the 
+absence of a tilde indicates a {\it stiff} term.
+The IMEX-RK schemes are written for equations in the 
+canonical form
+%
+\begin{equation}
+{\dot y} = {\widetilde Y}(y) + Y(y)
+\end{equation}
+
+with ${\widetilde Y}$ the explicit RHS and $Y$ the implicit RHS.
+Thus, we have the connection
+%
+\begin{equation}
+y = \begin{bmatrix} h_i \\ h_e \end{bmatrix} \quad 
+{\widetilde Y} = \begin{bmatrix} \rhss \\ \rhse \end{bmatrix} \quad 
+Y = \begin{bmatrix} 0 \\ \rhsei \end{bmatrix} 
+\end{equation}
+
+Now, there is some hidden complexity in how we have written 
+the GKM equations, as the functions $H$ depend on the distribution 
+function $h$ both directly, and indirectly through the fields.
+The latter are given by 
+%
+\begin{align}
+ \pop \cdot \dphi = &~\sum_\si z_\si \vop\left[\gop h_\si \right] - 
+     \vop \left[ h_e - \alpha_e (\dphi-\vpe\dap) \right] \\
+ \aop \cdot \dap  = &~\sum_\si z_\si \vop \left[\vp \, \gop h_\si \right] - 
+         \vop \left[\vpe [h_e - \alpha_e (\dphi-\vpe\dap)] \right]
+\end{align}
+
+We have defined various operators in the Maxwell equations:
+%
+\begin{align}
+\pop = &~\alpha_e + \sum_{\si=1}^{n_{\rm ion}} 
+\alpha_\si z_\si^2 (1-\rop_\si) \\
+\aop = &~-\frac{2\rhou^2}{\betau} \nabla_\perp^2 + 
+\sum_{\si=1}^{n_{\rm ion}} \alpha_\si z_\si^2 \, \vop[\vp^2 \cdot]
+\end{align}
+
+It is only the fast electron advection term, $\rhsei$, which 
+we wish to (or are able to) treat implicitly:
+
+%
+\begin{align}
+\rhsei & = \frac{\vpe(r,\theta,\ehat)}{qR} 
+           \frac{\partial}{\partial\theta} \left[
+             h_e - \alpha_e \left( \dphi - \vp \dap \right) \right] \\
+       & = \Omega(r,\lambda,\ehat) \, \frac{\partial}{\partial\tau} 
+          \left[ h_e - \alpha_e \left( \dphi - \vp \dap \right) \right]
+\end{align}
+
+\subsection{IMEX-RK-SSP schemes of Pareschi and Russo}
+
+The second-order IMEX schemes we consider can be summarized 
+in Butcher tableau form:
+
+%%
+\begin{center}
+\parbox{.25\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+${\tilde a}_{21}$ & 0 & \\ 
+${\tilde a}_{31}$ & ${\tilde a}_{32}$ & 0 \\ \hline
+${\tilde w}_1$ & ${\tilde w}_2$ & ${\tilde w}_3$ 
+\end{tabular}}}
+\hskip 0.2in
+\parbox{.25\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$a_{11}$ & & \\
+$a_{21}$ & $a_{22}$ & \\ 
+$a_{31}$ & $a_{32}$ & $a_{33}$ \\ \hline
+$w_1$ & $w_2$ & $w_3$ 
+\end{tabular}}}
+\end{center}
+
+This notation corresponds to the following explicit 
+evolution equations:
+
+%
+\begin{align}
+y_1 & = y + \dt \, a_{11} Y_1 \\
+y_2 & = y + \dt ( {\tilde a}_{21} \yt_1 + a_{21} Y_1 ) 
+          + \dt \, a_{22} Y_2 \\ 
+y_3 & = y + \dt ( {\tilde a}_{31} \yt_1 + {\tilde a}_{32} \yt_2 
+                  + a_{31} Y_1 + a_{32} Y_2 ) 
+          + \dt \, a_{33} Y_3 
+\end{align}
+
+%%
+\begin{equation}
+{\bar y} = y + \dt \sum_{k=1}^3 {\tilde w}_k \yt_k 
+             + \dt \sum_{k=1}^3 w_k Y_k 
+\label{newy}
+\end{equation}
+
+Above, $y$ is the old field vector (time $t$) and 
+${\bar y}$ is the new field vector (time $t+\Delta t$).
+
+In GYRO, we currently use the SSP2(3,2,2) scheme:
+
+\begin{center}
+SSP2(3,2,2) 
+\parbox{.3\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+0 & 0 & \\ 
+0 & 1 & 0 \\ \hline
+0 & $1/2$ & $1/2$
+\end{tabular}}}
+\parbox{.3\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$1/2$  & & \\
+$-1/2$ & $1/2$ & \\ 
+ 0   & $1/2$ & $1/2$  \\ \hline
+ 0   & $1/2$ & $1/2$ 
+\end{tabular}}}
+\end{center}
+
+Since the 
+diagonal coefficients of the implicit stages are 
+equal, we need to solve the same implicit system at 
+each stage.  We plan to implement the SSP2(3,3,2)
+scheme, which requires the solution of two 
+different implicit problems, but has half the 
+advective Courant limit in explicit part.
+
+\begin{center}SSP2(3,3,2)
+\parbox{.3\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+$1/2$ & 0 & \\ 
+$1/2$ & $1/2$ & 0 \\ \hline
+$1/3$ & $1/3$ & $1/3$
+\end{tabular}}}
+\parbox{.3\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$1/4$ & & \\
+0   & $1/4$ & \\ 
+$1/3$ & $1/3$ & $1/3$ \\ \hline
+$1/3$ & $1/3$ & $1/3$ 
+\end{tabular}}}
+\end{center}
+
+\subsection{Implementation in GYRO}
+
+At each integrator stage $(k=1,2,3)$ we are faced with:
+
+%
+\begin{align}
+(h_\si)_k & = h_\si + \dt \sum_{p<k} {\tilde a}_{kp} (\rhss)_p 
+\label{imex.ion}\\
+(h_e)_k & = h_e + \dt \sum_{p<k} {\tilde a}_{kp} (\rhse)_p 
+                + \dt \sum_{p<k} a_{kp} (\rhsei)_p + \dt \, 
+                a_{kk} (\rhsei)_k
+\label{imex.elec}
+\end{align}
+
+
+Because $\rhsei$ depends on the fields, we must advance the 
+Maxwell equations at each stage before determining the 
+$(h_e)_k$.  However, we can compute all $(h_\si)_k$ before 
+solving the implicit problem.  First, solve formally for 
+$(h_e)_k$:
+
+%
+\begin{equation}
+(h_e)_k = (\delta h_e)_k + \alpha_e \frac{\cdto}{1+\cdto} 
+\left( {\dphi} - \vpe {\dap} \right)_k 
+\label{imex.he}
+\end{equation}
+
+where $(\delta h_e)_k$ is the explicitly-known quantity
+
+%
+\begin{equation}
+(\delta h_e)_k = 
+\frac{1}{1+\cdto} \left[ h_e + \dt \sum_{p<k} {\tilde a}_{pk} (\rhse)_k 
+               + \dt \sum_{p<k} a_{pk} (\rhsei)_k \right ]
+\label{imex.dhe}
+\end{equation}
+
+Substitute $(h_e)_k$ into the Maxwell equations:
+
+%
+\begin{align}
+\pop \cdot (\dphi)_k & = \sum_{\si=1}^{n_{\rm ion}} 
+   z_\si \vop\left[\gop (h_\si)_k \right] - 
+        \vop \left[ (\delta h_e)_k \right] \notag \\
+        & \qquad + \alpha_e \vop 
+         \left[ \frac{1}{1+\cdto} (\dphi-\vpe\dap)_k \right] \\
+~\notag \\
+\aop \cdot ({\dap})_k & = \sum_{\si=1}^{n_{\rm ion}} 
+ z_\si \vop \left[\vp \gop (h_s)_k \right] - 
+         \vop \left[\vpe (\delta h_e)_k \right] \notag \\
+        & \qquad + \alpha_e \vop
+          \left[\vpe \frac{1}{1+\cdto} (\dphi-\vpe\dap)_k \right]
+\end{align}
+
+Multiply Maxwell equations by $F_m^{*i}(\theta)$ and operate 
+with bounce-velocity summation operator $\fvop$ (noting 
+that $\vop\vop=\vop$) to obtain 
+$\dt$-coupled Poisson and Amp\`ere equations.
+%
+\begin{align}
+(\pmat)_{m\mpr}^{i\ipr} {\ptil}_{\mpr}^{\ipr} & = 
+  (\psrc)_m^i + {(\ipp)}^i_{m\mpr} {\ptil}_{\mpr}^i 
+              + {(\ipa)}^i_{m\mpr} {\atil}_{\mpr}^i \\
+(\amat)_{m\mpr}^{i\ipr} {\atil}_{\mpr}^{\ipr} & = 
+  (\asrc)_m^i + {(\iap)}^i_{m\mpr} {\ptil}_{\mpr}^i  
+              + {(\iaa)}^i_{m\mpr} {\atil}_{\mpr}^i
+\end{align}
+
+where we have omitted the stage number, $k$, for brevity. 
+The field matrices are
+%
+\begin{align}
+(\pmat)_{m\mpr}^{i\ipr} & = \fvop \left[ F^{*i}_m(\tq) 
+              \pop^{i\ipr}(\tq) F^{\ipr}_{\mpr}(\tq) \right] \\
+(\amat)_{m\mpr}^{i\ipr} & = \fvop \left[ F^{*i}_m(\tq)  
+              \aop^{i\ipr}(\tq) F^{\ipr}_{\mpr}(\tq) \right] 
+\end{align}
+
+The coupling matrices are
+%
+\begin{align}
+(\ipp)_{m\mpr}^i & = \alpha_e^i \fvop \left[
+  F_m^{*i}(\tq) {\cal O}_{q q^\prime}^i F_{\mpr}^i(\tqp) \right] \\
+(\ipa)_{m\mpr}^i & = - \alpha_e^i \fvop \left[
+  F_m^{*i}(\tq) {\cal O}_{q q^\prime}^i F_{\mpr}^i(\tqp) \vpe(\tqp) \right] \\
+(\iap)_{m\mpr}^i & =  \alpha_e^i \fvop \left[
+  \vpe(\tq) F_m^{*i}(\tq) {\cal O}_{q q^\prime}^i F_{\mpr}^i(\tqp) \right] \\
+(\iaa)_{m\mpr}^i & = - \alpha_e^i \fvop \left[
+  \vpe(\tq) F_m^{*i}(\tq) {\cal O}_{q q^\prime}^i F_{\mpr}^i(\tqp)\vpe(\tqp) \right]
+\end{align}
+
+where the matrix ${\cal O}_{q q^\prime}$ is defined as
+
+\begin{equation}
+{\cal O}_{q q^\prime} (r,\lambda,\ehat) \doteq
+{\left( \frac{1}{1+\cdto} \right)}_{q q^\prime} .
+\end{equation}
+
+The source matrices are 
+%
+\begin{align}
+(\psrc)_m^i & = \fvop\left[ F_m^{*i}(\tq) H_P^i(\tq) \right] - 
+        \fvop \left[ F_m^{*i}(\tq) \delta h_e^i(\tq) \right] 
+\label{imex.sp}\\
+(\asrc)_m^i & = \fvop\left[ F_m^{*i}(\tq) H_A^i(\tq) \right] - 
+        \fvop \left[ \vpe(\tq) F_m^{*i}(\tq) \delta h_e^i(\tq) \right]
+\label{imex.sa}
+\end{align}
+
+where 
+%
+\begin{equation}
+H_P \doteq \sum_{\si=1}^{n_{\rm ion}} z_\si \gop h_\si 
+\quad\mbox{and}\quad
+H_A \doteq \sum_{\si=1}^{n_{\rm ion}} z_\si \vp \gop h_\si
+\end{equation}
+
+We reorganize the equations into a single partitioned system
+suitable for solution with a direct sparse solver (the 
+current implementation uses UMFPACK).
+%
+\begin{equation}
+\begin{bmatrix} \pmat & 0 \\ 0 & \amat \end{bmatrix}
+\begin{bmatrix} \ptil \\ \atil \end{bmatrix}
+=
+\begin{bmatrix} \psrc \\ \asrc \end{bmatrix}
++
+\begin{bmatrix} \ipp(\dt) & \ipa(\dt) \\ 
+                \iap(\dt) & \iaa(\dt)  \end{bmatrix}
+\begin{bmatrix} \ptil \\ \atil \end{bmatrix}
+\label{imex.field}
+\end{equation}
+
+Solve the system with UMFPACK ($\psrc$ and $\asrc$ need 
+to be computed at each step). 
+
+\subsection{Procedural summary}
+
+Having precomputed the matrices $M$ and $I$, for 
+$k=1,\ldots,3$ do
+%
+\begin{enumerate}
+\item
+Evaluate $(h_\si)_k$ using Eq.~(\ref{imex.ion}).
+\item
+Evaluate $(\delta h_e)_k$ using Eq.~(\ref{imex.dhe}).
+\item
+Evaluate $\psrc$ and $\asrc$ using Eq.~(\ref{imex.sp}) 
+and Eq.~(\ref{imex.sa}), respectively.
+\item
+Solve Eq.~(\ref{imex.field}) for $\ptil$ and $\atil$.
+\item
+Evaluate $(h_e)_k$ using Eq.~(\ref{imex.he}). 
+\end{enumerate}
+
+With all stage values, $k=1,\ldots,3$, computed, 
+evaluate ${\bar y} = ({\bar \{h_\si\}},{\bar h_e})^{\rm T}$ 
+using Eq.~(\ref{newy}).  Then, synchronize the fields 
+using an explicit field update.
+
+\subsection{Time-Integration Considerations}
+
+Ad-hoc semi-implicit schemes (for example, first 
+order splitting) are normally a mixed-blessing,
+offering improved stability of stiff terms at the expense 
+of accuracy and/or stability loss for the explicit terms.
+Higher order splittings can be constructed but 
+are susceptible to a severe accuracy loss in the stiff limit.
+
+The IMEX schemes we describe herein \cite{pareschi:2000} are:
+\begin{itemize}
+\item {\bf Asymptotic Preserving}:  the difference scheme 
+is asymptotically correct in the stiff limit. 
+\item {\bf Asymptotically Accurate}: the explicit 
+integrator retains its order for the limiting 
+differential-algebraic system in the stiff limit.
+\item {\bf Strong-Stability-Preserving}: we recover an 
+SSP-ERK \cite{gottlieb:2001} scheme in the stiff limit.
+\end{itemize}
+
+%-----------------------------------------------------------------------

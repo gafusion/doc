@@ -1,0 +1,183 @@
+\documentclass[dvips,11pt]{report}
+\listfiles
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{fullpage}
+
+\def\smallfig{0.5}
+\def\largefig{0.65}
+
+\newcommand\param[1]{{\tt #1}}
+
+%---------------------------------------------------
+% Additional symbols
+\newcommand\lfig{0.9}
+
+\newcommand\sperp{{\mbox{$\scriptscriptstyle \perp$}}}
+\newcommand\df{\delta \hskip -1pt f}
+\newcommand\vp{v_\parallel}
+\newcommand\vpi{v_{\parallel i}}
+\newcommand\vpe{v_{\parallel e}}
+\newcommand\vphat{\hat{v}_{\parallel\si}}
+\newcommand\kp{k_\parallel}
+\newcommand\kperp{k_\perp}
+\newcommand\vperp{v_\perp}
+\newcommand\kt{k_\theta}
+\newcommand\buv{\mathbf{b}}
+\newcommand\ruv{\mathbf{e}_r}
+\newcommand\euv{\hat{\bf e}}
+\newcommand\ord{{\mathcal O}}
+\newcommand\R{\mathbf{R}}
+\newcommand\brho{\boldsymbol{\rho}}
+\newcommand\x{{\bf x}}
+\newcommand\rs{{\bf r}}
+\newcommand\e{{\bf e}}
+\newcommand\jr{{\mathcal J}_r}
+\newcommand\jp{{\mathcal J}_\psi}
+\newcommand\vef{\delta {\bf v}_a}
+\newcommand\vez{{\bf v}_{\rm E0}}
+\newcommand\energy{E}
+\newcommand\ehat{{\varepsilon}}
+\newcommand\dphi{\delta \hskip -1pt \phi}
+\newcommand\dphin{\delta \hskip -1pt \phi_n}
+\newcommand\dap{\delta \hskip -1pt A_\parallel}
+\newcommand\dav{\delta \hskip -1pt {\bf A}}
+\newcommand\dbp{\delta \hskip -1pt B_\parallel}
+\newcommand\dapn{\delta \hskip -1pt A_{\parallel n}}
+\newcommand\dbpn{\delta \hskip -1pt B_{\parallel n}}
+\newcommand\dphihat{\delta \hskip -1pt \hat{\phi}}
+\newcommand\daphat{\delta \hskip -1pt \hat{A}_\parallel}
+\newcommand\dbphat{\delta \hskip -1pt \hat{B}_\parallel}
+\newcommand\exb{{\bf E}\hskip -1pt \times \hskip -1pt {\bf B}}
+\newcommand\si{a}
+\newcommand\hhat{\hat{h}_\si}
+\newcommand\wc{\Omega_{c\si}}
+\newcommand\un{{\rm unit}}
+\newcommand\B{{\bf B}}
+\newcommand\bu{B_\un}
+\newcommand\bhat{\hat{B}}
+\newcommand\bref{B_{\rm ref}}
+\newcommand\betau{\bar{\beta}_{e,\un}}
+\newcommand\rhou{\bar{\rho}_{s,\un}}
+\newcommand\dv{d^{\hskip 1pt 3} \hskip -1pt v}
+\newcommand\sv{{\varsigma}}
+\newcommand\ax{\alpha_x}
+\newcommand\ay{\alpha_y}
+\newcommand\fluxa{{\cal F}}
+\newcommand\dapdot{\dot{\delta A_\parallel}}
+\newcommand\rhs{\mbox{RHS}}
+\newcommand\pp{p^\prime}
+\newcommand\hn{h_{\si,n}}
+\newcommand\uhat{\hat{U}_{\si}}
+\newcommand\uhatn{\hat{U}_{\si,n}}
+\newcommand\ds{d\theta \, d\varphi}
+
+\newcommand\E{{\bf E}}
+\newcommand\Eh{{\hat {\bf E}}}
+\newcommand\Bh{{\hat {\bf B}}}
+\newcommand\fpa{{\cal A}}
+\newcommand\fpf{{\cal F}}
+\newcommand\vpp{v_\parallel^\prime}
+\newcommand\kpv{\mathbf{k}_\perp}
+
+% Added symbols for rotation
+\newcommand\ephi{\mathbf{e}_\varphi}
+\newcommand\vvec{\mathbf{v}}
+\newcommand\U{\mathbf{V}_0}
+\newcommand\vd{\mathbf{v}_d}
+\newcommand\s{\mathbf{s}}
+\newcommand\J{\mathcal{J_\psi}}
+\newcommand\F{\mathcal{F}}
+\newcommand\ex{\mathbf{e}_x}
+\newcommand\ey{\mathbf{e}_y}
+
+% Geometry functions
+\newcommand\mq{G_q}
+\newcommand\mt{G_\theta}
+\newcommand\msin{\text{gsin}}
+\newcommand\mcos{\text{gcos}}
+\newcommand\mcosa{\text{gcos}_1}
+\newcommand\mcosb{\text{gcos}_2}
+\newcommand\mk{\Theta}
+\newcommand\arc{\ell}
+\newcommand\ang{u}
+\newcommand\ffp{I\hskip -1pt I^\prime}
+\newcommand\darcp{\frac{d\arc^\prime}{R_s^2 B_{ps}}}
+\newcommand\darce{\frac{d\arc^\prime}{R |\nabla r|}}
+\newcommand\targ{\left(\theta + x\sin\theta\right)}
+\newcommand\da{\delta_0}
+\newcommand\dd{\delta_1}
+\newcommand\sda{s_{\delta_0}}
+\newcommand\sdd{s_{\delta_1}}
+\newcommand\usin{\text{usin}}
+\newcommand\ucos{\text{ucos}}
+
+% Discretization
+\newcommand\vop{V}
+\newcommand\G{{\cal G}}
+\newcommand\deriv{{\cal D}}
+\newcommand\ip{{i^\prime}}
+\newcommand\np{{n^\prime}}
+\renewcommand\mp{{m^\prime}}
+\newcommand\nnp{{n-n^\prime}}
+\newcommand\rhop{\rho^\prime}
+\newcommand\phase{{\cal P}}
+\newcommand\fm{{F_m}}
+\newcommand\nb{{n_{\rm blend}}}
+\newcommand\ptil{\tilde{\phi}}
+\newcommand\atil{\tilde{A}}
+\newcommand\dtheta{\Delta\theta}
+\newcommand\fvop{\fluxa\vop}
+\newcommand\la{{\cal L}_A}
+\newcommand\fb{\bar{f}}
+\newcommand\hb{\bar{h}}
+\newcommand\cjac{{\cal J}_0}
+\newcommand\rhss{{\widetilde H}_\si}
+\newcommand\rhse{{\widetilde H}_e}
+\newcommand\rhsei{H_e}
+\newcommand\pop{{\cal L}_{\rm P}}
+\newcommand\gop{{\cal G}}
+\newcommand\aop{{\cal L}_{\rm A}}
+\newcommand\rop{{\cal R}}
+\newcommand\cdto{c_0 \dt \, \Omega \, \partial_\tau}
+\newcommand\dt{{\Delta t}}
+\newcommand\yt{{\widetilde Y}}
+\newcommand\tq{\theta(\tau_q)}
+\newcommand\tqp{\theta(\tau_{q^\prime})}
+\newcommand\ipr{i^\prime}
+\newcommand\mpr{m^\prime}
+\newcommand\ipp{{\rm I}_{\rm PP}}
+\newcommand\ipa{{\rm I}_{\rm PA}}
+\newcommand\iap{{\rm I}_{\rm AP}}
+\newcommand\iaa{{\rm I}_{\rm AA}}
+\newcommand\pmat{{{\rm M}_{\rm P}}}
+\newcommand\amat{{\rm M}_{\rm A}}
+\newcommand\psrc{{\rm S}_{\rm P}}
+\newcommand\asrc{{\rm S}_{\rm A}}
+%---------------------------------------------------
+
+\makeindex
+\begin{document}
+
+%TITLE=====================================================
+\title{{\LARGE\bf GYRO Technical Guide}}
+\author{J. Candy and E. Belli}
+\maketitle
+%TOC=======================================================
+\tableofcontents
+\clearpage
+%==========================================================
+\input geometry
+\input gkmodel
+\input normalization
+\input discrete_space
+\input discrete_time
+\input source_boundary
+\input collision
+
+\bibliographystyle{alpha}
+\bibliography{global}
+
+\end{document}

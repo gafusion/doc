@@ -1,0 +1,348 @@
+\documentclass[dvips,12pt]{revtex4}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
+
+%--------------------------------------
+\newcommand\df{\delta\hskip -1pt f}
+\newcommand\chigb{\chi_{\rm GB}}
+\newcommand\qgb{Q_{\rm GB}}
+\newcommand\vpr{V^\prime}
+\newcommand\qhat{\widehat{Q}}
+\newcommand\jhat{\widehat{{\cal J}}}
+\newcommand{\sj}{{\sigma,j}}
+\newcommand{\sspjjp}{{\sigma\sigma^\prime,jj^\prime}}
+\newcommand{\spjp}{{\sigma^\prime,j^\prime}}
+\newcommand{\spj}{{\sigma^\prime,j}}
+%--------------------------------------
+
+\begin{document}
+\begin{center}
+{\bf TGYRO iteration scheme notes}\\
+{\sl J. Candy}
+\end{center}
+
+\subsection{Transport equations}
+
+We restrict attention in this note to the steady-state transport 
+problem.  In this case, the transport equations for ion and 
+electron energy flux are written
+%
+\begin{align}
+\frac{1}{\vpr(r)} \frac{\partial}{\partial r} \left[ 
+\vpr(r) Q_i(r) \right] = &~(1-\lambda) S_\alpha + S_{\rm exch}^{ei} 
+  + S_{\rm aux}^i \; , \\ 
+\frac{1}{\vpr(r)} \frac{\partial}{\partial r} \left[ 
+\vpr(r) Q_e(r) \right] = &~\lambda S_\alpha - S_{\rm exch}^{ei} 
+ + S_{\rm aux}^e - S_{\rm rad} \; . 
+\end{align}
+%
+Here, the energy fluxes are the taken to be the sum of neoclassical 
+transport (Hinton-Hazeltine analytic theory or NEO simulation) and 
+turbulent transport (IFS-PPPL, QFM, TGLF or GYRO simulation):
+%
+\begin{align}
+Q_i = & ~Q_i^{\rm Neo} + Q_i^{\rm Turb} \\ 
+Q_e = & ~Q_e^{\rm Neo} + Q_e^{\rm Turb} 
+\end{align}
+%
+At present we account for sources, radiation and exchange:
+%
+\begin{align*}
+S_\alpha \rightarrow &~\text{Thermonuclear source} \\
+S_{\rm exch}^{ei} \rightarrow &~\text{Electron-ion energy exchange} \\
+S_{\rm aux}^i \rightarrow &~\text{Ion Auxilliary heating} \\
+S_{\rm aux}^e \rightarrow &~\text{Electron Auxilliary heating} \\
+S_{\rm rad} \rightarrow &~\text{Electron radiation} \\
+\lambda \rightarrow &~\text{Fraction of heating to electrons}
+\end{align*}
+% 
+\subsection{Some comments regarding units}
+
+In TGYRO, we have found it more convenient to use CGS units
+rather than employing some variant of the more popular 
+dimensionless normalizations.  Thus, we have
+%
+\begin{align}
+{\rm Source}: \quad &~ S \sim \frac{{\rm erg}}{{\rm cm}^3 \, {\rm s}} \\
+{\rm Energy Flux}: \quad &~ Q \sim \frac{{\rm erg}}{{\rm cm}^2 \, {\rm s}} \\
+{\rm Power}: \quad & P \sim  \frac{{\rm erg}}{{\rm s}} \rightarrow 
+  \int_0^r dx \, V^\prime(x) S(x) 
+\end{align}
+
+\subsection{Solution strategy}
+
+Rather than solving the equations directly, we prefer to solve 
+the volume-integrated form of the equation so that we can 
+deal directly with the fluxes:
+%
+\begin{align}
+Q_i^T(r) \doteq \frac{1}{\vpr(r)} & ~\int_0^r dx \, \vpr(x) \left[
+  (1-\lambda) S_\alpha + S_{\rm exch}^{ei} + S_{\rm aux}^i \right] \\ 
+Q_e^T(r) \doteq \frac{1}{\vpr(r)} & ~\int_0^r dx \, \vpr(x) \left[ 
+  \lambda S_\alpha - S_{\rm exch}^{ei} + S_{\rm aux}^e - S_{\rm rad} \right]  
+\end{align}
+%
+The result is a curious system which depends on both the temperatures 
+and the temperature gradients:
+%
+\begin{align}
+Q_i(z_i,z_e,T_i,T_e) - Q_i^T(T_i,T_e) = &~0 \\
+Q_e(z_i,z_e,T_i,T_e) - Q_e^T(T_i,T_e) = &~0
+\end{align}
+%
+where
+%
+\begin{equation}
+z_i \doteq - \frac{a}{T_i} \frac{\partial T_i}{\partial r} 
+\quad\mbox{and}\quad 
+z_e \doteq - \frac{a}{T_e} \frac{\partial T_e}{\partial r}
+\end{equation}
+%
+It is important to note the connection between profiles and 
+gradients.  Specifically, if we enforce the following pedestal 
+boundary conditions at $r=r_*$:
+%
+\begin{align}
+T_\sigma(r_*) = &~T_\sigma^* \; .
+\end{align}
+%
+Then the gradients $z_\sigma$ uniquely determine the 
+temperature profiles, $T_\sigma$:
+%
+\begin{equation}
+T_\sigma(r) = T_\sigma^* 
+ \exp\left( \int_r^{r_*} dx \, z_\sigma(x) \right) \; .
+\end{equation}
+
+\subsection{Formulation on a discrete grid}
+
+On a discrete grid $\{r_j\}$, the temperature profile can 
+be approximately determined using the trapezoidal rule 
+%
+\begin{equation}
+T_\sigma(r_{j-1}) = T_\sigma(r_j) \exp \left\{
+ \left[ \frac{z_\sigma(r_j)+z_\sigma(r_{j-1})}{2} \right]
+ \left[ r_j-r_{j-1} \right] \right\} \; .
+\end{equation}
+%
+To put the problem into discrete form, we define a vector of 
+independent variables (gradients) and functions (fluxes):
+%
+\begin{align}
+z_\sj = &~ z_\sigma(r_j) \; , \\
+Q_\sj = &~ Q_\sigma(r_j) \; , \\
+Q^T_\sj = &~ Q^T_\sigma(r_j) \; .
+\end{align}
+%
+Then, the equations to be solved are
+%
+\begin{equation}
+\qhat_\sj = \qhat^T_\sj  \; .
+\end{equation}
+%
+where a hat denotes gyroBohm normalization:
+%
+\begin{equation}
+\qhat \doteq \frac{Q}{\qgb} 
+\quad \text{where} \quad \qgb = n_e T_e c_s (\rho_s/a)^2 \; .
+\end{equation}
+%
+The goal is to apply Newton's method in a way which is as accurate 
+as possible while still minimizing evaluation of the expensive functions 
+$Q_\sj$.  Operationally, we make the key assumption that the transport 
+fluxes depend only locally on the gradients (which is approximately 
+true when quantities are normalzied to the gyroBohm unit of flux), 
+so that the Jacobian associated with $Q_\sj$ is block diagonal:
+%
+\begin{equation}
+\qhat_\sj(z^0) - \qhat^T_\sj(z^0) 
+ + \frac{\partial \qhat_\sj}{\partial z_\spj} \,\delta z_\spj 
+ - \frac{\partial \qhat^T_\sj}{\partial z_\spjp} \, \delta z_\spjp
+ = 0 \; .
+\end{equation}
+%
+Above, we have used the shorthand $z \doteq \{z_\sj\}$ and 
+$z^0 \doteq \{z^0_\sj\}$.  This can be written in terms of 
+Jacobian matrices as
+%
+\begin{equation}
+\jhat_{\sspjjp} \, \delta z_{\sigma^\prime,j^\prime} = 
+ -\left[ \qhat_\sj(z^0) - \qhat^T_\sj(z^0) \right] \eta_\sj \; ,
+\label{eq.newton}
+\end{equation}
+%
+where 
+%
+\begin{equation}
+\jhat_\sspjjp \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
+ -{\cal J}^T_{\sspjjp}\; ,
+\end{equation}
+%
+and the quantity $z^1 = z^0 + \delta z$ is the Newton 
+update for the vector $z$  In Eq.~(\ref{eq.newton}), we have
+introduced a {\it relaxation parameter} $\eta_\sj$. Note that 
+this method generalizes 
+to an arbitrary number of gradients and fluxes per gridpoint.  
+In the case of three radial gridpoints, $\{r_1,r_2,r_3\}$, 
+the Jacobian matrices have the explicit forms
+
+\begin{equation}
+{\cal J}_{\sspjjp} = \begin{pmatrix}
+\displaystyle \frac{\partial \qhat_{i,1}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat_{i,1}}{\partial z_{e,1}} &
+0 & 0 & 0 & 0 \medskip \\
+\displaystyle \frac{\partial \qhat_{e,1}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat_{e,1}}{\partial z_{e,1}} &
+0 & 0 & 0 & 0 \medskip \\
+0 & 0 &
+\displaystyle \frac{\partial \qhat_{i,2}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat_{i,2}}{\partial z_{e,2}} &
+0 & 0  \medskip \\
+0 & 0 &
+\displaystyle \frac{\partial \qhat_{e,2}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat_{e,2}}{\partial z_{e,2}} &
+0 & 0  \medskip \\
+0 & 0 & 0 & 0 &
+\displaystyle \frac{\partial \qhat_{i,3}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat_{i,3}}{\partial z_{e,3}} &
+\medskip \\
+0 & 0 & 0 & 0 &
+\displaystyle \frac{\partial \qhat_{e,3}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat_{e,3}}{\partial z_{e,3}} &
+\end{pmatrix}
+\end{equation}
+\begin{equation}
+{\cal J}^T_{\sspjjp} = \begin{pmatrix}
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{i,1}}{\partial z_{e,3}} 
+\medskip \\
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{e,1}}{\partial z_{e,3}} 
+\medskip \\
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{i,2}}{\partial z_{e,3}} 
+\medskip \\
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{e,2}}{\partial z_{e,3}} 
+\medskip \\
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{i,3}}{\partial z_{e,3}} 
+\medskip \\
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{i,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{e,1}} &
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{i,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{e,2}} &
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{i,3}} &
+\displaystyle \frac{\partial \qhat^T_{e,3}}{\partial z_{e,3}} 
+\end{pmatrix}
+\end{equation}
+%
+An important quantity to measure after a Newton iteration is
+the residual 
+\begin{equation}
+R^1_\sj = \frac{\left[\qhat_\sj(z^1)-\qhat^T_\sj(z^1)\right]^2}{
+ \left[\qhat_\sj(z^1)\right]^2+\left[\qhat^T_\sj(z^1)\right]^2}
+\end{equation}
+%
+If, after a Newton step, any $R^1_\sj > R^0_\sj$ is not 
+reduced, some strategy must be adopted to modify the 
+gradient vector $z^1$ and/or the target.  This strategy 
+is under development.  Note that there are two distinct 
+iterations: 
+%
+\begin{enumerate}
+\item
+A Newton iteration, which is rapidly convergent given 
+that one is close to a root and the $\qhat$ are smooth 
+functions, 
+\item
+A fixed-point iteration following the Newton iteration,
+because the weak profile variation of $\qhat$ was 
+ignored
+\end{enumerate}
+If the temperature dependence of $\qhat$ was included, there 
+would be no fixed-point iteration component.
+
+\subsection{Numerical implementation}
+
+\subsubsection{Computation of the Jacobian}
+
+We approximate the derivatives in the Jacobian 
+matrix using a forward difference approximation
+%
+\begin{equation}
+\frac{\partial \qhat_\sj}{\partial z_\spjp} \simeq 
+\frac{\qhat_\sj (z_\spjp + \Delta z) -\qhat_\sj (z_\spjp)}{\Delta z} 
+\end{equation}
+%
+A desireable feature of this approximation is that the 
+iteration scheme, Eq.~(\ref{eq.newton}) if it converges, 
+will converge to the exact root of the original equations 
+without any influence of the finite-difference truncation 
+error.
+
+\subsubsection{Iteration logic}
+
+If iteration proceeds such that all residuals $R_\sj$ 
+decrease at each iteration, then $\eta_\sj = 1$ and no 
+additional logic is required.  However, in practice, 
+not all residuals will decrease.  In this case, we 
+implement a residual management strategy.  Here is the
+complete logic:
+
+\begin{algorithmic}[1]
+\ForAll{$\sj$}
+\Comment Capped Newton step
+\State $\delta z_\sj \gets -\left(\jhat^{-1}\right)_\sspjjp 
+\left[ \qhat_\spjp(z^0) - \qhat^T_\spjp(z^0) \right] \eta_\spjp$
+\If{$|\delta z_\sj| > \Delta z_{\rm max}$}
+\State $\delta z_\sj \gets \text{sgn}({\delta z_\sj}) \, \Delta z_{\rm max}$ 
+\State $z_\sj^1 \gets z_\sj^0 + \delta z_\sj$
+\EndIf
+\EndFor
+\end{algorithmic}
+
+\begin{algorithmic}[1]
+\ForAll{$\sj$}
+\Comment Manage increasing residual
+\If{$R_\sj^1 > R_\sj^0$}
+\State $z_\sj^1 \gets z_\sj^0$
+\State $\eta_\sj \gets \eta_\sj/C_\eta$ 
+\If{$\eta_\sj < 1/C_\eta^3$} 
+\State $\eta_\sj \gets 0.75 \, C_\eta$
+\EndIf
+\Else
+\State $\eta_\sj \gets 1$
+\EndIf
+\EndFor
+\end{algorithmic}
+%
+Then, the residuals $R^1$ are recomputed and the 
+Newton stepping continues.  
+ 
+\bibliographystyle{gareport}
+\bibliography{global}
+
+\end{document}
