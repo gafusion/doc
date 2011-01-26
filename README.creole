@@ -1,0 +1,5 @@
+== GACODE documentation == 
+
+This is the respository for latex-based mathematical documentation of 
+GYRO, NEO and TGYRO.  This material is more in-depth and theoretical 
+in nature than what appears on the GA wiki.
