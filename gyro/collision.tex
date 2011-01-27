@@ -10,10 +10,6 @@ pitch-angle scattering in the electron equation.  Below we
 outline the implementation of this effect, and of the 
 associated ion pitch-angle scattering operators.
 
-\newcommand\apn{\delta A_{\parallel,n}}
-\newcommand\apndot{\delta \dot{A}_{\parallel,n}}
-\newcommand\fn{f_{\si,n}}
-
 Treating the collision operator $\hat{C}$ by operator splitting 
 leaves us with the following evolution equation 
 %
@@ -125,23 +121,19 @@ $g(\theta) = f(\theta) e^{-i \alpha  \theta}$, which is periodic.
  
 \subsection{Basic RBF expansion}
 
-\newcommand\xv{{\bf x}}
-\newcommand\xc{{\hat {\bf x}}}
-\newcommand\xih{{\hat\xi}}
-
 We start by briefly describing the basic RBF approximation.
 Given a function $\phi(r)$, $r \ge 0$, {\it centers} 
-$\xv_1,\ldots,\xv_N$, and data $f_i = f(\xv_i)$, the basic 
+$\x_1,\ldots,\x_N$, and data $f_i = f(\x_i)$, the basic 
 form of the RBF approximation is
 %
 \begin{equation}
-F(\xv) = \sum_{i=1}^N c_i \phi(|\xv-\xv_i|) \; ,
+F(\x) = \sum_{i=1}^N c_i \phi(|\x-\x_i|) \; ,
 \label{eq.basicrbf}
 \end{equation}
 %
 where $|\cdot|$ is a positive-definite norm on the vector 
 space of interest.  The $c_i$ are then chosen so that 
-$F(\xv_i) = f_i$.  Typical RBF choices are 
+$F(\x_i) = f_i$.  Typical RBF choices are 
 
 %====================================================================
 \begin{table}[h]
@@ -162,7 +154,7 @@ $F(\xv_i) = f_i$.  Typical RBF choices are
 %====================================================================
 
 In practice, the infinitely smooth RBFs are difficult to use 
-because the associated coefficient matrices $A_{ij} = \phi(|\xv_j-\xv_i|)$ 
+because the associated coefficient matrices $A_{ij} = \phi(|\x_j-\x_i|)$ 
 are notoriously ill-conditioned in the limit $\epsilon \rightarrow 0$, 
 although theoretically they are capable of spectral convergence 
 and thus remarkably accurate approximation in this limit.  Testing, 
@@ -190,12 +182,12 @@ move outside the simulation domain $-1 \le \xi \le 1$.  So, we
 write
 %
 \begin{equation}
-F(\xv) = \sum_{i=1}^N c_i \phi(|\xv-\xc_i|) \; ,
+F(\x) = \sum_{i=1}^N c_i \phi(|\x-\xc_i|) \; ,
 \label{eq.rbf}
 \end{equation}
 %
 where as before the $c_i$ are chosen so that 
-$F(\xv_i) = f_i$.  Mesh points $\xv_i$ near the boundaries at 
+$F(\x_i) = f_i$.  Mesh points $\x_i$ near the boundaries at 
 $\xi = \pm 1$ are moved outside the boundary in an analog of
 the Super Not-a-Knot (SNaK) approach.
 
@@ -206,7 +198,7 @@ the surface of a cylinder, so there is a natural the
 distance function 
 %
 \begin{equation}
-r_i = |\xv-\xc_i| = \sqrt{2-2\cos(\theta-\theta_i)+(\xi-\xih_i)^2}
+r_i = |\x-\xc_i| = \sqrt{2-2\cos(\theta-\theta_i)+(\xi-\xih_i)^2}
 \end{equation}
 %
 For $s=3,5,\ldots$, we write

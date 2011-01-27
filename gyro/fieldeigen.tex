@@ -1,0 +1,301 @@
+\chapter{Maxwell Dispersion Matrix Eigenvalue Solver}
+
+\section{Motivation and Related Work}
+
+In high-beta, strongly shaped plasmas like in the National Spherical Torus
+Experiment (NSTX) \cite{ono:2000}, numerous 
+branches of closely-spaced unstable eigenmodes exist.  In our 
+experience, when modes are closely spaced, it is difficult 
+and time-consuming to resolve the most unstable mode using 
+the linear initial-value approach.  To overcome these and 
+other difficulties encountered in simulating NSTX plasmas,  
+we have developed a new, more efficient method to compute 
+unstable linear eigenvalues and eigenvectors.  The method is 
+valid for tokamak plasmas with arbitrary shape, and can retain 
+both the compressional and transverse components of the magnetic 
+perturbation.  The new method is a simple extension of the GYRO 
+code \cite{candy:2003}, and reuses the existing discretization schemes in both 
+real and velocity space.  Existing methods for solving the 
+linear gyrokinetic eigenvalue problem fall into two general 
+categories: {\it gyrokinetic eigenvalue solvers}, which use 
+an iterative approach to compute eigenvalues of the relatively 
+large gyrokinetic response matrix \cite{kammerer:2008,bass:2009}, 
+and {\it field dispersion-relation solvers}, which compute the 
+zeros of the much smaller dielectric matrix using a direct method. 
+The former solvers are too expensive for routine linear 
+analysis and are not discussed further.  On the other hand, 
+there are numerous examples in the literature of the latter 
+method, the earliest and still one of the most capable being 
+due to Rewoldt \cite{rewoldt:1981}.  Certain solvers distinguish
+themselves with a particular capability: for example, global 
+capability \cite{falchetto:2003} or the ability to compute 
+stable eigenmodes \cite{sugama:1999}.  The present solver is 
+unique in that all the linear physics capabilities of GYRO 
+can be retained, including pitch-angle collisions (although 
+at significantly increased computational expense), global 
+effects (since the ballooning transform is not used), finite 
+plasma rotation, general plasma shape and compressional magnetic 
+perturbations.  The solver is also parallelized, with all costly 
+matrix operations (LU decomposition, inverse, matrix-matrix multiply) 
+implemented fully in BLAS and LAPACK.  A typical collisionless 
+electromagnetic eigenvalue and eigenvector can be computed at 
+standard resolution in about 5 seconds on a single 2.66GHz core.  
+
+\section{The Linearized Gyrokinetic Equation}
+
+Just as in the initial-value formulation of the nonlinear gyrokinetic 
+equation, here we expand fluctuating quantities in Fourier series, for 
+example
+%
+\begin{equation}
+\Psi_a = \sum_n e^{-in\alpha} \Psi_{a,n} \; .
+\end{equation}
+%
+We remark that because of the symmetry properties of the equations, 
+it is natural to label toroidal eigenmodes with $k_\theta \rho_s$
+rather than $n$, where $k_\theta \doteq n q/r$.  For a single toroidal 
+harmonic, the gyrokinetic equation is written symbolically as
+%
+\begin{equation}
+\frac{\partial h_{a,n}}{\partial t} - i(\omega_\theta + \omega_d + \omega_C) H_{a,n} 
+-i \omega_* (\frac{e_a f_{0a}}{T_a} \Psi_{a,n}) = 0
+\end{equation}
+%
+where $\omega_\theta$, $\omega_d$ and $\omega_C$ are differential operators:
+%
+\begin{align}
+-i \omega_\theta &~= 
+ \vp (\buv \cdot \nabla\theta) \frac{\partial}{\partial\theta} \; , 
+\label{eq.omtheta}\\
+-i \omega_d &~= -i n (\vd \cdot \nabla\alpha) + 
+ (\vd\cdot\nabla r)\frac{\partial}{\partial r} \; , 
+\label{eq.omdrift}\\
+-i \omega_C &~= -i \frac{\nu_a}{2} \frac{\partial}{\partial\xi} 
+ \left( 1-\xi^2\right) \frac{\partial}{\partial\xi} \; ,
+\label{eq.omcoll}\\
+-i \omega_* &~= i \frac{v_{ta}}{a} k_\theta \rho_a \left[ 
+\frac{a}{L_{na}} + 
+ \left(\frac{v^2}{2 v_{ta}^2}-\frac{3}{2} \right) \frac{a}{L_{Ta}} \right] \; .
+\label{eq.omstar}
+\end{align}
+
+\section{Construction of the Dispersion Matrix}
+The Laplace transform \cite{zayed:1996} of a function $f(t)$, which 
+we assume to be differentiable on $(0,\infty)$, is
+%
+\begin{equation}
+\widetilde{f}(s) \doteq {\cal L} f = \int_0^\infty f(t) e^{-st} dt
+\end{equation}
+%
+whenever the integral exists for at least one value of $s$.  In the present 
+case, the integral will converge for $s > s_0$, where $s_0$ is the maximum 
+linear growth rate. The inversion formula is given by the Bromwich integral
+%
+\begin{equation}
+f(t) \doteq {\cal L}^{-1} \widetilde{f} = \frac{1}{2\pi i} \int_{c-i\infty}^{c+i\infty} 
+\widetilde{f}(s) e^{st} ds \; , \quad 0 < t < \infty \; .
+\end{equation}
+%
+It will be convenient to use the variable $\omega=is$ in subsequent formulae.
+Now, it is then easy to show that
+%
+\begin{equation}
+\widetilde{H}_a(\omega) = {\cal L} H_{a,n} = 
+ \frac{1}{\omega + \omega_\theta + \omega_d +\omega_C} \, ih_a(0) 
++ \frac{\omega-\omega_*}{\omega + \omega_\theta + \omega_d+\omega_C} 
+\left( \frac{e_a f_{0a}}{T_a} \widetilde{\Psi}_a \right) \; ,
+\end{equation}
+%
+where $\widetilde{\Psi}_a = {\cal L} \Psi_{a,n}$.
+Upon substitution into the Laplace transform of the Maxwell 
+equations, we are left with a system of the form
+%
+\begin{equation}
+{\cal M}^{\sigma\sigma^\prime}(\omega) \Phi^{\sigma^\prime}(\omega) = 
+ S^\sigma(\omega)
+\end{equation}
+%
+where $\sigma$ and $\sigma^\prime$ are field indices which run from 
+1 to 3.  The field matrix and source are given by
+%
+\begin{align}
+{\cal M}^{\sigma\sigma^\prime}(\omega) = &~\delta_{\sigma\sigma^\prime}
+L^\sigma - 
+ \sum_a \frac{e_a^2}{T_a} \int \dv \, f_{0a} G^{\sigma a} 
+\frac{\omega-\omega_*}{\omega+\omega_\theta+\omega_d+\omega_C} 
+ G^{\sigma^\prime a} \; , \\
+S^\sigma(\omega) = &~\sum_a e_a \int \dv \, G^{\sigma a} 
+\frac{1}{\omega+\omega_\theta+\omega_d+\omega_C} 
+\, ih_a(0) \; .
+\end{align}
+%
+We have defined the additional 3-index vectors:
+%
+\begin{align}
+\left(\Phi^1,\Phi^2,\Phi^3\right) \doteq &~\left(
+\widetilde{\dphi},\widetilde{\dap},\widetilde{\dbp} \right) \; , \\
+\left(L^1,L^2,L^3\right) \doteq &~\left(
+-\frac{1}{4\pi}\nabla_\perp^2+\sum_a \frac{e_a^2}{T_a} \int\dv \, f_{0a} , \,
+\frac{1}{4\pi}\nabla_\perp^2, \,
+-\frac{1}{4\pi} 
+\right) \; , \\
+\left( G^{1a}, G^{2a}, G^{3a} \right) = &~\left(
+{\cal G}_{0a},\, 
+-\frac{\vp}{c}{\cal G}_{0a}, \,
+\frac{v_\perp^2}{\Omega_{ca}c} {\cal G}_{1a} \right) \; .
+\end{align}
+%
+In what follows, we will refer to ${\cal M}(\omega)$ as the 
+{\it Maxwell dispersion matrix}.  The roots of the equation 
+$\det{\cal M}(\omega) = 0$ correspond to the normal modes of the 
+system.  When the velocity integrals are taken along the real velocity 
+axes, the integrals used to compute ${\cal M}$ define 
+a function of $s$ analytic in region $s > 0$, which corresponds to the 
+upper-half $\omega$-plane.  This means that unstable modes can be readily 
+computed using the same (real) velocity discretization as in the 
+initial-value problem.  Calculation of stable normal modes, on the other 
+hand, would require analytic continuation of ${\cal M}(\omega)$ 
+into the lower half-plane, $\operatorname{Im}(s) \le 0$, by deformation 
+of the contour in velocity space, or perhaps by numerical analytic 
+continuation. 
+
+The numerical implementation of the eigenvalue solver, which 
+employs the existing GYRO spatial discretization methods, 
+is described in detail in the Appendix.  Here, we remark that 
+the size of the final matrix problem is small, with 
+$\operatorname{rank}({\cal M}) = n_\sigma n_r n_b$, 
+with $n_\sigma$ the number of fields, $n_r$ the 
+number of radial gridpoints, and $n_b$ the number 
+of poloidal finite elements.  For a basic electrostatic case, 
+this can be as small as $\operatorname{rank}({\cal M}) = 24$.  
+The dominant cost is therefore not computing $\det{\cal M}(\omega)$, 
+but rather computing the inverse $P^{-1}$, where $P$ is the matrix 
+representation of the propagator $P=\omega+\omega_\theta+\omega_d+\omega_C$.
+
+\section{Discretization and Implementation in LAPACK}
+
+The spatial discretization of the differential operators 
+required for construction of the Maxwell field matrix follows 
+precisely the same approach as for the GYRO initial-value 
+solver, with the various stencils and quadrature methods 
+discussed in detail in Ref.~\cite{candy:2003}.  The velocity-space
+variables in GYRO are 
+%
+\begin{equation}
+\lambda \doteq \frac{B_{\rm unit}}{v_\perp^2}{B v^2} 
+\quad\mbox{and}\quad
+\varepsilon \doteq \frac{m_a v^2}{2 T_a}
+\end{equation}
+%
+Fluctuating quantities are evaluated on a species-independent 
+mesh with radial nodes $\{r_i\}_{i=1}^{n_r}$, pitch-angle nodes 
+$\{\lambda_k\}_{k=1}^{n_\lambda}$, energy nodes 
+$\{\varepsilon_\mu\}_{\mu=1}^{n_\varepsilon}$ and orbit-time nodes 
+$\{\tau_m\}_{m=1}^{n_\tau}$.  The gyroaverage of the effective 
+potential ${\widetilde\Psi}_a$, for species $a$, has the 
+discrete representation
+% 
+\begin{equation}
+({\widetilde\Psi}_a)_{ikm}^{\mu} =\sum_{i^\prime\sigma}G^{\sigma a \mu}_{ii^\prime km} 
+\Phi^\sigma_{i^\prime km} \; ,
+\end{equation}
+%
+where the three-potential $\Phi^\sigma$ at the same point 
+in configuration space is given by the complex Galerkin 
+representation
+%
+\begin{equation}
+\Phi_{ikm}^\sigma = \sum_j c_{ij}^\sigma F_{ij}(\theta_{km}) \; .
+\end{equation}
+%
+Here, $c_{ij}^\sigma$ are the so-called {\it blending coefficients},
+and $F_{ij}$ the basis functions defined in Sections 5.2 and 
+5.3 of Ref.~\cite{candy:2003}.  The propagator has the 
+matrix form
+%
+\begin{equation}
+P_{ii^\prime kk^\prime mm^\prime}^{a\mu} = 
+\omega \delta_{ii^\prime kk^\prime mm^\prime} 
++ (\omega_\theta)_{ikmm^\prime}^{a\mu} \delta_{ii^\prime kk^\prime} 
++ (\omega_d)_{ii^\prime km}^{a\mu} \delta_{mm^\prime kk^\prime} 
++ (\omega_C)_{ikk^\prime mm^\prime}^{a\mu} \delta_{i i^\prime} \; .
+\end{equation}
+%
+We can write the nonadiabatic distribution ${\widetilde H}_a$ in terms 
+of the inverse of the propagator as
+%
+\begin{equation}
+\left(\frac{{\widetilde H}_a}{f_{Ma}}\right)_{ikm}^{a\mu} = 
+\frac{e_a n_a}{T_a}
+(P^{-1})_{ii^\prime kk^\prime mm^\prime}^{a\mu} 
+(\omega-\omega_{*i^\prime k^\prime m^\prime}^{a\mu})\sum_\sigma 
+G_{i^\prime i^{\prime\prime} k^\prime m^\prime}^{\sigma a\mu} 
+\sum_j c_{i^{\prime\prime} j}^\sigma 
+F_{i^{\prime\prime} j} (\theta_{k^\prime m^\prime}) \; .
+\end{equation}
+%
+Constructing the Galerkin projections of all three Maxwell 
+equations, using the technique described in Section 5.3 
+of Ref.~\cite{candy:2003}, yields the matrix equation
+%
+\begin{equation}
+M_{ii^\prime jj^\prime} ^{\sigma\sigma^\prime} c_{i^\prime j^\prime}^{\sigma^\prime}  
+= \left[ A_{ii^\prime jj^\prime}^\sigma \delta_{\sigma\sigma^\prime} -
+B_{ii^\prime jj^\prime}^{\sigma\sigma^\prime}(\omega) \right] 
+c_{i^\prime j^\prime}^{\sigma^\prime} = 0 \; ,
+\end{equation}
+%
+where
+%
+\begin{equation}
+ A_{ii^\prime jj^\prime}^\sigma = \sum_{km} 
+ F_{ijkm}^* L^\sigma_{ii^\prime km} F_{i^\prime j^\prime km}^* 
+\end{equation}
+%
+and
+%
+\begin{align}
+B_{ii^\prime jj^\prime}^{\sigma\sigma^\prime}(\omega) =
+&~\sum_{a\mu} \sum_{i^{\prime\prime\prime} k m} \sum_{i^{\prime\prime} k^\prime m^\prime}
+\frac{e_a^2 n_a}{T_a} w_{km}^\mu F_{ijkm}^* G_{ii^{\prime\prime\prime} km}^{\sigma a\mu}
+(P^{-1})_{i^{\prime\prime\prime} i^{\prime\prime} kk^\prime mm^\prime}^{a\mu}
+(\omega-\omega_{*i^{\prime\prime} k^\prime m^\prime}^{a\mu})
+G_{i^{\prime\prime} i^{\prime} k^\prime m^\prime}^{\sigma^\prime a\mu}
+ F_{i^\prime j^\prime k^\prime m^\prime} \\
+= &~\sum_{a\mu} \sum_{p,p^\prime} U_{q p}^{a\mu} (P^{-1})_{p p^\prime}^{a\mu} 
+V_{p^\prime q^\prime}^{a\mu} \\
+= &~B_{qq^\prime}^{\sigma \sigma^\prime} \; .
+\end{align}
+%
+Here, the weights $w_{km}^\mu$ are the products of the energy, 
+pitch-angle and orbit-time weights defined in Eq.~(72) of 
+Ref.~\cite{candy:2003}.  In terms of these weights, the flux-surface 
+average of the velocity-space integration is written as 
+%
+\begin{equation}
+{\cal F} \int\dv f_{Ma} \Psi_a \rightarrow  
+ \sum_{km\mu} w_{km}^\mu (\Psi_a)_{ikm}^\mu 
+\quad\mbox{with}\quad
+\sum_{km\mu} w_{km}^\mu = 1 \; .
+\end{equation}
+%
+In addition, we have defined the lumped indices 
+$p=(i^{\prime\prime\prime},k,m)$, $p^\prime = (i^{\prime\prime},k^\prime
+m^\prime)$, $q=(i,j,\sigma)$ and $q^\prime=(i^\prime,j^\prime,\sigma^\prime)$.  
+High performance is achieved by computing the inverse $P^{-1}$ using 
+the LAPACK routines {\tt ZGETRF} (LU decomposition) followed by 
+{\tt ZGETRI} (inverse), with the subsequent matrix triple-product 
+$U P^{-1} V$ evaluated using two sequential calls to the 
+BLAS {\tt ZGEMM} kernel.  Finally, $\det (M)$ is computed by 
+the formula 
+%
+\begin{equation}
+\det (M) = \pm \prod_q L_{qq}
+\end{equation}
+%
+where $L$ is the lower-triangular matrix returned by 
+the {\tt ZGETRF} factorization.  The upper (lower) sign 
+is taken if an even (odd) number of row permutations 
+were made in the factorization.
+
+
