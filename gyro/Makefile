@@ -8,4 +8,4 @@ all:
 	$(VIEWER) $(NAME).pdf
 	
 clean:
-	rm $(NAME).pdf *dvi *idx *log *toc *bbl *aux *blg
+	rm *dvi *idx *log *toc *bbl *aux *blg
