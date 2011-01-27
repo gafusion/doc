@@ -1,6 +1,11 @@
+VIEWER=evince
+NAME=gyro_technical_manual
+
 all:	
 	latex main ; bibtex main ; latex main ; latex main
-	dvipdf main ; acroread main.pdf
-
+	dvipdf main
+	mv main.pdf $(NAME).pdf
+	$(VIEWER) $(NAME).pdf
+	
 clean:
-	rm main.pdf *dvi *idx *log *toc *bbl *aux *blg
+	rm $(NAME).pdf *dvi *idx *log *toc *bbl *aux *blg

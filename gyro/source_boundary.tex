@@ -44,9 +44,9 @@ variation of the equilibrium profiles.
 
 \subsection{Nonperiodic}
 
-In order to study physical effects associated with profile 
-variation, it is necessary to abandon flux-tubes and use 
-some type of nonperiodic radial boundary condition.  In the 
+In order to study physical effects associated with profile variation and 
+rotation shear, it is necessary to abandon flux-tubes and use some type 
+of nonperiodic radial boundary condition.  In the 
 design of nonperiodic end conditions, we have attempted to 
 minimize as much as possible the effect of the boundaries 
 on the interior dynamics.  To this extent, our goal was 
@@ -62,7 +62,10 @@ r_b &~\rightarrow r_{n_r} \; ,
 
 \noindent
 where the width of the buffer region, $p$, is set by the input 
-parameter \param{EXPLICIT\_DAMP\_GRID}.
+parameter \param{EXPLICIT\_DAMP\_GRID}.  Experience shows that this 
+number (which is an integer number of gridpoints) should be no smaller 
+than about $8\rho_i$.  GYRO has a diagnostic to warn the user if 
+this condition is not satisfied.
 
 First, at the extreme edges of the computational domain, $r=r_a$ 
 and $r=r_b$, we impose Dirichlet boundary conditions on all 
