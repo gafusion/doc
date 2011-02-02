@@ -15,14 +15,19 @@
 % Additional symbols
 \newcommand\lfig{0.9}
 
-\newcommand\si{a}
+\newcommand\sperp{{\mbox{$\scriptscriptstyle \perp$}}}
 \newcommand\df{\delta \hskip -1pt f}
 \newcommand\vp{v_\parallel}
+\newcommand\vpi{v_{\parallel i}}
+\newcommand\vpe{v_{\parallel e}}
 \newcommand\vphat{\hat{v}_{\parallel\si}}
 \newcommand\kp{k_\parallel}
 \newcommand\kperp{k_\perp}
 \newcommand\vperp{v_\perp}
 \newcommand\kt{k_\theta}
+\newcommand\buv{\mathbf{b}}
+\newcommand\ruv{\mathbf{e}_r}
+\newcommand\euv{\hat{\bf e}}
 \newcommand\ord{{\mathcal O}}
 \newcommand\R{\mathbf{R}}
 \newcommand\brho{\boldsymbol{\rho}}
@@ -33,6 +38,7 @@
 \newcommand\jp{{\mathcal J}_\psi}
 \newcommand\vef{\delta {\bf v}_a}
 \newcommand\vez{{\bf v}_{\rm E0}}
+\newcommand\energy{E}
 \newcommand\ehat{{\varepsilon}}
 \newcommand\dphi{\delta \hskip -1pt \phi}
 \newcommand\dphin{\delta \hskip -1pt \phi_n}
@@ -45,23 +51,29 @@
 \newcommand\daphat{\delta \hskip -1pt \hat{A}_\parallel}
 \newcommand\dbphat{\delta \hskip -1pt \hat{B}_\parallel}
 \newcommand\exb{{\bf E}\hskip -1pt \times \hskip -1pt {\bf B}}
+\newcommand\si{a}
 \newcommand\hhat{\hat{h}_\si}
 \newcommand\wc{\Omega_{c\si}}
 \newcommand\un{{\rm unit}}
-\newcommand\buv{\mathbf{b}}
 \newcommand\B{{\bf B}}
 \newcommand\bu{B_\un}
 \newcommand\bhat{\hat{B}}
+\newcommand\bref{B_{\rm ref}}
 \newcommand\betau{\bar{\beta}_{e,\un}}
 \newcommand\rhou{\bar{\rho}_{s,\un}}
 \newcommand\dv{d^{\hskip 1pt 3} \hskip -1pt v}
 \newcommand\sv{{\varsigma}}
+\newcommand\ax{\alpha_x}
+\newcommand\ay{\alpha_y}
 \newcommand\fluxa{{\cal F}}
-\newcommand\fvop{\fluxa\vop}
 \newcommand\dapdot{\dot{\delta A_\parallel}}
 \newcommand\rhs{\mbox{RHS}}
 \newcommand\pp{p^\prime}
-\newcommand\hn{h_{a,n}}
+\newcommand\hn{h_{\si,n}}
+\newcommand\uhat{\hat{U}_{\si}}
+\newcommand\uhatn{\hat{U}_{\si,n}}
+\newcommand\ds{d\theta \, d\varphi}
+
 \newcommand\E{{\bf E}}
 \newcommand\Eh{{\hat {\bf E}}}
 \newcommand\Bh{{\hat {\bf B}}}
@@ -82,7 +94,6 @@
 \newcommand\ey{\mathbf{e}_y}
 
 % Geometry functions
-\newcommand\ds{d\theta \, d\varphi}
 \newcommand\mq{G_q}
 \newcommand\mt{G_\theta}
 \newcommand\msin{\text{gsin}}
@@ -95,6 +106,11 @@
 \newcommand\ffp{I\hskip -1pt I^\prime}
 \newcommand\darcp{\frac{d\arc^\prime}{R_s^2 B_{ps}}}
 \newcommand\darce{\frac{d\arc^\prime}{R |\nabla r|}}
+\newcommand\targ{\left(\theta + x\sin\theta\right)}
+\newcommand\da{\delta_0}
+\newcommand\dd{\delta_1}
+\newcommand\sda{s_{\delta_0}}
+\newcommand\sdd{s_{\delta_1}}
 \newcommand\usin{\text{usin}}
 \newcommand\ucos{\text{ucos}}
 
@@ -114,10 +130,15 @@
 \newcommand\atil{\tilde{A}}
 \newcommand\btil{\tilde{B}}
 \newcommand\dtheta{\Delta\theta}
+\newcommand\fvop{\fluxa\vop}
 \newcommand\cjac{{\cal J}_0}
 \newcommand\rhss{{\widetilde H}_a}
 \newcommand\rhse{{\widetilde H}_e}
 \newcommand\rhsei{H_e}
+\newcommand\pop{{\cal L}_{\rm P}}
+\newcommand\gop{{\cal G}}
+\newcommand\aop{{\cal L}_{\rm A}}
+\newcommand\rop{{\cal R}}
 \newcommand\cdto{c_0 \dt \, \Omega \, \partial_\tau}
 \newcommand\dt{{\Delta t}}
 \newcommand\yt{{\widetilde Y}}
@@ -134,22 +155,18 @@
 \newcommand\ibp{{\rm I}_{\rm BP}}
 \newcommand\iba{{\rm I}_{\rm BA}}
 \newcommand\ibb{{\rm I}_{\rm BB}}
-
-% Collisions
-\newcommand\apn{\delta A_{\parallel,n}}
-\newcommand\apndot{\delta \dot{A}_{\parallel,n}}
-\newcommand\fn{f_{\si,n}}
-\newcommand\xc{{\hat {\bf x}}}
-\newcommand\xih{{\hat\xi}}
 %---------------------------------------------------
 
 \makeindex
 \begin{document}
 
 %TITLE=====================================================
-\title{{\LARGE\bf GYRO Technical Guide}}
-\author{J. Candy and E. Belli}
+\title{{\LARGE\bf GYRO Technical Guide}\thanks{This research was supported by the U.S.\ Department of 
+Energy under Grant DE-FG02-95ER54309.}}
+\author{J. Candy and E. Belli \\
+{\small General Atomics, P.O.~Box 85608, San Diego, CA 92186-5608, USA}}
 \maketitle
+\date
 %TOC=======================================================
 \tableofcontents
 \clearpage
@@ -162,7 +179,7 @@
 \input discrete_time
 \input source_boundary
 \input collision
-\input fieldeigen
+
 
 \bibliographystyle{alpha}
 \bibliography{../bibtex/global}
