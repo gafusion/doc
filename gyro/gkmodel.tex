@@ -580,7 +580,8 @@ these can be written as:\\
 \nonumber \\
 & - \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} \G_{0a} \G_{1a}
   \frac{v_\perp^2}{\Omega_{ca} c} \dbp 
-= \sum_a e_a \int \dv \, \G_{0a} h_a
+= \sum_a e_a \int \dv \, \G_{0a} h_a 
+ \label{eq.maxp}
 \end{align}
 %
 {\bf Parallel Amp\`ere's Law}
@@ -588,7 +589,8 @@ these can be written as:\\
 \begin{equation}
 -\frac{1}{4 \pi} \nabla_\perp^2 \dap 
 + \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, \frac{\vp^2}{c^2} F_{Ma} \G_{0a}^2 \dap
-= \sum_a e z_a \int \dv \, \frac{\vp}{c} \G_{0a} h_a
+= \sum_a e z_a \int \dv \, \frac{\vp}{c} \G_{0a} h_a 
+ \label{eq.maxa1}
 \end{equation}
 %
 {\bf Perperdicular Amp\`ere's Law}
@@ -599,7 +601,8 @@ these can be written as:\\
 \nonumber \\
 &~ + \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} 
 \frac{v_\perp^2}{\Omega_{ca} c} \G_{1a} \G_{0a} \dphi
-= -\sum_a e_a \int \dv \, \G_{1a} \frac{v_\perp^2}{\Omega_{ca} c} h_a
+= -\sum_a e_a \int \dv \, \G_{1a} \frac{v_\perp^2}{\Omega_{ca} c} h_a 
+ \label{eq.maxa2}
 \end{align}
 %
 \subsection{Transport coefficients}
@@ -608,17 +611,21 @@ Some algebra yields the simplifications:
 %
 \begin{align}
 \Gamma_a(r) &~= \frac{c}{\psi^\prime} \, \fluxa \int\dv \, H_a^*(\R) \, 
-  \frac{\partial\Psi_a}{\partial\alpha} \; , \\
+  \frac{\partial\Psi_a}{\partial\alpha} \; , 
+ \label{eq.flux1}\\
 Q_a(r) &~= \frac{c}{\psi^\prime} \, \fluxa \int\dv \, H_a^*(\R) \, 
   \frac{1}{2} m_a v^2 \,
-  \frac{\partial\Psi_a}{\partial\alpha} \; , \\
+  \frac{\partial\Psi_a}{\partial\alpha} \; , 
+ \label{eq.flux2} \\
 \Pi_a(r) &~= \frac{c}{\psi^\prime} \, 
    \fluxa \int\dv \, H_a^*(\R) m_a R \left[ 
    \left( V_0 + \vp \frac{B_t}{B} \right) \frac{\partial\Psi_a}{\partial\alpha} 
 + v_\perp \frac{B_p}{B} \frac{\partial\mathcal{X}_a}{\partial\alpha} 
- \right] \; , \\
+ \right] \; , 
+ \label{eq.flux3}  \\
 S_a(r) &~= \frac{c}{\psi^\prime} \, 
   \fluxa \int\dv \, H_a^*(\R) \, e_a 
   \left( \frac{\partial}{\partial t} + 
   \omega_0 \frac{\partial}{\partial \alpha} \right) \Psi_a \; .
+  \label{eq.flux4}  
 \end{align}

@@ -63,9 +63,6 @@
 \newcommand\rhou{\bar{\rho}_{s,\un}}
 \newcommand\dv{d^{\hskip 1pt 3} \hskip -1pt v}
 \newcommand\sv{{\varsigma}}
-\newcommand\ax{\alpha_x}
-\newcommand\ay{\alpha_y}
-\newcommand\fluxa{{\cal F}}
 \newcommand\dapdot{\dot{\delta A_\parallel}}
 \newcommand\rhs{\mbox{RHS}}
 \newcommand\pp{p^\prime}
@@ -107,24 +104,20 @@
 \newcommand\darcp{\frac{d\arc^\prime}{R_s^2 B_{ps}}}
 \newcommand\darce{\frac{d\arc^\prime}{R |\nabla r|}}
 \newcommand\targ{\left(\theta + x\sin\theta\right)}
-\newcommand\da{\delta_0}
-\newcommand\dd{\delta_1}
-\newcommand\sda{s_{\delta_0}}
-\newcommand\sdd{s_{\delta_1}}
 \newcommand\usin{\text{usin}}
 \newcommand\ucos{\text{ucos}}
 
 % Discretization
+\newcommand\fluxa{{\cal F}}
 \newcommand\vop{V}
 \newcommand\G{{\cal G}}
 \newcommand\deriv{{\cal D}}
 \newcommand\ip{{i^\prime}}
 \newcommand\np{{n^\prime}}
-\renewcommand\mp{{m^\prime}}
+\newcommand\ipr{i^\prime}
+\newcommand\mpr{m^\prime}
 \newcommand\nnp{{n-n^\prime}}
-\newcommand\rhop{\rho^\prime}
 \newcommand\phase{{\cal P}}
-\newcommand\fm{{F_m}}
 \newcommand\nb{{n_{\rm blend}}}
 \newcommand\ptil{\tilde{\phi}}
 \newcommand\atil{\tilde{A}}
@@ -135,17 +128,11 @@
 \newcommand\rhss{{\widetilde H}_a}
 \newcommand\rhse{{\widetilde H}_e}
 \newcommand\rhsei{H_e}
-\newcommand\pop{{\cal L}_{\rm P}}
-\newcommand\gop{{\cal G}}
-\newcommand\aop{{\cal L}_{\rm A}}
-\newcommand\rop{{\cal R}}
 \newcommand\cdto{c_0 \dt \, \Omega \, \partial_\tau}
 \newcommand\dt{{\Delta t}}
 \newcommand\yt{{\widetilde Y}}
 \newcommand\tq{\theta(\tau_q)}
 \newcommand\tqp{\theta(\tau_{q^\prime})}
-\newcommand\ipr{i^\prime}
-\newcommand\mpr{m^\prime}
 \newcommand\ipp{{\rm I}_{\rm PP}}
 \newcommand\ipa{{\rm I}_{\rm PA}}
 \newcommand\ipb{{\rm I}_{\rm PB}}
@@ -171,6 +158,7 @@
 \clearpage
 %==========================================================
 
+\input navigation
 \input geometry
 \input gkmodel
 \input normalization
@@ -178,6 +166,7 @@
 \input discrete_time
 \input source_boundary
 \input collision
+\input fieldeigen
 
 \chapter*{Acknowledgements}
 This work was supported by the U.S. Department of Energy under 
