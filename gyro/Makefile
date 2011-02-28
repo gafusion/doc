@@ -3,8 +3,10 @@ NAME=gyro_technical_manual
 
 all:	
 	latex main ; bibtex main ; latex main ; latex main
-	dvipdf main
+	dvips -Pdownload35 -t letter -o main.ps main.dvi
+	ps2pdf main.ps
 	mv main.pdf $(NAME).pdf
+	rm main.ps
 	$(VIEWER) $(NAME).pdf
 	
 clean:
