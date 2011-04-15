@@ -138,8 +138,8 @@ where
 %
 \begin{align}
 \hat{H}_a = &~\hhat + z_a \alpha_a \hat{\Psi}_a \; , \\
-\hat{\Psi}_a = &~\G_{0a} \left( \dphihat - \vphat \daphat \right) + 
-\frac{2 \varepsilon \lambda \hat{T}_a}{z_a} \G_{1a}\dbphat \; , \\ 
+\hat{\Psi}_a = &~\gav_{0a} \left( \dphihat - \vphat \daphat \right) + 
+\frac{2 \varepsilon \lambda \hat{T}_a}{z_a} \gav_{1a}\dbphat \; , \\ 
 \alpha_a = &~\hat{n}_a/\hat{T}_a \; , 
 \end{align}
 %
@@ -156,11 +156,11 @@ and $e_a = e z_a$.  The inverse gradient scale lengths are defined as
 %
 \begin{equation}
 -{\bar\lambda}_D^2 \nabla_\perp^2 \dphihat + 
-\sum_\si \alpha_\si z_\si^2  \vop \left[ \left(1-\G_{0a}^2 \right) 
+\sum_\si \alpha_\si z_\si^2  \vop \left[ \left(1-\gav_{0a}^2 \right) 
   \dphihat \right] 
-- 2 \sum_a z_a \hat{n}_a \vop\left[ \G_{0a}\G_{1a} \varepsilon \lambda 
+- 2 \sum_a z_a \hat{n}_a \vop\left[ \gav_{0a}\gav_{1a} \varepsilon \lambda 
  \dbphat \right]
-=  \sum_a z_a \vop[\G_{0a} \hhat] \; .
+=  \sum_a z_a \vop[\gav_{0a} \hhat] \; .
 \end{equation}
 %
 Above, ${\bar\lambda}_D$ is the {\it Debye length} at the reference radius
@@ -174,8 +174,8 @@ Above, ${\bar\lambda}_D$ is the {\it Debye length} at the reference radius
 %
 \begin{equation}
 -\frac{2\rhou^2}{\betau} \nabla_\perp^2 \daphat + 
-\sum_\si \alpha_\si z_\si^2 \, \vop[\vphat^2 \G_{0a}^2 \daphat] = 
- \sum_\si z_\si \vop[\vphat \G_{0a} \hhat] \; .
+\sum_\si \alpha_\si z_\si^2 \, \vop[\vphat^2 \gav_{0a}^2 \daphat] = 
+ \sum_\si z_\si \vop[\vphat \gav_{0a} \hhat] \; .
 \end{equation}
 %
 We remind the reader that the {\it Amp\`ere\ cancellation problem} 
@@ -187,11 +187,11 @@ rather than evaluate it numerically.\\
 %
 \begin{equation}
 G_r^2 \frac{\dbphat}{\betau} 
-+ 2 \sum_a \hat{n}_a \hat{T}_a \vop\left[\G_{1a}^2 \varepsilon^2 
++ 2 \sum_a \hat{n}_a \hat{T}_a \vop\left[\gav_{1a}^2 \varepsilon^2 
 \lambda^2 \dbphat \right]
-+ \sum_a z_a \hat{n}_a \vop \left[ \G_{1a} \G_{0a} \varepsilon 
++ \sum_a z_a \hat{n}_a \vop \left[ \gav_{1a} \gav_{0a} \varepsilon 
 \lambda \dphihat \right] 
-= - \sum_a \hat{T}_a \vop\left[ \G_{1a} \varepsilon \lambda \hhat \right] \; .
+= - \sum_a \hat{T}_a \vop\left[ \gav_{1a} \varepsilon \lambda \hhat \right] \; .
 \end{equation}
 
 \subsection{Normalized Transport Fluxes}
@@ -274,8 +274,3 @@ S_{\rm GB} \doteq {\bar n}_e ({\bar c}_s/a) {\bar T}_e (\rhou/a)^2 \; , \\
 \frac{\chi_\si}{\chi_{\rm GB}} \, , \, \frac{D_\si}{\chi_{\rm GB}}
 & \quad \mbox{where} \quad \chi_{\rm GB}, \doteq \rhou^2 {\bar c}_s/a \; .
 \end{align}
-
-%%% Local Variables: 
-%%% mode: latex
-%%% TeX-master: t
-%%% End: 

@@ -183,7 +183,7 @@ Sec.~\ref{sec.opnotation}.  The gyroaverage of a function
 $z(\x)$ is defined as
 %
 \begin{equation}
-\G_{0a} z(\R) = \int_0^{2\pi} \frac{d\xi}{2\pi} 
+\gav_{0a} z(\R) = \int_0^{2\pi} \frac{d\xi}{2\pi} 
  z\left[\R+\brho_a(\xi)\right] \; .
 \end{equation} 
 %
@@ -238,7 +238,7 @@ with $\rho_a = v_\perp/\wc$, then the gyroaveraged potential
 for a single harmonic becomes
 %
 \begin{align}
-\G_{0a,n} z_n = &~\sum_{p=-n_r/2}^{n_r/2-1} z_{np}(\theta) 
+\gav_{0a,n} z_n = &~\sum_{p=-n_r/2}^{n_r/2-1} z_{np}(\theta) 
  e^{2 \pi i p r/L} e^{-i n \alpha} 
  \int_0^{2\pi} \frac{d\xi}{2\pi} 
  e^{i ( k_x \rho_a \cos\xi + k_y \rho_a \sin\xi )} \; , \\
@@ -268,7 +268,7 @@ e^{-2 \pi i p r_j/L} \; ,
 so that
 %
 \begin{equation}
-\G_{0a,n}^{jj^\prime} z_n^{j^\prime} = 
+\gav_{0a,n}^{jj^\prime} z_n^{j^\prime} = 
  \sum_{p=-J}^{J-1} e^{2 \pi i p r_j/L}  J_0 
  \left( k_\perp \rho_a \right)_{r=r_j}  \, z_{np} \; , 
 \end{equation}
@@ -285,7 +285,7 @@ The result gives the {\bf pseudospectral} forms of the gyroaverage
 operator:
 %
 \begin{equation}
-\G_{0a,n}^{jj^\prime} = \frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
+\gav_{0a,n}^{jj^\prime} = \frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
 w_p^{j-j^\prime} J_0 \left( k_\perp \rho_a \right)_{r=r_j} \; , \label{eq.g} 
 \end{equation}
 %
@@ -307,13 +307,13 @@ In terms of normalized quantities,
 Additional required operators are
 %
 \begin{align}
-(\G^2)_{0a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
+(\gav^2)_{0a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
 w_p^{j-j^\prime} J_0^2 \left( k_\perp \rho_a \right) \; , \\
-\G_{1a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
+\gav_{1a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
 w_p^{j-j^\prime} 
 \frac{1}{2} \left[ J_0 \left( k_\perp \rho_a \right)
 + J_2 \left( k_\perp \rho_a \right) \right]  \; , \\
-\G_{2a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
+\gav_{2a,n}^{jj^\prime} = &~\frac{1}{n_r} \sum_{p=-n_r/2}^{n_r/2-1}
 w_p^{j-j^\prime} 
 \frac{i}{2} k_x \rho_a \left[ J_0 \left( k_\perp \rho_a \right)
 + J_2 \left( k_\perp \rho_a \right) \right]  \; , 
@@ -322,16 +322,16 @@ w_p^{j-j^\prime}
 
 \subsection{Banded Approximations}
 
-The matrix $\G_{0a,n}^{jj^\prime}$ is diagonally-dominant, such 
+The matrix $\gav_{0a,n}^{jj^\prime}$ is diagonally-dominant, such 
 that elements $\{j,j^\prime\}$ for which $|j-j^\prime| > j_g$, 
 where $j_g$ is some sufficiently large integer, can be neglected.  
 Thus, to convert the operators in Eqs.~(\ref{eq.g}) to banded 
 form, it is enough to set
 %
 \begin{equation}
-{\widehat \G}_{0a,n}^{jj^\prime} = 
+{\widehat \gav}_{0a,n}^{jj^\prime} = 
 \begin{cases}
-\G_{0a,n}^{jj^\prime} & \text{if $|j-j^\prime| \le j_g$}   \\
+\gav_{0a,n}^{jj^\prime} & \text{if $|j-j^\prime| \le j_g$}   \\
 0 &  \text{if $|j-j^\prime| > j_g$}
 \end{cases}
 \end{equation}
@@ -341,7 +341,7 @@ For $n=0$, an additional correction is required.  One must ensure
 that the long-wavelength limit is asymptotically correct:
 %
 \begin{equation}
-\G_{0a,0} \cdot 1 = 1 \; .
+\gav_{0a,0} \cdot 1 = 1 \; .
 \end{equation}
 
 \noindent
@@ -349,9 +349,9 @@ This is accomplished by making a small correction to the diagonal
 term
 %
 \begin{equation}
-{\widehat \G}_{0a,0}^{jj} \rightarrow 
- {\widehat\G}_{0a,0}^{jj} + 1 
-- \sum_{j^\prime=j-j_g}^{j+j_g} \G_{0a,0}^{jj^\prime} 
+{\widehat \gav}_{0a,0}^{jj} \rightarrow 
+ {\widehat\gav}_{0a,0}^{jj} + 1 
+- \sum_{j^\prime=j-j_g}^{j+j_g} \gav_{0a,0}^{jj^\prime} 
 \end{equation}
 
 \noindent
@@ -386,8 +386,8 @@ where the various toroidal harmonics are given by
 % 
 \begin{align}
 H_{a,n} = &~\hn + z_a \alpha_a \Psi_{a,n} \; , \\
-\Psi_{a,n} = &~\G_{0a,n} \left( \dphin - \vphat \dapn \right) + 
-\frac{2 \varepsilon \lambda \hat{T}_a}{z_a} \G_{1a,n}\dbpn \; . 
+\Psi_{a,n} = &~\gav_{0a,n} \left( \dphin - \vphat \dapn \right) + 
+\frac{2 \varepsilon \lambda \hat{T}_a}{z_a} \gav_{1a,n}\dbpn \; . 
 \end{align}
 %
 The Poisson bracket $\{ \cdot, \cdot \}$ is defined in Eq.~(\ref{eq.bracketa}) 

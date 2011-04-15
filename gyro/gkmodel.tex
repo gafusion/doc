@@ -239,8 +239,8 @@ for any function, $z$.    Also, we note
 the following identities 
 %
 \begin{align}
-\buv \cdot\nabla \U = &~\omega_0 \s \\
-\buv \cdot\nabla \U + \nabla \U \cdot \buv = &~ 
+\buv \cdot\nabla \mathbf{V}_0 = &~\omega_0 \s \\
+\buv \cdot\nabla \mathbf{V}_0 + \nabla \mathbf{V}_0 \cdot \buv = &~ 
  \frac{I}{B} \nabla \omega_0 \; ,
 \end{align}
 %
@@ -537,7 +537,7 @@ and the gyroaverage becomes
 \end{equation}
 %
 where $\rho_a \doteq v_\perp/\Omega_{ca}$.  Thus, in real space, the 
-gyroaverage can be represented as a linear operator $\G_{0a}$ whose 
+gyroaverage can be represented as a linear operator $\gav_{0a}$ whose 
 spectral representation is $J_0(k_\perp \rho_a)$.
 
 Now, we can write the field defined in Eq.~\ref{eq.bigpsi} using operator 
@@ -545,24 +545,24 @@ notation.  Moreover, we also define a new field which is useful for
 calculation of momentum transport coefficients.  These are
 %
 \begin{align}
-\Psi_a(\R) \doteq &~\G_{0a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
- + \frac{v_\perp^2}{\Omega_{ca} c} \G_{1a} \, \dbp(\R) \; , \\
-\mathcal{X}_a(\R) \doteq &~\G_{2a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
+\Psi_a(\R) \doteq &~\gav_{0a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
+ + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \, \dbp(\R) \; , \\
+\mathcal{X}_a(\R) \doteq &~\gav_{2a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
  + 0 \cdot\dbp(\R) \; , 
 \end{align}
 %
 where for simplicity we neglect the effect of magnetic compression
 on $\mathcal{X}$ (which as we will show is connected with perpendicular 
 momentum transport).  Although we will construct explicit discrete 
-approximations to the operators $\G_{0a}$, $\G_{1a}$ and $\G_{2a}$
+approximations to the operators $\gav_{0a}$, $\gav_{1a}$ and $\gav_{2a}$
 in the next chapter, it can be shown that they have the following 
 spectral representations:
 %
 \begin{align}
-\G_{0a} \rightarrow &~J_0(k_\perp \rho_a) \; , \\
-\G_{1a} \rightarrow &~\frac{1}{2} \left[ 
+\gav_{0a} \rightarrow &~J_0(k_\perp \rho_a) \; , \\
+\gav_{1a} \rightarrow &~\frac{1}{2} \left[ 
   J_0(k_\perp \rho_a) + J_2(k_\perp \rho_a) \right] \; , \\
-\G_{2a} \rightarrow &~\frac{i}{2} k_x \rho_a \left[ 
+\gav_{2a} \rightarrow &~\frac{i}{2} k_x \rho_a \left[ 
   J_0(k_\perp \rho_a) + J_2(k_\perp \rho_a) \right] \; .
 \end{align}
 
@@ -576,11 +576,11 @@ these can be written as:\\
 %
 \begin{align}
 -\frac{1}{4 \pi} \nabla_\perp^2 \dphi 
-+ \sum_a n_a \frac{e_a^2}{T_a} & \, \int \dv \, F_{Ma} \, (1-\G_{0a}^2) \dphi 
++ \sum_a n_a \frac{e_a^2}{T_a} & \, \int \dv \, F_{Ma} \, (1-\gav_{0a}^2) \dphi 
 \nonumber \\
-& - \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} \G_{0a} \G_{1a}
+& - \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} \gav_{0a} \gav_{1a}
   \frac{v_\perp^2}{\Omega_{ca} c} \dbp 
-= \sum_a e_a \int \dv \, \G_{0a} h_a 
+= \sum_a e_a \int \dv \, \gav_{0a} h_a 
  \label{eq.maxp}
 \end{align}
 %
@@ -588,8 +588,8 @@ these can be written as:\\
 %
 \begin{equation}
 -\frac{1}{4 \pi} \nabla_\perp^2 \dap 
-+ \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, \frac{\vp^2}{c^2} F_{Ma} \G_{0a}^2 \dap
-= \sum_a e z_a \int \dv \, \frac{\vp}{c} \G_{0a} h_a 
++ \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, \frac{\vp^2}{c^2} F_{Ma} \gav_{0a}^2 \dap
+= \sum_a e z_a \int \dv \, \frac{\vp}{c} \gav_{0a} h_a 
  \label{eq.maxa1}
 \end{equation}
 %
@@ -597,11 +597,11 @@ these can be written as:\\
 %
 \begin{align}
 \frac{1}{4 \pi} \dbp + \sum_a n_a \frac{e_a^2}{T_a} & \, \int \dv \, F_{Ma} 
-\left( \frac{v_\perp^2}{\Omega_{ca} c} \G_{1a} \right)^2 \dbp
+\left( \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \right)^2 \dbp
 \nonumber \\
 &~ + \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} 
-\frac{v_\perp^2}{\Omega_{ca} c} \G_{1a} \G_{0a} \dphi
-= -\sum_a e_a \int \dv \, \G_{1a} \frac{v_\perp^2}{\Omega_{ca} c} h_a 
+\frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \gav_{0a} \dphi
+= -\sum_a e_a \int \dv \, \gav_{1a} \frac{v_\perp^2}{\Omega_{ca} c} h_a 
  \label{eq.maxa2}
 \end{align}
 %

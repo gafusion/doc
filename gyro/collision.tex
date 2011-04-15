@@ -19,21 +19,21 @@ leaves us with the following evolution equation
 %
 \begin{equation}
 \frac{\partial\hn}{\partial\hat{t}} = 
- \hat{C}\left[\hn - z_\si \alpha_\si \vphat \G_\si \apn \right] \; .
+ \hat{C}\left[\hn - z_\si \alpha_\si \vphat \gav_\si \apn \right] \; .
 \label{eq.c1}
 \end{equation}
 %
 This has the alternative form
 \begin{equation}
 \frac{\partial\fn}{\partial\hat{t}} + z_\si \alpha_\si \vphat 
- \G_\si \apndot = \hat{C}\left[\fn \right] \; ,
+ \gav_\si \apndot = \hat{C}\left[\fn \right] \; ,
 \label{eq.c2}
 \end{equation}
 %
 where
 %
 \begin{equation}
-\fn = \hn - z_\si \alpha_\si \vphat \G_\si \apn \; . 
+\fn = \hn - z_\si \alpha_\si \vphat \gav_\si \apn \; . 
 \end{equation}
 %
 We must take care to avoid the Amp\`ere cancellation problem
@@ -47,9 +47,9 @@ $z_\si \vphat$, summing over species and integrating gives
 %
 \begin{equation}
 -\frac{2\rhou^2}{\betau} \nabla_\perp^2 \apndot + 
-\sum_\si \alpha_\si z_\si^2 \, \vop[\vphat^2 \G^2_\si\apndot] = 
+\sum_\si \alpha_\si z_\si^2 \, \vop[\vphat^2 \gav^2_\si\apndot] = 
  \sum_\si z_\si  
- \vop\left[ \vphat \hat{C} \left[ \G_\si \fn \right] \right] \; .
+ \vop\left[ \vphat \hat{C} \left[ \gav_\si \fn \right] \right] \; .
 \end{equation}
 %
 It is sufficiently accurate to take $\hat{C}$ to be the pitch-angle 
@@ -85,11 +85,11 @@ Then, we solve Eq.~(\ref{eq.c2}) with a semi-implicit advance
 %
 \begin{align}
 \left( 1- \hat{C} \Delta t \right) \bar{f}_{\si,n} 
- &~= \fn - z_\si \alpha_\si \vphat \G_\si \apndot \Delta t \; , \\
- &~= \hn - z_\si \alpha_\si \vphat \G_\si (\apn + \apndot \Delta t) \; .
+ &~= \fn - z_\si \alpha_\si \vphat \gav_\si \apndot \Delta t \; , \\
+ &~= \hn - z_\si \alpha_\si \vphat \gav_\si (\apn + \apndot \Delta t) \; .
 \end{align}
 %
-Currently, in GYRO, we set $\G_\si = 1$ in the final equation, 
+Currently, in GYRO, we set $\gav_\si = 1$ in the final equation, 
 since the ion collisional effects are weak and already rather 
 approximate.
 
