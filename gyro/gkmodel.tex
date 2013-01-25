@@ -548,7 +548,7 @@ calculation of momentum transport coefficients.  These are
 \Psi_a(\R) \doteq &~\gav_{0a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
  + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \, \dbp(\R) \; , \\
 \mathcal{X}_a(\R) \doteq &~\gav_{2a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
- + 0 \cdot\dbp(\R) \; , 
+ + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{3a} \dbp(\R) \; , 
 \end{align}
 %
 where for simplicity we neglect the effect of magnetic compression
@@ -559,12 +559,32 @@ in the next chapter, it can be shown that they have the following
 spectral representations:
 %
 \begin{align}
-\gav_{0a} \rightarrow &~J_0(k_\perp \rho_a) \; , \\
+\gav_{0a} \rightarrow &~J_0(\gamma_a) \; , \\
 \gav_{1a} \rightarrow &~\frac{1}{2} \left[ 
-  J_0(k_\perp \rho_a) + J_2(k_\perp \rho_a) \right] \; , \\
-\gav_{2a} \rightarrow &~\frac{i}{2} k_x \rho_a \left[ 
-  J_0(k_\perp \rho_a) + J_2(k_\perp \rho_a) \right] \; .
+  J_0(\gamma_a) + J_2(\gamma_a) \right] \; , \\
+\gav_{2a} \rightarrow &~-i \frac{k_x \rho_a}{2} \left[ 
+  J_0(\gamma_a) + J_2(\gamma_a) \right] \; , \\
+\gav_{3a} \rightarrow &~i \frac{k_x \rho_a}{\gamma_a^2} \left[ 
+  J_0(\gamma_a) - J_1(\gamma_a)/\gamma_a \right] \; ,
 \end{align}
+%
+where $\gamma_a \doteq k_\perp \rho_a$, and $k_x$ is defined explicitly in 
+Sec.~\ref{sec.opdisc}.  The expressions above are adapted directly from Sugama \cite{sugama:1998}.  
+However, to make use of Sugama's results, we use the following identities, 
+where $\boldsymbol{\phi} = \ephi$:
+%
+\begin{align}
+\kpv\kpv : (R\hat{\boldsymbol{\varphi}}) (\nabla\psi) 
+ = &~ \left[ \kpv \cdot  (R\hat{\boldsymbol{\varphi}}) \right] 
+      \left[ \kpv \cdot \nabla\psi \right] \; , \\
+\kpv \cdot \nabla\psi = &~ -i R B_p \left( |\nabla r| \frac{\partial}{\partial r} 
+- \frac{q}{r} \mq \mk \frac{\partial}{\partial\alpha} \right) \; , \\
+\kpv \cdot  (R\hat{\boldsymbol{\varphi}}) 
+ = &~ -i \frac{\partial}{\partial\alpha} \; ,
+\end{align}
+% 
+where Eq.~(\ref{eq.nabla}) has been used to expand $\nabla_\perp$.  Note also that 
+$\kpv \cdot \nabla\psi = R B_p k_x$.
 
 \subsection{Maxwell equations}
 
