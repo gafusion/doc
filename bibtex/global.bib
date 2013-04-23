@@ -6,6 +6,7 @@
 @STRING(PF="Phys. Fluids")
 @STRING(PPCF="Plasma Phys. Control. Fusion")
 @STRING(CPC="Comput. Phys. Commun.")
+@STRING(CPP="Contrib. Plasma Phys.")
 @STRING(TPS="IEEE Trans. Plasma Sci.")
 @STRING(BAPS="Bull. Am. Phys. Soc.")
 @STRING(JETP="JETP Lett.")
@@ -15,21 +16,16 @@
 @STRING(JPCON="J. Phys: Conf. Series")
 @STRING(JPFR="J. Plasma Fusion Res. SERIES")
 @STRING(RMP="Rev. Mod. Phys.")
-
-%============= Private Communication ========================
-
-@Unpublished{pc.mikkelsen:2007,
-  author = {D. Mikkelsen},
-  title = {Private communication},
-  year = 2007}
+@STRING(JNM="J. Nucl. Mater.")
+@STRING(NJP="New J. Phys.")
 
 %============================== A ==============================
-@TechReport{agarwal:2004,
-author = {{{P.K. Agarwal {\it et al.}}}},
-title =  {ORNL Cray X1 Evaluation Status Report},
-institution =  {Oak Ridge Nat. Lab, ORNL/TM-2004/13},
-year =  {2004},
-month = {January}}
+@Article{abel:2008,
+author = {I. G. Abel and M. Barnes and S. C. Cowley and W. Dorland and A. A. Schekochihin},
+journal = POP,
+volume = 15,
+pages = 122509,
+year = 2008}
 
 @InBook{abramowitz,
 author    = {M. Abramowitz and I.A. Stegun},
@@ -37,6 +33,13 @@ title     = {Handbook of Mathematical Functions},
 chapter   = 20,
 publisher = {(New York: Dover)},
 year      = 1965}
+
+@TechReport{agarwal:2004,
+author = {{{P.K. Agarwal {\it et al.}}}},
+title =  {ORNL Cray X1 Evaluation Status Report},
+institution =  {Oak Ridge Nat. Lab, ORNL/TM-2004/13},
+year =  {2004},
+month = {January}}
 
 @Article{akers:2003,
 author    = {R.J. Akers and J.W. Ahn and G.Y. Antar and L.C. Appel 
@@ -54,7 +57,7 @@ author    = {R.J. Akers and J.W. Ahn and G.Y. Antar and L.C. Appel
              S.J. Manhood and R. Martin and G.J. McArdle and M.N. Price and
              K. Stammers and J. Storrs and M.J. Walsh and {{the MAST and NBI Team}}},
 title     = {Transport and confinement in the Mega 
-             Ampère Spherical Tokamak {{(MAST)}} plasma},
+             Ampere Spherical Tokamak {{(MAST)}} plasma},
 journal   = PPCF,
 volume    = 45,
 pages     = {A175},
@@ -83,8 +86,8 @@ year      = 2003}
 author    = {C. Angioni and A.G. Peeters and X. Garbet and A. Manini
              and F. Ryter and {ASDEX Upgrade Team}},
 title     = {Density response to central electron heating: theoretical
-             investigations and experimental observations in ASDEX
-             Upgrade},
+             investigations and experimental observations in {ASDEX
+             Upgrade}},
 journal   = NF,
 volume    = 44,
 pages     = 827,
@@ -120,6 +123,38 @@ journal   = POP,
 volume    = 16,
 pages     = 060702,
 year      = 2009}
+
+@Article{angus:2012a,
+author    = {J. Angus and M. Umansky and S.I. Krasheninnikov},
+title     = {},
+journal   = PRL,
+volume    = 108,
+pages     = 215002,
+year      = 2012}
+
+@Article{angus:2012b,
+author    = {J. Angus and M. Umansky and S.I. Krasheninnikov},
+title     = {},
+journal   = CPP,
+volume    = 52,
+pages     = 395,
+year      = 2012}
+
+@Article{angus:2012c,
+author    = {J. Angus and M. Umansky and S.I. Krasheninnikov},
+title     = {},
+journal   = POP,
+volume    = 19,
+pages     = 082312,
+year      = 2012}
+
+@Article{angus:2012d,
+author    = {J. Angus and S.I. Krasheninnikov},
+title     = {},
+journal   = POP,
+volume    = 19,
+pages     = 052504,
+year      = 2012}
 
 @Article{antonsen:1980,
 author    = {T. Antonsen and B. Lane},
@@ -185,6 +220,24 @@ volume    = 25,
 pages     = {151-167},
 year      = 1997}
 
+@article{auerbach:2010,
+  title={Control of gradient-driven instabilities using shear {{{Alfv\'en}}} beat waves.},
+   volume={105},
+   number={13},
+   journal=PRL,
+   author={Auerbach, D W and Carter, T A and Vincena, S and Popovich, P},
+   year={2010},
+   pages={135005}}
+
+@Article{auerbach:2011,
+author  = {D.W. Auerbach and T.A. Carter and S. Vincena and P. Popovich},
+title   = {Resonant drive and nonlinear suppression of gradient-driven
+           instabilities via interaction with shear {{Alfv\'en}} waves},
+journal = POP,
+volume  = 18,
+pages   = 055708,
+year    = 2011}
+
 @Article{awhite:2008,
 author    = {A.E. White and L. Schmitz and G.R. McKee and 
              C. Holland and W.A. Peebles and T.A. Carter 
@@ -208,13 +261,6 @@ journal   = POP,
 volume    = 13,
 pages     = 012503,
 year      = 2006}
-
-@Article{bass:2009,
-author    = {E.M. Bass},
-journal   = BAPS,
-volume    = 54,
-pages     = 344,
-year      = 2009}
 
 @Article{baker:1998,
 author    = {D.R. Baker and M.N. Rosenbluth},
@@ -248,6 +294,25 @@ volume    = 11,
 pages     = 992,
 year      = 2004}
 
+@InProceedings{balay:1997,
+author     = "Satish Balay and William D. Gropp and Lois Curfman McInnes and Barry F. Smith",
+title      = "Efficient Management of Parallelism in Object Oriented
+              Numerical Software Libraries",
+booktitle  = "Modern Software Tools in Scientific Computing",
+editor     = "E. Arge and A. M. Bruaset and H. P. Langtangen",
+pages      = "163--202",
+publisher  = "Birkh{\"{a}}user Press",
+year       = 1997}
+
+@TechReport{balay:2011,
+author    = {S. Balay and J. Brown and K. Buschelman and V. Eikhout and W.D. Gropp and
+             D. Kaushik and M.G. Knepley and L.C. McInnes and B.F. Smith and H. Zhang},
+title     = {{PETSc} users' manual},
+number    = {{ANL}-95/11, {R}evision 3.2},
+institution = {{A}rgonne {N}ational {L}aboratory},
+year      = 2011
+}
+
 @article{barnes:2009,
 author    = {M. Barnes and I.G. Abel and W. Dorland and D.R. Ernst and
                   G.W. Hammett and P. Ricci and B.N. Rogers and
@@ -261,7 +326,7 @@ Volume    = 16,
 Number    = 7,
 Pages     = 072107}
 
-@Article{barnes:2010a,
+@Article{barnes:2010,
 author    =     {M. Barnes and I. G. Abel and W. Dorland and
                 T. Goerler and G. W. Hammett and and F. Jenko},
 title     =     {Direct multiscale coupling of a transport code to
@@ -279,6 +344,41 @@ Journal  = POP,
 Year     = 2010,
 Volume   = 17,
 Pages    = 032106}
+
+@Article{bass:2009,
+author    = {E.M. Bass},
+journal   = BAPS,
+volume    = 54,
+pages     = 344,
+year      = 2009}
+
+@Article{bass:2010,
+author    = {E.M. Bass and R.E. Waltz},
+title     = {{{Gyrokinetic simulations of mesoscale energetic particle-driven
+        Alfvenic turbulent transport embedded in microturbulence}}},
+journal   = POP,
+volume    = 17,
+pages     = 112319,
+year      = 2010}
+
+@TechReport{Baver2009,
+  author =       "D.  A.  Baver and J.  R.  Myra and M.  Umansky",
+  title =        {{Analytic Benchmarking of the 2DX Eigenvalue Code}},
+  institution =  {Lodestar},
+  key =          {},
+  month =        {May},
+  howpublished =          {www. lodestar. com/LRCreports/Baver_TTF09_2DX. pdf},
+  year =         2009,
+}
+
+@article{Baver2011,
+  author =       "Baver, D.  A.  and Myra, J. R. and Umansky, M.  V.  ",
+  title = {Linear eigenvalue code for edge plasma in full tokamak X-point geometry},
+  journal = {Computer Physics Communications},
+  volume = 182,
+  pages = {1610},
+  year = "2011",
+}
 
 @PhdThesis{beer:1995,
 author = {M.A. Beer},
@@ -341,18 +441,69 @@ pages	  = 095010,
 year      = 2008}
 
 @Article{belli:2008b,
-author    = {E.A. Belli},
-title     = {},
-journal   = BAPS,
-volume    = 53,
-pages     = 242,
 author    = {E.A. Belli and G.W. Hammett and W. Dorland},
-title     = {Effects of plasma shaping on nonlinear gyrokinetic 
+title     = {Effects of plasma shaping on nonlinear gyrokinetic
              turbulence},
 journal   = POP,
 volume    = 15,
-pages	  = 092303,
+pages     = 092303,
 year      = 2008}
+
+@Article{belli:2009,
+author    = {E.A. Belli and J. Candy},
+title     = {An Eulerian Method for the Solution of the Multi-Species Drift-Kinetic Equation},
+journal   = PPCF,
+volume    = 51,
+pages     = 075018,
+year      = 2009}
+
+@Article{belli:2010,
+author    = {E.A. Belli and J. Candy},
+title     = {Fully electromagnetic gyrokinetic eigenmode analysis of high-beta shaped plasmas},
+journal   = POP,
+volume    = 17,
+pages     = 112314,
+year      = 2010}
+
+@Article{belli:2012,
+author    = {E.A. Belli and J. Candy},
+title     = {Full Linearized Fokker-Planck Collisions in Neoclassical Trnasport Simulations},
+journal   = PPCF,
+volume    = 54,
+pages     = 015015,
+year      = 2012}
+
+@Article{beurskens:2011,
+author    = {M.N.A. Beurskens and T.H. Osborne and {\it et al.\ }},
+title     = {{{H-mode pedestal scaling in DIII-D, ASDEX Upgrade, and JET}}},
+journal   = POP,
+volume    = 18,
+pages     = 056120,
+year      = 2011}
+
+@Article{bishop:1984,
+author    = {C.M. Bishop and P. Kirby and J.W. Connor and
+             R.J. Hastie and J.B. Taylor},
+title     = {Ideal {{MHD}} ballooning stability in the 
+             vicinity of a separatrix},
+journal   = {NF},
+volume    = 24,
+pages     = 1579,
+year      = 1984}
+
+@Article{boedo:2011,
+author    = {J. A. Boedo and E. A. Belli and E. Hollmann and W. M. Solomon
+and D. L. Rudakov and J. G. Watkins and R. Prater and J. Candy and
+R. J. Groebner and K. H. Burrell and J. S. deGrassie and C. J. Lasnier and
+A. W. Leonard and R. A. Moyer and G. D. Porter and N. H. Brooks and
+S. Muller and G. Tynan and E. A. Unterberg},
+title     = {{{Poloidally and radially resolved parallel D+ velocity
+measurements in the DIII-D boundary and comparison to neoclassical
+computations}}},
+journal   = POP,
+volume    = 18,
+pages     = 032510,
+year      = 2011}
 
 @Article{bolton:1983,
 author    = {C. Bolton and A.A. Ware},
@@ -383,6 +534,16 @@ volume    = 10,
 pages     = 2881,
 year      = 2003}
 
+@Article{boyle:2012,
+author    = {D.P. Boyle and R. Maingi and P.B. Snyder and J. Manickam and T.H. Osborne
+                and R.E. Bell and B.P. LeBlanc},
+title     = {The relationships between edge localized modes suppression, pedestal profiles and
+        lithium wall coatings in NSTX},
+journal   = {PPCF},
+volume    = 53,
+pages     = 105011,
+year      = 2012}
+
 @Article{bravenec:2011,
 author    = {R.V. Bravenec and J. Candy and M. Barnes and C. Holland},
 title     = {Linear and nonlinear verification of gyrokinetic microstability codes},
@@ -399,16 +560,6 @@ journal   = {J. Plasma Physics},
 volume    = 41,
 pages     = 541,
 year      = 1989}
-
-@Article{bishop:1984,
-author    = {C.M. Bishop and P. Kirby and J.W. Connor and
-             R.J. Hastie and J.B. Taylor},
-title     = {Ideal {{MHD}} ballooning stability in the 
-             vicinity of a separatrix},
-journal   = {NF},
-volume    = 24,
-pages     = 1579,
-year      = 1984}
 
 @Article{brizard:1989b,
 author    = {A. Brizard},
@@ -427,6 +578,15 @@ journal   = POP,
 volume    = 2,
 pages     = 459,
 year      = 1995}
+
+@Article{brizard:2011,
+author    = {A.J. Brizard and Natlia Tronko},
+title     = {{Exact momentum
+        conservation laws for the gyrokinetic Vlasov-Poisson equations}},
+journal   = POP,
+volume    = 18,
+pages     = 082307,
+year      = 2011}
 
 @Article{brunner:1998,
 author    = {S. Brunner and M. Fivaz and T.M. Tran and J. Vaclavic},
@@ -470,6 +630,15 @@ publisher = {Prindle, Weber and Schmidt},
 address   = {Boston},
 year      = 1985}
 
+@Article{burke:2010,
+author    = {B.J. Burke and S.E. Kruger and C. C. Hegna and P. Zhu and P.B. Snyder and C.R. Sovinec and E.C. Howell},
+title     = {Edge localized linear ideal magnetohydrodynamic instability studies
+in an extended-magnetohydrodynamic code},
+journal   = POP,
+volume    = 17,
+pages     = 032103,
+year      = 2010}
+
 @Article{burrell:1992,
 author    = {K.H. Burrell and T.N. Carlstrom and E.J. Doyle and D. Finkenthal
 and P. Gohil and R.J. Groebner and D.L. Hillis and J. Kim and H. Matsumoto
@@ -490,6 +659,31 @@ journal   = POP,
 volume    = 4,
 pages     = 1499,
 year      = 1997}
+
+@Article{burrell:2002,
+author    = {{K.H. Burrell, {\it et al.}}},
+title     = {},
+journal   = PPCF,
+volume    = 44,
+pages     = {A253},
+year      = 2002}
+
+@Article{burrell:2005,
+author    = {{K.H. Burrell, {\it et al.}}},
+title     = {Quiescent H-Mode Plasmas with Strong Edge Rotation in the Co-current Direction},
+journal   = PRL,
+volume    = 102,
+pages     = {155003},
+year      = 2009}
+
+@Article{burrell:2009,
+author    = {{K.H. Burrell and T.H. Osborne and P.B. Snyder and W.P. West and M.E. Fenstermacher
+        and R.J. Groebner and P. Gohil and A.W. Leonard and W.M. Solomon}},
+title     = {{{ELM suppression in low edge collisionality H-mode discharges using $n = 3$ magnetic perturbations}}},
+journal   = PPCF,
+volume    = 47,
+pages     = {B37},
+year      = 2005}
 
 %============================== C ==============================
 @Article{campbell:2001,
@@ -600,7 +794,7 @@ year      = 2009}
 @Article{candy:2009b,
 author    = {J. Candy},
 title     = {A unified method for operator evaluation in local 
-             {{Grad–Shafranov}} plasma equilibria},
+             {{Grad-Shafranov}} plasma equilibria},
 journal   = PPCF,
 volume    = 51,
 pages     = 105009,
@@ -613,6 +807,14 @@ journal = {General Atomics Technical Report},
 volume  = {GA-A26818},
 year    = 2010}
 
+@Article{candy:2011,
+author    = {J. Candy and E.A. Belli},
+title     = {Neoclassical Transport Including Collisional Nonlinearity},
+journal   = PRL,
+volume    = 106,
+pages     = {235003},
+year      = 2011}
+
 @Article{carreras:1997,
 author    = {B.A. Carreras},
 title     = {Progress in Anomalous Transport Research  
@@ -622,13 +824,37 @@ volume    = 25,
 pages     = 1281,
 year      = 1997}
 
+@article{carter:2006a,
+        Author = {Carter, T. A. and Brugman, B. T. and Pribyl, P. and Lybarger, W.},
+        Journal = PRL,
+        Pages = {055701},
+        Title = {Laboratory observation of a nonlinear interaction between shear {A}lfv\'{e}n waves},
+        Volume = {96},
+        Year = {2006}}
+
+@article{carter:2006b,
+        Author = {Carter, T. A.},
+        Journal = POP,
+        Pages = {010701},
+        Title = {Intermittent turbulence and turbulent structures in a linear magnetized plasma},
+        Volume = {13},
+        Year = {2006}}
+
+@article{carter:2009,
+        Author= {Carter, T. A. and Maggs, J. E.},
+        Journal = POP,
+        Pages = {012304},
+        Volume= {16},
+        Title={Modifications of turbulence and turbulent transport associated with a bias-induced confinement transition in the Large Plasma Device},
+        Year={2009}}
+
 @Article{casati:2009,
 author    = {A. Casati and T. Gerbaud and P. Hennequin and C. Bourdelle
-            and J. Candy and F. Clairet and X. Garbet and V. Grandgirard 
-            and Ö. D. Gürcan and S. Heuraux and G.T. Hoang and C. Honoré
-            and F. Imbeaux, and R. Sabot and Y. Sarazin and L. Vermare 
+            and J. Candy and F. Clairet and X. Garbet and V. Grandgirard
+            and O.D. Gurcan and S. Heuraux and G.T. Hoang and C. {{{Honor\'e}}}
+            and F. Imbeaux, and R. Sabot and Y. Sarazin and L. Vermare
             and R.E. Waltz},
-title     = {Turbulence in the {{TORE SUPRA}} Tokamak: Measurements 
+title     = {Turbulence in the {{TORE SUPRA}} Tokamak: Measurements
              and Validation of Nonlinear Simulations},
 journal   = PRL,
 volume    = 102,
@@ -650,6 +876,26 @@ journal = PF,
 volume  = 30, 
 pages   = 2784, 
 year    = 1987}
+
+@article{chacon:2002,
+   author    = {L. Chac{\' o}n and D.A. Knoll and J.M. Finn},
+   title     = {An Implicit, Nonlinear Reduced Resistive
+       {MHD} Solver},
+   journal   = JCP,
+   year      = {2002},
+   volume    = {178},
+   pages     = {15-36}
+}
+
+@article{chacon:2008,
+  author    = {L. Chac{\' o}n},
+   title     = {An optimal, parallel, fully implicit {N}ewton-{K}rylov solver for three-dimensional
+                viscoresistive magnetohydrodynamics},
+   journal   = POP,
+   year      = 2008,
+   volume    = 15,
+   pages     = {056103--12}
+}
 
 @Article{chang:1982, 
 author  = {C.S. Chang and F.L. Hinton},
@@ -731,12 +977,45 @@ year      = 2004}
 
 @Article{cohen:1993,
 author  = {B.I. Cohen and T.J. Williams and A.M. Dimits and J.A. Byers},
-title   = {Gyrokinetic simulations of {{E×B}} velocity-shear effects 
+title   = {Gyrokinetic simulations of {{E$\times$B}} velocity-shear effects
            on ion-temperature-gradient modes},
 journal = PFB,
 volume  = 5,
 pages   = 2967,
 year    = 1993}
+
+@Article{cohen:2012,
+author = {R.H. Cohen and M. Dorf and M. Dorr},
+journal = CPP,
+volume =  52,
+pages =  529,
+year = 2012}
+
+@Article{cole:2011,
+  author =       {{A. J. Cole, et al.}},
+  title =        "Peak neoclassical toroidal viscosity at low toroidal rotation in the
+DIII-D tokamak",
+  journal =      POP,
+  year =         2011,
+  volume =      18,
+  pages =        {05571}
+}
+
+@Article{colella:2011,
+  author =       {P. Colella and M. R. Dorr and J. A. F. Hittinger and D. F. Martin},
+  title =        "High-order, finite-volume methods in mapped coordinates",
+  journal =      {J. Comput. Phys.},
+  year =         2011,
+  volume =       230,
+  number =       8,
+  pages =        {2952--2976}
+}
+
+@Unpublished{Colella:XXXX,
+   author={P. Colella and D. T. Graves and T. J. Ligocki and D. F. Martin and D. Modiano and D. B. Serafini and B. Van Straalen},
+   title={{Chombo Software Package for AMR Applications - Design Document}},
+   note={{\tt http://seesar.lbl.gov/anag/chombo}}
+}
 
 @Article{connor:1973,
 author  = {J.W. Connor},
@@ -771,6 +1050,22 @@ volume  = 29,
 pages   = 919,
 year    = 1987}
 
+@Article{connor:1998,
+author  = {J.W. Connor and R.J. Hastie and H.R. Wilson and R.L. Miller},
+title   = {Magnetohydrodynamic stability of tokamak edge plasmas},
+journal = {POP},
+volume  = 5,
+pages   = 2687,
+year    = 1998}
+
+@Article{connor:1998b,
+author    = {J.W. Connor},
+title     = {},
+journal   = PPCF,
+volume    = 40,
+pages     = {S31},
+year      = 1998}
+
 @Article{connor:2005,
 author    = {J.W. Connor},
 title     = {Magnetic confinement theory summary},
@@ -778,6 +1073,34 @@ journal   = NF,
 volume    = 45,
 pages     = {S1},
 year      = 2005}
+
+@ARTICLE{Constantinescu:2010a,
+author = {E.M. Constantinescu and A. Sandu},
+title = {Extrapolated implicit-explicit time stepping},
+journal = {SIAM Journal on Scientific Computing},
+year = {2010},
+volume = {31},
+pages = {4452-4477},
+number = {6},
+comment = {Preprint \# ANL/MCS-P1612-0409},
+doi = {10.1137/080732833}}
+
+@ARTICLE{Constantinescu:2010b,
+author = {E.M. Constantinescu and A. Sandu},
+title = {Optimal explicit strong-stability-preserving general linear methods},
+journal = {SIAM Journal of Scientific Computing},
+year = {2010},
+volume = {32},
+pages = {3130-3150},
+number = {5},
+abstract = {This paper constructs strong-stability-preserving general linear time-stepping methods that are well suited for hyperbolic PDEs discretized by the
+        method of lines. These methods generalize both Runge-Kutta (RK) and
+        linear multistep schemes. They have high stage orders and hence are
+        less susceptible than RK methods to order reduction from source terms
+        or nonhomogeneous boundary conditions. A global optimization strategy
+        is used to find the most efficient schemes that have low storage
+        requirements. Numerical results illustrate the theoretical findings.},
+doi = {10.1137/090766206}}
 
 @Article{coppi:1966,
 author    = {B. Coppi and H.P. Furth and M.N. Rosenbluth
@@ -843,6 +1166,24 @@ publisher = {Springer-Verlag},
 address   = {Berlin},
 year      = 1991}
 
+@Article{dickinson:2011,
+author  = {{D. Dickinson and S. Saarelma and A. Kirk and C.M. Roach and H.R. Wilson}},
+title   = {{{Towards the construction of a model to describe the inter-ELM evolution
+        of the pedestal on {MAST}}}},
+journal = PPCF,
+volume  = 53,
+pages   = 115010,
+year    = 2011}
+
+@Article{dickinson:2012,
+author  = {D. Dickinson and C.M. Roach and S. Saarelma and R. Scannell and A. Kirk
+                and H.R. Wilson},
+title   = {Kinetic Instabilities that Limit $\beta$ in the Edge of a Tokamak Plasma: A Picture of an {{H}}-Mode Pedestal},
+journal = PRL,
+volume  = 108,
+pages   = 135002,
+year    = 2012}
+
 @Article{dimits:1996,
 author  = {A.M. Dimits and T.J. Williams and J.A. Byers
           and B.I. Cohen},
@@ -887,6 +1228,21 @@ journal = NF,
 volume  = 40,
 pages   = 1725,
 year    = 2001}
+
+@Article{dimits:2010,
+author  = {A.M. Dimits},
+title   = {Gyrokinetic equations in an extended ordering},
+journal = POP,
+volume  = 17,
+pages   = 055901,
+year    = 2010}
+
+@Article{dimits:2012,
+author = {A.M. Dimits},
+journal = POP,
+volume =  19,
+pages = 022504,
+year = 2012}
 
 @Article{dominguez:1990,
 author    = {R.R. Dominguez},
@@ -952,6 +1308,42 @@ volume    = 8,
 pages     = 167,
 year      = 2001}
 
+@Article{dorf:2011,
+author     = {M.A. Dorf, R.H. Cohen, J.C. Compton {\it et al.}},
+title    = {Progress with the COGENT edge kinetic code: collision
+            operator options},
+journal   = {{\rm to be published in} Contributions to Plasma Physics},
+year = 2011 }
+
+@Article{dorf:2012a,
+author = {M.A. Dorf and R.H. Cohen and J.C. Compton and M. Dorr and J. Hittinger 
+          and T.D. Rognlien and P. Colella and D. Martin and P. McCorquodale},
+journal = {"Numerical Modeling of Neoclassical Transport and Geodesic Acoustic Mode
+          (GAM) Relaxation in a Tokamak Edge," presentation at 24IAEA Fusion Energy
+           Conference (2012); to be submitted to NF},
+}
+
+@Article{dorf:2012b,
+author = {M.A. Dorf and R.H. Cohen and J. Compton and M. Dorr and J. Compton and T. Rognlien
+          and J. Angus and S. Krasheninnikov and P. Colella and D. Martin and P. McCorquodale},
+journal =  CPP,
+volume = 52,
+pages = 518,
+year = 2012}
+
+@Article{dorf:2012c,
+author = {M. Dorf and R.H. Cohen and M. Dorr and T. Rognlien and J. Hittinger
+          and J. Compton and P. Colella and D. Martin and P. McCorquodale},
+journal =  {"Simulation of Neoclassical Transport with the Continuum
+           Gyrokinetic Code COGENT," submitted to Phys. Plasmas},
+}
+
+@Article{dorf:2012d,
+author = {M.A. Dorf and R.H. Cohen and A. Simakov},
+journal = {"On the applicability of the standard approaches for evaluating
+           a neoclassical radial electric field in a tokamak edge region," to be submitted to POP 2012},
+}
+
 @Article{dorland:1993,
 author    = {W. Dorland and G.W. Hammett},
 title     = {Gyrofluid turbulence models with kinetic effects},
@@ -968,6 +1360,41 @@ journal   = PRL,
 volume    = 85,
 pages     = 5579,
 year      = 2000}
+
+@InProceedings{dorr:2010,
+author = {M.R. Dorr and R.H. Cohen and P. Colella and M.A. Dorf and J.A. Hittinger
+          and D.F. Martin},
+title = {Numerical Simulation of Phase Space Advection in Gyrokinetic Models of Fusion Plasma},
+booktitle = {Proceedings of SciDAC 2010},
+year = 2010
+}
+
+@Article{dudson:2008,
+author    = {B.D. Dudson and N. Ben Ayed and A. Kirk and H.R. Wilson and G. Counsell
+        and  X.Q. Xu and M.V. Umansky and P.B. Snyder and B. Lloyd and the MAST Team},
+title     = {Experiments and simulation of edge turbulence and filaments in {MAST}},
+journal   = PPCF,
+volume    = 50,
+pages     = 124012,
+year      = 2008}
+
+@Article{dudson:2009,
+author    = {B.D. Dudson and M.V. Umansky and X.Q. Xu
+        and P.B. Snyder and H.R. Wilson},
+title     = {{{BOUT++: A framework for parallel plasma fluid simulations}}},
+journal   = CPC,
+volume    = 180,
+pages     = 1467,
+year      = 2009}
+
+@Article{dudson:2011,
+author    = {B.D. Dudson and X.Q. Xu and M.V. Umansky
+         and H.R. Wilson and P.B. Snyder},
+title     = {{{Simulations of edge localized modes using BOUT++}}},
+journal   = PPCF,
+volume    = 53,
+pages     = 054005,
+year      = 2011}
 
 @Book{durran:1999,
 author    = {D.R. Durran},
@@ -1044,6 +1471,31 @@ volume    = 13,
 pages     = 112303,
 year      = 2006}
 
+@Article{evans:2004,
+author = {T.E. Evans and R.A. Moyer and P.R. Thomas and J.G. Watkins
+          and  T.H. Osborne and J.A. Boedo and E.J. Doyle and M.E. Fenstermacher
+          and  K.H. Finken and R.J. Groebner and M. Groth and J.H. Harris and
+          R.J. La Haye and C.J. Lasnier and S. Masuzaki and N. Ohyabu and
+          D.G. Pretty and T.L. Rhodes and H. Reimerdes and D.L. Rudakov and
+          M.J. Schaffer and G. Wang and L. Zeng},
+title     = {{{Suppression of Large Edge-Localized Modes in High-Confinement
+             DIII-D Plasmas with a Stochastic Magnetic Boundary}}},
+journal   = PRL,
+volume    = 92,
+pages     = 235003,
+year      = 2004}
+
+@Article{evans:2006,
+author = {T.E. Evans and R.A. Moyer and K.H. Burrell and M.E. Fenstermacher
+          and I. Joseph and A.W. Leonard and T.H. Osborne and G.D. Porter
+          and M.J. Schaffer and P.B. Snyder and P.R. Thomas and J.G. Watkins
+          and W.P. West},
+title   = {Edge stability and transport control with resonant magnetic
+            perturbations in collisionless tokamak plasmas},
+journal = {Nature Phys.},
+volume  = 2,
+pages   = 419,
+year    = 2006}
 
 %============================== F ==============================
 @InProceedings{fahey:2004,
@@ -1062,6 +1514,27 @@ volume    = 10,
 pages     = 1424,
 year      = 2003}
 
+@incollection {falgout:2002,
+   author = {Falgout, Robert and Yang, Ulrike},
+   title = {{\em hypre}: A Library of High Performance Preconditioners},
+   booktitle = {Computational Science ICCS 2002},
+   series = {Lecture Notes in Computer Science},
+   editor = {Sloot, Peter and Hoekstra, Alfons and Tan, C. and Dongarra, Jack},
+   publisher = {Springer Berlin / Heidelberg},
+   pages = {632-641},
+   volume = {2331},
+   year = {2002}
+}
+
+@unpublished{farley:2011,
+title     = "{BOUT}++: Performance characterization and recent advances in design",
+author    = "Sean Farley and Ben Dudson and Praveen Narayanan and Lois Curfman McInnes
+             and Maxim Umansky and Xueqiao Xu and Satich Balay and John Cary and Alice Koniges
+             and Carol Woodward and Hong Zhang",
+note      = "poster, 22nd International Conference on Numerical Simulations of Plasmas,
+             September 7-9, 2011, Long Branch, New Jersey"
+}
+
 @Article{fejer:1933,
 author    = {L. Fej\'er},
 title     = {Mechanische Quadraturen mit positiven Cotesschen Zahlen},
@@ -1069,6 +1542,22 @@ journal   = {Math. Z.},
 volume    = 37,
 pages     = 287,
 year      = 1933}
+
+@Article{ferraro:2010,
+author    = {N.M Ferraro and S.C. Jardin and P.B. Snyder},
+title     = {Ideal and resistive edge stability calculations with M3D-C1},
+journal   = POP,
+volume    = 17,
+pages     = 102508,
+year      = 2010}
+
+@Article{ferraro:2012,
+author    = {N.M Ferraro},
+title     = {Calculations of two-fluid linear response to non-axisymmetric fields in tokamaks},
+journal   = POP,
+volume    = 19,
+pages     = 056105,
+year      = 2012}
 
 @Article{field:2004,
 author    = {A.R. Field and R.J. Akers and C. Brickley and 
@@ -1089,6 +1578,14 @@ journal   = CPC,
 volume    = 150,
 pages     = 247,
 year      = 2003}
+
+@Article{fitzpatrick:1998,
+author    = {R. Fitzpatrick},
+title     = {Bifurcated states of a rotating tokamak plasma in the presence of a static error-field},
+journal   = POP,
+volume    = 37,
+pages     = 3325,
+year      = 1998}
 
 @Book{freidberg:1987,
 author    = {J.P. Freidberg},
@@ -1151,6 +1648,13 @@ journal   = JPP,
 volume    = 16,
 pages     = 149,
 year      = 1976}
+
+@Article{gao:2008,
+author = {Z. Gao and K. Itoh and H. Sanuki and J.Q. Dong},
+journal = POP,
+volume = 15,
+pages = 072511,
+year = 2008}
 
 @Article{garbet:1996,
 author    = {X. Garbet and R.E. Waltz},
@@ -1241,6 +1745,39 @@ volume    = 21,
 pages     = 453,
 year      = 1981}
 
+@Article{greenwald:1997,
+author = {{M. Greenwald, {\it et al.}}},
+title     = {},
+journal   = NF,
+volume    = 37,
+pages     = 793,
+year      = 1997}
+
+@Article{groebner:2010,
+author = {{R.J. Groebner and P.B. Snyder and T.H. Osborne and A.W. Leonard and T.L. Rhodes
+        and L. Zeng and E.A. Unterberg and Z. Yan and G.R. McKee and C.J. Lasnier and J.A. Boedo
+        and J.G. Watkins}},
+title     = {{{Limits to the H-mode pedestal pressure gradient in DIII-D}}},
+journal   = NF,
+volume    = 50,
+pages     = 064002,
+year      = 2010}
+
+@TechReport{groebner:2011,
+author = {{R.J. Groebner and the US pedestal physics community}},
+title =  {{{FES Joint Facilities and Theory Research Target 2011}}},
+institution =  {Dept.\ of Energy, Office of Fusion Energy Sciences},
+year =   2011,
+}
+
+@Article{groebner:2012,
+author    = {R.J. Groebner and P.B. Snyder and C.S. Chang and J.W. Hughes and R. Maingi and X.Q. Xu},
+title     = {Advances in Predictive Capability of Pedestal Structure from FY11 Joint Research Target},
+journal   = BAPS,
+volume    = 57,
+pages     = 88,
+year      = 2012}
+
 @Book{guggenheimer:1977,
 author    = {H.W. Guggenheimer},
 title     = {Differential Geometry},
@@ -1284,6 +1821,14 @@ journal   = POP,
 volume    = 6,
 pages     = 922,
 year      = 1999}
+
+@BOOK{Hairer_1993_II,
+  title = {Solving Ordinary Differential Equations {II}: Stiff and Differential-Algebraic
+        Problems},
+  publisher = {Springer},
+  year = {1993},
+  author = {E. Hairer and G. Wanner}
+}
 
 @Article{hallatschek:2002,
 author    = {K. Hallatschek and W. Dorland},
@@ -1364,6 +1909,14 @@ volume    = 12,
 pages     = 102506,
 year      = 2005}
 
+@Article{hegna:2000,
+author    = {C.C. Hegna},
+title     = {Local three-dimensional magnetostatic equilibria},
+journal   = POP,
+volume    = 7,
+pages     = 3921,
+year      = 2000}
+
 @Article{heidbrink:1994,
 author    = {W.W. Heidbrink and G.J. Sadler},
 title     = {},
@@ -1404,7 +1957,6 @@ volume    = 5,
 pages     = 1209,
 year      = 1998}
 
-
 @Article{helander:2000,
 author    = {P. Helander},
 title     = {On neoclassical transport near the magnetic axis},
@@ -1413,7 +1965,7 @@ volume    = 7,
 pages     = 2878,
 year      = 2000}
 
-@Article{helander:2002,
+@Article{helander:2002b,
 author    = {P. Helander},
 title     = {},
 journal   = POP,
@@ -1427,6 +1979,51 @@ title     = {Collisional transport in magnetized plasmas},
 publisher = {Cambridge University Press},
 address   = {Cambridge},
 year      = 2002}
+
+@article{henson:2002,
+  author = "Van Emden Henson and Ulrike Meier Yang",
+  title = "{B}oomer{AMG}: A parallel algebraic multigrid solver and preconditioner",
+  journal = "Applied Numerical Mathematics",
+  volume = "41",
+  number = "1",
+  pages = "155 - 177",
+  year = "2002",
+  note = "<ce:title>Developments and Trends in Iterative Methods for Large Systems of Equations - in memorium Rudiger Weiss</ce:title>",
+  issn = "0168-9274",
+  doi = "10.1016/S0168-9274(01)00115-5"
+}
+
+@Article{Hernandez:2005:SSF,
+   author  = "Vicente Hernandez and Jose E. Roman and Vicente Vidal",
+   title   = "{SLEPc}: A Scalable and Flexible Toolkit for the Solution of Eigenvalue Problems",
+   journal = "ACM Transactions on Mathematical Software",
+   volume  = "31",
+   number  = "3",
+   pages   = "351--362",
+   month   = sep,
+   year    = "2005"
+}
+
+@Article{heyn:2008,
+   author  = {M. F. Heyn and I. B. Ivanov and S. V. Kasilov and W. Kernbichler and I. Joseph and R. A. Moyer and A. M. Runov},
+   title   = {Kinetic estimate of the shielding of resonant magnetic field perturbations by the plasma in DIII-D},
+   journal = NF,
+   volume  = 48,
+   pages   = 024005,
+   year    = 2008
+}
+
+@Article{hindmarsh:2005,
+  author    = {A.~C.~Hindmarsh and P.~N.~Brown and K.~E.~Grant and S.~L.~Lee
+               and R.~Serban and D.~E.~Shumaker and C.~S.~Woodward},
+  title     = {\mbox{SUNDIALS}: Suite of nonlinear and differential/algebraic
+               equation solvers},
+  journal   = {ACM Trans. Math. Softw.},
+  volume    = {31},
+  number    = {3},
+  year      = {2005},
+  pages     = {363-396}
+}
 
 @Article{hinton:1973,
 author    = {F.L. Hinton and M.N. Rosenbluth},
@@ -1513,23 +2110,6 @@ volume    = 21,
 pages     = 1079,
 year      = 1981}
 
-@Article{houlberg:1997,
-author    = {W.A. Houlberg and K.C. Shaing 
-             and S.P. Hirshman and M.C. Zarnstorff},
-journal   = POP,
-volume    = 4,
-pages     = 3230,
-year      = 1997}
-
-@Article{hu:1994,
-author    = {G. Hu and J.A. Krommes},
-title     = {Generalized weighting scheme for 
-             {{$\delta \hskip -1pt f$}} particle-simulation method},
-journal   = POP,
-volume    = 1,
-pages     = 863,
-year      = 1994}
-
 @Article{holland:2004,
 author    = {C. Holland and P.H. Diamond},
 title     = {A simple model of interactions between electron
@@ -1583,13 +2163,20 @@ pages     = 114007,
 year      = 2012}
 
 @Article{horton:2005,
-author    = {W. Horton and H.V. Wong and P.J. Morrison and A. Wurm and J.H. Kim and 
-             J.C. Perez and J. Prat and G.T. Hoang and B.P. LeBlanc and R. Bell},
+author    = {W. Horton and H.V. Wong and P.J. Morrison and A. Wurm and J.H. Kim and J.C. Perez and J. Prat and G.T. Hoang and B.P. LeBlanc and R. Bell},
 title     = {Temperature gradient driven electron transport in {{NSTX}} and {{Tore Supra}}},
 journal   = NF,
 volume    = 45,
 pages     = 976,
 year      = 2005}
+
+@Article{houlberg:1997,
+author    = {W.A. Houlberg and K.C. Shaing 
+             and S.P. Hirshman and M.C. Zarnstorff},
+journal   = POP,
+volume    = 4,
+pages     = 3230,
+year      = 1997}
 
 @Article{howard:2012,
 author    = {N.T. Howard and M. Greenwald and D.R. Mikkelsen and M.L. Reinke
@@ -1625,6 +2212,42 @@ journal   = PPCF,
 volume    = 32,
 pages     = 499,
 year      = 1990}
+
+@Article{hu:1994,
+author    = {G. Hu and J.A. Krommes},
+title     = {Generalized weighting scheme for 
+             {{$\delta \hskip -1pt f$}} particle-simulation method},
+journal   = POP,
+volume    = 1,
+pages     = 863,
+year      = 1994}
+
+@article{huysmans:2005b,
+author={G.~T.~A. Huysmans},
+title={External kink (peeling) modes in x-point geometry},
+journal={PPCF},
+volume={47},
+year={2005},
+pages={2107--2121}
+}
+
+@article{huysmans:2005,
+author={G.~T.~A. Huysmans},
+title={{{ELMs: MHD instabilities in the transport barrier}}},
+journal={PPCF},
+volume={47},
+year={2005},
+pages={B165}
+}
+
+@article{huysmans:2009,
+author={G.~T.~A. Huysmans and S. Pamela and E. van der Plas and P. Ramet},
+title={{{Nonlinear MHD simulations of edge localized modes (ELMs)}}},
+journal={PPCF},
+volume={51},
+year={2009},
+pages={124012}
+}
 
 %============================== I ==============================
 @Article{idomura:2002,
@@ -1744,14 +2367,19 @@ year      = 2006}
 %============================== K ==============================
 @Article{kennedy:2003,
 author    = {C.A. Kennedy and M.H. Carpenter},
-title     = {Additive Runge–Kutta schemes for 
-             convection–diffusion–reaction equations},
+title     = {Additive Runge-Kutta schemes for
+             convection-diffusion-reaction equations},
 journal   = {Applied Num. Math},
 volume    = 44,
 pages     = 139,
 year      = 2003}
 
-
+@Article{kagan:2010,
+author = {G. Kagan and P. Catto},
+journal = PPCF,
+volume = 52,
+pages = {055004},
+year = 2010}
 
 @Article{kagan:2011,
 title    = {The effect of the radial electric field on 
@@ -1762,6 +2390,14 @@ journal   = PPCF,
 volume    = 53,
 pages     = 025008,
 year      = 2011}
+
+@Article{kammerer:2008,
+author    = {M. Kammerer and F. Merz and F. Jenko},
+title     = {Exceptional points in linear gyrokinetics},
+journal   = POP,
+volume    = 15,
+pages     = 052102,
+year      = 2008}
 
 @Article{kaye:2007,
 author    = {S.M. Kaye and F.M. Levinton and D. Stutman and 
@@ -1788,6 +2424,14 @@ journal   = NF,
 volume    = 49,
 pages     = 045010,
 year      = 2009}
+
+@Article{kendl:2010,
+author    = {Alexander Kendl and Bruce D. Scott and Tiago T. Ribeiro},
+title     = {Nonlinear gyrofluid computation of edge localized ideal ballooning modes},
+journal   = POP,
+volume    = 17,
+pages     = 072302,
+year      = 2010}
 
 @Article{kinsey:2003,
 author    = {J.E. Kinsey and G. Bateman and T. Onjun and 
@@ -1838,6 +2482,42 @@ volume    = 15,
 pages     = 055908,
 year      = 2008}
 
+@Article{kinsey:2011,
+author    = {J.E. Kinsey and G.M. Staebler and J. Candy and R.E. Waltz and R.V. Budny},
+title     = {{{ITER}} predictions using the {{GYRO}} verified and experimentally 
+            validated trapped gyro-Landau fluid transport model},
+journal   = NF,
+volume    = 51,
+pages     = 083001,
+year      = 2011}
+
+@Article{kirk:2010,
+author    = {{A. Kirk, et al.}},
+title     = {Resonant magnetic perturbation experiments on {{MAST}} using external
+             and internal coils for {{ELM}} control},
+journal   = NF,
+volume    = 50,
+pages     = 034008,
+year      = 2010}
+
+@Article{kirk:2011,
+author    = {{A. Kirk, et al.}},
+title     = {Magnetic perturbation experiments on {{MAST L- and H-mode}} plasmas 
+            using internal coils},
+journal   = NF,
+volume    = 53,
+pages     = 065011,
+year      = 2011}
+
+@Article{kirk:2011b,
+author    = {{A. Kirk and H.W. Muller and E. Wolfrum and H. Meyer and A. Herrmann and T. Lunt
+        and V. Rohde and P. Tamain and the MAST and ASDEX Upgrade Team}},
+title     = {Comparison of small edge-localized modes on {MAST} and {ASDEX Upgrade}},
+journal   = PPCF,
+volume    = 53,
+pages     = 095008,
+year      = 2011}
+
 @InProceedings{kishimoto:1996,
 author = {Y. Kishimoto and J.-Y. Kim and T. Fukuda
           and S. Ishida and T. Fujita and T. Tajima
@@ -1884,11 +2564,21 @@ volume    = 164,
 pages     = 98,
 year      = 2004}
 
-@TechReport{kovrizhnikh:1970,
-author    = {L.M. Kovrizhnikh},
-institution = {International Center for Theoretical Physics, 
-IC/70/86 (Trieste, Italy 1970)},
-pages     = 25}
+@article{knoll:2004,
+  author  = "D. A. Knoll and D. E. Keyes",
+  year    = 2004,
+  title   = "Jacobian-free {Newton-Krylov} Methods: A Survey of Approaches and Applications",
+  journal = "J. Comp. Phys.",
+  volume  = 193,
+  pages   = "357-397"
+}
+
+@Book{knupp:2003,
+author = {P. Knupp and K. Salari},
+title = {Verification of Computer Codes in Computational Science and Engineering},
+publisher = {Chapman \& Hall/CRC},
+year = 2003,
+address = {New York}}
 
 @Article{kotschenreuther:1988,
 author    = {M. Kotschenreuther},
@@ -1916,13 +2606,13 @@ volume    = 40,
 pages     = 677,
 year      = 2000}
 
-@Article{kammerer:2008,
-author    = {M. Kammerer and F. Merz and F. Jenko},
-title     = {Exceptional points in linear gyrokinetics},
+@Article{koh:2012,
+author    = {S. Koh and C.S. Chang and S. Ku and J.E. Menard and H. Weitzner and W. Choe},
+title     = {Bootstrap current for the edge pedestal plasma in a diverted tokamak geometry},
 journal   = POP,
-volume    = 15,
-pages     = 052102,
-year      = 2008}
+volume    = 19,
+pages     = 072505,
+year      = 2012}
 
 @Article{kolesnikov:2010,
 author    = {R.A. Kolesnikov and W.X. Wang and F.L. Hinton
@@ -1939,6 +2629,24 @@ author    = {L.M. Kovrizhnikh},
 institution = {International Center for Theoretical Physics, 
 IC/70/86 (Trieste, Italy 1970)},
 pages     = 25}
+
+@article{Krasheninnikov2007,
+        Author = {S.I. Krasheninnikov and D. A. D'Ippolito and J.R. Myra},
+        Journal = {Journal of Plasma Physics},
+        Pages = {612--625},
+        Title = {Recent Theoretical Progress in Understanding Coherent
+                Structures in Edge and SOL Turbulence},
+        Volume = {},
+        Year = {2007}
+}
+
+@article{krasheninnikov:2008,
+        Author = {S.I. Krasheninnikov and D. A. D'Ippolito},
+        Journal = {Journal of Plasma Physics},
+        Volume = 74,
+        Pages = 679,
+        Title = {},
+        Year = 2007}
 
 @Article{krommes:1994,
 author  = {J.A. Krommes and G. Hu},
@@ -1968,6 +2676,15 @@ pages     = 265,
 year      = 1958}
 
 %============================== L ==============================
+@BOOK{Lambert_1991,
+  title = {Numerical Methods for Ordinary Differential Systems: The Initial
+        Value Problem},
+  publisher = {Wiley},
+  year = {1991},
+  author = {J.D. Lambert},
+  isbn = {0471929905}
+}
+
 @Article{landau:1936,
 author    = {L. Landau},
 title     = {},
@@ -2036,6 +2753,30 @@ journal   = JPCON,
 volume    = 46,
 pages     = 73,
 year      = 2006}
+
+@Article{lenard:1958,
+author = {A. Lenard and I. B. Bernstein},
+title = {},
+journal = {Phys. Rev.},
+volume = 112,
+pages = 1456,
+year  = 1958}
+
+@Article{liang:2007,
+author  = {{Y. Liang, et al.}},
+title = {Active Control of Type-I Edge-Localized Modes with n ?? 1 Perturbation Fields in the JET Tokamak},
+journal = PRL,
+volume  = 98,
+pages   = 265004,
+year    = 2007}
+
+@Article{liang:2011,
+author  = {Y. Liang},
+title = {Overview of edge-localized mode control in tokamak plasmas},
+journal = FST,
+volume  = 59,
+pages   = 586,
+year    = 2011}
 
 @Article{lin:1995,
 author  = {Z. Lin and W.M. Tang and W.W. Lee},
@@ -2194,6 +2935,18 @@ volume    = 51,
 pages     = 065006,
 year      = 2009}
 
+@Article{loarte:2003,
+author    = {A. Loarte and G. Saibene and R. Sartori and D. Campbell and M. Becoulet and
+        L. Horton and T. Eich and A. Herrmann and G. Matthews and N. Asakura and A. Chankin
+        and A. Leonard and G. Porter and G. Federici and G. Janeschitz and M. Shimada
+        and M. Sugihara},
+title     = {{{Characteristics of type I ELM energy and particle losses in existing devices
+        and their extrapolation to ITER}}},
+journal   = PPCF,
+volume    = 45,
+pages     = 1549,
+year      = 2003}
+
 @Article{luxon:2002,
 author    = {J.L. Luxon},
 title     = {A design retrospective of the {{DIII-D}} tokamak},
@@ -2203,6 +2956,35 @@ pages     = 614,
 year      = 2002}
 
 %============================== M ==============================
+@article{maggs:2003,
+        Author = {Maggs, J. E. and Morales, G. J.},
+        Pages = {2267},
+        Title = {Magnetic fluctuations of a large nonuniform plasma column},
+        Volume = {10},
+        journal=POP,
+        Year = {2003}}
+
+@article{maggs:2007,
+        Author = {Maggs, J. E. and Carter, T. A. and Taylor, R. J.},
+        Journal = POP,
+        Pages = {052507},
+        Title = {Transition from Bohm to classical diffusion due to edge rotation  of a cylindrical plasma},
+        Volume = {14},
+        Year = {2007}}
+
+@article{maingi:2012,
+        Author = {R. Maingi and D.P. Boyle and J.M. Canik and S.M. Kaye and C.H. Skinner and
+                J.P. Allain and M.G. Bell and R.E. Bell and SP Gerhardt and T.K. Gray and
+                M.A. Jaworski and R. Kaita and H.W. Kugel and B.P. LeBlanc and J. Manickam and
+                D.K. Mansfield and J.E. Menard and T.H. Osborne and R. Raman and A.L. Roquemore
+                and S.A. Sabbagh and P.B. Snyder and V.A. Soukhanovskii.},
+        Journal = NF,
+        Pages = {083001},
+        Title = {The effect of progressively increasing lithium coatings on plasma discharge
+                characteristics, transport, edge profiles and ELM stability in the National Spherical Torus Experiment},
+        Volume = {52},
+        Year = {2012}}
+
 @Article{manfredi:1996,
 author    = {G. Manfredi and R.O. Dendy},
 title     = {Test-particle transport in strong electrostatic drift
@@ -2211,6 +2993,14 @@ journal   = PRL,
 volume    = 76,
 pages     = 4360,
 year      = 1996}
+
+@Article{maqueda:2003,
+author    = {{R. J. Maqueda, {\it et al.}}},
+title     = {Gas puff imaging of edge turbulence},
+journal   = {Review of Scientific Instruments},
+volume    = 74,
+pages     = 2020,
+year      = 2003}
 
 @Article{mazzucato:2008,
 author    = {E. Mazzucato and D.R. Smith and R.E. Bell and S.M Kaye and J.C. Hosea and B.P. LeBlanc and J.R. Wilson and P.M Ryan and C.W. Domier and N.C. Luhmann Jr. and H. Yuh and W. Lee and H. Park},
@@ -2227,6 +3017,12 @@ journal   = NF,
 volume    = 49,
 pages     = 055001,
 year      = 2009}
+
+@unpublished{mccourt:2011,
+  title = "Scalable Preconditioners for Coupled Plasma/Neutral Boundary Transport Simulations",
+  author = "Michael McCourt and Tom Rognlien and Lois Curfman McInnes and Hong Zhang",
+  note = "poster, 22nd International Conference on Numerical Simulations of Plasmas, Sept 7-9, 2011, Long Branch, New Jersey"
+}
 
 @Article{mckee:2000,
 author    = {G.R. McKee and  M. Murakami and J.A. Boedo and  
@@ -2278,6 +3074,15 @@ volume    = 5,
 pages     = 973,
 year      = 1998}
 
+@Inproceedings{mills:2010,
+author    = "R. T. Mills and V. Sripathi and G. Mahinthakumar and G. Hammond
+             and P. C. Lichtner and B. F. Smith",
+title     = "Engineering {PFLOTRAN} for scalable performance on {Cray} {XT} and
+             {IBM} {BlueGene} architectures",
+booktitle = "Proceedings of {S}ci{DAC} 2010 {c}onference",
+year      =  2010
+}
+
 @Article{mishchenko:2004,
 author    = {A. Mishchenko and R. Hatzky and A. {{K\"onies}}},
 title     = {},
@@ -2302,6 +3107,24 @@ journal   = POP,
 volume    = 7,
 pages     = 4197,
 year      = 2000}
+
+@inproceedings{mohiyuddin:2009,
+ author = {Mohiyuddin, Marghoob and Hoemmen, Mark and Demmel, James and Yelick, Katherine},
+ title = {Minimizing communication in sparse matrix solvers},
+ booktitle = {Proceedings of the Conference on High Performance Computing Networking, Storage and Analysis},
+ series = {SC '09},
+ year = {2009},
+ isbn = {978-1-60558-744-8},
+ location = {Portland, Oregon},
+ pages = {36:1--36:12},
+ articleno = {36},
+ numpages = {12},
+ url = {http://doi.acm.org/10.1145/1654059.1654096},
+ doi = {http://doi.acm.org/10.1145/1654059.1654096},
+ acmid = {1654096},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
 
 @InBook{morozov:1966,
   author    = {A.I. Morozov and L.S. Solov'ev},
@@ -2338,7 +3161,51 @@ volume    = 5,
 pages     = 1160,
 year      = 1993}
 
+@Article{myra:2004,
+author    = {J. R. Myra and D. A. D'Ippolito and S. I. Krasheninnikov and G. Q. Yu},
+title     = {Convective Transport in the Scrape-off-layer by
+             Nonthermalized Spinning Blobs},
+journal   = POP,
+volume    = 11,
+pages     = 4267,
+year      = 2004}
+
+@InProceedings{Myra2008a,
+  author =       "J.  R.  Myra and M.  V.  Umansky",
+  title =        {{Linear Analysis Tools for Edge and Scrape-off-Layer Plasmas}},
+  booktitle =    {35th EPS Conf.  on Contr.  Fusion and Plasma Physics, Hersonissos, Crete, Greece},
+  volume    =    {32},
+  page      =    {P-4. 001},
+  year =         2008,
+}
+
+@TechReport{Myra2011,
+  author =       "J.  R.  Myra and D. A. Baver and M.  V.  Umansky",
+  title =        {{Linear Analysis and Verification Suite for Edge Turbulence}},
+  institution =  {Lodestar},
+  key =          {#LRC-11-144},
+  month =        {},
+  howpublished = {},
+  year =         2011,
+}
+
 %============================== N ==============================
+@inproceedings{narayanan:2011,
+title = "Performance Characterization for Fusion Co-design Applications",
+author = "P. Narayanan and A. Koniges and L. Oliker and R. Preissl and S. Williams and N. Wright
+         and M. Umansky and X. Xu and B. Dudson and
+         S. Ethier and W. Wang and J. Candy and J. Cary",
+booktitle = "Proceedings of Cray User Group Meeting, 2011",
+year = {2011}
+}
+
+@Article{naulin:2005,
+author  = {V. Naulin and A. Kendly and O.E. Garcia and A.H. Nielsen and J. Juul Rasmussen},
+title   = {Shear flow generation and energetics in electromagnetic turbulence},
+journal = POP,
+volume  = 12,
+pages   = 052515,
+year    = 2005}
 
 @Article{newton:2006,
 author  = {S. Newton and P. Helander},
@@ -2411,6 +3278,13 @@ pages   = 4272,
 year    = 1997}
 
 %============================== O ==============================
+@Article{ono:1975,
+author = {M. Ono and R.M. Kulsrud},
+title = {Frequency and damping of ion acoustic waves},
+journal = PF,
+volume = 18,
+pages = 1287,
+year = 1975}
 
 @Article{ono:2000,
 author = {M. Ono and S.M. Kaye and Y.-K.M. Peng and G. Barnes and
@@ -2430,6 +3304,15 @@ pages = 557,
 year = 2000}
 
 %============================== P ==============================
+@Article{pamela:2011,
+author    = {S.J.P. Pamela and G.T.A. Huysmans and M.N.A. Beurskens and
+        S. Devaux and T. Eich and S. Benkadda and JET EFDA Contributors},
+title     = {Nonlinear MHD simulations of edge-localized modes in JET},
+journal   = PPCF,
+volume    = 53,
+pages     = 054014,
+year      = 2011}
+
 @Inproceedings{pareschi:2000,
 author = {L. Pareschi and G. Russo},
 title  = {Implicit-Explicit Runge-Kutta Schemes for Stiff
@@ -2447,6 +3330,14 @@ title  = {High Order Asymptotically Strong-Stability-Preserving
 booktitle = {Hyperbolic problems: Theory, Numerics, Applications},
 publisher = {Springer},
 year = 2002}
+
+@Article{park:2009,
+author    = {J.-K. Park and A. H. Boozer and J. E. Menard},
+title     = {Nonambipolar Transport by Trapped Particles in Tokamaks},
+journal   = PRL,
+volume    = 102,
+pages     = 065002,
+year      = 2009}
 
 @Article{parker:1993,
 author    = {S.E. Parker and W.W. Lee and R.A. Santoro},
@@ -2484,6 +3375,14 @@ volume    = 871,
 pages     = 193,
 year      = 2006}
 
+@Article{parra:2008,
+author    = {F.I. Parra and P.J. Catto},
+title     = {Limitations of gyrokinetics on transport time scales},
+journal   = PPCF,
+volume    = 50,
+pages     = 065014,
+year      = 2008}
+
 @Article{parra:2010,
 author    = {F.I. Parra and P.J. Catto},
 title     = {Transport of momentum in full {{f}} gyrokinetics},
@@ -2500,24 +3399,14 @@ volume    = 52,
 pages     = 045004,
 year      = 2010}
 
-@Article{perkins:2001,
-author    = {F.W. Perkins and R.B. White and P.T. Bonoli 
-             and V.S. Chan},
-title     = {Generation of plasma rotation in a tokamak by 
-             ion-cyclotron absorption of fast {{Alfv\'en}} waves},
+@Article{parra:2011,
+author    = {F.I. Parra and M. Barnes and A.G. Peeters},
+title     = {Up-down symmetry of the turbulent transport of toroidal angular momentum
+        in tokamaks},
 journal   = POP,
-volume    = 8,
-pages     = 2181,
-year      = 2001}
-
-@Article{perkins:2002,
-author    = {F.W. Perkins and R.B. White and V.S. Chan},
-title     = {On plasma rotation induced by traveling 
-             fast {{Alfv\'en}} waves},
-journal   = POP,
-volume    = 9,
-pages     = 511,
-year      = 2002}
+volume    = 18,
+pages     = 062501,
+year      = 2011}
 
 @Article{peeters:2005,
 author    = { A.G. Peeters and C. Angioni and M. Apostoliceanu and 
@@ -2543,6 +3432,33 @@ journal   = CPC,
 volume    = 180,
 pages     = 2650,
 year      = 2009}
+
+@Article{penano:1997,
+author = {J.R. Penano and G.J. Morales and J.E. Maggs},
+title = {Properties of drift waves in a filamentary density depletion},
+journal = POP,
+volume  = 4,
+pages = 555,
+year = 1997}
+
+@Article{perkins:2001,
+author    = {F.W. Perkins and R.B. White and P.T. Bonoli 
+             and V.S. Chan},
+title     = {Generation of plasma rotation in a tokamak by 
+             ion-cyclotron absorption of fast {{Alfv\'en}} waves},
+journal   = POP,
+volume    = 8,
+pages     = 2181,
+year      = 2001}
+
+@Article{perkins:2002,
+author    = {F.W. Perkins and R.B. White and V.S. Chan},
+title     = {On plasma rotation induced by traveling 
+             fast {{Alfv\'en}} waves},
+journal   = POP,
+volume    = 9,
+pages     = 511,
+year      = 2002}
 
 @Article{peterson:2012,
 author    = {J.L. Peterson and R. Bell and J. Candy and W. Guttenfelder and 
@@ -2592,6 +3508,11 @@ volume    = 45,
 pages     = 221,
 year      = 2005}
 
+@Unpublished{pc.polevoi:2006,
+  author = {A. Polevoi},
+  title = {Private communication},
+  year = 2006}
+
 @Article{poli:2010,
 author    = {F.M. Poli},
 title     = {A synthetic diagnostic for validation of electron gyroradius 
@@ -2602,6 +3523,24 @@ volume    = 17,
 pages     = 1,
 year      = 2010}
 
+@article{popovich:2010a,
+  title={Analysis of plasma instabilities and verification of the BOUT code for the Large Plasma Device},
+  volume={17},
+  number={10},
+  journal=POP,
+  author={Popovich, P and Umansky, M V and Carter, T A and Friedman, B},
+  year={2010},
+  pages={102107}}
+
+@Article{popovich:2010b,
+  author =       {P.Popovich and  M.V. Umansky and  T.A. Carter and B. Friedman},
+  title =        {Modeling of plasma turbulence and transport in the Large Plasma Device},
+  journal =      POP,
+  year =         {2010},
+  volume =    {17},
+  pages =     {122312},
+}
+
 @Article{pueschel:2008,
 author    = {M.J. Pueschel and M. Kammerer and F. Jenko},
 title     = {Gyrokinetic turbulence simulations at high plasma beta},
@@ -2609,11 +3548,6 @@ journal   = POP,
 volume    = 15,
 pages     = 102310,
 year      = 2008}
-
-@Unpublished{pc.polevoi:2006,
-  author = {A. Polevoi},
-  title = {Private communication},
-  year = 2006}
 
 %============================== R ==============================
 @Article{ramos:2010,
@@ -2634,6 +3568,14 @@ volume  = 25,
 pages   = 1011,
 year    = 1985}
 
+@Article{rechester:1978,
+author  = {A.B. Rechester and M.N. Rosenbluth},
+title   = {Electron Heat Transport in a Tokamak with Destroyed Magnetic Surfaces},
+journal = PRL,
+volume  = 40,
+pages   = 38,
+year    = 1978}
+
 @Article{reiter:1990,
 author  = {D. Reiter and G.H. Wolf and H. Kever},
 title   = {Burn condition, helium particle confinement 
@@ -2652,6 +3594,16 @@ volume  = 25,
 pages   = 480,
 year    = 1982}
 
+@Article{rewoldt:1987,
+  author =       {G.~Rewoldt and W.~M.~Tang and R.~J.~Hastie},
+  title =        {Collisional Effects on Kinetic Electromagnetic Modes and
+                  Associated Quasilinear Transport},
+  journal =      {Phys. Fluids},
+  year =         1987,
+  volume =       30,
+  pages =        {807-817}
+}
+
 @Article{rewoldt:1988,
 author  = {G. Rewoldt},
 title   = {Alpha-particle effects on high-$n$ instabilities 
@@ -2660,6 +3612,15 @@ journal = PF,
 volume  = 31,
 pages   = 3727,
 year    = 1988}
+
+@ARTICLE{rewoldt:1990,
+        AUTHOR = "G. Rewoldt and W. M. Tang",
+        JOURNAL = "Phys. Fluids B",
+        TITLE = "Toroidal Microinstability Studies of High-Temperature
+                  Tokamaks",
+        VOLUME = 2,
+        YEAR = 1990,
+        PAGES = 318}
 
 @Article{rewoldt:1991,
 author  = {G. Rewoldt},
@@ -2676,6 +3637,18 @@ title  = {Gyrokinetic simulation of finite-$\beta$ plasmas
          on parallel architectures},
 school = {Princeton University},
 year   = 1992}
+
+@Article{reynolds:2010,
+   author = {D.R. Reynolds and R. Samtaney and C.S. Woodward},
+   title = {{Operator-Based Preconditioning of Stiff Hyperbolic Systems}},
+   year = 2010,
+   volume = 32,
+   number = 1,
+   pages = {150--170},
+   journal = {{SIAM J. Sci. Comput.}},
+   doc-Delivery-Number = {{598KZ}},
+   unique-ID = {{ISI:000277837000009}}
+}
 
 @Article{rhodes:2011,
 author  = {T.L. Rhodes},
@@ -2719,6 +3692,46 @@ journal = NF,
 volume  = 41,
 pages   = 1101,
 year    = 2001}
+
+@ARTICLE{rognlien:1992,
+author={T.D. Rognlien and J.L. Milovich  and M.E. Rensink  and G.D. Porter },
+title={A fully implicit, time dependent 2-D fluid code for modeling tokamak edge plasmas},
+journal={Journal of Nuclear Materials},
+year={1992},
+volume={196-198},
+number={C},
+pages={347-351},
+document_type={Article},
+source={Scopus},
+}
+
+@Article{rognlien:2002,
+  author        = {T.~D. Rognlien and M.~E. Rensink},
+  title         = {Edge-plasma models and characteristics for magnetic fusion energy devices},
+  journal       = {Fusion Eng. Design},
+  year          = 2002,
+  volume        = 60,
+  pages         = 497,
+  note          = ""
+}
+
+@Article{rognlien:2005,
+  author        = {T.~D. Rognlien and M.V.~Umansky and X.Q.~Xu and R.H.~Cohen},
+  title         = {Self-consistent simulation of turbulence and transport in tokamak edge plasmas},
+  journal       = {Contrib. Plasma Phys.},
+  year          = 2004,
+  volume        = 44,
+  pages         = 105,
+  note          = ""
+}
+
+@Article{rognlien:2010,
+author = {T.D. Rognlien and K. Bodi and R.H. Cohen and A.M. Dimits
+          and M.A. Dorf and M.R. Dorr and S.I. Krasheninnikov
+          and S.K. Nam and D.D. Ryutov and M.V. Umansky and X.Q. Xu},
+journal = {"Advances in Understanding Tokamak Edge/Scrape-Off Layer
+           Transport," presentation at 23IAEA Fusion Energy Conference (2010)},
+}
 
 @Article{romanelli:1989,
 author  = {F. Romanelli},
@@ -2815,6 +3828,19 @@ volume    = 9,
 pages     = 5031,
 year      = 2002}
 
+@Article{roth:2009,
+author    = {Joachim Roth and E. Tsitrone and A. Loarte and T. Loarer and G. Counsell and
+         R. Neu and V. Philipps and S. Brezinsek and M. Lehnen and P. Coad and Ch. Grisolia and
+         K. Schmid and K. Krieger and A. Kallenbach and B. Lipschultz and R. Doerner and
+          R. Causey and V. Alimov and W. Shu and O. Ogorodnikova and A. Kirschner and
+          G. Federici and A. Kukushkin and EFDA PWI Task Force and ITER PWI Team and
+           Fusion for Energy and ITPA SOL/DIV},
+title     = {{{Recent analysis of key plama wall interactions issues for ITER}}},
+journal   = JNM,
+volume    = 390,
+pages     = 1,
+year      = 2009}
+
 @Article{rutherford:1970,
 author    = {P.H. Rutherford},
 journal   = PF,
@@ -2839,6 +3865,23 @@ year      = 1974}
 
 
 %============================== S ==============================
+@Article{saarelma:2009,
+author    = {{S. Saarelma and A. Alfier and M.~N.~A. Beurskens and R. Coelho and
+        H.~R. Koslowski and Y. Liang and I Nunes and JET EFDA Contributors}},
+title     = {{{MHD stability analysis of small ELM regimes on JET}}},
+journal   = PPCF,
+volume    = 51,
+pages     = 035001,
+year      = 2009}
+
+@Article{sakamoto:2004,
+author    = {{Y. Sakamoto, {\it et al.}}},
+title     = {},
+journal   = PPCF,
+volume    = 46,
+pages     = {A299},
+year      = 2004}
+
 @Article{satake:2005,
 author    = {S. Satake and M. Okamoto and N. Nakajima and 
              H. Sugama and M. Yokoyama and C.D. Beidler},
@@ -2853,6 +3896,13 @@ journal   = POP,
 volume    = 6,
 pages     = 2834,
 year      = 1999}
+
+@Article{sauter:2002,
+author    = {O. Sauter and C. Angioni and Y.R. Lin-Liu},
+journal   = POP,
+volume    = 9,
+pages     = 5140,
+year      = 2002}
 
 @Article{schmitz:2012,
 author    = {L. Schmitz and C. Holland and T.L. Rhodes and G. Wang and 
@@ -2876,6 +3926,31 @@ volume    = 47,
 pages     = 2087,
 year      = 2005}
 
+@Article{scott:2002,
+author    = {Bruce D. Scott},
+title     = {The nonlinear drift wave instability and its role in tokamak edge turbulence},
+journal   =  NJP,
+volume    = 5,
+pages     = 52,
+year      = 2002}
+
+@Article{scott:2005,
+author    = {Bruce D. Scott},
+title     = {Free-energy conservation in local gyrofluid models},
+journal   = POP,
+volume    = 12,
+pages     = 102307,
+year      = 2005}
+
+@Article{scott:2010,
+author    = {Bruce D. Scott and J. Smirnov},
+title     = {Energetic consistency and momentum
+        conservation in the gyrokinetic description of tokamak plasmas},
+journal   = POP,
+volume    = 17,
+pages     = 112302,
+year      = 2010}
+
 @Article{shaing:1997,
 author    = {K.C. Shaing and R.D. Hazeltine and M.C. Zarnstorff},
 title     = {Ion transport process around magnetic axis in tokamaks},
@@ -2891,6 +3966,14 @@ journal   = POP,
 volume    = 5,
 pages     = 953,
 year      = 1998}
+
+@Article{shaing:2010,
+author    = {K.C. Shaing and S.A. Sabbagh  and M.S. Chu},
+title     = {An approximate analytic expression for neoclassical toroidal plasma viscosity in tokamaks},
+journal   = NF,
+volume    = 50,
+pages     = 025022,
+year      = 2010}
 
 @Article{shannon:1948,
 author    = {C.E. Shannon},
@@ -2932,6 +4015,12 @@ volume    = 3,
 pages     = 1,
 year      = 2001}
 
+@PhdThesis{snyder:1999,
+author = {P.B. Snyder},
+title  = {Gyrofluid Theory and Simulation of Electromagnetic Turbulence and Transport in Tokamak Plasmas},
+school = {Princeton University},
+year   = 1999}
+
 @Article{snyder:2001,
 author    = {P.B. Snyder and G.W. Hammett},
 title     = {Electromagnetic effects on plasma microturbulence 
@@ -2940,6 +4029,99 @@ journal   = POP,
 volume    = 8,
 pages     = 744,
 year      = 2001}
+
+@Article{snyder:2002,
+author    = {P.B. Snyder and H.R. Wilson and J.R. Ferron and
+        L.L. Lao and A.W. Leonard and T.H. Osborne and
+        A.D. Turnbull},
+title     = {Edge localized modes and the pedestal:
+        A model based on coupled peeling-ballooning modes},
+journal   = POP,
+volume    = 9,
+pages     = 2037,
+year      = 2002}
+
+@Article{snyder:2004,
+author    = {P.B. Snyder and H.R. Wilson and J.R. Ferron and L.L. Lao and A.W. Leonard
+        and D. Mossessian and M. Murakami and T.H. Osborne and A.D. Turnbull and X.Q. Xu},
+title     = {{{ELMs and constraints on the H-mode pedestal: peeling-ballooning stability
+        calculation and comparison with experiment}}},
+journal   = NF,
+volume    = 44,
+pages     = 320,
+year      = 2004}
+
+@Article{snyder:2005,
+author    = {P.B. Snyder and H.R. Wilson and X.Q. Xu},
+title     = {{{Progress in the peeling-ballooning model of edge localized
+        modes: Numerical studies of nonlinear dynamics}}},
+journal   = POP,
+volume    = 12,
+pages     = 056115,
+year      = 2005}
+
+@Article{snyder:2007,
+author    = {P.B. Snyder and K.H. Burrell and H.R. Wilson and
+        M.S. Chu and M.E. Fenstermacher and A.W. Leonard and
+        R.A. Moyer and T.H. Osborne and M. Umansky and W.P. West
+        and X.Q. Xu},
+title     = {{{Stability and dynamics of the edge pedestal in the low
+        collisionality regime: physics mechanisms for steady-state
+        ELM-free operation}}},
+journal   = NF,
+volume    = 47,
+pages     = 961,
+year      = 2007}
+
+@Article{snyder:2009,
+author    = {P.B. Snyder and R.J. Groebner and A.W. Leonard and
+        T.H. Osborne and H.R. Wilson},
+title     = {Development and validation of a predictive model for the pedestal height},
+journal   = POP,
+volume    = 16,
+pages     = 056118,
+year      = 2009}
+
+@Article{snyder:2009a,
+author    = {P.B. Snyder and N. Aiba and M. Beurskens and R.J. Groebner
+        and L.D. Horton and A.E. Hubbard and J.W. Hughes and G.T.A. Huysmans
+        and Y. Kamada and A. Kirk and C. Konz and A.W. Leonard and J. Lonnroth
+        and C.F. Maggi and R. Maingi and T.H. Osborne and N. Oyama and A. Pankin
+        and S. Saarelma and G. Saibene and J.L. Terry and H. Urano and H.R. Wilson},
+title     = {{{Pedestal stability comparison and ITER pedestal prediction}}},
+journal   = NF,
+volume    = 49,
+pages     = 085035,
+year      = 2009}
+
+@Article{snyder:2011,
+author    = {P.B. Snyder and R.J. Groebner and J.W. Hughes and T.H. Osborne and
+        M. Beurskens and A.W. Leonard and H.R. Wilson and  X.Q. Xu},
+title     = {A first-principles predictive model of the pedestal height and width: development,
+        testing and ITER optimization with the EPED model},
+journal   = NF,
+volume    = 51,
+pages     = 103016,
+year      = 2011}
+
+@Article{snyder:2011b,
+author    = {P.B. Snyder},
+title     = {Invited talk {{CI2.00005}}: {{The EPED pedestal model:  Gyrokinetic
+        extensions, experimental tests, and application to ELM-suppressed regimes}}},
+journal   = BAPS,
+volume    = 56,
+year      = 2011}
+
+@Article{snyder:2012,
+author    = {P.B. Snyder and T.H. Osborne and K.H. Burrell and R.J. Groebner and A.W. Leonard  and
+        R. Nazikian and D.M. Orlov and O. Schmitz and M.R. Wade and H.R. Wilson},
+title     = {The EPED pedestal model and edge localized mode-suppressed regimes: 
+        Studies of quiescent H-mode and development of a model for edge localized mode
+        suppression via resonant magnetic perturbations},
+journal   = POP,
+volume    = 19,
+pages     = 056115,
+year      = 2012}
 
 @TechReport{staebler:2005,
 author = {G.M. Staebler and J.E. Kinsey and R.E. Waltz},
@@ -2974,6 +4156,15 @@ volume   = 28,
 pages    = 2800,
 year     = 1985}
 
+@Article{stotler:2000,
+  author        = {D.P. Stotler and C.F~F. Karney and M.E. Rensink and T.D. Rognlien},
+  title         = {Coupling of {Parallelized DEGAS 2 and UEDGE Code}},
+  journal       = {Contrib. Plasma Phys.},
+  year          = 2000,
+  volume        = 40,
+  pages         = 221,
+}
+
 @Article{stringer:1995,
 author    = {T.E. Stringer},
 title     = {Non-ambipolar neoclassical transport},
@@ -2992,6 +4183,13 @@ journal   = PRL,
 volume    = 102,
 pages     = 115002,
 year      = 2009}
+
+@Article{sugama:1996,
+author = {H. Sugama {\it et al.}},
+journal = POP,
+volume =  3,
+pages = 2379,
+year = 1996}
 
 @Article{sugama:1997,
 author    = {H. Sugama and W. Horton},
@@ -3018,6 +4216,49 @@ journal   = POP,
 volume    = 6,
 pages     = 3527,
 year      = 1999}
+
+@Article{sugama:2009,
+author    = {H. Sugama and T.-H. Watanabe and M. Nunami},
+title     = {Linearized model collision operators for multiple ion species
+plasmas and gyrokinetic entropy balance equations},
+journal   = POP,
+volume    = 16,
+pages     = 112503,
+year      = 2009}
+
+@Article{sugama:2011,
+author    = {H. Sugama and T.-H. Watanabe and M. Nunami and S. Nishimura},
+title     = {Momentum balance and radial electric fields in
+axisymmetric and nonaxisymmetric toroidal plasmas},
+journal   = PPCF,
+volume    = 53,
+pages     = 024004,
+year      = 2011}
+
+@Article{suttrop:2003,
+author    = {{W. Suttrop, {\it et al.}}},
+title     = {},
+journal   = PPCF,
+volume    = 45,
+pages     = 1399,
+year      = 2003}
+
+@Article{suttrop:2005,
+author    = {{W. Suttrop, {\it et al.}}},
+title     = {},
+journal   = PPCF,
+volume    = 45,
+pages     = 721,
+year      = 2005}
+
+@Article{suttrop:2011,
+author    = {{W. Suttrop, {\it et al.}}},
+title     = {First Observation of Edge Localized Modes Mitigation with Resonant and Nonresonant
+Magnetic Perturbations in {ASDEX Upgrade}},
+journal   = PRL,
+volume    = 105,
+pages     = 225004,
+year      = 2011}
 
 @Article{sydora:1996,
 author    = {R.D. Sydora and V.K. Decyk and J.M. Dawson},
@@ -3099,6 +4340,36 @@ volume    = 6,
 pages     = 1113,
 year      = 1999}
 
+%============================== U ==============================
+
+@Article{umansky:2005,
+author    = {M.V. Umansky and M.S. Day and B. Dudson and T.D. Rognlien},
+title     = {On numerical solution of strongly anisotropic diffusion
+            equation on misaligned grids},
+journal   = {Numerical Heat Transfer},
+volume    = 47,
+pages     = 533,
+year      = 2005}
+
+@Article{umansky:2009,
+author = {M.V. Umansky and X.Q. Xu and B. Dudson and L.L. LoDestro
+          and J.R. Myra},
+title   = {Status and verification of the edge plasma turbulence code {{BOUT}}},
+journal = CPC,
+volume  = 180,
+pages   = 887,
+year    = 2009}
+
+@Article{umansky:2011,
+author = {M.V. Umansky and P. Popovich and T.A Carter and
+          B. Friedman and W.M. Nevins},
+title   = {Numerical simulation and analysis of plasma turbulence
+           the {{Large Plasma Device}}},
+journal = POP,
+volume  = 18,
+pages   = 055709,
+year    = 2011}
+
 %============================== V ==============================
 @Article{valovic:2004,
 author    = {M. Valovic and R. Budny and L. Garzotti and X. Garbet and
@@ -3144,6 +4415,15 @@ volume    = 46,
 pages     = {B51},
 year      = 2004}
 
+@Article{vincena:2001,
+author = {S. Vincena and W. Gekelman and J. Maggs},
+title = {Shear {{Alfv\'en}} waves in a magnetic beach and the roles of
+        electron and ion damping},
+journal = POP,
+volume = 8,
+pages = 3884,
+year = 2001}
+
 @Article{vlad:2005,
 author    = {M. Vlad and F. Spineanu and S-I. Itoh and M. Yagi and 
              K. Itoh},
@@ -3166,6 +4446,24 @@ journal   = POP,
 volume    = 2,
 pages     = 2357,
 year      = 1995}
+
+@Article{waelbroeck:2003,
+author    = {F. L. Waelbroeck},
+title     = {Shielding of resonant magnetic perturbations in the long mean-free path regime},
+journal   = POP,
+volume    = 16,
+pages     = 4040,
+year      = 2003}
+
+@Article{walk:2012,
+author    = {J.R. Walk and P.B. Snyder and J.W. Hughers and J.L. Terry and
+                A.E. Hubbard and P.E. Phillips},
+title     = {Characterization of the pedestal in Alcator C-Mod ELMing H-modes and
+                comparison with the EPED model},
+journal   = NF,
+volume    = 52,
+pages     = 063011,
+year      = 2012}
 
 @Article{waltz:1980,
 author    = {R.E. Waltz and W. Pfeiffer and R.R. Dominguez},
@@ -3313,6 +4611,15 @@ volume    = 15,
 pages     = 014505,
 year      = 2008}
 
+@Article{wan:2012,
+author    = {Weigang Wan and Scott E. Parker and Yang Chen and Zheng Yan and
+        Richard J. Groebner and Philip B. Snyder},
+title     = {Global Gyrokinetic Simulation of Tokamak Edge Pedestal Instabilities},
+journal   = PRL,
+volume    = 109,
+pages     = 185004,
+year      = 2012}
+
 @Article{wang:2001,
 author    = {W.X. Wang and F.L. Hinton and S.K. Wong},
 title     = {Neoclassical Radial Electric Field and Transport 
@@ -3331,6 +4638,13 @@ volume    = 13,
 pages     = 082501,
 year      = 2006}
 
+@Article{wang:2012,
+author    = {E. Wang and X. Xu and J. Candy and R.J. Groebner and P.B. Snyder and
+        Y. Chen and S.E. Parker and W. Wan and Gaimin Lu and J.Q. Dong},
+journal   = NF,
+volume    = 52,
+pages     = 103015,
+year      = 2012}
 
 \bibitem{wang:06} W. X. Wang, G. Rewoldt, W. M. Tang, F. L. Hinton, J. Manickam,
 L. E. Zakharov, R. B. White, and S. Kaye, Phys. Plasmas {\bf 13}, 082501 (2006).
@@ -3421,9 +4735,52 @@ publisher = {Imperial College Press},
 address   = {London},
 year      = 2001}
 
+@Article{wilson:2002,
+author    = {H.R. Wilson and P.B. Snyder and G.T.A. Huysmans},
+title     = {Numerical studies of edge localized instabilities in tokamaks},
+journal   = POP,
+volume    = 9,
+pages     = 1277,
+year      = 2002}
+
+@Article{wilson:2004,
+author    = {H.R. Wilson and S.C. Cowley},
+title     = {},
+journal   = PRL,
+volume    = 92,
+pages     = 175006,
+year      = 2004}
+
+@Article{wilson:2006,
+author    = {H.R. Wilson and S.C. Cowley and A. Kirk and P.B. Snyder},
+title     = {Magneto-hydrodynamic stability of the H-mode transport
+        barrier as a model for edge localized modes: an overview},
+journal   = PPCF,
+volume    = 48,
+pages     = {A71},
+year      = 2006}
+
+@Article{winsor:1968,
+author    = {N. Winsor and J. L. Johnson and J. M. Dawson},
+title     = {},
+journal   = PF,
+volume    = 11,
+pages     = 2448,
+year      = 1968}
+
+@Article{wising:1996,
+  author        = {F. Wising and D.A. Knoll and S. Krasheninnikov and T.D. Rognlien
+  and D.J. Sigmar},
+  title         = {Simulation of the {Alcator C-Mod} Divertor with an Improved Neutral Model},
+  journal       = {Contrib. Plasma Phys.},
+  year          = 1996,
+  volume        = 36,
+  pages         = 136,
+}
+
 @Article{wong:1985,
 author    = {S.K. Wong},
-title     = {Matrix elements of the linearized Fokker–Planck operator},
+title     = {Matrix elements of the linearized Fokker-Planck operator},
 journal   = PF,
 volume    = 28,
 pages     = 1695,
@@ -3475,6 +4832,37 @@ volume    = 15,
 pages     = 122108,
 year      = 2008}
 
+@ARTICLE{xu:1998,
+author={X.Q. Xu  and R.H. Cohen },
+title={Scrape-off layer turbulence theory and simulations},
+journal=CPP,
+year={1998},
+volume={38},
+number={1-2},
+pages={158-169},
+url={http://www. scopus. com/inward/record. url?eid=2-s2. 0-0001414450&partnerID=40&md5=8b702cf8f71785af26af5892bbe6b42e},
+document_type={Article},
+source={Scopus},
+}
+
+@Article{xu:2000,
+author    = {X.Q. Xu and R.H. Cohen and T.D. Rognlien and J.R. Myra},
+title = {Low-to-high confinement transition simulations in divertor geometry},
+journal   = POP,
+volume    = 7,
+pages     = 1951,
+year      = 2000}
+
+@Article{xu:2002,
+author    = {X.Q.~Xu and R.H.~Cohen and W.M.~Nevins and G.D.~Porter and
+M.E.~Rensink and T.D. Rognlien and J.R. Myra and D.A. D'Ippolito and R.A.~Moyer
+and P.B.~Snyder and T.N.~Carlstrom},
+title = {Turbulence simulations of {X-point physics in the L-H} transition},
+journal   = NF,
+volume    = 42,
+pages     = 21,
+year      = 2002}
+
 @Article{xu:2007,
 author    = {X.Q. Xu and Z. Xiong and  M.R. Dorr and J.A. Hittinger
              and K. Bodi and J. Candy and B.I. Cohen and R.H. Cohen
@@ -3486,7 +4874,50 @@ volume    = 47,
 pages     = 809,
 year      = 2007}
 
+@Article{xu:2008,
+author    = {X.Q. Xu and M.V. Umansky and B. Dudson
+        and P.B. Snyder},
+title = {Boundary plasma turbulence simulations for tokamaks},
+journal   = {Comm. in Comp. Phys.} ,
+volume    = 4,
+pages     = 949,
+year      = 2008}
+
+@Article{xu:2010,
+author    = {X. Q. Xu and B. Dudson and  P. B. Snyder and  M. V. Umansky and H. Wilson},
+title = {Nonlinear Simulations of Peeling-Ballooning Modes with Anomalous Electron Viscosity and their Role in Edge Localized Mode Crashes},
+journal   = PRL,
+volume    = 105,
+pages     = 175005,
+year      = 2010}
+
+@Article{xu:2011,
+author    = {X.Q. Xu and B.D. Dudson and P.B. Snyder and M.V. Umansky and H.R. Wilson and T. Casper},
+title = {{{Nonlinear ELM simulations based on a nonideal peelingऱballooning model using the BOUT++ code}}},
+journal   = NF,
+volume    = 51,
+pages     = 103040,
+year      = 2011}
+
 %============================== Y ==============================
+@Article{yan:2011,
+author    = {Z. Yan and G.R. McKee and R.J. Groebner and P.B. Snyder and
+        T.H. Osborne and K.H. Burrell},
+title     = {High-Frequency Coherent Edge Fluctuations in a High-Pedestal-Pressure Quiescent {{H-mode}} Plasma},
+journal   = PRL,
+volume    = 107,
+pages     = 055004,
+year      = 2011}
+
+@Article{yan:2011b,
+author    = {Z. Yan and G.R. McKee and R.J. Groebner and P.B. Snyder and
+        T.H. Osborne and M.N. Beurskens and K.H. Burrell},
+title     = {{{Pedestal density fluctuation dynamics during the inter-ELM cycle in DIII-D}}},
+journal   = POP,
+volume    = 18,
+pages     = 056117,
+year      = 2011}
+
 @Article{yancov:1994,
 author    = {V.V. Yancov},
 title     = {},
@@ -3521,6 +4952,14 @@ publisher = {CRC Press},
 address   = {Boca Raton},
 year      = 1996}
 
+@Article{zhu:2007,
+author    = {P. Zhu and C.C. Hegna and C.R. Sovenic and et al.},
+title     = {},
+journal   = POP,
+volume    = 14,
+pages     = 055903,
+year      = 2007}
+
 @Article{zweben:1998,
 author    = {S.J. Zweben and S.S. Medley and R.B. White},
 title     = {Summary of alpha particle transport},
@@ -3551,9 +4990,19 @@ pages   = 91,
 year    = 2000}
 
 %============= Private Communication ========================
+@Unpublished{pc.dorf:2011,
+author = {M. Dorf},
+note = "Private communication",
+year = 2011}
 
-@Article{pc.mikkelsen:2007,
-author  = {D. Mikkelsen},
-journal = {Private communication},
-year    = 2007}
+@Unpublished{pc.mikkelsen:2007,
+author = {D. Mikkelsen},
+note = {Private communication},
+year = 2007}
+
+@Unpublished{pc.polevoi:2006,
+author = {A. Polevoi},
+note = "Private communication",
+year = 2006}
+
 
