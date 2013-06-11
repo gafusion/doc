@@ -548,12 +548,10 @@ calculation of momentum transport coefficients.  These are
 \Psi_a(\R) \doteq &~\gav_{0a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
  + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \, \dbp(\R) \; , \\
 \mathcal{X}_a(\R) \doteq &~\gav_{2a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
- + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{3a} \dbp(\R) \; , 
+ + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{3a} \dbp(\R) \; . 
 \end{align}
 %
-where for simplicity we neglect the effect of magnetic compression
-on $\mathcal{X}$ (which as we will show is connected with perpendicular 
-momentum transport).  Although we will construct explicit discrete 
+Although we will construct explicit discrete 
 approximations to the operators $\gav_{0a}$, $\gav_{1a}$ and $\gav_{2a}$
 in the next chapter, it can be shown that they have the following 
 spectral representations:
@@ -571,27 +569,50 @@ spectral representations:
 where $\gamma_a \doteq k_\perp \rho_a$, and $k_x$ is defined explicitly in 
 Sec.~\ref{sec.opdisc}.  The expressions above are adapted directly from Sugama \cite{sugama:1998}.  
 However, to make use of Sugama's results, we use the following identities, 
-where $\boldsymbol{\phi} = \ephi$:
+where $\boldsymbol{\varphi} = \ephi$:
 %
 \begin{align}
 \kpv\kpv : (R\hat{\boldsymbol{\varphi}}) (\nabla\psi) 
  = &~ \left[ \kpv \cdot  (R\hat{\boldsymbol{\varphi}}) \right] 
       \left[ \kpv \cdot \nabla\psi \right] \; , \\
 \kpv \cdot \nabla\psi = &~ -i R B_p \left( |\nabla r| \frac{\partial}{\partial r} 
-- \frac{q}{r} \mq \mk \frac{\partial}{\partial\alpha} \right) \; , \\
+- \frac{q}{r} \mq \mk \frac{\partial}{\partial\alpha} \right) = R B_p k_x \; , \\
 \kpv \cdot  (R\hat{\boldsymbol{\varphi}}) 
  = &~ -i \frac{\partial}{\partial\alpha} \; ,
 \end{align}
 % 
-where Eq.~(\ref{eq.nabla}) has been used to expand $\nabla_\perp$.  Note also that 
-$\kpv \cdot \nabla\psi = R B_p k_x$.
+where Eq.~(\ref{eq.nabla}) has been used to expand $\nabla_\perp$.
 
-\subsection{Maxwell equations}
+\subsection{Maxwell equations: $H_a$-form}
 
-In terms of the function $h_a$ the field equations can be written
-these can be written as:\\
+The Maxwell equations are simplest when written in terms of $H_a$:\\
 \\
+{\bf Poisson equation}
 %
+\begin{equation}
+- \frac{1}{4\pi} \nabla_\perp^2 \dphi = \sum_a e_a 
+ \left[ \frac{-n_a e_a}{T_a} \, \dphi + \int \dv \, \gav_{0a} H_a \right] 
+\end{equation}
+%
+{\bf Parallel Amp\`ere's Law}
+%
+\begin{equation}
+- \frac{1}{4\pi} \nabla_\perp^2 \dap = \sum_a e_a \int \dv \, \frac{\vp}{c} 
+ \, \gav_{0a} H_a 
+\end{equation}
+%
+{\bf Perpendicular Amp\`ere's Law}
+%
+\begin{equation}
+- \frac{1}{4\pi} \dbp = \sum_a e_a \int \dv \, \frac{v_\perp^2}{\Omega_{ca} c} 
+ \, \gav_{1a} H_a  
+\end{equation}
+
+\subsection{Maxwell equations: $h_a$-form}
+
+For time-integration purposes, we will need to write the field equations 
+in terms of $h_a$:\\
+\\
 {\bf Poisson equation}
 %
 \begin{align}
