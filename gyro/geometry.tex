@@ -780,7 +780,7 @@ B_p^2 = &~\frac{1}{R^2} \left[
 \left( \frac{\partial\psi}{\partial\varrho} \right)^2+
 \left( \frac{1}{h_\arc} \frac{\partial\psi}{\partial \arc} 
   \right)^2 \right] \; , \\
-B_t^2 = &~\left( \frac{f(\psi)}{R} \right)^2 \; .
+B_t^2 = &~\left( \frac{I(\psi)}{R} \right)^2 \; .
 \end{align}
 %
 Expanding the poloidal flux gives 
@@ -809,7 +809,7 @@ Adding these contributions together gives, finally:
 %
 \begin{equation}
 \frac{\partial}{\partial\varrho} B^2 \sim 
-\left( -2\,\frac{f^2}{R^3} \cos\ang - 2\,\frac{B_{p}^2}{r_c} -
+\left( -2\,\frac{I^2}{R^3} \cos\ang - 2\,\frac{B_{p}^2}{r_c} -
 8\pi R B_{p} p^\prime \right)_{\psi = \psi_s} \; .
 \label{eq.brho}
 \end{equation}
@@ -1041,11 +1041,12 @@ r_c(\theta) = \left(\frac{\partial\arc}{\partial\theta}\right)^3 \left(
 \end{equation}
 %
 \begin{equation}
-\frac{f(r)}{\bu} = 2\pi \, r \left( \int_0^L \darce \right)^{-1} \; , 
+\frac{I(r)}{\bu} = 2\pi \, r \left( \int_0^L \darce \right)^{-1} \; , 
+\label{eq.fobu}
 \end{equation}
 %
 \begin{equation}
-\frac{B_t(r,\theta)}{\bu(r)} = \frac{f}{R\bu}\; ,
+\frac{B_t(r,\theta)}{\bu(r)} = \frac{I}{R\bu}\; ,
 \end{equation}
 %
 \begin{equation}
@@ -1444,3 +1445,40 @@ corresponding $s$-$\alpha$ result.  For example, Kinsey
 flux increases by more than a factor of 1.5 when using a Miller 
 circle instead of $s$-$\alpha$ geometry. 
 
+\clearpage
+\section*{Appendix B: Translation to GS2 Geometry Variables}
+
+The normalizing magnetic field in GS2, $B_{T0}$, is defined as
+%
+\begin{equation}
+I(\psi) = R B_t \doteq R_{\rm GEO} B_{T0} \; ,
+\end{equation}
+%
+where $R_{\rm GEO}$ is a reference radius (input).  For simplicity, let's assume that 
+$R_{\rm GEO} = R_0$ (this appears to be a typical choice), in which case we can then relate 
+$B_{T0}$ to $\bu$ according to
+%
+\begin{equation}
+\frac{\bu}{B_{T0}} = R_0 \left( \frac{I}{\bu} \right)^{-1} \; ,
+\end{equation}
+%
+where $I/\bu$ is given by Eq.~(\ref{eq.fobu}).  Explicitly, we can write this as
+%
+\begin{align}
+\frac{\bu}{B_{T0}} = &~\frac{R_0}{2\pi r} \int_0^{2\pi} \frac{d\theta}{R} 
+\left( 
+ \frac{\partial R}{\partial r}\frac{\partial Z}{\partial\theta} - 
+ \frac{\partial R}{\partial\theta}\frac{\partial Z}{\partial r}
+\right) \; , \label{eq.bex} \\
+\simeq &~ \kappa\left( 1+\frac{s_\kappa}{2}-\frac{1}{2}\frac{dR_0}{dr} \frac{r}{R_0} \right) \; .
+\label{eq.bap}
+\end{align}
+%
+Whereas Eq.~(\ref{eq.bex}) is exact, Eq.~(\ref{eq.bap}) is approximate and is given 
+here only as an intuitive aid.  In practice the required integral is computed to high 
+accuracy by GYRO and the result available in the normalized GEO interface variable 
+{\tt GEO\_f}.  Specifically,
+%
+\begin{equation}
+\frac{\bu}{B_{T0}} = \frac{R_0}{a} \frac{1}{\tt GEO\_f} \; .
+\end{equation}
