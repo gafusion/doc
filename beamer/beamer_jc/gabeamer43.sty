@@ -1,8 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{gabeamer}
+\ProvidesPackage{gabeamer43}
 
 % OPTIONS: sans, classic, serif
-
 
 % Define variables to implement options
 \newif\if@optionsans
@@ -16,13 +15,13 @@
 
 \if@optionsans
    \newcommand{\tinyspace}{-0.7mm}
-   \newcommand{\tbarheight}{1.7cm}
+   \newcommand{\tbarheight}{1.28cm}
 \fi
 
 \if@optionclassic
    \newcommand{\tinyspace}{-2mm}
    \usefonttheme{serif}
-   \newcommand{\tbarheight}{1.7cm}
+   \newcommand{\tbarheight}{1.2cm}
 \fi
 
 \if@optionserif
@@ -30,7 +29,7 @@
    \usefonttheme{serif}
    \RequirePackage{pxfonts}
    \RequirePackage{eulervm}
-   \newcommand{\tbarheight}{1.6cm}
+   \newcommand{\tbarheight}{1.2cm}
 \fi
 
 \newtoks\footlabel
@@ -66,21 +65,21 @@
 \newcommand{\setgabody}{%
   \usebackgroundtemplate{\includegraphics[width=\paperwidth]{../figures/GAbg_16x9.pdf}} 
   % Control height of slide title 
-  \setbeamertemplate{frametitle}{\parbox[c][1.18cm]{\linewidth}{\insertframetitle}}
+  \setbeamertemplate{frametitle}{\parbox[c][0.95cm]{\linewidth}{\insertframetitle}}
   % Control inter-line spacing and font size of slide title (\Large or \large) 
-  \setbeamerfont{frametitle}{size=\linespread{0.85}\Large\bf}
+  \setbeamerfont{frametitle}{size=\linespread{0.85}\large\bf}
 }
 %==================================================================================
   
 %==================================================================================
 % Settings for title page
 \newcommand{\gamaketitle}{%
-  \setbeamerfont{frametitle}{size=\linespread{0.9}\LARGE\bf}
+  \setbeamerfont{frametitle}{size=\linespread{0.9}\Large\bf}
   \usebackgroundtemplate{\includegraphics[width=\paperwidth]{../figures/GAbg_tall_16x9.pdf}} 
   \begin{frame}
     \frametitle{\parbox[c][\tbarheight]{\linewidth}{\inserttitle}}
     \begin{columns}
-      \begin{column}{0.6\textwidth}
+      \begin{column}{0.52\textwidth}
         {\small by}\\
         \insertauthor\\
         \vskip 1mm
@@ -88,9 +87,9 @@
                       \vskip 5mm
                      \insertdate
       \end{column}
-      \begin{column}{0.4\textwidth}
+      \begin{column}{0.48\textwidth}
         \vspace{\tinyspace}
-        \includegraphics[width=2.4in]{../figures/d3d-gyro.jpg}
+        \includegraphics[width=2.35in]{../figures/d3d-gyro.jpg}
       \end{column}
     \end{columns}
   \end{frame}

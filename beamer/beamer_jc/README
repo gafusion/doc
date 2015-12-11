@@ -1,4 +1,4 @@
-- To build 16x9 pdf file:
+- To build the example, type
 
 $ make
 
@@ -12,11 +12,18 @@ $ make clean
 
 ---------------------------------------------------------------------------------------------
 
-NOTE:
- - This is a work in progress.  
- - The idea is to make a .sty file suitable for GA theory slides.
+NOTES;
  - To define a viewer, in your shell setup define  
-    VIEWER=evince 
+       VIEWER=evince 
     or VIEWER="open -a Preview"
     or VIEWER=xpf
 
+- By default you get 16x9 slides:
+   \documentclass[11pt,xcolor={dvipsnames},aspectratio=169]{beamer}
+   \usepackage[serif]{gabeamer}
+
+- To get 4x3 slides:  
+   \documentclass[11pt,xcolor={dvipsnames},aspectratio=43]{beamer}
+   \usepackage[serif]{gabeamer43}
+
+- Options to gabeamer.sty are "sans", "serif", "classic".
