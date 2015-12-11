@@ -1,0 +1,12 @@
+This directory contains:
+
+- theory.bib: the GA theory global bibtex database file 
+- filter.rsc: an rsc file used to format entries
+
+NOTES:
+
+The unix tool bibtools can be used to look for specific entries, for example:
+
+$ bibtool -x miller theory.bib
+
+

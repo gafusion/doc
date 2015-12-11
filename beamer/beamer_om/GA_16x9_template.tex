@@ -1,0 +1,103 @@
+\documentclass[10pt,mathserif,xcolor={table,dvipsnames},aspectratio=169]{beamer}
+\pdfpageattr {/Group << /S /Transparency /I true /CS /DeviceRGB>>}
+
+\usepackage{soul}
+\usepackage{xcolor}
+\usepackage{marvosym}
+\usepackage{listings}
+
+\usecolortheme[named=Blue]{structure}
+\setbeamertemplate{navigation symbols}{}
+\usepackage{avant}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamerfont{frametitle}{series=\bfseries\boldmath,size=\large}
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$-$}}
+
+\setbeamertemplate{frametitle}{
+\begin{minipage}[c][1.2cm][c]{\textwidth}
+\insertframetitle
+\end{minipage}
+\insertframesubtitle}
+
+\setbeamersize{text margin left = 1em}
+\setbeamersize{text margin right = 1em}
+
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{ifthen}
+\newcommand{\hide}[1]{\ifthenelse{\boolean{false}}{#1}{}}
+
+\usepackage[english]{babel}
+
+\begin{document}
+
+% =====================================
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../figures/GAbg_tall_16x9.pdf}}
+
+\setbeamertemplate{footline}[text line]{
+  \parbox{\linewidth}{\vspace*{-25pt}
+        \includegraphics[width=4cm]{../figures/General-Atomics.pdf}
+        \hfill }}
+
+\begin{frame}
+  \frametitle{\vskip 0.5cm \huge Presentation title goes here}
+  \vskip 0.2cm
+  \begin{columns}
+    \begin{column}{0.43\textwidth}
+        \begin{minipage}[t][5.2cm][t]{\textwidth}
+          {\small by}\\
+          \textbf{O.~Meneghini}$^1$, P.B.~Snyder$^1$, J.~Candy$^1$,\\J.M.~Park$^2$, S.P.~Smith$^1$, B.~Grierson$^3$,\\D.L.~Green$^2$, C.~Holland$^4$, W.~Elwasif$^2$
+          \vskip 0.5cm
+          \begin{minipage}{\textwidth}
+          \scriptsize $^1$General Atomics, San Diego, CA\\
+                      $^2$Oak Ridge National Laboratory, TN\\
+                      $^3$Princeton Plasma Physics Laboratory, NJ\\
+                      $^4$University California San Diego, CA
+          \end{minipage}
+          \vskip 0.5cm
+         {\small Presented at the}\\
+         {\bf 2015 APS DPP Meeting\\
+           Savannah, GA\\
+           16-20 November 2015}
+        \end{minipage}
+    \end{column}
+    \begin{column}{0.5\textwidth}
+        \begin{minipage}[t][5.2cm][t]{\textwidth}
+            \includegraphics[width=\textwidth]{../figures/General-Atomics.pdf}\\
+            \includegraphics[width=\textwidth]{../figures/General-Atomics.pdf}\\
+            \includegraphics[width=\textwidth]{../figures/General-Atomics.pdf}\\
+            \includegraphics[width=\textwidth]{../figures/General-Atomics.pdf}\\
+            \includegraphics[width=\textwidth]{../figures/General-Atomics.pdf}
+        \end{minipage}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+% =====================================
+\addtocounter{framenumber}{-1}
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{../figures/GAbg_16x9.pdf}}
+
+\setbeamertemplate{center footline}{\insertdate \vskip3pt}
+\setbeamertemplate{center footline}[numbered]
+
+\setbeamertemplate{footline}[text line]{
+  \parbox{\linewidth}{\vspace*{-15pt}
+        \includegraphics[width=3.0cm]{../figures/General-Atomics.pdf}
+        \hfill \textcolor{Black}{\scalebox{0.85}{\bf Meneghini/APS/Oct~2015}}
+        \hfill \hspace{2cm} \insertpagenumber}}
+
+% =====================================
+\begin{frame}[t]
+\frametitle{Slide title goes here}
+text
+\begin{itemize}
+    \item{hello1}
+    \item{hello2}
+    \item{hello3}
+\end{itemize}
+\end{frame}
+
+
+\end{document}

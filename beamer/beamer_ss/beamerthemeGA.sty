@@ -1,0 +1,344 @@
+%% Developed by Sterling Smith as a style file to be used by GA employees
+%% Requires the file GA_logo_white.png, DIIID_Logo.png
+
+%%Define GA colors:
+
+%\definecolor{GAfootblue}{cmyk}{.94,.63,.03,.05}
+\definecolor{GAfootblue}{Hsb}{206,.9,.58}
+%\definecolor{GAfootblue}{RGB}{255,255,255}
+%\definecolor{GAlogoblue}{cmyk}{.96,.73,.05,.13}
+\definecolor{GAlogoblue}{Hsb}{210,.9,.58}
+%\definecolor{GAtitledark}{cmyk}{.88,.73,.35,.66}
+\definecolor{GAtitledark}{Hsb}{210,.99,.38}
+\definecolor{GAframetitledark}{Hsb}{210,.99,.38}
+\definecolor{GAblue}{RGB}{0,33,123}
+\setbeamercolor{GAfootblue}{fg=GAblue,bg=white}
+\setbeamercolor{GAlogoBG}{bg=GAblue,fg=white}
+\setbeamercolor{section in toc}{bg=white,fg=black}
+\setbeamercolor{frametitle}{fg=white,bg=GAblue}
+\setbeamercolor{title}{fg=GAblue,bg=white}
+\setbeamercolor{titlepagetitle}{fg=white,bg=white}
+\setbeamercolor{itemize items}{fg=GAtitledark}
+\pgfdeclarehorizontalshading{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(GAframetitledark);
+  color(\paperwidth)=(GAlogoblue)}
+\pgfdeclarehorizontalshading{beamer@titleshade}{\paperheight}{%
+  color(0pt)=(GAtitledark);
+  color(\paperwidth)=(GAlogoblue)}
+\pgfdeclarehorizontalshading{beamer@titlebackshade}{\paperheight}{%
+  color(0pt)=(white);
+  color(\paperwidth)=(white)}
+	
+%% Set GA fonts
+
+\usepackage{avant}
+\setbeamerfont{frametitle}{series=\bfseries\boldmath,size=\Large}
+\setbeamerfont{author}{size=\Large,series=\bfseries\boldmath}
+\setbeamerfont{coauthor}{size=\normalsize,series=\bfseries\boldmath}
+\setbeamerfont{institute}{size=\normalsize}
+\setbeamerfont{subtitle}{size=\Large,series=\bfseries\boldmath}
+\setbeamerfont{title}{series=\bfseries\boldmath,size=\LARGE}
+\setbeamerfont{date}{series=\bfseries,size=\normalsize}
+%\setbeamerfont{itemize items}{size=\normalsize}
+%\setbeamerfont{itemize/enumerate body}{series=\bfseries\boldmath,size=\large}
+\setbeamerfont{itemize/enumerate body}{series=\bfseries\boldmath,size=\small}
+\setbeamerfont{itemize/enumerate subbody}{series=\mdseries\unboldmath,size=\small}
+\setbeamerfont{itemize/enumerate subsubbody}{series=\mdseries,size=\footnotesize}
+%\setbeamerfont{author in head/foot}{series=\mdseries,size=\footnotesize}
+%\setbeamerfont{description item}{series=\mdseries\unboldmath,size=\small}
+\setbeamerfont{GAtabular}{size=\scriptsize,series=\mdseries}
+
+%% Save the original textheight (th)
+
+\newlength{\origth}
+\newlength{\beamer@tempdimdp}
+\newlength{\newht}
+\setlength{\origth}{\textheight}
+\setlength{\newht}{10pt}
+
+
+\usepackage[absolute,overlay]{textpos}
+%% Set GA beamertemplates
+
+%\tpblock takes 4 arguments the first is an optional argument:
+%1.The spacing on the left (default=plus1fill=>centered)
+%2.The text to be inserted 
+%3.The shading.
+%4.Any extra space above.
+%5.The beamercolor of the text.
+\newcommand{\tpblock}[4][plus1fill]{%
+	\nointerlineskip%
+  \vskip-2pt%
+	\parskip=0pt%
+	\hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%	
+		\hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}{\paperwidth}%
+        \vbox{}%
+        \leftskip0.3cm #1%
+        \rightskip0.3cm plus1fill\leavevmode%
+        \usebeamercolor[fg]{title}#2%
+        \strut\par%
+        \nointerlineskip%
+        \vbox{}%
+        \end{minipage}\begin{minipage}{0pt}%
+        \vbox{}%
+        \leavevmode\rule{0pt}{#4}
+        \\%
+        \strut\par%
+        \nointerlineskip
+        \vbox{}%
+        \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by \dp\beamer@tempbox%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{title right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{#3}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \beamer@tempdimdp=\dp\beamer@tempbox%
+      \raise\beamer@tempdimdp\box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+	}%
+	\textheight=\origth%
+	\advance\textheight by -\beamer@tempdim%
+	\advance\newht by -\beamer@tempdim%
+}
+%% These spaces can be adjusted to make the titles/title page come out different,
+%% although I don't recommend changing the first two, as they fairly well match 
+%% powerpoint spacing.
+\newlength{\GAframetitlespace}
+\setlength{\GAframetitlespace}{3ex}
+\newlength{\GAtitlespace}
+\setlength{\GAtitlespace}{3ex}
+\newlength{\GAtitletopskip}
+\setlength{\GAtitletopskip}{-6pt}
+\newlength{\GAsubtitlespace}
+\setlength{\GAsubtitlespace}{10ex}
+\newlength{\GAauthorspace}
+\setlength{\GAauthorspace}{10ex}
+\newlength{\GAcoauthorspace}
+\setlength{\GAcoauthorspace}{-6pt}
+\newlength{\GAdatespace}
+\setlength{\GAdatespace}{5ex}
+\setlength{\TPHorizModule}{1in} % Horizontale Einheit
+\setlength{\TPVertModule}{1in} % Vertikale Einheit
+\newcommand{\coauthor}[1]{\setbeamertemplate{title page coauthor value}{#1}}
+\newcommand{\insertcoauthor}{\usebeamertemplate{title page coauthor value}}
+\setbeamertemplate{frametitle}
+{\tpblock[]{\usebeamercolor[fg]{titlepagetitle}\insertframetitle}{beamer@titleshade}{\GAframetitlespace}}
+\setbeamertemplate{title page title}
+{\tpblock[]{\usebeamercolor[fg]{titlepagetitle}\usebeamerfont{title}\inserttitle}{beamer@titleshade}{\GAframetitlespace}}
+\setbeamertemplate{title page subtitle}
+{\tpblock[]{\usebeamerfont{subtitle}\insertsubtitle}{beamer@titlebackshade}{\GAsubtitlespace}}
+\setbeamertemplate{title page author}{%
+	\tpblock[]{\usebeamerfont{author}\insertauthor}{beamer@titlebackshade}{\GAauthorspace}}
+\setbeamertemplate{title page coauthor}{%
+	\tpblock[]{\usebeamerfont{coauthor}\insertcoauthor}{beamer@titlebackshade}{\GAcoauthorspace}}
+\setbeamertemplate{title page institute}{%
+	\tpblock[]{\usebeamerfont{institute}\insertinstitute}{beamer@titlebackshade}{2\GAcoauthorspace}}
+\setbeamertemplate{title page date}{%
+	\tpblock[]{\usebeamerfont{date}\insertdate}{beamer@titlebackshade}{\GAdatespace}}
+\setbeamertemplate{title page}
+{%
+	\vskip\GAtitletopskip%
+	\usebeamertemplate{title page title}%
+	\usebeamertemplate{title page author}%
+	\usebeamertemplate{title page coauthor}%
+	\usebeamertemplate{title page institute}%
+	\usebeamertemplate{title page date}%
+%	\begin{textblock}{3}(2,1) %
+%		\includegraphics[width=\textwidth]{candy-supertorus-2.jpg}%
+%    	\end{textblock}%
+%	\tpblock{}{beamer@titlebackshade}{10ex}%
+	\vfil%
+}
+\setbeamertemplate{part page title}
+{\tpblock{\usebeamerfont{title}\insertpart}{beamer@titlebackshade}{10ex}}
+\setbeamertemplate{part page part name}
+{\tpblock{\usebeamerfont{title}Part \insertpartnumber}{beamer@titlebackshade}{3ex}}
+\setbeamertemplate{part page}
+{%
+	\vskip-4pt
+	\tpblock{}{beamer@titleshade}{3ex}%
+	\usebeamertemplate{part page part name}%
+	\usebeamertemplate{part page title}%
+	\tpblock{}{beamer@titlebackshade}{20ex}%
+}
+\newlength{\GAlogowidth}
+\setlength{\GAlogowidth}{.2\paperwidth}
+\newcommand{\GAlogo}{%
+	\raisebox{-0in}{\includegraphics[width=\GAlogowidth]{GA_logo_white}}}
+\newlength{\GAlogoheight}
+\settoheight{\GAlogoheight}{\GAlogo}
+\newlength{\GAlogodepth}
+\settodepth{\GAlogodepth}{\GAlogo}
+\newlength{\GAlogoskip}
+\setlength{\GAlogoskip}{.3cm}
+\newlength{\GAauthorwidth}
+\setlength{\GAauthorwidth}{-2\GAlogowidth}
+\addtolength{\GAauthorwidth}{-\GAlogoskip}
+\addtolength{\GAauthorwidth}{\paperwidth}
+\newlength{\GAfootdp}
+\setlength{\GAfootdp}{0.8ex}
+\newlength{\GAfootht}
+\setlength{\GAfootht}{3.1ex}
+\newlength{\Diiiht}
+\setlength{\Diiiht}{\GAfootdp}
+\addtolength{\Diiiht}{\GAfootht}
+\newcommand{\DiiiDlogo}{%
+	\raisebox{-\GAfootdp}{\includegraphics[height=\Diiiht]{diiid_logo_new}}}
+\defbeamertemplate{footline number}{on}{%
+	\insertpagenumber}%/\insertpresentationendpage
+\defbeamertemplate{footline number}{off}{}
+\setbeamertemplate{center footline}[numbered]
+\defbeamertemplate{footline}{GA}
+{%
+  \leavevmode%
+  \hbox{%
+		\begin{beamercolorbox}[wd=\paperwidth,ht=\GAfootht,dp=2\GAfootdp,leftskip=1em]{GAfootblue}%
+			\usebeamerfont{author in head/foot}%
+			\begin{beamercolorbox}[wd=1.5em]{GAfootblue}
+				\usebeamertemplate{footline number}
+			\end{beamercolorbox}
+%		
+			\begin{beamercolorbox}[wd=.25\GAlogowidth,dp=2\GAfootdp]{GAfootblue}%
+				\DiiiDlogo%
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=\GAauthorwidth,leftskip=.6cm plus1fill,rightskip=0cm plus1fill]{GAfootblue}%
+				\usebeamertemplate{center footline}%
+			\end{beamercolorbox}%
+			\begin{beamercolorbox}[wd=\GAlogowidth,ht=.8\GAlogoheight,dp=\GAlogodepth,rightskip=\GAlogoskip]{GAlogoBG}%
+				\GAlogo%
+			\end{beamercolorbox}%
+  	\end{beamercolorbox}%
+	}%
+}
+\setbeamertemplate{footline}[GA]
+\defbeamertemplate{footline}{off}{}
+\setbeamertemplate{sidebar right}
+{%
+	\vfill %
+  %\llap{\usebeamertemplate***{navigation symbols}\hskip0.1cm}%
+  \vskip0pt%
+}
+\setbeamertemplate{itemize item}{\large\raise1pt\hbox{\textbullet}}
+\setbeamertemplate{itemize subitem}{\raise2pt\hbox{--}}
+\setbeamertemplate{itemize subsubitem}{\footnotesize\raise1.5pt\hbox{\textbullet}}
+\defbeamertemplate{block begin}{itemize}{\begin{itemize}\item \insertblocktitle}
+\defbeamertemplate{block end}{itemize}{\end{itemize}}
+\defbeamertemplateparent{blocks}[itemize]{block end,block begin}{}
+\setbeamertemplate{blocks}[itemize]
+\setbeamertemplate{GAtabular begin}{\begin{trivlist} \item \begin{tabular}}
+\setbeamertemplate{GAtabular end}{\end{tabular}\end{trivlist}}
+\newenvironment{GAtabular}[1]{%
+	\usebeamerfont{GAtabular}\usebeamertemplate{GAtabular begin}{#1}}{%
+	\usebeamertemplate{GAtabular end}}
+
+%%Attempt to get upright math symbols
+\AtBeginDocument{
+    \DeclareSymbolFont{pureletters}{\encodingdefault}{\mathfamilydefault}{m}{n}
+    \SetMathAlphabet{\mathrm}{normal}{\encodingdefault}{\rmdefault}{m}{n}
+    \DeclareMathAlphabet{\mathbf}{\encodingdefault}{\mathfamilydefault}{bx}{n}
+    \DeclareMathAlphabet{\mathsf}{\encodingdefault}{\sfdefault}{m}{n}
+    \DeclareMathAlphabet{\mathit}{\encodingdefault}{\mathfamilydefault}{m}{it}
+    \DeclareMathAlphabet{\mathtt}{\encodingdefault}{\ttdefault}{m}{n}
+    \ifx\mv at bold\@undefined\else
+    \SetSymbolFont{numbers}{bold}{\encodingdefault}{\mathfamilydefault}{bx}{n}
+
+    \SetSymbolFont{pureletters}{bold}{\encodingdefault}{\mathfamilydefault}{bx}{n}
+    \SetMathAlphabet{\mathrm}{bold}{\encodingdefault}{\rmdefault}{bx}{n}
+
+    \SetMathAlphabet{\mathbf}{bold}{\encodingdefault}{\mathfamilydefault}{bx}{n}
+    \SetMathAlphabet{\mathsf}{bold}{\encodingdefault}{\sfdefault}{bx}{n}
+
+    \SetMathAlphabet{\mathit}{bold}{\encodingdefault}{\mathfamilydefault}{bx}{it}
+    \SetMathAlphabet{\mathtt}{bold}{\encodingdefault}{\ttdefault}{bx}{n}
+    \fi
+
+    \def\operator at font{\mathgroup\symnumbers}
+
+    \DeclareMathSymbol{0}\mathalpha{numbers}{"30}
+    \DeclareMathSymbol{1}\mathalpha{numbers}{"31}
+    \DeclareMathSymbol{2}\mathalpha{numbers}{"32}
+    \DeclareMathSymbol{3}\mathalpha{numbers}{"33}
+    \DeclareMathSymbol{4}\mathalpha{numbers}{"34}
+    \DeclareMathSymbol{5}\mathalpha{numbers}{"35}
+    \DeclareMathSymbol{6}\mathalpha{numbers}{"36}
+    \DeclareMathSymbol{7}\mathalpha{numbers}{"37}
+    \DeclareMathSymbol{8}\mathalpha{numbers}{"38}
+    \DeclareMathSymbol{9}\mathalpha{numbers}{"39}
+
+    \DeclareMathSymbol{A}\mathalpha{pureletters}{"41}
+    \DeclareMathSymbol{B}\mathalpha{pureletters}{"42}
+    \DeclareMathSymbol{C}\mathalpha{pureletters}{"43}
+    \DeclareMathSymbol{D}\mathalpha{pureletters}{"44}
+    \DeclareMathSymbol{E}\mathalpha{pureletters}{"45}
+    \DeclareMathSymbol{F}\mathalpha{pureletters}{"46}
+    \DeclareMathSymbol{G}\mathalpha{pureletters}{"47}
+    \DeclareMathSymbol{H}\mathalpha{pureletters}{"48}
+    \DeclareMathSymbol{I}\mathalpha{pureletters}{"49}
+    \DeclareMathSymbol{J}\mathalpha{pureletters}{"4A}
+    \DeclareMathSymbol{K}\mathalpha{pureletters}{"4B}
+    \DeclareMathSymbol{L}\mathalpha{pureletters}{"4C}
+    \DeclareMathSymbol{M}\mathalpha{pureletters}{"4D}
+    \DeclareMathSymbol{N}\mathalpha{pureletters}{"4E}
+    \DeclareMathSymbol{O}\mathalpha{pureletters}{"4F}
+    \DeclareMathSymbol{P}\mathalpha{pureletters}{"50}
+    \DeclareMathSymbol{Q}\mathalpha{pureletters}{"51}
+    \DeclareMathSymbol{R}\mathalpha{pureletters}{"52}
+    \DeclareMathSymbol{S}\mathalpha{pureletters}{"53}
+    \DeclareMathSymbol{T}\mathalpha{pureletters}{"54}
+    \DeclareMathSymbol{U}\mathalpha{pureletters}{"55}
+    \DeclareMathSymbol{V}\mathalpha{pureletters}{"56}
+    \DeclareMathSymbol{W}\mathalpha{pureletters}{"57}
+    \DeclareMathSymbol{X}\mathalpha{pureletters}{"58}
+    \DeclareMathSymbol{Y}\mathalpha{pureletters}{"59}
+    \DeclareMathSymbol{Z}\mathalpha{pureletters}{"5A}
+
+    \DeclareMathSymbol{a}\mathalpha{pureletters}{"61}
+    \DeclareMathSymbol{b}\mathalpha{pureletters}{"62}
+    \DeclareMathSymbol{c}\mathalpha{pureletters}{"63}
+    \DeclareMathSymbol{d}\mathalpha{pureletters}{"64}
+    \DeclareMathSymbol{e}\mathalpha{pureletters}{"65}
+    \DeclareMathSymbol{f}\mathalpha{pureletters}{"66}
+    \DeclareMathSymbol{g}\mathalpha{pureletters}{"67}
+    \DeclareMathSymbol{h}\mathalpha{pureletters}{"68}
+    \DeclareMathSymbol{i}\mathalpha{pureletters}{"69}
+    \DeclareMathSymbol{j}\mathalpha{pureletters}{"6A}
+    \DeclareMathSymbol{k}\mathalpha{pureletters}{"6B}
+    \DeclareMathSymbol{l}\mathalpha{pureletters}{"6C}
+    \DeclareMathSymbol{m}\mathalpha{pureletters}{"6D}
+    \DeclareMathSymbol{n}\mathalpha{pureletters}{"6E}
+    \DeclareMathSymbol{o}\mathalpha{pureletters}{"6F}
+    \DeclareMathSymbol{p}\mathalpha{pureletters}{"70}
+    \DeclareMathSymbol{q}\mathalpha{pureletters}{"71}
+    \DeclareMathSymbol{r}\mathalpha{pureletters}{"72}
+    \DeclareMathSymbol{s}\mathalpha{pureletters}{"73}
+    \DeclareMathSymbol{t}\mathalpha{pureletters}{"74}
+    \DeclareMathSymbol{u}\mathalpha{pureletters}{"75}
+    \DeclareMathSymbol{v}\mathalpha{pureletters}{"76}
+    \DeclareMathSymbol{w}\mathalpha{pureletters}{"77}
+    \DeclareMathSymbol{x}\mathalpha{pureletters}{"78}
+    \DeclareMathSymbol{y}\mathalpha{pureletters}{"79}
+    \DeclareMathSymbol{z}\mathalpha{pureletters}{"7A}
+
+}
+
+%Fixes for more Powerpoint looking presentations, with smaller margins
+\setlength{\leftmargini}{1em}
+\setlength{\leftmarginii}{1em}
+\setlength{\leftmarginiii}{1em}
+\setlength{\marginparsep}{0em}
+
+%Rowstyle definition
+\usepackage{array}
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
