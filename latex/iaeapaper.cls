@@ -1,5 +1,7 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{iaeapaper}[2016/09/01 IAEA paper class (J. Candy)]
+%JC: Package required to reset reference spacing 
+\RequirePackage{etoolbox}
 \newcommand\@ptsize{}
 \newif\if@restonecol
 \DeclareOption{a4paper}
@@ -453,6 +455,8 @@
 \setlength{\evensidemargin}{0cm}
 \setlength{\topmargin}{0cm}
 \setlength{\topskip}{0cm}
+%JC: Reset reference spacing
+\apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
 
 \endinput
 %%
