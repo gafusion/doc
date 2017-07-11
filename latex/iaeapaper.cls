@@ -456,7 +456,7 @@
 \setlength{\topmargin}{0cm}
 \setlength{\topskip}{0cm}
 %JC: Reset reference spacing
-\apptocmd{\thebibliography}{\setlength{\itemsep}{0pt}}{}{}
+\apptocmd{\thebibliography}{\setlength{\itemsep}{-3pt}}{}{}
 
 \endinput
 %%
