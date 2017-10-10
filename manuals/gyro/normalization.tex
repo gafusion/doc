@@ -1,0 +1,276 @@
+%---------------------------------------------------------------------
+\chapter{Normalization of Fields and Equations}
+
+\section{Dimensionless fields and profiles}
+
+For consistency, we will use an overbar to denote {\it 
+reference quantities}; that is, quantities which are 
+evaluated at the {\it reference radius}, $\bar{r}$.
+Explicitly, 
+
+\begin{align}
+\bar{T}_e = &~T_e(\bar{r}) \\
+\bar{n}_e = &~n_e(\bar{r}) \\
+\bar{c}_s = &~\sqrt{\frac{\bar{T}_e}{m_i}}
+\end{align}
+
+\noindent
+Here, $m_i$ is the mass of the main ion species (in practice, 
+this will often be deuterium).  Next, we introduce the 
+{\it normalized fields}
+%
+\begin{align}
+\hhat     \doteq &~\frac{h_\si}{\bar{n}_e \, F_{M\si}(r)} \\
+\delta \hat{\phi} \doteq &~\frac{e \dphi}{\bar{T}_e} \\
+\delta \hat{A}_\parallel \doteq &~ 
+  \frac{\bar{c}_s}{c} \frac{e \dap}{\bar{T}_e} \; , \\
+\delta \hat{B}_\parallel \doteq &~ 
+   \frac{\dbp}{\bu(r)} \; ,
+\end{align}
+%
+and the {\it normalized profiles}
+%
+\begin{align}
+\hat{n}_\si(r) \doteq &~\frac{n_\si(r)}{\bar{n}_e} \; , \\
+\hat{T}_\si(r) \doteq &~\frac{T_\si(r)}{\bar{T}_e} \; , \\
+\hat{\omega}_0(r) \doteq &~\frac{a}{\bar{c}_s} \omega_0(r) \; , \\
+\hat{\gamma}_E(r) \doteq &~\frac{a}{\bar{c}_s} \gamma_E(r) \; , \\
+\hat{\gamma}_p(r) \doteq &~\frac{a}{\bar{c}_s} \gamma_p(r) \; .
+\end{align}
+%
+We also have the additional normalized quantities
+%
+\begin{align}
+\bhat       \doteq &~\frac{B(r,\theta)}{\bu(r)} \\
+\vphat      \doteq &~\frac{\vp}{\bar{c}_s} 
+\end{align}
+
+For quantities which depend on the magnetic field 
+strength, it is necessary to define {\it unit quantities}:
+%
+\begin{align}
+\rho_{s,\un}(r) = &~\frac{\bar{c}_s}{e \bu(r) / (m_i c)} \; , \\
+\beta_{e,\un}(r) = &~\frac{8 \pi n_e T_e}{\bu^2} \; .
+\end{align}
+
+\noindent
+At the reference radius, these are written as 
+$\rhou$ and $\betau$.  To measure the radial variation 
+of $\bu$, we introduce the parameter
+%
+\begin{equation}
+G_r(r) = \frac{\bu(r)}{\bu(\bar{r})} \; .
+\label{eq.gr}
+\end{equation}
+
+\section{Velocity space normalization} 
+
+\subsection{Velocity variables}
+
+We also use the normalized velocity-space coordinates 
+$(\ehat,\lambda,\sv)$, 
+defined as
+%
+\begin{align}
+\ehat = &~\frac{m_a v^2}{2 T_a} \; , \\
+\lambda = &~\frac{v_\perp^2}{v^2 \, \bhat}  \; , \\
+\sv = &~{\rm sgn} (\vphat) \; .
+\end{align}
+%
+Let us also note the identities
+%
+\begin{align}
+v_\parallel^2 = &~v^2 \left( 1-\lambda \bhat \right) \; , \\
+v_\perp^2 = &~v^2 \lambda \bhat = 2 \mu B \; .
+\end{align}
+
+\noindent
+The pair $(\ehat,\lambda)$ are unperturbed constants of motion. 
+The sign of the parallel velocity, $\sv$, is required to separate
+two populations of trapped particles for each value of $\lambda$. 
+With these definitions, the normalized parallel velocity becomes
+%
+\begin{equation}
+\vphat = \pm \sqrt{\frac{m_i}{m_\si}} \sqrt{2\ehat \hat{T}_\si (1-\lambda\bhat)}
+\; .
+\end{equation}
+
+%-------------------------------------------------------------------
+\subsection{Dimensionless velocity-space integration}
+
+At this point, we must introduce the {\it dimensionless 
+velocity-space integration operator} $\vop[\cdot]$
+%
+\begin{equation}
+\vop[z] \doteq \sum_{\sv=\pm 1} \frac{1}{2\sqrt{\pi}}
+\int_0^\infty  d\ehat \, e^{-\ehat} \sqrt{\ehat} 
+\int_0^1 \frac{d(\lambda\bhat)}{\sqrt{1-\lambda\bhat}} 
+\, z(\R,\lambda,\ehat,\sv) \; ,
+\label{eq.vint}
+\end{equation}
+%
+where $\sv = {\rm sgn}\,(\vphat) = \pm 1$.  It can be verified 
+that $\vop[1]=1$.  In writing Eq.~(\ref{eq.vint}), we explicitly 
+rule out consideration of non-Maxwellian particle distributions.
+
+%---------------------------------------------------------------------
+\section{Dimensionless equations}
+
+\subsection{Normalized gyrokinetic equation}
+
+The normalized gyrokinetic equation is
+%
+\begin{align}
+\frac{\partial\hhat}{\partial\hat{t}} 
++ &~\frac{\vphat}{\mt q (R_0/a)} \frac{\partial \hat{H}_\si}{\partial\theta} 
++ \frac{\vd}{\bar{c}_s} \cdot \hat{\nabla} \hat{H}_\si
++ \hat{\omega}_0 \frac{\partial\hhat}{\partial\alpha}
++ \frac{q \rhou}{r G_r} a [\hhat,\hat{\Psi}_a]_{r,\alpha} \nonumber \\
+ &~ - {\hat n}_\si \frac{q\rhou}{r G_r} 
+ \left[ \frac{a}{L_{n\si}} + (\ehat-3/2) \frac{a}{L_{T\si}} 
+ + \frac{m_a \vphat}{m_i \hat{T}_a} \frac{B_t R}{B R_0} \, \hat{\gamma}_p \right] 
+ \frac{\partial \hat{\Psi}_a}{\partial\alpha} 
+= \hat{C}_a^{GL}\left[\hat{H}_a\right] \; ,
+\end{align}
+
+\noindent
+where
+%
+\begin{align}
+\hat{H}_a = &~\hhat + z_a \alpha_a \hat{\Psi}_a \; , \\
+\hat{\Psi}_a = &~\gav_{0a} \left( \dphihat - \vphat \daphat \right) + 
+\frac{2 \varepsilon \lambda \hat{T}_a}{z_a} \gav_{1a}\dbphat \; , \\ 
+\alpha_a = &~\hat{n}_a/\hat{T}_a \; , 
+\end{align}
+%
+and $e_a = e z_a$.  The inverse gradient scale lengths are defined as 
+%
+\begin{align}
+\frac{1}{L_{n\si}} = &~-\frac{1}{n_\si}\frac{\partial n_\si}{\partial r} \; , \\
+\frac{1}{L_{T\si}} = &~-\frac{1}{T_\si}\frac{\partial T_\si}{\partial r} \; .
+\end{align}
+
+\subsection{Normalized Maxwell equations}\label{sec.maxwellnorm}
+
+{\bf Poisson equation}:
+%
+\begin{equation}
+-{\bar\lambda}_D^2 \nabla_\perp^2 \dphihat + 
+\sum_\si \alpha_\si z_\si^2  \vop \left[ \left(1-\gav_{0a}^2 \right) 
+  \dphihat \right] 
+- 2 \sum_a z_a \hat{n}_a \vop\left[ \gav_{0a}\gav_{1a} \varepsilon \lambda 
+ \dbphat \right]
+=  \sum_a z_a \vop[\gav_{0a} \hhat] \; .
+\end{equation}
+%
+Above, ${\bar\lambda}_D$ is the {\it Debye length} at the reference radius
+%
+\begin{equation}
+{\bar\lambda}_D = \left( \frac{{\bar T}_e}{4\pi {\bar n}_e e^2} \right)^{1/2} 
+\; .
+\end{equation}
+%
+{\bf Parallel Amp\`ere's Law}
+%
+\begin{equation}
+-\frac{2\rhou^2}{\betau} \nabla_\perp^2 \daphat + 
+\sum_\si \alpha_\si z_\si^2 \, \vop[\vphat^2 \gav_{0a}^2 \daphat] = 
+ \sum_\si z_\si \vop[\vphat \gav_{0a} \hhat] \; .
+\end{equation}
+%
+We remind the reader that the {\it Amp\`ere\ cancellation problem} 
+\cite{candy:2003} will occur if one attempts to set $\vop[\vphat^2]=1$ 
+rather than evaluate it numerically.\\
+\\
+%
+{\bf Perperdicular Amp\`ere's Law}
+%
+\begin{equation}
+G_r^2 \frac{\dbphat}{\betau} 
++ 2 \sum_a \hat{n}_a \hat{T}_a \vop\left[\gav_{1a}^2 \varepsilon^2 
+\lambda^2 \dbphat \right]
++ \sum_a z_a \hat{n}_a \vop \left[ \gav_{1a} \gav_{0a} \varepsilon 
+\lambda \dphihat \right] 
+= - \sum_a \hat{T}_a \vop\left[ \gav_{1a} \varepsilon \lambda \hhat \right] \; .
+\end{equation}
+
+\subsection{Normalized Transport Fluxes}
+
+The normalized particle flux is
+%
+\begin{equation}
+\hat{\Gamma}_a(r) 
+= \frac{\Gamma_\si}{\bar{n}_e \bar{c}_s} 
+= \frac{q \rhou}{r \, G_r} \fvop \left[ 
+   \hat{H}^*_a \frac{\partial\hat{\Psi}_a}{\partial\alpha}\right] \; .
+\end{equation}
+%
+The normalized energy flux is
+%
+\begin{equation}
+\hat{Q}_a(r) = \frac{Q_\si}{\bar{n}_e \bar{T}_e \bar{c}_s} 
+=  \hat{T}_a \frac{q \rhou}{r \, G_r} \fvop \left[ 
+   \hat{H}^*_a \frac{\partial\hat{\Psi}_a}{\partial\alpha} \, \ehat \right] \; .
+\end{equation}
+%
+The normalized toroidal momentum flux is
+%
+\begin{align}
+\hat{\Pi}_a(r) &~= \frac{\Pi_\si}{\bar{n}_e m_i \bar{c}_s^2 a} \; , \\
+ &~= \frac{m_a}{m_i} \frac{q \rhou}{r\, G_r} \fvop \left[ 
+    \hat{H}^*_a \, \frac{R}{a} \left\{
+  \left( \frac{V_0}{\bar{c}_s} + \vphat \frac{B_t}{B} \right)
+  \frac{\partial\hat{\Psi}_a}{\partial\alpha} 
+  + \hat{v}_\perp \frac{B_p}{B} \frac{\partial\hat{\mathcal{X}}_a}{\partial\alpha}
+\right\} \right]  
+\end{align}
+%
+Finally, the normalized anomalous energy exchange is
+%
+\begin{equation}
+\hat{S}_a(r) = \frac{S_a}{\bar{n}_e \bar{T}_e \bar{c}_s/a} 
+=  z_a \frac{1}{G_r} \frac{q \rhou}{r\, G_r} \fvop \left[ 
+   \hat{H}^*_a \left( \frac{\partial}{\partial\hat{t}} + 
+   \hat{\omega}_0 \frac{\partial}{\partial\alpha} \right)
+   \hat{\Psi}_a \right] \; .
+\end{equation}
+%
+Above, $\fvop$ represents the flux-surface average of the  
+dimensionless velocity-space integration operator.  The discrete 
+respresentation of the product $\fvop$ will be described in 
+detail in the next chapter.
+
+%---------------------------------------------------------------------
+\subsection{Diffusivities}
+
+In terms of the fluxes, we further define a {\it particle 
+diffusivity} $D_\si$ according to 
+%
+\begin{equation}
+\Gamma_\si = - D_\si \frac{\partial n_\si}{\partial r} \; ,
+\end{equation}
+%
+and an {\it energy diffusivity} $\chi_\si$ according to
+%
+\begin{equation}
+Q_\si = - n_\si \chi_\si \frac{\partial T_\si}{\partial r} \; .
+\end{equation}
+
+%---------------------------------------------------------------------
+\subsection{GyroBohm normalization}
+
+In GYRO, the output fluxes and diffusivites also carry the so-called 
+{\it gyroBohm} normalization.  That is, for output, we use
+%
+\begin{align}
+\frac{\Gamma_\si}{\Gamma_{\rm GB}} & \quad \mbox{where} \quad 
+ \Gamma_{\rm GB} \doteq {\bar n}_e {\bar c}_s (\rhou/a)^2 \; , \\
+\frac{\Pi_\si}{\Pi_{\rm GB}} & \quad \mbox{where} \quad
+ \Pi_{\rm GB} \doteq {\bar n}_e a {\bar T}_e (\rhou/a)^2 \; , \\
+\frac{Q_\si}{Q_{\rm GB}} & \quad \mbox{where} \quad
+ Q_{\rm GB} \doteq {\bar n}_e {\bar c}_s {\bar T}_e (\rhou/a)^2 \; , \\
+\frac{S_a}{S_{\rm GB}} & \quad \mbox{where} \quad
+S_{\rm GB} \doteq {\bar n}_e ({\bar c}_s/a) {\bar T}_e (\rhou/a)^2 \; , \\
+\frac{\chi_\si}{\chi_{\rm GB}} \, , \, \frac{D_\si}{\chi_{\rm GB}}
+& \quad \mbox{where} \quad \chi_{\rm GB}, \doteq \rhou^2 {\bar c}_s/a \; .
+\end{align}

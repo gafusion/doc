@@ -1,0 +1,672 @@
+%=====================================================================
+\chapter{The Gyrokinetic Model}\label{chap.gkmodel}
+
+%---------------------------------------------------------------------
+\section{Foundations and Notation}\label{sec.gkintro}
+
+The definitive works in terms of the complete derivation of the 
+gyrokinetic-Maxwell equations for evolution of fluctuations, and 
+the neoclassical equations for evaluation of collisional transport,
+are due to Sugama and coworkers \cite{sugama:1997,sugama:1998}.
+For historical reasons, the notation and presentation here differ 
+in some respects from these papers.  Nevertheless, what is 
+documented here should be completely consistent with the 
+formulae given in Ref.~\cite{sugama:1998}.  We prefer when 
+applicable to use Gaussian CGS units\footnote{
+See {\tt http://wwwppd.nrl.navy.mil/nrlformulary/NRL\_FORMULARY\_06.pdf}}.  
+Roughly speaking, the gyrokinetic approach \cite{antonsen:1980,catto:1981,frieman:1982} 
+is based on the assumption that equilibrium quantities are slowly varying,
+while perturbations are smaller but more rapidly varying in space.  To 
+describe this ordering, it is convenient to introduce the parameters
+%
+\begin{align}
+c_s = &~\sqrt{\frac{T_e}{m_i}} \qquad \text{ion-sound speed} \\
+\rho_s = &~\frac{c_s}{\Omega_{ci}} 
+     \qquad \text{ion-sound gyroradius} 
+\end{align}
+
+\noindent
+where $\Omega_{ci}$ is the ion cyclotron frequency. 
+The derivation of the gyrokinetic equation proceeds by 
+expanding the primitive Fokker-Planck equation in 
+the small parameter, $\rho_* \doteq \rho_{\rm s}/a$, 
+where $a$ is the plasma minor radius.  
+
+\section{Reduction of the Fokker-Planck Equation}
+ 
+The details of the derivation of the gyrokinetic (and neoclassical) 
+equations is beyond the scope of this manual.  Still, we attempt to 
+sketch the essential details. The Fokker-Planck equation provides the 
+fundamental theory for plasma equilibrium, fluctuations, transport.
+In this section, we use Sugama's notation.  The FP equations is written as
+%
+\begin{align}
+\left[ \frac{\partial}{\partial t} + {\bf v}\cdot\nabla + 
+\frac{e_a}{m_a} \left( (\E+\Eh) + \frac{\bf v}{c} \times 
+(\B+\Bh) \right) \cdot \frac{\partial}{\partial{\bf v}} \right] 
+(f_a+{\hat f}_a)
+= C_a(f_a+{\hat f}_a) + S_a
+\end{align}
+%
+where $f_a$ is the ensemble-averaged distribution, ${\hat f}_a$ is the 
+fluctuating distribution, $S_a$ are sources (beams, RF, etc), and
+%
+\begin{equation}
+C_a = \sum_b C_{ab}(f_a+{\hat f}_a,f_b+{\hat f}_b) 
+\end{equation}
+%
+is the nonlinear collision operator.  The general approach is to separate 
+the FP equation into ensemble-averaged, ${\cal A}$, and fluctuating, 
+${\cal F}$, components:
+%
+\begin{align}
+\fpa = &~\left. \frac{d}{dt} \right|_{\rm ens} f_a 
+ - \langle C_a \rangle_{\rm ens} - D_a - S_a \; , \\ 
+\fpf = &~\left. \frac{d}{dt} \right|_{\rm ens} {\hat f}_a 
+ +\frac{e_a}{m_a} \left( \Eh + \frac{\bf v}{c} \times \Bh \right) 
+ \cdot \frac{\partial}{\partial{\bf v}} ( f_a + {\hat f}_a )
+ - C_a + \langle C_a \rangle_{\rm ens} + D_a \; ,
+\end{align}
+%
+where 
+%
+\begin{equation}
+\left. \frac{d}{dt} \right|_{\rm ens} \doteq 
+ \frac{\partial}{\partial t} + {\bf v}\cdot\nabla 
++ \frac{e_a}{m_a} \left( \E + \frac{\bf v}{c} \times \B \right) 
+ \cdot \frac{\partial}{\partial{\bf v}} \; ,
+\end{equation}
+%
+\begin{equation}
+D_a \doteq - \frac{e_a}{m_a} \left<
+ \left( \Eh + \frac{\bf v}{c} \times \Bh \right) \cdot 
+ \frac{\partial{\hat f}_a }{\partial{\bf v}} \right>_{\rm ens} \; .
+\end{equation}
+%
+such that $D_a$ is the {\it fluctuation-particle interaction operator}.
+Ensemble averages are expanded in powers of $\rho_*$ as
+%
+\begin{align}
+f_a = &~f_{a0} + f_{a1} + f_{a2} + \ldots \; , \\ 
+S_a = &~\qquad\qquad\qquad S_{a2} + \ldots \; \mbox{(transport ordering)}, \\
+\E = &~\E_0 + \E_1 + \E_2 + \ldots \; , \\ 
+\B = &~\B_0 \; .
+\end{align}
+%
+Fluctuations are also expanded in powers of $\rho_*$ as
+%
+\begin{align}
+{\hat f}_a = &~{\hat f}_{a1} + {\hat f}_{a2} + \ldots \; , \\
+\Eh = &~\Eh_1 +  \Eh_2 + \ldots \; , \\
+\Bh = &~\Bh_1 + \Bh_2 + \ldots \; .
+\end{align}
+%
+\subsection{Lowest-order constraints}
+
+The lowest-order ensemble-averaged equation gives the constraints 
+%
+\begin{equation}
+\fpa_{-1} = 0: \qquad \E_0 + \frac{1}{c} {\bf V}_0 \times \B = 0 
+\qquad\mbox{and}\qquad
+\frac{\partial f_{a0}}{\partial \xi} = 0 
+\end{equation}
+%
+where $\xi$ is the gyroangle.  The only zeroth-order flow 
+(i.e., sonic) flow that persists on the fluctuation timescale 
+is a purely toroidal flow \cite{hinton:1985}, which we write as
+%
+\begin{equation}
+{\bf V}_0 = V_0 {\bf e}_\varphi = R \, \omega_0(\psi) {\bf e}_\varphi \quad\mbox{where}
+\quad \omega_0 \doteq -c \frac{\partial\phi_{-1}}{\partial\psi} \; .
+\end{equation}
+%
+The first-order flow ${\bf V}_1$ contains both toroidal and poloidal 
+components which are self-consistenly calculated by as moments of 
+the ensemble averaged first-order distribution, $f_{a1}$ (that is, 
+they are computed within the context of neoclassical theory).
+
+\subsection{Equilibrium equation and solution}
+
+The gyrophase average of the zeroth order ensemble-averaged equation 
+gives the collisional equilibrium equation:
+%
+\begin{equation}
+\int_0^{2\pi} \frac{d\xi}{2\pi} \fpa_0 = 0 : \qquad 
+\left( {\bf V}_0 + \vpp \buv \right) \cdot\nabla f_{a0} = C_a(f_{a0})
+\end{equation}
+%
+where ${\bf v}^\prime = {\bf v} - {\bf V}_0$ is the deviation from
+the mean flow velocity.  The exact solution for $f_{a0}$ is a Maxwellian 
+in the rotating frame, such that the centrifugal force causes the density 
+to vary on the flux surface: 
+%
+\begin{equation}
+f_{a0} = \frac{n_\si(\psi,\theta)}{(2\pi T_\si/m_\si)^{3/2}} 
+ \exp\left( -\frac{m_\si (v^\prime)^2}{2 T_\si} \right) 
+= n_\si F_{M\si} \; .
+\end{equation} 
+%
+It is important to note here that to account for sonic rotation in the 
+equilibrium, we {\bf do not} use the shifted Maxwellian approach 
+\cite{waltz:2007b}.  Although the use of a shifted Maxwellian gives 
+rise to errors which are probably not significant for typical operating 
+parameters, the approach is conceptually incorrect.  Instead, we work 
+in the shifted velocity frame ${\bf v}^\prime = {\bf v} - {\bf V}_0$.  
+The latter approach was first used in the context of neoclassical 
+transport by Hinton and Wong \cite{hinton:1985}. 
+
+Beyond this point, we limit our attention to the {\it moderate 
+flow regime}, such that $\rho_* \ll V_0/c_s \ll 1$.  Operationally, 
+this means that we will ignore terms quadratic in $V_0/c_s$, whilst 
+retaining all terms which are linear in $V_0/c_s$.  Physically, this 
+approach will not capture centrifugal effects like the poloidal 
+variation of density, since
+%
+\begin{equation}
+n_a(\psi,\theta) \sim n_a(\psi) + {\cal O}(V_0^2/c_s^2) \; ,
+\end{equation}
+%
+but will correctly retain the symmetry-breaking effects of radial
+electric field shear, rotation shear drive, and the Coriolis drift.
+%
+\subsection{The drift-kinetic equation}
+
+Taking a gyroaverage of the first-order ensemble-averaged component 
+${\cal A}_1$ gives expressions for the gyroangle-dependent and 
+independent distributions, ${\tilde f}_{a1}$ and ${\bar f}_{a1}$:
+%
+\begin{equation}
+\int_0^{2\pi} \frac{d\xi}{2\pi} \fpa_1 = 0 : \qquad 
+ f_{a1} = {\tilde f}_{a1} + {\bar f}_{a1} \; , \quad 
+{\tilde f}_{a1} = \frac{1}{\Omega_a} \int^\xi d\xi \, \widetilde{{\cal L} f_{a0}}
+\end{equation}
+%
+The function ${\bar f}_{a1}$ is determined by the solution of 
+the {\it drift kinetic equation}.  
+
+\subsection{The gyro-kinetic equation}
+
+The gyroaverage of first-order ${\cal F}_1$ gives an expression for 
+first-order fluctuating distribution, ${\hat f}_{a1}$, in terms of the 
+distribution of the gyrocenters, $H_a({\bf R})$:
+%
+\begin{equation}
+\int_0^{2\pi} \frac{d\xi}{2\pi} \fpf_1 = 0 : \qquad  
+{\hat f}_{a1}({\bf x}) = -\frac{e_a {\dphi}({\bf x})}{T_a} f_{a0} + 
+H_a(\R) \; ,
+\end{equation}
+%
+where $\x =\R+\brho$ is the particle position, $\brho = \buv\times\vvec^\prime/\wc$ 
+is the gyroradius vector, $\wc = e_a B/(m_\si c)$ is the cyclotron frequency, 
+and $\R$ (${\bf X}$ in Ref.~\cite{sugama:1998}) is the guiding-center 
+position.  The function $H_a(\R)$ ($h_a(\R)$ in Ref.~\cite{sugama:1998}) 
+is determined by solution of the nonlinear gyrokinetic equation.  Also 
+note that the perturbed potential $\dphi$ appears as ${\hat \phi}$ in 
+Ref.~\cite{sugama:1998}.
+
+%---------------------------------------------------------------------
+\section{The Gyrokinetic Equation in Detail}
+
+{\bf In what follows, we will drop the prime notation in reference 
+to the velocity coordinates}. To bring the gyrokinetic equation into 
+a form convenient for numerical integration, we introduce the 
+function $h_a(\R)$:
+%
+\begin{equation}
+H_a(\R) = \frac{e_a f_{a0}}{T_\si} \, \Psi_a(\R) + h_a(\R)
+\label{eq.bigh}
+\end{equation}
+%
+where $\Psi_a$ (${\hat\psi}_a$ in Ref.~\cite{sugama:1998}) is the 
+following gyrophase average (or, more simply, gyroaverage) at 
+fixed $\R$:
+%
+\begin{equation}
+\Psi_a(\R) \doteq \left< 
+\dphi(\R+\brho)-\frac{1}{c}({\bf V}_0 + \vvec) \cdot 
+\delta {\bf A}(\R+\brho) \right>_{\R} \; .
+\label{eq.bigpsi}
+\end{equation}
+%
+The gyroaverage can be defined formally as
+%
+\begin{equation}
+\left< z(\R,\xi) \right>_{\R} \doteq \oint \frac{d\xi}{2\pi} \, z(\R,\xi) \; ,
+\label{eq.gyroav}
+\end{equation}
+%
+for any function, $z$.    Also, we note 
+the following identities 
+%
+\begin{align}
+\buv \cdot\nabla \mathbf{V}_0 = &~\omega_0 \s \\
+\buv \cdot\nabla \mathbf{V}_0 + \nabla \mathbf{V}_0 \cdot \buv = &~ 
+ \frac{I}{B} \nabla \omega_0 \; ,
+\end{align}
+%
+where $\s$ is the dimensionless vector 
+%
+\begin{equation}
+\s = \frac{1}{\J B} \frac{\partial R}{\partial\theta} \ephi 
+- \frac{I}{RB} \nabla R \; .
+\end{equation}
+%
+We use a form of the gyrokinetic equation which can be obtained, 
+after some rearrangement, from Eq.~(46) of Ref.~\cite{sugama:1998}.
+%
+\begin{align}
+\frac{\partial h_\si}{\partial t} + \left( v_\parallel \buv + \vd \right)
+\cdot\nabla H_\si + \vez \cdot \nabla h_\si 
++ &~\vef \cdot \nabla h_\si \nonumber\\
+& + \vef \cdot \left( \nabla f_{a0} + 
+ \frac{m_a \vp f_{a0}}{T_a} \frac{I}{B} \nabla \omega_0 \right) 
+ = C_a^{GL}\left[ H_a \right] \; .
+\label{eq.gkraw}
+\end{align}
+%
+The velocities are  
+%
+\begin{align}
+\vd \doteq &~\frac{\vp^2+\mu B}{\wc B} \, \buv \times\nabla B
++ \frac{2 v_\parallel \omega_0}{\wc} \, \buv \times \s 
+ + \frac{4\pi \vp^2}{\wc B^2} \, \buv \times \nabla p \\
+\vez \doteq &~\frac{c}{B} \, \buv\times\nabla\phi_{-1}\; , \\
+\vef \doteq &~\frac{c}{B} \, \buv\times\nabla\Psi_\si \; .
+\end{align}
+%
+In this result, $\s$ is a dimensionless vector which is 
+{\bf not} exactly in the grad-$B$ direction.
+The correct form of $s$ cannot be obtained using the shifted 
+Maxwellian model.   This form of the drift matches Brizard's
+result, and the resulting expression for $\vd \cdot \nabla\psi$ 
+matches the familiar result from Hinton and Wong \cite{hinton:1985}.  
+By setting $\omega_0=0$, we recover the usual diamagnetic 
+rotation ordering.  For normalization purposes it is useful to note that
+%
+\begin{equation}
+\int\dv \, F_{M\si} = 1 \; .
+\end{equation}
+%
+Various terms can be simplified without refering to the geometry 
+model.  Within the accuracy of the gyrokinetic ordering, we have
+%
+\begin{align}
+\vez\cdot\nabla h_\si = &~\frac{c}{B} \, \buv\times\nabla\phi_{-1} 
+ \cdot\nabla h_\si 
+ \sim \omega_0 \frac{\partial h_\si}{\partial\alpha} \; , 
+   \label{eq.vedotgradh} \\
+\vef\cdot\nabla f_{a0} = &~\frac{c}{B} \, \buv\times\nabla\Psi_a
+ \cdot\nabla f_{a0} \sim c\, \frac{\partial f_{a0}}{\partial\psi}
+ \frac{\partial\Psi_a}{\partial\alpha} \; ,
+   \label{eq.dvdotgradf} \\
+\vef\cdot\nabla h_\si = &~\frac{c}{B} \, \buv\times\nabla\Psi_a
+ \cdot\nabla h_\si \sim
+ c\,\frac{\partial h_\si}{\partial\psi}
+ \frac{\partial\Psi_a}{\partial\alpha}-
+ c\,\frac{\partial h_\si}{\partial\alpha}
+ \frac{\partial\Psi_a}{\partial\psi} \; .
+   \label{eq.dvdotgradh}  
+\end{align}
+%
+Using these expression, we find
+\begin{align}
+\frac{\partial h_\si}{\partial t} 
++ \frac{v_\parallel}{\J B} \frac{\partial H_a}{\partial\theta}
++ \vd \cdot\nabla H_\si + &~\omega_0 \frac{\partial h_a}{\partial\alpha} 
++ c \left[ h_a,\Psi_a \right]_{\psi,\alpha} \nonumber \\
+& + c \left( \frac{\partial f_{a0}}{\partial\psi} + \frac{m_a \vp}{T_\si} \frac{I}{B} 
+\frac{\partial\omega_0}{\partial\psi} f_{a0} \right) \frac{\partial\Psi_a}{\partial\alpha} 
+= C_a^{GL}\left[ H_a \right] \; .
+\label{eq.gk}
+\end{align}
+%
+The expansion and simplification of the remaining operators has been 
+treated in Chap.~\ref{chap.geometry}.
+
+\subsection{Ordering}
+
+We remark that the gyrokinetic ordering requires that 
+%
+\begin{equation}
+\frac{e_a \Psi_a}{T_a} \sim \frac{h_a}{f_{a0}} 
+\sim \frac{\omega - {\bf k}_\perp \cdot {\bf V}_0}{\Omega_{ca}} 
+\sim k_\parallel \rho_s \sim \rho_* \; .  
+\label{eq.ordrho}
+\end{equation}
+
+\subsection{Rotation and rotation shear parameters}
+
+Recalling the definition of the rotation frequency:
+%
+\begin{equation}
+\omega_0 \doteq -c \frac{\partial\phi_{-1}}{\partial\psi} \; , 
+\end{equation}
+%
+we define the {\it Mach number}, the $E_r$ {\it shearing rate} and 
+the {\it rotation shearing rate} respectively as
+%
+\begin{align}
+M \doteq &~\frac{\omega_0 R_0}{c_s} 
+ \; , \\
+\gamma_E \doteq &~-\frac{r}{q} \frac{\partial\omega_0}{\partial r} 
+ \; ,\label{eq.ershear}\\
+\gamma_p \doteq &~-R_0 \frac{\partial\omega_0}{\partial r} \; .
+\end{align}
+%
+These parameters are defined in this way for legacy reasons and 
+are not independent; rather, we have the constraint
+%
+\begin{equation}
+\gamma_p = \frac{R_0}{q r} \gamma_E \; .
+\end{equation}
+
+\subsection{Comment on the Hahm-Burrell shearing rate}
+
+\noindent
+Note that the shearing rate defined in Eq.~(\ref{eq.ershear}) is not 
+in general equal to the familiar {\it Hahm-Burrell shearing rate} 
+\cite{burrell:1997} 
+%
+\begin{equation}
+\gamma_{\rm E}^{\rm HB} \doteq \frac{\left(R B_p\right)^2}{B}
+\frac{\partial}{\partial \psi} \left( \frac{E_r}{R B_p} \right) \; ,
+\end{equation}
+
+\noindent
+where $E_r$ is the radial electric field 
+%
+\begin{equation}
+E_r \doteq - \hat{\e}_r \cdot \nabla \phi_{-1} 
+    = - |\nabla r| \, \frac{\partial\phi_{-1}}{\partial r} \; . 
+\end{equation}
+
+\noindent
+In terms of the Miller geometry coefficients, 
+$\gamma_{\rm E}^{\rm HB}$ can be written as 
+%
+\begin{equation}
+\gamma_{\rm E}^{\rm HB} = 
+  \frac{|\nabla r|}{G_q} \frac{r}{q} \frac{\partial}{\partial r} 
+  \left( \frac{c}{\bu} \frac{q}{r} \frac{\partial \phi_{-1}}{\partial r} 
+  \right) = 
+   \frac{|\nabla r|}{G_q} \, \gamma_{\rm E} \; .
+\end{equation}
+
+%---------------------------------------------------------------------
+\section{Maxwell equations}
+
+Defining the scalar electromagnetic fields $\dap \doteq \buv \cdot \delta {\bf A}$ 
+and $\dbp \doteq \buv \cdot \nabla \times \delta {\bf A}$, we can write an 
+equation for each of the fields $(\dphi,\dap,\dbp)$ (see Appendix A, 
+\cite{sugama:1998}).  In each case, the species summation runs over all 
+species $a$ (ions and electrons).\\
+\\
+%
+{\bf Poisson equation}
+%
+\begin{equation}
+-\nabla_\perp^2 \delta\phi(\x) = 4\pi \sum_\si e z_\si \, \delta n_\si 
+  = 4\pi \sum_\si e_a \int \dv \, {\hat f}_{a1}(\x) \; .
+\end{equation}
+%
+{\bf Parallel Amp\`ere's Law}
+%
+\begin{equation}
+-\nabla_\perp^2 \dap(\x) = \frac{4\pi}{c} \sum_\si \delta j_{\parallel,\si} = 
+\frac{4\pi}{c} \sum_\si e_a \int\dv \, \vp \, {\hat f}_{a1}(\x) \; .
+\end{equation}
+%
+{\bf Perpendicular Amp\`ere's Law}
+%
+\begin{equation}
+\nabla_\perp \delta B_\parallel(\x) \times \buv 
+= \frac{4 \pi}{c} \sum_a \delta {\bf j}_{\perp,a}
+= \frac{4 \pi}{c} \sum_a 
+e_a \int \dv \, \vvec_\perp {\hat f}_{a1}(\x) 
+\end{equation}
+%
+The righthand sides can be written in terms of $H_a$ according to
+%
+\begin{align}
+\int \dv \, {\hat f}_{a1}(\x) = &~ -\frac{n_a e_a}{T_a} \, \dphi(\x) + 
+\int \dv \, H_a(\x-\brho) \; , \\
+\int \dv \, \vp \, {\hat f}_{a1}(\x) = &~ \int \dv \, \vp \, H_a(\x-\brho) \\
+\int \dv \, \vvec_\perp \, {\hat f}_{a1}(\x) = &~ \int \dv \, 
+ \vvec_\perp \, H_a(\x-\brho)
+\end{align}
+
+%---------------------------------------------------------------------
+\section{Transport Fluxes and Heating}
+
+For each species separately, we define a {\it particle flux}, 
+a {\it toroidal angular momentum flux}, an {\it energy flux}, 
+and an {\it exchange power density}:
+%
+\begin{align}
+\Gamma_a(r) &~= \fluxa \int\dv \, H_a^*(\R) \, 
+  \vef \cdot\nabla r \; , \\
+Q_a(r) &~= \fluxa \int\dv \, \, H_a^*(\R) \, 
+  \vef\cdot\nabla r \, \frac{1}{2} m_a v^2 \; , \\
+\Pi_a(r) &~= \fluxa \int\dv \, H_a^*(\R) \nonumber \\
+&~~\left< \left[ m_a R ( {\bf V}_0 + \vvec ) \cdot {\bf e}_\varphi \right] 
+  \frac{c}{B} \buv \times \nabla \left[ 
+  \dphi(\x)-\frac{1}{c}({\bf V}_0 + \vvec) \cdot 
+\delta {\bf A}(\x) \right] \cdot \nabla r \right>_{\R} \\
+S_a(r) &~= \fluxa \int\dv \, H_a^*(\R) \, e_a 
+\left< \left( \frac{\partial}{\partial t} + {\bf V}_0(\x) 
+\cdot \frac{\partial}{\partial\x} \right)  
+\left[ \dphi(\x)-\frac{1}{c}({\bf V}_0 + \vvec) \cdot 
+\delta {\bf A}(\x) \right] \right>_{\R}
+\end{align}
+
+%---------------------------------------------------------------------
+\subsection{Ambipolarity and Exchange Symmetries}
+
+By summing the particle fluxes over species and using the Maxwell 
+equations, one can prove the exact ambipolarity property
+%
+\begin{equation}
+\sum_a e_a {\bar \Gamma}_a = 0 \; ,
+\end{equation}
+%
+where an overbar denotes a perpendicular spatial and time average 
+taken in the flux-tube limit.  Similarly, summing the exchange power 
+density over species and using the Maxwell equations, one can prove
+the net heating is zero:
+%
+\begin{equation}
+\sum_a {\bar S}_a = 0 \; .
+\end{equation}
+%
+Note that the time-average is only required to prove the exchange 
+property, not the ambipolarity property.  Both these conditions are 
+in general violated if profile variation is allowed.
+
+%---------------------------------------------------------------------
+\section{Entropy production}
+
+The balance equation for entropy production is given by
+%
+\begin{equation}
+\sigma_a 
+- \fluxa \int\dv \, \frac{H_a^*}{f_{a0}} \, \frac{\partial H_a}{\partial t}  
++ \fluxa \int\dv \, \frac{H_a^*}{f_{a0}} \, C_a^{GL} 
++ \fluxa \int\dv \, \frac{H_a^*}{f_{a0}} \, D_\tau  
++ \fluxa \int\dv \, \frac{H_a^*}{f_{a0}} \, D_r \rightarrow 0 \; ,
+\end{equation}
+%
+where $D_\tau$ and $D_r$ represent the (artificial) upwind dissipation 
+terms added in the numerical discretization.  The function $\sigma_a$ 
+is
+%
+\begin{equation}
+\sigma_a \doteq
+ \left( \frac{1}{L_{na}} - \frac{3}{2} \frac{1}{L_{Ta}} \right) \Gamma_a
++ \frac{1}{L_{Ta}} \frac{Q_a}{T_a} 
++ \frac{\partial\omega_0}{\partial r} \frac{\Pi_a}{T_a}  
++ S_a \frac{1}{T_a} \; .
+\end{equation} 
+%
+On taking a radial average, and the time-average over sufficiently 
+long times, the sum of terms should approach zero.
+
+\section{Simplified fluxes and field equations with operator notation}
+
+\subsection{Operator notation}\label{sec.opnotation}
+
+It is useful at this point to discuss the general spectral 
+representation of fields and operators.  First, expanding an 
+arbitrary field in a spectral (Fourier) basis gives
+%
+\begin{equation}
+z(\R) \doteq \sum_{\kpv} e^{iS(\R)} \, \tilde{z}(\kpv) \; ,
+\end{equation}
+%
+where $\kpv = \nabla_\perp S$.  In this case, the gyrophase dependence 
+in Fourier space is harmonic
+%
+\begin{equation}
+z(\R+\brho) = \sum_{\kpv} e^{iS(\R)} e^{i \kpv \cdot \brho} 
+  \, \tilde{z}(\kpv) \; ,
+\end{equation}
+% 
+and the gyroaverage becomes
+%
+\begin{equation}
+\left< z(\R+\brho) \right>_{\R} = \sum_{\kpv} e^{iS(\R)} J_0 (k_\perp\rho_a) \, \tilde{z}(\kpv) \; ,
+\end{equation}
+%
+where $\rho_a \doteq v_\perp/\Omega_{ca}$.  Thus, in real space, the 
+gyroaverage can be represented as a linear operator $\gav_{0a}$ whose 
+spectral representation is $J_0(k_\perp \rho_a)$.
+
+Now, we can write the field defined in Eq.~\ref{eq.bigpsi} using operator 
+notation.  Moreover, we also define a new field which is useful for 
+calculation of momentum transport coefficients.  These are
+%
+\begin{align}
+\Psi_a(\R) \doteq &~\gav_{0a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
+ + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \, \dbp(\R) \; , \\
+\mathcal{X}_a(\R) \doteq &~\gav_{2a} \left[ \dphi(\R) - \frac{\vp}{c} \dap(\R) \right]
+ + \frac{v_\perp^2}{\Omega_{ca} c} \gav_{3a} \dbp(\R) \; . 
+\end{align}
+%
+Although we will construct explicit discrete 
+approximations to the operators $\gav_{0a}$, $\gav_{1a}$ and $\gav_{2a}$
+in the next chapter, it can be shown that they have the following 
+spectral representations:
+%
+\begin{align}
+\gav_{0a} \rightarrow &~J_0(\gamma_a) \; , \\
+\gav_{1a} \rightarrow &~\frac{1}{2} \left[ 
+  J_0(\gamma_a) + J_2(\gamma_a) \right] \; , \\
+\gav_{2a} \rightarrow &~-i \frac{k_x \rho_a}{2} \left[ 
+  J_0(\gamma_a) + J_2(\gamma_a) \right] \; , \\
+\gav_{3a} \rightarrow &~i \frac{k_x \rho_a}{\gamma_a^2} \left[ 
+  J_0(\gamma_a) - J_1(\gamma_a)/\gamma_a \right] \; ,
+\end{align}
+%
+where $\gamma_a \doteq k_\perp \rho_a$, and $k_x$ is defined explicitly in 
+Sec.~\ref{sec.opdisc}.  The expressions above are adapted directly from Sugama \cite{sugama:1998}.  
+However, to make use of Sugama's results, we use the following identities, 
+where $\boldsymbol{\varphi} = \ephi$:
+%
+\begin{align}
+\kpv\kpv : (R\hat{\boldsymbol{\varphi}}) (\nabla\psi) 
+ = &~ \left[ \kpv \cdot  (R\hat{\boldsymbol{\varphi}}) \right] 
+      \left[ \kpv \cdot \nabla\psi \right] \; , \\
+\kpv \cdot \nabla\psi = &~ -i R B_p \left( |\nabla r| \frac{\partial}{\partial r} 
+- \frac{q}{r} \mq \mk \frac{\partial}{\partial\alpha} \right) = R B_p k_x \; , \\
+\kpv \cdot  (R\hat{\boldsymbol{\varphi}}) 
+ = &~ -i \frac{\partial}{\partial\alpha} \; ,
+\end{align}
+% 
+where Eq.~(\ref{eq.nabla}) has been used to expand $\nabla_\perp$.
+
+\subsection{Maxwell equations: $H_a$-form}
+
+The Maxwell equations are simplest when written in terms of $H_a$:\\
+\\
+{\bf Poisson equation}
+%
+\begin{equation}
+- \frac{1}{4\pi} \nabla_\perp^2 \dphi = \sum_a e_a 
+ \left[ \frac{-n_a e_a}{T_a} \, \dphi + \int \dv \, \gav_{0a} H_a \right] 
+\end{equation}
+%
+{\bf Parallel Amp\`ere's Law}
+%
+\begin{equation}
+- \frac{1}{4\pi} \nabla_\perp^2 \dap = \sum_a e_a \int \dv \, \frac{\vp}{c} 
+ \, \gav_{0a} H_a 
+\end{equation}
+%
+{\bf Perpendicular Amp\`ere's Law}
+%
+\begin{equation}
+- \frac{1}{4\pi} \dbp = \sum_a e_a \int \dv \, \frac{v_\perp^2}{\Omega_{ca} c} 
+ \, \gav_{1a} H_a  
+\end{equation}
+
+\subsection{Maxwell equations: $h_a$-form}
+
+For time-integration purposes, we will need to write the field equations 
+in terms of $h_a$:\\
+\\
+{\bf Poisson equation}
+%
+\begin{align}
+-\frac{1}{4 \pi} \nabla_\perp^2 \dphi 
++ \sum_a n_a \frac{e_a^2}{T_a} & \, \int \dv \, F_{Ma} \, (1-\gav_{0a}^2) \dphi 
+\nonumber \\
+& - \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} \gav_{0a} \gav_{1a}
+  \frac{v_\perp^2}{\Omega_{ca} c} \dbp 
+= \sum_a e_a \int \dv \, \gav_{0a} h_a 
+ \label{eq.maxp}
+\end{align}
+%
+{\bf Parallel Amp\`ere's Law}
+%
+\begin{equation}
+-\frac{1}{4 \pi} \nabla_\perp^2 \dap 
++ \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, \frac{\vp^2}{c^2} F_{Ma} \gav_{0a}^2 \dap
+= \sum_a e_a \int \dv \, \frac{\vp}{c} \gav_{0a} h_a 
+ \label{eq.maxa1}
+\end{equation}
+%
+{\bf Perpendicular Amp\`ere's Law}
+%
+\begin{align}
+\frac{1}{4 \pi} \dbp + \sum_a n_a \frac{e_a^2}{T_a} & \, \int \dv \, F_{Ma} 
+\left( \frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \right)^2 \dbp
+\nonumber \\
+&~ + \sum_a n_a \frac{e_a^2}{T_a} \int \dv \, F_{Ma} 
+\frac{v_\perp^2}{\Omega_{ca} c} \gav_{1a} \gav_{0a} \dphi
+= -\sum_a e_a \int \dv \, \gav_{1a} \frac{v_\perp^2}{\Omega_{ca} c} h_a 
+ \label{eq.maxa2}
+\end{align}
+%
+\subsection{Transport coefficients}
+
+Some algebra yields the simplifications:
+%
+\begin{align}
+\Gamma_a(r) &~= \frac{c}{\psi^\prime} \, \fluxa \int\dv \, H_a^*(\R) \, 
+  \frac{\partial\Psi_a}{\partial\alpha} \; , 
+ \label{eq.flux1}\\
+Q_a(r) &~= \frac{c}{\psi^\prime} \, \fluxa \int\dv \, H_a^*(\R) \, 
+  \frac{1}{2} m_a v^2 \,
+  \frac{\partial\Psi_a}{\partial\alpha} \; , 
+ \label{eq.flux2} \\
+\Pi_a(r) &~= \frac{c}{\psi^\prime} \, 
+   \fluxa \int\dv \, H_a^*(\R) m_a R \left[ 
+   \left( V_0 + \vp \frac{B_t}{B} \right) \frac{\partial\Psi_a}{\partial\alpha} 
++ v_\perp \frac{B_p}{B} \frac{\partial\mathcal{X}_a}{\partial\alpha} 
+ \right] \; , 
+ \label{eq.flux3}  \\
+S_a(r) &~= \frac{c}{\psi^\prime} \, 
+  \fluxa \int\dv \, H_a^*(\R) \, e_a 
+  \left( \frac{\partial}{\partial t} + 
+  \omega_0 \frac{\partial}{\partial \alpha} \right) \Psi_a \; .
+  \label{eq.flux4}  
+\end{align}

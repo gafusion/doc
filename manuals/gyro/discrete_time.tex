@@ -1,0 +1,437 @@
+%===================================================================
+\chapter{Temporal Discretization}\label{chap.time}
+
+The gyrokinetic treatment of electrons is problematic in simulations 
+because of the emergence of a host of numerical instabilities connected 
+with the discretization of the electron parallel motion.  The presence 
+of the electrostatic and magnetic potentials in the advection term, 
+%
+\begin{equation}
+\frac{\partial\hhat}{\partial\hat{t}} 
++ \frac{\vphat}{\mt q (R_0/a)} \frac{\partial}{\partial\theta}
+\left( \hhat + z_a \alpha_a \hat{\Psi}_a \right) + \cdots
+\end{equation}
+%
+for $a = e$ give rise to stability considerations much more troublesome 
+than the simple electron parallel Courant limit.  Physically, the parallel 
+term gives rise to the high-frequency {\it electrostatic Alfv\'en} 
+wave \cite{lee:2001} at $\beta=0$.  In the slab limit, one can show
+
+\begin{equation}
+\omega_{\rm H} = \frac{k_\parallel}{k_r} 
+\sqrt{\frac{m_i}{m_e}} \, \Omega_{ci} \; .
+\end{equation}
+%
+This mode is physically pathological, because the frequency increases 
+indefinitely as $m_e$ decreases, and also as $k_r$ decreases -- that is, 
+as the radial box size grows.  While nonzero $\beta$ provides a cutoff,
+the stable numerical treatment of this term is nontrivial.\footnote{The 
+ability of Eulerian codes to treat this term both accurately and stably 
+has been a major contributor to the relative success of Eulerian solvers 
+in comparison to their PIC counterparts.}  To overcome this severe 
+and intrinsic simulation difficulty, we were persuaded to treat the 
+electron advection implicitly.  We experimented with a variety of 
+implicit-explicit (IMEX) Runge-Kutta (RK) schemes that were popular in 
+the period 2001-2003 
+\cite{ascher:1995,ascher:1997,pareschi:2000,pareschi:2002,kennedy:2003}, 
+settling on an IMEX-SSP scheme of Pareschi and Russo \cite{pareschi:2002}.
+
+%-----------------------------------------------------------------------
+\subsection{Reduction to canonical form}
+
+For brevity, we suppress the toroidal harmonic index and abbreviate $h_{a,n}$ as
+$h_a$.  With all spatial operators discretized, the GKM system has the form
+%
+\begin{align}
+{\dot{h}}_a = &~\rhss(\{h_a\},h_e) \; , \quad a = 1, \ldots, n_{\rm ion} 
+  \label{imexi} \\
+{\dot{h}}_e = &~\rhse(\{h_a\},h_e) + \rhsei(\{\hhat\},h_e) \; , 
+  \label{imexe}
+\end{align}
+%
+where $\{h_a\} = h_1,\ldots, h_{n_{\rm ion}}$.  In Eqs.~(\ref{imexi}) 
+and (\ref{imexe}), the use of a tilde on the RHS represents a {\it nonstiff} 
+term, while the absence of a tilde indicates a {\it stiff} term.  The IMEX-RK 
+schemes are written for equations in the canonical form
+%
+\begin{equation}
+{\dot y} = {\widetilde Y}(y) + Y(y) \; ,
+\end{equation}
+%
+with ${\widetilde Y}$ the explicit RHS and $Y$ the implicit RHS.
+Thus, we have the connection
+%
+\begin{equation}
+y = \begin{bmatrix} \{ \hat{h}_a \} \\ h_e \end{bmatrix} \quad 
+{\widetilde Y} = \begin{bmatrix} \{\rhss\} \\ \rhse \end{bmatrix} \quad 
+Y = \begin{bmatrix} 0 \\ \rhsei \end{bmatrix} \; . 
+\end{equation}
+%
+Now, there is some hidden complexity in how we have written 
+the GKM equations, as the functions $H$ depend on the distribution 
+function $h$ both directly, and indirectly through the fields.
+We emphasize that it is only the fast electron advection term, $\rhsei$, 
+which we wish to (or are able to) treat implicitly:
+%
+\begin{align}
+H_{e} \doteq &~-\hat{v}_{\parallel e}(r,\theta,\varepsilon)
+\frac{a}{q R_0 G_{\theta}} \frac{\partial}{\partial \theta}
+\left[ \hat{h}_e - \alpha_e \left( \delta \hat{\phi} - \hat{v}_{\parallel e} 
+\delta \hat{A}_{\parallel} - \varepsilon \lambda \hat{T}_{e} \delta 
+\hat{B}_{\parallel} \right) \right] \\
+= &~-\Omega(r,\theta,\varepsilon) \partial_\tau
+\left[ \hat{h}_{e} - \alpha_e \left( \delta \hat{\phi} 
+- \hat{v}_{\parallel e} \delta \hat{A}_{\parallel} 
+- \varepsilon \lambda \hat{T}_{e} \delta \hat{B}_{\parallel} \right) \right] \; ,
+\end{align}
+%
+where from this point forward we suggest that the reader consider the 
+object $\partial_\tau$ as a matrix.
+
+\subsection{IMEX-RK-SSP schemes of Pareschi and Russo}
+
+The second-order IMEX schemes we consider can be summarized in Butcher 
+tableau form as
+%
+\begin{center}
+\parbox{.25\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+${\tilde a}_{21}$ & 0 & \\ 
+${\tilde a}_{31}$ & ${\tilde a}_{32}$ & 0 \\ \hline
+${\tilde w}_1$ & ${\tilde w}_2$ & ${\tilde w}_3$ 
+\end{tabular}}}
+\hskip 0.2in
+\parbox{.25\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$a_{11}$ & & \\
+$a_{21}$ & $a_{22}$ & \\ 
+$a_{31}$ & $a_{32}$ & $a_{33}$ \\ \hline
+$w_1$ & $w_2$ & $w_3$ 
+\end{tabular}}}
+\end{center}
+%
+This notation corresponds to the following explicit evolution equations:
+%
+\begin{align}
+y_1 & = y + \dt \, a_{11} Y_1 \\
+y_2 & = y + \dt ( {\tilde a}_{21} \yt_1 + a_{21} Y_1 ) 
+          + \dt \, a_{22} Y_2 \\ 
+y_3 & = y + \dt ( {\tilde a}_{31} \yt_1 + {\tilde a}_{32} \yt_2 
+                  + a_{31} Y_1 + a_{32} Y_2 ) 
+          + \dt \, a_{33} Y_3 
+\end{align}
+%
+\begin{equation}
+{\bar y} = y + \dt \sum_{k=1}^3 {\tilde w}_k \yt_k 
+             + \dt \sum_{k=1}^3 w_k Y_k \; .
+\label{newy}
+\end{equation}
+%
+Above, $y$ is the old field vector (time $t$) and ${\bar y}$ is the new 
+field vector (time $t+\Delta t$).  In GYRO, we currently use the SSP2(3,2,2) 
+scheme:
+%
+\begin{center}
+SSP2(3,2,2) 
+\parbox{.3\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+0 & 0 & \\ 
+0 & 1 & 0 \\ \hline
+0 & $1/2$ & $1/2$
+\end{tabular}}}
+\parbox{.3\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$1/2$  & & \\
+$-1/2$ & $1/2$ & \\ 
+ 0   & $1/2$ & $1/2$  \\ \hline
+ 0   & $1/2$ & $1/2$ 
+\end{tabular}}}
+\end{center}
+%
+Since the diagonal coefficients of the implicit stages are equal, we need 
+to solve the same implicit system at each stage.  It would be good at some 
+point to implement the SSP2(3,3,2) scheme, which requires the solution of 
+two different implicit problems, but has half the advective Courant limit 
+in explicit part.
+%
+\begin{center}SSP2(3,3,2)
+\parbox{.3\linewidth}{
+\mbox{Explicit} \par
+\fbox{\begin{tabular}{|ccc}
+0 & & \\
+$1/2$ & 0 & \\ 
+$1/2$ & $1/2$ & 0 \\ \hline
+$1/3$ & $1/3$ & $1/3$
+\end{tabular}}}
+\parbox{.3\linewidth}{
+\mbox{Implicit} \par
+\fbox{\begin{tabular}{|ccc}
+$1/4$ & & \\
+0   & $1/4$ & \\ 
+$1/3$ & $1/3$ & $1/3$ \\ \hline
+$1/3$ & $1/3$ & $1/3$ 
+\end{tabular}}}
+\end{center}
+
+\subsection{Implementation in GYRO}
+
+The complication which arisese when applying these methods to GYRO are 
+connected with the field solve.  For all the so-called SDIRK methods, 
+the implicit equations at each stage have a generic form.  In the 
+present case, at each integrator stage $(k=1,2,3)$, we are faced with:
+%
+\begin{align}
+(h_\si)_k & = h_\si + \dt \sum_{p<k} {\tilde a}_{kp} (\rhss)_p 
+\label{imex.ion} \; , \\
+(h_e)_k & = h_e + \dt \sum_{p<k} {\tilde a}_{kp} (\rhse)_p 
+                + \dt \sum_{p<k} a_{kp} (\rhsei)_p + \dt \, 
+                a_{kk} (\rhsei)_k \; .
+\label{imex.elec}
+\end{align}
+%
+Because $\rhsei$ depends on the fields, we must advance the Maxwell 
+equations at each stage before determining the $(h_e)_k$.  However, 
+we can compute all $(h_a)_k$ for $a=1,\ldots,n_{\rm ion}$ before solving 
+the implicit problem.  First, solve formally for $(h_e)_k$:
+%
+\begin{equation}
+(h_e)_k = (\delta h_e)_k + \alpha_e \frac{\cdto}{1+\cdto} 
+\left( \delta \hat{\phi} 
+- \hat{v}_{\parallel e} \delta \hat{A}_{\parallel} 
+- \varepsilon \lambda \hat{T}_{e} \delta \hat{B}_{\parallel} \right)_k 
+\label{imex.he}
+\end{equation}
+%
+where $(\delta h_e)_k$ is the explicitly-known quantity
+%
+\begin{equation}
+(\delta h_e)_k = 
+\frac{1}{1+\cdto} \left[ h_e + \dt \sum_{p<k} {\tilde a}_{kp} (\rhse)_k 
+          + \dt \sum_{p<k} a_{kp} (\rhsei)_k \right ] \; .
+\label{imex.dhe}
+\end{equation}
+% 
+Now, substitute the analytic expression for $(h_e)_k$ into the Maxwell 
+equations.  This substitution gives a version of the Maxwell equations 
+that looks like the standard explicit forms, but with added field 
+terms arising from the second term on the RHS of Eq.~(\ref{imex.he}).
+If we multiply the Maxwell equations by $F_m^{*i}(\theta)$, and operate 
+with the bounce-velocity summation operator $\fvop$ (noting that 
+$\vop\vop=\vop$), we obtain $\dt$-coupled Poisson-Amp\`ere equations.
+%
+\begin{align}
+(M_{PP})_{m\mpr}^{i\ipr} {\ptil}_{\mpr}^{\ipr} 
+   + (M_{PB})_{m\mpr}^{i\ipr}  {\btil}_{\mpr}^{\ipr} & = 
+  (S_P)_m^i + {(\ipp)}^i_{m\mpr} {\ptil}_{\mpr}^i 
+              + {(\ipa)}^i_{m\mpr} {\atil}_{\mpr}^i 
+              + {(\ipb)}^i_{m\mpr} {\btil}_{\mpr}^i \\
+(M_{AA})_{m\mpr}^{i\ipr} {\atil}_{\mpr}^{\ipr} & = 
+  (S_A)_m^i + {(\iap)}^i_{m\mpr} {\ptil}_{\mpr}^i  
+              + {(\iaa)}^i_{m\mpr} {\atil}_{\mpr}^i
+              + {(\iab)}^i_{m\mpr} {\btil}_{\mpr}^i \\
+(M_{BP})_{m\mpr}^{i\ipr} {\ptil}_{\mpr}^{\ipr} 
+   + (M_{BB})_{m\mpr}^{i\ipr}  {\btil}_{\mpr}^{\ipr} & = 
+  (S_B)_m^i + {(\ibp)}^i_{m\mpr} {\ptil}_{\mpr}^i 
+              + {(\iba)}^i_{m\mpr} {\atil}_{\mpr}^i 
+              + {(\ibb)}^i_{m\mpr} {\btil}_{\mpr}^i 
+\end{align}
+%
+Here the \textit{field matrices} are:
+\begin{align}
+(M_{PP})_{m\mpr}^{ii\prime} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q))
+{\cal L}_{PP}^{ii\prime}(\theta(\tau_q))F_{m\prime}^{i\prime}(\theta(\tau_q)) \right] \\
+(M_{PB})_{m\mpr}^{ii\prime} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q))
+{\cal L}_{PB}^{ii\prime}(\theta(\tau_q)) F_{m\prime}^{i\prime}(\theta(\tau_q)) \right] \\
+(M_{AA})_{m\mpr}^{ii\prime} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q))
+{\cal L}_{AA}^{ii\prime}(\theta(\tau_q)) F_{m\prime}^{i\prime}(\theta(\tau_q)) \right] \\
+(M_{BB})_{m\mpr}^{ii\prime} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q))
+{\cal L}_{BB}^{ii\prime}(\theta(\tau_q)) F_{m\prime}^{i\prime}(\theta(\tau_q)) \right] \\
+(M_{BP})_{m\mpr}^{ii\prime} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q))
+{\cal L}_{BP}^{ii\prime}(\theta(\tau_q)) F_{m\prime}^{i\prime}(\theta(\tau_q)) \right]
+\end{align}
+%
+where
+%
+\begin{align}
+{\cal L}_{PP} = &~\bar{\lambda}_{D}^2 \nabla_\perp^2 + \alpha_{e} + \sum_{a=1}^{n_{ion}} 
+\alpha_{a} z_{a}^{2} V\left[ 1-{\cal G}_{0a}^{2} \right] \\
+{\cal L}_{PB} = &~\sum_{a=1}^{n_{ion}} -2 z_{a} \hat{n}_{a}
+V[\varepsilon \lambda {\cal G}_{0a} {\cal G}_{1a} ] \\
+{\cal L}_{AA} = &~\frac{- 2 {\bar \rho}_{s,{\rm unit}}^{2}}{\bar{\beta}_{e,{\rm unit}}}
+\nabla_{\perp}^{2} + \sum_{a=1}^{n_{ion}} \alpha_{a} z_{a}^{2}
+V[\hat{v}_{\parallel}^{2}{\cal G}_{0a}^{2}] \\
+{\cal L}_{BB} = &~\frac{1}{\bar{\beta}_{e,{\rm unit}}} +  
+\sum_{a=1}^{n_{ion}} 2  \hat{n}_{a} \hat{T}_{a}
+V[\lambda^{2} {\cal G}_{1a}^{2} \varepsilon^{2} ] \\
+{\cal L}_{BP} = &~\sum_{a=1}^{n_{ion}} z_{a} \hat{n}_{a}
+V[\varepsilon \lambda {\cal G}_{1a} {\cal G}_{0a} ] \; .
+\end{align}
+%
+The \textit{advection matrices} are:
+%
+\begin{eqnarray}
+%
+(I_{PP})_{mm\prime}^{i} & = & \alpha_{e}^{i} {\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) \right] \\
+%
+(I_{PA})_{mm\prime}^{i} & = & -\alpha_{e}^{i} {\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) 
+\hat{v}_{\parallel e}(\theta(\tau_{q\prime})) \right] \\
+%
+(I_{PB})_{mm\prime}^{i} & = & -\alpha_{e}^{i} \hat{T}_{e}^{i} {\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) \varepsilon \lambda  \right] \\
+%
+(I_{AP})_{mm\prime}^{i} & = & \alpha_{e}^{i} {\cal F} V\left[ 
+\hat{v}_{\parallel e}(\theta(\tau_{q}))
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) \right]\\
+%
+(I_{AA})_{mm\prime}^{i} & = & -\alpha_{e}^{i} {\cal F} V\left[ 
+\hat{v}_{\parallel e}(\theta(\tau_{q}))
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) 
+\hat{v}_{\parallel e}(\theta(\tau_{q\prime}))
+\right]\\
+%
+(I_{AB})_{mm\prime}^{i} & = & -\alpha_{e}^{i} \hat{T}_{e}^{i} {\cal F} V\left[ 
+\hat{v}_{\parallel e}(\theta(\tau_q))
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime}))  \varepsilon \lambda \right]\\
+%
+(I_{BP})_{mm\prime}^{i} & = & \frac{1}{2} \alpha_{e}^{i} \hat{T}_{e}^{i}
+{\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) \varepsilon \lambda  \right]\\
+%
+(I_{BA})_{mm\prime}^{i} & = & -\frac{1}{2} \alpha_{e}^{i} \hat{T}_{e}^{i}
+{\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime})) 
+\hat{v}_{\parallel e}(\theta(\tau_{q\prime}))
+\varepsilon \lambda  \right]\\
+%
+(I_{BB})_{mm\prime}^{i} & = & -\frac{1}{2} \alpha_{e}^{i} (\hat{T}_{e}^{i})^2
+{\cal F} V\left[ 
+F_{m}^{*i}(\theta(\tau_q)) {\cal O}_{qq\prime}^{i} 
+F_{m\prime}^{i}(\theta(\tau_{q\prime}))  \varepsilon^2 \lambda^2 \right]
+\end{eqnarray}
+%
+Next, the \textit{source matrices} are
+%
+\begin{align}
+(S_{P})_{m}^{i} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q)) 
+H_{P}^{i}(\theta(\tau_q)) \right] - \fvop\left[ F_{m}^{*i}(\theta(\tau_q)) 
+\delta \hat{h}_{e}^{i}(\theta(\tau_q)) \right] 
+ \label{source.p}\\
+(S_{A})_{m}^{i} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q)) 
+H_{A}^{i}(\theta(\tau_q)) \right]-\fvop\left[ \hat{v}_{\parallel e}(\theta(\tau_q)) 
+F_{m}^{*i}(\theta(\tau_q)) \delta \hat{h}_{e}^{i}(\theta(\tau_q)) \right] 
+\label{source.a}\\
+(S_{B})_{m}^{i} = &~\fvop\left[ F_{m}^{*i}(\theta(\tau_q)) H_{B}^{i}(\theta(\tau_q)) 
+\right] - \frac{1}{2} \hat{T}_{e} 
+\fvop\left[\varepsilon \lambda F_{m}^{*i}(\theta(\tau_q)) 
+\delta \hat{h}_{e}^{i}(\theta(\tau_q)) \right]
+\label{source.b}
+\end{align}
+%
+where
+%
+\begin{align}
+H_{P} \doteq &~\sum_{a=1}^{n_{ion}} z_{a} {\cal G_0}_{a} 
+\hat{h}_{a} \\
+H_{A} \doteq&~\sum_{a=1}^{n_{ion}} z_{a} \hat{v}_{\parallel} {\cal G_0}_{a} 
+\hat{h}_{a} \\
+H_{B} \doteq&~\sum_{a=1}^{n_{ion}} -\hat{T}_{a} 
+{\cal G_1}_{a} \hat{h}_{a} \varepsilon \lambda \; .
+\end{align}
+%
+In the preceeding expressions, we have omitted the stage number, $k$, for 
+brevity.  The advection matrix ${\cal O}_{q q^\prime}$ is defined as
+%
+\begin{equation}
+{\cal O}_{q q^\prime} (r,\lambda,\ehat) \doteq
+{\left( \frac{1}{1+\cdto} \right)}_{q q^\prime} .
+\end{equation}
+%
+We reorganize the equations into a single partitioned system
+suitable for solution with a direct sparse solver (the 
+current implementation uses UMFPACK).  Solve the system 
+with UMFPACK ($S_P$, $S_A$ and $S_B$ need to be computed at each step). 
+%
+\begin{equation}
+\left[ \begin{array}{ccc}
+M_{PP} & 0      & M_{PB} \\
+0      & M_{AA} & 0 \\
+M_{BP} & 0      & M_{BB} 
+\end{array} \right]
+\left[ \begin{array}{c}
+\ptil \\ \atil \\ \btil 
+\end{array} \right]
+= \left[ \begin{array}{c}
+S_{P} \\ S_{A} \\ S_{B}
+\end{array} \right]
++ \left[ \begin{array}{ccc}
+I_{PP} & I_{PA} & I_{PB} \\
+I_{AP} & I_{AA} & I_{AB} \\
+I_{BP} & I_{BA} & I_{BB}
+\end{array} \right]
+\left[ \begin{array}{c}
+\ptil \\ \atil \\ \btil 
+\end{array} \right]
+\label{imex.field}
+\end{equation}
+
+\subsection{Procedural summary}
+
+Having precomputed the matrices $M$ and $I$, for $k=1,\ldots,3$:
+%
+\begin{enumerate}
+\item
+Evaluate $(h_\si)_k$ using Eq.~(\ref{imex.ion}).
+\item
+Evaluate $(\delta h_e)_k$ using Eq.~(\ref{imex.dhe}).
+\item
+Evaluate $S_P$, $S_A$ and $S_B$ using Eqs.~(\ref{source.p}) through
+(\ref{source.b}), respectively.
+\item
+Solve Eq.~(\ref{imex.field}) for $\ptil$, $\atil$ and $\btil$.
+\item
+Evaluate $(h_e)_k$ using Eq.~(\ref{imex.he}). 
+\end{enumerate}
+%
+With all stage values, $k=1,2,3$, computed, evaluate 
+${\bar y} = ({\{\bar{h}_\si\}},{\bar h_e})^{\rm T}$ using 
+Eq.~(\ref{newy}).  Then, synchronize the fields using an explicit 
+field update.
+
+\subsection{Time-Integration Considerations}
+
+Ad-hoc semi-implicit schemes (for example, first 
+order splitting) are normally a mixed-blessing,
+offering improved stability of stiff terms at the expense 
+of accuracy and/or stability loss for the explicit terms.
+Higher order splittings can be constructed but 
+are susceptible to a severe accuracy loss in the stiff limit.
+%
+The IMEX schemes we describe herein \cite{pareschi:2000} are:
+%
+\begin{itemize}
+\item {\bf Asymptotic Preserving}:  the difference scheme 
+is asymptotically correct in the stiff limit. 
+\item {\bf Asymptotically Accurate}: the explicit 
+integrator retains its order for the limiting 
+differential-algebraic system in the stiff limit.
+\item {\bf Strong-Stability-Preserving}: we recover an 
+SSP-ERK \cite{gottlieb:2001} scheme in the stiff limit.
+\end{itemize}
+
+%-----------------------------------------------------------------------

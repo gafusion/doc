@@ -1,0 +1,79 @@
+\documentclass[letter,dvips,11pt]{report}
+\listfiles
+\usepackage{latexsym}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{epsfig}
+\usepackage{fancyhdr}
+\usepackage{fullpage}
+\usepackage{hyperref}
+\hypersetup{
+    unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,        % show Acrobat’s toolbar?
+    pdfmenubar=true,        % show Acrobat’s menu?
+    pdffitwindow=false,     % window fit to page when opened
+    pdfstartview={FitH},    % fits the width of the page to the window
+    pdftitle={GYRO Technical Guide},    % title
+    pdfauthor={J. Candy},     % author
+    pdfsubject={},   % subject of the document
+    pdfcreator={},   % creator of the document
+    pdfproducer={}, % producer of the document
+    pdfkeywords={}, % list of keywords
+    pdfnewwindow=false,      % links in new window
+    colorlinks=true,        % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links
+    citecolor=blue,         % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=red           % color of external links
+}
+
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+
+\lhead{}
+\rhead{}
+
+\lfoot{General Atomics Report GA-A26818}
+\cfoot{}
+\rfoot{\hfill\thepage}
+
+%\setlength{\textwidth}{6in}
+\setlength{\textheight}{9in}
+%\setlength{\hoffset}{-0.6in}
+%\setlength{\voffset}{-0.6in}
+
+\makeindex
+\begin{document}
+
+%TITLE=====================================================
+\title{{\LARGE\bf GYRO Technical Guide}}
+\author{J. Candy and E. Belli \\
+{\small General Atomics, P.O.~Box 85608, San Diego, CA 92186-5608, USA}}
+\maketitle
+%TOC=======================================================
+\pagenumbering{roman}
+\setcounter{page}{3}
+\tableofcontents
+\newpage
+\pagenumbering{arabic}
+%==========================================================
+
+\input macros
+\input navigation
+\input geometry
+\input gkmodel
+\input normalization
+\input discrete_space
+\input discrete_time
+\input source_boundary
+\input collision
+\input fieldeigen
+
+\chapter*{Acknowledgements}
+This work was supported by the U.S. Department of Energy under 
+DE-FG02-95ER54309.
+
+\bibliographystyle{alpha}
+\bibliography{global}
+
+\end{document}
