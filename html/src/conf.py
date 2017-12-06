@@ -218,12 +218,12 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'OMFIT.tex', 'AToM Documentation', 'AToM team', 'manual'),
+  ('index', 'gacode.tex', 'GACODE Documentation', 'GACODE team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
-latex_logo = 'images/logo/atom.pdf'
+#latex_logo = 'images/logo/atom.pdf'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
