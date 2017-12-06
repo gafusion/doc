@@ -1,5 +1,5 @@
-Advanced Tokamak Modeling Project
-=================================
+GACODE
+======
 
 .. toctree::
 
