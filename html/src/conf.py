@@ -101,6 +101,7 @@ html_theme_options = {
     # A list of tuples containing pages or urls to link to.
     'navbar_links': [('GACODE', "gacode"),
                      ("Install","install"),
+                     ("NEO", "neo"),
                      ("Find", "find"),
                      ("Index", "index")
                      ],

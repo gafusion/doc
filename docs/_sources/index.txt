@@ -6,6 +6,7 @@ GACODE
    self
    gacode
    install
+   neo
    find
 
  

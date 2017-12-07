@@ -1,1 +1,0 @@
-Search.setIndex({envversion:49,filenames:["find","gacode","index","install"],objects:{},objnames:{},objtypes:{},terms:{develop:2,find:0,informat:2,stuff:[0,3],tech:3},titles:["Repositories, links, and information","About GACODE","GACODE","Information for Developers"],titleterms:{about:1,develop:3,gacode:[1,2],inform:0,informat:3,link:0,repositori:0}})
