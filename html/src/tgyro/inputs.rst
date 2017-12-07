@@ -1,5 +1,5 @@
-Parameters for input.neo
-~~~~~~~~~~~~~~~~~~~~~~~~
+Parameters for input.tgyro
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. csv-table:: **Numerical resolution**
    :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
@@ -17,8 +17,3 @@ Parameters for input.neo
    ":doc:`EQUILIBRIUM_MODEL <equilibrium_model>`", neo_equilibrium_in, Geometry selector,0
    ":doc:`RMIN_OVER_A <rmin_over_a>`", neo_rmin_over_a_in, Normalized minor radius (min), 0.5
    ":doc:`RMIN_OVER_A_2 <rmin_over_a_2>`", neo_rmin_over_a_2_in, Normalized minor radius (max), 0.6
-   ":doc:`RMAJ_OVER_A <rmin_over_a_2>`", neo_rmaj_over_a_in, Normalized major radius, 3.0
-   ":doc:`KAPPA <kappa>`", neo_kappa_in, Elongation, 1.0
-   ":doc:`S_KAPPA <s_kappa>`", neo_s_kappa_in, Elongation shear, 0.0
-   ":doc:`DELTA <delta>`", neo_delta_in, Triangularity, 0.0
-   ":doc:`S_DELTA <s_delta>`", neo_s_delta_in, Triangularity shear, 0.0

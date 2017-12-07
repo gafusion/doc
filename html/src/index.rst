@@ -7,6 +7,7 @@ GACODE
    gacode
    install
    neo
+   tgyro
    find
 
  

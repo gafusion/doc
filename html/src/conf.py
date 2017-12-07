@@ -102,6 +102,7 @@ html_theme_options = {
     'navbar_links': [('GACODE', "gacode"),
                      ("Install","install"),
                      ("NEO", "neo"),
+                     ("TGYRO", "tgyro"),
                      ("Find", "find"),
                      ("Index", "index")
                      ],
