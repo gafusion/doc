@@ -1,6 +1,6 @@
 all:
 	cd src ; make html
-	rsync -c src/_build/html/ ../docs/
+	rsync -a src/_build/html/ ../docs/
 
 clean:
 	cd src ; make clean

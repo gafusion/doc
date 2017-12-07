@@ -1,1 +1,6 @@
+html/src/_static
+html/src/_templates
+html/src/_build
+
 docs/_sources
+docs/_static
