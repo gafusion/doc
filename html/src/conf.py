@@ -41,7 +41,7 @@ source_suffix = '.rst'
 #source_encoding = 'utf-8-sig'
 
 # The master toctree document.
-master_doc = 'gacode'
+master_doc = 'index'
 
 autoclass_content = 'both'
 
@@ -104,7 +104,7 @@ html_theme_options = {
                      ("CGYRO", "cgyro"),
                      ("GYRO", "gyro"),
                      ("TGLF", "tglf"),
-                     ("Index", "index")
+                     ("tree", "tree")
                      ],
 
     # Render the next and previous page links in navbar. (Default: true)
