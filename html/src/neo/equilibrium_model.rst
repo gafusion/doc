@@ -1,4 +1,5 @@
 EQUILIBRIUM_MODEL
+-----------------
 
 **Definition**
 
