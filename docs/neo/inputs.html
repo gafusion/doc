@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>inputs &mdash; GACODE</title>
+    <title>Parameters for input.neo &mdash; GACODE</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -55,10 +55,11 @@
         <div class="collapse navbar-collapse nav-collapse">
           <ul class="nav navbar-nav">
             
-                <li><a href="../gacode.html">GACODE</a></li>
-                <li><a href="../install.html">Install</a></li>
                 <li><a href="../neo.html">NEO</a></li>
-                <li><a href="../find.html">Find</a></li>
+                <li><a href="../tgyro.html">TGYRO</a></li>
+                <li><a href="../cgyro.html">CGYRO</a></li>
+                <li><a href="../gyro.html">GYRO</a></li>
+                <li><a href="../tglf.html">TGLF</a></li>
                 <li><a href="../index.html">Index</a></li>
             
             
@@ -82,7 +83,7 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">inputs</a></li>
+<li><a class="reference internal" href="#">Parameters for input.neo</a></li>
 </ul>
 </ul>
 </li>
@@ -112,9 +113,212 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="inputs">
-<h1>inputs<a class="headerlink" href="#inputs" title="Permalink to this headline">¶</a></h1>
-<p><a class="reference internal" href="equilibrium_model.html"><span class="doc">EQUILIBRIUM_MODEL</span></a></p>
+  <div class="section" id="parameters-for-input-neo">
+<h1>Parameters for input.neo<a class="headerlink" href="#parameters-for-input-neo" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text"><strong>Numerical resolution</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="n_radial.html"><span class="doc">N_RADIAL</span></a></td>
+<td>neo_n_radial_in</td>
+<td>Number of radial gridpoints</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="n_theta.html"><span class="doc">N_THETA</span></a></td>
+<td>neo_n_theta_in</td>
+<td>Number of poloidal gridpoints</td>
+<td>17</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="n_xi.html"><span class="doc">N_XI</span></a></td>
+<td>neo_xi_in</td>
+<td>Number of <span class="math">\(\xi\)</span> polynomials - 1</td>
+<td>17</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="n_energy.html"><span class="doc">N_ENERGY</span></a></td>
+<td>neo_n_energy_in</td>
+<td>Number of <span class="math">\({\rm v}\)</span> polynomials - 1</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text"><strong>Plasma equilibrium/geometry</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="equilibrium_model.html"><span class="doc">EQUILIBRIUM_MODEL</span></a></td>
+<td>neo_equilibrium_in</td>
+<td>Geometry selector</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a></td>
+<td>neo_rmin_over_a_in</td>
+<td>Normalized minor radius (min)</td>
+<td>0.5</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMIN_OVER_A_2</span></a></td>
+<td>neo_rmin_over_a_2_in</td>
+<td>Normalized minor radius (max)</td>
+<td>0.6</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMAJ_OVER_A</span></a></td>
+<td>neo_rmaj_over_a_in</td>
+<td>Normalized major radius</td>
+<td>3.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="kappa.html"><span class="doc">KAPPA</span></a></td>
+<td>neo_kappa_in</td>
+<td>Elongation</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="s_kappa.html"><span class="doc">S_KAPPA</span></a></td>
+<td>neo_s_kappa_in</td>
+<td>Elongation shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="delta.html"><span class="doc">DELTA</span></a></td>
+<td>neo_delta_in</td>
+<td>Triangularity</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="s_delta.html"><span class="doc">S_DELTA</span></a></td>
+<td>neo_s_delta_in</td>
+<td>Triangularity shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="zeta.html"><span class="doc">ZETA</span></a></td>
+<td>neo_zeta_in</td>
+<td>Squareness</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="s_zeta.html"><span class="doc">S_ZETA</span></a></td>
+<td>neo_s_zeta_in</td>
+<td>Squareness shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">SHIFT</span></td>
+<td>neo_shift_in</td>
+<td>Shafranov shift</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">ZMAG_OVER_A</span></td>
+<td>neo_zmag_over_a_in</td>
+<td>Normalized elevation</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">S_ZMAG</span></td>
+<td>neo_s_zmag_in</td>
+<td>Gradient of elevation</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">Q</span></td>
+<td>neo_q_in</td>
+<td>Safety factor</td>
+<td>2.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">Shear</span></td>
+<td>neo_shear_in</td>
+<td>Magnetic shear</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">BETA_STAR</span></td>
+<td>neo_beta_star_in</td>
+<td>Effective pressure gradient</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">IPCCW</span></td>
+<td>neo_ipccw_in</td>
+<td>Determines the sign of the plasma current</td>
+<td>-1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">BTCCW</span></td>
+<td>neo_btccw_in</td>
+<td>Determines the sign of the toroidal field</td>
+<td>-1</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">RHO_STAR</span></td>
+<td>neo_rho_star_in</td>
+<td>Normalized Larmor radius</td>
+<td>0.001</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">DPHI0DR</span></td>
+<td>neo_dphi0dr_in</td>
+<td>Normalized radial electric field</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">EPAR0</span></td>
+<td>neo_epar0_in</td>
+<td>Normalized inductive electric field</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">EPAR0_SPITZER</span></td>
+<td>neo_epar0_spitzer_in</td>
+<td>Normalized inductive electric field for spitzer problem</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text"><strong>General models</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref doc">SILENT_FLAG</span></td>
+<td>neo_silent_flag_in</td>
+<td>Output mode selector</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">SIM_MODEL</span></td>
+<td>neo_sim_model_in</td>
+<td>Numerical/analytic simulation model selector</td>
+<td>2</td>
+</tr>
+<tr class="row-even"><td><span class="xref doc">SPITZER_MODEL</span></td>
+<td>neo_spitzer_model_in</td>
+<td>DKE/Spitzer problem selector</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref doc">COLLISION_MODEL</span></td>
+<td>neo_collision_model_in</td>
+<td>Collision model selector</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 

@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>&lt;no title&gt; &mdash; GACODE</title>
+    <title>LOC_DX &mdash; GACODE</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -82,7 +82,8 @@
      href="#">In this page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"
       role="menu"
-      aria-labelledby="dLabelLocalToc"><ul class="simple">
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">LOC_DX</a></li>
 </ul>
 </ul>
 </li>
@@ -112,26 +113,22 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <p>EQUILIBRIUM_MODEL</p>
+  <div class="section" id="loc-dx">
+<h1>LOC_DX<a class="headerlink" href="#loc-dx" title="Permalink to this headline">¶</a></h1>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the geometric equilibrium model.</p>
-<p><strong>Choices</strong></p>
-<ul class="simple">
-<li>EQUILIBRIUM_MODEL = 0: s-alpha</li>
-<li>EQUILIBRIUM_MODEL = 1: large aspect ratio</li>
-<li>EQUILIBRIUM_MODEL = 2: Miller</li>
-<li>EQUILIBRIUM_MODEL = 3: General Grad-Shafranov</li>
-</ul>
+<p>Step length, <span class="math">\(\Delta z\)</span>, used to compute the finite-difference approximation to the Jacobian.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>For experimental profiles (<span class="xref doc">PROFILE_MODEL</span> = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter <span class="xref doc">PROFILE_EQUILIBRIUM_MODEL</span>.</li>
-<li>EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, <span class="xref doc">GEO_NY</span>, must be a positive integer, with the corresponding Fourier coefficients set in <span class="xref doc">GEO_YIN</span>. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters <a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a>, <a class="reference internal" href="rmaj_over_a.html"><span class="doc">RMAJ_OVER_A</span></a>, <span class="xref doc">Q</span>, <span class="xref doc">SHEAR</span>, <span class="xref doc">BETA_STAR</span>, <span class="xref doc">BTCCW</span>, and <span class="xref doc">IPCCW</span> must also be specified.</li>
-<li>See the geometry notes for more details about the geometric equilibrium models.</li>
+<li>This can be safely increased for robustness. Root is unchanged.</li>
+<li>This is dimensionless, with <span class="math">\(\Delta z = \Delta (a/L_x)\)</span>, where <span class="math">\(L_x\)</span> is any of the gradient scale lengths.</li>
 </ul>
 <p><strong>Internal name</strong></p>
-<p>equilibrium_model</p>
+<p>loc_dx</p>
 <p><strong>Default</strong></p>
-<p>0</p>
+<p>0.1</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="inputs.html"><span class="doc">Return to list of inputs</span></a></p>
+</div>
 
 
     </div>
@@ -146,7 +143,7 @@
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/neo/equilibrium_model.txt"
+  <a href="../_sources/tgyro/loc_dx.txt"
      rel="nofollow">Source</a>
 </div>
       

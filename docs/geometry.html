@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -6,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Index &mdash; GACODE</title>
+    <title>GEOMETRY &mdash; GACODE</title>
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -83,7 +82,17 @@
      href="#">In this page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"
       role="menu"
-      aria-labelledby="dLabelLocalToc"></ul>
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">GEOMETRY</a><ul>
+<li><a class="reference internal" href="#coordinates">Coordinates</a></li>
+<li><a class="reference internal" href="#generalized-minor-radius">Generalized minor radius</a></li>
+<li><a class="reference internal" href="#generalized-major-radius">Generalized major radius</a></li>
+<li><a class="reference internal" href="#effective-field">Effective field</a></li>
+<li><a class="reference internal" href="#equilibria">Equilibria</a></li>
+</ul>
+</li>
+</ul>
+</ul>
 </li>
               
             
@@ -111,11 +120,56 @@
   <div class="row">
     <div class="col-md-12 content">
       
-
-<h1 id="index">Index</h1>
-
-<div class="genindex-jumpbox">
- 
+  <div class="section" id="geometry">
+<h1>GEOMETRY<a class="headerlink" href="#geometry" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="coordinates">
+<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
+<p>GYRO uses a right-handed (positively-oriented), field-aligned coordinate system
+<span class="math">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
+<div class="math">
+\[\mathbf{B} =\nabla \alpha \times \nabla \psi (r) \; ,\]</div>
+<p>where <span class="math">\(\psi\)</span> is the poloidal flux divided by <span class="math">\(2\pi\)</span> and</p>
+<div class="math">
+\[\alpha =\varphi +\nu (r,\theta )\]</div>
+<p>is the Clebsch angle. Here, <span class="math">\(\varphi\)</span> is the <strong>toroidal angle</strong>, oriented as shown
+in the figure below, and <span class="math">\(\theta\)</span> is the <strong>poloidal angle</strong> which increases as one
+moves counterclockwise along the flux-surface (shown in blue). The <strong>minor radius</strong>
+<span class="math">\(r\)</span> is in all cases taken to be one-half the width of the flux-surface at
+the elevation, <span class="math">\(Z_{c}\)</span>, of the flux-surface centroid.</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="_images/flux_surface.png"><img alt="flux surface" src="_images/flux_surface.png" style="width: 422.0px; height: 396.0px;" /></a>
+</div>
+</div>
+<div class="section" id="generalized-minor-radius">
+<h2>Generalized minor radius<a class="headerlink" href="#generalized-minor-radius" title="Permalink to this headline">¶</a></h2>
+<p>The minor radius variable, <span class="math">\(r\)</span>, used in GYRO is the half-width of the flux surface at
+the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math">
+\[r \doteq \frac{R_{+}-R_{-}}{2} \; .\]</div>
+<p>This definition is valid in all cases; that is, for circular equilibria, as well as for
+shaped Grad-Shafranov (Miller) and general equilibrium (see geometry notes for details).</p>
+</div>
+<div class="section" id="generalized-major-radius">
+<h2>Generalized major radius<a class="headerlink" href="#generalized-major-radius" title="Permalink to this headline">¶</a></h2>
+<p>The major radius variable, <span class="math">\(R_{0}\)</span>, used in GYRO is the average of the maximum and
+minimum major radius of the flux-surface at the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math">
+\[R_{0}=\frac{R_{+}+R_{-}}{2} \; .\]</div>
+<p>This definition is valid in all cases; that is, for circular equilibria, as well as for
+shaped Grad-Shafranov (Miller) and general equilibrium (see geometry notes for details).</p>
+</div>
+<div class="section" id="effective-field">
+<h2>Effective field<a class="headerlink" href="#effective-field" title="Permalink to this headline">¶</a></h2>
+<p>The effective field strength, <span class="math">\(B_{\rm {unit}}\)</span>, is defined as</p>
+<div class="math">
+\[B_\mathrm{unit} = \frac{1}{r} \frac{d\chi _{t}}{dr} \; ,\]</div>
+<p>where <span class="math">\(\chi _{t}\)</span> is the toroidal flux divided by <span class="math">\(2\pi\)</span>. This gives the
+roughly equivalent field that would be obtained if the flux surface was deformed to a circle.</p>
+</div>
+<div class="section" id="equilibria">
+<h2>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this headline">¶</a></h2>
+<p>Needs to be updated</p>
+</div>
 </div>
 
 
@@ -130,6 +184,10 @@
       
         <br/>
         
+<div id="sourcelink">
+  <a href="_sources/geometry.txt"
+     rel="nofollow">Source</a>
+</div>
       
     </p>
     <p>

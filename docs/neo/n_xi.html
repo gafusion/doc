@@ -112,26 +112,19 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <p>EQUILIBRIUM_MODEL</p>
+  <p>N_XI</p>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the geometric equilibrium model.</p>
-<p><strong>Choices</strong></p>
-<ul class="simple">
-<li>EQUILIBRIUM_MODEL = 0: s-alpha</li>
-<li>EQUILIBRIUM_MODEL = 1: large aspect ratio</li>
-<li>EQUILIBRIUM_MODEL = 2: Miller</li>
-<li>EQUILIBRIUM_MODEL = 3: General Grad-Shafranov</li>
-</ul>
+<p>The number of xi polynomials -  1 in the computational domain (<span class="math">\(n_{\xi,\rm total}\)</span> = N_XI+1).</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>For experimental profiles (<span class="xref doc">PROFILE_MODEL</span> = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter <span class="xref doc">PROFILE_EQUILIBRIUM_MODEL</span>.</li>
-<li>EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, <span class="xref doc">GEO_NY</span>, must be a positive integer, with the corresponding Fourier coefficients set in <span class="xref doc">GEO_YIN</span>. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters <a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a>, <a class="reference internal" href="rmaj_over_a.html"><span class="doc">RMAJ_OVER_A</span></a>, <span class="xref doc">Q</span>, <span class="xref doc">SHEAR</span>, <span class="xref doc">BETA_STAR</span>, <span class="xref doc">BTCCW</span>, and <span class="xref doc">IPCCW</span> must also be specified.</li>
-<li>See the geometry notes for more details about the geometric equilibrium models.</li>
+<li>The velocity-space coordinate <span class="math">\(\xi\)</span> is the cosine of the pitch angle: <span class="math">\(\xi ={\rm v}_\|/{\rm v}\)</span>.</li>
+<li>NEO uses an expansion of Legendre polynomials in <span class="math">\(\xi\)</span>.</li>
+<li>The collocation integrals are done exactly analytically.</li>
 </ul>
 <p><strong>Internal name</strong></p>
-<p>equilibrium_model</p>
+<p>n_xi</p>
 <p><strong>Default</strong></p>
-<p>0</p>
+<p>17</p>
 
 
     </div>
@@ -146,7 +139,7 @@
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/neo/equilibrium_model.txt"
+  <a href="../_sources/neo/n_xi.txt"
      rel="nofollow">Source</a>
 </div>
       

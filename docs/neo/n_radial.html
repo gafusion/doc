@@ -112,26 +112,20 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <p>EQUILIBRIUM_MODEL</p>
+  <p>N_RADIAL</p>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the geometric equilibrium model.</p>
-<p><strong>Choices</strong></p>
-<ul class="simple">
-<li>EQUILIBRIUM_MODEL = 0: s-alpha</li>
-<li>EQUILIBRIUM_MODEL = 1: large aspect ratio</li>
-<li>EQUILIBRIUM_MODEL = 2: Miller</li>
-<li>EQUILIBRIUM_MODEL = 3: General Grad-Shafranov</li>
-</ul>
+<p>The number of radial gridpoints, <span class="math">\(n_r\)</span> in the computational domain.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>For experimental profiles (<span class="xref doc">PROFILE_MODEL</span> = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter <span class="xref doc">PROFILE_EQUILIBRIUM_MODEL</span>.</li>
-<li>EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, <span class="xref doc">GEO_NY</span>, must be a positive integer, with the corresponding Fourier coefficients set in <span class="xref doc">GEO_YIN</span>. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters <a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a>, <a class="reference internal" href="rmaj_over_a.html"><span class="doc">RMAJ_OVER_A</span></a>, <span class="xref doc">Q</span>, <span class="xref doc">SHEAR</span>, <span class="xref doc">BETA_STAR</span>, <span class="xref doc">BTCCW</span>, and <span class="xref doc">IPCCW</span> must also be specified.</li>
-<li>See the geometry notes for more details about the geometric equilibrium models.</li>
+<li>The radial grid is defined on the range <a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a>
+<span class="math">\(\le r/a \le\)</span> <a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMIN_OVER_A_2</span></a>.  For a local simulation (<span class="xref doc">PROFILE_MODEL</span> = 1), the normalizing length scale <span class="math">\(a\)</span> is arbitrary.  For a global simulation (<span class="xref doc">PROFILE_MODEL</span> = 2), <span class="math">\(a\)</span> is the plasma minor radius at the center of the radial simulation domain.</li>
+<li>N_RADIAL &gt; 1 requires a global profile model (<span class="xref doc">PROFILE_MODEL</span> = 2).  Otherwise, N_RADIAL = 1 and the profile model is local (<span class="xref doc">PROFILE_MODEL</span> = 1).</li>
+<li>For solution of only the first-order DKE, which is a radially-local problem, the radial grid is equally-spaced.</li>
 </ul>
 <p><strong>Internal name</strong></p>
-<p>equilibrium_model</p>
+<p>n_radial</p>
 <p><strong>Default</strong></p>
-<p>0</p>
+<p>1</p>
 
 
     </div>
@@ -146,7 +140,7 @@
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/neo/equilibrium_model.txt"
+  <a href="../_sources/neo/n_radial.txt"
      rel="nofollow">Source</a>
 </div>
       
