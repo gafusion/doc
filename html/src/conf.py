@@ -99,11 +99,11 @@ html_theme_options = {
     'navbar_site_name': "Jump to",
 
     # A list of tuples containing pages or urls to link to.
-    'navbar_links': [('GACODE', "gacode"),
-                     ("Install","install"),
-                     ("NEO", "neo"),
+    'navbar_links': [("NEO", "neo"),
                      ("TGYRO", "tgyro"),
-                     ("Find", "find"),
+                     ("CGYRO", "cgyro"),
+                     ("GYRO", "gyro"),
+                     ("TGLF", "tglf"),
                      ("Index", "index")
                      ],
 
