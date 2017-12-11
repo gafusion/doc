@@ -19,3 +19,6 @@ n_xi
 
 17
 
+----
+
+:doc:`Return to list of inputs <inputs>`

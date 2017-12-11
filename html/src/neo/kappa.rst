@@ -17,3 +17,7 @@ kappa_in
 **Default**
 
 1.0
+
+----
+
+:doc:`Return to list of inputs <inputs>`

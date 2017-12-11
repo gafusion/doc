@@ -19,3 +19,6 @@ n_energy
 
 6
 
+----
+
+:doc:`Return to list of inputs <inputs>`

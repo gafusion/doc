@@ -20,3 +20,7 @@ q_in
 **Default**
 
 2.0
+
+----
+
+:doc:`Return to list of inputs <inputs>`
