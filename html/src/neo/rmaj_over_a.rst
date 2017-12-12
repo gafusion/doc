@@ -1,4 +1,5 @@
 RMAJ_OVER_A
+-----------
 
 **Definition**
 
@@ -15,3 +16,7 @@ rmaj_in
 **Default**
 
 3.0
+
+----
+
+:doc:`Return to list of inputs <inputs>`

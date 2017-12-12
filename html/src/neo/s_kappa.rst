@@ -1,4 +1,5 @@
 S_KAPPA
+-------
 
 **Definition**
 
@@ -19,3 +20,7 @@ s_kappa_in
 **Default**
 
 0.0
+
+----
+
+:doc:`Return to list of inputs <inputs>`

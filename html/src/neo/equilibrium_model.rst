@@ -1,4 +1,5 @@
 EQUILIBRIUM_MODEL
+-----------------
 
 **Definition**
 
@@ -24,3 +25,7 @@ equilibrium_model
 **Default**
 
 0
+
+----
+
+:doc:`Return to list of inputs <inputs>`

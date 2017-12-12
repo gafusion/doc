@@ -1,4 +1,5 @@
 RMIN_OVER_A
+-----------
 
 **Definition**
 
@@ -15,3 +16,7 @@ rmin_1_in
 **Default**
 
 0.5
+
+----
+
+:doc:`Return to list of inputs <inputs>`

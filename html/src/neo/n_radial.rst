@@ -1,4 +1,5 @@
 N_RADIAL
+--------
 
 **Definition**
 
@@ -19,3 +20,6 @@ n_radial
 
 1
 
+----
+
+:doc:`Return to list of inputs <inputs>`

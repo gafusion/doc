@@ -1,4 +1,5 @@
 N_THETA
+-------
 
 **Definition**
 
@@ -18,3 +19,6 @@ n_theta
 
 17
 
+----
+
+:doc:`Return to list of inputs <inputs>`
