@@ -9,10 +9,17 @@ The General Atomics GACODE Suite
 
 GACODE refers to a collection of serial and HPC software developed by the Theory Group at `General Atomics <http://www.ga.com/magnetic-fusion>`_, and distributed through the `GACODE source code repository <https://github.com/gafusion/gacode/>`_ at GitHub.
 
-Navigation
-----------
+Installation
+------------
 
-- :doc:`Installation/building <install>`
-- :doc:`Running <run>`
-- :doc:`Geometry <geometry>`
-- :doc:`Rotation and field orientation <rotation>`
+Instructions for :doc:`installing and building <install>` the GACODE suite.
+
+Geometry
+--------
+
+A description of the unified method used to describe :doc:`flux-surface geometry <geometry>`.
+
+Rotation and Field Orientation
+------------------------------
+
+Some notes about :doc:`plasma rotation and magnetic field orientation <rotation>`.
