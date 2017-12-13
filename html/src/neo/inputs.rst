@@ -1,5 +1,33 @@
+**********
+NEO Inputs
+**********
+
+When run in the traditional (stand-alone) way, all NEO input parameters reside in the file **input.neo**
+
+Some features of **input.neo** to notes:
+
+- Parameters not specified in input.neo are filled in by default. Default values are shown in the parameter definitions.
+- The ordering of parameters is arbitrary.
+- Lines beginning with # are comments.
+- No spaces on the left or right of the equal symbol (:math:`=`) are allowed.
+- Parameters with a _MODEL specifier should normally take non-negative integer values.
+
+Subroutine interface
+####################
+
+NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo\_ and appending \_in to the name of the corresponding input.neo parameter.
+
+.. code:: fortran
+	  
+	  use neo_interface
+	  call neo_init
+	  ! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)
+	  call neo_run
+	  ! Get neo_interface outputs (e.g. jbs = neo_jpar_dke_out ...)
+  
+
 Parameters for input.neo
-~~~~~~~~~~~~~~~~~~~~~~~~
+########################
 
 .. csv-table:: **Numerical resolution**
    :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
@@ -45,3 +73,45 @@ Parameters for input.neo
    ":doc:`SIM_MODEL <sim_model>`", neo_sim_model_in, Numerical/analytic simulation model selector, 2
    ":doc:`SPITZER_MODEL <spitzer_model>`", neo_spitzer_model_in, DKE/Spitzer problem selector, 0
    ":doc:`COLLISION_MODEL <collision_model>`", neo_collision_model_in, Collision model selector, 4
+
+.. csv-table:: **Profile models**
+   :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
+   :widths: 13, 15, 25, 5
+
+   ":doc:`PROFILE_MODEL <profile_model>`", neo_profile_model_in, Local/experimental profile selector, 1
+   ":doc:`PROFILE_EQUILIBRIUM_MODEL <profile_equilibrium_model>`", neo_profile_equilibrium_model_in, Geometry selector for experimental profiles, 1
+   ":doc:`PROFILE_ERAD0_MODEL <profile_erad0_model>`", neo_profile_erad0_model_in, Determines whether to include :math:`E_r^{(0)}` in experimental profiles, 1
+
+.. csv-table:: **Rotation physics**
+   :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
+   :widths: 13, 15, 25, 5
+
+   ":doc:`ROTATION_MODEL <rotation_model>`", neo_rotation_model_in, Rotation model selector, 1
+   ":doc:`OMEGA_ROT <omega_rot>`", neo_omega_rot_in, Normalized toroidal angular frequency, 0.0
+   ":doc:`OMEGA_ROT_DERIV <omega_rot_deriv>`", neo_omega_rot_in, Normalized toroidal rotation shear, 0.0
+
+.. csv-table:: **Nonaxisymmetric effects**
+   :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
+   :widths: 13, 15, 25, 5
+
+   ":doc:`THREED_MODEL <threed_model>`", neo_threed_model_in, 3D model selector, 0
+   ":doc:`THREED_EXB_MODEL <threed_exb_model>`", neo_threed_exb_model_in, 3D ExB drift velocity model selector (higher-order), 0
+   ":doc:`THREED_EXB_DPHI0DR <threed_exb_dphi0dr>`", neo_threed_exb_dphi0dr, Normalized radial electric field in the 3D ExB drift velocity, 0
+   
+.. csv-table:: **Species-dependent parameters**
+   :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
+   :widths: 13, 15, 25, 5
+
+   ":doc:`Z_{1-11} <z_1>`", neo_z_in(), Charge of each species 1-11, 1
+
+Extra subroutine interface parameters
+#####################################
+
+These parameters are available only via the subroutine interface, i.e. not in **input.neo**.
+
+.. csv-table::
+   :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
+   :widths: 13, 15, 25, 5
+
+   ":doc:`GEO_NY <geo_ny>`", neo_geo_ny_in, Number of geometry Fourier coefficients, 0
+   ":doc:`GEO_YIN <geo_yin>`", neo_geo_yin_in, Array of normalized geometry Fourier coefficients, 0.0
