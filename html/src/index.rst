@@ -23,3 +23,8 @@ Rotation and Field Orientation
 ------------------------------
 
 Some notes about :doc:`plasma rotation and magnetic field orientation <rotation>`.
+
+Experimental profiles
+---------------------
+
+All the GACODE software words directly with the :doc:`input.profiles <input_profiles>` format.   
