@@ -11,7 +11,7 @@ The normalized equilibrium-scale radial electric field:
 such that
 
 .. math::
-   E_r^{(0)} = -\frac{d \Phi_0}{\partial r} \nabla r
+   E_r^{(0)} = -\frac{\partial \Phi_0}{\partial r} \nabla r
      
 **Comments**
 

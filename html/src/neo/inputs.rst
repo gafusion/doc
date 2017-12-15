@@ -102,8 +102,26 @@ Parameters for input.neo
    :header: "input.neo parameter", "Interface parameter", "Short description", "Default"
    :widths: 13, 15, 25, 5
 
+   ":doc:`N_SPECIES <n_species>`", neo_n_species_in, Number of kinetic species, 1
    ":doc:`Z_{1-11} <z_1>`", neo_z_in(), Charge of each species 1-11, 1
-
+   ":doc:`MASS_{1-11} <mass_1>`", neo_mass_in(), Normalized mass of each species , 1.0
+   ":doc:`DENS_{1-11} <dens_1>`", neo_dens_in(), Normalized density of each species, "\{1.0,0,0,0,0,0,0,0,0,0,0\}"
+   ":doc:`TEMP_{1-11} <temp_1>`", neo_temp_in(), Normalized temperature of each species, 1.0
+   ":doc:`DLNNDR_{1-11} <dlnndr_1>`", neo_dlnndr_in(), Normalized logarithmic density gradient of each species, 1.0
+   ":doc:`DLNTDR_{1-11} <dlntdr_1>`", neo_dlntdr_in(), Normalized logarithmic temperature of each species, 1.0
+   ":doc:`PROFILE_DLNNDR_{1-11}_SCALE <profile_dlnndr_1_scale>`", neo_profile_dlnndr_scale_in(), Scaling factor for profile normalized logarithmic density gradient of each species, 1.0
+   ":doc:`PROFILE_DLNTDR_{1-11}_SCALE <profile_dlntdr_1_scale>`", neo_profile_dlntdr_scale_in(), Scaling factor for profile normalized logarithmic temperature gradient of each species, 1.0
+   ":doc:`ANISO_MODEL_{1-11} <aniso_model_1>`", neo_aniso_model_in(), Anisotropic temperaure model for each species, 1
+   ":doc:`TEMP_PARA_{1-11} <temp_para_1>`", neo_temp_para_in(), Normalized parallel temperature (aniso) for each species, 1
+   ":doc:`DLNTDR_PARA_{1-11} <dlntdr_para_1>`", neo_dlntdr_para_in(), Normalized logarithmic parallel temperature (aniso) of each species, 1
+   ":doc:`TEMP_PERP_{1-11} <temp_perp_1>`", neo_temp_perp_in(), Normalized perpendicular temperature (aniso) for each species, 1
+   ":doc:`DLNTDR_PERP_{1-11} <dlntdr_perp_1>`", neo_dlntdr_perp_in(), Normalized logarithmic perpendicular temperature (aniso) of each species, 1
+   ":doc:`NU_1 <nu_1>`", neo_nu_1_in, Normalized collision frequency of Species 1, 0.1
+   ":doc:`NE_ADE <te_ade>`", neo_ne_ade_in, Normalized density of adiabatic electrons, 1.0
+   ":doc:`TE_ADE <te_ade>`", neo_te_ade_in, Normalized temperature of adiabatic electrons, 1.0
+   ":doc:`DLNNDRE_ADE <te_ade>`", neo_dlnndre_ade_in, Normalized logarithmic density gradient of adiabatic electrons, 1.0
+   ":doc:`DLNTDRE_ADE <te_ade>`", neo_te_dlntdre_in, Normalized logarithmic temperature of adiabatic electrons, 1.0
+   
 Extra subroutine interface parameters
 #####################################
 
