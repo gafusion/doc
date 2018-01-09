@@ -27,7 +27,7 @@ Parameters for input.tgyro
    :header: "input.tgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`TGYRO_DEN_METHODn <tgyro_den_method>`", Rules for evolving electron and ion densities, all 0
+   ":doc:`TGYRO_DEN_METHOD* <tgyro_den_method>`", Rules for evolving electron and ion densities, all 0
    ":doc:`LOC_TE_FEEDBACK_FLAG <loc_te_feedback_flag>`", Evolve electron temperature, 1
    ":doc:`LOC_TI_FEEDBACK_FLAG <loc_ti_feedback_flag>`", Evolve thermal ion temperature, 1
    ":doc:`LOC_ER_FEEDBACK_FLAG <loc_er_feedback_flag>`", Evolve electric field, 0
@@ -38,5 +38,7 @@ Parameters for input.tgyro
    :widths: 13, 25, 5
 
    ":doc:`LOC_BETAE_SCALE <loc_betae_scale>`", Amount to scale electron :math:`\beta`,1.0
+   ":doc:`LOC_MA* <loc_ma>`", Ion masses in units of :math:`m_H` , 2.0
+   ":doc:`TGYRO_THERM_FLAG* <tgyro_therm_flag>`", Toggle thermal/nonthermal species , 1
 
 
