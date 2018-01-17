@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PROFILE_MODEL &mdash; GACODE</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="GACODE" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          GACODE</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../neo.html">NEO</a></li>
+                <li><a href="../tgyro.html">TGYRO</a></li>
+                <li><a href="../cgyro.html">CGYRO</a></li>
+                <li><a href="../gyro.html">GYRO</a></li>
+                <li><a href="../tglf.html">TGLF</a></li>
+                <li><a href="../tree.html">tree</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Jump to <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">In this page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">PROFILE_MODEL</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="profile-model">
+<h1>PROFILE_MODEL<a class="headerlink" href="#profile-model" title="Permalink to this headline">¶</a></h1>
+<p><strong>Definition</strong></p>
+<p>Parameter which selects how the radial profile is defined.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>PROFILE_MODEL = 1: local (one radius)</li>
+<li>PROFILE_MODEL = 2: global, using experimental profiles</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>For PROFILE_MODEL = 1, <a class="reference internal" href="n_radial.html"><em>N_RADIAL</em></a> must be 1.<ul>
+<li>The densities are set by <code class="xref doc docutils literal"><span class="pre">DENS_</span></code> and quasi-neutrality is not checked.</li>
+<li>The temperatures are set by <code class="xref doc docutils literal"><span class="pre">TEMP_</span></code>.</li>
+</ul>
+</li>
+<li>For PROFILE_MODEL = 2, experimental profiles are defined in input.profiles.  The number of radial gridpoints is specified by <a class="reference internal" href="n_radial.html"><em>N_RADIAL</em></a>.<ul>
+<li>Additional models used for this case are specified by <a class="reference internal" href="profile_equilibrium_model.html"><em>PROFILE_EQUILIBRIUM_MODEL</em></a> and <a class="reference internal" href="profile_erad0_model.html"><em>PROFILE_ERAD0_MODEL</em></a>.</li>
+<li>Of the species-dependent parameters in input.neo, only <code class="xref doc docutils literal"><span class="pre">Z_</span></code>  and <code class="xref doc docutils literal"><span class="pre">MASS_</span></code> are used for this case. The normalizing mass is the mass of deuterium (<span class="math">\(m_D\)</span> = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and <span class="math">\(m_D\)</span>, with <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}\)</span>.</li>
+<li>The electron species, if kinetic, must be species number N_SPECIES in input.neo.</li>
+<li>If the density profiles in input.profiles are not quasi-neutral, then the density profile of the first ion species is re-set.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Internal name</strong></p>
+<p>profile_model</p>
+<p><strong>Default</strong></p>
+<p>1</p>
+<hr class="docutils" />
+<p><a class="reference internal" href="inputs.html"><em>Return to list of inputs</em></a></p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/neo/profile_model.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2010-2018.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

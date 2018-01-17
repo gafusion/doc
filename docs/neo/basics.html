@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NEO Basics &mdash; GACODE</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="GACODE" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          GACODE</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../neo.html">NEO</a></li>
+                <li><a href="../tgyro.html">TGYRO</a></li>
+                <li><a href="../cgyro.html">CGYRO</a></li>
+                <li><a href="../gyro.html">GYRO</a></li>
+                <li><a href="../tglf.html">TGLF</a></li>
+                <li><a href="../tree.html">tree</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Jump to <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">In this page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">NEO Basics</a><ul>
+<li><a class="reference internal" href="#input-files">Input Files</a></li>
+<li><a class="reference internal" href="#normalizations">Normalizations</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="neo-basics">
+<h1>NEO Basics<a class="headerlink" href="#neo-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="input-files">
+<h2>Input Files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h2>
+<p>All NEO input parameters reside in one of three files:</p>
+<ul class="simple">
+<li><a class="reference internal" href="inputs.html"><em>input.neo</em></a></li>
+<li>input.profiles</li>
+<li>input.profiles.geo</li>
+</ul>
+<p>input.neo must always exist, whereas input.profiles is required only when simulations are based on experimental profiles and input.profiles.geo is required only when general geometry is used with experimental profiles. These files are local to a given simulation directory and are parsed by a python script to generate new input files to be read directly by NEO. The user need not pay attention to python-generated files.</p>
+</div>
+<div class="section" id="normalizations">
+<h2>Normalizations<a class="headerlink" href="#normalizations" title="Permalink to this headline">¶</a></h2>
+<p>When run in local profile mode, the NEO normalizing length <span class="math">\(a\)</span>, normalizing mass <span class="math">\(m_{\rm norm}\)</span>, normalizing density <span class="math">\(n_{\rm norm}\)</span>, normalizing temperature <span class="math">\(T_{\rm norm}\)</span>, and normalizing velocity <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{\rm norm}/m_{\rm norm}}\)</span> are arbitrary, since the input.neo parameters are set with respect to these and the output parameters are defined with respect to these. For experimental profiles, the normalizations are set as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="25%" />
+<col width="28%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Quantity</th>
+<th class="head">Unit</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Length</td>
+<td><span class="math">\(a\)</span></td>
+<td>Minor radius</td>
+</tr>
+<tr class="row-odd"><td>Mass</td>
+<td><span class="math">\(m_{\rm norm} = m_{\rm D}\)</span></td>
+<td>Mass of deuterium (3.3452e-27 kg)</td>
+</tr>
+<tr class="row-even"><td>Density</td>
+<td><span class="math">\(n_{\rm norm}(r)=n_{0,{\rm species 1}}\)</span></td>
+<td>Local density of species 1</td>
+</tr>
+<tr class="row-odd"><td>Temperature</td>
+<td><span class="math">\(T_{\rm norm}(r)=T_{0,{\rm species 1}}\)</span></td>
+<td>Local temperature of species 1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/neo/basics.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2010-2018.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
