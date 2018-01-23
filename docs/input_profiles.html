@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>input.profiles &mdash; GACODE</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="GACODE" href="index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">
+          GACODE</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="neo.html">NEO</a></li>
+                <li><a href="tgyro.html">TGYRO</a></li>
+                <li><a href="cgyro.html">CGYRO</a></li>
+                <li><a href="gyro.html">GYRO</a></li>
+                <li><a href="tglf.html">TGLF</a></li>
+                <li><a href="tree.html">tree</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Jump to <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"></ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">In this page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">input.profiles</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#what-the-heck-is-bt-exp">What the heck is BT_EXP?</a></li>
+<li><a class="reference internal" href="#file-structure">File Structure</a><ul>
+<li><a class="reference internal" href="#scalar-data">Scalar Data</a></li>
+<li><a class="reference internal" href="#vector-data-block-1-1-5">Vector data, block 1 (1-5)</a></li>
+<li><a class="reference internal" href="#vector-data-block-2-6-10">Vector data, block 2 (6-10)</a></li>
+<li><a class="reference internal" href="#vector-data-block-3-11-15">Vector data, block 3 (11-15)</a></li>
+<li><a class="reference internal" href="#vector-data-block-4-16-20">Vector data, block 4 (16-20)</a></li>
+<li><a class="reference internal" href="#vector-data-block-5-21-25">Vector data, block 5 (21-25)</a></li>
+<li><a class="reference internal" href="#vector-data-block-6-26-30">Vector data, block 6 (26-30)</a></li>
+<li><a class="reference internal" href="#vector-data-block-7-31-35">Vector data, block 7 (31-35)</a></li>
+<li><a class="reference internal" href="#vector-data-block-8-36-40">Vector data, block 8 (36-40)</a></li>
+<li><a class="reference internal" href="#vector-data-block-9-41-55">Vector data, block 9 (41-55)</a></li>
+<li><a class="reference internal" href="#vector-data-block-10-56-60">Vector data, block 10 (56-60)</a></li>
+<li><a class="reference internal" href="#vector-data-block-11-61-65">Vector data, block 11 (61-65)</a></li>
+<li><a class="reference internal" href="#vector-data-block-12-66-70">Vector data, block 12 (66-70)</a></li>
+<li><a class="reference internal" href="#vector-data-block-13-71-75">Vector data, block 13 (71-75)</a></li>
+<li><a class="reference internal" href="#vector-data-block-13-71-75-diagnostic-optional">Vector data, block 13 (71-75) [DIAGNOSTIC &#8211; optional]</a></li>
+<li><a class="reference internal" href="#vector-data-block-14-76-80-diagnostic-optional">Vector data, block 14 (76-80) [DIAGNOSTIC &#8211; optional]</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="input-profiles">
+<h1>input.profiles<a class="headerlink" href="#input-profiles" title="Permalink to this headline">¶</a></h1>
+<p>To see what a sample <a class="reference internal" href=""><em>input.profiles</em></a> looks like, at the command line type</p>
+<div class="code bash highlight-python"><div class="highlight"><pre>$ gyro -g reg14 ; cat reg14/input.profiles
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The file <a class="reference internal" href=""><em>input.profiles</em></a> contains the entire dataset required for specification of experimental
+profiles. All such profiles are specified on an N_EXP-point grid.  The information
+included is sufficient to use the <a class="reference internal" href="geometry.html"><em>Miller local equilibrium model</em></a>.  If general
+flux-surface shape is required, the optional file <code class="xref doc docutils literal"><span class="pre">input.profiles.geo</span></code> can be supplied
+which overrides the model shape defined in <a class="reference internal" href=""><em>input.profiles</em></a>.</p>
+<p>The format of each data-block in <a class="reference internal" href=""><em>input.profiles</em></a> is fixed, but between data blocks any number of
+comment lines (starting with <code class="docutils literal"><span class="pre">#</span></code> in the first column) can be added for convenience.
+These comment lines are ignored by the parser.  Unlike input.gyro, no inputs are supplied
+by default; the program will halt and print an error message if data is missing.  Below,
+we list the individual scalar and vector data names (which correspond to the interface
+names in the GYRO EXPRO library).  In these definitions, recall that n_spec is the number
+of species.</p>
+</div>
+<div class="section" id="what-the-heck-is-bt-exp">
+<h2>What the heck is BT_EXP?<a class="headerlink" href="#what-the-heck-is-bt-exp" title="Permalink to this headline">¶</a></h2>
+<p>BT_EXP (together with ARHO_EXP) is essentially an unneeded/unphysical parameter meant
+to confuse users.  In reality, both these parameters could have &#8211; and should have &#8211; been
+omitted, and replaced with a profile of the (dimensional) toroidal or poloidal flux.  The
+current standard for <a class="reference internal" href=""><em>input.profiles</em></a> does include the poloidal flux, but the original specification
+did not.  Instead, these two unfortunate parameters were used as a proxy (together with
+the profile of the normalized root of the toroidal flux) for the dimensional toroidal
+flux.  So, we emphasize again that insofar as GYRO, NEO, etc are concerned, BT_EXP and
+ARHO_EXP are essentially arbitrary.</p>
+<p>Here is how they arose and what they mean: as an alternative to requiring input of the
+toroidal flux, one can introduce a (non-unique) function <span class="math">\(\rho\)</span> which parameterizes
+the toroidal flux:</p>
+<div class="math">
+\[\chi_t = \frac{1}{2\pi} \iint {\mathbf B} \cdot d{\mathbf A}
+= \frac{1}{2} B_{\rm ref} \, \rho(r)^2 \; ,\]</div>
+<p>where <span class="math">\(\chi_t\)</span> is the toroidal flux divided by <span class="math">\(2\pi\)</span>, and <span class="math">\(B_{\rm ref}\)</span>
+is any <em>reference field</em>.  This is normally the vacuum toroidal field, or close to it.
+However, it is important to keep in mind that the choice is ultimately arbitrary.  What
+is required is that by knowing <span class="math">\(B_{\rm ref}\)</span> and <span class="math">\(\rho\)</span> one can exactly
+calculate <span class="math">\(\chi_t\)</span>.  This parameterization corresponds to the following variables
+in <a class="reference internal" href=""><em>input.profiles</em></a>:</p>
+<div class="math">
+\[\begin{split}B_{\rm ref} &amp;\rightarrow &amp; ~ \mathrm{BT\_EXP} \\
+\rho(a) &amp;\rightarrow &amp; ~ \mathrm{ARHO\_EXP} \\
+\rho/\rho(a) &amp; \rightarrow &amp; ~ \mathrm{rho(:)}\end{split}\]</div>
+<p>And again we emphasize that a less confusing alternative would be to have simply included
+the vector of toroidal flux values in <a class="reference internal" href=""><em>input.profiles</em></a>.  In future specifications, this is what we
+would like to do.  One additional comment is that, in terms of <span class="math">\(\rho\)</span> the area
+enclosed by a flux surface is approximately given by <span class="math">\(A \simeq \pi\rho^2\)</span> so
+long as <span class="math">\(B_{\rm ref}\)</span> is representative of the average field passing through the
+flux surface.</p>
+</div>
+<div class="section" id="file-structure">
+<h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="scalar-data">
+<h3>Scalar Data<a class="headerlink" href="#scalar-data" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;N_ION&lt;/tt&gt;
+#* Total number of ions (thermal and fast).
+# &lt;tt&gt;N_EXP&lt;/tt&gt;
+#* Number of experimental data gridpoints.
+#* This is the dimension of the vectors which follow, for example, &lt;tt&gt;size(rho(:))=N_EXP&lt;/tt&gt;.
+# &lt;tt&gt;BT_EXP&lt;/tt&gt;
+#* Reference magnetic field, &lt;math&gt;B_{rm ref},!&lt;/math&gt;, in Tesla.
+#* The sign is positive if the direction of &lt;math&gt;{mathbf B},!&lt;/math&gt; is positively oriented; that is, if it points in the clockwise direction viewed from above.
+#* In DIII-D, we typically have &lt;math&gt;B_{rm ref} &gt; 0,!&lt;/math&gt;, or equivalently, [[BTCCW]]=-1.
+# &lt;tt&gt;ARHO_EXP&lt;/tt&gt;
+#* &lt;math&gt;rho(a),!&lt;/math&gt; (i.e., &lt;math&gt;rho,!&lt;/math&gt; at the separatrix) in units of &lt;math&gt;{rm m},!&lt;/math&gt;.
+#* This will serve to denormalize the vector &lt;math&gt;hatrho,!&lt;/math&gt; defined in the next section.</p>
+</div>
+<div class="section" id="vector-data-block-1-1-5">
+<h3>Vector data, block 1 (1-5)<a class="headerlink" href="#vector-data-block-1-1-5" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><strong>rho(:)</strong><ul>
+<li>The dimensionless areal variable, <span class="math">\(\hat\rho = \rho(r)/\rho(a)\)</span>.</li>
+<li>This should span the region <span class="math">\({\hat\rho} \in [0,1]\)</span> using n_grid_exp values.</li>
+<li>The grid-spacing can be nonuniform.</li>
+</ul>
+</li>
+<li><strong>rmin(:)</strong><ul>
+<li>The generalized minor radius, <span class="math">\(r\)</span>, in units of <span class="math">\({\rm m}\)</span>. See <a class="reference internal" href="geometry.html"><em>here</em></a> for definition.</li>
+</ul>
+</li>
+<li><strong>polflux(:)</strong><ul>
+<li>Poloidal flux over <span class="math">\(2\pi\)</span>, in units of Webers/radian.</li>
+</ul>
+</li>
+<li><strong>q(:)</strong><ul>
+<li>The dimensionless safety factor, <span class="math">\(q\)</span>.</li>
+</ul>
+</li>
+<li><strong>omega0(:)</strong><ul>
+<li>Rotation frequency, <span class="math">\(\omega_0 = \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span> in units of <span class="math">\({\rm rad/s}\)</span>.</li>
+<li>This is effectively a proxy for <span class="math">\(E_r\)</span>, but is more convenient since it is (nearly) a flux function.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="vector-data-block-2-6-10">
+<h3>Vector data, block 2 (6-10)<a class="headerlink" href="#vector-data-block-2-6-10" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;rmaj(:)&lt;/tt&gt;
+#* The generalized major radius, :math:R_0(r),!&lt;/math&gt;, in units of :math:{rm m},!&lt;/math&gt;. See [[Gyrogeometry]] for definition.
+# &lt;tt&gt;zmag(:)&lt;/tt&gt;
+#* Flux-surface elevation, :math:Z_0,!&lt;/math&gt;, in units of :math:{rm m},!&lt;/math&gt;. See [[Gyrogeometry]] for definition.
+# &lt;tt&gt;kappa(:)&lt;/tt&gt;
+#* The dimensionless plasma elongation, :math:kappa,!&lt;/math&gt;. See [[Gyrogeometry]] for definition.
+# &lt;tt&gt;delta(:)&lt;/tt&gt;
+#* The dimensionless plasma triangularity, :math:delta,!&lt;/math&gt;. See [[Gyrogeometry]] for definition.
+# &lt;tt&gt;zeta&lt;/tt&gt;
+#* Plasma squareness, :math:zeta,!&lt;/math&gt;. See [[Gyrogeometry]] for definition.</p>
+</div>
+<div class="section" id="vector-data-block-3-11-15">
+<h3>Vector data, block 3 (11-15)<a class="headerlink" href="#vector-data-block-3-11-15" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;ne(:)&lt;/tt&gt;
+#* The electron density, :math:n_e,!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;te(:)&lt;/tt&gt;
+#* The electron temperature, :math:T_e,!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ptot(:)&lt;/tt&gt;
+#* Total plasma pressure, in units of Pascals.
+# &lt;tt&gt;z_eff(:)&lt;/tt&gt;
+#* The (dimensionless) effective ion charge, :math:Z_{rm eff},!&lt;/math&gt;.
+# &lt;tt&gt;[null]&lt;/tt&gt;</p>
+</div>
+<div class="section" id="vector-data-block-4-16-20">
+<h3>Vector data, block 4 (16-20)<a class="headerlink" href="#vector-data-block-4-16-20" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;ni(1,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i1},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(2,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i2},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(3,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i3},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(4,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i4},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(5,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i5},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-5-21-25">
+<h3>Vector data, block 5 (21-25)<a class="headerlink" href="#vector-data-block-5-21-25" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;ni(6,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i6},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(7,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i7},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(8,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i8},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(9,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i9},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.
+# &lt;tt&gt;ni(10,:)&lt;/tt&gt;
+#* Ion density, :math:n_{i10},!&lt;/math&gt;, in units of :math:10^{19}/{rm m}^3,!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-6-26-30">
+<h3>Vector data, block 6 (26-30)<a class="headerlink" href="#vector-data-block-6-26-30" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;ti(1,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i1},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(2,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i2},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(3,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i3},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(4,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i4},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(5,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i5},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-7-31-35">
+<h3>Vector data, block 7 (31-35)<a class="headerlink" href="#vector-data-block-7-31-35" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;ti(6,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i6},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(7,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i7},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(8,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i8},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(9,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i9},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.
+# &lt;tt&gt;ti(10,:)&lt;/tt&gt;
+#* Ion temperature, :math:T_{i10},!&lt;/math&gt;, in units of :math:{rm keV},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-8-36-40">
+<h3>Vector data, block 8 (36-40)<a class="headerlink" href="#vector-data-block-8-36-40" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;vtor(1,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i1},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(2,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i2},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(3,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i3},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(4,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i4},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(5,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i5},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-9-41-55">
+<h3>Vector data, block 9 (41-55)<a class="headerlink" href="#vector-data-block-9-41-55" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;vtor(6,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i6},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(7,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i7},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(8,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i8},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(9,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i9},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vtor(10,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{phi,i10},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-10-56-60">
+<h3>Vector data, block 10 (56-60)<a class="headerlink" href="#vector-data-block-10-56-60" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;vpol(1,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i1},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(2,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i2},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(3,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i3},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(4,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i4},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(5,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{theta,i5},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-11-61-65">
+<h3>Vector data, block 11 (61-65)<a class="headerlink" href="#vector-data-block-11-61-65" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;vpol(6,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i6},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(7,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i7},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(8,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i8},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(9,:)&lt;/tt&gt;
+#* Ion poloidal velocity, :math:v_{theta,i9},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.
+# &lt;tt&gt;vpol(10,:)&lt;/tt&gt;
+#* Ion toroidal velocity, :math:v_{theta,i10},!&lt;/math&gt;, in units of :math:{rm m/s},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-12-66-70">
+<h3>Vector data, block 12 (66-70)<a class="headerlink" href="#vector-data-block-12-66-70" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;flow_beam(:)&lt;/tt&gt;
+#* The total integrated beam flow (particle source), in units of :math:{rm MW/keV} = 0.624 times 10^{22} , {rm s}^{-1},!&lt;/math&gt;.
+# &lt;tt&gt;flow_wall(:)&lt;/tt&gt;
+#* Wall source in same units as above (generally this is poorly-known and ignored in TGYRO).
+# &lt;tt&gt;flow_mom(:)&lt;/tt&gt;
+#* The total (convected and conducted) integrated angular momentum flow (torque), in units of :math:{rm N}cdot{rm m},!&lt;/math&gt;.
+#* The TRANSP variable is VOLINT(MVISC+MCOND).
+# &lt;tt&gt;[null]&lt;/tt&gt;
+# &lt;tt&gt;[null]&lt;/tt&gt;</p>
+</div>
+<div class="section" id="vector-data-block-13-71-75">
+<h3>Vector data, block 13 (71-75)<a class="headerlink" href="#vector-data-block-13-71-75" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;pow_e(:)&lt;/tt&gt;
+#* The total (convected and conducted) integrated electron power, in units of :math:{rm MW},!&lt;/math&gt;.
+#* This is the electron heating power, corrected for the ion-electron energy transfer, the radiated power, and the rate of change of the energy stored by the electrons.
+#* The TRANSP variable is VOLINT(PCONV+PCOND):math:times 10^{-6}&lt;/math&gt;.
+# &lt;tt&gt;pow_i(:)&lt;/tt&gt;
+#* The total (convected and conducted) integrated ion power, in units of :math:{rm MW},!&lt;/math&gt;.
+#* This is the ion heating power, corrected for the ion-electron energy transfer, the net charge-exchange loss power, and the rate of change of the energy stored by the ions.
+#* The TRANSP variable is VOLINT(PCNVE+PCNDE):math:times 10^{-6}&lt;/math&gt;.
+# &lt;tt&gt;pow_ei(:)&lt;/tt&gt;
+#* The integrated electron-ion energy exchange power, in units of :math:{rm MW},!&lt;/math&gt;.
+#* The TRANSP variable is VOLINT(QIE):math:times 10^{-6}&lt;/math&gt;.
+# &lt;tt&gt;pow_e_aux(:)&lt;/tt&gt;
+#* The integrated auxiliary power to electrons, in units of :math:{rm MW},!&lt;/math&gt;.
+# &lt;tt&gt;pow_i_aux(:)&lt;/tt&gt;
+#* The integrated auxiliary power to ions, in units of :math:{rm MW},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-13-71-75-diagnostic-optional">
+<h3>Vector data, block 13 (71-75) [DIAGNOSTIC &#8211; optional]<a class="headerlink" href="#vector-data-block-13-71-75-diagnostic-optional" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;pow_e_fus(:)&lt;/tt&gt;
+#* Fusion power to electrons, in units of :math:{rm MW},!&lt;/math&gt;.
+# &lt;tt&gt;pow_i_fus(:)&lt;/tt&gt;
+#* Fusion power to ions, in units of :math:{rm MW},!&lt;/math&gt;.
+# &lt;tt&gt;pow_e_sync(:)&lt;/tt&gt;
+#* Electron synchrotron radiation, in units of :math:{rm MW},!&lt;/math&gt;.
+# &lt;tt&gt;pow_e_brem(:)&lt;/tt&gt;
+#* Bremsstrahlung radiation, in units of :math:{rm MW},!&lt;/math&gt;.
+# &lt;tt&gt;pow_e_line(:)&lt;/tt&gt;
+#* Electron line radiation, in units of :math:{rm MW},!&lt;/math&gt;.</p>
+</div>
+<div class="section" id="vector-data-block-14-76-80-diagnostic-optional">
+<h3>Vector data, block 14 (76-80) [DIAGNOSTIC &#8211; optional]<a class="headerlink" href="#vector-data-block-14-76-80-diagnostic-optional" title="Permalink to this headline">¶</a></h3>
+<p># &lt;tt&gt;sbeame(:)&lt;/tt&gt;
+#* :math:1/m^3/s,!&lt;/math&gt;.
+# &lt;tt&gt;sbcx(:)&lt;/tt&gt;
+#* :math:1/m^3/s,!&lt;/math&gt;.
+# &lt;tt&gt;sscxl(:)&lt;/tt&gt;
+#* :math:1/m^3/s,!&lt;/math&gt;.
+# &lt;tt&gt;[null]&lt;/tt&gt;
+# &lt;tt&gt;[null]&lt;/tt&gt;</p>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="_sources/input_profiles.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2010-2018.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

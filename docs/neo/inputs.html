@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Parameters for input.neo &mdash; GACODE</title>
+    <title>NEO Inputs &mdash; GACODE</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -27,7 +27,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="GACODE" href="../index.html" />
 <meta charset='utf-8'>
@@ -83,7 +83,12 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">Parameters for input.neo</a></li>
+<li><a class="reference internal" href="#">NEO Inputs</a><ul>
+<li><a class="reference internal" href="#subroutine-interface">Subroutine interface</a></li>
+<li><a class="reference internal" href="#parameters-for-input-neo">Parameters for input.neo</a></li>
+<li><a class="reference internal" href="#extra-subroutine-interface-parameters">Extra subroutine interface parameters</a></li>
+</ul>
+</li>
 </ul>
 </ul>
 </li>
@@ -113,8 +118,30 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="parameters-for-input-neo">
-<h1>Parameters for input.neo<a class="headerlink" href="#parameters-for-input-neo" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="neo-inputs">
+<h1>NEO Inputs<a class="headerlink" href="#neo-inputs" title="Permalink to this headline">¶</a></h1>
+<p>When run in the traditional (stand-alone) way, all NEO input parameters reside in the file <strong>input.neo</strong></p>
+<p>Some features of <strong>input.neo</strong> to notes:</p>
+<ul class="simple">
+<li>Parameters not specified in input.neo are filled in by default. Default values are shown in the parameter definitions.</li>
+<li>The ordering of parameters is arbitrary.</li>
+<li>Lines beginning with # are comments.</li>
+<li>No spaces on the left or right of the equal symbol (<span class="math">\(=\)</span>) are allowed.</li>
+<li>Parameters with a _MODEL specifier should normally take non-negative integer values.</li>
+</ul>
+<div class="section" id="subroutine-interface">
+<h2>Subroutine interface<a class="headerlink" href="#subroutine-interface" title="Permalink to this headline">¶</a></h2>
+<p>NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo_ and appending _in to the name of the corresponding input.neo parameter.</p>
+<div class="code fortran highlight-python"><div class="highlight"><pre>use neo_interface
+call neo_init
+! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)
+call neo_run
+! Get neo_interface outputs (e.g. jbs = neo_jpar_dke_out ...)
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameters-for-input-neo">
+<h2>Parameters for input.neo<a class="headerlink" href="#parameters-for-input-neo" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils" id="id1">
 <caption><span class="caption-text"><strong>Numerical resolution</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -131,22 +158,22 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="n_radial.html"><span class="doc">N_RADIAL</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="n_radial.html"><em>N_RADIAL</em></a></td>
 <td>neo_n_radial_in</td>
 <td>Number of radial gridpoints</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="n_theta.html"><span class="doc">N_THETA</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="n_theta.html"><em>N_THETA</em></a></td>
 <td>neo_n_theta_in</td>
 <td>Number of poloidal gridpoints</td>
 <td>17</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="n_xi.html"><span class="doc">N_XI</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="n_xi.html"><em>N_XI</em></a></td>
 <td>neo_xi_in</td>
 <td>Number of <span class="math">\(\xi\)</span> polynomials - 1</td>
 <td>17</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="n_energy.html"><span class="doc">N_ENERGY</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="n_energy.html"><em>N_ENERGY</em></a></td>
 <td>neo_n_energy_in</td>
 <td>Number of <span class="math">\({\rm v}\)</span> polynomials - 1</td>
 <td>6</td>
@@ -169,112 +196,112 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="equilibrium_model.html"><span class="doc">EQUILIBRIUM_MODEL</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="equilibrium_model.html"><em>EQUILIBRIUM_MODEL</em></a></td>
 <td>neo_equilibrium_in</td>
 <td>Geometry selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a.html"><em>RMIN_OVER_A</em></a></td>
 <td>neo_rmin_over_a_in</td>
 <td>Normalized minor radius (min)</td>
 <td>0.5</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMIN_OVER_A_2</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="rmin_over_a_2.html"><em>RMIN_OVER_A_2</em></a></td>
 <td>neo_rmin_over_a_2_in</td>
 <td>Normalized minor radius (max)</td>
 <td>0.6</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMAJ_OVER_A</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a_2.html"><em>RMAJ_OVER_A</em></a></td>
 <td>neo_rmaj_over_a_in</td>
 <td>Normalized major radius</td>
 <td>3.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="kappa.html"><span class="doc">KAPPA</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="kappa.html"><em>KAPPA</em></a></td>
 <td>neo_kappa_in</td>
 <td>Elongation</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_kappa.html"><span class="doc">S_KAPPA</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_kappa.html"><em>S_KAPPA</em></a></td>
 <td>neo_s_kappa_in</td>
 <td>Elongation shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="delta.html"><span class="doc">DELTA</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="delta.html"><em>DELTA</em></a></td>
 <td>neo_delta_in</td>
 <td>Triangularity</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_delta.html"><span class="doc">S_DELTA</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_delta.html"><em>S_DELTA</em></a></td>
 <td>neo_s_delta_in</td>
 <td>Triangularity shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="zeta.html"><span class="doc">ZETA</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="zeta.html"><em>ZETA</em></a></td>
 <td>neo_zeta_in</td>
 <td>Squareness</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_zeta.html"><span class="doc">S_ZETA</span></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_zeta.html"><em>S_ZETA</em></a></td>
 <td>neo_s_zeta_in</td>
 <td>Squareness shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">SHIFT</span></td>
+<tr class="row-even"><td><a class="reference internal" href="shift.html"><em>SHIFT</em></a></td>
 <td>neo_shift_in</td>
 <td>Shafranov shift</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">ZMAG_OVER_A</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="zmag_over_a.html"><em>ZMAG_OVER_A</em></a></td>
 <td>neo_zmag_over_a_in</td>
 <td>Normalized elevation</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">S_ZMAG</span></td>
+<tr class="row-even"><td><a class="reference internal" href="s_zmag.html"><em>S_ZMAG</em></a></td>
 <td>neo_s_zmag_in</td>
 <td>Gradient of elevation</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">Q</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="q.html"><em>Q</em></a></td>
 <td>neo_q_in</td>
 <td>Safety factor</td>
 <td>2.0</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">Shear</span></td>
+<tr class="row-even"><td><a class="reference internal" href="shear.html"><em>Shear</em></a></td>
 <td>neo_shear_in</td>
 <td>Magnetic shear</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">BETA_STAR</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="beta_star.html"><em>BETA_STAR</em></a></td>
 <td>neo_beta_star_in</td>
 <td>Effective pressure gradient</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">IPCCW</span></td>
+<tr class="row-even"><td><a class="reference internal" href="ipccw.html"><em>IPCCW</em></a></td>
 <td>neo_ipccw_in</td>
 <td>Determines the sign of the plasma current</td>
 <td>-1</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">BTCCW</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="btccw.html"><em>BTCCW</em></a></td>
 <td>neo_btccw_in</td>
 <td>Determines the sign of the toroidal field</td>
 <td>-1</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">RHO_STAR</span></td>
+<tr class="row-even"><td><a class="reference internal" href="rho_star.html"><em>RHO_STAR</em></a></td>
 <td>neo_rho_star_in</td>
 <td>Normalized Larmor radius</td>
 <td>0.001</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">DPHI0DR</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="dphi0dr.html"><em>DPHI0DR</em></a></td>
 <td>neo_dphi0dr_in</td>
 <td>Normalized radial electric field</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">EPAR0</span></td>
+<tr class="row-even"><td><a class="reference internal" href="epar0.html"><em>EPAR0</em></a></td>
 <td>neo_epar0_in</td>
 <td>Normalized inductive electric field</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">EPAR0_SPITZER</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="epar0_spitzer.html"><em>EPAR0_SPITZER</em></a></td>
 <td>neo_epar0_spitzer_in</td>
 <td>Normalized inductive electric field for spitzer problem</td>
 <td>1.0</td>
@@ -297,28 +324,272 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="xref doc">SILENT_FLAG</span></td>
+<tr class="row-even"><td><a class="reference internal" href="silent_flag.html"><em>SILENT_FLAG</em></a></td>
 <td>neo_silent_flag_in</td>
 <td>Output mode selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">SIM_MODEL</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="sim_model.html"><em>SIM_MODEL</em></a></td>
 <td>neo_sim_model_in</td>
 <td>Numerical/analytic simulation model selector</td>
 <td>2</td>
 </tr>
-<tr class="row-even"><td><span class="xref doc">SPITZER_MODEL</span></td>
+<tr class="row-even"><td><a class="reference internal" href="spitzer_model.html"><em>SPITZER_MODEL</em></a></td>
 <td>neo_spitzer_model_in</td>
 <td>DKE/Spitzer problem selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><span class="xref doc">COLLISION_MODEL</span></td>
+<tr class="row-odd"><td><a class="reference internal" href="collision_model.html"><em>COLLISION_MODEL</em></a></td>
 <td>neo_collision_model_in</td>
 <td>Collision model selector</td>
 <td>4</td>
 </tr>
 </tbody>
 </table>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text"><strong>Profile models</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="profile_model.html"><em>PROFILE_MODEL</em></a></td>
+<td>neo_profile_model_in</td>
+<td>Local/experimental profile selector</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="profile_equilibrium_model.html"><em>PROFILE_EQUILIBRIUM_MODEL</em></a></td>
+<td>neo_profile_equilibrium_model_in</td>
+<td>Geometry selector for experimental profiles</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="profile_erad0_model.html"><em>PROFILE_ERAD0_MODEL</em></a></td>
+<td>neo_profile_erad0_model_in</td>
+<td>Determines whether to include <span class="math">\(E_r^{(0)}\)</span> in experimental profiles</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text"><strong>Rotation physics</strong></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="rotation_model.html"><em>ROTATION_MODEL</em></a></td>
+<td>neo_rotation_model_in</td>
+<td>Rotation model selector</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="omega_rot.html"><em>OMEGA_ROT</em></a></td>
+<td>neo_omega_rot_in</td>
+<td>Normalized toroidal angular frequency</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="omega_rot_deriv.html"><em>OMEGA_ROT_DERIV</em></a></td>
+<td>neo_omega_rot_in</td>
+<td>Normalized toroidal rotation shear</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-text"><strong>Nonaxisymmetric effects</strong></span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="threed_model.html"><em>THREED_MODEL</em></a></td>
+<td>neo_threed_model_in</td>
+<td>3D model selector</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="threed_exb_model.html"><em>THREED_EXB_MODEL</em></a></td>
+<td>neo_threed_exb_model_in</td>
+<td>3D ExB drift velocity model selector (higher-order)</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="threed_exb_dphi0dr.html"><em>THREED_EXB_DPHI0DR</em></a></td>
+<td>neo_threed_exb_dphi0dr</td>
+<td>Normalized radial electric field in the 3D ExB drift velocity</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text"><strong>Species-dependent parameters</strong></span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="n_species.html"><em>N_SPECIES</em></a></td>
+<td>neo_n_species_in</td>
+<td>Number of kinetic species</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">Z_{1-11}</span></code></td>
+<td>neo_z_in()</td>
+<td>Charge of each species 1-11</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">MASS_{1-11}</span></code></td>
+<td>neo_mass_in()</td>
+<td>Normalized mass of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DENS_{1-11}</span></code></td>
+<td>neo_dens_in()</td>
+<td>Normalized density of each species</td>
+<td>{1.0,0,0,0,0,0,0,0,0,0,0}</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_{1-11}</span></code></td>
+<td>neo_temp_in()</td>
+<td>Normalized temperature of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNNDR_{1-11}</span></code></td>
+<td>neo_dlnndr_in()</td>
+<td>Normalized logarithmic density gradient of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_{1-11}</span></code></td>
+<td>neo_dlntdr_in()</td>
+<td>Normalized logarithmic temperature of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">PROFILE_DLNNDR_{1-11}_SCALE</span></code></td>
+<td>neo_profile_dlnndr_scale_in()</td>
+<td>Scaling factor for profile normalized logarithmic density gradient of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">PROFILE_DLNTDR_{1-11}_SCALE</span></code></td>
+<td>neo_profile_dlntdr_scale_in()</td>
+<td>Scaling factor for profile normalized logarithmic temperature gradient of each species</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">ANISO_MODEL_{1-11}</span></code></td>
+<td>neo_aniso_model_in()</td>
+<td>Anisotropic temperaure model for each species</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_PARA_{1-11}</span></code></td>
+<td>neo_temp_para_in()</td>
+<td>Normalized parallel temperature (aniso) for each species</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_PARA_{1-11}</span></code></td>
+<td>neo_dlntdr_para_in()</td>
+<td>Normalized logarithmic parallel temperature (aniso) of each species</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_PERP_{1-11}</span></code></td>
+<td>neo_temp_perp_in()</td>
+<td>Normalized perpendicular temperature (aniso) for each species</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_PERP_{1-11}</span></code></td>
+<td>neo_dlntdr_perp_in()</td>
+<td>Normalized logarithmic perpendicular temperature (aniso) of each species</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">NU_1</span></code></td>
+<td>neo_nu_1_in</td>
+<td>Normalized collision frequency of Species 1</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">NE_ADE</span></code></td>
+<td>neo_ne_ade_in</td>
+<td>Normalized density of adiabatic electrons</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TE_ADE</span></code></td>
+<td>neo_te_ade_in</td>
+<td>Normalized temperature of adiabatic electrons</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNNDRE_ADE</span></code></td>
+<td>neo_dlnndre_ade_in</td>
+<td>Normalized logarithmic density gradient of adiabatic electrons</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">DLNTDRE_ADE</span></code></td>
+<td>neo_te_dlntdre_in</td>
+<td>Normalized logarithmic temperature of adiabatic electrons</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="extra-subroutine-interface-parameters">
+<h2>Extra subroutine interface parameters<a class="headerlink" href="#extra-subroutine-interface-parameters" title="Permalink to this headline">¶</a></h2>
+<p>These parameters are available only via the subroutine interface, i.e. not in <strong>input.neo</strong>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="22%" />
+<col width="26%" />
+<col width="43%" />
+<col width="9%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.neo parameter</th>
+<th class="head">Interface parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="geo_ny.html"><em>GEO_NY</em></a></td>
+<td>neo_geo_ny_in</td>
+<td>Number of geometry Fourier coefficients</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="geo_yin.html"><em>GEO_YIN</em></a></td>
+<td>neo_geo_yin_in</td>
+<td>Array of normalized geometry Fourier coefficients</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 
 
@@ -340,8 +611,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2010-2017.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.4.<br/>
+        &copy; Copyright 2010-2018.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.<br/>
     </p>
   </div>
 </footer>
