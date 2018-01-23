@@ -12,7 +12,7 @@ GACODE refers to a collection of serial and HPC software developed by the Theory
 Installation
 ------------
 
-Instructions for :doc:`installing and building <install>` the GACODE suite.
+We maintain `public installations <http://scidac.github.io/atom/install.html>`_ of GACODE via AToM.  However, you can also :doc:`install and build <install>` the GACODE suite from sources.
 
 Geometry
 --------
