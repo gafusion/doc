@@ -4,115 +4,77 @@ Install and build GACODE from sources
 Prerequisites
 -------------
 
-These instructions assume you have a complete ``gacode`` top-level directory, which can cloned from GitHub::
+These instructions assume you have a complete ``gacode`` top-level directory, which can be cloned from GitHub::
 
   $ git clone git@github.com:gafusion/gacode.git
 
-== Environment variables == 
+Environment variables
+---------------------
 
-First, you need to locate a suitable platform, or make your own platform config files.  You can query the
-existing platforms using::
+First, you need to locate a suitable platform, or make your own platform
+config files.  After cloning the repository, you can query the existing
+platforms using::
 
-  $ ./GIT/gacode/shared/bin/gacode_platforms 
+  $ ./gacode/shared/bin/gacode_platforms 
 
+Typical installations
+---------------------
+  
+To run on NERSC CORI KNL with the Intel Fortran compiler, add these
+lines to ``.bashrc.ext``::
 
+  export GACODE_PLATFORM=CORI_KNL_HT2_IFORT
+  export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
+  . $GACODE_ROOT/shared/bin/gacode_setup
+  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
-NERSC CORI::
-  export GACODE_PLATFORM=HOPPER_CRAY
+The last line above loads the required modules for the given platform.
+  
+Compiling on a NEW platform
+---------------------------
+
+In order to compile the full GACODE package on a new machine, so-called **platform files** must be created.  Let's image you have a new laptop, and you want this platform to be known as MY_PC.  Then, as described above, you'll need these lines in your shell RC file::
+  
+  export GACODE_PLATFORM=MY_PC
   export GACODE_ROOT=$HOME/gacode
   . $GACODE_ROOT/shared/bin/gacode_setup
 
-
-
-== Compiling on a NEW platform ==
-
-In order to compile the full GACODE package on a new machine, so-called <i>platform files</i> must be created.  Let's image you have a new laptop, and you want this platform to be known as SNOOPY.  Then, as described above, you'll need these lines in your shell RC file:
-
-<pre>
-export GACODE_PLATFORM=SNOOPY
-export GACODE_ROOT=$HOME/gacode
-. $GACODE_ROOT/shared/bin/gacode_setup
-</pre>
-
 Then you must create the following files:
 
-1. Machine-specific compilation options: 
-<pre>
-$GACODE_ROOT/shared/install/make.inc.SNOOPY
-</pre>
+#. Machine-specific compilation options:: 
 
-2. Parallel execution command syntax:
-<pre>
-$GACODE_ROOT/shared/exec/gyro.SNOOPY
-</pre>
+   $ GACODE_ROOT/platform/build/make.inc.MY_PC
 
-3. Extra compiler options needed by essential codes:
-<pre>
-$GACODE_ROOT/neo/install/make.ext.SNOOPY
-$GACODE_ROOT/gyro/install/make.ext.SNOOPY
-$GACODE_ROOT/gato/install/make.ext.SNOOPY
-</pre>
+#. Parallel execution command syntax::
 
-Numerous templates for each of these files can be found in the specific folders, and most often there will be an existing machine files that is almost exactly what you need.  So, the strategy is to copy a similar machine file to your new one, and tweak as required.  If you send me your new machine files I'll add them to the GACODE repository.
+   $ GACODE_ROOT/platform/exec/exec.MY_PC
 
-== Building ==
+Numerous templates for each of these files can be found in the specific
+folders, and most often there will be an existing machine files that
+is almost exactly what you need.  So, the strategy is to copy a similar
+machine file to your new one, and tweak as required. 
 
-To build the entire <tt>gacode</tt> project, typing
+Building
+--------
 
-<pre>
-$ cd $GACODE_ROOT
-$ make
-</pre>
+To build the entire ``gacode`` project, type::
 
-By default (Jan 2013), <b>OpenMP</b> functionality is built by default.
+  $ cd $GACODE_ROOT
+  $ make
 
-You can build a <b>debug</b> version by typing
+To test that the build is uccessful, you can run regression tests::
 
-<pre>
-$ make OPT=debug
-</pre>
+  $ neo -r
+  $ tglf -r
+  $ cgyro -r -n 4 -nomp 2
 
-The build system is recursive, so this same approach works in all subdirectories (tgyro, gyro, neo, tglf, gato, etc).
+This last command run the complete ``cgyro`` regression test suite using
+4 MPI tasks and 2 OpenMP threads (8 total threads).
 
-== Automagic version logging ==
+Running production GYRO cases
+-----------------------------
 
-When building a version of gacode pulled from GitHub, the system will query git for the current revision, and log the exact revision hash. Running GYRO will yield an output file <tt>out.gyro.version</tt> containing what is effectively the exact version, the platform, and the execution date:
-
-<pre>
-r4-131-gef39
-BANACH
-Thu May 10 14:25:20 PDT 2012
-</pre>
-
-The same applies to tgyro and neo runs.
-
-== Testing ==
-
-To test GYRO:
-
-<pre>
-$ mkdir testdir ; cd testdir
-$ gyro -g reg01
-$ gyro -e reg01
-</pre>
-
-If you have installed everything correctly, this case will complete in a few seconds.  To check the result, type
-
-<pre>
-$ gyro_reg reg01
-</pre>
-
-If you get a PASS, then your installation is working correctly.  To run the entire regression case, type
-
-<pre>
-$ gyro -r -n 4
-</pre>
-
-This will run the complete regression test suite using 4 cores.
-
-== Running production GYRO cases ==
-
-=== Setup ===
+Setup:
 
 The input files and configuration for numerous linear and nonlinear cases can be auto-generated using the <tt>-g</tt> flag.  Often, it is easiest to find a template case that is close to what you would like to run, and then modify it accordingly.  A relatively simple nonlinear case is <tt>nl01</tt>.  You can generate the template for this by typing
 
