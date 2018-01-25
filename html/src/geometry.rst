@@ -1,5 +1,5 @@
-GEOMETRY
-========
+FLUX-SURFACE-GEOMETRY
+=====================
 
 Coordinates
 -----------
