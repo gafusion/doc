@@ -1,42 +1,40 @@
 <!DOCTYPE html>
 
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    
-    <title>NEO Inputs &mdash; GACODE</title>
-    
+    <title>NEO Inputs &#8212; GACODE</title>
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/bootswatch-3.3.4/spacelab/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/spacelab/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="GACODE" href="../index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
 <meta name="apple-mobile-web-app-capable" content="yes">
 
   </head>
-  <body role="document">
+  <body>
 
   <div id="navbar" class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -132,7 +130,7 @@
 <div class="section" id="subroutine-interface">
 <h2>Subroutine interface<a class="headerlink" href="#subroutine-interface" title="Permalink to this headline">¶</a></h2>
 <p>NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo_ and appending _in to the name of the corresponding input.neo parameter.</p>
-<div class="code fortran highlight-python"><div class="highlight"><pre>use neo_interface
+<div class="code fortran highlight-default"><div class="highlight"><pre><span></span>use neo_interface
 call neo_init
 ! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)
 call neo_run
@@ -158,22 +156,22 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="n_radial.html"><em>N_RADIAL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="n_radial.html"><span class="doc">N_RADIAL</span></a></td>
 <td>neo_n_radial_in</td>
 <td>Number of radial gridpoints</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="n_theta.html"><em>N_THETA</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="n_theta.html"><span class="doc">N_THETA</span></a></td>
 <td>neo_n_theta_in</td>
 <td>Number of poloidal gridpoints</td>
 <td>17</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="n_xi.html"><em>N_XI</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="n_xi.html"><span class="doc">N_XI</span></a></td>
 <td>neo_xi_in</td>
 <td>Number of <span class="math">\(\xi\)</span> polynomials - 1</td>
 <td>17</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="n_energy.html"><em>N_ENERGY</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="n_energy.html"><span class="doc">N_ENERGY</span></a></td>
 <td>neo_n_energy_in</td>
 <td>Number of <span class="math">\({\rm v}\)</span> polynomials - 1</td>
 <td>6</td>
@@ -196,112 +194,112 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="equilibrium_model.html"><em>EQUILIBRIUM_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="equilibrium_model.html"><span class="doc">EQUILIBRIUM_MODEL</span></a></td>
 <td>neo_equilibrium_in</td>
 <td>Geometry selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a.html"><em>RMIN_OVER_A</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a.html"><span class="doc">RMIN_OVER_A</span></a></td>
 <td>neo_rmin_over_a_in</td>
 <td>Normalized minor radius (min)</td>
 <td>0.5</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="rmin_over_a_2.html"><em>RMIN_OVER_A_2</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMIN_OVER_A_2</span></a></td>
 <td>neo_rmin_over_a_2_in</td>
 <td>Normalized minor radius (max)</td>
 <td>0.6</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a_2.html"><em>RMAJ_OVER_A</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="rmin_over_a_2.html"><span class="doc">RMAJ_OVER_A</span></a></td>
 <td>neo_rmaj_over_a_in</td>
 <td>Normalized major radius</td>
 <td>3.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="kappa.html"><em>KAPPA</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="kappa.html"><span class="doc">KAPPA</span></a></td>
 <td>neo_kappa_in</td>
 <td>Elongation</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_kappa.html"><em>S_KAPPA</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_kappa.html"><span class="doc">S_KAPPA</span></a></td>
 <td>neo_s_kappa_in</td>
 <td>Elongation shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="delta.html"><em>DELTA</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="delta.html"><span class="doc">DELTA</span></a></td>
 <td>neo_delta_in</td>
 <td>Triangularity</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_delta.html"><em>S_DELTA</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_delta.html"><span class="doc">S_DELTA</span></a></td>
 <td>neo_s_delta_in</td>
 <td>Triangularity shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="zeta.html"><em>ZETA</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="zeta.html"><span class="doc">ZETA</span></a></td>
 <td>neo_zeta_in</td>
 <td>Squareness</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="s_zeta.html"><em>S_ZETA</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="s_zeta.html"><span class="doc">S_ZETA</span></a></td>
 <td>neo_s_zeta_in</td>
 <td>Squareness shear</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="shift.html"><em>SHIFT</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="shift.html"><span class="doc">SHIFT</span></a></td>
 <td>neo_shift_in</td>
 <td>Shafranov shift</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="zmag_over_a.html"><em>ZMAG_OVER_A</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="zmag_over_a.html"><span class="doc">ZMAG_OVER_A</span></a></td>
 <td>neo_zmag_over_a_in</td>
 <td>Normalized elevation</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="s_zmag.html"><em>S_ZMAG</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="s_zmag.html"><span class="doc">S_ZMAG</span></a></td>
 <td>neo_s_zmag_in</td>
 <td>Gradient of elevation</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="q.html"><em>Q</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="q.html"><span class="doc">Q</span></a></td>
 <td>neo_q_in</td>
 <td>Safety factor</td>
 <td>2.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="shear.html"><em>Shear</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="shear.html"><span class="doc">Shear</span></a></td>
 <td>neo_shear_in</td>
 <td>Magnetic shear</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="beta_star.html"><em>BETA_STAR</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="beta_star.html"><span class="doc">BETA_STAR</span></a></td>
 <td>neo_beta_star_in</td>
 <td>Effective pressure gradient</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="ipccw.html"><em>IPCCW</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="ipccw.html"><span class="doc">IPCCW</span></a></td>
 <td>neo_ipccw_in</td>
 <td>Determines the sign of the plasma current</td>
 <td>-1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="btccw.html"><em>BTCCW</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="btccw.html"><span class="doc">BTCCW</span></a></td>
 <td>neo_btccw_in</td>
 <td>Determines the sign of the toroidal field</td>
 <td>-1</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="rho_star.html"><em>RHO_STAR</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="rho_star.html"><span class="doc">RHO_STAR</span></a></td>
 <td>neo_rho_star_in</td>
 <td>Normalized Larmor radius</td>
 <td>0.001</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="dphi0dr.html"><em>DPHI0DR</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="dphi0dr.html"><span class="doc">DPHI0DR</span></a></td>
 <td>neo_dphi0dr_in</td>
 <td>Normalized radial electric field</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="epar0.html"><em>EPAR0</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="epar0.html"><span class="doc">EPAR0</span></a></td>
 <td>neo_epar0_in</td>
 <td>Normalized inductive electric field</td>
 <td>0.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="epar0_spitzer.html"><em>EPAR0_SPITZER</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="epar0_spitzer.html"><span class="doc">EPAR0_SPITZER</span></a></td>
 <td>neo_epar0_spitzer_in</td>
 <td>Normalized inductive electric field for spitzer problem</td>
 <td>1.0</td>
@@ -324,22 +322,22 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="silent_flag.html"><em>SILENT_FLAG</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="silent_flag.html"><span class="doc">SILENT_FLAG</span></a></td>
 <td>neo_silent_flag_in</td>
 <td>Output mode selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="sim_model.html"><em>SIM_MODEL</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="sim_model.html"><span class="doc">SIM_MODEL</span></a></td>
 <td>neo_sim_model_in</td>
 <td>Numerical/analytic simulation model selector</td>
 <td>2</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="spitzer_model.html"><em>SPITZER_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="spitzer_model.html"><span class="doc">SPITZER_MODEL</span></a></td>
 <td>neo_spitzer_model_in</td>
 <td>DKE/Spitzer problem selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="collision_model.html"><em>COLLISION_MODEL</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="collision_model.html"><span class="doc">COLLISION_MODEL</span></a></td>
 <td>neo_collision_model_in</td>
 <td>Collision model selector</td>
 <td>4</td>
@@ -362,17 +360,17 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="profile_model.html"><em>PROFILE_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="profile_model.html"><span class="doc">PROFILE_MODEL</span></a></td>
 <td>neo_profile_model_in</td>
 <td>Local/experimental profile selector</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="profile_equilibrium_model.html"><em>PROFILE_EQUILIBRIUM_MODEL</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="profile_equilibrium_model.html"><span class="doc">PROFILE_EQUILIBRIUM_MODEL</span></a></td>
 <td>neo_profile_equilibrium_model_in</td>
 <td>Geometry selector for experimental profiles</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="profile_erad0_model.html"><em>PROFILE_ERAD0_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="profile_erad0_model.html"><span class="doc">PROFILE_ERAD0_MODEL</span></a></td>
 <td>neo_profile_erad0_model_in</td>
 <td>Determines whether to include <span class="math">\(E_r^{(0)}\)</span> in experimental profiles</td>
 <td>1</td>
@@ -395,17 +393,17 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="rotation_model.html"><em>ROTATION_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="rotation_model.html"><span class="doc">ROTATION_MODEL</span></a></td>
 <td>neo_rotation_model_in</td>
 <td>Rotation model selector</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="omega_rot.html"><em>OMEGA_ROT</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="omega_rot.html"><span class="doc">OMEGA_ROT</span></a></td>
 <td>neo_omega_rot_in</td>
 <td>Normalized toroidal angular frequency</td>
 <td>0.0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="omega_rot_deriv.html"><em>OMEGA_ROT_DERIV</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="omega_rot_deriv.html"><span class="doc">OMEGA_ROT_DERIV</span></a></td>
 <td>neo_omega_rot_in</td>
 <td>Normalized toroidal rotation shear</td>
 <td>0.0</td>
@@ -428,17 +426,17 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="threed_model.html"><em>THREED_MODEL</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="threed_model.html"><span class="doc">THREED_MODEL</span></a></td>
 <td>neo_threed_model_in</td>
 <td>3D model selector</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="threed_exb_model.html"><em>THREED_EXB_MODEL</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="threed_exb_model.html"><span class="doc">THREED_EXB_MODEL</span></a></td>
 <td>neo_threed_exb_model_in</td>
 <td>3D ExB drift velocity model selector (higher-order)</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="threed_exb_dphi0dr.html"><em>THREED_EXB_DPHI0DR</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="threed_exb_dphi0dr.html"><span class="doc">THREED_EXB_DPHI0DR</span></a></td>
 <td>neo_threed_exb_dphi0dr</td>
 <td>Normalized radial electric field in the 3D ExB drift velocity</td>
 <td>0</td>
@@ -461,97 +459,97 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="n_species.html"><em>N_SPECIES</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="n_species.html"><span class="doc">N_SPECIES</span></a></td>
 <td>neo_n_species_in</td>
 <td>Number of kinetic species</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">Z_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">Z_{1-11}</span></td>
 <td>neo_z_in()</td>
 <td>Charge of each species 1-11</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">MASS_{1-11}</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">MASS_{1-11}</span></td>
 <td>neo_mass_in()</td>
 <td>Normalized mass of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DENS_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">DENS_{1-11}</span></td>
 <td>neo_dens_in()</td>
 <td>Normalized density of each species</td>
 <td>{1.0,0,0,0,0,0,0,0,0,0,0}</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_{1-11}</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">TEMP_{1-11}</span></td>
 <td>neo_temp_in()</td>
 <td>Normalized temperature of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNNDR_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">DLNNDR_{1-11}</span></td>
 <td>neo_dlnndr_in()</td>
 <td>Normalized logarithmic density gradient of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_{1-11}</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">DLNTDR_{1-11}</span></td>
 <td>neo_dlntdr_in()</td>
 <td>Normalized logarithmic temperature of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">PROFILE_DLNNDR_{1-11}_SCALE</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">PROFILE_DLNNDR_{1-11}_SCALE</span></td>
 <td>neo_profile_dlnndr_scale_in()</td>
 <td>Scaling factor for profile normalized logarithmic density gradient of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">PROFILE_DLNTDR_{1-11}_SCALE</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">PROFILE_DLNTDR_{1-11}_SCALE</span></td>
 <td>neo_profile_dlntdr_scale_in()</td>
 <td>Scaling factor for profile normalized logarithmic temperature gradient of each species</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">ANISO_MODEL_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">ANISO_MODEL_{1-11}</span></td>
 <td>neo_aniso_model_in()</td>
 <td>Anisotropic temperaure model for each species</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_PARA_{1-11}</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">TEMP_PARA_{1-11}</span></td>
 <td>neo_temp_para_in()</td>
 <td>Normalized parallel temperature (aniso) for each species</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_PARA_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">DLNTDR_PARA_{1-11}</span></td>
 <td>neo_dlntdr_para_in()</td>
 <td>Normalized logarithmic parallel temperature (aniso) of each species</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TEMP_PERP_{1-11}</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">TEMP_PERP_{1-11}</span></td>
 <td>neo_temp_perp_in()</td>
 <td>Normalized perpendicular temperature (aniso) for each species</td>
 <td>1</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNTDR_PERP_{1-11}</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">DLNTDR_PERP_{1-11}</span></td>
 <td>neo_dlntdr_perp_in()</td>
 <td>Normalized logarithmic perpendicular temperature (aniso) of each species</td>
 <td>1</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">NU_1</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">NU_1</span></td>
 <td>neo_nu_1_in</td>
 <td>Normalized collision frequency of Species 1</td>
 <td>0.1</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">NE_ADE</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">NE_ADE</span></td>
 <td>neo_ne_ade_in</td>
 <td>Normalized density of adiabatic electrons</td>
 <td>1.0</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">TE_ADE</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">TE_ADE</span></td>
 <td>neo_te_ade_in</td>
 <td>Normalized temperature of adiabatic electrons</td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><code class="xref doc docutils literal"><span class="pre">DLNNDRE_ADE</span></code></td>
+<tr class="row-odd"><td><span class="xref std std-doc">DLNNDRE_ADE</span></td>
 <td>neo_dlnndre_ade_in</td>
 <td>Normalized logarithmic density gradient of adiabatic electrons</td>
 <td>1.0</td>
 </tr>
-<tr class="row-even"><td><code class="xref doc docutils literal"><span class="pre">DLNTDRE_ADE</span></code></td>
+<tr class="row-even"><td><span class="xref std std-doc">DLNTDRE_ADE</span></td>
 <td>neo_te_dlntdre_in</td>
 <td>Normalized logarithmic temperature of adiabatic electrons</td>
 <td>1.0</td>
@@ -577,12 +575,12 @@ call neo_run
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="geo_ny.html"><em>GEO_NY</em></a></td>
+<tr class="row-even"><td><a class="reference internal" href="geo_ny.html"><span class="doc">GEO_NY</span></a></td>
 <td>neo_geo_ny_in</td>
 <td>Number of geometry Fourier coefficients</td>
 <td>0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="geo_yin.html"><em>GEO_YIN</em></a></td>
+<tr class="row-odd"><td><a class="reference internal" href="geo_yin.html"><span class="doc">GEO_YIN</span></a></td>
 <td>neo_geo_yin_in</td>
 <td>Array of normalized geometry Fourier coefficients</td>
 <td>0.0</td>
@@ -605,14 +603,14 @@ call neo_run
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/neo/inputs.txt"
+  <a href="../_sources/neo/inputs.rst.txt"
      rel="nofollow">Source</a>
 </div>
       
     </p>
     <p>
         &copy; Copyright 2010-2018.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.6.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.7.<br/>
     </p>
   </div>
 </footer>
