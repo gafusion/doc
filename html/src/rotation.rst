@@ -30,61 +30,69 @@ zeroth-order flow velocity is
 
 .. math::
 
-   \mathbf{U}_0 = \omega_0(\psi) R^2 \nabla \varphi
+   \mathbf{U}_0 = \omega_0(\psi) R^2 \nabla \varphi \; .
 
 It is this scalar flux-function, :math:`\omega_0`, that is the true free (input) function in
-neoclassical and gyrokinetic theory.  Here, $\psi$ is the poloidal flux.
+neoclassical and gyrokinetic theory.  Here, :math:`\psi` is the poloidal flux.
+
+The Rotation Profile
+--------------------
+
+The relevant profile that gives a *complete specification of rotation*
+is the potential :math:`\omega_0(r)`, which in defined consistently in GACODE as
+
+.. math::
+
+   \omega_0(r) = -c \frac{d \Phi}{d \psi} \simeq \frac{c E_r }{R B_p} \; .
+
+In the strictest sense, :math:`\Phi(r)` above is the leading-order potential that is constant on
+a flux surface.  Because the meaning of :math:`\Phi(r)` is ambiguous in an experimental sense,
+it is perhaps most useful to rely on the final expression in terms of :math:`E_r`.  We believe
+this form is intuitively appealing and connects most clearly with experimental data.   
 
 Input parameters
 ----------------
 
-CGYRO has recently been upgraded to implement full sonic rotation effects, whereas GYRO implements
-only a reduced model which includes rotation terms that are first-order in the main ion Mach number
-(i.e. it includes the :math:`\exb` rotation, Coriolis drift, and parallel velocity shear but neglected
-the second-order centrifugal effects).  The relevant profile is :math:`\omega_0(r)`, which in defined
-consistently in GACODE as
+CGYRO has recently been upgraded to implement *full sonic rotation*, whereas GYRO implements
+only a reduced model which includes rotation terms that are first-order in the main ion Mach number;
+that is, GYRO includes the :math:`\exb` rotation, Coriolis drift, and parallel velocity shear but
+not centrifugal dynamics.  In GYRO and CGYRO, the input rotation parameters are as follows:
+
+- :math:`\exb` shearing rate: 
 
 .. math::
 
-   \omega_0(r) = -c \frac{d \Phi}{d \psi} \frac{c E_r }{R B_p}
+    \mathtt{GAMMA\_E} \rightarrow \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{\partial \omega_{0}}{\partial r}
 
-In GYRO and CGYRO, the input rotation parameters are as follows:
-
-- :math:`\exb` shearing rate: GAMMA_E
+- Rotation shearing rate (PGAMMA in GYRO):
 
 .. math::
 
-    \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{\partial \omega_{0}}{\partial r}
-
-- Rotation shearing rate: PGAMMA or GAMMA_P
-
-.. math::
-
-   \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}
+   \mathtt{GAMMA\_P} \rightarrow \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}
 
 - Toroidal flow Mach number: MACH
 
 .. math::
 
-   M \doteq \frac{\omega_0 R_0}{c_s}
+    \mathtt{MACH} \rightarrow M \doteq \frac{\omega_0 R_0}{c_s}
 
 Like CGYRO, NEO also implements all sonic rotation terms, including centrifugal effects,
-according to the formulation of Hinton and Wong (Phys. Fluids 28, 3082 (1985)).  Neoclassically,
+according to the formulation of Hinton and Wong [Phys. Fluids 28, 3082 (1985)].  Neoclassically,
 the induced poloidally-varying electrostatic potential leads to the formation of potential wells.
 In the banana regime these increase the effective trapped particle fraction, and in the
 Pfirsh-Schluter regime increase the effective toroidal curvature.  In both instances, this
 may lead to enhanced neoclassical transport.  The NEO input rotation parameters are as follows:
 
-- OMEGA_ROT
+- Rotation rate
 
 .. math::
 
-   \frac{\omega_{0}}{v_{norm}/a} 
+   \mathtt{OMEGA\_ROT} \rightarrow \frac{a}{v_{norm}} \omega_0 
 
-- OMEGA_ROT_DERIV
+- Derivative of rotation rate
 
 .. math::
 
-   \frac{d \omega_{0}}{dr} \frac{a^{2}}{v_{norm}} 
+  \mathtt{OMEGA\_ROT\_DERIV} \rightarrow \frac{a^{2}}{v_{norm}} \frac{d \omega_{0}}{dr} 
 
 and the rotation model controlled by ROTATION_MODEL.
