@@ -23,9 +23,9 @@ Sonic rotation formalism
 ------------------------
 
 There is some confusion regarding the proper inputs to characterize rotation.  The rigorous
-derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama (Phys.
-Plasmas 5, 2560 (1998)).  Sugama followed the underlying rotation formulation of Hinton
-and Wong (Phys. Fluids 28, 3082 (1985)), who showed that in an axisymmetric system the
+derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama [Phys.
+Plasmas 5, 2560 (1998)].  Sugama followed the underlying rotation formulation of Hinton
+and Wong [Phys. Fluids 28, 3082 (1985)], who showed that in an axisymmetric system the
 zeroth-order flow velocity is
 
 .. math::
@@ -33,7 +33,7 @@ zeroth-order flow velocity is
    \mathbf{U}_0 = \omega_0(\psi) R^2 \nabla \varphi
 
 It is this scalar flux-function, :math:`\omega_0`, that is the true free (input) function in
-neoclassical and gyrokinetic theory.
+neoclassical and gyrokinetic theory.  Here, $\psi$ is the poloidal flux.
 
 Input parameters
 ----------------
@@ -41,7 +41,14 @@ Input parameters
 CGYRO has recently been upgraded to implement full sonic rotation effects, whereas GYRO implements
 only a reduced model which includes rotation terms that are first-order in the main ion Mach number
 (i.e. it includes the :math:`\exb` rotation, Coriolis drift, and parallel velocity shear but neglected
-the second-order centrifugal effects).  In GYRO and CGYRO, the input rotation parameters are as follows:
+the second-order centrifugal effects).  The relevant profile is :math:`\omega_0(r)`, which in defined
+consistently in GACODE as
+
+.. math::
+
+   \omega_0(r) = -c \frac{d \Phi}{d \psi} \frac{c E_r }{R B_p}
+
+In GYRO and CGYRO, the input rotation parameters are as follows:
 
 - :math:`\exb` shearing rate: GAMMA_E
 
