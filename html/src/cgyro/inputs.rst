@@ -1,6 +1,11 @@
 Parameters for input.cgyro
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+Simple example
+
+.. literalinclude:: reg01.txt
+
+
 .. csv-table:: **Plasma shape/geometry**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -23,5 +28,13 @@ Parameters for input.cgyro
    ":doc:`IPCCW <ipccw>`", Current orientation,1
    ":doc:`UDSYMMETRY_FLAG <udsymmetry_flag>`", Enforce up-down symmetry,1
 
+.. csv-table:: **Control parameters**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
 
-
+   ":doc:`PROFILE_MODEL <profile_model>`", Profile input selector,1
+   ":doc:`NONLINEAR_FLAG <nonlinear_flag>`", Toggle nonlinear simulation,0
+   ":doc:`ZF_TEST_MODE <zf_test_mode>`", Control zonal flow testing,0
+   ":doc:`SILENT_FLAG <silent_flag>`", Toggle silent output,0
+   ":doc:`AMP <amp>`", Initial :math:`n>0` amplitude,0.1
+   ":doc:`AMP0 <amp0>`", Initial :math:`n=0` amplitude,0.0
