@@ -30,10 +30,15 @@ suitable for the highly collisional and shaped edge regime was adopted from
 the NEO code :cite:`belli:2008,belli:2012`, which is the community standard for
 calculation of collisional transport in toroidal geometry.
 
-Data input and output
----------------------
+Data input 
+----------
 
-The primary CGYRO input file is :doc:`input.cgyro <cgyro/inputs>`.  Profile data can be optionally captured from  :doc:`input.profiles <input_profiles>`.  Finally, there is a description of :doc:`output data <cgyro/outputs>`.
+The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured from  :doc:`input.profiles <input_profiles>`.
+
+Data output, python interface, and plotting
+-------------------------------------------
+
+Although there is a description of :doc:`output data <cgyro/outputs>`, it is suggested that users use the :doc:`python interface <cgyro/plot>` to output data.
 
 Normalization
 -------------

@@ -57,8 +57,8 @@ in |ip|:
 
 .. math::
    
-   B_{\rm ref} &\rightarrow & ~ \mathrm{BT\_EXP} \\
-   \rho(a) &\rightarrow & ~ \mathrm{ARHO\_EXP} \\
+   B_{\rm ref} &\rightarrow & ~ \mathtt{BT\_EXP} \\
+   \rho(a) &\rightarrow & ~ \mathtt{ARHO\_EXP} \\
    \rho/\rho(a) & \rightarrow & ~ \mathrm{rho(:)}
 
 And again we emphasize that a less confusing alternative would be to have simply included
@@ -74,18 +74,25 @@ File Structure
 Scalar Data
 ~~~~~~~~~~~
 
-# N_ION
-#* Total number of ions (thermal and fast).  
-# N_EXP
-#* Number of experimental data gridpoints.  
-#* This is the dimension of the vectors which follow, for example, size(rho(:))=N_EXP.
-# BT_EXP
-#* Reference magnetic field, <math>B_{\rm ref}\,\!</math>, in Tesla.  
-#* The sign is positive if the direction of <math>{\mathbf B}\,\!</math> is positively oriented; that is, if it points in the clockwise direction viewed from above.  
-#* In DIII-D, we typically have <math>B_{\rm ref} > 0\,\!</math>, or equivalently, [[BTCCW]]=-1.
-# ARHO_EXP
-#* <math>\rho(a)\,\!</math> (i.e., <math>\rho\,\!</math> at the separatrix) in units of <math>{\rm m}\,\!</math>.  
-#* This will serve to denormalize the vector <math>\hat\rho\,\!</math> defined in the next section.
+#. ``N_ION``
+
+   - Total number of ions (thermal and fast).
+  
+#. ``N_EXP``
+
+   - Number of experimental data gridpoints.  
+   - This is the dimension of the vectors which follow, for example, "size(rho(:))" = ``N_EXP``
+
+#. ``BT_EXP``
+
+   - Reference magnetic field, :math:`B_{\rm ref}`, in Tesla.  
+   - The sign is positive if the direction of :math:`\mathbf{B}` is positively oriented; that is, if it points in the clockwise direction viewed from above.  
+   - In DIII-D, we typically have :math:`B_{\rm ref} > 0`, or equivalently, ``BTCCW`` = -1.
+
+#. ``ARHO_EXP``
+
+   - :math:`\rho(a)` (i.e., :math:`\rho` at the separatrix) in units of :math:`\mathrm{m}`.  
+   - This will serve to denormalize the vector :math:`\hat\rho` defined in the next section.
 
 Vector data, block 1 (1-5)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~

@@ -28,9 +28,12 @@ sys.path.append(os.path.abspath('sphinxext'))
 extensions=[
    'sphinx.ext.mathjax',
    'sphinxcontrib.bibtex',
-   'mathmacro']
+   'mathmacro',
+   'sphinx.ext.autosectionlabel']
 
 autodoc_member_order = 'bysource'
+
+autosectionlabel_prefix_document = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -72,17 +75,6 @@ exclude_patterns = []
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None
-
-# If true, '()' will be appended to :func: etc. cross-reference text.
-#add_function_parentheses = True
-
-# If true, the current module name will be prepended to all description
-# unit titles (such as .. function::).
-#add_module_names = True
-
-# If true, sectionauthor and moduleauthor directives will be shown in the
-# output. They are ignored by default.
-#show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
