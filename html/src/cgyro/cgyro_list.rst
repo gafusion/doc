@@ -54,6 +54,30 @@ Elongation, :math:`\kappa`, of the flux surface.
 
 .. ===========================================================================================
 
+.. _cgyro_nu_ee:
+
+NU_EE
+-----
+
+**Definition**
+
+Electron-electron collision frequency :math:`\nu_{ee}`, in units of :math:`c_s/a`.
+
+.. math::
+   \nu_{ee} = \frac{4\pi n_e e^4}{(2T_e)^{3/2} m_e^{1/2}} \,\log\Lambda \; .
+  
+**Comments**
+  
+- All ion collision rates are self-consistently determined from ``NU_EE``.
+
+**Default**
+
+0.1
+
+----
+
+.. ===========================================================================================
+
 .. _cgyro_s:
 
 S
@@ -121,6 +145,27 @@ d from input.profiles and its derivative is computed internally.
 **Default**
 
 0.0
+
+----
+
+.. ===========================================================================================
+
+.. _cgyro_z:
+
+Z_*
+---
+
+**Definition**
+
+Species charge.  First species charge is ``Z_1``, and so on.
+
+**Comments**
+
+- A typical case (deuterium, carbon, electrons) would be ``Z_1=1``, ``Z_2=6``, ``Z_3=-1``.
+     
+**Default**
+
+1
 
 ----
 

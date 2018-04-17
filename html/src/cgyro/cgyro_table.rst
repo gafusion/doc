@@ -3,7 +3,7 @@ Parameters for input.cgyro
 
 Simple example
 
-.. literalinclude:: reg01.txt
+.. .. literalinclude:: reg01.txt
 
 
 .. csv-table:: **Plasma shape/geometry**
@@ -32,22 +32,90 @@ Simple example
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":ref:`PROFILE_MODEL <profile_model>`", Profile input selector,1
-   ":ref:`NONLINEAR_FLAG <nonlinear_flag>`", Toggle nonlinear simulation,0
-   ":ref:`ZF_TEST_MODE <zf_test_mode>`", Control zonal flow testing,0
-   ":ref:`SILENT_FLAG <silent_flag>`", Toggle silent output,0
-   ":ref:`AMP <amp>`", Initial :math:`n>0` amplitude,0.1
-   ":ref:`AMP0 <amp0>`", Initial :math:`n=0` amplitude,0.0
+   ":ref:`cgyro_profile_model`", Profile input selector,1
+   ":ref:`cgyro_nonlinear_flag`", Toggle nonlinear simulation,0
+   ":ref:`cgyro_zf_test_mode`", Control zonal flow testing,0
+   ":ref:`cgyro_silent_flag`", Toggle silent output,0
+   ":ref:`cgyro_amp`", Initial :math:`n>0` amplitude,0.1
+   ":ref:`cgyro_amp0`", Initial :math:`n=0` amplitude,0.0
 
 .. csv-table:: **Fields**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":ref:`N_FIELD <n_field>`", Number of fields to evolve,1
-   ":ref:`BETAE_UNIT <betae_unit>`", Electron beta,0.0
-   ":ref:`BETAE_UNIT_SCALE <betae_unit_scale>`", Electron beta scaling parameter,0.0
-   ":ref:`BETA_STAR <beta_star>`", :math:`\displaystyle \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}`,0
-   ":ref:`BETA_STAR_SCALE <beta_star_scale>`", Scaling factor for BETA_STAR ,0
-   ":ref:`LAMBDA_DEBYE <silent_flag>`", Debye length,0.0
-   ":ref:`LAMBDA_DEBYE_SCALE <amp>`", Debye length scaling factor,0.0
+   ":ref:`cgyro_n_field`", Number of fields to evolve,1
+   ":ref:`cgyro_betae_unit`", Electron beta,0.0
+   ":ref:`cgyro_betae_unit_scale`", Electron beta scaling parameter,0.0
+   ":ref:`cgyro_beta_star`", :math:`\displaystyle \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}`,0
+   ":ref:`cgyro_beta_star_scale`", Scaling factor for BETA_STAR ,0
+   ":ref:`cgyro_lambda_debye`", Debye length,0.0
+   ":ref:`cgyro_lambda_debye_scale`", Debye length scaling factor,0.0
 
+.. csv-table:: **Numerical Resolution**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_n_radial`", Number of radial :math:`k_x^0` wavenumbers,4
+   ":ref:`cgyro_n_theta`", Number of poloidal :math:`\theta` gridpoints,24
+   ":ref:`cgyro_n_xi`", Number of pitch angle :math:`\xi` gridpoints,16
+   ":ref:`cgyro_n_energy`", Number of energy :math:`u` gridpoints,8
+   ":ref:`cgyro_e_max`", Maximum energy ,8.0
+   ":ref:`cgyro_n_toroidal`", Number of binormal :math:`k_y` wavenumbers,1
+   ":ref:`cgyro_ky`", Binormal wavenumber or domain size,0.3
+   ":ref:`cgyro_box_size`", Radial domain size,1
+
+.. csv-table:: **Numerical Dissipation**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_up_radial`", Radial spectral upwind scaling,1.0
+   ":ref:`cgyro_up_theta`", Poloidal upwind scaling,1.0
+   ":ref:`cgyro_up_alpha`", Binormal spectral upwind scaling,0.0
+   ":ref:`cgyro_nup_radial`", Radial spectral upwind order,3
+   ":ref:`cgyro_nup_theta`", Poloidal upwind order,3
+   ":ref:`cgyro_nup_alpha`", Binormal spectral upwind order,3
+
+.. csv-table:: **Time Stepping**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_delta_t`", Time step,0.01
+   ":ref:`cgyro_max_time`", Simulation time ,1.0
+   ":ref:`cgyro_freq_tol`", Error tolerance for frequency,0.001
+   ":ref:`cgyro_print_step`", Data output interval,100
+   ":ref:`cgyro_restart_step`", Restart data output interval,10
+
+.. csv-table:: **Collisions**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_nu_ee`", Electron-electron collision frequency, 0.1
+   ":ref:`cgyro_collision_model`", Collision model selector, 4
+   ":ref:`cgyro_collision_field_model`", Toggle self-consistent field update,1
+   ":ref:`cgyro_collision_mom_restore`", Toggle momentum conservation,1
+   ":ref:`cgyro_collision_ene_restore`", Toggle energy conservation,1
+   ":ref:`cgyro_collision_ene_diffusion`", Toggle energy diffusion,1
+   ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
+
+.. csv-table:: **Species-related parameters**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_n_species`", Number of GK species (ions plus electrons), 1
+   ":ref:`cgyro_z`", Species charge, 1
+   ":ref:`cgyro_mass`", Species mass, 1.0
+   ":ref:`cgyro_dens`", Species density, 1.0
+   ":ref:`cgyro_temp`", Species temperature, 1.0
+   ":ref:`cgyro_dlnndr`", Species density gradient, 1.0
+   ":ref:`cgyro_dlntdr`", Species temperature gradient, 1.0
+	    
+.. csv-table:: **Rotation physics**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_gamma_e`", Dopper shearing rate (:math:`E \times B` shear), 0.0
+   ":ref:`cgyro_gamma_p`", Rotation shearing rate, 0.0
+   ":ref:`cgyro_mach`", Rotation speed (Mach number), 0.0
+   ":ref:`cgyro_gamma_e_scale`", Doppler shearing rate scaling factor, 1.0
+   ":ref:`cgyro_gamma_p_scale`", Rotation shearing rate scaling factor, 1.0
+   ":ref:`cgyro_mach_scale`", Rotation speed scaling factor, 1.0 
