@@ -1,3 +1,5 @@
+.. _input.profiles:
+
 input.profiles
 ==============
 

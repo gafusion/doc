@@ -11,17 +11,17 @@ Parameters for input.tgyro
    :header: "input.tgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`LOC_DX <loc_dx>`", Jacobian step length,0.1
-   ":doc:`LOC_DX_MAX <loc_dx_max>`", Maximum size of Newton step,1.0
-   ":doc:`LOC_RELAX <loc_relax>`", Iteration relaxation parameter,2.0
-   ":doc:`LOC_RESTART_FLAG <loc_restart_flag>`", Restart control,0
+   ":ref:`tgyro_loc_dx`", Jacobian step length,0.1
+   ":ref:`tgyro_loc_dx_max`", Maximum size of Newton step,1.0
+   ":ref:`tgyro_loc_relax`", Iteration relaxation parameter,2.0
+   ":ref:`tgyro_loc_restart_flag`", Restart control,0
    LOC_BC_OFFSET, Disabled,0
    ":doc:`LOC_LOCK_PROFILE_FLAG <loc_lock_profile_flag>`", Initial profile calculation,0
    ":doc:`LOC_EVOLVE_GRAD_ONLY_FLAG <loc_evolve_grad_only_flag>`", Decouple profile and gradient evolution,0
    ":doc:`LOC_RESIDUAL_METHOD <loc_residual_method>`", Residual formula,2
-   ":doc:`TGYRO_ITERATION_METHOD <tgyro_iteration_method>`", Iteration scheme,1
+   ":ref:`tgyro_iteration_method`", Iteration scheme,1
    ":doc:`TGYRO_RELAX_ITERATIONS <tgyro_relax_iterations>`", Number of Newton iterations,0
-   ":doc:`TGYRO_WRITE_PROFILES_FLAG <tgyro_write_profiles_flag>`", Manage writing of updated ``input.profiles``,0
+   ":doc:`TGYRO_WRITE_PROFILES_FLAG <tgyro_write_profiles_flag>`", Manage writing of updated :ref:`input.profiles`,0
 
 .. csv-table:: **Profile Feedback Control**
    :header: "input.tgyro parameter", "Short description", "Default"
