@@ -16,7 +16,6 @@ import os
 import time
 import glob
 import numpy
-#import sphinx_bootstrap_theme
 
 # -- General configuration -----------------------------------------------------
 

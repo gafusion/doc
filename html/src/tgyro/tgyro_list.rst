@@ -1,8 +1,6 @@
 TGYRO input alphabetical list
 =============================
 
-----
-
 .. ===========================================================================================
 
 .. _tgyro_loc_betae_scale:
@@ -358,7 +356,7 @@ Maximum number of Newton iterations.
 
 **Comments**
 
-- Setting ``TGYRO_RELAX_ITERATIONS``=0 is useful to generate initial fluxes and other profiles on the TGYRO grid.
+- Setting ``TGYRO_RELAX_ITERATIONS`` = 0 is useful to generate initial fluxes and other profiles on the TGYRO grid.
 
 **Default**
 
@@ -535,5 +533,3 @@ Manage how new :ref:`input.profiles` files are written.
 **Default**
 
 0
-
-----
