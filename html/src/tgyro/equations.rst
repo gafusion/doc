@@ -1,3 +1,5 @@
+.. _tgyro_equations:
+
 Equations solved in TGYRO
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 

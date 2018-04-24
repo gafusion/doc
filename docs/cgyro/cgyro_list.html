@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>CGYRO input alphabetical list &mdash; GACODE</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GACODE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Codes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install and build GACODE from sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GACODE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>CGYRO input alphabetical list</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cgyro/cgyro_list.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="cgyro-input-alphabetical-list">
+<h1>CGYRO input alphabetical list<a class="headerlink" href="#cgyro-input-alphabetical-list" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="delta">
+<span id="cgyro-delta"></span><h2>DELTA<a class="headerlink" href="#delta" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Average triangularity, <span class="math">\(\delta\)</span>, of the flux surface:</p>
+<div class="math">
+\[\delta = \frac{\delta_{+} + \delta_{-}}{2}\]</div>
+<p>where <span class="math">\(\delta_{+}\)</span> is the upper triangularity and <span class="math">\(\delta_{-}\)</span> is the lower triangularity.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the triangularity as a function of radius is read from input.profiles.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>0.0</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="kappa">
+<span id="cgyro-kappa"></span><h2>KAPPA<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Elongation, <span class="math">\(\kappa\)</span>, of the flux surface.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the elongation as a function of radius is read from input.profiles.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1.0</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="nu-ee">
+<span id="cgyro-nu-ee"></span><h2>NU_EE<a class="headerlink" href="#nu-ee" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Electron-electron collision frequency <span class="math">\(\nu_{ee}\)</span>, in units of <span class="math">\(c_s/a\)</span>.</p>
+<div class="math">
+\[\nu_{ee} = \frac{4\pi n_e e^4}{(2T_e)^{3/2} m_e^{1/2}} \,\log\Lambda \; .\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>All ion collision rates are self-consistently determined from <code class="docutils literal"><span class="pre">NU_EE</span></code>.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>0.1</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="s">
+<span id="cgyro-s"></span><h2>S<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Magnetic shear, <span class="math">\(s\)</span>, of the flux surface:</p>
+<div class="math">
+\[s = \frac{r}{q} \frac{\partial q}{\partial r}\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1.0</p>
+</div>
+<div class="section" id="q">
+<span id="cgyro-q"></span><h2>Q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Safety factor, <span class="math">\(q\)</span>, of the flux surface:</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>2.0</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="shift">
+<span id="cgyro-shift"></span><h2>SHIFT<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Shafranov shift, <span class="math">\(\Delta\)</span>, of the flux surface:</p>
+<div class="math">
+\[\Delta = \frac{\partial R_0}{\partial r}\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the flux-surface-center major radius as a function of radius, <span class="math">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>0.0</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="z">
+<span id="cgyro-z"></span><h2>Z_*<a class="headerlink" href="#z" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Species charge.  First species charge is <code class="docutils literal"><span class="pre">Z_1</span></code>, and so on.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>A typical case (deuterium, carbon, electrons) would be <code class="docutils literal"><span class="pre">Z_1=1</span></code>, <code class="docutils literal"><span class="pre">Z_2=6</span></code>, <code class="docutils literal"><span class="pre">Z_3=-1</span></code>.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="zeta">
+<span id="cgyro-zeta"></span><h2>ZETA<a class="headerlink" href="#zeta" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Squareness, <span class="math">\(\zeta\)</span>, of the flux surface.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>This is only active with <span class="xref std std-doc">EQUILIBRIUM_MODEL</span> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<span class="xref std std-doc">PROFILE_MODEL</span> = 2), the squareness as a function of radius is read from input.profiles.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>0.0</p>
+<hr class="docutils" />
+<p><span class="xref std std-doc">Return to table of inputs</span></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

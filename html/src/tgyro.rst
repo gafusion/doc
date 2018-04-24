@@ -20,10 +20,12 @@ Data output, python interface, and plotting
 
 Although there is a description of :doc:`output data <tgyro/outputs>`, it is suggested that users use the :doc:`python interface <tgyro/plot>` to output data.
 
-Transport Equations 
--------------------
+Transport equations and solution 
+--------------------------------
 
-We give a brief description of the :doc:`equations solved <tgyro/equations>` in TGYRO.
+We give a brief description of the transport equations, see :ref:`tgyro_equations`.  Unlike most other transport solvers,
+the solution algorithm in TGYRO is **not** based on time-integration of the transport equations.  Instead, the steady-state 
+equations are solved (see  :ref:`tgyro_solver`).  
 
 
 

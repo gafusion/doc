@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TGYRO Solver &mdash; GACODE</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GACODE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Codes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install and build GACODE from sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GACODE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>TGYRO Solver</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tgyro/solver.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tgyro-solver">
+<span id="id1"></span><h1>TGYRO Solver<a class="headerlink" href="#tgyro-solver" title="Permalink to this headline">¶</a></h1>
+<p>TGYRO solves the <em>steady-state transport problem</em>; that is, the transport
+equations with <span class="math">\(\partial_t \rightarrow 0\)</span>.  This algorithm was originally
+envisioned to form the basis for a time-implicit solver, but frankly there has
+been little interest or need for this capability.  Instead, flexibility in
+dealing with multiple ions and solver robustness have been emphasized.</p>
+<div class="section" id="formulation">
+<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline">¶</a></h2>
+<p>To describe the algorithm, we will restrict attention to coupled <span class="math">\(T_i\)</span>
+and <span class="math">\(T_e\)</span> evolution, even though density and rotation can also be
+evolved.</p>
+<div class="math">
+\[\begin{split}\begin{align}
+\frac{1}{V^\prime(r)} \frac{\partial}{\partial r} \left[
+V^\prime(r) \,  Q_i(r) \right] = &amp;~S_i \; , \\
+\frac{1}{V^\prime(r)} \frac{\partial}{\partial r} \left[
+V^\prime(r) \, Q_e(r) \right] = &amp;~S_e \; .
+\end{align}\end{split}\]</div>
+<p>Here, the energy fluxes are the taken to be the sum of neoclassical and turbulent
+transport:</p>
+<div class="math">
+\[\begin{split}\begin{align}
+Q_i = &amp; ~Q_i^{\rm Neo} + Q_i^{\rm Turb} \\
+Q_e = &amp; ~Q_e^{\rm Neo} + Q_e^{\rm Turb}
+\end{align}\end{split}\]</div>
+<p>The total ion and electron sources, <span class="math">\(S_e\)</span> and <span class="math">\(S_i\)</span>, are described in more
+detail in the <a class="reference internal" href="equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a> .</p>
+</div>
+<div class="section" id="some-comments-regarding-units">
+<h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this headline">¶</a></h2>
+<p>In TGYRO, we have found it convenient to use CGS units rather than employing some variant of the more
+popular dimensionless normalizations.  Thus, we have</p>
+<div class="math">
+\[\begin{split}\begin{align}
+{\rm Source}: \quad &amp;~ S \sim \frac{{\rm erg}}{{\rm cm}^3 \, {\rm s}} \\
+{\rm Energy~Flux}: \quad &amp;~ Q \sim \frac{{\rm erg}}{{\rm cm}^2 \, {\rm s}} \\
+{\rm Power}: \quad &amp; P \sim  \frac{{\rm erg}}{{\rm s}} \rightarrow
+\int_0^r dx \, V^\prime(x) S(x)
+\end{align}\end{split}\]</div>
+</div>
+<div class="section" id="solution-strategy">
+<h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline">¶</a></h2>
+<p>Rather than solving the equations directly, we prefer to solve the volume-integrated form
+of the equation so that we can deal directly with the fluxes:</p>
+<div class="math">
+\[\begin{split}\begin{align}
+Q_i^T(r) \doteq \frac{1}{V^\prime(r)} &amp; ~\int_0^r dx \, V^\prime(x) S_i \\
+Q_e^T(r) \doteq \frac{1}{V^\prime(r)} &amp; ~\int_0^r dx \, V^\prime(x) S_e
+\end{align}\end{split}\]</div>
+<p>The result is a curious system which depends on both the temperatures and the
+temperature gradients:</p>
+<div class="math">
+\[\begin{split}\begin{align}
+Q_i(z_i,z_e,T_i,T_e) - Q_i^T(T_i,T_e) = &amp;~0 \\
+Q_e(z_i,z_e,T_i,T_e) - Q_e^T(T_i,T_e) = &amp;~0
+\end{align}\end{split}\]</div>
+<p>where</p>
+<div class="math">
+\[\begin{equation}
+z_i \doteq - \frac{a}{T_i} \frac{\partial T_i}{\partial r}
+\quad\mbox{and}\quad
+z_e \doteq - \frac{a}{T_e} \frac{\partial T_e}{\partial r}
+\end{equation}\]</div>
+<p>It is important to note the connection between profiles and gradients.  Specifically, if we enforce the following pedestal
+boundary conditions at <span class="math">\(r=r_*\)</span>:</p>
+<div class="math">
+\[\begin{equation}
+T_\sigma(r_*) = T_\sigma^* \; .
+\end{equation}\]</div>
+<p>Then the gradients <span class="math">\(z_\sigma\)</span> uniquely determine the temperature profiles, <span class="math">\(T_\sigma\)</span>:</p>
+<div class="math">
+\[\begin{equation}
+T_\sigma(r) = T_\sigma^*
+\exp\left( \int_r^{r_*} dx \, z_\sigma(x) \right) \; .
+\end{equation}\]</div>
+</div>
+<div class="section" id="formulation-on-a-discrete-grid">
+<h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline">¶</a></h2>
+<p>On a discrete grid ${r_j}$, the temperature profile can be approximately determined using the trapezoidal rule</p>
+<div class="math">
+\[\begin{equation}
+T_\sigma(r_{j-1}) = T_\sigma(r_j) \exp \left\{
+\left[ \frac{z_\sigma(r_j)+z_\sigma(r_{j-1})}{2} \right]
+\left[ r_j-r_{j-1} \right] \right\} \; .
+\end{equation}\]</div>
+<p>To put the problem into discrete form, we define a vector of
+independent variables (gradients) and functions (fluxes):</p>
+<div class="math">
+\[\begin{split}\begin{align}
+z_{\sigma,j} = &amp;~ z_\sigma(r_j) \; , \\
+Q_{\sigma,j} = &amp;~ Q_\sigma(r_j) \; , \\
+Q^T_{\sigma,j} = &amp;~ Q^T_\sigma(r_j) \; .
+\end{align}\end{split}\]</div>
+<p>Then, the equations to be solved are</p>
+<div class="math">
+\[\begin{equation}
+\widehat{Q}_{\sigma,j} = \widehat{Q}^T_{\sigma,j}  \; .
+\end{equation}\]</div>
+<p>where a hat denotes gyroBohm normalization:</p>
+<div class="math">
+\[\begin{equation}
+\widehat{Q} \doteq \frac{Q}{Q_{\rm GB}}
+\quad \text{where} \quad Q_{\rm GB} = n_e T_e c_s (\rho_s/a)^2 \; .
+\end{equation}\]</div>
+<p>The goal is to apply Newton’s method in a way which is as accurate as possible while still
+minimizing evaluation of the expensive functions <span class="math">\(Q_{\sigma,j}\)</span>.  Operationally, we make the
+key assumption that the transport
+fluxes depend only locally on the gradients (which is approximately
+true when quantities are normalzied to the gyroBohm unit of flux),
+so that the Jacobian associated with <span class="math">\(Q_{\sigma,j}\)</span> is block diagonal:</p>
+<div class="math">
+\[\begin{equation}
+\widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0)
++ \frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j}} \,\delta z_{\sigma^\prime,j}
+  - \frac{\partial \widehat{Q}^T_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \, \delta z_{\sigma^\prime,j^\prime}
+    = 0 \; .
+    \end{equation}\]</div>
+<p>Above, we have used the shorthand $z doteq {<a href="#id2"><span class="problematic" id="id3">z_</span></a>sj}$ and
+$z^0 doteq {z^0_sj}$.  This can be written in terms of
+Jacobian matrices as</p>
+<div class="math">
+\[\begin{equation}
+\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
+-\left[ \widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0) \right] \eta_{\sigma,j} \; ,
+\label{eq.newton}
+\end{equation}\]</div>
+<p>where</p>
+<div class="math">
+\[\begin{equation}
+\widehat{{\cal J}}_{\sigma\sigma^\prime,jj^\prime} \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
+-{\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}}\; ,
+\end{equation}\]</div>
+<p>and the quantity $z^1 = z^0 + delta z$ is the Newton
+update for the vector $z$  In Eq.~(ref{eq.newton}), we have
+introduced a {it relaxation parameter} $eta_sj$. Note that
+this method generalizes
+to an arbitrary number of gradients and fluxes per gridpoint.
+In the case of three radial gridpoints, ${r_1,r_2,r_3}$,
+the Jacobian matrices have the explicit forms</p>
+<div class="math">
+\[\begin{split}\begin{equation}
+{\cal J}_{{\sigma\sigma^\prime,jj^\prime}} = \begin{pmatrix}
+\displaystyle \frac{\partial \widehat{Q}_{i,1}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{i,1}}{\partial z_{e,1}} &amp;
+0 &amp; 0 &amp; 0 &amp; 0 ~ \\
+\displaystyle \frac{\partial \widehat{Q}_{e,1}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{e,1}}{\partial z_{e,1}} &amp;
+0 &amp; 0 &amp; 0 &amp; 0 ~ \\
+0 &amp; 0 &amp;
+\displaystyle \frac{\partial \widehat{Q}_{i,2}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{i,2}}{\partial z_{e,2}} &amp;
+0 &amp; 0  ~ \\
+0 &amp; 0 &amp;
+\displaystyle \frac{\partial \widehat{Q}_{e,2}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{e,2}}{\partial z_{e,2}} &amp;
+0 &amp; 0  ~ \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;
+\displaystyle \frac{\partial \widehat{Q}_{i,3}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{i,3}}{\partial z_{e,3}} &amp;
+~ \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp;
+\displaystyle \frac{\partial \widehat{Q}_{e,3}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}_{e,3}}{\partial z_{e,3}} &amp;
+\end{pmatrix}
+\end{equation}\end{split}\]</div>
+<div class="math">
+\[\begin{split}\begin{equation}
+{\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}} = \begin{pmatrix}
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{e,3}}
+~ \\
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,1}}{\partial z_{e,3}}
+~ \\
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,2}}{\partial z_{e,3}}
+~ \\
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,2}}{\partial z_{e,3}}
+~ \\
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{i,3}}{\partial z_{e,3}}
+~ \\
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{i,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{e,1}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{i,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{e,2}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{i,3}} &amp;
+\displaystyle \frac{\partial \widehat{Q}^T_{e,3}}{\partial z_{e,3}}
+\end{pmatrix}
+\end{equation}\end{split}\]</div>
+<p>An important quantity to measure after a Newton iteration is
+the residual</p>
+<div class="math">
+\[\begin{equation}
+R^1_{\sigma,j} = \frac{\left[\widehat{Q}_{\sigma,j}(z^1)-\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}{
+\left[\widehat{Q}_{\sigma,j}(z^1)\right]^2+\left[\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}
+\end{equation}\]</div>
+<p>If, after a Newton step, any <span class="math">\(R^1_{\sigma,j} &gt; R^0_{\sigma,j}\)</span> is not reduced, some strategy must be adopted
+to modify the gradient vector <span class="math">\(z^1\)</span> and/or the target. Note that there are two distinct iterations:</p>
+<ul class="simple">
+<li>A Newton iteration, which is rapidly convergent given
+that one is close to a root and the $qhat$ are smooth
+functions,</li>
+<li>A fixed-point iteration following the Newton iteration,
+because the weak profile variation of $qhat$ was
+ignored</li>
+</ul>
+<p>If the temperature dependence of <span class="math">\(\widehat{Q}\)</span> was included, there would be no fixed-point iteration component.</p>
+</div>
+<div class="section" id="computation-of-the-jacobian">
+<h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline">¶</a></h2>
+<p>We approximate the derivatives in the Jacobian
+matrix using a forward difference approximation</p>
+<div class="math">
+\[\begin{equation}
+\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq
+\frac{\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime} + \Delta z) -\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime})}{\Delta z}
+\end{equation}\]</div>
+<p>A desireable feature of this approximation is that the iteration scheme, Eq.~(ref{eq.newton}) if it converges,
+will converge to the exact root of the original equations without any influence of the finite-difference truncation
+error.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>

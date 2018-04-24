@@ -156,7 +156,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="input-profiles">
-<h1>input.profiles<a class="headerlink" href="#input-profiles" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1>input.profiles<a class="headerlink" href="#input-profiles" title="Permalink to this headline">¶</a></h1>
 <p>To see what a sample <a class="reference internal" href="#"><span class="doc">input.profiles</span></a> looks like, at the command line type</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ gyro -g reg14 ; cat reg14/input.profiles
 </pre></div>
@@ -199,8 +199,8 @@ is required is that by knowing <span class="math">\(B_{\rm ref}\)</span> and <sp
 calculate <span class="math">\(\chi_t\)</span>.  This parameterization corresponds to the following variables
 in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a>:</p>
 <div class="math">
-\[\begin{split}B_{\rm ref} &amp;\rightarrow &amp; ~ \mathrm{BT\_EXP} \\
-\rho(a) &amp;\rightarrow &amp; ~ \mathrm{ARHO\_EXP} \\
+\[\begin{split}B_{\rm ref} &amp;\rightarrow &amp; ~ \mathtt{BT\_EXP} \\
+\rho(a) &amp;\rightarrow &amp; ~ \mathtt{ARHO\_EXP} \\
 \rho/\rho(a) &amp; \rightarrow &amp; ~ \mathrm{rho(:)}\end{split}\]</div>
 <p>And again we emphasize that a less confusing alternative would be to have simply included
 the vector of toroidal flux values in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a>.  In future specifications, this is what we
@@ -213,18 +213,28 @@ flux surface.</p>
 <h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="scalar-data">
 <h3>Scalar Data<a class="headerlink" href="#scalar-data" title="Permalink to this headline">¶</a></h3>
-<p># N_ION
-#* Total number of ions (thermal and fast).
-# N_EXP
-#* Number of experimental data gridpoints.
-#* This is the dimension of the vectors which follow, for example, size(rho(:))=N_EXP.
-# BT_EXP
-#* Reference magnetic field, &lt;math&gt;B_{rm ref},!&lt;/math&gt;, in Tesla.
-#* The sign is positive if the direction of &lt;math&gt;{mathbf B},!&lt;/math&gt; is positively oriented; that is, if it points in the clockwise direction viewed from above.
-#* In DIII-D, we typically have &lt;math&gt;B_{rm ref} &gt; 0,!&lt;/math&gt;, or equivalently, [[BTCCW]]=-1.
-# ARHO_EXP
-#* &lt;math&gt;rho(a),!&lt;/math&gt; (i.e., &lt;math&gt;rho,!&lt;/math&gt; at the separatrix) in units of &lt;math&gt;{rm m},!&lt;/math&gt;.
-#* This will serve to denormalize the vector &lt;math&gt;hatrho,!&lt;/math&gt; defined in the next section.</p>
+<ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">N_ION</span></code><ul>
+<li>Total number of ions (thermal and fast).</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">N_EXP</span></code><ul>
+<li>Number of experimental data gridpoints.</li>
+<li>This is the dimension of the vectors which follow, for example, “size(rho(:))” = <code class="docutils literal"><span class="pre">N_EXP</span></code></li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">BT_EXP</span></code><ul>
+<li>Reference magnetic field, <span class="math">\(B_{\rm ref}\)</span>, in Tesla.</li>
+<li>The sign is positive if the direction of <span class="math">\(\mathbf{B}\)</span> is positively oriented; that is, if it points in the clockwise direction viewed from above.</li>
+<li>In DIII-D, we typically have <span class="math">\(B_{\rm ref} &gt; 0\)</span>, or equivalently, <code class="docutils literal"><span class="pre">BTCCW</span></code> = -1.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">ARHO_EXP</span></code><ul>
+<li><span class="math">\(\rho(a)\)</span> (i.e., <span class="math">\(\rho\)</span> at the separatrix) in units of <span class="math">\(\mathrm{m}\)</span>.</li>
+<li>This will serve to denormalize the vector <span class="math">\(\hat\rho\)</span> defined in the next section.</li>
+</ul>
+</li>
+</ol>
 </div>
 <div class="section" id="vector-data-block-1-1-5">
 <h3>Vector data, block 1 (1-5)<a class="headerlink" href="#vector-data-block-1-1-5" title="Permalink to this headline">¶</a></h3>

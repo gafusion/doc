@@ -84,7 +84,8 @@
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CGYRO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#data-input-and-output">Data input and output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
 </ul>
 </li>
@@ -169,7 +170,7 @@ primarily on the core region. A popular kinetic code used for this purpose
 was GYRO <a class="reference internal" href="zreferences.html#candy-2003" id="id1">[CW03b]</a><a class="reference internal" href="zreferences.html#candy-2003b" id="id2">[CW03a]</a><a class="reference internal" href="zreferences.html#candy-2004a" id="id3">[CWD04]</a><a class="reference internal" href="zreferences.html#candy-2010" id="id4">[CB10]</a>.
 Thousands of nonlinear
 simulations with GYRO have informed the fusion community’s understanding of
-core plasma turbulence <a class="reference internal" href="zreferences.html#kinsey-2005" id="id5">[KWC05]</a><a class="reference internal" href="zreferences.html#kinsey-2006" id="id6">[KWC06]</a><a class="reference internal" href="zreferences.html#kinsey-2007" id="id7">[KWC07]</a>[howard:2016b]
+core plasma turbulence <a class="reference internal" href="zreferences.html#kinsey-2005" id="id5">[KWC05]</a><a class="reference internal" href="zreferences.html#kinsey-2006" id="id6">[KWC06]</a><a class="reference internal" href="zreferences.html#kinsey-2007" id="id7">[KWC07]</a><a class="reference internal" href="zreferences.html#howard-2016b" id="id8">[HHW+16]</a>
 and provided a <em>transport database</em> for the calibration of reduced transport models
 such as TGLF <a class="reference internal" href="zreferences.html#staebler-2007" id="id9">[SKW07]</a>.  GYRO was the first global electromagnetic solver,
 and pioneered the development of numerical algorithms for the GK equations
@@ -191,9 +192,13 @@ variation important for edge plasmas.  A new coordinate system that is more
 suitable for the highly collisional and shaped edge regime was adopted from
 the NEO code <a class="reference internal" href="zreferences.html#belli-2008" id="id14">[BC08]</a><a class="reference internal" href="zreferences.html#belli-2012" id="id15">[BC12]</a>, which is the community standard for
 calculation of collisional transport in toroidal geometry.</p>
-<div class="section" id="data-input-and-output">
-<h2>Data input and output<a class="headerlink" href="#data-input-and-output" title="Permalink to this headline">¶</a></h2>
-<p>The primary CGYRO input file is <a class="reference internal" href="cgyro/inputs.html"><span class="doc">input.cgyro</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a>.  Finally, there is a description of <span class="xref std std-doc">output data</span>.</p>
+<div class="section" id="data-input">
+<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
+<p>The primary CGYRO input file is <a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">input.cgyro</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a>.</p>
+</div>
+<div class="section" id="data-output-python-interface-and-plotting">
+<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this headline">¶</a></h2>
+<p>Although there is a description of <a class="reference internal" href="cgyro/outputs.html"><span class="doc">output data</span></a>, it is suggested that users use the <a class="reference internal" href="cgyro/plot.html"><span class="doc">python interface</span></a> to output data.</p>
 </div>
 <div class="section" id="normalization">
 <h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>

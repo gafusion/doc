@@ -1,0 +1,645 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Parameters for input.cgyro &mdash; GACODE</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GACODE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Codes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Install and build GACODE from sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GACODE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Parameters for input.cgyro</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cgyro/cgyro_table.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parameters-for-input-cgyro">
+<h1>Parameters for input.cgyro<a class="headerlink" href="#parameters-for-input-cgyro" title="Permalink to this headline">¶</a></h1>
+<p>Simple example</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text"><strong>Plasma shape/geometry</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_equilibrium_model</span></td>
+<td>Geometry model selector</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_rmin</span></td>
+<td>Normalized minor radius</td>
+<td>0.5</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_rmaj</span></td>
+<td>Normalized major radius</td>
+<td>3.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="cgyro_list.html#cgyro-shift"><span class="std std-ref">SHIFT</span></a></td>
+<td>Shafranov shift</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cgyro_list.html#cgyro-kappa"><span class="std std-ref">KAPPA</span></a></td>
+<td>Elongation</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_s_kappa</span></td>
+<td>Elongation shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cgyro_list.html#cgyro-delta"><span class="std std-ref">DELTA</span></a></td>
+<td>Triangularity</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_s_delta</span></td>
+<td>Triangularity shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cgyro_list.html#cgyro-zeta"><span class="std std-ref">ZETA</span></a></td>
+<td>Squareness</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_s_zeta</span></td>
+<td>Squareness shear</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_zmag</span></td>
+<td>Elevation</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_dzmag</span></td>
+<td>Gradient of elevation</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></td>
+<td>Safety factor</td>
+<td>2.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="cgyro_list.html#cgyro-s"><span class="std std-ref">S</span></a></td>
+<td>Magnetic shear</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_btccw</span></td>
+<td>Field orientation</td>
+<td>-1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_ipccw</span></td>
+<td>Current orientation</td>
+<td>-1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_udsymmetry_flag</span></td>
+<td>Enforce up-down symmetry</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text"><strong>Control parameters</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_profile_model</span></td>
+<td>Profile input selector</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_nonlinear_flag</span></td>
+<td>Toggle nonlinear simulation</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_zf_test_mode</span></td>
+<td>Control zonal flow testing</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_silent_flag</span></td>
+<td>Toggle silent output</td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_amp</span></td>
+<td>Initial <span class="math">\(n&gt;0\)</span> amplitude</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_amp0</span></td>
+<td>Initial <span class="math">\(n=0\)</span> amplitude</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text"><strong>Fields</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_n_field</span></td>
+<td>Number of fields to evolve</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_betae_unit</span></td>
+<td>Electron beta</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_betae_unit_scale</span></td>
+<td>Electron beta scaling parameter</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_beta_star</span></td>
+<td><span class="math">\(\displaystyle \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}\)</span></td>
+<td>0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_beta_star_scale</span></td>
+<td>Scaling factor for BETA_STAR</td>
+<td>0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_lambda_debye</span></td>
+<td>Debye length</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_lambda_debye_scale</span></td>
+<td>Debye length scaling factor</td>
+<td>0.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id4">
+<caption><span class="caption-text"><strong>Numerical Resolution</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_n_radial</span></td>
+<td>Number of radial <span class="math">\(k_x^0\)</span> wavenumbers</td>
+<td>4</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_n_theta</span></td>
+<td>Number of poloidal <span class="math">\(\theta\)</span> gridpoints</td>
+<td>24</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_n_xi</span></td>
+<td>Number of pitch angle <span class="math">\(\xi\)</span> gridpoints</td>
+<td>16</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_n_energy</span></td>
+<td>Number of energy <span class="math">\(u\)</span> gridpoints</td>
+<td>8</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_e_max</span></td>
+<td>Maximum energy</td>
+<td>8.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_n_toroidal</span></td>
+<td>Number of binormal <span class="math">\(k_y\)</span> wavenumbers</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_ky</span></td>
+<td>Binormal wavenumber or domain size</td>
+<td>0.3</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_box_size</span></td>
+<td>Radial domain size</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text"><strong>Numerical Dissipation</strong></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_up_radial</span></td>
+<td>Radial spectral upwind scaling</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_up_theta</span></td>
+<td>Poloidal upwind scaling</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_up_alpha</span></td>
+<td>Binormal spectral upwind scaling</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_nup_radial</span></td>
+<td>Radial spectral upwind order</td>
+<td>3</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_nup_theta</span></td>
+<td>Poloidal upwind order</td>
+<td>3</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_nup_alpha</span></td>
+<td>Binormal spectral upwind order</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id6">
+<caption><span class="caption-text"><strong>Time Stepping</strong></span><a class="headerlink" href="#id6" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_delta_t</span></td>
+<td>Time step</td>
+<td>0.01</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_max_time</span></td>
+<td>Simulation time</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_freq_tol</span></td>
+<td>Error tolerance for frequency</td>
+<td>0.001</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_print_step</span></td>
+<td>Data output interval</td>
+<td>100</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_restart_step</span></td>
+<td>Restart data output interval</td>
+<td>10</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id7">
+<caption><span class="caption-text"><strong>Collisions</strong></span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="cgyro_list.html#cgyro-nu-ee"><span class="std std-ref">NU_EE</span></a></td>
+<td>Electron-electron collision frequency</td>
+<td>0.1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_collision_model</span></td>
+<td>Collision model selector</td>
+<td>4</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_collision_field_model</span></td>
+<td>Toggle self-consistent field update</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_collision_mom_restore</span></td>
+<td>Toggle momentum conservation</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_collision_ene_restore</span></td>
+<td>Toggle energy conservation</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_collision_ene_diffusion</span></td>
+<td>Toggle energy diffusion</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_collision_kperp</span></td>
+<td>Toggle so-called FLR term</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id8">
+<caption><span class="caption-text"><strong>Species-related parameters</strong></span><a class="headerlink" href="#id8" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_n_species</span></td>
+<td>Number of GK species (ions plus electrons)</td>
+<td>1</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="cgyro_list.html#cgyro-z"><span class="std std-ref">Z_*</span></a></td>
+<td>Species charge</td>
+<td>1</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_mass</span></td>
+<td>Species mass</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_dens</span></td>
+<td>Species density</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_temp</span></td>
+<td>Species temperature</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_dlnndr</span></td>
+<td>Species density gradient</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_dlntdr</span></td>
+<td>Species temperature gradient</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id9">
+<caption><span class="caption-text"><strong>Rotation physics</strong></span><a class="headerlink" href="#id9" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.cgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_gamma_e</span></td>
+<td>Dopper shearing rate (<span class="math">\(E \times B\)</span> shear)</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_gamma_p</span></td>
+<td>Rotation shearing rate</td>
+<td>0.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_mach</span></td>
+<td>Rotation speed (Mach number)</td>
+<td>0.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_gamma_e_scale</span></td>
+<td>Doppler shearing rate scaling factor</td>
+<td>1.0</td>
+</tr>
+<tr class="row-even"><td><span class="xref std std-ref">cgyro_gamma_p_scale</span></td>
+<td>Rotation shearing rate scaling factor</td>
+<td>1.0</td>
+</tr>
+<tr class="row-odd"><td><span class="xref std std-ref">cgyro_mach_scale</span></td>
+<td>Rotation speed scaling factor</td>
+<td>1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
