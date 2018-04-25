@@ -112,7 +112,8 @@ Then the gradients :math:`z_\sigma` uniquely determine the temperature profiles,
 Formulation on a discrete grid
 ------------------------------
 
-On a discrete grid $\{r_j\}$, the temperature profile can be approximately determined using the trapezoidal rule 
+On a discrete grid :math:`r_j`, the temperature profile can be approximately determined using
+the trapezoidal rule 
 
 .. math::
    \begin{equation}
@@ -154,38 +155,30 @@ true when quantities are normalzied to the gyroBohm unit of flux),
 so that the Jacobian associated with :math:`Q_\sj` is block diagonal:
 
 .. math::
-   \begin{equation}
    \qhat_\sj(z^0) - \qhat^T_\sj(z^0) 
    + \frac{\partial \qhat_\sj}{\partial z_\spj} \,\delta z_\spj 
-     - \frac{\partial \qhat^T_\sj}{\partial z_\spjp} \, \delta z_\spjp
-       = 0 \; .
-       \end{equation}
+   - \frac{\partial \qhat^T_\sj}{\partial z_\spjp} \, \delta z_\spjp
+   = 0 \; .
 
-Above, we have used the shorthand $z \doteq \{z_\sj\}$ and 
-$z^0 \doteq \{z^0_\sj\}$.  This can be written in terms of 
-Jacobian matrices as
+Above, we have used the shorthand :math:`z \doteq \{z_\sj\}` and
+:math:`z^0 \doteq \{z^0_\sj\}`.  This can be written in terms of Jacobian matrices as
 
 .. math::
-   \begin{equation}
    \jhat_{\sspjjp} \, \delta z_{\sigma^\prime,j^\prime} = 
    -\left[ \qhat_\sj(z^0) - \qhat^T_\sj(z^0) \right] \eta_\sj \; ,
-   \label{eq.newton}
-   \end{equation}
+   :label: newton
 
 where 
 
 .. math::
-   \begin{equation}
    \jhat_\sspjjp \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
-   -{\cal J}^T_{\sspjjp}\; ,
-   \end{equation}
+   -{\cal J}^T_{\sspjjp} \; ,
+ 
 
-and the quantity $z^1 = z^0 + \delta z$ is the Newton 
-update for the vector $z$  In Eq.~(\ref{eq.newton}), we have
-introduced a {\it relaxation parameter} $\eta_\sj$. Note that 
-this method generalizes 
-to an arbitrary number of gradients and fluxes per gridpoint.  
-In the case of three radial gridpoints, $\{r_1,r_2,r_3\}$, 
+and the quantity :math:`z^1 = z^0 + \delta z` is the Newton update for the vector
+:math:`z`.  In Eq. :eq:`newton`, we have introduced a *relaxation parameter*
+:math:`\eta_\sj`. Note that this method generalizes to an arbitrary number of gradients
+and fluxes per gridpoint.  In the case of three radial gridpoints, :math:`\{r_1,r_2,r_3\}`, 
 the Jacobian matrices have the explicit forms
 
 .. math::
@@ -266,10 +259,8 @@ An important quantity to measure after a Newton iteration is
 the residual 
 
 .. math::
-   \begin{equation}
    R^1_\sj = \frac{\left[\qhat_\sj(z^1)-\qhat^T_\sj(z^1)\right]^2}{
    \left[\qhat_\sj(z^1)\right]^2+\left[\qhat^T_\sj(z^1)\right]^2}
-   \end{equation}
 
 If, after a Newton step, any :math:`R^1_\sj > R^0_\sj` is not reduced, some strategy must be adopted
 to modify the gradient vector :math:`z^1` and/or the target. Note that there are two distinct iterations: 
@@ -280,20 +271,18 @@ to modify the gradient vector :math:`z^1` and/or the target. Note that there are
 - A fixed-point iteration following the Newton iteration,
   because the weak profile variation of $\qhat$ was 
   ignored
-
-If the temperature dependence of :math:`\qhat` was included, there would be no fixed-point iteration component.
+  
+If the temperature dependence of :math:`\qhat` was included, there would be no fixed-point
+iteration component.
 
 Computation of the Jacobian
 ---------------------------
 
-We approximate the derivatives in the Jacobian 
-matrix using a forward difference approximation
+We approximate the derivatives in the Jacobian matrix using a forward difference approximation
 
 .. math::
-   \begin{equation}
    \frac{\partial \qhat_\sj}{\partial z_\spjp} \simeq 
    \frac{\qhat_\sj (z_\spjp + \Delta z) -\qhat_\sj (z_\spjp)}{\Delta z} 
-   \end{equation}
 
 A desireable feature of this approximation is that the iteration scheme, Eq.~(\ref{eq.newton}) if it converges, 
 will converge to the exact root of the original equations without any influence of the finite-difference truncation 

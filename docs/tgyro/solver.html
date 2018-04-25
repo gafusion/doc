@@ -234,7 +234,8 @@ T_\sigma(r) = T_\sigma^*
 </div>
 <div class="section" id="formulation-on-a-discrete-grid">
 <h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline">¶</a></h2>
-<p>On a discrete grid ${r_j}$, the temperature profile can be approximately determined using the trapezoidal rule</p>
+<p>On a discrete grid <span class="math">\(r_j\)</span>, the temperature profile can be approximately determined using
+the trapezoidal rule</p>
 <div class="math">
 \[\begin{equation}
 T_\sigma(r_{j-1}) = T_\sigma(r_j) \exp \left\{
@@ -267,33 +268,23 @@ fluxes depend only locally on the gradients (which is approximately
 true when quantities are normalzied to the gyroBohm unit of flux),
 so that the Jacobian associated with <span class="math">\(Q_{\sigma,j}\)</span> is block diagonal:</p>
 <div class="math">
-\[\begin{equation}
-\widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0)
+\[\widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0)
 + \frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j}} \,\delta z_{\sigma^\prime,j}
-  - \frac{\partial \widehat{Q}^T_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \, \delta z_{\sigma^\prime,j^\prime}
-    = 0 \; .
-    \end{equation}\]</div>
-<p>Above, we have used the shorthand $z doteq {<a href="#id2"><span class="problematic" id="id3">z_</span></a>sj}$ and
-$z^0 doteq {z^0_sj}$.  This can be written in terms of
-Jacobian matrices as</p>
-<div class="math">
-\[\begin{equation}
-\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
--\left[ \widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0) \right] \eta_{\sigma,j} \; ,
-\label{eq.newton}
-\end{equation}\]</div>
+- \frac{\partial \widehat{Q}^T_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \, \delta z_{\sigma^\prime,j^\prime}
+= 0 \; .\]</div>
+<p>Above, we have used the shorthand <span class="math">\(z \doteq \{z_{\sigma,j}\}\)</span> and
+<span class="math">\(z^0 \doteq \{z^0_{\sigma,j}\}\)</span>.  This can be written in terms of Jacobian matrices as</p>
+<div class="math" id="equation-newton">
+<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation">¶</a></span>\[\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
+-\left[ \widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0) \right] \eta_{\sigma,j} \; ,\]</div>
 <p>where</p>
 <div class="math">
-\[\begin{equation}
-\widehat{{\cal J}}_{\sigma\sigma^\prime,jj^\prime} \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
--{\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}}\; ,
-\end{equation}\]</div>
-<p>and the quantity $z^1 = z^0 + delta z$ is the Newton
-update for the vector $z$  In Eq.~(ref{eq.newton}), we have
-introduced a {it relaxation parameter} $eta_sj$. Note that
-this method generalizes
-to an arbitrary number of gradients and fluxes per gridpoint.
-In the case of three radial gridpoints, ${r_1,r_2,r_3}$,
+\[\widehat{{\cal J}}_{\sigma\sigma^\prime,jj^\prime} \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
+-{\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}} \; ,\]</div>
+<p>and the quantity <span class="math">\(z^1 = z^0 + \delta z\)</span> is the Newton update for the vector
+<span class="math">\(z\)</span>.  In Eq. <a class="reference internal" href="#equation-newton">(1)</a>, we have introduced a <em>relaxation parameter</em>
+<span class="math">\(\eta_{\sigma,j}\)</span>. Note that this method generalizes to an arbitrary number of gradients
+and fluxes per gridpoint.  In the case of three radial gridpoints, <span class="math">\(\{r_1,r_2,r_3\}\)</span>,
 the Jacobian matrices have the explicit forms</p>
 <div class="math">
 \[\begin{split}\begin{equation}
@@ -370,10 +361,8 @@ the Jacobian matrices have the explicit forms</p>
 <p>An important quantity to measure after a Newton iteration is
 the residual</p>
 <div class="math">
-\[\begin{equation}
-R^1_{\sigma,j} = \frac{\left[\widehat{Q}_{\sigma,j}(z^1)-\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}{
-\left[\widehat{Q}_{\sigma,j}(z^1)\right]^2+\left[\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}
-\end{equation}\]</div>
+\[R^1_{\sigma,j} = \frac{\left[\widehat{Q}_{\sigma,j}(z^1)-\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}{
+\left[\widehat{Q}_{\sigma,j}(z^1)\right]^2+\left[\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}\]</div>
 <p>If, after a Newton step, any <span class="math">\(R^1_{\sigma,j} &gt; R^0_{\sigma,j}\)</span> is not reduced, some strategy must be adopted
 to modify the gradient vector <span class="math">\(z^1\)</span> and/or the target. Note that there are two distinct iterations:</p>
 <ul class="simple">
@@ -384,17 +373,15 @@ functions,</li>
 because the weak profile variation of $qhat$ was
 ignored</li>
 </ul>
-<p>If the temperature dependence of <span class="math">\(\widehat{Q}\)</span> was included, there would be no fixed-point iteration component.</p>
+<p>If the temperature dependence of <span class="math">\(\widehat{Q}\)</span> was included, there would be no fixed-point
+iteration component.</p>
 </div>
 <div class="section" id="computation-of-the-jacobian">
 <h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline">¶</a></h2>
-<p>We approximate the derivatives in the Jacobian
-matrix using a forward difference approximation</p>
+<p>We approximate the derivatives in the Jacobian matrix using a forward difference approximation</p>
 <div class="math">
-\[\begin{equation}
-\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq
-\frac{\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime} + \Delta z) -\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime})}{\Delta z}
-\end{equation}\]</div>
+\[\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq
+\frac{\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime} + \Delta z) -\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime})}{\Delta z}\]</div>
 <p>A desireable feature of this approximation is that the iteration scheme, Eq.~(ref{eq.newton}) if it converges,
 will converge to the exact root of the original equations without any influence of the finite-difference truncation
 error.</p>
