@@ -1,5 +1,5 @@
-Parameters for input.cgyro
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Tabular list for input.cgyro
+============================
 
 Simple example
 

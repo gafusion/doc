@@ -1,2 +1,2 @@
-Structure of CGYRO output
-~~~~~~~~~~~~~~~~~~~~~~~~~
+CGYRO output files
+==================

@@ -1,5 +1,5 @@
-CGYRO input alphabetical list
-=============================
+Alphabetical list for input.cgyro
+=================================
 
 .. ===========================================================================================
 
@@ -15,16 +15,14 @@ Average triangularity, :math:`\delta`, of the flux surface:
 .. math::
    \delta = \frac{\delta_{+} + \delta_{-}}{2}
 
-where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is the lower triangularity.   
+where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is the lower triangularity.
    
+**Default** = 0.0
+  
 **Comments**
   
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the triangularity as a function of radius is read from input.profiles.
-
-**Default**
-
-0.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from input.profiles.
 
 ----
 
@@ -38,15 +36,13 @@ KAPPA
 **Definition**
 
 Elongation, :math:`\kappa`, of the flux surface.
-     
+
+**Default** = 1.0
+
 **Comments**
-  
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the elongation as a function of radius is read from input.profiles.
 
-**Default**
-
-1.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from input.profiles.
 
 ----
 
@@ -90,8 +86,8 @@ Magnetic shear, :math:`s`, of the flux surface:
      
 **Comments**
 
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
   
 **Default**
 
@@ -111,8 +107,8 @@ Safety factor, :math:`q`, of the flux surface:
      
 **Comments**
 
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
   
 **Default**
 
@@ -136,8 +132,8 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
      
 **Comments**
   
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
 
 **Default**
 
@@ -179,8 +175,8 @@ Squareness, :math:`\zeta`, of the flux surface.
      
 **Comments**
   
-- This is only active with :doc:`EQUILIBRIUM_MODEL <equilibrium_model>` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:doc:`PROFILE_MODEL <profile_model>` = 2), the squareness as a function of radius is read from input.profiles.
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the squareness as a function of radius is read from input.profiles.
 
 **Default**
 
@@ -188,4 +184,306 @@ Squareness, :math:`\zeta`, of the flux surface.
 
 ----
 
-:doc:`Return to table of inputs <inputs>`
+.. _cgyro_equilibrium_model:
+
+EQUILIBRIUM_MODEL
+-----------------
+
+.. _cgyro_profile_model:
+
+PROFILE_MODEL
+-------------
+
+.. _cgyro_rmin:
+
+RMIN
+----
+
+.. _cgyro_rmaj:
+
+RMAJ
+----
+
+.. _cgyro_s_kappa:
+
+S_KAPPA
+-------
+
+.. _cgyro_s_delta:
+
+S_DELTA
+-------
+
+.. _cgyro_s_zeta:
+
+S_ZETA
+------
+
+.. _cgyro_zmag:
+
+ZMAG
+----
+
+.. _cgyro_dzmag:
+
+DZMAG
+-----
+
+.. _cgyro_btccw:
+
+BTCCW
+-----
+
+.. _cgyro_ipccw:
+
+IPCCW
+-----
+
+.. _cgyro_udsymmetry_flag:
+
+UDSYMMETRY_FLAG
+---------------
+
+.. _cgyro_nonlinear_flag:
+
+NONLINEAR_FLAG
+--------------
+
+.. _cgyro_zf_test_mode:
+
+ZF_TEST_MODE
+------------
+
+.. _cgyro_silent_flag:
+
+SILENT_FLAG
+-----------
+
+.. _cgyro_amp:
+
+AMP
+---
+
+.. _cgyro_amp0:
+
+AMP0
+----
+
+.. _cgyro_n_field:
+
+N_FIELD
+-------
+
+.. _cgyro_betae_unit:
+
+BETAE_UNIT
+----------
+
+.. _cgyro_betae_unit_scale:
+
+BETAE_UNIT_SCALE
+----------------
+
+.. _cgyro_beta_star:
+
+BETA_STAR
+---------
+
+.. _cgyro_beta_star_scale:
+
+BETA_STAR_SCALE
+---------------
+
+.. _cgyro_lambda_debye:
+
+LAMBDA_DEBYE
+------------
+
+.. _cgyro_lambda_debye_scale:
+
+LAMBDA_DEBYE_SCALE
+------------------
+
+.. _cgyro_n_radial:
+
+N_RADIAL
+--------
+
+.. _cgyro_n_theta:
+
+N_THETA
+-------
+
+.. _cgyro_n_xi:
+
+N_XI
+----
+
+.. _cgyro_n_energy:
+
+N_ENERGY
+--------
+
+.. _cgyro_e_max:
+
+E_MAX
+-----
+
+.. _cgyro_n_toroidal:
+
+N_TOROIDAL
+----------
+
+.. _cgyro_ky:
+
+KY
+--
+
+.. _cgyro_box_size:
+
+BOX_SIZE
+--------
+
+.. _cgyro_up_radial:
+
+UP_RADIAL
+---------
+
+.. _cgyro_nup_radial:
+
+NUP_RADIAL
+----------
+
+.. _cgyro_up_theta:
+
+UP_THETA
+--------
+
+.. _cgyro_nup_theta:
+
+NUP_THETA
+---------
+
+.. _cgyro_up_alpha:
+
+UP_ALPHA
+--------
+
+.. _cgyro_nup_alpha:
+
+NUP_ALPHA
+---------
+
+.. _cgyro_delta_t:
+
+DELTA_T
+-------
+
+.. _cgyro_max_time:
+
+MAX_TIME
+--------
+
+.. _cgyro_freq_tol:
+
+FREQ_TOL
+--------
+
+.. _cgyro_print_step:
+
+PRINT_STEP
+----------
+
+.. _cgyro_restart_step:
+
+RESTART_STEP
+------------
+
+.. _cgyro_collision_model:
+
+COLLISION_MODEL
+---------------
+
+.. _cgyro_collision_field_model:
+
+COLLISION_FIELD_MODEL
+---------------------
+
+.. _cgyro_collision_mom_restore:
+
+COLLISION_MOM_RESTORE
+---------------------
+
+.. _cgyro_collision_ene_restore:
+
+COLLISION_ENE_RESTORE
+---------------------
+
+.. _cgyro_collision_ene_diffusion:
+
+COLLISION_ENE_DIFFUSION
+-----------------------
+
+.. _cgyro_collision_kperp:
+
+COLLISION_KPERP
+---------------
+
+.. _cgyro_n_species:
+
+N_SPECIES
+---------
+
+.. _cgyro_mass:
+
+MASS*
+-----
+
+.. _cgyro_dens:
+
+DENS*
+-----
+
+.. _cgyro_temp:
+
+TEMP*
+-----
+
+.. _cgyro_dlnndr:
+
+DLNNDR*
+-------
+
+.. _cgyro_dlntdr:
+
+DLNTDR*
+-------
+
+.. _cgyro_gamma_e:
+
+GAMMA_E
+-------
+
+.. _cgyro_gamma_p:
+
+GAMMA_P
+-------
+
+.. _cgyro_gamma_e_scale:
+
+GAMMA_E_SCALE
+-------------
+
+.. _cgyro_gamma_p_scale:
+
+GAMMA_P_SCALE
+-------------
+
+.. _cgyro_mach:
+
+MACH
+----
+
+Return to :doc:`table of inputs <cgyro_table>`
+
+

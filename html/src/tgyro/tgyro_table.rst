@@ -1,5 +1,5 @@
-Parameters for input.tgyro
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+input.tgyro Tabular List
+========================
 
 .. csv-table:: **High-level control**
    :header: "input.tgyro parameter", "Short description", "Default"
@@ -15,7 +15,6 @@ Parameters for input.tgyro
    ":ref:`tgyro_loc_dx_max`", Maximum size of Newton step,1.0
    ":ref:`tgyro_loc_relax`", Iteration relaxation parameter,2.0
    ":ref:`tgyro_loc_restart_flag`", Restart control,0
-   LOC_BC_OFFSET, Disabled,0
    ":ref:`tgyro_loc_lock_profile_flag`", Initial profile calculation,0
    ":ref:`tgyro_loc_evolve_grad_only_flag`", Decouple profile and gradient evolution,0
    ":ref:`tgyro_loc_residual_method`", Residual formula,2

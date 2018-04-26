@@ -1,3 +1,5 @@
+.. _neo_profile_model:
+
 PROFILE_MODEL
 -------------
 

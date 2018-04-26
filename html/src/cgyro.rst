@@ -1,6 +1,20 @@
 CGYRO
 =====
 
+Quick links
+-----------
+
+.. toctree::
+   :titlesonly:
+
+   cgyro/cgyro_table
+   cgyro/cgyro_list
+   cgyro/outputs
+   cgyro/plot
+
+Overview
+--------
+
 CGYRO is a multi-species spectral gyrokinetic solver with sonic rotation capability.  
 Over the last decade the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
@@ -30,10 +44,12 @@ suitable for the highly collisional and shaped edge regime was adopted from
 the NEO code :cite:`belli:2008,belli:2012`, which is the community standard for
 calculation of collisional transport in toroidal geometry.
 
+
 Data input 
 ----------
 
-The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured from  :doc:`input.profiles <input_profiles>`.
+The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured 
+from  :ref:`input.profiles`.
 
 Data output, python interface, and plotting
 -------------------------------------------
@@ -48,9 +64,8 @@ Normalization
    :widths: 16, 12, 20	 
 
    length, :math:`a`, minor radius
-   mass, :math:`m_\mathrm{D}`, deuterium mass :math:`3.345\times 10^{24} g`
+   mass, :math:`m_\mathrm{D}`, deuterium mass = :math:`3.345\times 10^{24} g`
    density, :math:`n_e`, electron density
    temperature, :math:`T_e`, electron temperature 
    velocity, :math:`c_s = \sqrt{T_e/m_\mathrm{D}}`, deuterium sound speed
    time, :math:`a/c_s`, minor radius over sound speed
-

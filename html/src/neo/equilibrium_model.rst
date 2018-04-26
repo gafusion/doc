@@ -1,3 +1,5 @@
+.. _neo_equilibrium_model:
+
 EQUILIBRIUM_MODEL
 -----------------
 

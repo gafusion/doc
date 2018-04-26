@@ -30,6 +30,7 @@ Experimental profiles
 GACODE software works with the :doc:`input.profiles <input_profiles>` format.   
 
 .. toctree::
+   :maxdepth: 2
    :caption: Codes
 
    neo
@@ -43,5 +44,7 @@ GACODE software works with the :doc:`input.profiles <input_profiles>` format.
 
    geometry
    rotation
+   input_profiles
    install
    zreferences
+   

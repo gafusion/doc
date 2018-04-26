@@ -1,4 +1,4 @@
-TGYRO input alphabetical list
+input.tgyro Alphabetical List
 =============================
 
 .. ===========================================================================================
@@ -375,21 +375,17 @@ LOC_RELAX
 
 Parameter :math:`C_\eta` controlling shrinkage of relaxation parameter.
 
+ **DEFAULT** = 2.0
+
 **Comments**
 
 - No effect if less than or equal to unity.
-- Only controls the behaviour of :doc:`TGYRO_ITERATION_METHOD <tgyro_iteration_method>` = 1.
+- Only controls the behaviour of :ref:`tgyro_iteration_method` = 1.
 - Experience shows that LOC_RELAX=2.0 is a good choice (default).
-
-**Default**
-
-2.0
 
 .. ===========================================================================================
 
 .. _tgyro_loc_residual_method:
-
-----
 
 LOC_RESIDUAL_METHOD
 -------------------
@@ -406,7 +402,7 @@ Formula for residual (error) in TGYRO root finding.
 **Comments**
 
 - This parameter only affects LOC_ITERATION_METHOD=4,5.
-- It does **not** affect :doc:`TGYRO_ITERATION_METHOD <tgyro_iteration_method>` = 1 because each residual is minimized independently.
+- It does **not** affect :ref:`tgyro_iteration_method` = 1 because each residual is minimized independently.
 - The total residual is renormalized in method 3 to make the value comparable to method 2.
     
 **Default**
