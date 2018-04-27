@@ -82,25 +82,25 @@ Some features of **input.neo** to note:
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`N_SPECIES <n_species>`", Number of kinetic species, 1
-   ":doc:`Z_{1-11} <z_1>`", Charge of each species 1-11, 1
-   ":doc:`MASS_{1-11} <mass_1>`", Normalized mass of each species , 1.0
-   ":doc:`DENS_{1-11} <dens_1>`", Normalized density of each species, "\{1.0,0,0,0,0,0,0,0,0,0,0\}"
-   ":doc:`TEMP_{1-11} <temp_1>`", Normalized temperature of each species, 1.0
-   ":doc:`DLNNDR_{1-11} <dlnndr_1>`", Normalized logarithmic density gradient of each species, 1.0
-   ":doc:`DLNTDR_{1-11} <dlntdr_1>`", Normalized logarithmic temperature of each species, 1.0
-   ":doc:`PROFILE_DLNNDR_{1-11}_SCALE <profile_dlnndr_1_scale>`", Scaling factor for profile normalized logarithmic density gradient of each species, 1.0
-   ":doc:`PROFILE_DLNTDR_{1-11}_SCALE <profile_dlntdr_1_scale>`", Scaling factor for profile normalized logarithmic temperature gradient of each species, 1.0
-   ":doc:`ANISO_MODEL_{1-11} <aniso_model_1>`", Anisotropic temperaure model for each species, 1
-   ":doc:`TEMP_PARA_{1-11} <temp_para_1>`", Normalized parallel temperature (aniso) for each species, 1
-   ":doc:`DLNTDR_PARA_{1-11} <dlntdr_para_1>`", Normalized logarithmic parallel temperature (aniso) of each species, 1
-   ":doc:`TEMP_PERP_{1-11} <temp_perp_1>`", Normalized perpendicular temperature (aniso) for each species, 1
-   ":doc:`DLNTDR_PERP_{1-11} <dlntdr_perp_1>`", Normalized logarithmic perpendicular temperature (aniso) of each species, 1
-   ":doc:`NU_1 <nu_1>`", Normalized collision frequency of Species 1, 0.1
-   ":doc:`NE_ADE <te_ade>`", Normalized density of adiabatic electrons, 1.0
-   ":doc:`TE_ADE <te_ade>`", Normalized temperature of adiabatic electrons, 1.0
-   ":doc:`DLNNDRE_ADE <te_ade>`", Normalized logarithmic density gradient of adiabatic electrons, 1.0
-   ":doc:`DLNTDRE_ADE <te_ade>`", Normalized logarithmic temperature of adiabatic electrons, 1.0
+   ":ref:`neo_n_species`", Number of kinetic species, 1
+   ":ref:`neo_z_1`", "Charge of Species 1.  Also set Z_2, Z_3, ..., Z_11", 1
+   ":ref:`neo_mass_1`", "Normalized mass of Species 1.  Alsoe set MASS_2, MASS_2, ..., MASS_11", 1.0
+   ":ref:`neo_dens_1`", Normalized density of Species 1, "\{1.0,0,0,0,0,0,0,0,0,0,0\}"
+   ":ref:`neo_temp_1`", Normalized temperature of Species 1, 1.0
+   ":ref:`neo_dlnndr_1`", Normalized logarithmic density gradient of Species 1, 1.0
+   ":ref:`neo_dlntdr_1`", Normalized logarithmic temperature of Species 1 , 1.0
+   ":ref:`neo_profile_dlnndr_1_scale`", Scaling factor for profile normalized logarithmic density gradient of each species, 1.0
+   ":ref:`neo_profile_dlntdr_1_scale`", Scaling factor for profile normalized logarithmic temperature gradient of each species, 1.0
+   ":ref:`neo_aniso_model_1`", Anisotropic temperaure model for each species, 1
+   ":ref:`neo_temp_para_1`", Normalized parallel temperature (aniso) for each species, 1
+   ":ref:`neo_dlntdr_para_1`", Normalized logarithmic parallel temperature (aniso) of each species, 1
+   ":ref:`neo_temp_perp_1`", Normalized perpendicular temperature (aniso) for each species, 1
+   ":ref:`neo_dlntdr_perp_1`", Normalized logarithmic perpendicular temperature (aniso) of each species, 1
+   ":ref:`neo_nu_1`", Normalized collision frequency of Species 1, 0.1
+   ":ref:`neo_te_ade`", Normalized density of adiabatic electrons, 1.0
+   ":ref:`neo_te_ade`", Normalized temperature of adiabatic electrons, 1.0
+   ":ref:`neo_te_ade`", Normalized logarithmic density gradient of adiabatic electrons, 1.0
+   ":ref:`neo_te_ade`", Normalized logarithmic temperature of adiabatic electrons, 1.0
    
 Extra subroutine interface parameters
 #####################################
@@ -111,6 +111,6 @@ These parameters are available only via the subroutine interface, i.e. not in **
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`GEO_NY <geo_ny>`", Number of geometry Fourier coefficients, 0
-   ":doc:`GEO_YIN <geo_yin>`", Array of normalized geometry Fourier coefficients, 0.0
+   ":ref:`neo_geo_ny`", Number of geometry Fourier coefficients, 0
+   ":ref:`neo_geo_yin`", Array of normalized geometry Fourier coefficients, 0.0
 	  

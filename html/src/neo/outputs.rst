@@ -2,7 +2,7 @@
 NEO Outputs
 ***********
 
-NEO output files are produced only if :doc:`SILENT_FLAG <silent_flag>` = 0.
+NEO output files are produced only if :ref:`neo_silent_flag` = 0.
 
 All NEO runtime information is written to out.neo.run.
 
@@ -23,7 +23,7 @@ Standard output files
 Experimental profiles output files
 ##################################
 
-Produced only if :doc:`PROFILE_MODEL <profile_model>` = 2.
+Produced only if :ref:`neo_profile_model` = 2.
 
 - :doc:`out.neo.transport_exp <out.neo.transport_exp`
 - :doc:`out.neo.expnorm <out.neo.expnorm>`   
@@ -31,7 +31,7 @@ Produced only if :doc:`PROFILE_MODEL <profile_model>` = 2.
 Rotation output files
 #####################
 
-Produced only if :doc:`ROTATION_MODEL <rotation_model>` = 2.
+Produced only if :ref:`neo_rotation_model` = 2.
  
 - :doc:`out.neo.rotation <out.neo.rotation>`
 

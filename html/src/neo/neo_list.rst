@@ -172,7 +172,7 @@ The normalized equilibrium-scale inductive electric field for use in the Spitzer
 **Comments**
 
 - DEFAULT: 1.0
-- For the DKE, we assume that :math:`E_\varphi` is independent of :math:`\theta`, such that :math:`{\rm v}_\| {\rm EPAR0} = {\rm v}_\| {\rm EPAR0\_SPITZER}`.
+- For the DKE, we assume that :math:`E_\varphi` is independent of :math:`\theta`, such that :math:`{\rm v}_\| E_\varphi = {\rm v}_\| {\rm EPAR0\_SPITZER}`.
 - This parameter is used only for the Spitzer problem (:ref:`neo_spitzer_model` = 1).  For the standard neoclassical problem, use :ref:`neo_epar0` instead.
 
 -----
@@ -201,6 +201,46 @@ Parameter which selects the geometric equilibrium model.
 - For experimental profiles (:ref:`neo_profile_model` = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter :ref:`neo_profile_equilibrium_model`.
 - EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, :ref:`neo_geo_ny`, must be a positive integer, with the corresponding Fourier coefficients set in :ref:`neo_geo_yin`. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters :ref:`neo_rmin_over_a`, :ref:`neo_rmaj_over_a`, :ref:`neo_q`, :ref:`neo_shear`, :ref:`neo_beta_star`, :ref:`neo_btccw`, and :ref:`neo_ipccw` must also be specified.
 - See the :doc:`geometry notes <../geometry>` for more details about the geometric equilibrium models.
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_geo_ny:
+
+GEO_NY
+------
+
+**Definition**
+
+Number of Fourier coefficients for general Grad-Shafranov equilibrium.
+     
+**Comments**
+
+- DEFAULT: 0
+- This parameter is only available via subroutine interface and not by input.neo.
+- This parameter is used only if :ref:`neo_equilibrium_model` = 3.  It must be a positive integer.  The Fourier coefficient values themselves are specified by :ref:`neo_geo_yin`.
+- See the :doc:`geometry notes <../geometry>` for more details about the general geometry equilibrium model.  
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_geo_yin:
+
+GEO_YIN
+-------
+
+**Definition**
+
+Array of dimension (8,0:32) with the normalized Fourier coefficients :math:`\{a\_R,b\_R,a\_Z,b\_Z\}/a` and their radial derivatives :math:`\{a\_Rp,b\_Rp,a\_Zp,b\_Zp\}` for general Grad-Shafranov equilibrium.
+     
+**Comments**
+
+- DEFAULT: 0.0
+- This parameter is only available via subroutine interface and not by input.neo.
+- This parameter is used only if :ref:`neo_equilibrium_model` = 3.  The number of Fourier coefficients is specified by :ref:`neo_geo_ny` and the coefficients are read-in as geo_yin(8,0:geo_ny).
+- See the :doc:`geometry notes <../geometry>` for more details about the general geometry equilibrium model.  
 
 -----
 
@@ -248,6 +288,29 @@ Elongation, :math:`\kappa`, of the flux surface.
 -----
 
 .. ===========================================================================================
+
+.. _neo_mass_1:
+
+MASS_1
+------
+
+**Definition**
+
+The normalized mass of species 1:
+
+.. math::
+   MASS\_1 = m_{1}/m_{\rm norm}
+
+**Commments**
+
+- DEFAULT: 1.0
+- The mass of each species 1-11 is set as: MASS_1, MASS_2, MASS_3,...
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the normalizing mass is deuterium, :math:`m_{\rm norm}=m_{D}` = 3.3452e-27 kg  
+- The subroutine interface parameter is specified as a vector: neo_mass_in(1:11)
+  
+-----
+
+.. ===========================================================================================
    
 .. _neo_n_energy:
 
@@ -285,6 +348,40 @@ The number of radial gridpoints, :math:`n_r` in the computational domain.
   :math:`\le r/a \le` :ref:`neo_rmin_over_a_2`.  For a local simulation (:ref:`neo_profile_model` = 1), the normalizing length scale :math:`a` is arbitrary.  For a global simulation (:ref:`neo_profile_model` = 2), :math:`a` is the plasma minor radius at the center of the radial simulation domain.
 - N_RADIAL > 1 requires a global profile model (:ref:`neo_profile_model` = 2).  Otherwise, N_RADIAL = 1 and the profile model is local (:ref:`neo_profile_model` = 1).
 - For solution of only the first-order DKE, which is a radially-local problem, the radial grid is equally-spaced.
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_n_species:
+
+N_SPECIES
+---------
+
+**Definition**
+
+The number of kinetic species.
+
+**Comments**
+
+- DEFAULT: 1
+- The maximum allowed N\_SPECIES is 11.
+- Only one species with charge Z < 0 is allowed.  If no species with Z < 0 is specified, then an adiabatic electron model is assumed.
+- For local simulations (:ref:`neo_profile_model` = 1), the order of the species and the normalizing density and temperature are arbitrary.
+
+  - For each species 1-N_SPECIES, :ref:`neo_z_1`, :ref:`neo_mass_1`, :ref:`neo_dens_1`, :ref:`neo_temp_1`, :ref:`neo_dlnndr_1`, and :ref:`neo_dlntdr_1` are set in input.neo.  The collision frequency with respect to species 1 (:ref:`neo_nu_1`) is also set in input.neo.
+  - Quasi-neutrality is not checked.
+
+    
+- For experimental profiles (:ref:`neo_profile_model` = 2), the normalizing mass is the mass of deuterium (:math:`m_D` = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and :math:`m_D`, with :math:`{\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}`.
+  
+  - The electron species, if kinetic, must be species number N_SPECIES in input.neo.
+    
+  - Of the species-dependent parameters in input.neo, only :ref:`neo_z_1`  and :ref:`neo_mass_1` are used, while :ref:`neo_dens_1`, :ref:`neo_temp_1`, :ref:`neo_dlnndr_1`, :ref:`neo_dlntdr_1`, and :ref:`neo_nu_1` are determined from the parameters read from input.profiles.
+
+  - Quasi-neutrality is checked.
+
+  - See :ref:`neo_profile_model` for more details.
 
 -----
 
@@ -330,7 +427,7 @@ The number of xi polynomials -  1 in the computational domain (:math:`n_{\xi,\rm
 
 .. ===========================================================================================
 
-.. _omega_rot:
+.. _neo_omega_rot:
 
 OMEGA_ROT
 ---------
@@ -355,7 +452,7 @@ where :math:`\omega_0=-c\frac{d \Phi_{-1}}{d\psi}`
 
 .. ===========================================================================================
 
-.. _omega_rot_deriv:
+.. _neo_omega_rot_deriv:
 
 OMEGA_ROT_DERIV
 ---------------
@@ -380,7 +477,7 @@ where :math:`\omega_0=-c\frac{d \Phi_{-1}}{d\psi}` is the torodial angular frequ
 
 .. ===========================================================================================
 
-.. _profile_model:
+.. _neo_profile_model:
 
 PROFILE_MODEL
 -------------
@@ -413,7 +510,7 @@ Parameter which selects how the radial profile is defined.
 
 .. ===========================================================================================
 
-.. _profile_equilibrium_model:
+.. _neo_profile_equilibrium_model:
 
 PROFILE_EQUILIBRIUM_MODEL
 -------------------------
@@ -437,7 +534,7 @@ Parameter which selects the geometric equilibrium model for experimental profile
 
 .. ===========================================================================================
 
-.. _profile_erad0_model:
+.. _neo_profile_erad0_model:
 
 PROFILE_ERAD0_MODEL
 -------------------
@@ -476,8 +573,8 @@ Magnitude of the safety factor, :math:`|q|`, of the flux surface:
 **Comments**
 
 - DEFAULT: 2.0
-- When experimental profiles are used (:ref:`neoprofile_model` = 2), the safety factor as a function of radius is read from input.profiles.
-- The orientation of the safety factor is determined by :ref:`neoipccw` and :ref:`neo_btccw`.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the safety factor as a function of radius is read from input.profiles.
+- The orientation of the safety factor is determined by :ref:`neo_ipccw` and :ref:`neo_btccw`.
 
 -----
 
@@ -791,6 +888,89 @@ Measure of the rate of change of the elevation of the flux surface:
 
 .. ===========================================================================================
 
+.. _neo_threed_model:
+
+THREED_MODEL
+------------
+
+**Definition**
+
+Parameter which selects whether to solve the DKE in toroidally axisymmetric limit (2D) or with nonaxisymmetric effects (3D).
+     
+**Choices**
+  
+- THREED_MODEL = 0: toroidally axisymmetric limit (2D).
+- THREED_MODEL = 1: toroidally nonaxisymmetric effects are included (3D).
+
+  - This option is presently not available for experimental profiles (:ref:`neo_profile_model` = 2).
+    
+  - The local 3D equilibrium solver LE3 must be run first.  All of the equilibrium parameters, including the spatial dimensions for :math:`(\theta,\varphi)`, are read from the LE3 output file.
+
+  - Of the plasma equilibrium/geometry NEO input paramters, only :ref:`neo_rho_star`, :ref:`neo_dphi0dr`, and :ref:`neo_rmin_over_a` are used.
+
+  - Of the numerical resolution NEO input parameters, only :ref:`neo_n_xi` and :ref:`neo_n_energy` are used.
+
+**COMMENTS**
+
+- DEFAULT: 0
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_threed_exb_model:
+
+THREED_EXB_MODEL
+----------------
+
+**Definition**
+
+Parameter which selects whether to include the higher-order :math:`{\bf E} \times {\bf B}` drift velocity in the DKE with nonaxisymmetric effects (3D).
+     
+**Choices**
+  
+- THREED_EXB_MODEL = 0: higher-order :math:`{\bf E} \times {\bf B}` drift velocity not included.
+- THREED_EXB_MODEL = 1: higher-order :math:`{\bf E} \times {\bf B}` drift velocity included.
+
+  - Used only if toroidal nonaxisymmetric effects are included (:ref:`neo_threed_model` = 1).
+
+  - The value of the equilibrium potential in the higher-order  :math:`{\bf E} \times {\bf B}` drift velocity is specified by :ref:`neo_threed_exb_dphi0dr`.   Note that this does not affect the equilibrium potential in the neoclassical source term, which is specified by :ref:`neo_dphi0dr`.
+
+**COMMENTS**    
+
+- DEFAULT: 0
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_threed_exb_dphi0dr:
+
+THREED_EXB_DPHI0DR
+------------------
+
+**Definition**
+
+The normalized equilibrium-scale radial electric field in the higher-order :math:`{\bf E} \times {\bf B}` drift velocity:
+
+.. math::
+   {\rm THREED\_EXB\_DPHI0DR} = \frac{\partial \Phi_0}{\partial r} \left( \frac{a e}{T_{\rm norm}} \right) 
+
+such that
+
+.. math::
+   E_r^{(0)} = -\frac{\partial \Phi_0}{\partial r} \nabla r
+     
+**Comments**
+
+- DEFAULT: 0.0
+- Used only if toroidal nonaxisymmetric effects (3D) are included (:ref:`neo_threed_model` = 1).
+- This does not affect the equilibrium potential in the neoclassical source term, which is specified by :ref:`neo_dphi0dr`.
+
+-----
+
+.. ===========================================================================================
+
 .. _neo_zeta:
 
 ZETA
@@ -824,6 +1004,25 @@ The ratio of the elevation of the flux surface, :math:`Z_0`, to the normalizing 
 - DEFAULT: 0.0
 - When experimental profiles are used (:ref:`neo_profile_model` = 2), the flux-surface elevation as a function of radius, :math:`Z_0(r)` is read from input.profiles and the normalizing length scale is the plasma minor radius.
 
+-----
+
+.. ===========================================================================================
+
+.. _neo_z_1:
+
+Z_1
+---
+
+**Definition**
+
+The charge of species 1.
+
+**Commments**
+
+- DEFAULT: 1.0
+- The charge of each species 1-11 is set as: Z_1, Z_2, Z_3,...  
+- The subroutine interface parameter is specified as a vector: neo_z_in(1:11)
+  
 -----
 
 Return to :doc:`table of inputs <neo_table>`   
