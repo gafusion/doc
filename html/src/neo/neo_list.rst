@@ -3,6 +3,35 @@ Alphabetical list for input.neo
 
 .. ===========================================================================================
 
+.. _neo_aniso_model_*:
+
+ANISO_MODEL_*
+-------------
+
+**Definition**
+
+Parameter which selects whether to treat Species * with an anisotropic temperature model.
+
+**Choices**
+
+- ANISO_MODEL_*=1: isotropic temperature model
+- ANISO_MODEL_*=2: anisotropic temperature model
+  
+  - This option is presently not available for experimental profiles (:ref:`neo_profile_model` = 2).
+  - This model requires :ref:`neo_rotation_model` = 2 due to the induced poloidal density asymmetry.
+  - The parallel and perpendicular temperature :ref:`neo_temp_para_*` and :ref:`neo_temp_perp_*` and the parallel and perpendicular temperature gradient scale lengths :ref:`neo_dlntdr_para_*` and :ref:`neo_dlntdr_perp_*` must also be set.
+  - The parameters :ref:`neo_temp_*` and :ref:`neo_dlntdr_*` are not used.  The effective Maxwellian temperature in the DKE is determined internally based on the parallel and perpendicular temperatures.
+
+**Comments**
+
+- DEFAULT: 1
+- The anisotropic model of each species 1-11 is set as: ANISO_MODEL_1, ANISO_MODEL_2, ANISO_MODEL_3,...  
+- The subroutine interface parameter is specified as a vector: neo_aniso_model_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
 .. _neo_beta_star:
 
 BETA_STAR
@@ -98,6 +127,123 @@ where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is th
 - This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`neo_profile_model` = 2), the triangularity as a function of radius is read from input.profiles.
 
+-----
+
+.. ===========================================================================================
+
+.. _neo_dens_*:
+
+DENS_*
+------
+
+**Definition**
+
+The normalized equilibrium-scale density of Species *:
+
+.. math::
+   DENS\_* = \frac{n_{0,*}}{n_{\rm norm}}
+
+**Commments**
+
+- DEFAULT: {1.0,0,0,0,0,0,0,0,0,0,0}
+- The density of each species 1-11 is set as: DENS_1, DENS_2, DENS_3,...
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, :math:`n_{\rm norm}(r)=n_{0,{\rm species 1}}`.
+- When rotation effects are included (:ref:`neo_rotation_model` = 2), this parameter is the value at the outboard midplane (:math:`\theta=0`).  
+- The subroutine interface parameter is specified as a vector: neo_dens_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_dlnndr_*:
+
+DLNNDR_*
+--------
+
+**Definition**
+
+The normalized equilibrium-scale density gradient scale length of Species *:
+
+.. math::
+   DLNNDR\_* = -a \frac{\partial {\rm ln} n_{0,*}}{\partial r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- The density gradient scale length of each species 1-11 is set as: DLNNDR_1, DLNNDR_2, DLNNDR_3,...
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.
+- When rotation effects are included (:ref:`neo_rotation_model` = 2), this parameter is the value at the outboard midplane (:math:`\theta=0`).  
+- The subroutine interface parameter is specified as a vector: neo_dlnndr_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_dlntdr_*:
+
+DLNTDR_*
+--------
+
+**Definition**
+
+The normalized equilibrium-scale temperature gradient scale length of Species *:
+
+.. math::
+   DLNTDR\_* = -a \frac{d {\rm ln} T_{0,*}}{d r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- The temperature gradient scale length of each species 1-11 is set as: DLNTDR_1, DLNTDR_2, DLNTDR_3,...
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally. The normalizing length is the plasma minor radius. 
+- The subroutine interface parameter is specified as a vector: neo_dlntdr_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_dlntdr_para_*:
+
+DLNTDR_PARA_*
+-------------
+
+**Definition**
+
+The normalized equilibrium-scale parallel temperature gradient scale length of Species *:
+
+.. math::
+   DLNTDR\_PARA\_* = -a \frac{d {\rm ln} T_{\|0,*}}{d r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- The parallel temperature gradient scale length of each species 1-11 is set as: DLNTDR_PARA_1, DLNTDR_PARA_2, DLNTDR_PARA_3,...
+- This parameter is used only when the species' anisotropic flag is set (:ref:`neo_aniso_model_*` = 2). 
+- The subroutine interface parameter is specified as a vector: neo_dlntdr_para_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_dlntdr_perp_*:
+
+DLNTDR_PERP_*
+-------------
+
+**Definition**
+
+The normalized equilibrium-scale perpendicular temperature gradient scale length of Species *:
+
+.. math::
+   DLNTDR\_PERP\_* = -a \frac{d {\rm ln} T_{\perp0,*}}{d r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- The perpendicular temperature gradient scale length of each species 1-11 is set as: DLNTDR_PERP_1, DLNTDR_PERP_2, DLNTDR_PERP_3,...
+- This parameter is used only when the species' anisotropic flag is set (:ref:`neo_aniso_model_*` = 2). 
+- The subroutine interface parameter is specified as a vector: neo_dlntdr_perp_in(1:11)
+  
 -----
 
 .. ===========================================================================================
@@ -289,17 +435,17 @@ Elongation, :math:`\kappa`, of the flux surface.
 
 .. ===========================================================================================
 
-.. _neo_mass_1:
+.. _neo_mass_*:
 
-MASS_1
+MASS_*
 ------
 
 **Definition**
 
-The normalized mass of species 1:
+The normalized mass of Species *:
 
 .. math::
-   MASS\_1 = m_{1}/m_{\rm norm}
+   MASS\_* = m_{*}/m_{\rm norm}
 
 **Commments**
 
@@ -369,7 +515,7 @@ The number of kinetic species.
 - Only one species with charge Z < 0 is allowed.  If no species with Z < 0 is specified, then an adiabatic electron model is assumed.
 - For local simulations (:ref:`neo_profile_model` = 1), the order of the species and the normalizing density and temperature are arbitrary.
 
-  - For each species 1-N_SPECIES, :ref:`neo_z_1`, :ref:`neo_mass_1`, :ref:`neo_dens_1`, :ref:`neo_temp_1`, :ref:`neo_dlnndr_1`, and :ref:`neo_dlntdr_1` are set in input.neo.  The collision frequency with respect to species 1 (:ref:`neo_nu_1`) is also set in input.neo.
+  - For each species 1-N_SPECIES, :ref:`neo_z_*`, :ref:`neo_mass_*`, :ref:`neo_dens_*`, :ref:`neo_temp_*`, :ref:`neo_dlnndr_*`, and :ref:`neo_dlntdr_*` are set in input.neo.  The collision frequency with respect to species 1 (:ref:`neo_nu_1`) is also set in input.neo.
   - Quasi-neutrality is not checked.
 
     
@@ -377,7 +523,7 @@ The number of kinetic species.
   
   - The electron species, if kinetic, must be species number N_SPECIES in input.neo.
     
-  - Of the species-dependent parameters in input.neo, only :ref:`neo_z_1`  and :ref:`neo_mass_1` are used, while :ref:`neo_dens_1`, :ref:`neo_temp_1`, :ref:`neo_dlnndr_1`, :ref:`neo_dlntdr_1`, and :ref:`neo_nu_1` are determined from the parameters read from input.profiles.
+  - Of the species-dependent parameters in input.neo, only :ref:`neo_z_*`  and :ref:`neo_mass_*` are used, while :ref:`neo_dens_*`, :ref:`neo_temp_*`, :ref:`neo_dlnndr_*`, :ref:`neo_dlntdr_*`, and :ref:`neo_nu_1` are determined from the parameters read from input.profiles.
 
   - Quasi-neutrality is checked.
 
@@ -424,6 +570,34 @@ The number of xi polynomials -  1 in the computational domain (:math:`n_{\xi,\rm
 - The collocation integrals are done exactly analytically.  
 
 ----- 
+
+.. ===========================================================================================
+   
+.. _neo_nu_1:
+
+NU_1
+----
+
+**Definition**
+
+The normalized collision frequency of the first kinetic species:
+
+.. math::
+   NU\_1 = \frac{\tau_{11}^{-1}}{{\rm v}_{\rm norm}/a}
+
+where
+
+.. math::
+   \tau_{ss}^{-1} = \frac{\sqrt{2} \pi e^4 z_s^4 n_{0s}}{m_s^{1/2} T_{0s}^{3/2}} {\rm ln} \Lambda
+
+**Comments**
+
+- DEFAULT: 0.1
+- Only the collision frequency for Species 1 is specified. The collision frequencies for the other species are computed internally in the code using NU_1, :ref:`neo_z_*`, :ref:`neo_mass_*`, :ref:`neo_dens_*`, and :ref:`neo_temp_*`.
+- When rotation effects are included (:ref:`neo_rotation_model` = 2), this parameter is the value at the outboard midplane (:math:`\theta = 0`).
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), this is computed internally from the profile parameters read from input.profiles. Also, the normalizing length scale is the plasma minor radius and the normalizing velocity is :math:`{\rm v}_{\rm norm} = \sqrt{T_{0,species1}/m_{D}}`.
+   
+-----
 
 .. ===========================================================================================
 
@@ -477,35 +651,48 @@ where :math:`\omega_0=-c\frac{d \Phi_{-1}}{d\psi}` is the torodial angular frequ
 
 .. ===========================================================================================
 
-.. _neo_profile_model:
+.. _neo_profile_dlnndr_*_scale:
 
-PROFILE_MODEL
--------------
+PROFILE_DLNNDR_*_SCALE
+----------------------
 
 **Definition**
 
-Parameter which selects how the radial profile is defined.
+Scaling factor for the normalized equilibrium-scale density gradient scale length of Species * in profile mode:
 
-**Choices**
+.. math::
+   a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \rightarrow PROFILE\_DLNNDR\_*\_SCALE \times \left(a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \right)
 
-- PROFILE_MODEL = 1: local (one radius)
-- PROFILE_MODEL = 2: global, using experimental profiles
+**Commments**
 
-**Comments**
-
-- DEFAULT: 1
-- For PROFILE_MODEL = 1, :ref:`neo_n_radial` must be 1.
+- DEFAULT: 1.0
+- The scaling factor of each species 1-11 is set as: PROFILE_DLNNDR_1_SCALE, PROFILE_DLNNDR_2_SCALE, PROFILE_DLNNDR_3_SCALE,...
+- This parameter is only used when experimental profiles are used (:ref:`neo_profile_model` = 2). The density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.
+- The subroutine interface parameter is specified as a vector: neo_profile_dlnndr_scale_in(1:11)
   
-  - The densities are set by :ref:`neo_dens_1` and quasi-neutrality is not checked.
-  - The temperatures are set by :ref:`neo_temp_1`.
-    
-- For PROFILE_MODEL = 2, experimental profiles are defined in input.profiles.  The number of radial gridpoints is specified by :ref:`neo_n_radial`.
-  
-  - Additional models used for this case are specified by :ref:`neo_profile_equilibrium_model` and :ref:`neo_profile_erad0_model`.
-  - Of the species-dependent parameters in input.neo, only :ref:`neo_z_1`  and :ref:`neo_mass_1` are used for this case. The normalizing mass is the mass of deuterium (:math:`m_D` = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and :math:`m_D`, with :math:`{\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}`.
-  - The electron species, if kinetic, must be species number N_SPECIES in input.neo. 
-  - If the density profiles in input.profiles are not quasi-neutral, then the density profile of the first ion species is re-set.
+-----
 
+==============
+
+.. _neo_profile_dlntdr_*_scale:
+
+PROFILE_DLNTDR_*_SCALE
+----------------------
+
+**Definition**
+
+Scaling factor for the normalized equilibrium-scale temperature gradient scale length of Species * in profile mode:
+
+.. math::
+   a \frac{d {\rm ln} T_{0,*}}{d r} \rightarrow PROFILE\_DLNTDR\_*\_SCALE \times \left( a \frac{d {\rm ln} T_{0,*}}{d r} \right)
+
+**Commments**
+
+- DEFAULT: 1.0
+- The scaling factor of each species 1-11 is set as: PROFILE_DLNTDR_1_SCALE, PROFILE_DLNTDR_2_SCALE, PROFILE_DLNTDR_3_SCALE,...
+- This parameter is only used when experimental profiles are used (:ref:`neo_profile_model` = 2). The temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.
+- The subroutine interface parameter is specified as a vector: neo_profile_dlntdr_scale_in(1:11)
+  
 -----
 
 .. ===========================================================================================
@@ -553,6 +740,39 @@ Parameter which selects whether to include :math:`E_r^{(0)}` for experimental pr
 - DEFAULT: 1
 - Used only for experimental profiles (:ref:`neo_profile_model` = 2).
 - If sonic rotation effects are included (:ref:`neo_rotation_model` = 2) with experimental profiles, then this parameter is ignored and :math:`E_r^{(0)}` is assumed to be zero. This means that the :math:`E_r^{(0)}` in input.profiles is assumed to be the lowest-order field in sonic rotation theory, i.e. :math:`E_r^{(-1)}`,and is used to compute the lowest-order sonic toroidal rotation parameters, :ref:`neo_omega_rot` and :ref:`neo_omega_rot_deriv`.
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_profile_model:
+
+PROFILE_MODEL
+-------------
+
+**Definition**
+
+Parameter which selects how the radial profile is defined.
+
+**Choices**
+
+- PROFILE_MODEL = 1: local (one radius)
+- PROFILE_MODEL = 2: global, using experimental profiles
+
+**Comments**
+
+- DEFAULT: 1
+- For PROFILE_MODEL = 1, :ref:`neo_n_radial` must be 1.
+  
+  - The densities are set by :ref:`neo_dens_*` and quasi-neutrality is not checked.
+  - The temperatures are set by :ref:`neo_temp_*`.
+    
+- For PROFILE_MODEL = 2, experimental profiles are defined in input.profiles.  The number of radial gridpoints is specified by :ref:`neo_n_radial`.
+  
+  - Additional models used for this case are specified by :ref:`neo_profile_equilibrium_model` and :ref:`neo_profile_erad0_model`.
+  - Of the species-dependent parameters in input.neo, only :ref:`neo_z_*`  and :ref:`neo_mass_*` are used for this case. The normalizing mass is the mass of deuterium (:math:`m_D` = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and :math:`m_D`, with :math:`{\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}`.
+  - The electron species, if kinetic, must be species number N_SPECIES in input.neo. 
+  - If the density profiles in input.profiles are not quasi-neutral, then the density profile of the first ion species is re-set.
 
 -----
 
@@ -682,6 +902,95 @@ Parameter which selects whether to solve the DKE in the diamagnetic ordering lim
 
 .. ===========================================================================================
 
+.. _neo_s_delta:
+
+S_DELTA
+-------
+
+**Definition**
+
+Measure of the rate of change of the average triangularity of the flux surface:
+
+.. math::
+       s_\delta = r \frac{\partial \delta}{\partial r}
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the triangularity as a function of radius is read from input.profiles and the triangularity gradient is computed internally.
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_s_kappa:
+
+S_KAPPA
+-------
+
+**Definition**
+
+Measure of the rate of change of the elongation of the flux surface:
+
+.. math::
+       s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r}
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the elongation as a function of radius is read from input.profiles and the elongation gradient is computed internally.
+  
+-----
+
+.. ===========================================================================================
+
+.. _neo_s_zeta:
+
+S_ZETA
+------
+
+**Definition**
+
+Measure of the rate of change of the squareness of the flux surface:
+
+.. math::
+       s_\zeta = r \frac{\partial \zeta}{\partial r}
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the squareness as a function of radius is read from input.profiles and the squareness gradient is computed internally.
+
+-----
+
+.. ===========================================================================================
+
+.. _neo_s_zmag:
+
+S_ZMAG
+------
+
+**Definition**
+
+Measure of the rate of change of the elevation of the flux surface:
+
+.. math::
+       S_{Z0} = \frac{\partial Z_0}{\partial r}
+     
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the flux-surface elevation as a function of radius, :math:`Z_0(r)`,  is read from input.profiles and its derivative is computed internally.
+
+-----
+
+
+.. ===========================================================================================
+
 .. _neo_shear:
 
 SHEAR
@@ -798,92 +1107,74 @@ Parameter which selects whether to solve the standard neoclassical transport pro
 
 -----
 
-.. ===========================================================================================
-
-.. _neo_s_delta:
-
-S_DELTA
--------
-
-**Definition**
-
-Measure of the rate of change of the average triangularity of the flux surface:
-
-.. math::
-       s_\delta = r \frac{\partial \delta}{\partial r}
-
-**Comments**
-
-- DEFAULT: 0.0
-- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the triangularity as a function of radius is read from input.profiles and the triangularity gradient is computed internally.
-
------
 
 .. ===========================================================================================
 
-.. _neo_s_kappa:
+.. _neo_temp_*:
 
-S_KAPPA
--------
+TEMP_*
+------
 
 **Definition**
 
-Measure of the rate of change of the elongation of the flux surface:
+The normalized equilibrium-scale temperature of Species *:
 
 .. math::
-       s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r}
+   TEMP\_* = \frac{T_{0,*}}{T_{\rm norm}}
 
-**Comments**
+**Commments**
 
-- DEFAULT: 0.0
-- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the elongation as a function of radius is read from input.profiles and the elongation gradient is computed internally.
+- DEFAULT: 1.0
+- The temperature of each species 1-11 is set as: TEMP_1, TEMP_2, TEMP_3,...
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{0,{\rm species 1}}`.
+- The subroutine interface parameter is specified as a vector: neo_temp_in(1:11)
   
 -----
 
 .. ===========================================================================================
 
-.. _neo_s_zeta:
+.. _neo_temp_para_*:
 
-S_ZETA
-------
+TEMP_PARA_*
+-----------
 
 **Definition**
 
-Measure of the rate of change of the squareness of the flux surface:
+The normalized equilibrium-scale parallel temperature of Species *:
 
 .. math::
-       s_\zeta = r \frac{\partial \zeta}{\partial r}
+   TEMP\_PARA\_* = \frac{T_{\|0,*}}{T_{\rm norm}}
 
-**Comments**
+**Commments**
 
-- DEFAULT: 0.0
-- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the squareness as a function of radius is read from input.profiles and the squareness gradient is computed internally.
-
+- DEFAULT: 1.0
+- The parallel temperature of each species 1-11 is set as: TEMP_PARA_1, TEMP_PARA_2, TEMP_PARA_3,...
+- This parameter is used only when the species' anisotropic flag is set (:ref:`neo_aniso_model_*` = 2).
+- The subroutine interface parameter is specified as a vector: neo_temp_para_in(1:11)
+  
 -----
 
 .. ===========================================================================================
 
-.. _neo_s_zmag:
+.. _neo_temp_perp_*:
 
-S_ZMAG
-------
+TEMP_PERP_*
+-----------
 
 **Definition**
 
-Measure of the rate of change of the elevation of the flux surface:
+The normalized equilibrium-scale perpendicular temperature of Species *:
 
 .. math::
-       S_{Z0} = \frac{\partial Z_0}{\partial r}
-     
-**Comments**
+   TEMP\_PERP\_* = \frac{T_{\perp0,*}}{T_{\rm norm}}
 
-- DEFAULT: 0.0
-- This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the flux-surface elevation as a function of radius, :math:`Z_0(r)`,  is read from input.profiles and its derivative is computed internally.
+**Commments**
 
+- DEFAULT: 1.0
+- The perpendicular temperature of each species 1-11 is set as: TEMP_PERP_1, TEMP_PERP_2, TEMP_PERP_3,...
+- This parameter is used only when the species' anisotropic flag is set (:ref:`neo_aniso_model_*` = 2).
+- The subroutine interface parameter is specified as a vector: neo_temp_perp_in(1:11)
+  
 -----
 
 .. ===========================================================================================
@@ -971,6 +1262,25 @@ such that
 
 .. ===========================================================================================
 
+.. _neo_z_*:
+
+Z_*
+---
+
+**Definition**
+
+The charge of Species *.
+
+**Commments**
+
+- DEFAULT: 1.0
+- The charge of each species 1-11 is set as: Z_1, Z_2, Z_3,...  
+- The subroutine interface parameter is specified as a vector: neo_z_in(1:11)
+  
+-----
+
+.. ===========================================================================================
+
 .. _neo_zeta:
 
 ZETA
@@ -1006,23 +1316,5 @@ The ratio of the elevation of the flux surface, :math:`Z_0`, to the normalizing 
 
 -----
 
-.. ===========================================================================================
-
-.. _neo_z_1:
-
-Z_1
----
-
-**Definition**
-
-The charge of species 1.
-
-**Commments**
-
-- DEFAULT: 1.0
-- The charge of each species 1-11 is set as: Z_1, Z_2, Z_3,...  
-- The subroutine interface parameter is specified as a vector: neo_z_in(1:11)
-  
------
 
 Return to :doc:`table of inputs <neo_table>`   

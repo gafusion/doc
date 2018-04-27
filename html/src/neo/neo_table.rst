@@ -83,24 +83,24 @@ Some features of **input.neo** to note:
    :widths: 13, 25, 5
 
    ":ref:`neo_n_species`", Number of kinetic species, 1
-   ":ref:`neo_z_1`", "Charge of Species 1.  Also set Z_2, Z_3, ..., Z_11", 1
-   ":ref:`neo_mass_1`", "Normalized mass of Species 1.  Alsoe set MASS_2, MASS_2, ..., MASS_11", 1.0
-   ":ref:`neo_dens_1`", Normalized density of Species 1, "\{1.0,0,0,0,0,0,0,0,0,0,0\}"
-   ":ref:`neo_temp_1`", Normalized temperature of Species 1, 1.0
-   ":ref:`neo_dlnndr_1`", Normalized logarithmic density gradient of Species 1, 1.0
-   ":ref:`neo_dlntdr_1`", Normalized logarithmic temperature of Species 1 , 1.0
-   ":ref:`neo_profile_dlnndr_1_scale`", Scaling factor for profile normalized logarithmic density gradient of each species, 1.0
-   ":ref:`neo_profile_dlntdr_1_scale`", Scaling factor for profile normalized logarithmic temperature gradient of each species, 1.0
-   ":ref:`neo_aniso_model_1`", Anisotropic temperaure model for each species, 1
-   ":ref:`neo_temp_para_1`", Normalized parallel temperature (aniso) for each species, 1
-   ":ref:`neo_dlntdr_para_1`", Normalized logarithmic parallel temperature (aniso) of each species, 1
-   ":ref:`neo_temp_perp_1`", Normalized perpendicular temperature (aniso) for each species, 1
-   ":ref:`neo_dlntdr_perp_1`", Normalized logarithmic perpendicular temperature (aniso) of each species, 1
-   ":ref:`neo_nu_1`", Normalized collision frequency of Species 1, 0.1
-   ":ref:`neo_te_ade`", Normalized density of adiabatic electrons, 1.0
-   ":ref:`neo_te_ade`", Normalized temperature of adiabatic electrons, 1.0
-   ":ref:`neo_te_ade`", Normalized logarithmic density gradient of adiabatic electrons, 1.0
-   ":ref:`neo_te_ade`", Normalized logarithmic temperature of adiabatic electrons, 1.0
+   ":ref:`neo_z_*`", "Charge of Species *", 1
+   ":ref:`neo_mass_*`", "Normalized mass of Species *", 1.0
+   ":ref:`neo_dens_*`", "Normalized density of Species *", "\{1.0,0,0,0,0,0,0,0,0,0,0\}"
+   ":ref:`neo_temp_*`", "Normalized temperature of Species *", 1.0
+   ":ref:`neo_dlnndr_*`", "Normalized logarithmic density gradient of Species *", 1.0
+   ":ref:`neo_dlntdr_*`", "Normalized logarithmic temperature of Species *", 1.0
+   ":ref:`neo_profile_dlnndr_*_scale`", "Scaling factor for profile normalized logarithmic density gradient of Species *", 1.0
+   ":ref:`neo_profile_dlntdr_*_scale`", "Scaling factor for profile normalized logarithmic temperature gradient of Species *", 1.0
+   ":ref:`neo_aniso_model_*`", "Anisotropic temperaure model for Species *", 1
+   ":ref:`neo_temp_para_*`", "Normalized parallel temperature (aniso) of Species *", 1
+   ":ref:`neo_dlntdr_para_*`", "Normalized logarithmic parallel temperature (aniso) of Species *", 1
+   ":ref:`neo_temp_perp_*`", "Normalized perpendicular temperature (aniso) of Species *", 1
+   ":ref:`neo_dlntdr_perp_*`", "Normalized logarithmic perpendicular temperature (aniso) of Species *", 1
+   ":ref:`neo_nu_1`", "Normalized collision frequency of Species 1", 0.1
+   ":ref:`neo_ne_ade`", "Normalized density of adiabatic electrons", 1.0
+   ":ref:`neo_te_ade`", "Normalized temperature of adiabatic electrons", 1.0
+   ":ref:`neo_dlnndre_ade`", "Normalized logarithmic density gradient of adiabatic electrons", 1.0
+   ":ref:`neo_dlntdre_ade`", "Normalized logarithmic temperature of adiabatic electrons", 1.0
    
 Extra subroutine interface parameters
 #####################################
