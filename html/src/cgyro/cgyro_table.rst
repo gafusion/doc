@@ -114,3 +114,12 @@ Tabular list for input.cgyro
    ":ref:`cgyro_gamma_e_scale`", Doppler shearing rate scaling factor, 1.0
    ":ref:`cgyro_gamma_p_scale`", Rotation shearing rate scaling factor, 1.0
    ":ref:`cgyro_mach_scale`", Rotation speed scaling factor, 1.0 
+
+.. csv-table:: **Output file control**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_field_print_flag`", Output of electromagnetic field components, 0
+   ":ref:`cgyro_moment_print_flag`", Output of density and energy moments, 0
+   ":ref:`cgyro_kxkyflux_print_flag`", Energy flux including radial wavenumbers, 0
+   ":ref:`cgyro_h_print_flag`", Distribution output (for single-mode run), 0

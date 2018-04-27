@@ -161,8 +161,8 @@ DELTA_T
 
 .. _cgyro_dens:
 
-DENS*
------
+DENS_*
+------
 
 **Definition**
 
@@ -170,8 +170,8 @@ DENS*
 
 .. _cgyro_dlnndr:
 
-DLNNDR*
--------
+DLNNDR_*
+--------
 
 **Definition**
 
@@ -179,8 +179,8 @@ DLNNDR*
 
 .. _cgyro_dlntdr:
 
-DLNTDR*
--------
+DLNTDR_*
+--------
 
 **Definition**
 
@@ -210,6 +210,22 @@ FREQ_TOL
 --------
 
 **Definition**
+
+----
+
+.. _cgyro_field_print_flag:
+
+FIELD_PRINT_FLAG
+----------------
+
+**Definition**
+
+Toggle printing of :math:`\delta A_\parallel(k_x^0,k_y,t)`
+and :math:`\delta B_\parallel(k_x^0,k_y,t)` .
+
+**Comments**
+
+- DEFAULT = 0.
 
 ----
 
@@ -249,6 +265,21 @@ GAMMA_P_SCALE
 
 ----
 
+.. _cgyro_h_print_flag:
+
+H_PRINT_FLAG
+------------
+
+**Definition**
+
+Toggle printing of distribution for single-mode runs.
+
+**Comments**
+
+- DEFAULT = 0.
+
+----
+
 .. _cgyro_ipccw:
 
 IPCCW
@@ -272,6 +303,21 @@ Elongation, :math:`\kappa`, of the flux surface.
 - DEFAULT = 1.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from input.profiles.
+
+----
+
+.. _cgyro_kxkyflux_print_flag:
+
+KXKYFLUX_PRINT_FLAG
+-------------------
+
+**Definition**
+
+Toggle printing of :math:`Q_a(k_x^0,k_y,t)` .
+
+**Comments**
+
+- DEFAULT = 0.
 
 ----
 
@@ -322,8 +368,8 @@ MACH_SCALE
 
 .. _cgyro_mass:
 
-MASS*
------
+MASS_*
+------
 
 **Definition**
 
@@ -335,6 +381,22 @@ MAX_TIME
 --------
 
 **Definition**
+
+----
+
+.. _cgyro_moment_print_flag:
+
+MOMENT_PRINT_FLAG
+-----------------
+
+**Definition**
+
+Toggle printing of :math:`\delta n_a(k_x^0,k_y,t)`
+and :math:`\delta E_a(k_x^0,k_y,t)` .
+
+**Comments**
+
+- DEFAULT = 0.
 
 ----
 
