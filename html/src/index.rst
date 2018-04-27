@@ -7,7 +7,9 @@ The General Atomics GACODE Suite
 	:align: center
 
 
-GACODE refers to a collection of serial and HPC software developed by the Theory Group at `General Atomics <http://www.ga.com/magnetic-fusion>`_, and distributed through the `GACODE source code repository <https://github.com/gafusion/gacode/>`_ at GitHub.
+GACODE refers to a collection of serial and HPC software developed by the Theory Group
+at `General Atomics <http://www.ga.com/magnetic-fusion>`_, and distributed through
+the `GACODE source code repository <https://github.com/gafusion/gacode/>`_ at GitHub.
 
 Installation
 ------------

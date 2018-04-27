@@ -1,6 +1,24 @@
 Alphabetical list for input.cgyro
 =================================
 
+.. _cgyro_amp:
+
+AMP
+---
+
+**Definition**
+
+----
+
+.. _cgyro_amp0:
+
+AMP0
+----
+
+**Definition**
+
+----
+
 .. _cgyro_betae_unit:
 
 BETAE_UNIT
@@ -32,6 +50,15 @@ BETA_STAR
 
 BETA_STAR_SCALE
 ---------------
+
+**Definition**
+
+----
+
+.. _cgyro_btccw:
+
+BTCCW
+-----
 
 **Definition**
 
@@ -134,10 +161,6 @@ DELTA_T
 
 .. _cgyro_dens:
 
-**Definition**
-
-----
-
 DENS*
 -----
 
@@ -163,10 +186,28 @@ DLNTDR*
 
 ----
 
+.. _cgyro_dzmag:
+
+DZMAG
+-----
+
+**Definition**
+
+----
+
 .. _cgyro_equilibrium_model:
 
 EQUILIBRIUM_MODEL
 -----------------
+
+**Definition**
+
+----
+
+.. _cgyro_freq_tol:
+
+FREQ_TOL
+--------
 
 **Definition**
 
@@ -208,6 +249,15 @@ GAMMA_P_SCALE
 
 ----
 
+.. _cgyro_ipccw:
+
+IPCCW
+-----
+
+**Definition**
+
+----
+
 .. _cgyro_kappa:
 
 KAPPA
@@ -229,6 +279,24 @@ Elongation, :math:`\kappa`, of the flux surface.
 
 KY
 --
+
+**Definition**
+
+----
+
+.. _cgyro_lambda_debye:
+
+LAMBDA_DEBYE
+------------
+
+**Definition**
+
+----
+
+.. _cgyro_lambda_debye_scale:
+
+LAMBDA_DEBYE_SCALE
+------------------
 
 **Definition**
 
@@ -256,6 +324,87 @@ MACH_SCALE
 
 MASS*
 -----
+
+**Definition**
+
+----
+
+.. _cgyro_max_time:
+
+MAX_TIME
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_nonlinear_flag:
+
+NONLINEAR_FLAG
+--------------
+
+**Definition**
+
+----
+
+.. _cgyro_n_field:
+
+N_FIELD
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_up_radial:
+
+UP_RADIAL
+---------
+
+**Definition**
+
+----
+
+.. _cgyro_nup_radial:
+
+NUP_RADIAL
+----------
+
+**Definition**
+
+----
+
+.. _cgyro_up_theta:
+
+UP_THETA
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_nup_theta:
+
+NUP_THETA
+---------
+
+**Definition**
+
+----
+
+.. _cgyro_up_alpha:
+
+UP_ALPHA
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_nup_alpha:
+
+NUP_ALPHA
+---------
 
 **Definition**
 
@@ -344,6 +493,15 @@ N_SPECIES
 
 ----
 
+.. _cgyro_print_step:
+
+PRINT_STEP
+----------
+
+**Definition**
+
+----
+
 .. _cgyro_profile_model:
 
 PROFILE_MODEL
@@ -374,6 +532,24 @@ Safety factor, :math:`q`, of the flux surface.
 
 RESTART_STEP
 ------------
+
+.. _cgyro_rmin:
+
+RMIN
+----
+
+**Definition**
+
+----
+
+.. _cgyro_rmaj:
+
+RMAJ
+----
+
+**Definition**
+
+----
 
 .. _cgyro_s:
 
@@ -415,10 +591,55 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
 
 ----
 
+.. _cgyro_silent_flag:
+
+SILENT_FLAG
+-----------
+
+**Definition**
+
+----
+
+.. _cgyro_s_delta:
+
+S_DELTA
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_s_kappa:
+
+S_KAPPA
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_s_zeta:
+
+S_ZETA
+------
+
+**Definition**
+
+----
+
 .. _cgyro_temp:
 
 TEMP*
 -----
+
+**Definition**
+
+----
+
+.. _cgyro_udsymmetry_flag:
+
+UDSYMMETRY_FLAG
+---------------
 
 **Definition**
 
@@ -457,142 +678,23 @@ Squareness, :math:`\zeta`, of the flux surface.
 
 ----
 
-.. _cgyro_rmin:
+.. _cgyro_zf_test_mode:
 
-RMIN
+ZF_TEST_MODE
+------------
+
+**Definition**
+
 ----
-
-.. _cgyro_rmaj:
-
-RMAJ
-----
-
-.. _cgyro_s_kappa:
-
-S_KAPPA
--------
-
-.. _cgyro_s_delta:
-
-S_DELTA
--------
-
-.. _cgyro_s_zeta:
-
-S_ZETA
-------
 
 .. _cgyro_zmag:
 
 ZMAG
 ----
 
-.. _cgyro_dzmag:
+**Definition**
 
-DZMAG
------
-
-.. _cgyro_btccw:
-
-BTCCW
------
-
-.. _cgyro_ipccw:
-
-IPCCW
------
-
-.. _cgyro_udsymmetry_flag:
-
-UDSYMMETRY_FLAG
----------------
-
-.. _cgyro_nonlinear_flag:
-
-NONLINEAR_FLAG
---------------
-
-.. _cgyro_zf_test_mode:
-
-ZF_TEST_MODE
-------------
-
-.. _cgyro_silent_flag:
-
-SILENT_FLAG
------------
-
-.. _cgyro_amp:
-
-AMP
----
-
-.. _cgyro_amp0:
-
-AMP0
 ----
-
-.. _cgyro_n_field:
-
-N_FIELD
--------
-
-.. _cgyro_lambda_debye:
-
-LAMBDA_DEBYE
-------------
-
-.. _cgyro_lambda_debye_scale:
-
-LAMBDA_DEBYE_SCALE
-------------------
-
-
-.. _cgyro_up_radial:
-
-UP_RADIAL
----------
-
-.. _cgyro_nup_radial:
-
-NUP_RADIAL
-----------
-
-.. _cgyro_up_theta:
-
-UP_THETA
---------
-
-.. _cgyro_nup_theta:
-
-NUP_THETA
----------
-
-.. _cgyro_up_alpha:
-
-UP_ALPHA
---------
-
-.. _cgyro_nup_alpha:
-
-NUP_ALPHA
----------
-
-.. _cgyro_max_time:
-
-MAX_TIME
---------
-
-.. _cgyro_freq_tol:
-
-FREQ_TOL
---------
-
-.. _cgyro_print_step:
-
-PRINT_STEP
-----------
-
 
 
 Return to :doc:`table of inputs <cgyro_table>`
