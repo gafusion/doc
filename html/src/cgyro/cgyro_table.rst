@@ -1,11 +1,6 @@
 Tabular list for input.cgyro
 ============================
 
-Simple example
-
-.. .. literalinclude:: reg01.txt
-
-
 .. csv-table:: **Plasma shape/geometry**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5

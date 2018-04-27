@@ -1,7 +1,104 @@
 Alphabetical list for input.cgyro
 =================================
 
-.. ===========================================================================================
+.. _cgyro_betae_unit:
+
+BETAE_UNIT
+----------
+
+**Definition**
+
+----
+
+.. _cgyro_betae_unit_scale:
+
+BETAE_UNIT_SCALE
+----------------
+
+**Definition**
+
+----
+
+.. _cgyro_beta_star:
+
+BETA_STAR
+---------
+
+**Definition**
+
+----
+
+.. _cgyro_beta_star_scale:
+
+BETA_STAR_SCALE
+---------------
+
+**Definition**
+
+----
+
+.. _cgyro_box_size:
+
+BOX_SIZE
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_model:
+
+COLLISION_MODEL
+---------------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_field_model:
+
+COLLISION_FIELD_MODEL
+---------------------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_mom_restore:
+
+COLLISION_MOM_RESTORE
+---------------------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_ene_restore:
+
+COLLISION_ENE_RESTORE
+---------------------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_ene_diffusion:
+
+COLLISION_ENE_DIFFUSION
+-----------------------
+
+**Definition**
+
+----
+
+.. _cgyro_collision_kperp:
+
+COLLISION_KPERP
+---------------
+
+**Definition**
+
+----
 
 .. _cgyro_delta:
 
@@ -17,7 +114,7 @@ Average triangularity, :math:`\delta`, of the flux surface:
 
 where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is the lower triangularity.
    
-**Default** = 0.0
+  **Default** = 0.0
   
 **Comments**
   
@@ -26,7 +123,68 @@ where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is th
 
 ----
 
-.. ===========================================================================================
+.. _cgyro_delta_t:
+
+DELTA_T
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_dens:
+
+**Definition**
+
+----
+
+DENS*
+-----
+
+.. _cgyro_equilibrium_model:
+
+EQUILIBRIUM_MODEL
+-----------------
+
+**Definition**
+
+----
+
+.. _cgyro_gamma_e:
+
+GAMMA_E
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_gamma_e_scale:
+
+GAMMA_E_SCALE
+-------------
+
+**Definition**
+
+----
+
+.. _cgyro_gamma_p:
+
+GAMMA_P
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_gamma_p_scale:
+
+GAMMA_P_SCALE
+-------------
+
+**Definition**
+
+----
 
 .. _cgyro_kappa:
 
@@ -37,16 +195,40 @@ KAPPA
 
 Elongation, :math:`\kappa`, of the flux surface.
 
-**Default** = 1.0
-
 **Comments**
 
+- DEFAULT = 1.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from input.profiles.
 
 ----
 
-.. ===========================================================================================
+.. _cgyro_ky:
+
+KY
+--
+
+**Definition**
+
+----
+
+.. _cgyro_mach:
+
+MACH
+----
+
+**Definition**
+
+----
+
+.. _cgyro_mach_scale:
+
+MACH_SCALE
+----------
+
+**Definition**
+
+----
 
 .. _cgyro_nu_ee:
 
@@ -61,16 +243,75 @@ Electron-electron collision frequency :math:`\nu_{ee}`, in units of :math:`c_s/a
    \nu_{ee} = \frac{4\pi n_e e^4}{(2T_e)^{3/2} m_e^{1/2}} \,\log\Lambda \; .
   
 **Comments**
-  
-- All ion collision rates are self-consistently determined from ``NU_EE``.
 
-**Default**
-
-0.1
+- DEFAULT = 0.1
+- All ion collision rates are self-consistently determined from :ref:`cgyro_nu_ee`.
+- The recommended *minimum value* is :ref:`cgyro_nu_ee` = 0.01.
 
 ----
 
-.. ===========================================================================================
+.. _cgyro_n_radial:
+
+N_RADIAL
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_n_theta:
+
+N_THETA
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_n_xi:
+
+N_XI
+----
+
+**Definition**
+
+----
+
+.. _cgyro_n_energy:
+
+N_ENERGY
+--------
+
+**Definition**
+
+----
+
+.. _cgyro_e_max:
+
+E_MAX
+-----
+
+**Definition**
+
+----
+
+.. _cgyro_n_toroidal:
+
+N_TOROIDAL
+----------
+
+**Definition**
+
+----
+
+.. _cgyro_n_species:
+
+N_SPECIES
+---------
+
+**Definition**
+
+----
 
 .. _cgyro_s:
 
@@ -82,20 +323,16 @@ S
 Magnetic shear, :math:`s`, of the flux surface:
 
 .. math::
-   s = \frac{r}{q} \frac{\partial q}{\partial r}
-     
+   s = \frac{r}{q} \frac{\partial q}{\partial r} \; .
+ 
 **Comments**
 
+- DEFAULT = 1.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
   
-**Default**
-
-1.0
-
-
-.. ===========================================================================================
-   
+----
+  
 .. _cgyro_q:
 
 Q
@@ -103,20 +340,15 @@ Q
 
 **Definition**
 
-Safety factor, :math:`q`, of the flux surface:
+Safety factor, :math:`q`, of the flux surface.
      
 **Comments**
 
+- DEFAULT = 2.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
   
-**Default**
-
-2.0
-
 ----
-
-.. ===========================================================================================
 
 .. _cgyro_shift:
 
@@ -128,20 +360,15 @@ SHIFT
 Shafranov shift, :math:`\Delta`, of the flux surface:
 
 .. math::
-       \Delta = \frac{\partial R_0}{\partial r}
+       \Delta = \frac{\partial R_0}{\partial r} \; .
      
 **Comments**
-  
+
+- DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
 
-**Default**
-
-0.0
-
 ----
-
-.. ===========================================================================================
 
 .. _cgyro_z:
 
@@ -154,15 +381,10 @@ Species charge.  First species charge is ``Z_1``, and so on.
 
 **Comments**
 
+- DEFAULT = 1
 - A typical case (deuterium, carbon, electrons) would be ``Z_1=1``, ``Z_2=6``, ``Z_3=-1``.
      
-**Default**
-
-1
-
 ----
-
-.. ===========================================================================================
 
 .. _cgyro_zeta:
 
@@ -174,20 +396,12 @@ ZETA
 Squareness, :math:`\zeta`, of the flux surface.
      
 **Comments**
-  
+
+- DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the squareness as a function of radius is read from input.profiles.
 
-**Default**
-
-0.0
-
 ----
-
-.. _cgyro_equilibrium_model:
-
-EQUILIBRIUM_MODEL
------------------
 
 .. _cgyro_profile_model:
 
@@ -274,26 +488,6 @@ AMP0
 N_FIELD
 -------
 
-.. _cgyro_betae_unit:
-
-BETAE_UNIT
-----------
-
-.. _cgyro_betae_unit_scale:
-
-BETAE_UNIT_SCALE
-----------------
-
-.. _cgyro_beta_star:
-
-BETA_STAR
----------
-
-.. _cgyro_beta_star_scale:
-
-BETA_STAR_SCALE
----------------
-
 .. _cgyro_lambda_debye:
 
 LAMBDA_DEBYE
@@ -304,45 +498,6 @@ LAMBDA_DEBYE
 LAMBDA_DEBYE_SCALE
 ------------------
 
-.. _cgyro_n_radial:
-
-N_RADIAL
---------
-
-.. _cgyro_n_theta:
-
-N_THETA
--------
-
-.. _cgyro_n_xi:
-
-N_XI
-----
-
-.. _cgyro_n_energy:
-
-N_ENERGY
---------
-
-.. _cgyro_e_max:
-
-E_MAX
------
-
-.. _cgyro_n_toroidal:
-
-N_TOROIDAL
-----------
-
-.. _cgyro_ky:
-
-KY
---
-
-.. _cgyro_box_size:
-
-BOX_SIZE
---------
 
 .. _cgyro_up_radial:
 
@@ -374,11 +529,6 @@ UP_ALPHA
 NUP_ALPHA
 ---------
 
-.. _cgyro_delta_t:
-
-DELTA_T
--------
-
 .. _cgyro_max_time:
 
 MAX_TIME
@@ -399,50 +549,12 @@ PRINT_STEP
 RESTART_STEP
 ------------
 
-.. _cgyro_collision_model:
-
-COLLISION_MODEL
----------------
-
-.. _cgyro_collision_field_model:
-
-COLLISION_FIELD_MODEL
----------------------
-
-.. _cgyro_collision_mom_restore:
-
-COLLISION_MOM_RESTORE
----------------------
-
-.. _cgyro_collision_ene_restore:
-
-COLLISION_ENE_RESTORE
----------------------
-
-.. _cgyro_collision_ene_diffusion:
-
-COLLISION_ENE_DIFFUSION
------------------------
-
-.. _cgyro_collision_kperp:
-
-COLLISION_KPERP
----------------
-
-.. _cgyro_n_species:
-
-N_SPECIES
----------
 
 .. _cgyro_mass:
 
 MASS*
 -----
 
-.. _cgyro_dens:
-
-DENS*
------
 
 .. _cgyro_temp:
 
@@ -458,31 +570,6 @@ DLNNDR*
 
 DLNTDR*
 -------
-
-.. _cgyro_gamma_e:
-
-GAMMA_E
--------
-
-.. _cgyro_gamma_p:
-
-GAMMA_P
--------
-
-.. _cgyro_gamma_e_scale:
-
-GAMMA_E_SCALE
--------------
-
-.. _cgyro_gamma_p_scale:
-
-GAMMA_P_SCALE
--------------
-
-.. _cgyro_mach:
-
-MACH
-----
 
 Return to :doc:`table of inputs <cgyro_table>`
 
