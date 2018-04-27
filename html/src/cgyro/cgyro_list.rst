@@ -141,6 +141,28 @@ DELTA_T
 DENS*
 -----
 
+**Definition**
+
+----
+
+.. _cgyro_dlnndr:
+
+DLNNDR*
+-------
+
+**Definition**
+
+----
+
+.. _cgyro_dlntdr:
+
+DLNTDR*
+-------
+
+**Definition**
+
+----
+
 .. _cgyro_equilibrium_model:
 
 EQUILIBRIUM_MODEL
@@ -230,6 +252,15 @@ MACH_SCALE
 
 ----
 
+.. _cgyro_mass:
+
+MASS*
+-----
+
+**Definition**
+
+----
+
 .. _cgyro_nu_ee:
 
 NU_EE
@@ -313,6 +344,37 @@ N_SPECIES
 
 ----
 
+.. _cgyro_profile_model:
+
+PROFILE_MODEL
+-------------
+
+**Definition**
+
+----
+
+.. _cgyro_q:
+
+Q
+-
+
+**Definition**
+
+Safety factor, :math:`q`, of the flux surface.
+     
+**Comments**
+
+- DEFAULT = 2.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
+  
+----
+  
+.. _cgyro_restart_step:
+
+RESTART_STEP
+------------
+
 .. _cgyro_s:
 
 S
@@ -328,23 +390,6 @@ Magnetic shear, :math:`s`, of the flux surface:
 **Comments**
 
 - DEFAULT = 1.0
-- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
-  
-----
-  
-.. _cgyro_q:
-
-Q
--
-
-**Definition**
-
-Safety factor, :math:`q`, of the flux surface.
-     
-**Comments**
-
-- DEFAULT = 2.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
   
@@ -367,6 +412,15 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
+
+----
+
+.. _cgyro_temp:
+
+TEMP*
+-----
+
+**Definition**
 
 ----
 
@@ -402,11 +456,6 @@ Squareness, :math:`\zeta`, of the flux surface.
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the squareness as a function of radius is read from input.profiles.
 
 ----
-
-.. _cgyro_profile_model:
-
-PROFILE_MODEL
--------------
 
 .. _cgyro_rmin:
 
@@ -544,32 +593,7 @@ FREQ_TOL
 PRINT_STEP
 ----------
 
-.. _cgyro_restart_step:
 
-RESTART_STEP
-------------
-
-
-.. _cgyro_mass:
-
-MASS*
------
-
-
-.. _cgyro_temp:
-
-TEMP*
------
-
-.. _cgyro_dlnndr:
-
-DLNNDR*
--------
-
-.. _cgyro_dlntdr:
-
-DLNTDR*
--------
 
 Return to :doc:`table of inputs <cgyro_table>`
 
