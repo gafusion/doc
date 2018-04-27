@@ -1,6 +1,17 @@
 NEO
 ===
 
+Quick links
+-----------
+
+.. toctree::
+   :titlesonly:
+
+   neo/neo_table
+   neo/neo_list
+   neo/outputs
+
+
 NEO is a multi-species drift-kinetic solver which enables a first-principles solution
 of the local neoclassical transport problem. It has the capability to treat
 

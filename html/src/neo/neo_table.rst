@@ -13,70 +13,70 @@ Some features of **input.neo** to note:
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`N_RADIAL <n_radial>`", Number of radial gridpoints,1
-   ":doc:`N_THETA <n_theta>`", Number of poloidal gridpoints, 17
-   ":doc:`N_XI <n_xi>`", "Number of :math:`\xi` polynomials - 1", 17
-   ":doc:`N_ENERGY <n_energy>`", Number of :math:`{\rm v}` polynomials - 1, 6
+   ":ref:`neo_n_radial`", Number of radial gridpoints,1
+   ":ref:`neo_n_theta`", Number of poloidal gridpoints, 17
+   ":ref:`neo_n_xi`", "Number of :math:`\xi` polynomials - 1", 17
+   ":ref:`neo_n_energy`", Number of :math:`{\rm v}` polynomials - 1, 6
 
 .. csv-table:: **Plasma equilibrium/geometry**
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`EQUILIBRIUM_MODEL <equilibrium_model>`", Geometry selector,0
-   ":doc:`RMIN_OVER_A <rmin_over_a>`", Normalized minor radius (min), 0.5
-   ":doc:`RMIN_OVER_A_2 <rmin_over_a_2>`", Normalized minor radius (max), 0.6
-   ":doc:`RMAJ_OVER_A <rmin_over_a_2>`", Normalized major radius, 3.0
-   ":doc:`KAPPA <kappa>`", Elongation, 1.0
-   ":doc:`S_KAPPA <s_kappa>`", Elongation shear, 0.0
-   ":doc:`DELTA <delta>`", Triangularity, 0.0
-   ":doc:`S_DELTA <s_delta>`", Triangularity shear, 0.0
-   ":doc:`ZETA <zeta>`", Squareness, 0.0
-   ":doc:`S_ZETA <s_zeta>`", Squareness shear, 0.0
-   ":doc:`SHIFT <shift>`", Shafranov shift, 0.0
-   ":doc:`ZMAG_OVER_A <zmag_over_a>`", Normalized elevation, 0.0
-   ":doc:`S_ZMAG <s_zmag>`", Gradient of elevation, 0.0
-   ":doc:`Q <q>`", Safety factor, 2.0
-   ":doc:`Shear <shear>`", Magnetic shear, 1.0
-   ":doc:`BETA_STAR <beta_star>`", Effective pressure gradient, 0.0
-   ":doc:`IPCCW <ipccw>`", Determines the sign of the plasma current, -1
-   ":doc:`BTCCW <btccw>`", Determines the sign of the toroidal field, -1
-   ":doc:`RHO_STAR <rho_star>`", Normalized Larmor radius, 0.001
-   ":doc:`DPHI0DR <dphi0dr>`", Normalized radial electric field, 0.0
-   ":doc:`EPAR0 <epar0>`", Normalized inductive electric field, 0.0
-   ":doc:`EPAR0_SPITZER <epar0_spitzer>`", Normalized inductive electric field for spitzer problem, 1.0
+   ":ref:`neo_equilibrium_model`", Geometry selector,0
+   ":ref:`neo_rmin_over_a`", Normalized minor radius (min), 0.5
+   ":ref:`neo_rmin_over_a_2`", Normalized minor radius (max), 0.6
+   ":ref:`neo_rmaj_over_a`", Normalized major radius, 3.0
+   ":ref:`neo_kappa`", Elongation, 1.0
+   ":ref:`neo_s_kappa`", Elongation shear, 0.0
+   ":ref:`neo_delta`", Triangularity, 0.0
+   ":ref:`neo_s_delta`", Triangularity shear, 0.0
+   ":ref:`neo_zeta`", Squareness, 0.0
+   ":ref:`neo_s_zeta`", Squareness shear, 0.0
+   ":ref:`neo_shift`", Shafranov shift, 0.0
+   ":ref:`neo_zmag_over_a`", Normalized elevation, 0.0
+   ":ref:`neo_s_zmag`", Gradient of elevation, 0.0
+   ":ref:`neo_q`", Safety factor, 2.0
+   ":ref:`neo_shear`", Magnetic shear, 1.0
+   ":ref:`neo_beta_star`", Effective pressure gradient, 0.0
+   ":ref:`neo_ipccw`", Determines the sign of the plasma current, -1
+   ":ref:`neo_btccw`", Determines the sign of the toroidal field, -1
+   ":ref:`neo_rho_star`", Normalized Larmor radius, 0.001
+   ":ref:`neo_dphi0dr`", Normalized radial electric field, 0.0
+   ":ref:`neo_epar0`", Normalized inductive electric field, 0.0
+   ":ref:`neo_epar0_spitzer`", Normalized inductive electric field for spitzer problem, 1.0
 
 .. csv-table:: **General models**
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`SILENT_FLAG <silent_flag>`", Output mode selector, 0
-   ":doc:`SIM_MODEL <sim_model>`", Numerical/analytic simulation model selector, 2
-   ":doc:`SPITZER_MODEL <spitzer_model>`", DKE/Spitzer problem selector, 0
-   ":doc:`COLLISION_MODEL <collision_model>`", Collision model selector, 4
+   ":ref:`neo_silent_flag`", Output mode selector, 0
+   ":ref:`neo_sim_model`", Numerical/analytic simulation model selector, 2
+   ":ref:`neo_spitzer_model`", DKE/Spitzer problem selector, 0
+   ":ref:`neo_collision_model`", Collision model selector, 4
 
 .. csv-table:: **Profile models**
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`PROFILE_MODEL <profile_model>`", Local/experimental profile selector, 1
-   ":doc:`PROFILE_EQUILIBRIUM_MODEL <profile_equilibrium_model>`", Geometry selector for experimental profiles, 1
-   ":doc:`PROFILE_ERAD0_MODEL <profile_erad0_model>`", Determines whether to include :math:`E_r^{(0)}` in experimental profiles, 1
+   ":ref:`neo_profile_model`", Local/experimental profile selector, 1
+   ":ref:`neo_profile_equilibrium_model`", Geometry selector for experimental profiles, 1
+   ":ref:`neo_profile_erad0_model`", Determines whether to include :math:`E_r^{(0)}` in experimental profiles, 1
 
 .. csv-table:: **Rotation physics**
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`ROTATION_MODEL <rotation_model>`", Rotation model selector, 1
-   ":doc:`OMEGA_ROT <omega_rot>`", Normalized toroidal angular frequency, 0.0
-   ":doc:`OMEGA_ROT_DERIV <omega_rot_deriv>`", Normalized toroidal rotation shear, 0.0
+   ":ref:`neo_rotation_model`", Rotation model selector, 1
+   ":ref:`neo_omega_rot`", Normalized toroidal angular frequency, 0.0
+   ":ref:`neo_omega_rot_deriv`", Normalized toroidal rotation shear, 0.0
 
 .. csv-table:: **Nonaxisymmetric effects**
    :header: "input.neo parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":doc:`THREED_MODEL <threed_model>`", 3D model selector, 0
-   ":doc:`THREED_EXB_MODEL <threed_exb_model>`", 3D ExB drift velocity model selector (higher-order), 0
-   ":doc:`THREED_EXB_DPHI0DR <threed_exb_dphi0dr>`", Normalized radial electric field in the 3D ExB drift velocity, 0
+   ":ref:`neo_threed_model`", 3D model selector, 0
+   ":ref:`neo_threed_exb_model`", 3D ExB drift velocity model selector (higher-order), 0
+   ":ref:`neo_threed_exb_dphi0dr`", Normalized radial electric field in the 3D ExB drift velocity, 0
    
 .. csv-table:: **Species-dependent parameters**
    :header: "input.neo parameter", "Short description", "Default"
