@@ -84,10 +84,10 @@ Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (7+5*N\_SPECIES`)
 
 For each species :math:`\sigma`:
 
-8. :math:`n_{0\sigma}/n_{norm}`: normalized equilibrium-scale density
-9. :math:`T_{0\sigma}/T_{norm}`: normalized equilibrium-scale temperature   
-10. :math:`a/L_{n\sigma} = -a (d {\rm ln} n_{0,sigma}/dr)`: normalized equilibrium-scale density gradient scale length
-11. :math:`a/L_{T\sigma} = -a (d {\rm ln} T_{0,sigma}/dr)`: normalized equilibrium-scale temperature gradient scale length
+8. :math:`n_{\sigma}/n_{norm}`: normalized equilibrium-scale density
+9. :math:`T_{\sigma}/T_{norm}`: normalized equilibrium-scale temperature   
+10. :math:`a/L_{n\sigma} = -a (d {\rm ln} n_{\sigma}/dr)`: normalized equilibrium-scale density gradient scale length
+11. :math:`a/L_{T\sigma} = -a (d {\rm ln} T_{\sigma}/dr)`: normalized equilibrium-scale temperature gradient scale length
 12. :math:`\tau_{\sigma\sigma}^{-1} (a/{\rm v}_{norm})`: normalized collision frequency
    
 -----

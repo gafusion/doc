@@ -10,7 +10,7 @@ ANISO_MODEL_*
 
 **Definition**
 
-Parameter which selects whether to treat Species * with an anisotropic temperature model.
+Parameter which selects whether to treat a species with an anisotropic temperature model.
 
 **Choices**
 
@@ -138,14 +138,14 @@ DENS_*
 
 **Definition**
 
-The normalized equilibrium-scale density of Species *:
+The normalized equilibrium-scale density:
 
 .. math::
-   DENS\_* = \frac{n_{0,*}}{n_{\rm norm}}
+   {\rm DENS}\_* = \frac{n_{*}}{n_{\rm norm}}
 
 **Commments**
 
-- DEFAULT: {1.0,0,0,0,0,0,0,0,0,0,0}
+- DEFAULT: DENS_1=1.0, DENS_2=DENS_3=...=0.0
 - The density of each species 1-11 is set as: DENS_1, DENS_2, DENS_3,...
 - When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, :math:`n_{\rm norm}(r)=n_{0,{\rm species 1}}`.
 - When rotation effects are included (:ref:`neo_rotation_model` = 2), this parameter is the value at the outboard midplane (:math:`\theta=0`).  
@@ -162,10 +162,10 @@ DLNNDR_*
 
 **Definition**
 
-The normalized equilibrium-scale density gradient scale length of Species *:
+The normalized equilibrium-scale density gradient scale length:
 
 .. math::
-   DLNNDR\_* = -a \frac{\partial {\rm ln} n_{0,*}}{\partial r}
+   {\rm DLNNDR}\_* = -a \frac{\partial {\rm ln} n_{*}}{\partial r}
 
 **Commments**
 
@@ -189,7 +189,7 @@ DLNNDRE_ADE
 The normalized equilibrium-scale density gradient scale length of the electrons for the case of adiabatic electrons:
 
 .. math::
-   DLNNDRE\_ADE = -a \frac{\partial {\rm ln} n_{0,e}}{\partial r}
+   {\rm DLNNDRE\_ADE} = -a \frac{\partial {\rm ln} n_{0,e}}{\partial r}
 
 **Commments**
 
@@ -209,10 +209,10 @@ DLNTDR_*
 
 **Definition**
 
-The normalized equilibrium-scale temperature gradient scale length of Species *:
+The normalized equilibrium-scale temperature gradient scale length:
 
 .. math::
-   DLNTDR\_* = -a \frac{d {\rm ln} T_{0,*}}{d r}
+   {\rm DLNTDR}\_* = -a \frac{d {\rm ln} T_{*}}{d r}
 
 **Commments**
 
@@ -232,10 +232,10 @@ DLNTDR_PARA_*
 
 **Definition**
 
-The normalized equilibrium-scale parallel temperature gradient scale length of Species *:
+The normalized equilibrium-scale parallel temperature gradient scale length:
 
 .. math::
-   DLNTDR\_PARA\_* = -a \frac{d {\rm ln} T_{\|0,*}}{d r}
+   {\rm DLNTDR}\_PARA\_* = -a \frac{d {\rm ln} T_{\|,*}}{d r}
 
 **Commments**
 
@@ -255,10 +255,10 @@ DLNTDR_PERP_*
 
 **Definition**
 
-The normalized equilibrium-scale perpendicular temperature gradient scale length of Species *:
+The normalized equilibrium-scale perpendicular temperature gradient scale length:
 
 .. math::
-   DLNTDR\_PERP\_* = -a \frac{d {\rm ln} T_{\perp0,*}}{d r}
+   {\rm DLNTDR}\_PERP\_* = -a \frac{d {\rm ln} T_{\perp,*}}{d r}
 
 **Commments**
 
@@ -281,7 +281,7 @@ DLNTDRE_ADE
 The normalized equilibrium-scale temperature gradient scale length of the electrons for the case of adiabatic electrons:
 
 .. math::
-   DLNTDRE\_ADE = -a \frac{\partial {\rm ln} T_{0,e}}{\partial r}
+   {\rm DLNTDRE\_ADE} = -a \frac{\partial {\rm ln} T_{e}}{\partial r}
 
 **Commments**
 
@@ -488,10 +488,10 @@ MASS_*
 
 **Definition**
 
-The normalized mass of Species *:
+The normalized mass:
 
 .. math::
-   MASS\_* = m_{*}/m_{\rm norm}
+   {\rm MASS}\_* = m_{*}/m_{\rm norm}
 
 **Commments**
 
@@ -629,13 +629,13 @@ NE_ADE
 The normalized equilibrium-scale density of the electrons for the case of adiabatic electrons:
 
 .. math::
-   NE\_ADE = \frac{n_{0,e}}{n_{\rm norm}}
+   {\rm NE\_ADE} = \frac{n_{0,e}}{n_{\rm norm}}
 
 **Commments**
 
 - DEFAULT: 1.0
 - This paramter is used only if no species with Z < 0 is specified.
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, :math:`n_{\rm norm}(r)=n_{0,{\rm species 1}}`.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, :math:`n_{\rm norm}(r)=n_{{\rm species 1}}`.
    
 -----
 
@@ -651,7 +651,7 @@ NU_1
 The normalized collision frequency of the first kinetic species:
 
 .. math::
-   NU\_1 = \frac{\tau_{11}^{-1}}{{\rm v}_{\rm norm}/a}
+   {\rm NU}\_1 = \frac{\tau_{11}^{-1}}{{\rm v}_{\rm norm}/a}
 
 where
 
@@ -663,7 +663,7 @@ where
 - DEFAULT: 0.1
 - Only the collision frequency for Species 1 is specified. The collision frequencies for the other species are computed internally in the code using NU_1, :ref:`neo_z_*`, :ref:`neo_mass_*`, :ref:`neo_dens_*`, and :ref:`neo_temp_*`.
 - When rotation effects are included (:ref:`neo_rotation_model` = 2), this parameter is the value at the outboard midplane (:math:`\theta = 0`).
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), this is computed internally from the profile parameters read from input.profiles. Also, the normalizing length scale is the plasma minor radius and the normalizing velocity is :math:`{\rm v}_{\rm norm} = \sqrt{T_{0,species1}/m_{D}}`.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), this is computed internally from the profile parameters read from input.profiles. Also, the normalizing length scale is the plasma minor radius and the normalizing velocity is :math:`{\rm v}_{\rm norm} = \sqrt{T_{\rm species1}/m_{D}}`.
    
 -----
 
@@ -726,10 +726,10 @@ PROFILE_DLNNDR_*_SCALE
 
 **Definition**
 
-Scaling factor for the normalized equilibrium-scale density gradient scale length of Species * in profile mode:
+Scaling factor for the normalized equilibrium-scale density gradient scale length in profile mode:
 
 .. math::
-   a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \rightarrow PROFILE\_DLNNDR\_*\_SCALE \times \left(a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \right)
+   a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \rightarrow {\rm PROFILE\_DLNNDR\_*\_SCALE} \times \left(a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \right)
 
 **Commments**
 
@@ -740,7 +740,7 @@ Scaling factor for the normalized equilibrium-scale density gradient scale lengt
   
 -----
 
-==============
+.. =======================================================================
 
 .. _neo_profile_dlntdr_*_scale:
 
@@ -749,10 +749,10 @@ PROFILE_DLNTDR_*_SCALE
 
 **Definition**
 
-Scaling factor for the normalized equilibrium-scale temperature gradient scale length of Species * in profile mode:
+Scaling factor for the normalized equilibrium-scale temperature gradient scale length in profile mode:
 
 .. math::
-   a \frac{d {\rm ln} T_{0,*}}{d r} \rightarrow PROFILE\_DLNTDR\_*\_SCALE \times \left( a \frac{d {\rm ln} T_{0,*}}{d r} \right)
+   a \frac{d {\rm ln} T_{*}}{d r} \rightarrow {\rm PROFILE\_DLNTDR\_*\_SCALE} \times \left( a \frac{d {\rm ln} T_{*}}{d r} \right)
 
 **Commments**
 
@@ -1187,13 +1187,13 @@ TE_ADE
 The normalized equilibrium-scale temperature of the electrons for the case of adiabatic electrons:
 
 .. math::
-   TE\_ADE = \frac{T_{0,e}}{T_{\rm norm}}
+   {\rm TE\_ADE} = \frac{T_{0,e}}{T_{\rm norm}}
 
 **Commments**
 
 - DEFAULT: 1.0
 - This paramter is used only if no species with Z < 0 is specified.
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{0,{\rm species 1}}`.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{{\rm species 1}}`.
    
 -----
 
@@ -1206,16 +1206,16 @@ TEMP_*
 
 **Definition**
 
-The normalized equilibrium-scale temperature of Species *:
+The normalized equilibrium-scale temperature:
 
 .. math::
-   TEMP\_* = \frac{T_{0,*}}{T_{\rm norm}}
+   {\rm TEMP}\_* = \frac{T_{0,*}}{T_{\rm norm}}
 
 **Commments**
 
 - DEFAULT: 1.0
 - The temperature of each species 1-11 is set as: TEMP_1, TEMP_2, TEMP_3,...
-- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{0,{\rm species 1}}`.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{{\rm species 1}}`.
 - The subroutine interface parameter is specified as a vector: neo_temp_in(1:11)
   
 -----
@@ -1229,10 +1229,10 @@ TEMP_PARA_*
 
 **Definition**
 
-The normalized equilibrium-scale parallel temperature of Species *:
+The normalized equilibrium-scale parallel temperature:
 
 .. math::
-   TEMP\_PARA\_* = \frac{T_{\|0,*}}{T_{\rm norm}}
+   {\rm TEMP\_PARA}\_* = \frac{T_{\|0,*}}{T_{\rm norm}}
 
 **Commments**
 
@@ -1252,10 +1252,10 @@ TEMP_PERP_*
 
 **Definition**
 
-The normalized equilibrium-scale perpendicular temperature of Species *:
+The normalized equilibrium-scale perpendicular temperature:
 
 .. math::
-   TEMP\_PERP\_* = \frac{T_{\perp0,*}}{T_{\rm norm}}
+   {\rm TEMP\_PERP}\_* = \frac{T_{\perp,*}}{T_{\rm norm}}
 
 **Commments**
 
@@ -1358,7 +1358,7 @@ Z_*
 
 **Definition**
 
-The charge of Species *.
+The species' charge.
 
 **Commments**
 
