@@ -12,14 +12,9 @@ Quick links
    neo/outputs
 
 
-NEO is a multi-species drift-kinetic solver which enables a first-principles solution
-of the local neoclassical transport problem. It has the capability to treat
+NEO :cite:`belli:2008,belli:2009,belli:2012` is a multi-species drift-kinetic solver was developed by the ESL project as a practical tool for high accuracy neoclassical calculations.  NEO is an Eulerian code that solves the first-order (in the drift-ordering parameter :math:`\rho_*=\rho_i/a \ll 1`) drift-kinetic-Poisson equations.  In NEO, no approximations beyond the drift-ordering are made.  The full linearized Fokker-Planck collision operator is used for the collision dynamics, with complete cross-species collisional coupling for arbitrary mass ratio and an arbitrary number of species.  General flux-surface shape, including up-down asymmetry, is treated.  In addition, full sonic rotation and centrifugal terms are retained.  NEO has been extensively benchamarked with analytic theories, as well as with NCLASS, over a wide range of parameters and in various asymptotic limits.
 
-- any number of Maxwellian species with arbitrary charge and mass.
-- full collisional coupling of all species using the full linearized Fokker-Planck collision operator
-- rapid toroidal rotation (including centrifugal effects)
-- general (shaped) or simple circular plasmas
-- experimental or user-defined physical parameters.
+The equations solved in NEO complement those solved in gyrokinetic codes such as GYRO and CGYRO insofar as together they represent the complete first-order deviation of the plasma from a local Maxwellian.
 
 Data input 
 ----------
