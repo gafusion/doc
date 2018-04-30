@@ -49,7 +49,7 @@ where :math:`B_{\rm unit}(r)=(q/r)\psi^\prime` is the effective magnetic field s
 **Comments**
 
 - DEFAULT: 0.0
-- NOTE: This parameter is *not* used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. :ref:`neo_aniso_model_1` = 2) to compute :math:`d\Phi_*/dr`.
+- NOTE: This parameter is *not* used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. :ref:`neo_aniso_model_*` = 2) to compute :math:`d\Phi_*/dr`.
 - This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`neo_profile_model` = 2), :math:`\beta_*` is computed internally from the profile parameters in input.profiles and the normalizing length scale is the plasma minor radius.
 
@@ -179,6 +179,29 @@ The normalized equilibrium-scale density gradient scale length of Species *:
 
 .. ===========================================================================================
 
+.. _neo_dlnndre_ade:
+
+DLNNDRE_ADE
+-----------
+
+**Definition**
+
+The normalized equilibrium-scale density gradient scale length of the electrons for the case of adiabatic electrons:
+
+.. math::
+   DLNNDRE\_ADE = -a \frac{\partial {\rm ln} n_{0,e}}{\partial r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:`neo_rotation_model` = 2), for which it is the value at the outboard midplane (:math:`\theta=0`).
+- This paramter is used only if no species with Z < 0 is specified.  
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.
+   
+-----
+
+.. ===========================================================================================
+
 .. _neo_dlntdr_*:
 
 DLNTDR_*
@@ -244,6 +267,29 @@ The normalized equilibrium-scale perpendicular temperature gradient scale length
 - This parameter is used only when the species' anisotropic flag is set (:ref:`neo_aniso_model_*` = 2). 
 - The subroutine interface parameter is specified as a vector: neo_dlntdr_perp_in(1:11)
   
+-----
+
+.. ===========================================================================================
+
+.. _neo_dlntdre_ade:
+
+DLNTDRE_ADE
+-----------
+
+**Definition**
+
+The normalized equilibrium-scale temperature gradient scale length of the electrons for the case of adiabatic electrons:
+
+.. math::
+   DLNTDRE\_ADE = -a \frac{\partial {\rm ln} T_{0,e}}{\partial r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:`neo_rotation_model` = 2), for which it is the value at the outboard midplane (:math:`\theta=0`).
+- This paramter is used only if no species with Z < 0 is specified.  
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.
+   
 -----
 
 .. ===========================================================================================
@@ -570,6 +616,28 @@ The number of xi polynomials -  1 in the computational domain (:math:`n_{\xi,\rm
 - The collocation integrals are done exactly analytically.  
 
 ----- 
+
+.. ===========================================================================================
+
+.. _neo_ne_ade:
+
+NE_ADE
+------
+
+**Definition**
+
+The normalized equilibrium-scale density of the electrons for the case of adiabatic electrons:
+
+.. math::
+   NE\_ADE = \frac{n_{0,e}}{n_{\rm norm}}
+
+**Commments**
+
+- DEFAULT: 1.0
+- This paramter is used only if no species with Z < 0 is specified.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, :math:`n_{\rm norm}(r)=n_{0,{\rm species 1}}`.
+   
+-----
 
 .. ===========================================================================================
    
@@ -1006,7 +1074,7 @@ Magnetic shear, :math:`s`, of the flux surface:
 **Comments**
 
 - DEFAULT: 1.0
-- NOTE: This parameter is *not* used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. :ref:`neo_aniso_model_1` = 2) to compute :math:`d\Phi_*/dr`.
+- NOTE: This parameter is *not* used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. :ref:`neo_aniso_model_*` = 2) to compute :math:`d\Phi_*/dr`.
 - This is only active with :ref:`neo_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`neo_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
 
@@ -1107,6 +1175,27 @@ Parameter which selects whether to solve the standard neoclassical transport pro
 
 -----
 
+.. ===========================================================================================
+
+.. _neo_te_ade:
+
+TE_ADE
+------
+
+**Definition**
+
+The normalized equilibrium-scale temperature of the electrons for the case of adiabatic electrons:
+
+.. math::
+   TE\_ADE = \frac{T_{0,e}}{T_{\rm norm}}
+
+**Commments**
+
+- DEFAULT: 1.0
+- This paramter is used only if no species with Z < 0 is specified.
+- When experimental profiles are used (:ref:`neo_profile_model` = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, :math:`T_{\rm norm}(r)=T_{0,{\rm species 1}}`.
+   
+-----
 
 .. ===========================================================================================
 
