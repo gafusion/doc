@@ -1,6 +1,8 @@
 The General Atomics GACODE Suite
 ================================
 
+.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
+
 .. figure:: image/marshall_code.png
 	:width: 90 %
 	:alt: Marshall

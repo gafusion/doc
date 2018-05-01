@@ -1,8 +1,6 @@
 PLASMA ROTATION AND FIELD ORIENTATION
 =====================================
 
-.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
-
 Physical considerations
 -----------------------
 

@@ -299,6 +299,12 @@ GAMMA_E
 
 **Definition**
 
+Normalized :math:`\exb` shearing rate :math:`(a/c_s) \gamma_E`.
+
+**Comments**
+
+- DEFAULT = 0.0
+      
 ----
 
 .. _cgyro_gamma_e_scale:
