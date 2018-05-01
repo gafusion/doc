@@ -8,6 +8,14 @@ AMP
 
 **Definition**
 
+Initial amplitude of finite-:math:`n` modes.
+
+**Comments**
+
+- DEFAULT = 0.1
+- For linear simulations, the value is unimportant
+- For nonlinear runs, this will usually need to be reduced to a smaller value.
+
 ----
 
 .. _cgyro_amp0:
@@ -17,15 +25,35 @@ AMP0
 
 **Definition**
 
+Initial amplitude of :math:`n = 0` modes.
+
+**Comments**
+
+- DEFAULT = 0.0
+
 ----
 
 .. _cgyro_betae_unit:
 
 BETAE_UNIT
 ----------
+**Comments**
+
+- DEFAULT = 0.0
+
 
 **Definition**
 
+The electron beta with reference to :math:`B_\mathrm{unit}`:
+
+.. math::
+   \beta_{e,\mathrm{unit}} \doteq \frac{8 \pi n_e T_e}{B_\mathrm{unit}^2}
+
+
+**Comments**
+
+- DEFAULT = 0.0
+   
 ----
 
 .. _cgyro_betae_unit_scale:
@@ -35,14 +63,11 @@ BETAE_UNIT_SCALE
 
 **Definition**
 
-----
+Scale factor for :ref:`cgyro_betae_unit`.
 
-.. _cgyro_beta_star:
+**Comments**
 
-BETA_STAR
----------
-
-**Definition**
+- DEFAULT = 1.0
 
 ----
 
@@ -53,6 +78,18 @@ BETA_STAR_SCALE
 
 **Definition**
 
+Pressure gradient scaling factor.  Here, the pressure gradient factor is
+defined as
+
+.. math::
+   \beta_* = \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}
+
+**Comments**
+
+- DEFAULT = 1.0
+- In the absence of scaling, the value of :math:`\beta_*` will be computed self-consistently given the value of :math:`\beta_{e,\mathrm{unit}}` set in :ref:`cgyro_betae_unit`.
+- Often it is desired to reduce :math:`\beta_{e,\mathrm{unit}}` but leave the pressure gradient unchanged.  In this case, one might reduce :ref:`cgyro_betae_unit` by a factor of 2, and then set BETA_STAR_SCALE=2.
+
 ----
 
 .. _cgyro_btccw:
@@ -62,6 +99,20 @@ BTCCW
 
 **Definition**
 
+Parameter which selects the orientation of the toroidal magnetic field :math:`B_t` relative to the toroidal angle :math:`\varphi`.
+
+**Choices**
+
+- BTCCW = 1: Counter-clockwise when viewed from above the torus - negative :math:`\hat{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the negative :math:`\hat{e}_{\varphi}` direction.
+- BTCCW = -1: Clockwise when viewed from above the torus - positive :math:`\hat{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the positive :math:`\hat{e}_{\varphi}` direction. 
+
+**Comments**
+
+- DEFAULT = -1
+- In DIII-D, typically BTCCW = 1.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of :math:`B_t` is inferred from :ref:`input.profiles`.
+
+
 ----
 
 .. _cgyro_box_size:
@@ -70,6 +121,18 @@ BOX_SIZE
 --------
 
 **Definition**
+
+Factor to determine the radial box length, :math:`L_x`, as a multiple of the distance between reference singular surfaces, :math:`L_0 = r/(qs)`.
+
+.. math::
+    \frac{L_x}{a} = \mathrm{BOX\_SIZE} \; \left( \frac{r}{qs} \right)
+
+
+**Comments**
+
+- DEFAULT = 1.0
+- Note that the reference singular surface spacing refers to :math:`n=1` which is always the lowest non-zero mode in CGYRO.
+- Also, :math:`r \rightarrow` :ref:`cgyro_rmin`, :math:`s \rightarrow` :ref:`cgyro_s`, :math:`q \rightarrow` :ref:`cgyro_q`. 
 
 ----
 
@@ -134,17 +197,11 @@ DELTA
 
 **Definition**
 
-Average triangularity, :math:`\delta`, of the flux surface:
-
-.. math::
-   \delta = \frac{\delta_{+} + \delta_{-}}{2}
-
-where :math:`\delta_{+}` is the upper triangularity and :math:`\delta_{-}` is the lower triangularity.
+Triangularity, :math:`\delta`, of the flux surface:
    
-  **Default** = 0.0
-  
 **Comments**
-  
+
+- DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from input.profiles.
 
@@ -156,6 +213,13 @@ DELTA_T
 -------
 
 **Definition**
+
+Simulation timestep :math:`(c_s/a) \Delta t`.
+
+**Comments**
+
+- DEFAULT = 0.01
+- Because CGYRO uses an explicit time-integration scheme for collisionless terms, the timestep must typically be smaller than for long-wavelength GYRO simulations. 
 
 ----
 
@@ -204,15 +268,6 @@ EQUILIBRIUM_MODEL
 
 ----
 
-.. _cgyro_freq_tol:
-
-FREQ_TOL
---------
-
-**Definition**
-
-----
-
 .. _cgyro_field_print_flag:
 
 FIELD_PRINT_FLAG
@@ -220,12 +275,20 @@ FIELD_PRINT_FLAG
 
 **Definition**
 
-Toggle printing of :math:`\delta A_\parallel(k_x^0,k_y,t)`
-and :math:`\delta B_\parallel(k_x^0,k_y,t)` .
+Toggle printing of :math:`\delta A_\parallel(k_x^0,k_y,t)` and :math:`\delta B_\parallel(k_x^0,k_y,t)` .
 
 **Comments**
 
 - DEFAULT = 0.
+
+----
+
+.. _cgyro_freq_tol:
+
+FREQ_TOL
+--------
+
+**Definition**
 
 ----
 

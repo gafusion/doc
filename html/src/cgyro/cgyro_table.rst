@@ -41,8 +41,7 @@ Tabular list for input.cgyro
    ":ref:`cgyro_n_field`", Number of fields to evolve,1
    ":ref:`cgyro_betae_unit`", Electron beta,0.0
    ":ref:`cgyro_betae_unit_scale`", Electron beta scaling parameter,0.0
-   ":ref:`cgyro_beta_star`", :math:`\displaystyle \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}`,0
-   ":ref:`cgyro_beta_star_scale`", Scaling factor for BETA_STAR ,0
+   ":ref:`cgyro_beta_star_scale`", Pressure gradient scaling factor,1.0
    ":ref:`cgyro_lambda_debye`", Debye length,0.0
    ":ref:`cgyro_lambda_debye_scale`", Debye length scaling factor,0.0
 
