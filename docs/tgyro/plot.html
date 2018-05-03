@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CGYRO data interface and plotting &mdash; GACODE</title>
+  <title>PLOT &mdash; GACODE</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="GYRO" href="../gyro.html" />
-    <link rel="prev" title="CGYRO output files" href="outputs.html" /> 
+    <link rel="next" title="CGYRO" href="../cgyro.html" />
+    <link rel="prev" title="OUTPUT" href="output.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -82,21 +82,23 @@
               <p class="caption"><span class="caption-text">Codes</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../cgyro.html">CGYRO</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO data interface and plotting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../tgyro.html">TGYRO</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../tgyro.html#quick-links">Quick links</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="tgyro_table.html">input.tgyro Tabular List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro_list.html">input.tgyro Alphabetical List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="equations.html">Equations solved in TGYRO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="solver.html">TGYRO Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output.html">OUTPUT</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">PLOT</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#normalization">Normalization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tgyro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tgyro.html#data-input">Data input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tgyro.html#transport-equations-and-solution">Transport equations and solution</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
 </ul>
@@ -152,15 +154,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="../cgyro.html">CGYRO</a> &raquo;</li>
+          <li><a href="../tgyro.html">TGYRO</a> &raquo;</li>
         
-      <li>CGYRO data interface and plotting</li>
+      <li>PLOT</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cgyro/plot.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tgyro/plot.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,8 +175,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cgyro-data-interface-and-plotting">
-<h1>CGYRO data interface and plotting<a class="headerlink" href="#cgyro-data-interface-and-plotting" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="plot">
+<h1>PLOT<a class="headerlink" href="#plot" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -185,10 +187,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../cgyro.html" class="btn btn-neutral float-right" title="CGYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="outputs.html" class="btn btn-neutral" title="CGYRO output files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="output.html" class="btn btn-neutral" title="OUTPUT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

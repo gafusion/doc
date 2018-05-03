@@ -90,6 +90,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install and build GACODE from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
@@ -161,7 +162,9 @@
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/marshall_code.png"><img alt="Marshall" src="_images/marshall_code.png" style="width: 90%;" /></a>
 </div>
-<p>GACODE refers to a collection of serial and HPC software developed by the Theory Group at <a class="reference external" href="http://www.ga.com/magnetic-fusion">General Atomics</a>, and distributed through the <a class="reference external" href="https://github.com/gafusion/gacode/">GACODE source code repository</a> at GitHub.</p>
+<p>GACODE refers to a collection of serial and HPC software developed by the Theory Group
+at <a class="reference external" href="http://www.ga.com/magnetic-fusion">General Atomics</a>, and distributed through
+the <a class="reference external" href="https://github.com/gafusion/gacode/">GACODE source code repository</a> at GitHub.</p>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>We maintain <a class="reference external" href="http://scidac.github.io/atom/install.html">public installations</a> of GACODE via AToM.  However, you can also <a class="reference internal" href="install.html"><span class="doc">install and build</span></a> the GACODE suite from sources.</p>
@@ -176,18 +179,28 @@
 </div>
 <div class="section" id="experimental-profiles">
 <h2>Experimental profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this headline">¶</a></h2>
-<p>GACODE software works with the <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a> format.</p>
+<p>GACODE software works with the <a class="reference internal" href="input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> format.</p>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Codes</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="neo.html#quick-links">Quick links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neo.html#data-input">Data input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neo.html#data-output">Data output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="neo.html#normalization">Normalization</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tgyro.html#quick-links">Quick links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tgyro.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tgyro.html#data-input">Data input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="tgyro.html#transport-equations-and-solution">Transport equations and solution</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cgyro.html#quick-links">Quick links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgyro.html#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cgyro.html#data-input">Data input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cgyro.html#normalization">Normalization</a></li>
@@ -213,6 +226,30 @@
 <li class="toctree-l2"><a class="reference internal" href="rotation.html#sonic-rotation-formalism">Sonic rotation formalism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rotation.html#the-rotation-profile">The Rotation Profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rotation.html#input-parameters">Input parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="input_profiles.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_profiles.html#what-the-heck-is-bt-exp">What the heck is BT_EXP?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_profiles.html#file-structure">File Structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#scalar-data">Scalar Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-1-1-5">Vector data, block 1 (1-5)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-2-6-10">Vector data, block 2 (6-10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-3-11-15">Vector data, block 3 (11-15)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-4-16-20">Vector data, block 4 (16-20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-5-21-25">Vector data, block 5 (21-25)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-6-26-30">Vector data, block 6 (26-30)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-7-31-35">Vector data, block 7 (31-35)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-8-36-40">Vector data, block 8 (36-40)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-9-41-55">Vector data, block 9 (41-55)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-10-56-60">Vector data, block 10 (56-60)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-11-61-65">Vector data, block 11 (61-65)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-12-66-70">Vector data, block 12 (66-70)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-13-71-75">Vector data, block 13 (71-75)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-13-71-75-diagnostic-optional">Vector data, block 13 (71-75) [DIAGNOSTIC – optional]</a></li>
+<li class="toctree-l3"><a class="reference internal" href="input_profiles.html#vector-data-block-14-76-80-diagnostic-optional">Vector data, block 14 (76-80) [DIAGNOSTIC – optional]</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install and build GACODE from sources</a><ul>

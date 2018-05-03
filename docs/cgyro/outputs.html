@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Structure of CGYRO output &mdash; GACODE</title>
+  <title>CGYRO output files &mdash; GACODE</title>
   
 
   
@@ -28,7 +28,9 @@
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CGYRO data interface and plotting" href="plot.html" />
+    <link rel="prev" title="Alphabetical list for input.cgyro" href="cgyro_list.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -78,10 +80,23 @@
             
             
               <p class="caption"><span class="caption-text">Codes</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../cgyro.html">CGYRO</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-input">Data input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#normalization">Normalization</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
 </ul>
@@ -89,6 +104,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_profiles.html">input.profiles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install.html">Install and build GACODE from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
 </ul>
@@ -136,7 +152,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Structure of CGYRO output</li>
+          <li><a href="../cgyro.html">CGYRO</a> &raquo;</li>
+        
+      <li>CGYRO output files</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -155,8 +173,127 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="structure-of-cgyro-output">
-<h1>Structure of CGYRO output<a class="headerlink" href="#structure-of-cgyro-output" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cgyro-output-files">
+<h1>CGYRO output files<a class="headerlink" href="#cgyro-output-files" title="Permalink to this headline">¶</a></h1>
+<p>It is not <strong>not recommended</strong> to read these files directly.  Rather, we encourage the use
+of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">python data interface</span></a>.</p>
+<table border="1" class="docutils" id="id1">
+<caption><span class="caption-text"><strong>Time-independent output</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filename</th>
+<th class="head">Short description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>out.cgyro.egrid</td>
+<td>Energy mesh and various weights</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.equilibrium</td>
+<td>Physics input data</td>
+</tr>
+<tr class="row-even"><td>out.cgyro.grids</td>
+<td>Mesh dimensions and coordinates</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.hosts</td>
+<td>MPI ranks and hostnames</td>
+</tr>
+<tr class="row-even"><td>out.cgyro.info</td>
+<td>Human-readable description of simulation</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.memory</td>
+<td>Memory usage statistics</td>
+</tr>
+<tr class="row-even"><td>out.cgyro.mpi</td>
+<td>Recommendations for choosing MPI tasks and OMP threads</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.version</td>
+<td>Version information and timestamp for simulation</td>
+</tr>
+<tr class="row-even"><td>bin.cgyro.geo</td>
+<td>GK equation coefficients versus <span class="math">\(\theta\)</span></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id2">
+<caption><span class="caption-text"><strong>Common time-dependent output</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="33%" />
+<col width="42%" />
+<col width="25%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filename</th>
+<th class="head">Short description</th>
+<th class="head">Switch</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>out.cgyro.time</td>
+<td>Time and error vector</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.timing</td>
+<td>Kernel timer data</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>bin.cgyro.freq</td>
+<td>Mode frequency vector</td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>bin.cgyro.kxky_phi</td>
+<td><span class="math">\(\delta\phi(k_x^0,k_y,t)\)</span></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>bin.cgyro.kxky_apar</td>
+<td><span class="math">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></td>
+<td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
+</tr>
+<tr class="row-odd"><td>bin.cgyro.kxky_bpar</td>
+<td><span class="math">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></td>
+<td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
+</tr>
+<tr class="row-even"><td>bin.cgyro.kxky_n</td>
+<td><span class="math">\(\delta n_a(k_x^0,k_y,t)\)</span></td>
+<td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
+</tr>
+<tr class="row-odd"><td>bin.cgyro.kxky_e</td>
+<td><span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span></td>
+<td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
+</tr>
+<tr class="row-even"><td>bin.cgyro.kxky_flux_e</td>
+<td><span class="math">\(Q_a(k_x^0,k_y,t)\)</span></td>
+<td><a class="reference internal" href="cgyro_list.html#cgyro-kxkyflux-print-flag"><span class="std std-ref">KXKYFLUX_PRINT_FLAG</span></a> = 1</td>
+</tr>
+<tr class="row-odd"><td>bin.cgyro.ky_flux</td>
+<td><span class="math">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math">\((k_y,t)\)</span></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text"><strong>Restart data</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Filename</th>
+<th class="head">Short description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>out.cgyro.tag</td>
+<td>Restart tag file (contains time index and value)</td>
+</tr>
+<tr class="row-odd"><td>out.cgyro.restart</td>
+<td>Binary restart file</td>
+</tr>
+</tbody>
+</table>
 </div>
 
 
@@ -164,6 +301,15 @@
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plot.html" class="btn btn-neutral float-right" title="CGYRO data interface and plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="cgyro_list.html" class="btn btn-neutral" title="Alphabetical list for input.cgyro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>

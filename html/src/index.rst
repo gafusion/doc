@@ -31,7 +31,7 @@ Some notes about :doc:`plasma rotation and magnetic field orientation <rotation>
 Experimental profiles
 ---------------------
 
-GACODE software works with the :doc:`input.profiles <input_profiles>` format.   
+GACODE software works with the :ref:`input.profiles` format.   
 
 .. toctree::
    :maxdepth: 2

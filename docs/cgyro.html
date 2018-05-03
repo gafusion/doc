@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GYRO" href="gyro.html" />
-    <link rel="prev" title="TGYRO" href="tgyro.html" /> 
+    <link rel="next" title="Tabular list for input.cgyro" href="cgyro/cgyro_table.html" />
+    <link rel="prev" title="PLOT" href="tgyro/plot.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -84,6 +84,14 @@
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CGYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
@@ -96,6 +104,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install and build GACODE from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
@@ -164,6 +173,19 @@
             
   <div class="section" id="cgyro">
 <h1>CGYRO<a class="headerlink" href="#cgyro" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-links">
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>CGYRO is a multi-species spectral gyrokinetic solver with sonic rotation capability.
 Over the last decade the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
@@ -192,9 +214,11 @@ variation important for edge plasmas.  A new coordinate system that is more
 suitable for the highly collisional and shaped edge regime was adopted from
 the NEO code <a class="reference internal" href="zreferences.html#belli-2008" id="id14">[BC08]</a><a class="reference internal" href="zreferences.html#belli-2012" id="id15">[BC12]</a>, which is the community standard for
 calculation of collisional transport in toroidal geometry.</p>
+</div>
 <div class="section" id="data-input">
 <h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
-<p>The primary CGYRO input file is <a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">input.cgyro</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a>.</p>
+<p>The primary CGYRO input file is <a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">input.cgyro</span></a>.  Profile data can be optionally captured
+from  <a class="reference internal" href="input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p>
 </div>
 <div class="section" id="data-output-python-interface-and-plotting">
 <h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this headline">¶</a></h2>
@@ -222,7 +246,7 @@ calculation of collisional transport in toroidal geometry.</p>
 </tr>
 <tr class="row-odd"><td>mass</td>
 <td><span class="math">\(m_\mathrm{D}\)</span></td>
-<td>deuterium mass <span class="math">\(3.345\times 10^{24} g\)</span></td>
+<td>deuterium mass = <span class="math">\(3.345\times 10^{24} g\)</span></td>
 </tr>
 <tr class="row-even"><td>density</td>
 <td><span class="math">\(n_e\)</span></td>
@@ -253,10 +277,10 @@ calculation of collisional transport in toroidal geometry.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="cgyro/cgyro_table.html" class="btn btn-neutral float-right" title="Tabular list for input.cgyro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tgyro.html" class="btn btn-neutral" title="TGYRO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tgyro/plot.html" class="btn btn-neutral" title="PLOT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

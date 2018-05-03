@@ -4,7 +4,6 @@ input.profiles
 ==============
 
 .. |ip| replace:: :doc:`input.profiles <input_profiles>`
-.. |ipg| replace:: :doc:`input.profiles.geo <input_profiles_geo>`
 
 To see what a sample |ip| looks like, at the command line type
 
@@ -18,7 +17,7 @@ Overview
 The file |ip| contains the entire dataset required for specification of experimental
 profiles. All such profiles are specified on an N_EXP-point grid.  The information
 included is sufficient to use the :doc:`Miller local equilibrium model <geometry>`.  If general
-flux-surface shape is required, the optional file |ipg| can be supplied
+flux-surface shape is required, the optional file ``input.profiles.geo`` can be supplied
 which overrides the model shape defined in |ip|.  
 
 The format of each data-block in |ip| is fixed, but between data blocks any number of

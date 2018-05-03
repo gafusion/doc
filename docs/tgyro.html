@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="CGYRO" href="cgyro.html" />
-    <link rel="prev" title="NEO" href="neo.html" /> 
+    <link rel="next" title="input.tgyro Tabular List" href="tgyro/tgyro_table.html" />
+    <link rel="prev" title="NEO Output Files" href="neo/outputs.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -83,6 +83,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">TGYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/tgyro_table.html">input.tgyro Tabular List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/tgyro_list.html">input.tgyro Alphabetical List</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/equations.html">Equations solved in TGYRO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/solver.html">TGYRO Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/output.html">OUTPUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tgyro/plot.html">PLOT</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#transport-equations-and-solution">Transport equations and solution</a></li>
@@ -96,6 +106,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
 <li class="toctree-l1"><a class="reference internal" href="install.html">Install and build GACODE from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
@@ -164,6 +175,21 @@
             
   <div class="section" id="tgyro">
 <h1>TGYRO<a class="headerlink" href="#tgyro" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-links">
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/tgyro_table.html">input.tgyro Tabular List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/tgyro_list.html">input.tgyro Alphabetical List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/equations.html">Equations solved in TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/solver.html">TGYRO Solver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/output.html">OUTPUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro/plot.html">PLOT</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>TGYRO is a parallel transport manager with the ability to call multiple
 instances of TGLF and NEO in order to obtain steady-state temperature,
 density and rotation profiles.  The code was designed to operate with a
@@ -171,18 +197,22 @@ comparatively <em>sparse</em> radial mesh so as to minimize the number of calls
 to the transport model.</p>
 <p>In addition to its role as a transport code, TGYRO also operates as a job
 manager for ensembles of independent GYRO/CGYRO simulations.</p>
+</div>
 <div class="section" id="data-input">
 <h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
-<p>The primary TGYRO input file is <a class="reference internal" href="tgyro/tgyro_table.html"><span class="doc">input.tgyro</span></a>, with profile data defined in <a class="reference internal" href="input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p>
+<p>The primary TGYRO input file is <a class="reference internal" href="tgyro/tgyro_table.html"><span class="doc">input.tgyro</span></a>, with
+profile data defined in <a class="reference internal" href="input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p>
 </div>
 <div class="section" id="data-output-python-interface-and-plotting">
 <h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this headline">¶</a></h2>
-<p>Although there is a description of <span class="xref std std-doc">output data</span>, it is suggested that users use the <span class="xref std std-doc">python interface</span> to output data.</p>
+<p>Although there is a description of <a class="reference internal" href="tgyro/output.html"><span class="doc">output data</span></a>, it is
+suggested that users use the <a class="reference internal" href="tgyro/plot.html"><span class="doc">python interface</span></a> to output data.</p>
 </div>
 <div class="section" id="transport-equations-and-solution">
 <h2>Transport equations and solution<a class="headerlink" href="#transport-equations-and-solution" title="Permalink to this headline">¶</a></h2>
-<p>We give a brief description of the transport equations, see <a class="reference internal" href="tgyro/equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a>.  Unlike most other transport solvers,
-the solution algorithm in TGYRO is <strong>not</strong> based on time-integration of the transport equations.  Instead, the steady-state
+<p>We give a brief description of the transport equations, see <a class="reference internal" href="tgyro/equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a>.
+Unlike most other transport solvers, the solution algorithm in TGYRO is <strong>not</strong> based
+on time-integration of the transport equations.  Instead, the steady-state
 equations are solved (see  <a class="reference internal" href="tgyro/solver.html#tgyro-solver"><span class="std std-ref">TGYRO Solver</span></a>).</p>
 </div>
 </div>
@@ -195,10 +225,10 @@ equations are solved (see  <a class="reference internal" href="tgyro/solver.html
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="cgyro.html" class="btn btn-neutral float-right" title="CGYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="tgyro/tgyro_table.html" class="btn btn-neutral float-right" title="input.tgyro Tabular List" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="neo.html" class="btn btn-neutral" title="NEO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="neo/outputs.html" class="btn btn-neutral" title="NEO Output Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
