@@ -54,6 +54,36 @@ Subroutine output
 
 When neo is run in subroutine mode, the outputs are contained in a monolithic file named neo_interface.  The NEO subroutine output parameters are as follows:
 
+.. csv-table::    
+   :header: "Parameter name", "Short description", "Normalization"
+   :widths: 20, 30, 30
+
+   "neo_pflux_dke_out(1:11)", "DKE solve particle flux", ":math:`\Gamma_{\sigma}/(n_{norm} {\rm v}_{norm})`"
+   "neo_efluxtot_dke_out(1:11)", "DKE solve energy flux", ":math:`Q_{\sigma}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_efluxncv_dke_out(1:11)", "DKE solve non-convective energy flux", ":math:`\left(Q_{\sigma}-\omega_0 \Pi_{\sigma}\right)/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_mflux_dke_out(1:11)", "DKE solve momentum flux", ":math:`\Pi_{\sigma}/(n_{norm} T_{norm} a_{norm})`"
+   "neo_vpol_dke_out(1:11)", "DKE solve poloidal flow", ":math:`{\rm v}_{\theta,\sigma}(\theta=0)/{\rm v}_{norm}`"
+   "neo_vtor_dke_out(1:11)", "DKE solve toroidal flow", ":math:`{\rm v}_{\varphi,\sigma}(\theta=0)/{\rm v}_{norm}`"
+   "neo_jpar_dke_out", "DKE solve bootstrap current (parallel)", ":math:`\left< j_{\|} B \right>/(e n_{norm} {\rm v}_{norm} B_{unit})`"
+   "neo_jtor_dke_out", "DKE solve bootstrap current (toroidal)",":math:`\left< j_{\varphi} /R \right>/ \left< 1/R \right> / (e n_{norm} {\rm v}_{norm})`"
+   "neo_pflux_gv_out(1:11)", "Gyroviscosity particle flux", ":math:`\Gamma_{\sigma}/(n_{norm} {\rm v}_{norm})`"
+   "neo_efluxtot_gv_out(1:11)", "Gyroviscosity energy flux", ":math:`Q_{\sigma}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_efluxncv_gv_out(1:11)", "Gyroviscosity non-convective energy flux", ":math:`\left(Q_{\sigma}-\omega_0 \Pi_{\sigma}\right)/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_mflux_gv_out(1:11)","Gyroviscosity momentum flux",":math:`\Pi_{\sigma}/(n_{norm} T_{norm} a_{norm})`"
+   "neo_pflux_thHH_out", "Hinton-Hazeltine ion particle flux", ":math:`\Gamma_{i}/(n_{norm} {\rm v}_{norm})`"
+   "neo_eflux_thHHi_out", "Hinton-Hazeltine ion energy flux", ":math:`Q_{i}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_eflux_thHHe_out", "Hinton-Hazeltine electron energy flux", ":math:`Q_{e}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_eflux_thCHi_out", "Chang-Hinton ion energy flux", ":math:`Q_{i}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_pflux_thHS_out(1:11)", "Hirshman-Sigmar particle flux", ":math:`\Gamma_{\sigma}/(n_{norm} {\rm v}_{norm})`"
+   "neo_eflux_thS_out(1:11)", "Hirshman-Sigmar energy flux", ":math:`Q_{\sigma}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_jpar_thS_out", "Sauter bootstrap current (parallel)", ":math:`\left< j_{\|} B \right>/(e n_{norm} {\rm v}_{norm} B_{unit})`"
+   "neo_jtor_thS_out", "Sauter bootstrap current (toroidal)",":math:`\left< j_{\varphi} /R \right>/ \left< 1/R \right> / (e n_{norm} {\rm v}_{norm})`"
+    "neo_pflux_nclass_out(1:11)", "NCLASS solve particle flux", ":math:`\Gamma_{\sigma}/(n_{norm} {\rm v}_{norm})`"
+   "neo_efluxtot_nclass_out(1:11)", "NCLASS solve energy flux", ":math:`Q_{\sigma}/(n_{norm} {\rm v}_{norm} T_{norm})`"
+   "neo_vpol_nclass_out(1:11)", "NCLASS solve poloidal flow", ":math:`{\rm v}_{\theta,\sigma}(\theta=0)/{\rm v}_{norm}`"
+   "neo_vtor_nclass_out(1:11)", "NCLASS solve toroidal flow", ":math:`{\rm v}_{\varphi,\sigma}(\theta=0)/{\rm v}_{norm}`"
+   "neo_jpar_nclass_out", "NCLASS solve bootstrap current (parallel)", ":math:`\left< j_{\|} B \right>/(e n_{norm} {\rm v}_{norm} B_{unit})`"
+   
 ------------------------------------------------------------------
 
 Detailed description of NEO output files
@@ -72,7 +102,10 @@ Equilibrium/geometry input data
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (7+5*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`7 + 5 \times N\_SPECIES`
 
 1. :math:`r/a`: normalized midplane minor radius
 2. :math:`(\partial \Phi_{0}/\partial r)(a e/T_{norm})`: normalized equilibrium-scale radial electric field
@@ -105,7 +138,10 @@ Normalizing experimental parameters (in units)
 
 **Format**
 
-Rectangular array of ASCII data: :math:`7 \times (N\_RADIAL)`
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`7`  
 
 1. :math:`r/a`: normalized midplane minor radius
 2. :math:`a`: normalizing length (m)
@@ -135,7 +171,9 @@ where :math:`f_{0a}` is the zeroth-order distribution function (Maxwellian), :ma
    
 **Format**
 
-Vector of ASCII data: :math:`(N\_RADIAL) \times (N\_SPECIES) \times (N\_ENERGY+1) \times (N\_XI+1) \times (N\_THETA`)
+Vector of ASCII data:
+
+- :math:`(N\_RADIAL) \times (N\_SPECIES) \times (N\_ENERGY+1) \times (N\_XI+1) \times (N\_THETA`)
 
 -----
 
@@ -152,7 +190,9 @@ Numerical grid parameters
 
 **Format**
 
-Vector of ASCII data: :math:`5 + N\_THETA + N\_RADIAL`
+Vector of ASCII data:
+
+- :math:`5 + N\_THETA + N\_RADIAL`
 
 1. :math:`N\_SPECIES`: number of kinetic species
 2. :math:`N\_ENERGY`: number of energy polynomials   
@@ -177,7 +217,10 @@ Neoclassical first-order electrostatic potential (normalized) vs. :math:`\theta`
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (N\_THETA`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`N\_THETA`
 
 #. :math:`\frac{e \Phi_{1}(\theta_j)}{T_{norm}}`: first-order electrostatic potential vs. :math:`\theta_j` (j=1...N_THETA)
 
@@ -209,7 +252,10 @@ Define:
   
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (2 + 2*N\_SPECIES + N\_THETA + 2*N\_SPECIES*N\_THETA)`
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`2 + 2 \times N\_SPECIES + N\_THETA + 2 \times N\_SPECIES \times N\_THETA`
 
 Fixed entries:
 
@@ -253,12 +299,15 @@ Neoclassical transport coefficients from analytic theory (normalized)
   
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (16 + 2*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`16 + 2 \times N\_SPECIES`
 
 1. :math:`r/a`: normalized midplane minor radius
 2. HH :math:`\Gamma_{i}/(n_{norm} {\rm v}_{norm})`: Hinton-Hazeltine second-order radial particle flux (ambipolar)
-3. HH :math:`Q{i}/(n_{norm} {\rm v}_{norm} T_{norm})`: Hinton-Hazeltine second-order radial energy flux (ion)
-4. HH :math:`Q{e}/(n_{norm} {\rm v}_{norm} T_{norm})`: Hinton-Hazeltine second-order radial energy flux (electron)
+3. HH :math:`Q_{i}/(n_{norm} {\rm v}_{norm} T_{norm})`: Hinton-Hazeltine second-order radial energy flux (ion)
+4. HH :math:`Q_{e}/(n_{norm} {\rm v}_{norm} T_{norm})`: Hinton-Hazeltine second-order radial energy flux (electron)
 5. HH :math:`\left< j_{\|} B \right>/(e n_{norm} {\rm v}_{norm} B_{unit})`: Hinton-Hazeltine first-order bootstrap current
 6. HH :math:`k_{i}`: Hinton-Hazeltine first-order dimensionless flow coefficient (ion)
 7. HH :math:`\left< u_{\|,i} B \right>/({\rm v}_{norm} B_{unit})`: Hinton-Hazeltine first-order parallel flow (ion)
@@ -297,7 +346,10 @@ Neoclassical transport coefficients from the NCLASS code (normalized)
   
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (2 + 5*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`2 + 5 \times N\_SPECIES`
 
 1. :math:`r/a`: normalized midplane minor radius
 2. :math:`\left< j_{\|} B \right>/(e n_{norm} {\rm v}_{norm} B_{unit})`: first-order bootstrap current
@@ -325,7 +377,10 @@ Neoclassical transport coefficients from DKE solve (normalized)
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (5 + 8*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`5 + 8 \times N\_SPECIES`
 
 1. :math:`r/a`: normalized midplane minor radius
 2. :math:`\left< (e \Phi_1/T_{norm} )^2 \right>`: first-order electrostatic potential
@@ -359,7 +414,10 @@ Neoclassical transport coefficients from DKE solve (in units)
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (5 + 8*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`5 + 8 \times N\_SPECIES`
 
 1. :math:`r`: midplane minor radius (:math:`m`)
 2. :math:`\left< (\Phi_1)^2 \right>`: first-order electrostatic potential (:math:`V^2`)
@@ -401,13 +459,22 @@ where :math:`c_s=\sqrt{T_e/m_D}` and :math:`\rho_{s,{\rm unit}}=\frac{c_s}{e B_{
   
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL * 3 * N\_SPECIES) \times 3`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL \times 3 \times N\_SPECIES`
+- cols: :math:`3`  
 
 For each species :math:`\sigma`:
 
-1. DKE :math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`: second-order radial particle, energy, and momentum fluxes from DKE solve
-2. GV :math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`: second-order radial particle, energy, and momentum fluxes from gyroviscosity
-3. TGYRO :math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`: : second-order radial particle, energy, and momentum fluxes for transport equations
+1. row of DKE (:math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`): second-order radial particle, energy, and momentum fluxes from DKE solve
+
+For each species :math:`\sigma`:
+
+2. row of GV (:math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`): second-order radial particle, energy, and momentum fluxes from gyroviscosity
+
+For each species :math:`\sigma`:
+
+3. row of TGYRO (:math:`\Gamma_{\sigma}/\Gamma_{GB}`, :math:`Q_{\sigma}/Q_{GB}`, :math:`\Pi_{\sigma}/\Pi_{GB}`): : second-order radial particle, energy, and momentum fluxes for transport equations
 
 -----
 
@@ -429,7 +496,10 @@ Neoclassical fluxes from gyroviscosity (normalized)
 **Format**
 
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (1 + 3*N\_SPECIES`)
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`1 + 3 \times N\_SPECIES`
 
 1. :math:`r/a`: normalized midplane minor radius
 
@@ -454,7 +524,10 @@ Poloidal variation of first-order flows (normalized)
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (N\_SPECIES) \times (N\_THETA)`
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`N\_SPECIES \times N\_THETA`
 
 For each species :math:`\sigma`:
 
@@ -478,8 +551,10 @@ Poloidal variation of first-order flows (normalized) in Fourier series component
 
 **Format**
 
-Rectangular array of ASCII data: :math:`(N\_RADIAL) \times (N\_SPECIES) \times 6 \times (M\_THETA + 1)`
-where M_THETA = (N_THETA-1)/2-1
+Rectangular array of ASCII data:
+
+- rows: :math:`N\_RADIAL`
+- cols: :math:`N\_SPECIES \times 6 \times (M\_THETA + 1)` where M_THETA = (N_THETA-1)/2-1
 
 For each species :math:`\sigma`:
 

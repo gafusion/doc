@@ -35,7 +35,7 @@ NEO can also be run using a subroutine interface. In this case, inputs and outpu
 Data output 
 -----------
 
-A description of the NEO output files is :doc:`here <neo/outputs>`.
+A description of the NEO output files and output subroutine parameters is :doc:`here <neo/outputs>`.
 
 Normalization
 -------------
