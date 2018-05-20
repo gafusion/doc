@@ -1,5 +1,5 @@
-Install and build GACODE from sources 
-=====================================
+Install and build GACODE
+========================
  
 Prerequisites
 -------------

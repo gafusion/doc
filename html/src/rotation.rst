@@ -1,3 +1,5 @@
+.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
+
 PLASMA ROTATION AND FIELD ORIENTATION
 =====================================
 

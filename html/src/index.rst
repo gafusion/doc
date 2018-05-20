@@ -1,8 +1,6 @@
 The General Atomics GACODE Suite
 ================================
 
-.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
-
 .. figure:: image/marshall_code.png
 	:width: 90 %
 	:alt: Marshall
@@ -34,6 +32,13 @@ Experimental profiles
 GACODE software works with the :ref:`input.profiles` format.   
 
 .. toctree::
+   :caption: Software
+
+   download
+   install
+   zreferences
+
+.. toctree::
    :maxdepth: 2
    :caption: Codes
 
@@ -44,11 +49,9 @@ GACODE software works with the :ref:`input.profiles` format.
    tglf
 
 .. toctree::
-   :caption: Topics
+   :caption: Physics
 
    geometry
    rotation
    input_profiles
-   install
-   zreferences
    

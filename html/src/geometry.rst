@@ -1,4 +1,4 @@
-FLUX-SURFACE-GEOMETRY
+FLUX-SURFACE GEOMETRY
 =====================
 
 Coordinates

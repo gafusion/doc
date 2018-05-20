@@ -84,13 +84,10 @@ pygments_style = 'sphinx'
 html_theme = 'sphinx_rtd_theme'
 
 html_theme_options = {
-   'canonical_url': '',
    'analytics_id': '',
    'logo_only': False,
    'display_version': True,
    'prev_next_buttons_location': 'bottom',
-   'style_external_links': False,
-   'vcs_pageview_mode': '',
    # Toc options
    'collapse_navigation': True,
    'sticky_navigation': True,
@@ -98,9 +95,6 @@ html_theme_options = {
    'includehidden': True,
    'titles_only': False
 }
-
-# Add any paths that contain custom themes here, relative to this directory.
-#html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
@@ -190,3 +184,5 @@ latex_documents = [
 
 # If false, no module index is generated.
 #latex_domain_indices = True
+
+

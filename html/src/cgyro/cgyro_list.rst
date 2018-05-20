@@ -1,3 +1,5 @@
+.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
+
 Alphabetical list for input.cgyro
 =================================
 
@@ -142,6 +144,21 @@ COLLISION_MODEL
 ---------------
 
 **Definition**
+
+Collision operator selection.
+
+**Choices**
+
+- COLLISION_MODEL = 1: Lorentz ee+ei
+- COLLISION_MODEL = 2: Connor
+- COLLISION_MODEL = 4: Sugama (maximal accuracy)
+- COLLISION_MODEL = 5: Simple Lorentz ee+ei (fastest)
+
+**Comments**
+
+- DEFAULT = 4
+- To control conservation and other properties, the following parameters can be set: :ref:`cgyro_collision_field_model`, :ref:`cgyro_collision_mom_restore`, :ref:`cgyro_collision_ene_restore`, :ref:`cgyro_collision_ene_diffusion`, :ref:`cgyro_collision_kperp`
+  
 
 ----
 
@@ -671,6 +688,12 @@ RMIN
 
 **Definition**
 
+The ratio :math:`r/a`, where :math:`r` is the :doc:`minor radius <../geometry>` and :math:`a` is the radius of the LCFS.
+
+**Comments**
+
+- DEFAULT = 0.5
+
 ----
 
 .. _cgyro_rmaj:
@@ -679,6 +702,12 @@ RMAJ
 ----
 
 **Definition**
+
+The ratio :math:`R_0/a`, where :math:`R_0` is the :doc:`major radius <../geometry>` and :math:`a` is the radius of the LCFS.
+
+**Comments**
+
+- DEFAULT = 3.0
 
 ----
 
