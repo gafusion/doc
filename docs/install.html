@@ -88,7 +88,6 @@
 <li class="toctree-l2"><a class="reference internal" href="#typical-installations">Typical installations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compiling-on-a-new-platform">Compiling on a NEW platform</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-production-gyro-cases">Running production GYRO cases</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
@@ -203,7 +202,7 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
 <div class="section" id="compiling-on-a-new-platform">
 <h2>Compiling on a NEW platform<a class="headerlink" href="#compiling-on-a-new-platform" title="Permalink to this headline">¶</a></h2>
 <p>In order to compile the full GACODE package on a new machine, so-called <strong>platform files</strong> must be created.  Let’s image you have a new laptop, and you want this platform to be known as MY_PC.  Then, as described above, you’ll need these lines in your shell RC file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MYCOMPUTER
 export GACODE_ROOT=$HOME/gacode
 . $GACODE_ROOT/shared/bin/gacode_setup
 </pre></div>
@@ -211,12 +210,17 @@ export GACODE_ROOT=$HOME/gacode
 <p>Then you must create the following files:</p>
 <ol class="arabic">
 <li><p class="first">Machine-specific compilation options:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MYCOMPUTER
 </pre></div>
 </div>
 </li>
 <li><p class="first">Parallel execution command syntax:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MYCOMPUTER
+</pre></div>
+</div>
+</li>
+<li><p class="first">Any module load commands (optional) go here:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/env/env.MYCOMPUTER
 </pre></div>
 </div>
 </li>
@@ -241,29 +245,6 @@ $ cgyro -r -n 4 -nomp 2
 </div>
 <p>This last command run the complete <code class="docutils literal"><span class="pre">cgyro</span></code> regression test suite using
 4 MPI tasks and 2 OpenMP threads (8 total threads).</p>
-</div>
-<div class="section" id="running-production-gyro-cases">
-<h2>Running production GYRO cases<a class="headerlink" href="#running-production-gyro-cases" title="Permalink to this headline">¶</a></h2>
-<p>Setup:</p>
-<p>The input files and configuration for numerous linear and nonlinear cases can be auto-generated using the &lt;tt&gt;-g&lt;/tt&gt; flag.  Often, it is easiest to find a template case that is close to what you would like to run, and then modify it accordingly.  A relatively simple nonlinear case is &lt;tt&gt;nl01&lt;/tt&gt;.  You can generate the template for this by typing</p>
-<p>&lt;pre&gt;
-$ gyro -g nl01
-&lt;/pre&gt;</p>
-<p>It is &lt;font color=red&gt;strongly suggested&lt;/font&gt; that you first run your case in ‘’‘test mode’‘’ using the &lt;tt&gt;-t&lt;/tt&gt; flag:</p>
-<p>&lt;pre&gt;
-$ gyro -t nl01
-&lt;/pre&gt;</p>
-<p>On large systems like hopper and jaguarpf, you will need to establish an [<a class="reference external" href="http://www.nersc.gov/users/computational-systems/hopper/running-jobs/interactive-jobs/">http://www.nersc.gov/users/computational-systems/hopper/running-jobs/interactive-jobs/</a> interactive queue] to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file &lt;tt&gt;out.gyro.efficiency&lt;/tt&gt;:
-&lt;pre&gt;
-$ cat nl01/out.gyro.efficiency
-&lt;/pre&gt;</p>
-<p>This shows the acceptable number of MPI tasks, together with the approximate parallel efficiency.  If you are using OpenMP, this number represents MPI tasks only, and the total core count would be multiplied by the number of OpenMP threads.</p>
-<p>=== Batch submission ===</p>
-<p>On established platforms, the burden of writing batch script files and setting core counts is solved for you using the &lt;tt&gt;gyro_bat&lt;/tt&gt; script.  To submit the nonlinear job above, you could type</p>
-<p>&lt;pre&gt;
-$ gyro_bat -e nl01 -n 256
-&lt;/pre&gt;</p>
-<p>and then answer the subsequent questions.  GYRO is built with OpenMP capability by default, so you can specify the number of OpenMP threads as well.  This is a bit tricky and its easiest to refer to the [[Gyrotiming | examples here]].</p>
 </div>
 </div>
 
