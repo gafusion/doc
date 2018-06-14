@@ -159,7 +159,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#s-delta">S_DELTA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s-kappa">S_KAPPA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s-zeta">S_ZETA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#temp">TEMP*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#temp">TEMP_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#udsymmetry-flag">UDSYMMETRY_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#z">Z_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zeta">ZETA</a></li>
@@ -312,7 +312,7 @@ defined as</p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
 <li>In the absence of scaling, the value of <span class="math">\(\beta_*\)</span> will be computed self-consistently given the value of <span class="math">\(\beta_{e,\mathrm{unit}}\)</span> set in <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a>.</li>
-<li>Often it is desired to reduce <span class="math">\(\beta_{e,\mathrm{unit}}\)</span> but leave the pressure gradient unchanged.  In this case, one might reduce <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a> by a factor of 2, and then set BETA_STAR_SCALE=2.</li>
+<li>Often it is desired to reduce <span class="math">\(\beta_{e,\mathrm{unit}}\)</span> but leave the effective <span class="math">\(\beta_*\)</span> unchanged.  In this case, one should divide <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a> by 2, then set BETA_STAR_SCALE=2.</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -398,7 +398,7 @@ defined as</p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
 <li>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from input.profiles.</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -416,6 +416,18 @@ defined as</p>
 <div class="section" id="dens">
 <span id="cgyro-dens"></span><h2>DENS_*<a class="headerlink" href="#dens" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>The normalized equilibrium-scale density.  First species density is DENS_1, and so on.</p>
+<div class="math">
+\[\mathrm{DENS}* = \frac{n_{*}}{n_e}\]</div>
+<p><strong>Commments</strong></p>
+<ul class="simple">
+<li>DEFAULT: DENS_*= <span class="math">\([1,0,0,\ldots]\)</span></li>
+<li>The user should set DENS=1 for electrons.</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the densities
+are automatically normalized to <span class="math">\(n_e\)</span>.</li>
+<li>When rotation effects are included (<span class="xref std std-ref">cgyro_rotation_model</span> = 2), this parameter
+is the density at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="dlnndr">
@@ -543,6 +555,23 @@ defined as</p>
 <div class="section" id="mass">
 <span id="cgyro-mass"></span><h2>MASS_*<a class="headerlink" href="#mass" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>The species mass normalized to deuterium mass: MASS_1, and so on.</p>
+<div class="math">
+\[{\rm MASS}\_* = \frac{m_*}{m_D} \; .\]</div>
+<p><strong>Commments</strong></p>
+<ul>
+<li><p class="first">DEFAULT = 1.0</p>
+</li>
+<li><p class="first">When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is deuterium.</p>
+</li>
+<li><p class="first">A typical case (deuterium, carbon, electrons) would be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MASS_1</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="n">MASS_2</span><span class="o">=</span><span class="mf">6.0</span>
+<span class="n">MASS_3</span><span class="o">=</span><span class="mf">2.724e-4</span>
+</pre></div>
+</div>
+</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="max-time">
@@ -731,11 +760,29 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="s-delta">
 <span id="cgyro-s-delta"></span><h2>S_DELTA<a class="headerlink" href="#s-delta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Measure of the rate of change of the average triangularity of the flux surface:</p>
+<div class="math">
+\[s_\delta = r \, \frac{\partial \delta}{\partial r} \; .\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT: 0.0</li>
+<li>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the triangularity gradient is computed internally.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="s-kappa">
 <span id="cgyro-s-kappa"></span><h2>S_KAPPA<a class="headerlink" href="#s-kappa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Measure of the rate of change of the elongation of the flux surface:</p>
+<div class="math">
+\[s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r} \; .\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT: 0.0</li>
+<li>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the elongation gradient is computed internally.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="s-zeta">
@@ -744,8 +791,18 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="temp">
-<span id="cgyro-temp"></span><h2>TEMP*<a class="headerlink" href="#temp" title="Permalink to this headline">¶</a></h2>
+<span id="cgyro-temp"></span><h2>TEMP_*<a class="headerlink" href="#temp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>The normalized equilibrium-scale temperature.  First species temperature is TEMP_1, and so on.</p>
+<div class="math">
+\[\mathrm{TEMP}\_* = \frac{T_{*}}{T_e} \; .\]</div>
+<p><strong>Commments</strong></p>
+<ul class="simple">
+<li>DEFAULT: TEMP_*= <span class="math">\([1,\ldots]\)</span></li>
+<li>The user should set TEMP=1 for electrons.</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperatures
+are automatically normalized to <span class="math">\(T_e\)</span>.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="udsymmetry-flag">
@@ -756,11 +813,18 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="z">
 <span id="cgyro-z"></span><h2>Z_*<a class="headerlink" href="#z" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Species charge.  First species charge is <code class="docutils literal"><span class="pre">Z_1</span></code>, and so on.</p>
+<p>Species charge.  First species charge is Z_1, and so on.</p>
 <p><strong>Comments</strong></p>
-<ul class="simple">
-<li>DEFAULT = 1</li>
-<li>A typical case (deuterium, carbon, electrons) would be <code class="docutils literal"><span class="pre">Z_1=1</span></code>, <code class="docutils literal"><span class="pre">Z_2=6</span></code>, <code class="docutils literal"><span class="pre">Z_3=-1</span></code>.</li>
+<ul>
+<li><p class="first">DEFAULT = 1</p>
+</li>
+<li><p class="first">A typical case (deuterium, carbon, electrons) would be:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Z_1</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">Z_2</span><span class="o">=</span><span class="mi">6</span>
+<span class="n">Z_3</span><span class="o">=-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</li>
 </ul>
 <hr class="docutils" />
 </div>

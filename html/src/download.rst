@@ -16,7 +16,6 @@ By :doc:`cloning, downloading or otherwise using the sources <install>`, the rec
 .. csv-table:: **Appropriate References**
    :header: "Physics code", "Topical Area", "Required citation"
    :widths: 15,20,20
-   :align: center
 
     CGYRO, gyrokinetic simulation, ":cite:`candy:2016`"
     GYRO, gyrokinetic simulation, ":cite:`candy:2003`"

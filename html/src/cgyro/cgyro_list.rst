@@ -90,7 +90,7 @@ defined as
 
 - DEFAULT = 1.0
 - In the absence of scaling, the value of :math:`\beta_*` will be computed self-consistently given the value of :math:`\beta_{e,\mathrm{unit}}` set in :ref:`cgyro_betae_unit`.
-- Often it is desired to reduce :math:`\beta_{e,\mathrm{unit}}` but leave the pressure gradient unchanged.  In this case, one might reduce :ref:`cgyro_betae_unit` by a factor of 2, and then set BETA_STAR_SCALE=2.
+- Often it is desired to reduce :math:`\beta_{e,\mathrm{unit}}` but leave the effective :math:`\beta_*` unchanged.  In this case, one should divide :ref:`cgyro_betae_unit` by 2, then set BETA_STAR_SCALE=2.
 
 ----
 
@@ -220,7 +220,7 @@ Triangularity, :math:`\delta`, of the flux surface:
 
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from input.profiles.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.profiles`.
 
 ----
 
@@ -246,6 +246,20 @@ DENS_*
 ------
 
 **Definition**
+
+The normalized equilibrium-scale density.  First species density is DENS_1, and so on.
+
+.. math::
+   \mathrm{DENS}* = \frac{n_{*}}{n_e}
+
+**Commments**
+
+- DEFAULT: DENS_*= :math:`[1,0,0,\ldots]`
+- The user should set DENS=1 for electrons.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the densities
+  are automatically normalized to :math:`n_e`.
+- When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter
+  is the density at the outboard midplane (:math:`\theta=0`).  
 
 ----
 
@@ -458,6 +472,22 @@ MASS_*
 ------
 
 **Definition**
+
+The species mass normalized to deuterium mass: MASS_1, and so on.
+
+.. math::
+   {\rm MASS}\_* = \frac{m_*}{m_D} \; .
+
+**Commments**
+
+- DEFAULT = 1.0
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the normalizing mass is deuterium.
+- A typical case (deuterium, carbon, electrons) would be::
+
+   MASS_1=1.0
+   MASS_2=6.0
+   MASS_3=2.724e-4
+
 
 ----
 
@@ -767,6 +797,17 @@ S_DELTA
 
 **Definition**
 
+Measure of the rate of change of the average triangularity of the flux surface:
+
+.. math::
+       s_\delta = r \, \frac{\partial \delta}{\partial r} \; .
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.profiles` and the triangularity gradient is computed internally.
+
 ----
 
 .. _cgyro_s_kappa:
@@ -776,6 +817,17 @@ S_KAPPA
 
 **Definition**
 
+Measure of the rate of change of the elongation of the flux surface:
+
+.. math::
+       s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r} \; .
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from :ref:`input.profiles` and the elongation gradient is computed internally.
+ 
 ----
 
 .. _cgyro_s_zeta:
@@ -789,10 +841,22 @@ S_ZETA
 
 .. _cgyro_temp:
 
-TEMP*
------
+TEMP_*
+------
 
 **Definition**
+
+The normalized equilibrium-scale temperature.  First species temperature is TEMP_1, and so on.
+
+.. math::
+   \mathrm{TEMP}\_* = \frac{T_{*}}{T_e} \; .
+
+**Commments**
+
+- DEFAULT: TEMP\_*= :math:`[1,\ldots]`
+- The user should set TEMP=1 for electrons.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the temperatures
+  are automatically normalized to :math:`T_e`.
 
 ----
 
@@ -812,12 +876,16 @@ Z_*
 
 **Definition**
 
-Species charge.  First species charge is ``Z_1``, and so on.
+Species charge.  First species charge is Z_1, and so on.
 
 **Comments**
 
 - DEFAULT = 1
-- A typical case (deuterium, carbon, electrons) would be ``Z_1=1``, ``Z_2=6``, ``Z_3=-1``.
+- A typical case (deuterium, carbon, electrons) would be::
+
+   Z_1=1
+   Z_2=6
+   Z_3=-1
      
 ----
 
