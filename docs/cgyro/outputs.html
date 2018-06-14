@@ -181,7 +181,7 @@
 <h1>CGYRO output files<a class="headerlink" href="#cgyro-output-files" title="Permalink to this headline">¶</a></h1>
 <p>It is not <strong>not recommended</strong> to read these files directly.  Rather, we encourage the use
 of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">python data interface</span></a>.</p>
-<table border="1" class="colwidths-given docutils" id="id1">
+<table border="1" class="docutils" id="id1">
 <caption><span class="caption-text"><strong>Time-independent output</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="40%" />
@@ -218,11 +218,11 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
 <td>Version information and timestamp for simulation</td>
 </tr>
 <tr class="row-even"><td>bin.cgyro.geo</td>
-<td>GK equation coefficients versus <span class="math notranslate nohighlight">\(\theta\)</span></td>
+<td>GK equation coefficients versus <span class="math">\(\theta\)</span></td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="colwidths-given docutils" id="id2">
+<table border="1" class="docutils" id="id2">
 <caption><span class="caption-text"><strong>Common time-dependent output</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="33%" />
@@ -249,36 +249,36 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
 <td>&#160;</td>
 </tr>
 <tr class="row-odd"><td>bin.cgyro.kxky_phi</td>
-<td><span class="math notranslate nohighlight">\(\delta\phi(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(\delta\phi(k_x^0,k_y,t)\)</span></td>
 <td>&#160;</td>
 </tr>
 <tr class="row-even"><td>bin.cgyro.kxky_apar</td>
-<td><span class="math notranslate nohighlight">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></td>
 <td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
 </tr>
 <tr class="row-odd"><td>bin.cgyro.kxky_bpar</td>
-<td><span class="math notranslate nohighlight">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></td>
 <td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
 </tr>
 <tr class="row-even"><td>bin.cgyro.kxky_n</td>
-<td><span class="math notranslate nohighlight">\(\delta n_a(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(\delta n_a(k_x^0,k_y,t)\)</span></td>
 <td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
 </tr>
 <tr class="row-odd"><td>bin.cgyro.kxky_e</td>
-<td><span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span></td>
 <td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
 </tr>
 <tr class="row-even"><td>bin.cgyro.kxky_flux_e</td>
-<td><span class="math notranslate nohighlight">\(Q_a(k_x^0,k_y,t)\)</span></td>
+<td><span class="math">\(Q_a(k_x^0,k_y,t)\)</span></td>
 <td><a class="reference internal" href="cgyro_list.html#cgyro-kxkyflux-print-flag"><span class="std std-ref">KXKYFLUX_PRINT_FLAG</span></a> = 1</td>
 </tr>
 <tr class="row-odd"><td>bin.cgyro.ky_flux</td>
-<td><span class="math notranslate nohighlight">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math notranslate nohighlight">\((k_y,t)\)</span></td>
+<td><span class="math">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math">\((k_y,t)\)</span></td>
 <td>&#160;</td>
 </tr>
 </tbody>
 </table>
-<table border="1" class="colwidths-given docutils" id="id3">
+<table border="1" class="docutils" id="id3">
 <caption><span class="caption-text"><strong>Restart data</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col width="40%" />
@@ -364,7 +364,9 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

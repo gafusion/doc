@@ -174,8 +174,8 @@
 <h1>Install and build GACODE<a class="headerlink" href="#install-and-build-gacode" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
-<p>These instructions assume you have a complete <code class="docutils literal notranslate"><span class="pre">gacode</span></code> top-level directory, which can be cloned from GitHub:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:gafusion/gacode.git
+<p>These instructions assume you have a complete <code class="docutils literal"><span class="pre">gacode</span></code> top-level directory, which can be cloned from GitHub:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ git clone git@github.com:gafusion/gacode.git
 </pre></div>
 </div>
 </div>
@@ -184,15 +184,15 @@
 <p>First, you need to locate a suitable platform, or make your own platform
 config files.  After cloning the repository, you can query the existing
 platforms using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./gacode/shared/bin/gacode_platforms
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ ./gacode/shared/bin/gacode_platforms
 </pre></div>
 </div>
 </div>
 <div class="section" id="typical-installations">
 <h2>Typical installations<a class="headerlink" href="#typical-installations" title="Permalink to this headline">¶</a></h2>
 <p>To run on NERSC CORI KNL with the Intel Fortran compiler, add these
-lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_IFORT
+lines to <code class="docutils literal"><span class="pre">.bashrc.ext</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_IFORT
 export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
@@ -203,7 +203,7 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
 <div class="section" id="compiling-on-a-new-platform">
 <h2>Compiling on a NEW platform<a class="headerlink" href="#compiling-on-a-new-platform" title="Permalink to this headline">¶</a></h2>
 <p>In order to compile the full GACODE package on a new machine, so-called <strong>platform files</strong> must be created.  Let’s image you have a new laptop, and you want this platform to be known as MY_PC.  Then, as described above, you’ll need these lines in your shell RC file:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MY_PC
 export GACODE_ROOT=$HOME/gacode
 . $GACODE_ROOT/shared/bin/gacode_setup
 </pre></div>
@@ -211,12 +211,12 @@ export GACODE_ROOT=$HOME/gacode
 <p>Then you must create the following files:</p>
 <ol class="arabic">
 <li><p class="first">Machine-specific compilation options:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MY_PC
 </pre></div>
 </div>
 </li>
 <li><p class="first">Parallel execution command syntax:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MY_PC
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MY_PC
 </pre></div>
 </div>
 </li>
@@ -228,18 +228,18 @@ machine file to your new one, and tweak as required.</p>
 </div>
 <div class="section" id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
-<p>To build the entire <code class="docutils literal notranslate"><span class="pre">gacode</span></code> project, type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT
+<p>To build the entire <code class="docutils literal"><span class="pre">gacode</span></code> project, type:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT
 $ make
 </pre></div>
 </div>
 <p>To test that the build is uccessful, you can run regression tests:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ neo -r
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ neo -r
 $ tglf -r
 $ cgyro -r -n 4 -nomp 2
 </pre></div>
 </div>
-<p>This last command run the complete <code class="docutils literal notranslate"><span class="pre">cgyro</span></code> regression test suite using
+<p>This last command run the complete <code class="docutils literal"><span class="pre">cgyro</span></code> regression test suite using
 4 MPI tasks and 2 OpenMP threads (8 total threads).</p>
 </div>
 <div class="section" id="running-production-gyro-cases">
@@ -331,7 +331,9 @@ $ gyro_bat -e nl01 -n 256
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 

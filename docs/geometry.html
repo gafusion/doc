@@ -174,45 +174,45 @@
 <div class="section" id="coordinates">
 <h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>GYRO uses a right-handed (positively-oriented), field-aligned coordinate system
-<span class="math notranslate nohighlight">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
-<div class="math notranslate nohighlight">
+<span class="math">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
+<div class="math">
 \[\mathbf{B} =\nabla \alpha \times \nabla \psi (r) \; ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\psi\)</span> is the poloidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span> and</p>
-<div class="math notranslate nohighlight">
+<p>where <span class="math">\(\psi\)</span> is the poloidal flux divided by <span class="math">\(2\pi\)</span> and</p>
+<div class="math">
 \[\alpha =\varphi +\nu (r,\theta )\]</div>
-<p>is the Clebsch angle. Here, <span class="math notranslate nohighlight">\(\varphi\)</span> is the <strong>toroidal angle</strong>, oriented as shown
-in the figure below, and <span class="math notranslate nohighlight">\(\theta\)</span> is the <strong>poloidal angle</strong> which increases as one
+<p>is the Clebsch angle. Here, <span class="math">\(\varphi\)</span> is the <strong>toroidal angle</strong>, oriented as shown
+in the figure below, and <span class="math">\(\theta\)</span> is the <strong>poloidal angle</strong> which increases as one
 moves counterclockwise along the flux-surface (shown in blue). The <strong>minor radius</strong>
-<span class="math notranslate nohighlight">\(r\)</span> is in all cases taken to be one-half the width of the flux-surface at
-the elevation, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the flux-surface centroid.</p>
+<span class="math">\(r\)</span> is in all cases taken to be one-half the width of the flux-surface at
+the elevation, <span class="math">\(Z_{c}\)</span>, of the flux-surface centroid.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/flux_surface.png"><img alt="flux surface" src="_images/flux_surface.png" style="width: 422.0px; height: 396.0px;" /></a>
 </div>
 </div>
 <div class="section" id="generalized-minor-radius">
 <h2>Generalized minor radius<a class="headerlink" href="#generalized-minor-radius" title="Permalink to this headline">¶</a></h2>
-<p>The minor radius variable, <span class="math notranslate nohighlight">\(r\)</span>, used in GYRO is the half-width of the flux surface at
-the height, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the centroid:</p>
-<div class="math notranslate nohighlight">
+<p>The minor radius variable, <span class="math">\(r\)</span>, used in GYRO is the half-width of the flux surface at
+the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math">
 \[r \doteq \frac{R_{+}-R_{-}}{2} \; .\]</div>
 <p>This definition is valid in all cases; that is, for circular equilibria, as well as for
 shaped Grad-Shafranov (Miller) and general equilibrium (see geometry notes for details).</p>
 </div>
 <div class="section" id="generalized-major-radius">
 <h2>Generalized major radius<a class="headerlink" href="#generalized-major-radius" title="Permalink to this headline">¶</a></h2>
-<p>The major radius variable, <span class="math notranslate nohighlight">\(R_{0}\)</span>, used in GYRO is the average of the maximum and
-minimum major radius of the flux-surface at the height, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the centroid:</p>
-<div class="math notranslate nohighlight">
+<p>The major radius variable, <span class="math">\(R_{0}\)</span>, used in GYRO is the average of the maximum and
+minimum major radius of the flux-surface at the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math">
 \[R_{0}=\frac{R_{+}+R_{-}}{2} \; .\]</div>
 <p>This definition is valid in all cases; that is, for circular equilibria, as well as for
 shaped Grad-Shafranov (Miller) and general equilibrium (see geometry notes for details).</p>
 </div>
 <div class="section" id="effective-field">
 <h2>Effective field<a class="headerlink" href="#effective-field" title="Permalink to this headline">¶</a></h2>
-<p>The effective field strength, <span class="math notranslate nohighlight">\(B_{\rm {unit}}\)</span>, is defined as</p>
-<div class="math notranslate nohighlight">
+<p>The effective field strength, <span class="math">\(B_{\rm {unit}}\)</span>, is defined as</p>
+<div class="math">
 \[B_\mathrm{unit} = \frac{1}{r} \frac{d\chi _{t}}{dr} \; ,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\chi _{t}\)</span> is the toroidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span>. This gives the
+<p>where <span class="math">\(\chi _{t}\)</span> is the toroidal flux divided by <span class="math">\(2\pi\)</span>. This gives the
 roughly equivalent field that would be obtained if the flux surface was deformed to a circle.</p>
 </div>
 <div class="section" id="equilibria">
@@ -285,7 +285,9 @@ roughly equivalent field that would be obtained if the flux surface was deformed
 
   <script type="text/javascript">
       jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
       });
   </script> 
 
