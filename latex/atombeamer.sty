@@ -1,0 +1,106 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{gabeamer}
+
+% OPTIONS: sans, classic, serif
+
+
+% Define variables to implement options
+\newif\if@optionsans
+\newif\if@optionclassic
+\newif\if@optionserif
+
+\DeclareOption{sans}{\@optionsanstrue}
+\DeclareOption{classic}{\@optionclassictrue}
+\DeclareOption{serif}{\@optionseriftrue}
+\ProcessOptions\relax
+
+\if@optionsans
+   \newcommand{\tinyspace}{-0.7mm}
+   \newcommand{\tbarheight}{1.7cm}
+\fi
+
+\if@optionclassic
+   \newcommand{\tinyspace}{-2mm}
+   \usefonttheme{serif}
+   \newcommand{\tbarheight}{1.7cm}
+\fi
+
+\if@optionserif
+   \newcommand{\tinyspace}{-2mm}
+   \usefonttheme{serif}
+   \RequirePackage{pxfonts}
+   \RequirePackage{eulervm}
+   \newcommand{\tbarheight}{1.6cm}
+\fi
+
+\newtoks\footlabel
+
+\RequirePackage[english]{babel}
+\RequirePackage{amsmath}
+\RequirePackage{tcolorbox}
+\RequirePackage{fancybox}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{avant}
+
+\usecolortheme[named=Blue]{structure}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamertemplate{items}[circle]
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$-$}}
+\setbeamersize{text margin left = 1em}
+\setbeamersize{text margin right = 1em}
+
+\makeatletter
+\patchcmd{\beamer@calculateheadfoot}{\advance\footheight by 4pt}{\advance\footheight by 1pt}{}{}
+\makeatother
+
+\setbeamertemplate{footline}[text line]{%
+  \parbox{\linewidth}{\vspace*{-15pt}
+        \insertpagenumber
+        \hfill \hspace{2cm}\textcolor{Blue}{\scalebox{0.8}{\bf\the\footlabel}}
+        \hfill \includegraphics[width=1.2in]{figures/ga_logo.pdf} }}
+
+%==================================================================================
+% Settings for body of slides
+\newcommand{\setgabody}{%
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/GAbg_16x9.pdf}} 
+  % Control height of slide title 
+  \setbeamertemplate{frametitle}{\parbox[c][1.18cm]{\linewidth}{\insertframetitle}}
+  % Control inter-line spacing and font size of slide title (\Large or \large) 
+  \setbeamerfont{frametitle}{size=\linespread{0.85}\Large\bf}
+}
+%==================================================================================
+  
+%==================================================================================
+% Settings for title page
+\newcommand{\gamaketitle}{%
+  \setbeamerfont{frametitle}{size=\linespread{0.9}\LARGE\bf}
+  \usebackgroundtemplate{\includegraphics[width=\paperwidth]{figures/GAbg_tall_16x9.pdf}} 
+  \begin{frame}
+    \frametitle{\parbox[c][\tbarheight]{\linewidth}{\inserttitle}}
+    \begin{columns}
+      \begin{column}{0.6\textwidth}
+        {\small by}\\
+        \insertauthor\\
+        \vskip 1mm
+        {\scriptsize \parbox{\linewidth}{\insertinstitute}}\\
+                      \vskip 5mm
+                     \insertdate
+      \end{column}
+      \begin{column}{0.4\textwidth}
+        \vspace{\tinyspace}
+        \includegraphics[width=2.4in]{figures/d3d-gyro.jpg}
+      \end{column}
+    \end{columns}
+  \end{frame}
+}
+%==================================================================================
+
+%======================================================================
+% Useful macros
+%
+\newcommand{\hilite}[1]{\textcolor{blue}{\bf #1}}
+\definecolor{egg}{HTML}{CCCCCC}
+\newcommand\csub[1]{\textcolor{egg}{#1}}
+%======================================================================
