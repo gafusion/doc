@@ -27,7 +27,7 @@ sys.path.append(os.path.abspath('sphinxext'))
 extensions=[
    'sphinx.ext.mathjax',
    'sphinxcontrib.bibtex',
-   'mathmacro',
+   #'mathmacro',
    'sphinx.ext.autosectionlabel']
 
 autodoc_member_order = 'bysource'
