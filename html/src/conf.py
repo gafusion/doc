@@ -24,10 +24,11 @@ import numpy
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 sys.path.insert(0, os.path.abspath('../..'))
 sys.path.append(os.path.abspath('sphinxext'))
+sys.path.append(os.path.abspath('.'))
 extensions=[
    'sphinx.ext.mathjax',
    'sphinxcontrib.bibtex',
-   #'mathmacro',
+   'mathmacro',
    'sphinx.ext.autosectionlabel']
 
 autodoc_member_order = 'bysource'
