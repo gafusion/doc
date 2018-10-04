@@ -22,9 +22,8 @@ as the influence of the centrifugal force is amplified by their large mass.
 Sonic rotation formalism
 ------------------------
 
-There is some confusion regarding the proper inputs to characterize rotation.  The rigorous
-derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama [Phys.
-Plasmas 5, 2560 (1998)].  Sugama followed the underlying rotation formulation of Hinton
+The rigorous derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama
+[Phys. Plasmas 5, 2560 (1998)].  Sugama followed the underlying rotation formulation of Hinton
 and Wong [Phys. Fluids 28, 3082 (1985)], who showed that in an axisymmetric system the
 zeroth-order flow velocity is
 
@@ -68,7 +67,7 @@ not centrifugal dynamics.  In GYRO and CGYRO, the input rotation parameters are 
 
 .. math::
 
-   \mathtt{GAMMA\_P} \rightarrow \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}
+    \mathtt{GAMMA\_P} \rightarrow \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}
 
 - Toroidal flow Mach number: MACH
 
@@ -87,12 +86,82 @@ may lead to enhanced neoclassical transport.  The NEO input rotation parameters 
 
 .. math::
 
-   \mathtt{OMEGA\_ROT} \rightarrow \frac{a}{v_{norm}} \omega_0 
+    \mathtt{OMEGA\_ROT} \rightarrow \frac{a}{v_{norm}} \omega_0
 
 - Derivative of rotation rate
 
 .. math::
 
-  \mathtt{OMEGA\_ROT\_DERIV} \rightarrow \frac{a^{2}}{v_{norm}} \frac{d \omega_{0}}{dr} 
+    \mathtt{OMEGA\_ROT\_DERIV} \rightarrow \frac{a^{2}}{v_{norm}} \frac{d \omega_{0}}{dr}
 
 and the rotation model controlled by ROTATION_MODEL.
+
+
+Disambiguation of the different rotation regimes
+================================================
+Starting from the Fokker Plank equation
+
+.. math::
+
+    \frac{\partial f}{\partial t}+\vec{v}\cdot \nabla f+(\vec{E}+\vec{v} \times \vec{B})\frac{\partial f}{\partial v}=c(f,f)
+
+in presence of very high rotation (large :math:`v`, so called sonic regime) the Lorentz force term
+can become the leading term, and is therefore convenient to isolate it from the FP equation
+
+.. math::
+
+    E_{-1}+\vec{v}_{0}\times\vec{B}/c=0
+
+where the subscript :math:`-1` represents sonic ordering in the drift-ordering expansion in :math:`\rho_\star=\rho_i/a`
+
+Here :math:`\vec{v}_{0}` is a purely toroidal velocity and is species independent
+
+.. math::
+
+    \vec{v}_{0}=&\omega_{0}\,R\,\hat{e}_{\phi}\\
+    ~&\omega_{0}\doteq-c\frac{\partial \Phi_{-1}}{\partial \Psi}
+
+where :math:`\Phi_{-1}` comes from the sonic ordering expansion of the potential
+
+.. math::
+
+    \Phi = \Phi_{-1}+\Phi_{0}+\Phi_{1}+\dots
+
+We note that the :math:`\Phi_{-1}` is a flux function, whereas higher orders are a function of the poloidal angle.
+
+Let us highlight how :math:`\omega_{0}` is a purely theoretical quantiy, that cannot be truly measured in the experiment.
+This is similar to how, for example, the experiment measure a temperature :math:`T` which is approximately equal to the
+thermal temperature :math:`T_0` only if the plasma is close to being thermal:
+
+.. math::
+
+    T &= T_0 + T_1\\
+    T &\approx T_0~\mbox{  (if }~T_1\rightarrow 0\mbox{)}
+
+With this analogy in mind we can understand why when the plasma is in a sonic regime, :math:`omega_0` is
+approximately equal to :math:`E \times B` component of the perpendicular rotation frequency (which can be measured experimentally):
+
+.. math::
+
+    \Phi \approx \Phi_{-1}\\
+    E_r \approx E_{r,-1} = -|\nabla r| \frac{\partial \Phi_{-1}}{\partial \Psi}
+
+from which:
+
+.. math::
+
+    \omega_0 = \frac{c E_{r,-1}}{R B_{p}} \approx \frac{c E_{r}}{R B_{p}} ~\mbox{  (in the sonic regime)}\\
+    \omega_1 = \frac{c E_{r,0}}{R B_{p}} \approx 0 ~\mbox{  (in the sonic regime)}
+
+When the plasma is not in a sonic regime (weak toroidal rotation, or slow-flow limit) then all the quantities with subscript
+:math:`-1` tend to zero. Following the same logic as above to the next leading order one gets:
+
+.. math::
+
+    \omega_0 = \frac{c E_{r,0}}{R B_{p}} \approx 0  ~\mbox{  (in the weak rotation regime)}\\
+    \omega_1 = \frac{c E_{r,0}}{R B_{p}} \approx \frac{c E_{r}}{R B_{p}}  ~\mbox{  (in the weak rotation regime)}
+
+Let us stress how :math:`\omega_0` and :math:`\omega_1` are two different orders of :math:`\omega`, and they are not the
+same quantity. The reader should not be fooled by the fact that both :math:`\omega_0` and :math:`\omega_1` can be approximately
+equal to the experimental toroidal frequency, since that occurs for two opposite rotation regime limits:
+sonic rotation and weak rotation, respectively.
