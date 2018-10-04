@@ -21,10 +21,10 @@ Geometry
 
 A description of the unified method used to describe :doc:`flux-surface geometry <geometry>`.
 
-Rotation and Field Orientation
-------------------------------
+Plasma rotation
+---------------
 
-Some notes about :doc:`plasma rotation and magnetic field orientation <rotation>`.
+Some notes about :doc:`plasma rotation <rotation>`.
 
 Experimental profiles
 ---------------------

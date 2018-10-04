@@ -2,3 +2,5 @@ html/src/_static
 html/src/_templates
 html/src/_build
 html/src/mathmacro.pyc
+.DS_Store
+*~
