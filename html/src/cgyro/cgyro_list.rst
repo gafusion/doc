@@ -270,6 +270,20 @@ DLNNDR_*
 
 **Definition**
 
+The normalized equilibrium-scale density gradient scale length:
+
+.. math::
+   \mathrm{DLNNDR}\_* = -a \frac{\partial {\rm ln} n_{*}}{\partial r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the density as a function of radius is
+  read from :ref:`input.profiles` and the density gradient is computed internally.  The normalizing length is the
+  plasma minor radius.
+- When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
+  outboard midplane (:math:`\theta=0`).  
+
 ----
 
 .. _cgyro_dlntdr:
@@ -740,6 +754,11 @@ The ratio :math:`R_0/a`, where :math:`R_0` is the :doc:`major radius <../geometr
 - DEFAULT = 3.0
 
 ----
+  
+.. _cgyro_rotation_model:
+
+ROTATION_MODEL
+--------------
 
 .. _cgyro_s:
 
