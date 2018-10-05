@@ -153,6 +153,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#restart-step">RESTART_STEP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rmin">RMIN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rmaj">RMAJ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rotation-model">ROTATION_MODEL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s">S</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#shift">SHIFT</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#silent-flag">SILENT_FLAG</a></li>
@@ -427,7 +428,7 @@ defined as</p>
 <li>The user should set DENS=1 for electrons.</li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the densities
 are automatically normalized to <span class="math">\(n_e\)</span>.</li>
-<li>When rotation effects are included (<span class="xref std std-ref">cgyro_rotation_model</span> = 2), this parameter
+<li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter
 is the density at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 </ul>
 <hr class="docutils" />
@@ -435,6 +436,18 @@ is the density at the outboard midplane (<span class="math">\(\theta=0\)</span>)
 <div class="section" id="dlnndr">
 <span id="cgyro-dlnndr"></span><h2>DLNNDR_*<a class="headerlink" href="#dlnndr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>The normalized equilibrium-scale density gradient scale length:</p>
+<div class="math">
+\[\mathrm{DLNNDR}\_* = -a \frac{\partial {\rm ln} n_{*}}{\partial r}\]</div>
+<p><strong>Commments</strong></p>
+<ul class="simple">
+<li>DEFAULT: 1.0</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is
+read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the density gradient is computed internally.  The normalizing length is the
+plasma minor radius.</li>
+<li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
+outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="dlntdr">
@@ -725,6 +738,9 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <li>DEFAULT = 3.0</li>
 </ul>
 <hr class="docutils" />
+</div>
+<div class="section" id="rotation-model">
+<span id="cgyro-rotation-model"></span><h2>ROTATION_MODEL<a class="headerlink" href="#rotation-model" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="s">
 <span id="cgyro-s"></span><h2>S<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h2>
