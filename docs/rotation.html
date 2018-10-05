@@ -102,6 +102,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-rotation-profile">The rotation profile</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#input-parameters">Input parameters</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#theoretical-basis-for-sonic-rotation">Theoretical basis for sonic rotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#connection-to-experimental-data">Connection to experimental data</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
@@ -204,8 +205,8 @@ is the potential <span class="math">\(\omega_0(r)\)</span>, which in defined con
 GACODE as</p>
 <div class="math">
 \[\omega_0(r) = -c \frac{d \Phi}{d \psi} \simeq \frac{c E_r }{R B_p} \; .\]</div>
-<p>In the strictest sense, <span class="math">\(\Phi(r)\)</span> above is the leading-order potential <span class="math">\(\Phi(r)_{_1}\)</span>
-that is constant on a flux surface.  Because the meaning of <span class="math">\(\Phi(r)_{-1}\)</span> is ambiguous in
+<p>In the strictest sense, <span class="math">\(\Phi(r)\)</span> above is the leading-order potential <span class="math">\(\Phi_{-1}(r)\)</span>
+that is constant on a flux surface.  Because the meaning of <span class="math">\(\Phi_{-1}(r)\)</span> is ambiguous in
 an experimental sense, it is perhaps most useful to rely on the final approximate expression in
 terms of <span class="math">\(E_r\)</span>.  We believe this form is intuitively appealing and connects most clearly
 with experimental data.   These issue are described in full detail in the papers of Hinton and
@@ -232,11 +233,11 @@ curvature.  In both instances, this may lead to enhanced neoclassical transport.
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-e"><span class="std std-ref">GAMMA_E</span></a></td>
-<td><span class="math">\(\displaystyle \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{\partial \omega_{0}}{\partial r}\)</span></td>
+<td><span class="math">\(\displaystyle \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{d \omega_{0}}{d r}\)</span></td>
 <td><span class="math">\(\mathbf{E}\times\mathbf{B}\)</span> shearing rate</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-p"><span class="std std-ref">GAMMA_P</span></a></td>
-<td><span class="math">\(\displaystyle \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}\)</span></td>
+<td><span class="math">\(\displaystyle \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{d \omega_{0}}{d r}\)</span></td>
 <td>rotation shearing rate</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-mach"><span class="std std-ref">MACH</span></a></td>
@@ -290,33 +291,30 @@ f_i  &amp; = ~~~~~~~~~~~ f_{i,0} + f_{i,1} + \ldots \\
 U_\varphi &amp; =  ~~~~~~~~~~~ U_{\varphi,0} + U_{\varphi,1} + \ldots \\
 U_\theta  &amp; =  ~~~~~~~~~~~~~~~~~~~~~~ U_{\theta,1} + \ldots
 \end{align}\end{split}\]</div>
-<p>where <span class="math">\(U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}\)</span> and <span class="math">\(U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}\)</span>.
-The leading-order sonic flow is toroidal and independent of species</p>
+<p>where <span class="math">\(U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}\)</span> is the <strong>toroidal velocity</strong> and <span class="math">\(U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}\)</span>
+is the <strong>poloidal velocity</strong>.  The leading-order sonic flow is toroidal and independent of species</p>
 <div class="math">
-\[\mathbf{U}_0 = \omega_0 R \, \mathbf{e}_{\varphi} \quad \text{where} \quad
-\omega_{0} \doteq -c \frac{\partial \Phi_{-1}}{\partial \psi}\]</div>
-<p>It is important to note that <span class="math">\(\Phi_{-1}\)</span> is a <strong>flux function</strong>, whereas higher orders are not constant on a flux surface.
-We also remark that <span class="math">\(\omega_{0}\)</span> is a <strong>theoretical quantity</strong> that cannot be measured in the experiment.  This is similar
-to the observation that the experimentally-measured temperature <span class="math">\(T\)</span> is approximately equal to the (theoretical) thermal
-temperature <span class="math">\(T_0\)</span> only if the plasma is close to thermal</p>
+\[\mathbf{U}_0 = \omega_0(\psi) R \mathbf{e}_{\varphi} \quad \text{where} \quad
+\omega_{0}(\psi) \doteq -c \frac{d \Phi_{-1}}{d \psi}\]</div>
+<p>It is important to note that <span class="math">\(\Phi_{-1}\)</span> is a <strong>flux function</strong>, whereas higher orders are not constant on a flux surface.</p>
+</div>
+<div class="section" id="connection-to-experimental-data">
+<h2>Connection to experimental data<a class="headerlink" href="#connection-to-experimental-data" title="Permalink to this headline">¶</a></h2>
+<p>We remark that <span class="math">\(\omega_{0}\)</span> is a <strong>theoretical quantity</strong> that cannot be measured in the experiment.  This is similar
+to the observation that the experimentally-measured temperature <span class="math">\(T\)</span> is really the sum of the temperatures to all orders,</p>
 <div class="math">
-\[\begin{split}T = T_0 + T_1 + \ldots \\\end{split}\]</div>
-<p>With this analogy in mind we can understand why when the plasma is in a sonic regime, <span class="math">\(\omega_0\)</span> is
-approximately equal to <span class="math">\(\mathbf{E}\times\mathbf{B}\)</span> component of the perpendicular rotation frequency (which can be measured experimentally):</p>
+\[T = T_0 + T_1 + \ldots \; .\]</div>
+<p>In practice, however, we approximate the equilibrium temperature <span class="math">\(T_0\)</span> by the measured temperature <span class="math">\(T_0 \simeq T\)</span>.
+For the rotation frequency, we note that the theory shows that the potential always appears in the combination</p>
 <div class="math">
-\[E_r \simeq E_{r,-1} = -|\nabla r| \frac{\partial \Phi_{-1}}{\partial r}\]</div>
-<p>So, in the <strong>sonic regime</strong></p>
+\[\Phi_{-1} + \left\langle \Phi_0 \right\rangle\]</div>
+<p>where an angle bracket denotes a flux-surface average.  By analogy with the temperature, the rotation frequency can related to the
+experimentally-measured radial electric field <span class="math">\(E_r\)</span>, where <span class="math">\(E_r = -|\nabla r| d\Phi/dr\)</span>, according to</p>
 <div class="math">
-\[\begin{split}\omega_0 &amp; = \frac{c E_{r,-1}}{R B_{p}} \simeq \frac{c E_{r}}{R B_{p}} \\
-\omega_1 &amp; = \frac{c E_{r,0}}{R B_{p}} \simeq  0\end{split}\]</div>
-<p>When the plasma is in the <strong>weak rotation regime</strong>, then we have</p>
-<div class="math">
-\[\begin{split}\omega_0 &amp; = \frac{c E_{r,-1}}{R B_{p}} \simeq 0  \\
-\omega_1 &amp; = \frac{c E_{r,0}}{R B_{p}} \approx \frac{c E_{r}}{R B_{p}}\end{split}\]</div>
-<p>Let us stress how <span class="math">\(\omega_0\)</span> and <span class="math">\(\omega_1\)</span> are two different orders of <span class="math">\(\omega\)</span> and they are not the
-same quantity.  The reader should not be mislead by the fact that both <span class="math">\(\omega_0\)</span> and <span class="math">\(\omega_1\)</span> can be
-approximately equal to the experimental toroidal frequency, since that occurs for two opposite rotation regimes:
-sonic rotation and weak rotation, respectively.</p>
+\[\omega_0 + \omega_1 \simeq  \frac{c E_r(0)}{R B_p} \quad\text{where}\quad \omega_1 \doteq -c \frac{d  \left\langle \Phi_0 \right\rangle }{d\psi}\]</div>
+<p>In practice, we can set <span class="math">\(\omega_1 = 0\)</span> <em>without loss of generality</em> and all the rotation is contained in <span class="math">\(\omega_0\)</span>.
+Alternatively, in the diamagnetic rotation limit, we set <span class="math">\(\omega_0 = 0\)</span> with the rotation contained in <span class="math">\(\omega_1\)</span>.
+Finally, the toroidal velocities <span class="math">\(U_{\varphi,0} + U_{\varphi,1}\)</span> are treated in the same way.</p>
 </div>
 </div>
 

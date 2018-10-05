@@ -45,8 +45,8 @@ GACODE as
 
    \omega_0(r) = -c \frac{d \Phi}{d \psi} \simeq \frac{c E_r }{R B_p} \; .
 
-In the strictest sense, :math:`\Phi(r)` above is the leading-order potential :math:`\Phi(r)_{_1}`
-that is constant on a flux surface.  Because the meaning of :math:`\Phi(r)_{-1}` is ambiguous in
+In the strictest sense, :math:`\Phi(r)` above is the leading-order potential :math:`\Phi_{-1}(r)`
+that is constant on a flux surface.  Because the meaning of :math:`\Phi_{-1}(r)` is ambiguous in
 an experimental sense, it is perhaps most useful to rely on the final approximate expression in
 terms of :math:`E_r`.  We believe this form is intuitively appealing and connects most clearly
 with experimental data.   These issue are described in full detail in the papers of Hinton and
@@ -65,8 +65,8 @@ curvature.  In both instances, this may lead to enhanced neoclassical transport.
    :header: "input.cgyro parameter", "Definition", "Description"
    :widths: 10, 15, 15
 
-   ":ref:`cgyro_gamma_e`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{\partial \omega_{0}}{\partial r}`",":math:`\exb` shearing rate" 
-   ":ref:`cgyro_gamma_p`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{\partial \omega_{0}}{\partial r}`","rotation shearing rate" 
+   ":ref:`cgyro_gamma_e`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{d \omega_{0}}{d r}`",":math:`\exb` shearing rate" 
+   ":ref:`cgyro_gamma_p`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{d \omega_{0}}{d r}`","rotation shearing rate" 
    ":ref:`cgyro_mach`",":math:`\displaystyle M \doteq \frac{\omega_0 R_0}{c_s}`","rotation shearing rate" 
 
 .. csv-table::
@@ -107,45 +107,46 @@ all fields and moments
    U_\theta  & =  ~~~~~~~~~~~~~~~~~~~~~~ U_{\theta,1} + \ldots 
    \end{align}
 
-where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` and :math:`U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}`.
-The leading-order sonic flow is toroidal and independent of species
+where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` is the **toroidal velocity** and :math:`U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}`
+is the **poloidal velocity**.  The leading-order sonic flow is toroidal and independent of species
    
 .. math::
 
-   \mathbf{U}_0 = \omega_0 R \, \mathbf{e}_{\varphi} \quad \text{where} \quad
-   \omega_{0} \doteq -c \frac{\partial \Phi_{-1}}{\partial \psi}
+   \mathbf{U}_0 = \omega_0(\psi) R \mathbf{e}_{\varphi} \quad \text{where} \quad
+   \omega_{0}(\psi) \doteq -c \frac{d \Phi_{-1}}{d \psi}
 
 It is important to note that :math:`\Phi_{-1}` is a **flux function**, whereas higher orders are not constant on a flux surface.
-We also remark that :math:`\omega_{0}` is a **theoretical quantity** that cannot be measured in the experiment.  This is similar
-to the observation that the experimentally-measured temperature :math:`T` is approximately equal to the (theoretical) thermal
-temperature :math:`T_0` only if the plasma is close to thermal
+
+Connection to experimental data
+-------------------------------
+
+We remark that :math:`\omega_{0}` is a **theoretical quantity** that cannot be measured in the experiment.  This is similar
+to the observation that the experimentally-measured temperature :math:`T` is really the sum of the temperatures to all orders,
 
 .. math::
 
-    T = T_0 + T_1 + \ldots \\
+    T = T_0 + T_1 + \ldots \; .
 
-With this analogy in mind we can understand why when the plasma is in a sonic regime, :math:`\omega_0` is
-approximately equal to :math:`\exb` component of the perpendicular rotation frequency (which can be measured experimentally):
-
-.. math::
-
-    E_r \simeq E_{r,-1} = -|\nabla r| \frac{\partial \Phi_{-1}}{\partial r}
-
-So, in the **sonic regime**
+In practice, however, we approximate the equilibrium temperature :math:`T_0` by the measured temperature :math:`T_0 \simeq T`.
+For the rotation frequency, we note that the theory shows that the potential always appears in the combination
 
 .. math::
 
-    \omega_0 & = \frac{c E_{r,-1}}{R B_{p}} \simeq \frac{c E_{r}}{R B_{p}} \\
-    \omega_1 & = \frac{c E_{r,0}}{R B_{p}} \simeq  0 
+   \Phi_{-1} + \left\langle \Phi_0 \right\rangle 
 
-When the plasma is in the **weak rotation regime**, then we have
-
+where an angle bracket denotes a flux-surface average.  By analogy with the temperature, the rotation frequency can related to the
+experimentally-measured radial electric field :math:`E_r`, where :math:`E_r = -|\nabla r| d\Phi/dr`, according to
+   
 .. math::
 
-    \omega_0 & = \frac{c E_{r,-1}}{R B_{p}} \simeq 0  \\
-    \omega_1 & = \frac{c E_{r,0}}{R B_{p}} \approx \frac{c E_{r}}{R B_{p}} 
+   \omega_0 + \omega_1 \simeq  \frac{c E_r(0)}{R B_p} \quad\text{where}\quad \omega_1 \doteq -c \frac{d  \left\langle \Phi_0 \right\rangle }{d\psi}
 
-Let us stress how :math:`\omega_0` and :math:`\omega_1` are two different orders of :math:`\omega` and they are not the
-same quantity.  The reader should not be mislead by the fact that both :math:`\omega_0` and :math:`\omega_1` can be
-approximately equal to the experimental toroidal frequency, since that occurs for two opposite rotation regimes:
-sonic rotation and weak rotation, respectively.
+In practice, we can set :math:`\omega_1 = 0` *without loss of generality* and all the rotation is contained in :math:`\omega_0`.
+Alternatively, in the diamagnetic rotation limit, we set :math:`\omega_0 = 0` with the rotation contained in :math:`\omega_1`.
+Finally, the toroidal velocities :math:`U_{\varphi,0} + U_{\varphi,1}` are treated in the same way.
+
+
+
+   
+
+
