@@ -9,7 +9,7 @@ Tabular list for input.tglf
    ":ref:`TGLF_USE_TRANSPORT_MODEL`", tglf_use_transport_model_in,,.true.
    ":ref:`TGLF_GEOMETRY_FLAG`",tglf_geometry_flag_in,"geometry type (0= :math:`s-\alpha` , 1=Miller, 2=Fourier, 3=ELITE)",1
    ":ref:`TGLF_USE_BPER`", tglf_use_bper_in,"include transverse magnetic fluctuations, :math:`\delta A_{\lVert }`",.false.
-   ":ref:`TGLF_USE_BPAR`",tglf_use_bpar_in,"include compressional magnetic fluctuations, {\displaystyle \delta B_{\lVert }}",.false.
+   ":ref:`TGLF_USE_BPAR`",tglf_use_bpar_in,"include compressional magnetic fluctuations, :math:`\delta B_{\lVert }`",.false.
    ":ref:`TGLF_USE_BISECTION`",tglf_use_bisection_in,"use bisection search method to find width that maximizes growth rate",.true.
    ":ref:`TGLF_USE_MHD_RULE`",tglf_use_mhd_rule_in,"ignore pressure gradient contribution to curvature drift",.true.
    ":ref:`TGLF_USE_INBOARD_DETRAPPED`",tglf_use_inboard_detrapped_in,"Set trapped fraction to zero if eigenmode is inward ballooning",.false.
@@ -18,14 +18,14 @@ Tabular list for input.tglf
    ":ref:`TGLF_XNU_MODEL`",tglf_xnu_model_in,Collision model (2=new),2
    ":ref:`TGLF_VPAR_MODEL`",tglf_vpar_model_in,0=low-Mach-number limit,0
    ":ref:`TGLF_VPAR_SHEAR_MODEL`",tglf_vpar_shear_model_in,depricated parameter,0
-   ":ref:`TGLF_SIGN_BT`",tglf_sign_bt_in,sign of {:math:` B_{T}}`  with repsect to CCW toroidal direction from top,1.0
-   ":ref:`TGLF_SIGN_IT`",tglf_sign_it_in,sign of {:math:`I_{T}}`  with repsect to CCW toroidal direction from top,1.0
-   ":ref:`TGLF_KY`",tglf_ky_in,"{:math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!}` for single-mode call to TGLF",0.3
+   ":ref:`TGLF_SIGN_BT`",tglf_sign_bt_in,sign of :math:`B_{T}`  with respect to CCW toroidal direction from top,1.0
+   ":ref:`TGLF_SIGN_IT`",tglf_sign_it_in,sign of :math:`I_{T}`  with respect to CCW toroidal direction from top,1.0
+   ":ref:`TGLF_KY`",tglf_ky_in,":math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF",0.3
    ":ref:`TGLF_NEW_EIKONAL`",tglf_new_eikonal_in,".true. = compute the eikonal, .false. = use the eikonal computed on the last call to TGLF made with tglf_new_eikonal_in = .true.",.true.
    ":ref:`TGLF_VEXB`",tglf_vexb_in,"normalized of ExB velocity Doppler shift common to all species (not in use, see VPAR)",0.0
-   ":ref:`TGLF_VEXB_SHEAR`",tglf_vexb_shear_in,normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering {:math:`V_{tor}=V_{ExB}}`  {:math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}}`,0.0
-   ":ref:`TGLF_BETAE`",tglf_betae_in,"{:math:`\beta _{e}\,\!`}  defined with respect to {;math;`B_{\rm {unit}}\,\!`}",0.0
-   ":ref:`TGLF_XNUE`",tglf_xnue_in,electron-ion collision frequency {:math:`{\frac {v_{ei}}{c_{s}/a}}}`,0.0
+   ":ref:`TGLF_VEXB_SHEAR`",tglf_vexb_shear_in,normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{ExB}`  :math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}})\frac {a}{c_{s}}`,0.0
+   ":ref:`TGLF_BETAE`",tglf_betae_in,":math:`\beta _{e}\,\!`  defined with respect to :math:`B_{\rm {unit}}\,\!`",0.0
+   ":ref:`TGLF_XNUE`",tglf_xnue_in,electron-ion collision frequency :math:`{\frac {v_{ei}}{c_{s}/a}}`,0.0
    ":ref:`TGLF_ZEFF`",tglf_zeff_in,effective ion charge,1.0
    ":ref:`TGLF_DEBYE`",tglf_debye_in,Debye length/gyroradius,0.0
    ":ref:`TGLF_IFLUX`",tglf_iflux_in,compute quasilinear weights and mode amplitudes,.true.
@@ -51,13 +51,13 @@ Tabular list for input.tglf
    :widths: 13, 13, 25, 5
    
    ":ref:`TGLF_ZS_1`",tglf_zs_in(:),species charge numbers,"-1.0,1.0"
-   ":ref:`TGLF_MASS_1`",tglf_mass_in(:),species masses normalized to {:math:`m_{D}}`,"me/md,1.0"
-   ":ref:`TGLF_RLNS_1`",tglf_rlns_in(:),species array of normalized density gradients {:math:`-{\frac {a}{n_{s}}}{\frac {dn_{s}}{dr}}}`,"1.0,1.0"
-   ":ref:`TGLF_RLTS_1`",tglf_rlts_in(:),species array of normalized temperature gradients {:math:`-{\frac {a}{T_{s}}}{\frac {dT_{s}}{dr}}}`,"3.0,3.0"
-   ":ref:`TGLF_TAUS_1`",tglf_taus_in(:),species array of temperatures {:math:`{\frac {T_{s}}{T_{e}}}}`,"1.0,1.0"
-   ":ref:`TGLF_AS_1`",tglf_as_in(:),species array of densities {:math:`{\frac {n_{s}}{n_{e}}}}`,"1.0,1.0"
-   ":ref:`TGLF_VPAR_1`",tglf_vpar_in(:),species array of parallel velocities {:math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}}`,"0.0,0.0"
-   ":ref:`TGLF_VPAR_SHEAR_1`",tglf_vpar_shear_in(:),normalized parallel velocity gradient {:math;'-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}}`,"0.0,0.0"
+   ":ref:`TGLF_MASS_1`",tglf_mass_in(:),species masses normalized to :math:`m_{D}`,"me/md,1.0"
+   ":ref:`TGLF_RLNS_1`",tglf_rlns_in(:),species array of normalized density gradients :math:`-{\frac {a}{n_{s}}}{\frac {dn_{s}}{dr}}`,"1.0,1.0"
+   ":ref:`TGLF_RLTS_1`",tglf_rlts_in(:),species array of normalized temperature gradients :math:`-{\frac {a}{T_{s}}}{\frac {dT_{s}}{dr}}`,"3.0,3.0"
+   ":ref:`TGLF_TAUS_1`",tglf_taus_in(:),species array of temperatures :math:`{\frac {T_{s}}{T_{e}}}`,"1.0,1.0"
+   ":ref:`TGLF_AS_1`",tglf_as_in(:),species array of densities :math:`{\frac {n_{s}}{n_{e}}}`,"1.0,1.0"
+   ":ref:`TGLF_VPAR_1`",tglf_vpar_in(:),species array of parallel velocities :math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}`,"0.0,0.0"
+   ":ref:`TGLF_VPAR_SHEAR_1`",tglf_vpar_shear_in(:),normalized parallel velocity gradient :math:`-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}`,"0.0,0.0"
 
 
 .. csv-table:: **Gaussian width parameters**
@@ -74,21 +74,21 @@ Tabular list for input.tglf
    :header: "input.tglf parameter", "Interface parameter", "Short description", "Default"
    :widths: 13, 13, 25, 5
    
-   ":ref:`TGLF_RMIN_LOC`",tglf_rmin_loc_in,"flux surface centroid minor radius {:math:`r/a\,\!}`",0.5
-   ":ref:`TGLF_RMAJ_LOC`",tglf_rmaj_loc_in,"flux surface centroid major radius {:math:`R_{maj}/a\,\!}`",3.0
-   ":ref:`TGLF_ZMAJ_LOC`",tglf_zmaj_loc_in,"flux surface centroid elevation {:math:`Z_{maj}/a\,\!}`",0.0
-   ":ref:`TGLF_Q_LOC`",tglf_q_loc_in,"absolute value of the safety factor, {:math:`ABS(q)\,\!}`",2.0
-   ":ref:`TGLF_Q_PRIME_LOC`",tglf_q_prime_loc_in,{:math:`{\frac {q^{2}a^{2}}{r^{2}}}s}`,16.0
-   ":ref:`TGLF_P_PRIME_LOC`",tglf_p_prime_loc_in,{:math:`{\frac {qa^{2}}{rB_{unit}^{2}}}{\frac {\partial p}{\partial r}}}`,0.0
-   ":ref:`TGLF_DRMINDX_LOC`",tglf_drmindx_loc_in,allows for x different than r {:math:`{\frac {\partial r}{\partial x}}}`,1.0
-   ":ref:`TGLF_DRMAJDX_LOC`",tglf_drmajdx_loc_in,{:math:`{\frac {\partial R_{maj}}{\partial x}}}`,0.0
-   ":ref:`TGLF_DZMAJDX_LOC`",tglf_dzmajdx_loc_in,{:math:`{\frac {\partial Z_{maj}}{\partial x}}}`,0.0
-   ":ref:`TGLF_KAPPA_LOC`",tglf_kappa_loc_in,"elongation of flux surface, {:math:`\kappa \,\!}`",1.0
-   ":ref:`TGLF_S_KAPPA_LOC`",tglf_s_kappa_loc_in,"shear in elongation, {:math:`{\frac {r}{\kappa }}{\frac {\partial \kappa }{\partial r}}}`",0.0
+   ":ref:`TGLF_RMIN_LOC`",tglf_rmin_loc_in,"flux surface centroid minor radius :math:`r/a\,\!`",0.5
+   ":ref:`TGLF_RMAJ_LOC`",tglf_rmaj_loc_in,"flux surface centroid major radius :math:`R_{maj}/a\,\!`",3.0
+   ":ref:`TGLF_ZMAJ_LOC`",tglf_zmaj_loc_in,"flux surface centroid elevation :math:`Z_{maj}/a\,\!`",0.0
+   ":ref:`TGLF_Q_LOC`",tglf_q_loc_in,"absolute value of the safety factor, :math:`ABS(q)\,\!`",2.0
+   ":ref:`TGLF_Q_PRIME_LOC`",tglf_q_prime_loc_in,:math:`{\frac {q^{2}a^{2}}{r^{2}}}s`,16.0
+   ":ref:`TGLF_P_PRIME_LOC`",tglf_p_prime_loc_in,:math:`{\frac {qa^{2}}{rB_{unit}^{2}}}{\frac {\partial p}{\partial r}}`,0.0
+   ":ref:`TGLF_DRMINDX_LOC`",tglf_drmindx_loc_in,allows for x different than r :math:`{\frac {\partial r}{\partial x}}`,1.0
+   ":ref:`TGLF_DRMAJDX_LOC`",tglf_drmajdx_loc_in,:math:`{\frac {\partial R_{maj}}{\partial x}}`,0.0
+   ":ref:`TGLF_DZMAJDX_LOC`",tglf_dzmajdx_loc_in,:math:`{\frac {\partial Z_{maj}}{\partial x}}`,0.0
+   ":ref:`TGLF_KAPPA_LOC`",tglf_kappa_loc_in,"elongation of flux surface, :math:`\kappa \,\!`",1.0
+   ":ref:`TGLF_S_KAPPA_LOC`",tglf_s_kappa_loc_in,"shear in elongation, :math:`{\frac {r}{\kappa }}{\frac {\partial \kappa }{\partial r}}`",0.0
    ":ref:`TGLF_DELTA_LOC`",tglf_delta_loc_in,,0.0
-   ":ref:`TGLF_S_DELTA_LOC`",tglf_s_delta_loc_in,"shear in triangularity, {:math:`r{\frac {\partial \delta }{\partial r}}}`",0.0
-   ":ref:`TGLF_ZETA_LOC`",tglf_zeta_loc_in,"squareness, {:math:`\zeta \,\!}` , of flux surface",0.0
-   ":ref:`TGLF_S_ZETA_LOC`",tglf_s_zeta_loc_in,"shear in squareness, {:math:`r{\frac {\partial \zeta }{\partial r}}}`",0.0
+   ":ref:`TGLF_S_DELTA_LOC`",tglf_s_delta_loc_in,"shear in triangularity, :math:`r{\frac {\partial \delta }{\partial r}}`",0.0
+   ":ref:`TGLF_ZETA_LOC`",tglf_zeta_loc_in,"squareness, :math:`\zeta \,\!` , of flux surface",0.0
+   ":ref:`TGLF_S_ZETA_LOC`",tglf_s_zeta_loc_in,"shear in squareness, :math:`r{\frac {\partial \zeta }{\partial r}}`",0.0
    ":ref:`TGLF_KX0_LOC`",tglf_kx0_in,kx0/ky ballooning mode offset,0.0
 
 
@@ -96,13 +96,13 @@ Tabular list for input.tglf
    :header: "input.tglf parameter", "Interface parameter", "Short description", "Default"
    :widths: 13, 13, 25, 5
    
-   ":ref:`TGLF_RMIN_SA`",tglf_rmin_sa_in,"normalized minor radius of flux surface {:math:`r/a\,\!}`",0.5
-   ":ref:`TGLF_RMAJ_SA`",tglf_rmaj_sa_in,"normalized major radius of flux surface {:math:`R_{maj}/a\,\!}`",3.0
+   ":ref:`TGLF_RMIN_SA`",tglf_rmin_sa_in,"normalized minor radius of flux surface :math:`r/a\,\!`",0.5
+   ":ref:`TGLF_RMAJ_SA`",tglf_rmaj_sa_in,"normalized major radius of flux surface :math:`R_{maj}/a\,\!`",3.0
    ":ref:`TGLF_Q_SA`",tglf_q_sa_in,absolute value of safety factor,2.0
-   ":ref:`TGLF_SHAT_SA`",tglf_shat_sa_in,magnetic shear {\:math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}}`,1.0
+   ":ref:`TGLF_SHAT_SA`",tglf_shat_sa_in,magnetic shear :math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}`,1.0
    ":ref:`TGLF_ALPHA_SA`",tglf_alpha_sa_in,normalized pressure gradient,0.0
    ":ref:`TGLF_XWELL_SA`",tglf_xwell_sa_in,magnetic well,0.0
-   ":ref:`TGLF_THETA0_SA`",tglf_theta0_sa_in,{\:math:`\theta _{0}={\frac {k_{x}}{sk_{y}}}}`,0.0
+   ":ref:`TGLF_THETA0_SA`",tglf_theta0_sa_in,:math:`\theta _{0}={\frac {k_{x}}{sk_{y}}}`,0.0
    ":ref:`TGLF_B_MODEL_SA`",tglf_b_model_sa_in,0/1 to exclude/include the B(theta) factor in k_per,1
    ":ref:`TGLF_FT_MODEL_SA`",tglf_ft_model_sa_in,1 uses trapped fraction at the outboard midplane,1
 
