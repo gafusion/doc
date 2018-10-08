@@ -111,7 +111,7 @@ AS_1
 
 **Definition**
 
-Species array of densities {:math:`{\frac {n_{s}}{n_{e}}}}`.
+Species array of densities :math:`{\frac {n_{s}}{n_{e}}}`.
 
 
 **Comments**
@@ -127,7 +127,7 @@ BETAE
 
 **Definition**
 
-{:math:`\beta _{e}\,\!`}  defined with respect to {;math;`B_{\rm {unit}}\,\!`}.
+:math:`\beta _{e}\,\!`  defined with respect to :math:`B_{\rm {unit}}\,\!`.
 
 
 **Comments**
@@ -206,7 +206,7 @@ DRMAJDX_LOC
 
 **Definition**
 
-{:math:`{\frac {\partial R_{maj}}{\partial x}}}`.
+:math:`{\frac {\partial R_{maj}}{\partial x}}`.
 
 
 **Comments**
@@ -222,7 +222,7 @@ DRMINDX_LOC
 
 **Definition**
 
-Allows for x different than r {:math:`{\frac {\partial r}{\partial x}}}`.
+Allows for x different than r :math:`{\frac {\partial r}{\partial x}}`.
 
 
 **Comments**
@@ -238,7 +238,7 @@ DZMAJDX_LOC
 
 **Definition**
 
-{:math:`{\frac {\partial Z_{maj}}{\partial x}}}`.
+:math:`{\frac {\partial Z_{maj}}{\partial x}}`.
 
 
 **Comments**
@@ -428,7 +428,7 @@ KAPPA_LOC
 
 **Definition**
 
-Elongation of flux surface, {:math:`\kappa \,\!}`.
+Elongation of flux surface, :math:`\kappa \,\!`.
 
 
 **Comments**
@@ -460,7 +460,7 @@ KY
 
 **Definition**
 
-{:math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!}` for single-mode call to TGLF.
+:math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF.
 
 **Comments**
 
@@ -511,7 +511,7 @@ MASS_1
 
 **Definition**
 
-Species masses normalized to {:math:`m_{D}}`.
+Species masses normalized to :math:`m_{D}`.
 
 
 **Comments**
@@ -675,7 +675,7 @@ P_PRIME_LOC
 
 **Definition**
 
-{:math:`{\frac {qa^{2}}{rB_{unit}^{2}}}{\frac {\partial p}{\partial r}}}`.
+:math:`{\frac {qa^{2}}{rB_{unit}^{2}}}{\frac {\partial p}{\partial r}}`.
 
 
 **Comments**
@@ -691,7 +691,7 @@ Q_LOC
 
 **Definition**
 
-Absolute value of the safety factor, {:math:`ABS(q)\,\!}`.
+Absolute value of the safety factor, :math:`ABS(q)\,\!`.
 
 
 **Comments**
@@ -707,7 +707,7 @@ Q_PRIME_LOC
 
 **Definition**
 
-{:math:`{\frac {q^{2}a^{2}}{r^{2}}}s}`.
+:math:`{\frac {q^{2}a^{2}}{r^{2}}}s`.
 
 
 **Comments**
@@ -739,7 +739,7 @@ RLNS_1
 
 **Definition**
 
-Species array of normalized density gradients {:math:`-{\frac {a}{n_{s}}}{\frac {dn_{s}}{dr}}}`.
+Species array of normalized density gradients :math:`-{\frac {a}{n_{s}}}{\frac {dn_{s}}{dr}}`.
 
 
 **Comments**
@@ -755,7 +755,7 @@ RLTS_1
 
 **Definition**
 
-Species array of normalized temperature gradients {:math:`-{\frac {a}{T_{s}}}{\frac {dT_{s}}{dr}}}`.
+Species array of normalized temperature gradients :math:`-{\frac {a}{T_{s}}}{\frac {dT_{s}}{dr}}`.
 
 
 **Comments**
@@ -771,7 +771,7 @@ RMAJ_LOC
 
 **Definition**
 
-Flux surface centroid major radius {:math:`R_{maj}/a\,\!}`.
+Flux surface centroid major radius :math:`R_{maj}/a\,\!`.
 
 
 **Comments**
@@ -787,7 +787,7 @@ RMAJ_SA
 
 **Definition**
 
-Normalized major radius of flux surface {:math:`R_{maj}/a\,\!}`.
+Normalized major radius of flux surface :math:`R_{maj}/a\,\!`.
 
 
 **Comments**
@@ -803,7 +803,7 @@ RMIN_LOC
 
 **Definition**
 
-Flux surface centroid minor radius {:math:`r/a\,\!}`.
+Flux surface centroid minor radius :math:`r/a\,\!`.
 
 
 **Comments**
@@ -819,7 +819,7 @@ RMIN_SA
 
 **Definition**
 
-Normalized minor radius of flux surface {:math:`r/a\,\!}`.
+Normalized minor radius of flux surface :math:`r/a\,\!`.
 
 
 **Comments**
@@ -854,7 +854,7 @@ SHAT_SA
 
 **Definition**
 
-Magnetic shear {\:math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}}`.
+Magnetic shear :math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}`.
 
 
 **Comments**
@@ -870,7 +870,7 @@ SIGN_BT
 
 **Definition**
 
-Sign of {:math:`B_{T}}`  with repsect to CCW toroidal direction from top.
+Sign of :math:`B_{T}`  with repsect to CCW toroidal direction from top.
 
 
 **Comments**
@@ -886,7 +886,7 @@ SIGN_IT
 
 **Definition**
 
-Sign of {:math:`I_{T}`}  with repsect to CCW toroidal direction from top.
+Sign of :math:`I_{T}`  with repsect to CCW toroidal direction from top.
 
 
 **Comments**
@@ -902,7 +902,7 @@ S_DELTA_LOC
 
 **Definition**
 
-Shear in triangularity, {:math:`r{\frac {\partial \delta }{\partial r}}}`.
+Shear in triangularity, :math:`r{\frac {\partial \delta }{\partial r}}`.
 
 
 **Comments**
@@ -918,7 +918,7 @@ S_KAPPA_LOC
 
 **Definition**
 
-Shear in elongation, {:math:`{\frac {r}{\kappa }}{\frac {\partial \kappa }{\partial r}}}`.
+Shear in elongation, :math:`{\frac {r}{\kappa }}{\frac {\partial \kappa }{\partial r}}`.
 
 
 **Comments**
@@ -934,7 +934,7 @@ S_ZETA_LOC
 
 **Definition**
 
-Shear in squareness, {:math:`r{\frac {\partial \zeta }{\partial r}}}`.
+Shear in squareness, :math:`r{\frac {\partial \zeta }{\partial r}}`.
 
 
 **Comments**
@@ -950,7 +950,7 @@ TAUS_1
 
 **Definition**
 
-Species array of temperatures {:math:`{\frac {T_{s}}{T_{e}}}}`.
+Species array of temperatures :math:`{\frac {T_{s}}{T_{e}}}`.
 
 
 **Comments**
@@ -966,7 +966,7 @@ THETA0_SA
 
 **Definition**
 
-{\:math:`\theta _{0}={\frac {k_{x}}{sk_{y}}}}`.
+:math:`\theta _{0}={\frac {k_{x}}{sk_{y}}}`.
 
 
 **Comments**
@@ -1030,7 +1030,7 @@ USE_BPER
 
 **Definition**
 
-Include transverse magnetic fluctuations, {:math:`\delta A_{\lVert }}`.
+Include transverse magnetic fluctuations, :math:`\delta A_{\lVert }`.
 
 
 **Comments**
@@ -1109,7 +1109,7 @@ VEXB_SHEAR
 
 **Definition**
 
-Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering {:math:`V_{tor}=V_{ExB}}`  {:math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}}`.
+Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{ExB}`  :math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}`.
 
 
 **Comments**
@@ -1125,7 +1125,7 @@ VPAR_1
 
 **Definition**
 
-Species array of parallel velocities {:math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}}`.
+Species array of parallel velocities :math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}`.
 
 
 **Comments**
@@ -1161,7 +1161,7 @@ VPAR_SHEAR_1
 
 **Definition**
 
-Normalized parallel velocity gradient {:math;'-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}}`.
+Normalized parallel velocity gradient :math:`-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}`.
 
 
 **Comments**
@@ -1257,7 +1257,7 @@ XNUE
 
 **Definition**
 
-Electron-ion collision frequency {:math:`{\frac {v_{ei}}{c_{s}/a}}}`.
+Electron-ion collision frequency :math:`{\frac {v_{ei}}{c_{s}/a}}`.
 
 
 **Comments**
@@ -1342,7 +1342,7 @@ ZETA_LOC
 
 **Definition**
 
-Squareness, {:math:`\zeta \,\!}` , of flux surface.
+Squareness, :math:`\zeta \,\!` , of flux surface.
 
 
 **Comments**
