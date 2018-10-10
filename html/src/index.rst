@@ -54,4 +54,4 @@ GACODE software works with the :ref:`input.profiles` format.
    geometry
    rotation
    input_profiles
-   
+   shortfall

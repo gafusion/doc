@@ -72,8 +72,7 @@ flux surface.
 File Structure
 --------------
 
-Scalar Data
-~~~~~~~~~~~
+**Scalar Data**
 
 #. ``N_ION``
 
@@ -95,8 +94,7 @@ Scalar Data
    - :math:`\rho(a)` (i.e., :math:`\rho` at the separatrix) in units of :math:`\mathrm{m}`.  
    - This will serve to denormalize the vector :math:`\hat\rho` defined in the next section.
 
-Vector data, block 1 (1-5)
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 1 (1-5)**
 
 #. **rho(:)**
 
@@ -122,8 +120,7 @@ Vector data, block 1 (1-5)
      in units of :math:`{\rm rad/s}`.
    - This is effectively a proxy for :math:`E_r`, but is more convenient since it is (nearly) a flux function.
 
-Vector data, block 2 (6-10)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 2 (6-10)**
 
 #. **rmaj(:)** 
 
@@ -145,8 +142,7 @@ Vector data, block 2 (6-10)
 	
    - Plasma squareness, :math:`\zeta`. 
 
-Vector data, block 3 (11-15)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 3 (11-15)**
 
 #. **ne(:)**
 
@@ -166,8 +162,7 @@ Vector data, block 3 (11-15)
 
 #. **null**
 
-Vector data, block 4 (16-20)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 4 (16-20) **
 
 #. **ni(1,:)**
 
@@ -185,8 +180,7 @@ Vector data, block 4 (16-20)
 
    - Ion density, :math:`n_{i5}`, in units of :math:`10^{19}/{\rm m}^3`.
 
-Vector data, block 5 (21-25)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 5 (21-25)**
 
 #. **ni(6,:)**
 
@@ -204,8 +198,7 @@ Vector data, block 5 (21-25)
 
    - Ion density, :math:`n_{i10}`, in units of :math:`10^{19}/{\rm m}^3`.
 
-Vector data, block 6 (26-30)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 6 (26-30)**
 
 #. **ti(1,:)**
 
@@ -223,8 +216,7 @@ Vector data, block 6 (26-30)
 
    - Ion temperature, :math:`T_{i5}`, in units of :math:{\rm keV}`.
 
-Vector data, block 7 (31-35)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 7 (31-35)**
 
 #. **ti(6,:)**
 
@@ -242,8 +234,7 @@ Vector data, block 7 (31-35)
 
    - Ion temperature, :math:`T_{i10}`, in units of :math:`{\rm keV}`.
 
-Vector data, block 8 (36-40)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 8 (36-40)**
 
 #. **vtor(1,:)**
 
@@ -261,8 +252,7 @@ Vector data, block 8 (36-40)
 
    - Ion toroidal velocity, :math:`v_{\phi,i5}`, in units of :math:`{\rm m/s}`.
 
-Vector data, block 9 (41-55)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 9 (41-55)**
 
 #. **vtor(6,:)**
 
@@ -280,8 +270,7 @@ Vector data, block 9 (41-55)
 
    - Ion toroidal velocity, :math:`v_{\phi,i10}`, in units of :math:`{\rm m/s}`.
 
-Vector data, block 10 (56-60)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 10 (56-60)**
 
 #. **vpol(1,:)**
 
@@ -299,8 +288,7 @@ Vector data, block 10 (56-60)
 
    - Ion toroidal velocity, :math:`v_{\theta,i5}`, in units of :math:`{\rm m/s}`.
 
-Vector data, block 11 (61-65)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 11 (61-65)**
 
 #. **vpol(6,:)**
 
@@ -318,8 +306,7 @@ Vector data, block 11 (61-65)
 
    - Ion toroidal velocity, :math:`v_{\theta,i10}`, in units of :math:`{\rm m/s}`.
 
-Vector data, block 12 (66-70)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 12 (66-70)**
 
 #. **flow_beam(:)**
 
@@ -336,8 +323,7 @@ Vector data, block 12 (66-70)
 
 #. **null**
 
-Vector data, block 13 (71-75)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 13 (71-75)**
 
 #. **pow_e(:)**
 
@@ -360,8 +346,7 @@ Vector data, block 13 (71-75)
 
    - The integrated auxiliary power to ions, in units of :math:`{\rm MW}`.
 
-Vector data, block 13 (71-75) [DIAGNOSTIC -- optional]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 13 (71-75) [DIAGNOSTIC -- optional]**
 
 #. **pow_e_fus(:)**
 
@@ -379,8 +364,7 @@ Vector data, block 13 (71-75) [DIAGNOSTIC -- optional]
 
    - Electron line radiation, in units of :math:`{\rm MW}`.
 
-Vector data, block 14 (76-80) [DIAGNOSTIC -- optional]
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Vector data, block 14 (76-80) [DIAGNOSTIC -- optional]**
 
 #. **sbeame(:)**
 
