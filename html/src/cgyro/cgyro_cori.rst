@@ -40,7 +40,7 @@ For jobs that use only a few nodes, **-nomp 2** may be better, and for really bi
 Trading speed vs efficiency
 ---------------------------
 
-As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. computie nodes).
+As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. compute nodes).
 However, like most HPC codes, the efficiency will generally decrease as you use more resources, too.
 I.e. you will be able to get **less computation done with the same amount of allocation time**.
 
