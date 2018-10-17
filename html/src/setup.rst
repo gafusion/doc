@@ -6,6 +6,16 @@ Below we give information about the environment setup required to run GACODE too
 GA IRIS
 -------
 
+To run on GA IRIS, add these
+lines to ``.bashrc``::
+
+  module load defaults
+  module load atom/dev
+  export GACODE_PLATFORM=SATURN_GCC
+  export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
+  . $GACODE_ROOT/shared/bin/gacode_setup
+  
+
 NERSC CORI
 ----------
   
