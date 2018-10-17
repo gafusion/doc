@@ -174,6 +174,15 @@
 <p>Below we give information about the environment setup required to run GACODE tools on maintained platforms.  One this step is complete, proceed to instructions on the code-specific pages for <a class="reference internal" href="cgyro/cgyro_platforms.html"><span class="doc">CGYRO</span></a>, <a class="reference internal" href="neo.html"><span class="doc">NEO</span></a>, <a class="reference internal" href="tgyro.html"><span class="doc">TGYRO</span></a>, and so on.</p>
 <div class="section" id="ga-iris">
 <h2>GA IRIS<a class="headerlink" href="#ga-iris" title="Permalink to this headline">¶</a></h2>
+<p>To run on GA IRIS, add these
+lines to <code class="docutils literal"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>module load defaults
+module load atom/dev
+export GACODE_PLATFORM=SATURN_GCC
+export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
+. $GACODE_ROOT/shared/bin/gacode_setup
+</pre></div>
+</div>
 </div>
 <div class="section" id="nersc-cori">
 <h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this headline">¶</a></h2>

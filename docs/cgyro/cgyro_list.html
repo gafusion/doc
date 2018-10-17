@@ -328,8 +328,8 @@ defined as</p>
 <p>Parameter which selects the orientation of the toroidal magnetic field <span class="math">\(B_t\)</span> relative to the toroidal angle <span class="math">\(\varphi\)</span>.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the negative <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
-<li>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the positive <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
+<li>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
+<li>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -374,26 +374,80 @@ defined as</p>
 <div class="section" id="collision-field-model">
 <span id="cgyro-collision-field-model"></span><h2>COLLISION_FIELD_MODEL<a class="headerlink" href="#collision-field-model" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Flag to toggle self-consistent field update during collisions.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>COLLISION_FIELD_MODEL = 0: Field update OFF</li>
+<li>COLLISION_FIELD_MODEL = 1: Field update ON</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="collision-mom-restore">
 <span id="cgyro-collision-mom-restore"></span><h2>COLLISION_MOM_RESTORE<a class="headerlink" href="#collision-mom-restore" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Flag to toggle collisional momentum conservation.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>COLLISION_MOM_RESTORE = 0: Momentum conservation OFF</li>
+<li>COLLISION_MOM_RESTORE = 1: Momentum conservation ON</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1</li>
+<li>For test purposes only.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="collision-ene-restore">
 <span id="cgyro-collision-ene-restore"></span><h2>COLLISION_ENE_RESTORE<a class="headerlink" href="#collision-ene-restore" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Flag to toggle collisional energy conservation.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>COLLISION_ENE_RESTORE = 0: Energy conservation OFF</li>
+<li>COLLISION_ENE_RESTORE = 1: Energy conservation ON</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1</li>
+<li>For test purposes only.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="collision-ene-diffusion">
 <span id="cgyro-collision-ene-diffusion"></span><h2>COLLISION_ENE_DIFFUSION<a class="headerlink" href="#collision-ene-diffusion" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Flag to toggle collisional energy diffusion.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>COLLISION_ENE_DIFFUSION = 0: Energy diffusion OFF</li>
+<li>COLLISION_ENE_DIFFUSION = 1: Energy diffusion ON</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1</li>
+<li>For test purposes only.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="collision-kperp">
 <span id="cgyro-collision-kperp"></span><h2>COLLISION_KPERP<a class="headerlink" href="#collision-kperp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Flag to toggle <span class="math">\(k_\perp^2\)</span> terms in collision operator.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>COLLISION_KPERP = 0: Terms OFF</li>
+<li>COLLISION_KPERP = 1: Terms ON</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1</li>
+<li>For test purposes only.</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="delta">
@@ -427,7 +481,7 @@ defined as</p>
 \[\mathrm{DENS}* = \frac{n_{*}}{n_e}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: DENS_*= <span class="math">\([1,0,0,\ldots]\)</span></li>
+<li>DEFAULT = <span class="math">\([1,0,0,\ldots]\)</span></li>
 <li>The user should set DENS=1 for electrons.</li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the densities
 are automatically normalized to <span class="math">\(n_e\)</span>.</li>
@@ -456,6 +510,18 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="dlntdr">
 <span id="cgyro-dlntdr"></span><h2>DLNTDR_*<a class="headerlink" href="#dlntdr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>The normalized equilibrium-scale temperature gradient scale length:</p>
+<div class="math">
+\[\mathrm{DLNTDR}\_* = -a \frac{\partial {\rm ln} T_{*}}{\partial r}\]</div>
+<p><strong>Commments</strong></p>
+<ul class="simple">
+<li>DEFAULT: 1.0</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is
+read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the density gradient is computed internally.  The normalizing length is the
+plasma minor radius.</li>
+<li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
+outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="dzmag">

@@ -105,8 +105,8 @@ Parameter which selects the orientation of the toroidal magnetic field :math:`B_
 
 **Choices**
 
-- BTCCW = 1: Counter-clockwise when viewed from above the torus - negative :math:`\hat{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the negative :math:`\hat{e}_{\varphi}` direction.
-- BTCCW = -1: Clockwise when viewed from above the torus - positive :math:`\hat{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the positive :math:`\hat{e}_{\varphi}` direction. 
+- BTCCW = 1: Counter-clockwise when viewed from above the torus - negative :math:`\mathbf{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the negative :math:`\mathbf{e}_{\varphi}` direction.
+- BTCCW = -1: Clockwise when viewed from above the torus - positive :math:`\mathbf{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_t` is oriented along the positive :math:`\mathbf{e}_{\varphi}` direction. 
 
 **Comments**
 
@@ -169,6 +169,17 @@ COLLISION_FIELD_MODEL
 
 **Definition**
 
+Flag to toggle self-consistent field update during collisions.
+
+**Choices**
+
+- COLLISION_FIELD_MODEL = 0: Field update OFF
+- COLLISION_FIELD_MODEL = 1: Field update ON 
+
+**Comments**
+
+- DEFAULT = 1
+
 ----
 
 .. _cgyro_collision_mom_restore:
@@ -177,6 +188,18 @@ COLLISION_MOM_RESTORE
 ---------------------
 
 **Definition**
+
+Flag to toggle collisional momentum conservation.
+
+**Choices**
+
+- COLLISION_MOM_RESTORE = 0: Momentum conservation OFF
+- COLLISION_MOM_RESTORE = 1: Momentum conservation ON 
+
+**Comments**
+
+- DEFAULT = 1
+- For test purposes only.
 
 ----
 
@@ -187,6 +210,18 @@ COLLISION_ENE_RESTORE
 
 **Definition**
 
+Flag to toggle collisional energy conservation.
+
+**Choices**
+
+- COLLISION_ENE_RESTORE = 0: Energy conservation OFF
+- COLLISION_ENE_RESTORE = 1: Energy conservation ON 
+
+**Comments**
+
+- DEFAULT = 1
+- For test purposes only.
+
 ----
 
 .. _cgyro_collision_ene_diffusion:
@@ -196,6 +231,18 @@ COLLISION_ENE_DIFFUSION
 
 **Definition**
 
+Flag to toggle collisional energy diffusion.
+
+**Choices**
+
+- COLLISION_ENE_DIFFUSION = 0: Energy diffusion OFF
+- COLLISION_ENE_DIFFUSION = 1: Energy diffusion ON 
+
+**Comments**
+
+- DEFAULT = 1
+- For test purposes only.
+
 ----
 
 .. _cgyro_collision_kperp:
@@ -204,6 +251,18 @@ COLLISION_KPERP
 ---------------
 
 **Definition**
+
+Flag to toggle :math:`k_\perp^2` terms in collision operator.
+
+**Choices**
+
+- COLLISION_KPERP = 0: Terms OFF
+- COLLISION_KPERP = 1: Terms ON 
+
+**Comments**
+
+- DEFAULT = 1
+- For test purposes only.
 
 ----
 
@@ -254,7 +313,7 @@ The normalized equilibrium-scale density.  First species density is DENS_1, and 
 
 **Commments**
 
-- DEFAULT: DENS_*= :math:`[1,0,0,\ldots]`
+- DEFAULT = :math:`[1,0,0,\ldots]`
 - The user should set DENS=1 for electrons.
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the densities
   are automatically normalized to :math:`n_e`.
@@ -292,6 +351,20 @@ DLNTDR_*
 --------
 
 **Definition**
+
+The normalized equilibrium-scale temperature gradient scale length:
+
+.. math::
+   \mathrm{DLNTDR}\_* = -a \frac{\partial {\rm ln} T_{*}}{\partial r}
+
+**Commments**
+
+- DEFAULT: 1.0
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the density as a function of radius is
+  read from :ref:`input.profiles` and the density gradient is computed internally.  The normalizing length is the
+  plasma minor radius.
+- When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
+  outboard midplane (:math:`\theta=0`).  
 
 ----
 

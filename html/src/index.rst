@@ -14,7 +14,7 @@ the `GACODE source code repository <https://github.com/gafusion/gacode/>`_ at Gi
 Running GACODE
 --------------
 
-There are numerous :doc:`public installations <setup>` of GACODE (via AToM or local maintainers).  You can also :doc:`install and build <build>` the GACODE suite from sources to run on your desktop or laptop.
+There are numerous :doc:`public installations <setup>` of GACODE (via `AToM <https://scidac.github.io/atom>`_ or local maintainers).  You can also :doc:`install and build <build>` the GACODE suite from sources to run on your desktop or laptop.
 
 Geometry
 --------
