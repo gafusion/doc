@@ -10,13 +10,6 @@ Quick links
    cgyro_cori
    cgyro_titan
 
-Overview
---------
-
-CGYRO can be built and run on many different Linux and OSX based platforms.
-
-To be finished...
-
 Leadership systems
 ------------------
 

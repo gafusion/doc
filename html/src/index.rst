@@ -11,10 +11,10 @@ GACODE refers to a collection of serial and HPC software developed by the Theory
 at `General Atomics <http://www.ga.com/magnetic-fusion>`_, and distributed through
 the `GACODE source code repository <https://github.com/gafusion/gacode/>`_ at GitHub.
 
-Installation
-------------
+Running GACODE
+--------------
 
-We maintain `public installations <http://scidac.github.io/atom/install.html>`_ of GACODE via AToM.  However, you can also :doc:`install and build <install>` the GACODE suite from sources.
+There are numerous :doc:`public installations <setup>` of GACODE (via AToM or local maintainers).  You can also :doc:`install and build <build>` the GACODE suite from sources to run on your desktop or laptop.
 
 Geometry
 --------
@@ -35,7 +35,8 @@ GACODE software works with the :ref:`input.profiles` format.
    :caption: Software
 
    download
-   install
+   setup
+   build
    zreferences
 
 .. toctree::

@@ -15,17 +15,15 @@ CGYRO Platform File
 -------------------
 
 There are two recommended platform files available:
-  * CORI_KNL_HT2_IFORT
-  * CORI_KNL_HT2_MKL
 
-When building the code, the first one will link against FFTW, while the seconds one will use the FFT libraries inside Intel Compilers' MKL library.
+* CORI_KNL_HT2_IFORT
+* CORI_KNL_HT2_MKL
 
-The MKL version generally provides faster code for big problems, e.g. *nl04* , while the FFTW version seems to be better for smaller problems, e.g. *nl01* .
-The speed difference can be up to 20% at both extremes.
+When building the code, the first one will link against FFTW, while the second one will use the FFT libraries inside Intel Compilers' MKL library.
+
+The MKL version generally provides faster code for big problems, e.g. *nl04* , while the FFTW version seems to be better for smaller problems, e.g. *nl01* .  The speed difference can be up to 20% at both extremes.
 
 .. note:: When running the jobs, you must use the same platform file that you used for building the executable.
-
-If you use the Atom provided installation at NERSC, please follow the instructions at the `Supported public AToM installations <https://scidac.github.io/atom/install.html>`_ web page.
 
 Balancing MPI Rank vs OMP
 -------------------------

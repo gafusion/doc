@@ -82,7 +82,8 @@
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download and user agreement</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install.html">Install and build GACODE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Build from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Codes</span></p>
@@ -97,7 +98,6 @@
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a><ul class="current">
 <li class="toctree-l4 current"><a class="reference internal" href="cgyro_platforms.html#quick-links">Quick links</a></li>
-<li class="toctree-l4"><a class="reference internal" href="cgyro_platforms.html#overview">Overview</a></li>
 <li class="toctree-l4"><a class="reference internal" href="cgyro_platforms.html#leadership-systems">Leadership systems</a></li>
 </ul>
 </li>
@@ -200,22 +200,17 @@ Each node is also equiped with 96 GB of RAM.</p>
 </div>
 <div class="section" id="cgyro-platform-file">
 <h2>CGYRO Platform File<a class="headerlink" href="#cgyro-platform-file" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>There are two recommended platform files available:</dt>
-<dd><ul class="first last simple">
+<p>There are two recommended platform files available:</p>
+<ul class="simple">
 <li>CORI_KNL_HT2_IFORT</li>
 <li>CORI_KNL_HT2_MKL</li>
 </ul>
-</dd>
-</dl>
-<p>When building the code, the first one will link against FFTW, while the seconds one will use the FFT libraries inside Intel Compilers’ MKL library.</p>
-<p>The MKL version generally provides faster code for big problems, e.g. <em>nl04</em> , while the FFTW version seems to be better for smaller problems, e.g. <em>nl01</em> .
-The speed difference can be up to 20% at both extremes.</p>
+<p>When building the code, the first one will link against FFTW, while the second one will use the FFT libraries inside Intel Compilers’ MKL library.</p>
+<p>The MKL version generally provides faster code for big problems, e.g. <em>nl04</em> , while the FFTW version seems to be better for smaller problems, e.g. <em>nl01</em> .  The speed difference can be up to 20% at both extremes.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">When running the jobs, you must use the same platform file that you used for building the executable.</p>
 </div>
-<p>If you use the Atom provided installation at NERSC, please follow the instructions at the <a class="reference external" href="https://scidac.github.io/atom/install.html">Supported public AToM installations</a> web page.</p>
 </div>
 <div class="section" id="balancing-mpi-rank-vs-omp">
 <h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this headline">¶</a></h2>

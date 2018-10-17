@@ -162,7 +162,7 @@ File Structure
 
 #. **null**
 
-**Vector data, block 4 (16-20) **
+**Vector data, block 4 (16-20)**
 
 #. **ni(1,:)**
 

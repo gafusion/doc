@@ -3,7 +3,7 @@ Download and user agreement
 
 GACODE development is funded by the US Department of Energy (DoE), and distribution is subject to DoE requirements and restrictions.
 
-By :doc:`cloning, downloading or otherwise using the sources <install>`, the recipient agrees:
+By :doc:`cloning, downloading or otherwise using the sources <build>`, the recipient agrees:
 
 1. to compile/use the GACODE source code **AS IS** (build system excepted) without modification; users however are welcome to request changes or issue pull requests;
 
