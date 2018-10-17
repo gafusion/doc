@@ -149,7 +149,10 @@ In experimental analyses the *radial force balance* relation is often used
 
    E_r = \frac{R B_p}{n_a z_a e} \frac{d p_a}{d\psi} + \frac{U_\varphi}{c} B_p - \frac{U_\theta}{c} B_t \; .
 
-We emphasize that this relation is valid at long wavelength (equilibrium scales) only, and is subject to the same ordering requirements as standard neoclassical and gyrokinetic theory.  This means a restriction on the steepness of gradients in the form :math:`\rho_i d \ln p/dr \ll 1`.  The force balance relation contains terms of order 0 and 1, as described in the previous sections.  We can write the velocities in terms of the neoclassical flow coefficient :math:`K_a` as
+.. note::
+   We emphasize that this relation is *valid at long wavelength (equilibrium scales) only*, and is subject to the same ordering requirements as standard neoclassical and gyrokinetic theory.  This means a restriction on the steepness of gradients in the form :math:`\rho_i d \ln p/dr \ll 1`.  See, for example, the discussion in :cite:`sugama:2011`.
+
+The force balance relation contains terms of order 0 and 1, as described in the previous sections.  We can write the velocities in terms of the neoclassical flow coefficient :math:`K_a` (see :cite:`belli:2009`) as
 
 .. math::
 
@@ -165,7 +168,7 @@ In the expression for :math:`U_\varphi`, we have defined the angular frequencies
    \begin{align}
    \omega_{1,a} = &~ -c \frac{d \left\langle\Phi_0\right\rangle}{d\psi} -
    \frac{c}{n_a z_a e}  \frac{d p_a}{d\psi} + {\cal O}(M^2) \; , \\ 
-   \omega_0     = &~ -c \frac{d \left\langle\Phi_{-1}\right\rangle}{d\psi} \; . 
+   \omega_0     = &~ -c \frac{d \Phi_{-1} }{d\psi} \; . 
    \end{align} 
 
 Substitution of the neoclassical flows into the force balance relation shows that all species-dependent terms cancel, leaving
