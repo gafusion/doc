@@ -55,11 +55,7 @@ Sugama.
 Input parameters
 ----------------
 
-CGYRO and NEO implement *full sonic rotation* (GYRO implements only a reduced model) according to the
-formulation of Hinton and Wong [Phys. Fluids 28, 3082 (1985)].  Neoclassically, the induced poloidally-varying
-electrostatic potential leads to the formation of potential wells.  In the banana regime these increase
-the effective trapped particle fraction, and in the Pfirsh-Schluter regime increase the effective toroidal
-curvature.  In both instances, this may lead to enhanced neoclassical transport.  The code inputs are
+CGYRO and NEO implement *full sonic rotation* (GYRO implements only a reduced model) according to the formulation of Hinton and Wong [Phys. Fluids 28, 3082 (1985)].  Neoclassically, the induced poloidally-varying electrostatic potential leads to the formation of potential wells.  In the banana regime these increase the effective trapped particle fraction, and in the Pfirsh-Schluter regime increase the effective toroidal curvature.  In both instances, this may lead to enhanced neoclassical transport.  The code inputs are
 
 .. csv-table::
    :header: "input.cgyro parameter", "Definition", "Description"
@@ -107,8 +103,7 @@ all fields and moments
    U_\theta  & =  ~~~~~~~~~~~~~~~~~~~~~~ U_{\theta,1} + \ldots 
    \end{align}
 
-where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` is the **toroidal velocity** and :math:`U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}`
-is the **poloidal velocity**.  The leading-order sonic flow is toroidal and independent of species
+where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` is the *toroidal velocity* and :math:`U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}` is the *poloidal velocity*.  The leading-order sonic flow is toroidal and independent of species
    
 .. math::
 
@@ -145,8 +140,40 @@ In practice, we can set :math:`\omega_1 = 0` *without loss of generality* and al
 Alternatively, in the diamagnetic rotation limit, we set :math:`\omega_0 = 0` with the rotation contained in :math:`\omega_1`.
 Finally, the toroidal velocities :math:`U_{\varphi,0} + U_{\varphi,1}` are treated in the same way.
 
+Consistency with force balance
+------------------------------
 
+In experimental analyses the *radial force balance* relation is often used
+
+.. math::
+
+   E_r = \frac{R B_p}{n_a z_a e} \frac{d p_a}{d\psi} + \frac{U_\varphi}{c} B_p - \frac{U_\theta}{c} B_t \; .
+
+We emphasize that this relation is valid at long wavelength (equilibrium scales) only, and is subject to the same ordering requirements as standard neoclassical and gyrokinetic theory.  This means a restriction on the steepness of gradients in the form :math:`\rho_i d \ln p/dr \ll 1`.  The force balance relation contains terms of order 0 and 1, as described in the previous sections.  We can write the velocities in terms of the neoclassical flow coefficient :math:`K_a` as
+
+.. math::
+
+   \begin{align}
+   U_\varphi = &~ \frac{K_a}{n_a} B_t + \omega_{1,a} R + \omega_0 R \; , \\
+   U_\theta = &~ \frac{K_a}{n_a} B_p \; . 
+   \end{align} 
+
+In the expression for :math:`U_\varphi`, we have defined the angular frequencies
+
+.. math::
+
+   \begin{align}
+   \omega_{1,a} = &~ -c \frac{d \left\langle\Phi_0\right\rangle}{d\psi} -
+   \frac{c}{n_a z_a e}  \frac{d p_a}{d\psi} + {\cal O}(M^2) \; , \\ 
+   \omega_0     = &~ -c \frac{d \left\langle\Phi_{-1}\right\rangle}{d\psi} \; . 
+   \end{align} 
+
+Substitution of the neoclassical flows into the force balance relation shows that all species-dependent terms cancel, leaving
+
+.. math::
+
+   E_r = \frac{R B_p}{c} \left( \omega_0 + \omega_1 \right) \; .
+
+where the species-independent frequency :math:`\omega_1` is discussed in the previous section.
 
    
-
-
