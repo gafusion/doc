@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CGYRO output files &mdash; GACODE</title>
+  <title>Running CGYRO on OLCF Titan &mdash; GACODE</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CGYRO data interface and plotting" href="plot.html" />
-    <link rel="prev" title="Alphabetical list for input.cgyro" href="cgyro_list.html" /> 
+    <link rel="next" title="GYRO" href="../gyro.html" />
+    <link rel="prev" title="Running CGYRO on NERSC Cori" href="cgyro_cori.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -93,9 +93,14 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="cgyro_platforms.html#quick-links">Quick links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cgyro_platforms.html#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cgyro_platforms.html#leadership-systems">Leadership systems</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#overview">Overview</a></li>
@@ -162,13 +167,15 @@
         
           <li><a href="../cgyro.html">CGYRO</a> &raquo;</li>
         
-      <li>CGYRO output files</li>
+          <li><a href="cgyro_platforms.html">Supported CGYRO Platforms</a> &raquo;</li>
+        
+      <li>Running CGYRO on OLCF Titan</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cgyro/outputs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cgyro/cgyro_titan.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -181,127 +188,170 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cgyro-output-files">
-<h1>CGYRO output files<a class="headerlink" href="#cgyro-output-files" title="Permalink to this headline">¶</a></h1>
-<p>It is not <strong>not recommended</strong> to read these files directly.  Rather, we encourage the use
-of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">python data interface</span></a>.</p>
+  <div class="section" id="running-cgyro-on-olcf-titan">
+<h1>Running CGYRO on OLCF Titan<a class="headerlink" href="#running-cgyro-on-olcf-titan" title="Permalink to this headline">¶</a></h1>
+<p>ORNL Titan is one of the most popular GPU platforms on which to run CGYRO.
+This document provides some guidance on how to best make use of its resources</p>
+<div class="section" id="titan-capabilities">
+<h2>Titan capabilities<a class="headerlink" href="#titan-capabilities" title="Permalink to this headline">¶</a></h2>
+<p>The bulk of the Titan compute power comes from the approximately 18k nodes, each hosting a single AMD Opteron CPU and a NVIDIA K20X GPU.
+For our purposes, each Opteron provides 16 execution threads.
+Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
+</div>
+<div class="section" id="titan-platform-file">
+<h2>Titan Platform File<a class="headerlink" href="#titan-platform-file" title="Permalink to this headline">¶</a></h2>
+<p>The recommended platform file is:</p>
+<blockquote>
+<div><ul class="simple">
+<li>TITAN_PGI</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="balancing-mpi-rank-vs-omp">
+<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this headline">¶</a></h2>
+<p>When submitting a CGYRO job, you are asked to pick an MPI rank ( <em>-n</em> ) and the number of threads/process ( <em>-nomp</em> ).
+The product will determine the amount of compute resources you will use.</p>
+<p>The recommended setting is to pick <strong>nomp</strong> to be 2.</p>
+<p>For really big runs, you can make use of more nodes by setting <strong>-nomp 4</strong> or even <strong>-nomp 8</strong>.</p>
+</div>
+<div class="section" id="trading-speed-vs-efficiency">
+<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this headline">¶</a></h2>
+<p>As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. compute nodes).
+However, like most HPC codes, the efficiency will generally decrease as you use more resources, too.
+I.e. you will be able to get <strong>less computation done with the same amount of allocation time</strong>.</p>
+<p>Often, this is an expected tradeoff to get the desired results within a reasonable amount of time,
+but it should be a conscious decision.
+E.g. if you need the results of 8 independent simulations at once, and you do not care for partial results,
+it will be more efficient to run them in parallel, each using 1/8th of the resources,
+instead of running them sequentially using as many resources as possible for each.</p>
+<p>The actual speedup, and the related efficiency, depends on the actual input setup.
+Below you can see the wallclock results doing a few steps for the very small <em>nl01</em>, the medium sized <em>nl03</em> and the large <em>nl04</em>.</p>
 <table border="1" class="docutils" id="id1">
-<caption><span class="caption-text"><strong>Time-independent output</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>nl01</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Filename</th>
-<th class="head">Short description</th>
+<tr class="row-odd"><th class="head">#nodes</th>
+<th class="head">Wallclock time</th>
+<th class="head">Speedup</th>
+<th class="head">Efficiency</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>out.cgyro.egrid</td>
-<td>Energy mesh and various weights</td>
+<tr class="row-even"><td>8</td>
+<td>40</td>
+<td>1.0x</td>
+<td>100%</td>
 </tr>
-<tr class="row-odd"><td>out.cgyro.equilibrium</td>
-<td>Physics input data</td>
+<tr class="row-odd"><td>16</td>
+<td>20</td>
+<td>2.0x</td>
+<td>99%</td>
 </tr>
-<tr class="row-even"><td>out.cgyro.grids</td>
-<td>Mesh dimensions and coordinates</td>
+<tr class="row-even"><td>32</td>
+<td>13</td>
+<td>3.1x</td>
+<td>78%</td>
 </tr>
-<tr class="row-odd"><td>out.cgyro.hosts</td>
-<td>MPI ranks and hostnames</td>
+<tr class="row-odd"><td>64</td>
+<td>7.9</td>
+<td>5.1x</td>
+<td>63%</td>
 </tr>
-<tr class="row-even"><td>out.cgyro.info</td>
-<td>Human-readable description of simulation</td>
+<tr class="row-even"><td>128</td>
+<td>6.7</td>
+<td>6.0x</td>
+<td>38%</td>
 </tr>
-<tr class="row-odd"><td>out.cgyro.memory</td>
-<td>Memory usage statistics</td>
-</tr>
-<tr class="row-even"><td>out.cgyro.mpi</td>
-<td>Recommendations for choosing MPI tasks and OMP threads</td>
-</tr>
-<tr class="row-odd"><td>out.cgyro.version</td>
-<td>Version information and timestamp for simulation</td>
-</tr>
-<tr class="row-even"><td>bin.cgyro.geo</td>
-<td>GK equation coefficients versus <span class="math">\(\theta\)</span></td>
+<tr class="row-odd"><td>256</td>
+<td>5.5</td>
+<td>7.3x</td>
+<td>23%</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id2">
-<caption><span class="caption-text"><strong>Common time-dependent output</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>nl03</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="33%" />
-<col width="42%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 <col width="25%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Filename</th>
-<th class="head">Short description</th>
-<th class="head">Switch</th>
+<tr class="row-odd"><th class="head">#nodes</th>
+<th class="head">Wallclock time</th>
+<th class="head">Speedup</th>
+<th class="head">Efficiency</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>out.cgyro.time</td>
-<td>Time and error vector</td>
-<td>&#160;</td>
+<tr class="row-even"><td>64</td>
+<td>366</td>
+<td>1.0x</td>
+<td>100%</td>
 </tr>
-<tr class="row-odd"><td>out.cgyro.timing</td>
-<td>Kernel timer data</td>
-<td>&#160;</td>
+<tr class="row-odd"><td>128</td>
+<td>203</td>
+<td>1.8x</td>
+<td>90%</td>
 </tr>
-<tr class="row-even"><td>bin.cgyro.freq</td>
-<td>Mode frequency vector</td>
-<td>&#160;</td>
+<tr class="row-even"><td>256</td>
+<td>149</td>
+<td>2.5x</td>
+<td>62%</td>
 </tr>
-<tr class="row-odd"><td>bin.cgyro.kxky_phi</td>
-<td><span class="math">\(\delta\phi(k_x^0,k_y,t)\)</span></td>
-<td>&#160;</td>
+<tr class="row-odd"><td>512</td>
+<td>123</td>
+<td>3.0x</td>
+<td>37%</td>
 </tr>
-<tr class="row-even"><td>bin.cgyro.kxky_apar</td>
-<td><span class="math">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></td>
-<td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
-</tr>
-<tr class="row-odd"><td>bin.cgyro.kxky_bpar</td>
-<td><span class="math">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></td>
-<td><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</td>
-</tr>
-<tr class="row-even"><td>bin.cgyro.kxky_n</td>
-<td><span class="math">\(\delta n_a(k_x^0,k_y,t)\)</span></td>
-<td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
-</tr>
-<tr class="row-odd"><td>bin.cgyro.kxky_e</td>
-<td><span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span></td>
-<td><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</td>
-</tr>
-<tr class="row-even"><td>bin.cgyro.kxky_flux_e</td>
-<td><span class="math">\(Q_a(k_x^0,k_y,t)\)</span></td>
-<td><a class="reference internal" href="cgyro_list.html#cgyro-kxkyflux-print-flag"><span class="std std-ref">KXKYFLUX_PRINT_FLAG</span></a> = 1</td>
-</tr>
-<tr class="row-odd"><td>bin.cgyro.ky_flux</td>
-<td><span class="math">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math">\((k_y,t)\)</span></td>
-<td>&#160;</td>
+<tr class="row-even"><td>1024</td>
+<td>77</td>
+<td>4.7x</td>
+<td>30%</td>
 </tr>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id3">
-<caption><span class="caption-text"><strong>Restart data</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>nl04</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
-<col width="40%" />
-<col width="60%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
 </colgroup>
 <thead valign="bottom">
-<tr class="row-odd"><th class="head">Filename</th>
-<th class="head">Short description</th>
+<tr class="row-odd"><th class="head">#nodes</th>
+<th class="head">Wallclock time</th>
+<th class="head">Speedup</th>
+<th class="head">Efficiency</th>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td>out.cgyro.tag</td>
-<td>Restart tag file (contains time index and value)</td>
+<tr class="row-even"><td>1024</td>
+<td>123</td>
+<td>1.0x</td>
+<td>100%</td>
 </tr>
-<tr class="row-odd"><td>out.cgyro.restart</td>
-<td>Binary restart file</td>
+<tr class="row-odd"><td>2048</td>
+<td>94</td>
+<td>1.3x</td>
+<td>65%</td>
+</tr>
+<tr class="row-even"><td>4096</td>
+<td>73</td>
+<td>1.7x</td>
+<td>42%</td>
 </tr>
 </tbody>
 </table>
+<p>Return to <a class="reference internal" href="#"><span class="doc">top</span></a></p>
+</div>
 </div>
 
 
@@ -312,10 +362,10 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot.html" class="btn btn-neutral float-right" title="CGYRO data interface and plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cgyro_list.html" class="btn btn-neutral" title="Alphabetical list for input.cgyro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="cgyro_cori.html" class="btn btn-neutral" title="Running CGYRO on NERSC Cori" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
