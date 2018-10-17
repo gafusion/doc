@@ -76,10 +76,10 @@ Below you can see the wallclock results doing a few steps for the very small *nl
 .. csv-table:: **nl04**
    :header: "#nodes","Wallclock time","Speedup","Efficiency"
 
-   128,153.7,1.0x,100%
-   256,101.4,1.5x,76%
-   512,56.9,2.7x,68%
-   1024,36.8,4.2x,52%
+   128,154,1.0x,100%
+   256,101,1.5x,76%
+   512,57,2.7x,68%
+   1024,37,4.2x,52%
 
 
 Return to :doc:`top <cgyro_cori>`
