@@ -11,6 +11,7 @@ Quick links
    cgyro/cgyro_list
    cgyro/outputs
    cgyro/plot
+   cgyro/cgyro_platforms
 
 Overview
 --------
