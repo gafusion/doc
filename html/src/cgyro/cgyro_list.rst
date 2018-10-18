@@ -1,4 +1,7 @@
 .. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
+.. |dphi| mathmacro:: \delta\phi
+.. |dap| mathmacro:: \delta A_\parallel
+.. |dbp| mathmacro:: \delta B_\parallel
 
 Alphabetical list for input.cgyro
 =================================
@@ -159,7 +162,6 @@ Collision operator selection.
 - DEFAULT = 4
 - To control conservation and other properties, the following parameters can be set: :ref:`cgyro_collision_field_model`, :ref:`cgyro_collision_mom_restore`, :ref:`cgyro_collision_ene_restore`, :ref:`cgyro_collision_ene_diffusion`, :ref:`cgyro_collision_kperp`
   
-
 ----
 
 .. _cgyro_collision_field_model:
@@ -336,9 +338,9 @@ The normalized equilibrium-scale density gradient scale length:
 
 **Commments**
 
-- DEFAULT: 1.0
+- DEFAULT = :math:`[1,1,1,\ldots]`
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the density as a function of radius is
-  read from :ref:`input.profiles` and the density gradient is computed internally.  The normalizing length is the
+  read from :ref:`input.profiles` and the gradient is computed internally.  The normalizing length is the
   plasma minor radius.
 - When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
   outboard midplane (:math:`\theta=0`).  
@@ -355,13 +357,13 @@ DLNTDR_*
 The normalized equilibrium-scale temperature gradient scale length:
 
 .. math::
-   \mathrm{DLNTDR}\_* = -a \frac{\partial {\rm ln} T_{*}}{\partial r}
+   \mathrm{DLNTDR}\_* = -a \frac{\partial {\rm ln} T_{*}}{\partial r} \; .
 
 **Commments**
 
-- DEFAULT: 1.0
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the density as a function of radius is
-  read from :ref:`input.profiles` and the density gradient is computed internally.  The normalizing length is the
+- DEFAULT = :math:`[1,1,1,\ldots]`
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the temperature as a function of radius is
+  read from :ref:`input.profiles` and the gradient is computed internally.  The normalizing length is the
   plasma minor radius.
 - When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
   outboard midplane (:math:`\theta=0`).  
@@ -375,6 +377,28 @@ DZMAG
 
 **Definition**
 
+Rate of change of plasma elevation:
+
+.. math::
+   a \frac{\partial Z_0(r)}{\partial r} \; .
+
+
+----
+
+.. _cgyro_e_max:
+
+E_MAX
+-----
+
+**Definition**
+
+Maximum value of (pseudospectral) dimensionless energy, :math:`\varepsilon_\mathrm{max}` 
+
+**Comments**
+
+- DEFAULT = 8.0
+- Corresponds to Maxwellian factor :math:`\displaystyle e^{-\varepsilon_\mathrm{max}}`
+
 ----
 
 .. _cgyro_equilibrium_model:
@@ -383,6 +407,19 @@ EQUILIBRIUM_MODEL
 -----------------
 
 **Definition**
+
+Flux-surface shape specification parameter.
+
+**Choices**
+
+- EQUILIBRIUM_MODEL = 1: :math:`s` - :math:`\alpha` 
+- EQUILIBRIUM_MODEL = 2: Miller parameterization
+- EQUILIBRIUM_MODEL = 3: General (Fourier) parameterization 
+
+**Comments**
+
+- DEFAULT = 2
+- EQUILIBRIUM_MODEL=1 is not available for experimental profiles (:ref:`cgyro_profile_model` =2).
 
 ----
 
@@ -393,11 +430,13 @@ FIELD_PRINT_FLAG
 
 **Definition**
 
-Toggle printing of :math:`\delta A_\parallel(k_x^0,k_y,t)` and :math:`\delta B_\parallel(k_x^0,k_y,t)` .
+Toggle printing of :math:`\dap(k_x^0,k_y,t)` and :math:`\dbp(k_x^0,k_y,t)` .
 
 **Comments**
 
-- DEFAULT = 0.
+- DEFAULT = 0
+- Output files are ``bin.cgyro.kxky_apar`` and ``bin.cgyro.kxky_bpar``, respectively
+- Even if this flag is set to zero, potential fluctuations :math:`\dphi(k_x^0,k_y,t)` are written to ``bin.cgyro.kxky_phi``
 
 ----
 
@@ -408,6 +447,12 @@ FREQ_TOL
 
 **Definition**
 
+Eigenvalue convergence tolerance for linear simulations.
+
+**Comments**
+
+- DEFAULT = 0.001
+
 ----
 
 .. _cgyro_gamma_e:
@@ -417,12 +462,13 @@ GAMMA_E
 
 **Definition**
 
-Normalized :math:`\exb` shearing rate :math:`(a/c_s) \gamma_E`.
+Normalized :math:`\exb` shearing rate :math:`\displaystyle \frac{a}{c_s} \gamma_E`.
 
 **Comments**
 
 - DEFAULT = 0.0
-      
+- See discussion on :doc:`plasma rotation <../rotation>`
+     
 ----
 
 .. _cgyro_gamma_e_scale:
@@ -431,6 +477,13 @@ GAMMA_E_SCALE
 -------------
 
 **Definition**
+
+Scaling factor applied to experimental value of :math:`\gamma_E` .
+
+**Comments**
+
+- DEFAULT = 1.0
+- Only active for :ref:`cgyro_profile_model` =2
 
 ----
 
@@ -441,6 +494,13 @@ GAMMA_P
 
 **Definition**
 
+Normalized rotation shearing rate :math:`\displaystyle \frac{a}{c_s} \gamma_p`.
+
+**Comments**
+
+- DEFAULT = 0.0
+- See discussion on :doc:`plasma rotation <../rotation>`
+
 ----
 
 .. _cgyro_gamma_p_scale:
@@ -449,6 +509,13 @@ GAMMA_P_SCALE
 -------------
 
 **Definition**
+
+Scaling factor applied to experimental value of :math:`\gamma_p` .
+
+**Comments**
+
+- DEFAULT = 1.0
+- Only active for :ref:`cgyro_profile_model` =2
 
 ----
 
@@ -473,6 +540,19 @@ IPCCW
 -----
 
 **Definition**
+
+Parameter which selects the orientation of the plasma current (and thus the poloidal magnetic field :math:`B_p`) relative to the toroidal angle :math:`\varphi`.
+
+**Choices**
+
+- IPCCW = 1: Counter-clockwise when viewed from above the torus - negative :math:`\mathbf{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_p` is oriented along the negative :math:`\mathbf{e}_{\varphi}` direction.
+- IPCCW = -1: Clockwise when viewed from above the torus - positive :math:`\mathbf{e}_{\varphi}` for the right-handed coordinate system :math:`(r,\theta,\varphi)`.  Thus, :math:`B_p` is oriented along the positive :math:`\mathbf{e}_{\varphi}` direction. 
+
+**Comments**
+
+- DEFAULT = -1
+- In DIII-D, typically IPCCW = 1.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of IP is inferred from :ref:`input.profiles`.
 
 ----
 
@@ -504,7 +584,8 @@ Toggle printing of :math:`Q_a(k_x^0,k_y,t)` .
 
 **Comments**
 
-- DEFAULT = 0.
+- DEFAULT = 0
+- Only the energy flux is considered.  There is not option for density or momentum fluxes.
 
 ----
 
@@ -514,6 +595,14 @@ KY
 --
 
 **Definition**
+
+Selector for value of :math:`k_\theta \rho_s` .
+
+**Comments**
+
+- If :ref:`cgyro_n_toroidal` = 1, this is the simulated value of :math:`k_\theta \rho_s`
+- If :ref:`cgyro_n_toroidal` > 1, this is the lowest nonzero value of :math:`k_\theta \rho_s`
+- Use the output in ``out.cgyro.info`` to guide selection of KY
 
 ----
 
@@ -542,6 +631,13 @@ MACH
 
 **Definition**
 
+Rotation speed (Mach number) :math:`M` 
+
+**Comments**
+
+- DEFAULT = 0.0
+- See discussion in :doc:`plasma rotation <../rotation>`
+
 ----
 
 .. _cgyro_mach_scale:
@@ -550,6 +646,13 @@ MACH_SCALE
 ----------
 
 **Definition**
+
+Scaling factor applied to experimental value of :math:`M` .
+
+**Comments**
+
+- DEFAULT = 1.0
+- Only active for :ref:`cgyro_profile_model` =2
 
 ----
 
@@ -567,7 +670,7 @@ The species mass normalized to deuterium mass: MASS_1, and so on.
 
 **Commments**
 
-- DEFAULT = 1.0
+- DEFAULT = :math:`[1,1,1,\ldots]`
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the normalizing mass is deuterium.
 - A typical case (deuterium, carbon, electrons) would be::
 
@@ -584,6 +687,8 @@ MAX_TIME
 --------
 
 **Definition**
+
+Maximum simulation time in units of :math:`a/c_s`
 
 ----
 
@@ -610,6 +715,17 @@ NONLINEAR_FLAG
 
 **Definition**
 
+Toggle inclusion of nonlinear terms.
+
+**Choices**
+
+- NONLINEAR_FLAG=0: Nonlinear terms OFF
+- NONLINEAR_FLAG=1: Nonlinear terms ON
+
+**Comments**
+
+- DEFAULT = 0
+  
 ----
 
 .. _cgyro_n_field:
@@ -619,14 +735,17 @@ N_FIELD
 
 **Definition**
 
-----
+Selector for number of fluctuating fields
 
-.. _cgyro_up_radial:
+**Choices**
 
-UP_RADIAL
----------
+- N_FIELD=1: Retain :math:`\dphi`
+- N_FIELD=2: Retain :math:`(\dphi,\dap)`
+- N_FIELD=3: Retain :math:`(\dphi,\dap,\dbp)`
+  
+**Comments**
 
-**Definition**
+- DEFAULT = 1
 
 ----
 
@@ -702,6 +821,14 @@ N_RADIAL
 
 **Definition**
 
+Number of radial wavenumbers to retain in simulation.
+
+**Comments**
+
+- DEFAULT = 4
+- For linear simulations with :ref:`cgyro_box_size` =1, this can be as small as 2, but a minimium of 4 is recommended.
+- Wavenumbers span :math:`p = -N , \ldots , N-1` where :math:`N` = N_RADIAL/2
+  
 ----
 
 .. _cgyro_n_theta:
@@ -710,6 +837,12 @@ N_THETA
 -------
 
 **Definition**
+
+Number of poloidal gridpoints :math:`\theta_i` to retain in simulation.
+
+**Comments**
+
+- DEFAULT = 24
 
 ----
 
@@ -720,6 +853,14 @@ N_XI
 
 **Definition**
 
+Number of Legendre pseudospectral meshpoints :math:`\xi_i` to retain in simulation.
+
+**Comments**
+
+- DEFAULT = 16
+- This is the **pitch-angle resolution**
+- This is equivalent to number of retained Legendre polynomials
+  
 ----
 
 .. _cgyro_n_energy:
@@ -729,14 +870,13 @@ N_ENERGY
 
 **Definition**
 
-----
+Number of generalized-Laguerre pseudospectral meshpoints :math:`v_i` to retain in simulation 
 
-.. _cgyro_e_max:
+**Comments**
 
-E_MAX
------
-
-**Definition**
+- DEFAULT = 8
+- This is the **energy resolution**
+- This is equivalent to number of retained Laguerre polynomials
 
 ----
 
@@ -956,6 +1096,15 @@ The normalized equilibrium-scale temperature.  First species temperature is TEMP
 
 UDSYMMETRY_FLAG
 ---------------
+
+**Definition**
+
+----
+
+.. _cgyro_up_radial:
+
+UP_RADIAL
+---------
 
 **Definition**
 
