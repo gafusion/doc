@@ -35,9 +35,10 @@ Rules for evolving species.
 
 **Choices**
 
+- TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)
 - TGYRO_DEN_METHOD*=0: Do not evolve species
 - TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation
-- TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)
+- TGYRO_DEN_METHOD*=2: Species evolved with alpha particles from DT reaction as source
 
 **Comments**
 
@@ -57,6 +58,16 @@ Rules for evolving species.
      TGYRO_DEN_METHOD0=0
      TGYRO_DEN_METHOD1=-1
      TGYRO_DEN_METHOD2=1
+
+- For a DT main ion plasma (1), with He4 ash (2), an impurity species (3) and a fast ion NBI species, set:
+
+  .. code-block:: none
+
+     TGYRO_DEN_METHOD0=1  #electron
+     TGYRO_DEN_METHOD1=-1 #main ion DT
+     TGYRO_DEN_METHOD2=2  #ash He4
+     TGYRO_DEN_METHOD3=0  #impurity
+     TGYRO_DEN_METHOD4=0  #fast ion
 
 **Default**
 
