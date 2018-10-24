@@ -84,16 +84,22 @@ TGYRO_DT_METHOD
 
 **Definition**
 
-How is a Deuterium and Tritium plasma input.
+Method for handling DT mixture (as separate or hybrid species).
 
 **Choices**
 
-- TGYRO_DT_METHOD=1: two separate D and T species
-- TGYRO_DT_METHOD=2: a single ion scecies with name DT and mass 2.5 AMU
+- TGYRO_DT_METHOD=1: two separate D and T species (requires two separate profiles)
+- TGYRO_DT_METHOD=2: a single *hybrid* D-T species with density :math:`n_{DT}` and mass 2.5 AMU
 
 **Comments**
 
-When TGYRO_DT_METHOD is set to 2, then a 50/50 percent mix of Deuterium and Tritium is assumed
+- When TGYRO_DT_METHOD=1, the fusion cross section is computed as
+
+  .. math:: S = n_{D} n_{T} \left\langle \sigma v\right\rangle 
+
+- When TGYRO_DT_METHOD=2, the fusion cross section is computed as
+
+  .. math:: S = \frac{n_{DT}^2}{4} \left\langle \sigma v\right\rangle
 
 **Default**
 
@@ -283,6 +289,33 @@ Flag to manage calculation of initial profile
 
 .. ===========================================================================================
 
+.. _tgyro_loc_scenario:
+
+LOC_SCENARIO
+------------
+
+**Definition**
+
+Power-balance scenario.
+
+**Choices**
+
+- LOC_SCENARIO=1 : Fixed integrated powers with static exchange.
+- LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.
+- LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data. 
+
+**Comments**
+
+- In LOC_SCENARIO=3, pow_e and pow_i in input.profiles are assumed to be auxiliary heating profiles.  Otherwise, pow_e and pow_i are the usual total powers to ions and electrons. 
+  
+**Default**
+
+1
+
+----
+
+.. ===========================================================================================
+
 .. _tgyro_loc_ma:
 
 LOC_MA*
@@ -295,6 +328,23 @@ Ion mass in units of hydrogen mass.  First ion is LOC_MA1, etc.
 **Default**
 
 2.0
+
+----
+
+.. ===========================================================================================
+
+.. _tgyro_loc_z:
+
+LOC_Z*
+-------
+
+**Definition**
+
+Ion charge.  First ion is LOC_Z1, etc.
+
+**Default**
+
+1.0
 
 ----
 

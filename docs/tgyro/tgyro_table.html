@@ -289,10 +289,6 @@
 <td>Evolve electric field</td>
 <td>0</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-he-feedback-flag"><span class="std std-ref">LOC_HE_FEEDBACK_FLAG</span></a></td>
-<td>Evolve helium ash using alpha source</td>
-<td>0</td>
-</tr>
 </tbody>
 </table>
 <table border="1" class="docutils" id="id4">
@@ -309,13 +305,41 @@
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-betae-scale"><span class="std std-ref">LOC_BETAE_SCALE</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-dt-method"><span class="std std-ref">TGYRO_DT_METHOD</span></a></td>
+<td>Method for handling D/T mixture</td>
+<td>2</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-betae-scale"><span class="std std-ref">LOC_BETAE_SCALE</span></a></td>
 <td>Amount to scale electron <span class="math">\(\beta\)</span></td>
 <td>1.0</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-ma"><span class="std std-ref">LOC_MA*</span></a></td>
+<tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-scenario"><span class="std std-ref">LOC_SCENARIO</span></a></td>
+<td>Power-balance scenario</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils" id="id5">
+<caption><span class="caption-text"><strong>Species Parameters</strong></span><a class="headerlink" href="#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="30%" />
+<col width="58%" />
+<col width="12%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">input.tgyro parameter</th>
+<th class="head">Short description</th>
+<th class="head">Default</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-ma"><span class="std std-ref">LOC_MA*</span></a></td>
 <td>Ion masses in units of <span class="math">\(m_H\)</span></td>
 <td>2.0</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="tgyro_list.html#tgyro-loc-z"><span class="std std-ref">LOC_Z*</span></a></td>
+<td>Ion charge</td>
+<td>1.0</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="tgyro_list.html#tgyro-therm-flag"><span class="std std-ref">TGYRO_THERM_FLAG*</span></a></td>
 <td>Toggle thermal/nonthermal species</td>

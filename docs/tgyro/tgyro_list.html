@@ -95,6 +95,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">input.tgyro Alphabetical List</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#loc-betae-scale">LOC_BETAE_SCALE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-den-method">TGYRO_DEN_METHOD*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tgyro-dt-method">TGYRO_DT_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-dx">LOC_DX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-dx-max">LOC_DX_MAX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-er-feedback-flag">LOC_ER_FEEDBACK_FLAG</a></li>
@@ -102,7 +103,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#loc-he-feedback-flag">LOC_HE_FEEDBACK_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-iteration-method">TGYRO_ITERATION_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-lock-profile-flag">LOC_LOCK_PROFILE_FLAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loc-scenario">LOC_SCENARIO</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-ma">LOC_MA*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loc-z">LOC_Z*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-mode">TGYRO_MODE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-relax-iterations">TGYRO_RELAX_ITERATIONS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-relax">LOC_RELAX</a></li>
@@ -222,9 +225,10 @@
 <p>Rules for evolving species.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
+<li>TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)</li>
 <li>TGYRO_DEN_METHOD*=0: Do not evolve species</li>
 <li>TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation</li>
-<li>TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)</li>
+<li>TGYRO_DEN_METHOD*=2: Species evolved with alpha particles from DT reaction as source</li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul>
@@ -244,9 +248,42 @@ TGYRO_DEN_METHOD2=1
 </pre></div>
 </div>
 </li>
+<li><p class="first">For a DT main ion plasma (1), with He4 ash (2), an impurity species (3) and a fast ion NBI species, set:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1  #electron
+TGYRO_DEN_METHOD1=-1 #main ion DT
+TGYRO_DEN_METHOD2=2  #ash He4
+TGYRO_DEN_METHOD3=0  #impurity
+TGYRO_DEN_METHOD4=0  #fast ion
+</pre></div>
+</div>
+</li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
+<hr class="docutils" />
+</div>
+<div class="section" id="tgyro-dt-method">
+<span id="id2"></span><h2>TGYRO_DT_METHOD<a class="headerlink" href="#tgyro-dt-method" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Method for handling DT mixture (as separate or hybrid species).</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>TGYRO_DT_METHOD=1: two separate D and T species (requires two separate profiles)</li>
+<li>TGYRO_DT_METHOD=2: a single <em>hybrid</em> D-T species with density <span class="math">\(n_{DT}\)</span> and mass 2.5 AMU</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul>
+<li><p class="first">When TGYRO_DT_METHOD=1, the fusion cross section is computed as</p>
+<div class="math">
+\[S = n_{D} n_{T} \left\langle \sigma v\right\rangle\]</div>
+</li>
+<li><p class="first">When TGYRO_DT_METHOD=2, the fusion cross section is computed as</p>
+<div class="math">
+\[S = \frac{n_{DT}^2}{4} \left\langle \sigma v\right\rangle\]</div>
+</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>2</p>
 <hr class="docutils" />
 </div>
 <div class="section" id="loc-dx">
@@ -319,7 +356,7 @@ TGYRO_DEN_METHOD2=1
 <hr class="docutils" />
 </div>
 <div class="section" id="tgyro-iteration-method">
-<span id="id2"></span><h2>TGYRO_ITERATION_METHOD<a class="headerlink" href="#tgyro-iteration-method" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2>TGYRO_ITERATION_METHOD<a class="headerlink" href="#tgyro-iteration-method" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Variation of Newton method used for root-finding.</p>
 <p><strong>Choices</strong></p>
@@ -365,6 +402,24 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>0</p>
 <hr class="docutils" />
 </div>
+<div class="section" id="loc-scenario">
+<span id="tgyro-loc-scenario"></span><h2>LOC_SCENARIO<a class="headerlink" href="#loc-scenario" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Power-balance scenario.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>LOC_SCENARIO=1 : Fixed integrated powers with static exchange.</li>
+<li>LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.</li>
+<li>LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data.</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>In LOC_SCENARIO=3, pow_e and pow_i in input.profiles are assumed to be auxiliary heating profiles.  Otherwise, pow_e and pow_i are the usual total powers to ions and electrons.</li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1</p>
+<hr class="docutils" />
+</div>
 <div class="section" id="loc-ma">
 <span id="tgyro-loc-ma"></span><h2>LOC_MA*<a class="headerlink" href="#loc-ma" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
@@ -373,8 +428,16 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>2.0</p>
 <hr class="docutils" />
 </div>
+<div class="section" id="loc-z">
+<span id="tgyro-loc-z"></span><h2>LOC_Z*<a class="headerlink" href="#loc-z" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Ion charge.  First ion is LOC_Z1, etc.</p>
+<p><strong>Default</strong></p>
+<p>1.0</p>
+<hr class="docutils" />
+</div>
 <div class="section" id="tgyro-mode">
-<span id="id3"></span><h2>TGYRO_MODE<a class="headerlink" href="#tgyro-mode" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>TGYRO_MODE<a class="headerlink" href="#tgyro-mode" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>High-level control of TGYRO operational mode.</p>
 <p><strong>Choices</strong></p>
@@ -441,7 +504,7 @@ TGYRO_MODE=3
 <hr class="docutils" />
 </div>
 <div class="section" id="tgyro-relax-iterations">
-<span id="id4"></span><h2>TGYRO_RELAX_ITERATIONS<a class="headerlink" href="#tgyro-relax-iterations" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>TGYRO_RELAX_ITERATIONS<a class="headerlink" href="#tgyro-relax-iterations" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Maximum number of Newton iterations.</p>
 <p><strong>Comments</strong></p>
@@ -498,7 +561,7 @@ TGYRO_MODE=3
 <hr class="docutils" />
 </div>
 <div class="section" id="tgyro-therm-flag">
-<span id="id5"></span><h2>TGYRO_THERM_FLAG*<a class="headerlink" href="#tgyro-therm-flag" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>TGYRO_THERM_FLAG*<a class="headerlink" href="#tgyro-therm-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Thermal/nonthermal species toggle.  First ion is TGYRO_THERM_FLAG1, etc.</p>
 <p><strong>Choices</strong></p>
@@ -542,7 +605,7 @@ TGYRO_MODE=3
 <hr class="docutils" />
 </div>
 <div class="section" id="tgyro-write-profiles-flag">
-<span id="id6"></span><h2>TGYRO_WRITE_PROFILES_FLAG<a class="headerlink" href="#tgyro-write-profiles-flag" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>TGYRO_WRITE_PROFILES_FLAG<a class="headerlink" href="#tgyro-write-profiles-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Manage how new <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> files are written.</p>
 <p><strong>Choices</strong></p>
