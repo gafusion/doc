@@ -4,3 +4,4 @@ html/src/_build
 html/src/mathmacro.pyc
 .DS_Store
 *~
+.idea/
