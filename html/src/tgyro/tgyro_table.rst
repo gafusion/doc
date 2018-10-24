@@ -39,5 +39,4 @@ input.tgyro Tabular List
    ":ref:`tgyro_loc_betae_scale`", Amount to scale electron :math:`\beta`,1.0
    ":ref:`tgyro_loc_ma`", Ion masses in units of :math:`m_H` , 2.0
    ":ref:`tgyro_therm_flag`", Toggle thermal/nonthermal species , 1
-
-
+   ":ref:`tgyro_dt_method`", How is a Deuterium and Tritium plasma input, 2

@@ -77,6 +77,32 @@ Rules for evolving species.
 
 .. ===========================================================================================
 
+.. _tgyro_dt_method:
+
+TGYRO_DT_METHOD
+---------------
+
+**Definition**
+
+How is a Deuterium and Tritium plasma input.
+
+**Choices**
+
+- TGYRO_DT_METHOD=1: two separate D and T species
+- TGYRO_DT_METHOD=2: a single ion scecies with name DT and mass 2.5 AMU
+
+**Comments**
+
+When TGYRO_DT_METHOD is set to 2, then a 50/50 percent mix of Deuterium and Tritium is assumed
+
+**Default**
+
+2
+
+----
+
+.. ===========================================================================================
+
 .. _tgyro_loc_dx:
 
 LOC_DX
