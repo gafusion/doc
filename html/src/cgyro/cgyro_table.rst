@@ -90,6 +90,7 @@ Tabular list for input.cgyro
    ":ref:`cgyro_collision_ene_restore`", Toggle energy conservation,1
    ":ref:`cgyro_collision_ene_diffusion`", Toggle energy diffusion,1
    ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
+   ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload, 0
 
 .. csv-table:: **Species-related parameters**
    :header: "input.cgyro parameter", "Short description", "Default"

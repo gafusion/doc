@@ -519,6 +519,22 @@ Scaling factor applied to experimental value of :math:`\gamma_p` .
 
 ----
 
+.. _cgyro_gpu_bigmem_flag:
+
+GPU_BIGMEM_FLAG
+---------------
+
+**Definition**
+
+Enable (or disable) memory intensive GPU offload.
+
+**Comments**
+
+- DEFAULT = 0
+- Only active on GPU systems for :ref:`cgyro_collision_model` =4
+
+----
+
 .. _cgyro_h_print_flag:
 
 H_PRINT_FLAG

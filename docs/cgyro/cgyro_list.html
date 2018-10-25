@@ -121,6 +121,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#gamma-e-scale">GAMMA_E_SCALE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gamma-p">GAMMA_P</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#gamma-p-scale">GAMMA_P_SCALE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gpu-bigmem-flag">GPU_BIGMEM_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#h-print-flag">H_PRINT_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ipccw">IPCCW</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kappa">KAPPA</a></li>
@@ -623,6 +624,17 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
 <li>Only active for <a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> =2</li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="gpu-bigmem-flag">
+<span id="cgyro-gpu-bigmem-flag"></span><h2>GPU_BIGMEM_FLAG<a class="headerlink" href="#gpu-bigmem-flag" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Enable (or disable) memory intensive GPU offload.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 0</li>
+<li>Only active on GPU systems for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4</li>
 </ul>
 <hr class="docutils" />
 </div>
