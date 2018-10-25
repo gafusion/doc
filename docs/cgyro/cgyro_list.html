@@ -134,6 +134,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#mass">MASS_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#max-time">MAX_TIME</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#moment-print-flag">MOMENT_PRINT_FLAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mpi-rank-order">MPI_RANK_ORDER</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nonlinear-flag">NONLINEAR_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#n-field">N_FIELD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nup-radial">NUP_RADIAL</a></li>
@@ -768,6 +769,22 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.</li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="mpi-rank-order">
+<span id="cgyro-mpi-rank-order"></span><h2>MPI_RANK_ORDER<a class="headerlink" href="#mpi-rank-order" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Specify the relative ordering of MPI ranks.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li>MPI_RANK_ORDER = 1: Depth-first mode</li>
+<li>MPI_RANK_ORDER = 2: Breath-first mode</li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li>DEFAULT = 1.</li>
+<li>The optimal value depends on both the HW and the problem being run.</li>
 </ul>
 <hr class="docutils" />
 </div>

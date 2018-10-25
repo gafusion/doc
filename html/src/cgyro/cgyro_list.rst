@@ -724,6 +724,27 @@ and :math:`\delta E_a(k_x^0,k_y,t)` .
 
 ----
 
+.. _cgyro_mpi_rank_order:
+
+MPI_RANK_ORDER
+--------------
+
+**Definition**
+
+Specify the relative ordering of MPI ranks.
+
+**Choices**
+
+- MPI_RANK_ORDER = 1: Depth-first mode
+- MPI_RANK_ORDER = 2: Breath-first mode
+
+**Comments**
+
+- DEFAULT = 1.
+- The optimal value depends on both the HW and the problem being run.
+
+----
+
 .. _cgyro_nonlinear_flag:
 
 NONLINEAR_FLAG
