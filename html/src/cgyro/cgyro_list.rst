@@ -161,6 +161,7 @@ Collision operator selection.
 
 - DEFAULT = 4
 - To control conservation and other properties, the following parameters can be set: :ref:`cgyro_collision_field_model`, :ref:`cgyro_collision_mom_restore`, :ref:`cgyro_collision_ene_restore`, :ref:`cgyro_collision_ene_diffusion`, :ref:`cgyro_collision_kperp`
+- On GPU systems, GPU offload is controlled by :ref:`cgyro_gpu_bigmem_flag`. When that is not enabled, the slower but less GPU memory demanding CPU-only Sugama operator is used.
   
 ----
 
