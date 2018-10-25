@@ -207,6 +207,21 @@ Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
 </ul>
 </div></blockquote>
 </div>
+<div class="section" id="memory-vs-speed-tradeoff-in-collisional-term">
+<h2>Memory vs speed tradeoff in collisional term<a class="headerlink" href="#memory-vs-speed-tradeoff-in-collisional-term" title="Permalink to this headline">¶</a></h2>
+<p>Unless you are using the simplified collision operator, i.e. <strong>not COLLISION_MODEL=5</strong>,
+CGYRO will run that operator on CPU-only by default.
+This choice has been made due to the significant memory cost of the other operators,
+allowing simulations to run on a small number of nodes.</p>
+<p>This default choice does however significantly slow down the simulation.
+To force the collisional operator to execute on the (much faster) GPU, set</p>
+<blockquote>
+<div><ul class="simple">
+<li>GPU_BIGMEM_FLAG=1</li>
+</ul>
+</div></blockquote>
+<p>The faster setup will require significantly more GPU memory. If your job fails with CUDA errors, try increasing the number of nodes being used.</p>
+</div>
 <div class="section" id="balancing-mpi-rank-vs-omp">
 <h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this headline">¶</a></h2>
 <p>When submitting a CGYRO job, you are asked to pick an MPI rank ( <em>-n</em> ) and the number of threads/process ( <em>-nomp</em> ).

@@ -18,6 +18,22 @@ The recommended platform file is:
 
   * TITAN_PGI
 
+Memory vs speed tradeoff in collisional term
+--------------------------------------------
+
+Unless you are using the simplified collision operator, i.e. **not COLLISION_MODEL=5**,
+CGYRO will run that operator on CPU-only by default.
+This choice has been made due to the significant memory cost of the other operators,
+allowing simulations to run on a small number of nodes.
+
+This default choice does however significantly slow down the simulation.
+To force the collisional operator to execute on the (much faster) GPU, set
+
+  * GPU_BIGMEM_FLAG=1
+
+The faster setup will require significantly more GPU memory. If your job fails with CUDA errors, try increasing the number of nodes being used.
+
+
 
 Balancing MPI Rank vs OMP
 -------------------------
