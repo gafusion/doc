@@ -34,6 +34,7 @@ GACODE software works with the :ref:`input.profiles` format.
 .. toctree::
    :caption: Software
 
+   license
    download
    setup
    build
