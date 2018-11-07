@@ -11,9 +11,9 @@ and to permit persons to whom the Software is furnished to do so, subject to the
 1. The above copyright notice, this list of conditions and the following disclaimer
    shall be included in all copies or substantial portions of the Software.
 
-2. To compile/use the Software source code AS IS (build system excepted)
-   without modification; users however are welcome to request changes
-   or issue pull requests.
+2. To compile/use the Software source code AS IS for publication
+   purposes; users however are welcome to request changes, to make
+   code modifications for testing purposes, or issue pull requests.
 
 3. If the authorized user’s copy of Software is made available to third
    parties, to ensure that the user agreement is followed by the third
