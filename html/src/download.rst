@@ -1,17 +1,8 @@
 Download and user agreement
 ===========================
 
-GACODE development is funded by the US Department of Energy (DoE), and distribution is subject to DoE requirements and restrictions.
-
-By :doc:`cloning, downloading or otherwise using the sources <build>`, the recipient agrees:
-
-1. to compile/use the GACODE source code **AS IS** (build system excepted) without modification; users however are welcome to request changes or issue pull requests;
-
-2. if the authorized user's copy of GACODE is made available to third parties, to ensure that the user agreement is followed by the third parties;
-
-3. to email a draft of any article/letter/note based on GACODE use to **gacode-AT-fusion.gat.com**
-
-4. to include in published results or presentations the proper code name(s) and **appropriate references** (see below)
+.. include:: USER_AGREEMENT.txt
+   :literal:
 
 .. csv-table:: **Appropriate References**
    :header: "Physics code", "Topical Area", "Required citation"

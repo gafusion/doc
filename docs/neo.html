@@ -194,7 +194,7 @@
 <h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
 <p>The primary NEO input file is <a class="reference internal" href="neo/neo_table.html"><span class="doc">input.neo</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a>.</p>
 <p>NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo_ and appending _in to the name of the corresponding input.neo parameter.</p>
-<div class="code fortran highlight-default"><div class="highlight"><pre><span></span>use neo_interface
+<div class="code fortran highlight-default"><div class="highlight"><pre>use neo_interface
 call neo_init
 ! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)
 call neo_run
