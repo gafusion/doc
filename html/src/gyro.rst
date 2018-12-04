@@ -1,6 +1,10 @@
 GYRO
 ====
 
+.. image:: gyro/figures/candy-supertorus-2.jpg
+	:width: 95 %
+	:alt: Classic GYRO torus
+
 Quick links
 -----------
 

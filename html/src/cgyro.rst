@@ -1,6 +1,19 @@
 CGYRO
 =====
 
+.. image:: cgyro/figures/b250.png
+	:width: 48 %
+	:alt: b250
+.. image:: cgyro/figures/b990.png
+	:width: 48 %
+	:alt: b990
+.. image:: cgyro/figures/b1020.png
+	:width: 48 %
+	:alt: b1020
+.. image:: cgyro/figures/b1480.png
+	:width: 48 %
+	:alt: b1480
+
 Quick links
 -----------
 
