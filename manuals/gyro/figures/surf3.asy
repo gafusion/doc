@@ -4,18 +4,16 @@ defaultpen(0.8);
 pen dashed=linetype("8 4");
 pen dotted=linetype("4 4");
 
-size(300,300);
+size(250,300);
 
 scale(Linear,Linear);
 
-file fin=input("fluxfit.rz.p").line();
+file fin=input("fluxfit.rz.4").line();
 int n=fin.dimension(1);
 int nf=fin.dimension(1);
 
-write(nf);
-
-   real[] xo = new real[nf];
-   real[] yo = new real[nf];
+real[] xo = new real[nf];
+real[] yo = new real[nf];
 
 for (int i=0; i<nf; ++i) {
     
@@ -44,38 +42,28 @@ for (int i=0; i<nf; ++i) {
        ylimits(y0-w,y0+w);
     }
 
-   draw(graph(xd,yd),black);
+   draw(graph(x,y),red,"$N=4$");
 }
 
-file fin=input("fluxfit.profile").line();
-string a=fin.dimension(1);
-real[] p=fin.dimension(6);
-real rmin=p[0];
-real zmag=p[1];
-real rmaj=p[2];
+file fin=input("fluxfit.rz.12").line();
+int n=fin.dimension(1);
+int nf=fin.dimension(1);
 
-real rp = rmaj+rmin;
-real rm = rmaj-rmin;
+for (int i=0; i<nf; ++i) {
+    
+   real[][] a=fin.dimension(n,4);
+   a = transpose(a);
 
-pair pm = (rm,zmag);
-pair pp = (rp,zmag);
-pair p0 = (rmaj,zmag);
+   real[] x = a[0];
+   real[] y = a[1];
+   real[] xd = a[2];
+   real[] yd = a[3];
 
-dot("$(R_-,Z_0)$",pm,SW);
-dot("$(R_+,Z_0)$",pp,SE);
-dot("$(R_0,Z_0)$",p0,S);
-draw("$r$",pm--p0,S);
-draw("$r$",p0--pp,S);
+   draw(graph(x,y),heavygreen,"$N=12$");
+   draw(graph(xd,yd),black+dashed,"Exact");
+}
 
-//-------------
-draw((90.0,-80),yscale(0.375)*arc(0,0.50cm,290,100));
-draw((90.0,-80),yscale(0.375)*arc(0,0.50cm,80,-70),ArcArrow);
-draw((90.0,-100)--(90.0,-60),Arrow);
-label("$\varphi$",(70.0,-80));
-label("$Z$",(90.0,-52));
-//-------------
-
-xlimits(50,300);
+xlimits(40,240);
 ylimits(-120,120);
 
 yequals(0.0,dotted);
@@ -83,4 +71,5 @@ yequals(0.0,dotted);
 xaxis("$R$ (cm)",BottomTop,LeftTicks);
 yaxis("$Z$ (cm)",LeftRight,RightTicks);
 
+attach(legend(1,linelength=30,invisible),(50,105));
 
