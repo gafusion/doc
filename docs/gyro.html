@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TGLF" href="tglf.html" />
+    <link rel="next" title="Tabular list for input.gyro" href="gyro/gyro_table.html" />
     <link rel="prev" title="Running CGYRO on OLCF Titan" href="cgyro/cgyro_titan.html" /> 
 
   
@@ -92,7 +92,15 @@
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">GYRO</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">GYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_table.html">Tabular list for input.gyro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_history.html">GYRO and Gyrokinetic Simulation in the 2000s</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Physics</span></p>
@@ -167,7 +175,37 @@
             
   <div class="section" id="gyro">
 <h1>GYRO<a class="headerlink" href="#gyro" title="Permalink to this headline">¶</a></h1>
-<p>GYRO is</p>
+<div class="section" id="quick-links">
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="gyro/gyro_table.html">Tabular list for input.gyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gyro/gyro_history.html">GYRO and Gyrokinetic Simulation in the 2000s</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>GYRO <a class="reference internal" href="zreferences.html#candy-2003" id="id1">[CW03b]</a><a class="reference internal" href="zreferences.html#candy-2003b" id="id2">[CW03a]</a><a class="reference internal" href="zreferences.html#candy-2004a" id="id3">[CWD04]</a><a class="reference internal" href="zreferences.html#candy-2010" id="id4">[CB10]</a> is a legacy multi-species
+global electromagnetic gyrokinetic solver.  Thousands of nonlinear
+simulations with GYRO have informed the fusion community’s understanding of
+core plasma turbulence <a class="reference internal" href="zreferences.html#estrada-2005" id="id5">[EMCW05]</a><a class="reference internal" href="zreferences.html#kinsey-2005" id="id6">[KWC05]</a><a class="reference internal" href="zreferences.html#kinsey-2006" id="id7">[KWC06]</a><a class="reference internal" href="zreferences.html#kinsey-2007" id="id8">[KWC07]</a><a class="reference internal" href="zreferences.html#howard-2016b" id="id9">[HHW+16]</a>
+and provided a <em>transport database</em> for the calibration of reduced transport models
+such as TGLF <a class="reference internal" href="zreferences.html#staebler-2007" id="id10">[SKW07]</a>.  GYRO was the first – and for many years
+the only – global electromagnetic solver.  It pioneered the development of
+numerical algorithms for the GK equations with kinetic electrons.  GYRO is
+formulated in real space and like all global solvers requires <em>ad hoc</em>
+absorbing-layer boundary conditions when simulating cases with profile variation.
+This approach is suitable for core turbulence simulations, which cover a large
+radial region and are dominated by low wavenumbers.  More recently, as the
+understanding of core transport has become increasingly complete, the cutting
+edge of research moved radially toward the pedestal region, where plasmas are
+characterized by larger collisionality and steeper pressure gradients that
+greatly modify the turbulent phenomena at play. This motivated the development,
+from scratch, of the <a class="reference internal" href="cgyro.html"><span class="doc">CGYRO</span></a> code
+<a class="reference internal" href="zreferences.html#candy-2016" id="id11">[CBB16]</a><a class="reference internal" href="zreferences.html#belli-2017" id="id12">[BC17]</a><a class="reference internal" href="zreferences.html#candy-2018" id="id13">[CB18]</a><a class="reference internal" href="zreferences.html#belli-2018" id="id14">[BC18]</a> to complement GYRO.</p>
+<p>For the interested reader we offer a <a class="reference internal" href="gyro/gyro_history.html"><span class="doc">brief history of GYRO</span></a>, including some idiosyncratic and possibly forgotten aspects of gyrokinetic simulation in the 2000s.</p>
+</div>
 </div>
 
 
@@ -178,7 +216,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="tglf.html" class="btn btn-neutral float-right" title="TGLF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gyro/gyro_table.html" class="btn btn-neutral float-right" title="Tabular list for input.gyro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="cgyro/cgyro_titan.html" class="btn btn-neutral" title="Running CGYRO on OLCF Titan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

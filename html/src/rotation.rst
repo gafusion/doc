@@ -95,13 +95,13 @@ all fields and moments
 
 .. math::
 
-   \begin{align}
-   f_i  & = ~~~~~~~~~~~ f_{i,0} + f_{i,1} + \ldots \\
-   \Phi & = \Phi_{-1} + \Phi_0 + \Phi_1 + \ldots \\
-   \mathbf{U} & = ~~~~~~~~~~~ \mathbf{U}_0 + \mathbf{U}_1 + \ldots \\
-   U_\varphi & =  ~~~~~~~~~~~ U_{\varphi,0} + U_{\varphi,1} + \ldots \\
-   U_\theta  & =  ~~~~~~~~~~~~~~~~~~~~~~ U_{\theta,1} + \ldots 
-   \end{align}
+   \begin{matrix}
+   f_i        & = &           &   & f_{i,0}       & + & f_{i,1}       & + & \ldots \\
+   \Phi       & = & \Phi_{-1} & + & \Phi_0        & + & \Phi_1        & + & \ldots \\
+   \mathbf{U} & = &           &   & \mathbf{U}_0  & + & \mathbf{U}_1  & + & \ldots \\
+   U_\varphi  & = &           &   & U_{\varphi,0} & + & U_{\varphi,1} & + & \ldots \\
+   U_\theta   & = &           &   &               &   & U_{\theta,1}  & + & \ldots 
+   \end{matrix}
 
 where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` is the *toroidal velocity* and :math:`U_\theta \doteq \mathbf{e}_\theta \cdot \mathbf{U}` is the *poloidal velocity*.  The leading-order sonic flow is toroidal and independent of species
    

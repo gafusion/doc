@@ -11,6 +11,7 @@ Quick links
    gyro/gyro_list
    gyro/outputs
    gyro/plot
+   gyro/gyro_history
 
 Overview
 --------
@@ -18,7 +19,7 @@ Overview
 GYRO :cite:`candy:2003,candy:2003b,candy:2004a,candy:2010` is a legacy multi-species
 global electromagnetic gyrokinetic solver.  Thousands of nonlinear
 simulations with GYRO have informed the fusion community's understanding of
-core plasma turbulence :cite:`kinsey:2005,kinsey:2006,kinsey:2007,howard:2016b`
+core plasma turbulence :cite:`estrada:2005,kinsey:2005,kinsey:2006,kinsey:2007,howard:2016b`
 and provided a *transport database* for the calibration of reduced transport models
 such as TGLF :cite:`staebler:2007`.  GYRO was the first -- and for many years
 the only -- global electromagnetic solver.  It pioneered the development of
@@ -34,6 +35,4 @@ greatly modify the turbulent phenomena at play. This motivated the development,
 from scratch, of the :doc:`CGYRO <cgyro>` code
 :cite:`candy:2016,belli:2017,candy:2018,belli:2018` to complement GYRO.  
 
-For the interested reader we offer a :doc:`brief history of GYRO <gyro/gyro_history>`
-together with some idiosyncratic and possibly forgotten aspects of gyrokinetic
-simulation in the 2000s.
+For the interested reader we offer a :doc:`brief history of GYRO <gyro/gyro_history>`, including some idiosyncratic and possibly forgotten aspects of gyrokinetic simulation in the 2000s.
