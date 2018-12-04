@@ -236,21 +236,21 @@
 <li><p class="first">Electrons are TGYRO_DEN_METHOD0, the first ion is TGYRO_DEN_METHOD1, etc.</p>
 </li>
 <li><p class="first">To evolve electrons, with first ion used to set quasineutrality, and second ion density fixed, set</p>
-<div class="highlight-none"><div class="highlight"><pre>TGYRO_DEN_METHOD0=1
+<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1
 TGYRO_DEN_METHOD1=-1
 TGYRO_DEN_METHOD2=0
 </pre></div>
 </div>
 </li>
 <li><p class="first">To evolve the second ion density, and adjust the main ion to enforce quasineutrality, set</p>
-<div class="highlight-none"><div class="highlight"><pre>TGYRO_DEN_METHOD0=0
+<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=0
 TGYRO_DEN_METHOD1=-1
 TGYRO_DEN_METHOD2=1
 </pre></div>
 </div>
 </li>
 <li><p class="first">For a DT main ion plasma (1), with He4 ash (2), an impurity species (3) and a fast ion NBI species, set:</p>
-<div class="highlight-none"><div class="highlight"><pre>TGYRO_DEN_METHOD0=1  #electron
+<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1  #electron
 TGYRO_DEN_METHOD1=-1 #main ion DT
 TGYRO_DEN_METHOD2=2  #ash He4
 TGYRO_DEN_METHOD3=0  #impurity
@@ -448,7 +448,7 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 </ul>
 <p><strong>Comments</strong></p>
 <p>Sample input.tgyro for TGYRO_MODE=1 to run as transport code</p>
-<div class="highlight-none"><div class="highlight"><pre>DIR TGLF1 1
+<div class="highlight-none"><div class="highlight"><pre><span></span>DIR TGLF1 1
 DIR TGLF2 1
 DIR TGLF3 1
 DIR TGLF4 1
@@ -490,7 +490,7 @@ LOC_RESTART_FLAG=0
 </pre></div>
 </div>
 <p>Sample input.tgyro for TGYRO_MODE=3 to run 6 instances of CGYRO</p>
-<div class="highlight-none"><div class="highlight"><pre>DIR c1 384 GAMMA_E=0.0
+<div class="highlight-none"><div class="highlight"><pre><span></span>DIR c1 384 GAMMA_E=0.0
 DIR c2 384 GAMMA_E=0.02
 DIR c3 384 GAMMA_E=0.04
 DIR c4 384 GAMMA_E=0.06

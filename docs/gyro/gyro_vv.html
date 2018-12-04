@@ -1,0 +1,354 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>GYRO verification and validation (pre 2010) &mdash; GACODE</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gyrokinetic Simulation in the 2000s" href="gyro_history.html" />
+    <link rel="prev" title="Tabular list for input.gyro" href="gyro_table.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> GACODE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">GACODE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../download.html">Download and user agreement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../build.html">Build from sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Codes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../gyro.html">GYRO</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../gyro.html#quick-links">Quick links</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gyro_table.html">Tabular list for input.gyro</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">GYRO verification and validation (pre 2010)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#verification-studies">Verification Studies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gyro-validation-abstracts">GYRO Validation Abstracts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="gyro_history.html">Gyrokinetic Simulation in the 2000s</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../gyro.html#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_profiles.html">input.profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../shortfall.html">DIII-D L-mode shortfall</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">GACODE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../gyro.html">GYRO</a> &raquo;</li>
+        
+      <li>GYRO verification and validation (pre 2010)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/gyro/gyro_vv.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gyro-verification-and-validation-pre-2010">
+<h1>GYRO verification and validation (pre 2010)<a class="headerlink" href="#gyro-verification-and-validation-pre-2010" title="Permalink to this headline">¶</a></h1>
+<p><em>[This research summary was written in 2010]</em></p>
+<hr class="docutils" />
+<div class="section" id="verification-studies">
+<h2>Verification Studies<a class="headerlink" href="#verification-studies" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cyclone-base-case-with-adiabatic-electrons-2001">
+<h3>Cyclone Base Case with Adiabatic Electrons (2001)<a class="headerlink" href="#cyclone-base-case-with-adiabatic-electrons-2001" title="Permalink to this headline">¶</a></h3>
+<p>A complete <span class="math">\(R/L_T\)</span> scan for the Cyclone Base Case with adiabatic electron
+was published in <a class="reference internal" href="../zreferences.html#candy-2003" id="id1">[CW03b]</a>.  We reproduce below Fig. 11 from that publication:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/candy_jcp2003_fig11.png"><img alt="candy_jcp2003_fig11" src="../_images/candy_jcp2003_fig11.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 1:</strong> <span class="math">\(\chi_i\)</span> versus <span class="math">\(R/L_T\)</span> scan for the Cyclone Base Case, compared with results from the LLNL and Univ. of Colorado gyrokinetic PIC codes.</p>
+</div>
+<div class="section" id="local-limit-of-global-simulations-2004">
+<h3>Local limit of Global Simulations (2004)<a class="headerlink" href="#local-limit-of-global-simulations-2004" title="Permalink to this headline">¶</a></h3>
+<p>After the publication of this work, a community-wide benchmark exercise was carried out between codes with local capability (GYRO and GS2) and a global code (GTC).  The difficulties encountered by the global code in attempting to reproduce the local limit in <span class="math">\(s-\alpha\)</span> geometry was addressed in <a class="reference internal" href="../zreferences.html#candy-2004a" id="id2">[CWD04]</a>, where it was demonstrated that the local limit can be achieved in a truly global simulation.  We reproduce below Fig. 3 of that paper:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/candy_pop2004_fig3.png"><img alt="candy_pop2004_fig3" src="../_images/candy_pop2004_fig3.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 2:</strong> Curves show radial profile of <span class="math">\(\chi_i\)</span> averaged over the time inteval <span class="math">\(400 \le (c_s/a) t \le 900\)</span>, as computed by GYRO.  Solid dots show results of three separate GS2 flux-tube simulations.</p>
+</div>
+<div class="section" id="gyrokinetic-simulation-of-impurities-2004">
+<h3>Gyrokinetic Simulation of Impurities (2004)<a class="headerlink" href="#gyrokinetic-simulation-of-impurities-2004" title="Permalink to this headline">¶</a></h3>
+<p>Prior to 2004, basically all simulation work was done with pure plasmas.  As part of a Ph.D. thesis (Estrada-Mila), a paper on the topic of transport in impure plasmas <a class="reference internal" href="../zreferences.html#estrada-2005" id="id3">[EMCW05]</a> was published.  This work contained crucial benchmarks with the GS2 code.  Figure 1 from that paper is reproduced below:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/estrada_pop2005_fig1.png"><img alt="estrada_pop2005_fig1" src="../_images/estrada_pop2005_fig1.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 3:</strong> Adiabatic electron comparison of growth rates for the GYRO (solid line) and GS2 (black dot) codes.  Also shown are published results by Dong <a class="reference internal" href="../zreferences.html#dong-1995" id="id4">[DH95]</a> (dotted line) which neglect trapping.  Plot (a) shows the growth rate as functions of <span class="math">\(k_\theta \rho_s\)</span>. Plot (b) shows the effect of carbon concentration, <span class="math">\(f_C = z_C n_C/n_e\)</span>, for <span class="math">\(k_\theta \rho_s = 1/\sqrt{2}\)</span> and <span class="math">\(s=1\)</span>.  All other parameters are the same in both plots.  Agreement between GYRO and GS2 is extremely good.</p>
+</div>
+<div class="section" id="electron-temperature-gradient-turbulence-2006">
+<h3>Electron Temperature Gradient Turbulence (2006)<a class="headerlink" href="#electron-temperature-gradient-turbulence-2006" title="Permalink to this headline">¶</a></h3>
+<p>Motivated by incorrect published results from a global code, a large community-wide benchmark exercise was carried out including the most advanced European gyrokinetic code, GENE.  The results were published in a paper <a class="reference internal" href="../zreferences.html#nevins-2006" id="id5">[NCC+06]</a> that clarified difficulties associated with simulations of ETG turbulence, and a new low-shear operating point was designed so that benchmark case was physically well-behaved.  Remarkable intercode agreement was obtained</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/nevins_pop2006_fig8.png"><img alt="nevins_pop2006_fig8" src="../_images/nevins_pop2006_fig8.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 4:</strong> <span class="math">\(\chi_e = -Q_e/n_0 \nabla T_0\)</span> from GYRO (black curve), GS2 (blue curve), GENE (green curve), and
+PG3EQ (red curve) are plotted versus time.</p>
+<p>Later, the exercise was successfully achieved by the GEM code.  The GTC group refused to participate.</p>
+</div>
+<div class="section" id="energetic-particle-transport-coefficients-2009">
+<h3>Energetic particle transport coefficients (2009)<a class="headerlink" href="#energetic-particle-transport-coefficients-2009" title="Permalink to this headline">¶</a></h3>
+<p>Following up on initial work by Estrada-Mila <a class="reference internal" href="../zreferences.html#estrada-2006" id="id6">[EMCW06a]</a>, Angioni <a class="reference internal" href="../zreferences.html#angioni-2009a" id="id7">[APP+09]</a> carried out detailed GS2-GYRO comparsions of alpha particle quasilinear transport coefficients.  This comparison tests, among other things, the multi-scale accuracy of the gyro-averaging operators for electrons and ions.  Below we reproduce Fig. 5 of that paper:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/angioni_nf2009_fig5.png"><img alt="angioni_nf2009_fig5" src="../_images/angioni_nf2009_fig5.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 5:</strong> Diffusion, thermodiffusion and pure convection coefficients for <span class="math">\(\alpha\)</span> particles in the case of a Maxwellian unperturbed distribution function, computed by linear GYRO (open squares), and linear GS2 (full circles). The codes are found in perfect agreement. The same quantities computed by GS2 in the case of an equilibrium slowing down distribution function are also plotted for comparison (full squares).  For the particle thermodiffusion coefficient <span class="math">\(C_{T\alpha}\)</span> as well as for the diagonal heat conduction coefficient <span class="math">\(\chi_{T\alpha}/\chi_{n\alpha}\)</span> both the actual curve obtained with a Maxwellian distribution (dashed line), as well as the same curve but rescaled by the factor <span class="math">\(d {\rm ln} T_\alpha/d {\rm ln} T_e\)</span> (solid line), have been plotted. The latter curve allows a direct comparison with the corresponding coefficients obtained in the case of a slowing down distribution function.</p>
+</div>
+<div class="section" id="compressional-electromagnetic-perturbations-2010">
+<h3>Compressional Electromagnetic Perturbations (2010)<a class="headerlink" href="#compressional-electromagnetic-perturbations-2010" title="Permalink to this headline">¶</a></h3>
+<p>Recently, compressional electromagnetic capability, <span class="math">\(\delta B_\lVert\)</span> was added to GYRO and linear benchmarks were carried out against GS2 – the only other nonlinear code with the same capability:</p>
+<div class="figure align-center">
+<a class="reference internal image-reference" href="../_images/belli_pop2010_fig1.png"><img alt="belli_pop2010_fig1" src="../_images/belli_pop2010_fig1.png" style="width: 75%;" /></a>
+</div>
+<p><strong>Figure 6:</strong> GYRO (solid red) versus GS2 (dashed red).  GYRO results without the compressional terms are shown in blue.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="gyro-validation-abstracts">
+<h2>GYRO Validation Abstracts<a class="headerlink" href="#gyro-validation-abstracts" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="comparison-of-gyro-synthetic-diagnostic-results-with-diii-d-bes-and-cer-data">
+<h3>Comparison of GYRO synthetic diagnostic results with DIII-D BES and CER data<a class="headerlink" href="#comparison-of-gyro-synthetic-diagnostic-results-with-diii-d-bes-and-cer-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>Contact</strong> – C. Holland</p>
+<p><strong>Abstract</strong> –
+The implementation of synthetic diagnostics that model physical beam emission spectroscopy and correlation electron cyclotron emission diagnostics is presented. Initial results from their applications to local gyrokinetic simulations of two locations in a DIII-D L-mode discharge performed with the GYRO code are also discussed.   At both locations, the attenuation of the GYRO-predicted fluctuations due to the spatial averaging imposed by the diagnostics’ spot sizes is significant, and its incorporation via the use of synthetic diagnostics is shown to be essential for quantitative comparisons such as these.</p>
+<p><strong>Successes</strong> – At normalized toroidal flux <span class="math">\(\rho=0.5\)</span>, very good agreement was found between experiment and simulation in both the energy flows and fluctuation levels measured by both diagnostics. At both locations good agreement was found in the shapes of the radial and vertical density correlation functions and in the shapes of the frequency power spectra.</p>
+<p><strong>Anomalies</strong> – However, at <span class="math">\(\rho=0.75\)</span>, GYRO underpredicts the observed energy flows by roughly a factor of 7, with RMS fluctuation levels underpredicted by a factor of 3.</p>
+<p><strong>Resources</strong> – <a class="reference external" href="http://link.aip.org/link/?PHPAEN/16/052301/1">Phys. Plasmas, May 2009</a></p>
+</div>
+<div class="section" id="comparison-of-gyro-synthetic-diagnostic-results-with-c-mod-pci-data">
+<h3>Comparison of GYRO synthetic diagnostic results with C-Mod PCI data<a class="headerlink" href="#comparison-of-gyro-synthetic-diagnostic-results-with-c-mod-pci-data" title="Permalink to this headline">¶</a></h3>
+<p><strong>Contact</strong> – L. Lin</p>
+<p><strong>Abstract</strong> –
+Data is taken from ohmic plasmas in the Alcator C-Mod tokamak using phase contrast imaging (PCI) diagnostic, with experiments carried out over the range of densities covering the ‘neo-Alcator’ to the ‘saturated ohmic’ regime.  This was compared with GYRO simulations using a synthetic PCI diagnostic method.</p>
+<p><strong>Successes</strong> – The key role played by the ion temperature gradient (ITG) turbulence has been verified, including measurements of turbulent wave propagation in the ion diamagnetic direction. It is found that the intensity of density fluctuations increases with density, in agreement between simulation and experiments. The absolute fluctuation intensity agrees with the simulation within experimental error (±60%).  In the saturated ohmic regime, the simulated ion and electron thermal diffusivities also agree with experiments after varying the ion temperature gradient within experimental uncertainty.</p>
+<p><strong>Anomalies</strong> – In the linear ohmic regime, GYRO does not agree well with experiments, showing significantly larger ion thermal transport and smaller electron thermal transport</p>
+<p><strong>Resources</strong> – <a class="reference external" href="http://dx.doi.org/10.1088/0741-3335/51/6/065006">Plasma Phys. Control. Fus., June 2009</a></p>
+</div>
+<div class="section" id="comparison-of-gyro-simulations-with-fast-sweeping-and-doppler-reflectometer-data-in-tore-supra">
+<h3>Comparison of GYRO simulations with fast-sweeping and Doppler reflectometer data in Tore Supra<a class="headerlink" href="#comparison-of-gyro-simulations-with-fast-sweeping-and-doppler-reflectometer-data-in-tore-supra" title="Permalink to this headline">¶</a></h3>
+<p><strong>Contact</strong> – A. Casati</p>
+<p><strong>Abstract</strong> –
+Turbulence measurements in TORE SUPRA tokamak plasmas have been quantitatively compared to predictions by nonlinear gyrokinetic simulations. The GYRO results simultaneously match within experimental uncertainty (a) the magnitude of effective heat diffusivity, (b) rms values of density fluctuations, and (c) wave-number spectra in both the directions perpendicular to the magnetic field. Moreover, the GYRO nonlinear simulations help to revise as an instrumental effect the apparent experimental evidence of strong turbulence anisotropy at spatial scales of the order of ion-sound Larmor radius.</p>
+<p><strong>Successes</strong> – The GYRO simulations quantitatively reproduce complementary measurements from an ohmic TORE SUPRA discharge, namely heat <span class="math">\(\chi_\mathrm{eff}\)</span>, RMS <span class="math">\(\delta n/n\)</span>, <span class="math">\(k_\theta\)</span>, and <span class="math">\(k_r\)</span> density fluctuation spectra at normalized toroidal flux <span class="math">\(0.5 \le\rho\le 0.7\)</span>. Good agreement is found for both the magnitude of the transport level and the shape of the density fluctuation spectra measured by fast-sweeping and Doppler reflectometers.</p>
+<p><strong>Anomalies</strong> – At <span class="math">\(\rho=0.4\)</span>, the local GYRO simulation finds conditions of marginal turbulence, underestimating the observed transport level by a factor of 3.</p>
+<p><strong>Resources</strong> – <a class="reference external" href="http://link.aps.org/doi/10.1103/PhysRevLett.102.165005">Phys. Rev. Lett., February 2009</a></p>
+</div>
+<div class="section" id="anomalous-transport-in-the-diii-d-tokamak-matched-by-supercomputer-simulation">
+<h3>Anomalous Transport in the DIII-D Tokamak Matched by Supercomputer Simulation<a class="headerlink" href="#anomalous-transport-in-the-diii-d-tokamak-matched-by-supercomputer-simulation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Contact</strong> – J. Candy</p>
+<p><strong>Abstract</strong> –
+The measured transport levels and apparent Bohm-like scaling observed in the DIII-D tokamak was reproduced with in experimental error bars using a series a GYRO simulations and sensitivity studies.</p>
+<p><strong>Successes</strong> – For nominal experimental paramaters, the electron transport is closely matched while the ion transport is overestimated by about a factor of 2.  Decreasing gradient within error bars brings both into rough agreement.</p>
+<p><strong>Anomalies</strong> – There is a robust relative underestimate of electron transport.</p>
+<p><strong>Resources</strong> – <a class="reference external" href="http://link.aps.org/doi/10.1103/PhysRevLett.91.045001">Phys. Rev. Lett., July 2003</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="gyro_history.html" class="btn btn-neutral float-right" title="Gyrokinetic Simulation in the 2000s" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="gyro_table.html" class="btn btn-neutral" title="Tabular list for input.gyro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2018.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            LANGUAGE:'en',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          
+          SphinxRtdTheme.Navigation.enableSticky();
+          
+      });
+  </script> 
+
+</body>
+</html>
