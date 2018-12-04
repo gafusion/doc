@@ -1,7 +1,7 @@
 .. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
 
-GYRO and Gyrokinetic Simulation in the 2000s
-============================================
+Gyrokinetic Simulation in the 2000s
+===================================
 
 *[This overview was written during the period 2006-2009]*
 
