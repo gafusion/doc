@@ -81,7 +81,6 @@
             
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download and user agreement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">Environment setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build.html">Build from sources</a></li>
@@ -192,16 +191,16 @@
   <div class="section" id="tgyro-solver">
 <span id="id1"></span><h1>TGYRO Solver<a class="headerlink" href="#tgyro-solver" title="Permalink to this headline">¶</a></h1>
 <p>TGYRO solves the <em>steady-state transport problem</em>; that is, the transport
-equations with <span class="math">\(\partial_t \rightarrow 0\)</span>.  This algorithm was originally
+equations with <span class="math notranslate nohighlight">\(\partial_t \rightarrow 0\)</span>.  This algorithm was originally
 envisioned to form the basis for a time-implicit solver, but frankly there has
 been little interest or need for this capability.  Instead, flexibility in
 dealing with multiple ions and solver robustness have been emphasized.</p>
 <div class="section" id="formulation">
 <h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline">¶</a></h2>
-<p>To describe the algorithm, we will restrict attention to coupled <span class="math">\(T_i\)</span>
-and <span class="math">\(T_e\)</span> evolution, even though density and rotation can also be
+<p>To describe the algorithm, we will restrict attention to coupled <span class="math notranslate nohighlight">\(T_i\)</span>
+and <span class="math notranslate nohighlight">\(T_e\)</span> evolution, even though density and rotation can also be
 evolved.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{1}{V^\prime(r)} \frac{\partial}{\partial r} \left[
 V^\prime(r) \,  Q_i(r) \right] = &amp;~S_i \; , \\
@@ -210,19 +209,19 @@ V^\prime(r) \, Q_e(r) \right] = &amp;~S_e \; .
 \end{align}\end{split}\]</div>
 <p>Here, the energy fluxes are the taken to be the sum of neoclassical and turbulent
 transport:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 Q_i = &amp; ~Q_i^{\rm Neo} + Q_i^{\rm Turb} \\
 Q_e = &amp; ~Q_e^{\rm Neo} + Q_e^{\rm Turb}
 \end{align}\end{split}\]</div>
-<p>The total ion and electron sources, <span class="math">\(S_e\)</span> and <span class="math">\(S_i\)</span>, are described in more
+<p>The total ion and electron sources, <span class="math notranslate nohighlight">\(S_e\)</span> and <span class="math notranslate nohighlight">\(S_i\)</span>, are described in more
 detail in the <a class="reference internal" href="equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a> .</p>
 </div>
 <div class="section" id="some-comments-regarding-units">
 <h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this headline">¶</a></h2>
 <p>In TGYRO, we have found it convenient to use CGS units rather than employing some variant of the more
 popular dimensionless normalizations.  Thus, we have</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 {\rm Source}: \quad &amp;~ S \sim \frac{{\rm erg}}{{\rm cm}^3 \, {\rm s}} \\
 {\rm Energy~Flux}: \quad &amp;~ Q \sim \frac{{\rm erg}}{{\rm cm}^2 \, {\rm s}} \\
@@ -234,33 +233,33 @@ popular dimensionless normalizations.  Thus, we have</p>
 <h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline">¶</a></h2>
 <p>Rather than solving the equations directly, we prefer to solve the volume-integrated form
 of the equation so that we can deal directly with the fluxes:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 Q_i^T(r) \doteq \frac{1}{V^\prime(r)} &amp; ~\int_0^r dx \, V^\prime(x) S_i \\
 Q_e^T(r) \doteq \frac{1}{V^\prime(r)} &amp; ~\int_0^r dx \, V^\prime(x) S_e
 \end{align}\end{split}\]</div>
 <p>The result is a curious system which depends on both the temperatures and the
 temperature gradients:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 Q_i(z_i,z_e,T_i,T_e) - Q_i^T(T_i,T_e) = &amp;~0 \\
 Q_e(z_i,z_e,T_i,T_e) - Q_e^T(T_i,T_e) = &amp;~0
 \end{align}\end{split}\]</div>
 <p>where</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 z_i \doteq - \frac{a}{T_i} \frac{\partial T_i}{\partial r}
 \quad\mbox{and}\quad
 z_e \doteq - \frac{a}{T_e} \frac{\partial T_e}{\partial r}
 \end{equation}\]</div>
 <p>It is important to note the connection between profiles and gradients.  Specifically, if we enforce the following pedestal
-boundary conditions at <span class="math">\(r=r_*\)</span>:</p>
-<div class="math">
+boundary conditions at <span class="math notranslate nohighlight">\(r=r_*\)</span>:</p>
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 T_\sigma(r_*) = T_\sigma^* \; .
 \end{equation}\]</div>
-<p>Then the gradients <span class="math">\(z_\sigma\)</span> uniquely determine the temperature profiles, <span class="math">\(T_\sigma\)</span>:</p>
-<div class="math">
+<p>Then the gradients <span class="math notranslate nohighlight">\(z_\sigma\)</span> uniquely determine the temperature profiles, <span class="math notranslate nohighlight">\(T_\sigma\)</span>:</p>
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 T_\sigma(r) = T_\sigma^*
 \exp\left( \int_r^{r_*} dx \, z_\sigma(x) \right) \; .
@@ -268,9 +267,9 @@ T_\sigma(r) = T_\sigma^*
 </div>
 <div class="section" id="formulation-on-a-discrete-grid">
 <h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline">¶</a></h2>
-<p>On a discrete grid <span class="math">\(r_j\)</span>, the temperature profile can be approximately determined using
+<p>On a discrete grid <span class="math notranslate nohighlight">\(r_j\)</span>, the temperature profile can be approximately determined using
 the trapezoidal rule</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 T_\sigma(r_{j-1}) = T_\sigma(r_j) \exp \left\{
 \left[ \frac{z_\sigma(r_j)+z_\sigma(r_{j-1})}{2} \right]
@@ -278,49 +277,49 @@ T_\sigma(r_{j-1}) = T_\sigma(r_j) \exp \left\{
 \end{equation}\]</div>
 <p>To put the problem into discrete form, we define a vector of
 independent variables (gradients) and functions (fluxes):</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 z_{\sigma,j} = &amp;~ z_\sigma(r_j) \; , \\
 Q_{\sigma,j} = &amp;~ Q_\sigma(r_j) \; , \\
 Q^T_{\sigma,j} = &amp;~ Q^T_\sigma(r_j) \; .
 \end{align}\end{split}\]</div>
 <p>Then, the equations to be solved are</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 \widehat{Q}_{\sigma,j} = \widehat{Q}^T_{\sigma,j}  \; .
 \end{equation}\]</div>
 <p>where a hat denotes gyroBohm normalization:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{equation}
 \widehat{Q} \doteq \frac{Q}{Q_{\rm GB}}
 \quad \text{where} \quad Q_{\rm GB} = n_e T_e c_s (\rho_s/a)^2 \; .
 \end{equation}\]</div>
 <p>The goal is to apply Newton’s method in a way which is as accurate as possible while still
-minimizing evaluation of the expensive functions <span class="math">\(Q_{\sigma,j}\)</span>.  Operationally, we make the
+minimizing evaluation of the expensive functions <span class="math notranslate nohighlight">\(Q_{\sigma,j}\)</span>.  Operationally, we make the
 key assumption that the transport
 fluxes depend only locally on the gradients (which is approximately
 true when quantities are normalzied to the gyroBohm unit of flux),
-so that the Jacobian associated with <span class="math">\(Q_{\sigma,j}\)</span> is block diagonal:</p>
-<div class="math">
+so that the Jacobian associated with <span class="math notranslate nohighlight">\(Q_{\sigma,j}\)</span> is block diagonal:</p>
+<div class="math notranslate nohighlight">
 \[\widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0)
 + \frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j}} \,\delta z_{\sigma^\prime,j}
 - \frac{\partial \widehat{Q}^T_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \, \delta z_{\sigma^\prime,j^\prime}
 = 0 \; .\]</div>
-<p>Above, we have used the shorthand <span class="math">\(z \doteq \{z_{\sigma,j}\}\)</span> and
-<span class="math">\(z^0 \doteq \{z^0_{\sigma,j}\}\)</span>.  This can be written in terms of Jacobian matrices as</p>
-<div class="math" id="equation-newton">
+<p>Above, we have used the shorthand <span class="math notranslate nohighlight">\(z \doteq \{z_{\sigma,j}\}\)</span> and
+<span class="math notranslate nohighlight">\(z^0 \doteq \{z^0_{\sigma,j}\}\)</span>.  This can be written in terms of Jacobian matrices as</p>
+<div class="math notranslate nohighlight" id="equation-newton">
 <span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation">¶</a></span>\[\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
 -\left[ \widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0) \right] \eta_{\sigma,j} \; ,\]</div>
 <p>where</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\widehat{{\cal J}}_{\sigma\sigma^\prime,jj^\prime} \doteq {\cal J}_{\sigma\sigma^\prime,jj} \delta_{jj^\prime}
 -{\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}} \; ,\]</div>
-<p>and the quantity <span class="math">\(z^1 = z^0 + \delta z\)</span> is the Newton update for the vector
-<span class="math">\(z\)</span>.  In Eq. <a class="reference internal" href="#equation-newton">(1)</a>, we have introduced a <em>relaxation parameter</em>
-<span class="math">\(\eta_{\sigma,j}\)</span>. Note that this method generalizes to an arbitrary number of gradients
-and fluxes per gridpoint.  In the case of three radial gridpoints, <span class="math">\(\{r_1,r_2,r_3\}\)</span>,
+<p>and the quantity <span class="math notranslate nohighlight">\(z^1 = z^0 + \delta z\)</span> is the Newton update for the vector
+<span class="math notranslate nohighlight">\(z\)</span>.  In Eq. <a class="reference internal" href="#equation-newton">(1)</a>, we have introduced a <em>relaxation parameter</em>
+<span class="math notranslate nohighlight">\(\eta_{\sigma,j}\)</span>. Note that this method generalizes to an arbitrary number of gradients
+and fluxes per gridpoint.  In the case of three radial gridpoints, <span class="math notranslate nohighlight">\(\{r_1,r_2,r_3\}\)</span>,
 the Jacobian matrices have the explicit forms</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{equation}
 {\cal J}_{{\sigma\sigma^\prime,jj^\prime}} = \begin{pmatrix}
 \displaystyle \frac{\partial \widehat{Q}_{i,1}}{\partial z_{i,1}} &amp;
@@ -346,7 +345,7 @@ the Jacobian matrices have the explicit forms</p>
 \displaystyle \frac{\partial \widehat{Q}_{e,3}}{\partial z_{e,3}} &amp;
 \end{pmatrix}
 \end{equation}\end{split}\]</div>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}\begin{equation}
 {\cal J}^T_{{\sigma\sigma^\prime,jj^\prime}} = \begin{pmatrix}
 \displaystyle \frac{\partial \widehat{Q}^T_{i,1}}{\partial z_{i,1}} &amp;
@@ -394,11 +393,11 @@ the Jacobian matrices have the explicit forms</p>
 \end{equation}\end{split}\]</div>
 <p>An important quantity to measure after a Newton iteration is
 the residual</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[R^1_{\sigma,j} = \frac{\left[\widehat{Q}_{\sigma,j}(z^1)-\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}{
 \left[\widehat{Q}_{\sigma,j}(z^1)\right]^2+\left[\widehat{Q}^T_{\sigma,j}(z^1)\right]^2}\]</div>
-<p>If, after a Newton step, any <span class="math">\(R^1_{\sigma,j} &gt; R^0_{\sigma,j}\)</span> is not reduced, some strategy must be adopted
-to modify the gradient vector <span class="math">\(z^1\)</span> and/or the target. Note that there are two distinct iterations:</p>
+<p>If, after a Newton step, any <span class="math notranslate nohighlight">\(R^1_{\sigma,j} &gt; R^0_{\sigma,j}\)</span> is not reduced, some strategy must be adopted
+to modify the gradient vector <span class="math notranslate nohighlight">\(z^1\)</span> and/or the target. Note that there are two distinct iterations:</p>
 <ul class="simple">
 <li>A Newton iteration, which is rapidly convergent given
 that one is close to a root and the $qhat$ are smooth
@@ -407,13 +406,13 @@ functions,</li>
 because the weak profile variation of $qhat$ was
 ignored</li>
 </ul>
-<p>If the temperature dependence of <span class="math">\(\widehat{Q}\)</span> was included, there would be no fixed-point
+<p>If the temperature dependence of <span class="math notranslate nohighlight">\(\widehat{Q}\)</span> was included, there would be no fixed-point
 iteration component.</p>
 </div>
 <div class="section" id="computation-of-the-jacobian">
 <h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline">¶</a></h2>
 <p>We approximate the derivatives in the Jacobian matrix using a forward difference approximation</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq
 \frac{\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime} + \Delta z) -\widehat{Q}_{\sigma,j} (z_{\sigma^\prime,j^\prime})}{\Delta z}\]</div>
 <p>A desireable feature of this approximation is that the iteration scheme, Eq.~(ref{eq.newton}) if it converges,

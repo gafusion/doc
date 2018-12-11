@@ -265,7 +265,7 @@
 <div class="section" id="amp">
 <span id="cgyro-amp"></span><h2>AMP<a class="headerlink" href="#amp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Initial amplitude of finite-<span class="math">\(n\)</span> modes.</p>
+<p>Initial amplitude of finite-<span class="math notranslate nohighlight">\(n\)</span> modes.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.1</li>
@@ -277,7 +277,7 @@
 <div class="section" id="amp0">
 <span id="cgyro-amp0"></span><h2>AMP0<a class="headerlink" href="#amp0" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Initial amplitude of <span class="math">\(n = 0\)</span> modes.</p>
+<p>Initial amplitude of <span class="math notranslate nohighlight">\(n = 0\)</span> modes.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
@@ -291,8 +291,8 @@
 <li>DEFAULT = 0.0</li>
 </ul>
 <p><strong>Definition</strong></p>
-<p>The electron beta with reference to <span class="math">\(B_\mathrm{unit}\)</span>:</p>
-<div class="math">
+<p>The electron beta with reference to <span class="math notranslate nohighlight">\(B_\mathrm{unit}\)</span>:</p>
+<div class="math notranslate nohighlight">
 \[\beta_{e,\mathrm{unit}} \doteq \frac{8 \pi n_e T_e}{B_\mathrm{unit}^2}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -315,44 +315,44 @@
 <p><strong>Definition</strong></p>
 <p>Pressure gradient scaling factor.  Here, the pressure gradient factor is
 defined as</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\beta_* = \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
-<li>In the absence of scaling, the value of <span class="math">\(\beta_*\)</span> will be computed self-consistently given the value of <span class="math">\(\beta_{e,\mathrm{unit}}\)</span> set in <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a>.</li>
-<li>Often it is desired to reduce <span class="math">\(\beta_{e,\mathrm{unit}}\)</span> but leave the effective <span class="math">\(\beta_*\)</span> unchanged.  In this case, one should divide <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a> by 2, then set BETA_STAR_SCALE=2.</li>
+<li>In the absence of scaling, the value of <span class="math notranslate nohighlight">\(\beta_*\)</span> will be computed self-consistently given the value of <span class="math notranslate nohighlight">\(\beta_{e,\mathrm{unit}}\)</span> set in <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a>.</li>
+<li>Often it is desired to reduce <span class="math notranslate nohighlight">\(\beta_{e,\mathrm{unit}}\)</span> but leave the effective <span class="math notranslate nohighlight">\(\beta_*\)</span> unchanged.  In this case, one should divide <a class="reference internal" href="#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a> by 2, then set BETA_STAR_SCALE=2.</li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="btccw">
 <span id="cgyro-btccw"></span><h2>BTCCW<a class="headerlink" href="#btccw" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the orientation of the toroidal magnetic field <span class="math">\(B_t\)</span> relative to the toroidal angle <span class="math">\(\varphi\)</span>.</p>
+<p>Parameter which selects the orientation of the toroidal magnetic field <span class="math notranslate nohighlight">\(B_t\)</span> relative to the toroidal angle <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
-<li>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
+<li>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_t\)</span> is oriented along the negative <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
+<li>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_t\)</span> is oriented along the positive <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = -1</li>
 <li>In DIII-D, typically BTCCW = 1.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of <span class="math">\(B_t\)</span> is inferred from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of <span class="math notranslate nohighlight">\(B_t\)</span> is inferred from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="box-size">
 <span id="cgyro-box-size"></span><h2>BOX_SIZE<a class="headerlink" href="#box-size" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Factor to determine the radial box length, <span class="math">\(L_x\)</span>, as a multiple of the distance between reference singular surfaces, <span class="math">\(L_0 = r/(qs)\)</span>.</p>
-<div class="math">
+<p>Factor to determine the radial box length, <span class="math notranslate nohighlight">\(L_x\)</span>, as a multiple of the distance between reference singular surfaces, <span class="math notranslate nohighlight">\(L_0 = r/(qs)\)</span>.</p>
+<div class="math notranslate nohighlight">
 \[\frac{L_x}{a} = \mathrm{BOX\_SIZE} \; \left( \frac{r}{qs} \right)\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
-<li>Note that the reference singular surface spacing refers to <span class="math">\(n=1\)</span> which is always the lowest non-zero mode in CGYRO.</li>
-<li>Also, <span class="math">\(r \rightarrow\)</span> <a class="reference internal" href="#cgyro-rmin"><span class="std std-ref">RMIN</span></a>, <span class="math">\(s \rightarrow\)</span> <a class="reference internal" href="#cgyro-s"><span class="std std-ref">S</span></a>, <span class="math">\(q \rightarrow\)</span> <a class="reference internal" href="#cgyro-q"><span class="std std-ref">Q</span></a>.</li>
+<li>Note that the reference singular surface spacing refers to <span class="math notranslate nohighlight">\(n=1\)</span> which is always the lowest non-zero mode in CGYRO.</li>
+<li>Also, <span class="math notranslate nohighlight">\(r \rightarrow\)</span> <a class="reference internal" href="#cgyro-rmin"><span class="std std-ref">RMIN</span></a>, <span class="math notranslate nohighlight">\(s \rightarrow\)</span> <a class="reference internal" href="#cgyro-s"><span class="std std-ref">S</span></a>, <span class="math notranslate nohighlight">\(q \rightarrow\)</span> <a class="reference internal" href="#cgyro-q"><span class="std std-ref">Q</span></a>.</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -441,7 +441,7 @@ defined as</p>
 <div class="section" id="collision-kperp">
 <span id="cgyro-collision-kperp"></span><h2>COLLISION_KPERP<a class="headerlink" href="#collision-kperp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Flag to toggle <span class="math">\(k_\perp^2\)</span> terms in collision operator.</p>
+<p>Flag to toggle <span class="math notranslate nohighlight">\(k_\perp^2\)</span> terms in collision operator.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
 <li>COLLISION_KPERP = 0: Terms OFF</li>
@@ -457,7 +457,7 @@ defined as</p>
 <div class="section" id="delta">
 <span id="cgyro-delta"></span><h2>DELTA<a class="headerlink" href="#delta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Triangularity, <span class="math">\(\delta\)</span>, of the flux surface:</p>
+<p>Triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>, of the flux surface:</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
@@ -469,7 +469,7 @@ defined as</p>
 <div class="section" id="delta-t">
 <span id="cgyro-delta-t"></span><h2>DELTA_T<a class="headerlink" href="#delta-t" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Simulation timestep <span class="math">\((c_s/a) \Delta t\)</span>.</p>
+<p>Simulation timestep <span class="math notranslate nohighlight">\((c_s/a) \Delta t\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.01</li>
@@ -481,16 +481,16 @@ defined as</p>
 <span id="cgyro-dens"></span><h2>DENS_*<a class="headerlink" href="#dens" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density.  First species density is DENS_1, and so on.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\mathrm{DENS}* = \frac{n_{*}}{n_e}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT = <span class="math">\([1,0,0,\ldots]\)</span></li>
+<li>DEFAULT = <span class="math notranslate nohighlight">\([1,0,0,\ldots]\)</span></li>
 <li>The user should set DENS=1 for electrons.</li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the densities
-are automatically normalized to <span class="math">\(n_e\)</span>.</li>
+are automatically normalized to <span class="math notranslate nohighlight">\(n_e\)</span>.</li>
 <li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter
-is the density at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+is the density at the outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -498,16 +498,16 @@ is the density at the outboard midplane (<span class="math">\(\theta=0\)</span>)
 <span id="cgyro-dlnndr"></span><h2>DLNNDR_*<a class="headerlink" href="#dlnndr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\mathrm{DLNNDR}\_* = -a \frac{\partial {\rm ln} n_{*}}{\partial r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT = <span class="math">\([1,1,1,\ldots]\)</span></li>
+<li>DEFAULT = <span class="math notranslate nohighlight">\([1,1,1,\ldots]\)</span></li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is
 read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the gradient is computed internally.  The normalizing length is the
 plasma minor radius.</li>
 <li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
-outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -515,16 +515,16 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <span id="cgyro-dlntdr"></span><h2>DLNTDR_*<a class="headerlink" href="#dlntdr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\mathrm{DLNTDR}\_* = -a \frac{\partial {\rm ln} T_{*}}{\partial r} \; .\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT = <span class="math">\([1,1,1,\ldots]\)</span></li>
+<li>DEFAULT = <span class="math notranslate nohighlight">\([1,1,1,\ldots]\)</span></li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is
 read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the gradient is computed internally.  The normalizing length is the
 plasma minor radius.</li>
 <li>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
-outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
+outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -532,18 +532,18 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <span id="cgyro-dzmag"></span><h2>DZMAG<a class="headerlink" href="#dzmag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Rate of change of plasma elevation:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[a \frac{\partial Z_0(r)}{\partial r} \; .\]</div>
 <hr class="docutils" />
 </div>
 <div class="section" id="e-max">
 <span id="cgyro-e-max"></span><h2>E_MAX<a class="headerlink" href="#e-max" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Maximum value of (pseudospectral) dimensionless energy, <span class="math">\(\varepsilon_\mathrm{max}\)</span></p>
+<p>Maximum value of (pseudospectral) dimensionless energy, <span class="math notranslate nohighlight">\(\varepsilon_\mathrm{max}\)</span></p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 8.0</li>
-<li>Corresponds to Maxwellian factor <span class="math">\(\displaystyle e^{-\varepsilon_\mathrm{max}}\)</span></li>
+<li>Corresponds to Maxwellian factor <span class="math notranslate nohighlight">\(\displaystyle e^{-\varepsilon_\mathrm{max}}\)</span></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -553,7 +553,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <p>Flux-surface shape specification parameter.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>EQUILIBRIUM_MODEL = 1: <span class="math">\(s\)</span> - <span class="math">\(\alpha\)</span></li>
+<li>EQUILIBRIUM_MODEL = 1: <span class="math notranslate nohighlight">\(s\)</span> - <span class="math notranslate nohighlight">\(\alpha\)</span></li>
 <li>EQUILIBRIUM_MODEL = 2: Miller parameterization</li>
 <li>EQUILIBRIUM_MODEL = 3: General (Fourier) parameterization</li>
 </ul>
@@ -567,12 +567,12 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="field-print-flag">
 <span id="cgyro-field-print-flag"></span><h2>FIELD_PRINT_FLAG<a class="headerlink" href="#field-print-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Toggle printing of <span class="math">\(\delta A_\parallel(k_x^0,k_y,t)\)</span> and <span class="math">\(\delta B_\parallel(k_x^0,k_y,t)\)</span> .</p>
+<p>Toggle printing of <span class="math notranslate nohighlight">\(\delta A_\parallel(k_x^0,k_y,t)\)</span> and <span class="math notranslate nohighlight">\(\delta B_\parallel(k_x^0,k_y,t)\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0</li>
-<li>Output files are <code class="docutils literal"><span class="pre">bin.cgyro.kxky_apar</span></code> and <code class="docutils literal"><span class="pre">bin.cgyro.kxky_bpar</span></code>, respectively</li>
-<li>Even if this flag is set to zero, potential fluctuations <span class="math">\(\delta\phi(k_x^0,k_y,t)\)</span> are written to <code class="docutils literal"><span class="pre">bin.cgyro.kxky_phi</span></code></li>
+<li>Output files are <code class="docutils literal notranslate"><span class="pre">bin.cgyro.kxky_apar</span></code> and <code class="docutils literal notranslate"><span class="pre">bin.cgyro.kxky_bpar</span></code>, respectively</li>
+<li>Even if this flag is set to zero, potential fluctuations <span class="math notranslate nohighlight">\(\delta\phi(k_x^0,k_y,t)\)</span> are written to <code class="docutils literal notranslate"><span class="pre">bin.cgyro.kxky_phi</span></code></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -589,7 +589,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="gamma-e">
 <span id="cgyro-gamma-e"></span><h2>GAMMA_E<a class="headerlink" href="#gamma-e" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Normalized <span class="math">\(\mathbf{E}\times\mathbf{B}\)</span> shearing rate <span class="math">\(\displaystyle \frac{a}{c_s} \gamma_E\)</span>.</p>
+<p>Normalized <span class="math notranslate nohighlight">\(\mathbf{E}\times\mathbf{B}\)</span> shearing rate <span class="math notranslate nohighlight">\(\displaystyle \frac{a}{c_s} \gamma_E\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
@@ -600,7 +600,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="gamma-e-scale">
 <span id="cgyro-gamma-e-scale"></span><h2>GAMMA_E_SCALE<a class="headerlink" href="#gamma-e-scale" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Scaling factor applied to experimental value of <span class="math">\(\gamma_E\)</span> .</p>
+<p>Scaling factor applied to experimental value of <span class="math notranslate nohighlight">\(\gamma_E\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
@@ -611,7 +611,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="gamma-p">
 <span id="cgyro-gamma-p"></span><h2>GAMMA_P<a class="headerlink" href="#gamma-p" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Normalized rotation shearing rate <span class="math">\(\displaystyle \frac{a}{c_s} \gamma_p\)</span>.</p>
+<p>Normalized rotation shearing rate <span class="math notranslate nohighlight">\(\displaystyle \frac{a}{c_s} \gamma_p\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
@@ -622,7 +622,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="gamma-p-scale">
 <span id="cgyro-gamma-p-scale"></span><h2>GAMMA_P_SCALE<a class="headerlink" href="#gamma-p-scale" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Scaling factor applied to experimental value of <span class="math">\(\gamma_p\)</span> .</p>
+<p>Scaling factor applied to experimental value of <span class="math notranslate nohighlight">\(\gamma_p\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
@@ -654,11 +654,11 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="ipccw">
 <span id="cgyro-ipccw"></span><h2>IPCCW<a class="headerlink" href="#ipccw" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the orientation of the plasma current (and thus the poloidal magnetic field <span class="math">\(B_p\)</span>) relative to the toroidal angle <span class="math">\(\varphi\)</span>.</p>
+<p>Parameter which selects the orientation of the plasma current (and thus the poloidal magnetic field <span class="math notranslate nohighlight">\(B_p\)</span>) relative to the toroidal angle <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>IPCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_p\)</span> is oriented along the negative <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
-<li>IPCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_p\)</span> is oriented along the positive <span class="math">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
+<li>IPCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_p\)</span> is oriented along the negative <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
+<li>IPCCW = -1: Clockwise when viewed from above the torus - positive <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_p\)</span> is oriented along the positive <span class="math notranslate nohighlight">\(\mathbf{e}_{\varphi}\)</span> direction.</li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -671,7 +671,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="kappa">
 <span id="cgyro-kappa"></span><h2>KAPPA<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Elongation, <span class="math">\(\kappa\)</span>, of the flux surface.</p>
+<p>Elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>, of the flux surface.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
@@ -683,7 +683,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="kxkyflux-print-flag">
 <span id="cgyro-kxkyflux-print-flag"></span><h2>KXKYFLUX_PRINT_FLAG<a class="headerlink" href="#kxkyflux-print-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Toggle printing of <span class="math">\(Q_a(k_x^0,k_y,t)\)</span> .</p>
+<p>Toggle printing of <span class="math notranslate nohighlight">\(Q_a(k_x^0,k_y,t)\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0</li>
@@ -694,12 +694,12 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="ky">
 <span id="cgyro-ky"></span><h2>KY<a class="headerlink" href="#ky" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Selector for value of <span class="math">\(k_\theta \rho_s\)</span> .</p>
+<p>Selector for value of <span class="math notranslate nohighlight">\(k_\theta \rho_s\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>If <a class="reference internal" href="#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a> = 1, this is the simulated value of <span class="math">\(k_\theta \rho_s\)</span></li>
-<li>If <a class="reference internal" href="#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a> &gt; 1, this is the lowest nonzero value of <span class="math">\(k_\theta \rho_s\)</span></li>
-<li>Use the output in <code class="docutils literal"><span class="pre">out.cgyro.info</span></code> to guide selection of KY</li>
+<li>If <a class="reference internal" href="#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a> = 1, this is the simulated value of <span class="math notranslate nohighlight">\(k_\theta \rho_s\)</span></li>
+<li>If <a class="reference internal" href="#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a> &gt; 1, this is the lowest nonzero value of <span class="math notranslate nohighlight">\(k_\theta \rho_s\)</span></li>
+<li>Use the output in <code class="docutils literal notranslate"><span class="pre">out.cgyro.info</span></code> to guide selection of KY</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -716,7 +716,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="mach">
 <span id="cgyro-mach"></span><h2>MACH<a class="headerlink" href="#mach" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Rotation speed (Mach number) <span class="math">\(M\)</span></p>
+<p>Rotation speed (Mach number) <span class="math notranslate nohighlight">\(M\)</span></p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
@@ -727,7 +727,7 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="mach-scale">
 <span id="cgyro-mach-scale"></span><h2>MACH_SCALE<a class="headerlink" href="#mach-scale" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Scaling factor applied to experimental value of <span class="math">\(M\)</span> .</p>
+<p>Scaling factor applied to experimental value of <span class="math notranslate nohighlight">\(M\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 1.0</li>
@@ -739,16 +739,16 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <span id="cgyro-mass"></span><h2>MASS_*<a class="headerlink" href="#mass" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The species mass normalized to deuterium mass: MASS_1, and so on.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm MASS}\_* = \frac{m_*}{m_D} \; .\]</div>
 <p><strong>Commments</strong></p>
 <ul>
-<li><p class="first">DEFAULT = <span class="math">\([1,1,1,\ldots]\)</span></p>
+<li><p class="first">DEFAULT = <span class="math notranslate nohighlight">\([1,1,1,\ldots]\)</span></p>
 </li>
 <li><p class="first">When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is deuterium.</p>
 </li>
 <li><p class="first">A typical case (deuterium, carbon, electrons) would be:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">MASS_1</span><span class="o">=</span><span class="mf">1.0</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">MASS_1</span><span class="o">=</span><span class="mf">1.0</span>
 <span class="n">MASS_2</span><span class="o">=</span><span class="mf">6.0</span>
 <span class="n">MASS_3</span><span class="o">=</span><span class="mf">2.724e-4</span>
 </pre></div>
@@ -760,14 +760,14 @@ outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
 <div class="section" id="max-time">
 <span id="cgyro-max-time"></span><h2>MAX_TIME<a class="headerlink" href="#max-time" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Maximum simulation time in units of <span class="math">\(a/c_s\)</span></p>
+<p>Maximum simulation time in units of <span class="math notranslate nohighlight">\(a/c_s\)</span></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="moment-print-flag">
 <span id="cgyro-moment-print-flag"></span><h2>MOMENT_PRINT_FLAG<a class="headerlink" href="#moment-print-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Toggle printing of <span class="math">\(\delta n_a(k_x^0,k_y,t)\)</span>
-and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
+<p>Toggle printing of <span class="math notranslate nohighlight">\(\delta n_a(k_x^0,k_y,t)\)</span>
+and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.</li>
@@ -811,9 +811,9 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <p>Selector for number of fluctuating fields</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>N_FIELD=1: Retain <span class="math">\(\delta\phi\)</span></li>
-<li>N_FIELD=2: Retain <span class="math">\((\delta\phi,\delta A_\parallel)\)</span></li>
-<li>N_FIELD=3: Retain <span class="math">\((\delta\phi,\delta A_\parallel,\delta B_\parallel)\)</span></li>
+<li>N_FIELD=1: Retain <span class="math notranslate nohighlight">\(\delta\phi\)</span></li>
+<li>N_FIELD=2: Retain <span class="math notranslate nohighlight">\((\delta\phi,\delta A_\parallel)\)</span></li>
+<li>N_FIELD=3: Retain <span class="math notranslate nohighlight">\((\delta\phi,\delta A_\parallel,\delta B_\parallel)\)</span></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -849,8 +849,8 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="nu-ee">
 <span id="cgyro-nu-ee"></span><h2>NU_EE<a class="headerlink" href="#nu-ee" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Electron-electron collision frequency <span class="math">\(\nu_{ee}\)</span>, in units of <span class="math">\(c_s/a\)</span>.</p>
-<div class="math">
+<p>Electron-electron collision frequency <span class="math notranslate nohighlight">\(\nu_{ee}\)</span>, in units of <span class="math notranslate nohighlight">\(c_s/a\)</span>.</p>
+<div class="math notranslate nohighlight">
 \[\nu_{ee} = \frac{4\pi n_e e^4}{(2T_e)^{3/2} m_e^{1/2}} \,\log\Lambda \; .\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -868,14 +868,14 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <ul class="simple">
 <li>DEFAULT = 4</li>
 <li>For linear simulations with <a class="reference internal" href="#cgyro-box-size"><span class="std std-ref">BOX_SIZE</span></a> =1, this can be as small as 2, but a minimium of 4 is recommended.</li>
-<li>Wavenumbers span <span class="math">\(p = -N , \ldots , N-1\)</span> where <span class="math">\(N\)</span> = N_RADIAL/2</li>
+<li>Wavenumbers span <span class="math notranslate nohighlight">\(p = -N , \ldots , N-1\)</span> where <span class="math notranslate nohighlight">\(N\)</span> = N_RADIAL/2</li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="n-theta">
 <span id="cgyro-n-theta"></span><h2>N_THETA<a class="headerlink" href="#n-theta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Number of poloidal gridpoints <span class="math">\(\theta_i\)</span> to retain in simulation.</p>
+<p>Number of poloidal gridpoints <span class="math notranslate nohighlight">\(\theta_i\)</span> to retain in simulation.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 24</li>
@@ -885,7 +885,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="n-xi">
 <span id="cgyro-n-xi"></span><h2>N_XI<a class="headerlink" href="#n-xi" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Number of Legendre pseudospectral meshpoints <span class="math">\(\xi_i\)</span> to retain in simulation.</p>
+<p>Number of Legendre pseudospectral meshpoints <span class="math notranslate nohighlight">\(\xi_i\)</span> to retain in simulation.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 16</li>
@@ -897,7 +897,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="n-energy">
 <span id="cgyro-n-energy"></span><h2>N_ENERGY<a class="headerlink" href="#n-energy" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Number of generalized-Laguerre pseudospectral meshpoints <span class="math">\(v_i\)</span> to retain in simulation</p>
+<p>Number of generalized-Laguerre pseudospectral meshpoints <span class="math notranslate nohighlight">\(v_i\)</span> to retain in simulation</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 8</li>
@@ -929,7 +929,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="q">
 <span id="cgyro-q"></span><h2>Q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Safety factor, <span class="math">\(q\)</span>, of the flux surface.</p>
+<p>Safety factor, <span class="math notranslate nohighlight">\(q\)</span>, of the flux surface.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 2.0</li>
@@ -944,7 +944,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="rmin">
 <span id="cgyro-rmin"></span><h2>RMIN<a class="headerlink" href="#rmin" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio <span class="math">\(r/a\)</span>, where <span class="math">\(r\)</span> is the <a class="reference internal" href="../geometry.html"><span class="doc">minor radius</span></a> and <span class="math">\(a\)</span> is the radius of the LCFS.</p>
+<p>The ratio <span class="math notranslate nohighlight">\(r/a\)</span>, where <span class="math notranslate nohighlight">\(r\)</span> is the <a class="reference internal" href="../geometry.html"><span class="doc">minor radius</span></a> and <span class="math notranslate nohighlight">\(a\)</span> is the radius of the LCFS.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.5</li>
@@ -954,7 +954,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="rmaj">
 <span id="cgyro-rmaj"></span><h2>RMAJ<a class="headerlink" href="#rmaj" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio <span class="math">\(R_0/a\)</span>, where <span class="math">\(R_0\)</span> is the <a class="reference internal" href="../geometry.html"><span class="doc">major radius</span></a> and <span class="math">\(a\)</span> is the radius of the LCFS.</p>
+<p>The ratio <span class="math notranslate nohighlight">\(R_0/a\)</span>, where <span class="math notranslate nohighlight">\(R_0\)</span> is the <a class="reference internal" href="../geometry.html"><span class="doc">major radius</span></a> and <span class="math notranslate nohighlight">\(a\)</span> is the radius of the LCFS.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 3.0</li>
@@ -967,8 +967,8 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="s">
 <span id="cgyro-s"></span><h2>S<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Magnetic shear, <span class="math">\(s\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Magnetic shear, <span class="math notranslate nohighlight">\(s\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[s = \frac{r}{q} \frac{\partial q}{\partial r} \; .\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -981,14 +981,14 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <div class="section" id="shift">
 <span id="cgyro-shift"></span><h2>SHIFT<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Shafranov shift, <span class="math">\(\Delta\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Shafranov shift, <span class="math notranslate nohighlight">\(\Delta\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[\Delta = \frac{\partial R_0}{\partial r} \; .\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>
 <li>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</li>
+<li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1001,7 +1001,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <span id="cgyro-s-delta"></span><h2>S_DELTA<a class="headerlink" href="#s-delta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the average triangularity of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[s_\delta = r \, \frac{\partial \delta}{\partial r} \; .\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -1015,7 +1015,7 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <span id="cgyro-s-kappa"></span><h2>S_KAPPA<a class="headerlink" href="#s-kappa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the elongation of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r} \; .\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -1034,14 +1034,14 @@ and <span class="math">\(\delta E_a(k_x^0,k_y,t)\)</span> .</p>
 <span id="cgyro-temp"></span><h2>TEMP_*<a class="headerlink" href="#temp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature.  First species temperature is TEMP_1, and so on.</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\mathrm{TEMP}\_* = \frac{T_{*}}{T_e} \; .\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: TEMP_*= <span class="math">\([1,\ldots]\)</span></li>
+<li>DEFAULT: TEMP_*= <span class="math notranslate nohighlight">\([1,\ldots]\)</span></li>
 <li>The user should set TEMP=1 for electrons.</li>
 <li>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperatures
-are automatically normalized to <span class="math">\(T_e\)</span>.</li>
+are automatically normalized to <span class="math notranslate nohighlight">\(T_e\)</span>.</li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1064,7 +1064,7 @@ are automatically normalized to <span class="math">\(T_e\)</span>.</li>
 <li><p class="first">DEFAULT = 1</p>
 </li>
 <li><p class="first">A typical case (deuterium, carbon, electrons) would be:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Z_1</span><span class="o">=</span><span class="mi">1</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Z_1</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">Z_2</span><span class="o">=</span><span class="mi">6</span>
 <span class="n">Z_3</span><span class="o">=-</span><span class="mi">1</span>
 </pre></div>
@@ -1076,7 +1076,7 @@ are automatically normalized to <span class="math">\(T_e\)</span>.</li>
 <div class="section" id="zeta">
 <span id="cgyro-zeta"></span><h2>ZETA<a class="headerlink" href="#zeta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Squareness, <span class="math">\(\zeta\)</span>, of the flux surface.</p>
+<p>Squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>, of the flux surface.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li>DEFAULT = 0.0</li>

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Install and build GACODE &mdash; GACODE</title>
+  <title>Install and build GACODE from sources &mdash; GACODE</title>
   
 
   
@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="References" href="zreferences.html" />
-    <link rel="prev" title="Download and user agreement" href="download.html" /> 
+    <link rel="prev" title="input.profiles" href="input_profiles.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -79,20 +79,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Software</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Install and build GACODE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#typical-installations">Typical installations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#compiling-on-a-new-platform">Compiling on a NEW platform</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
-</ul>
-<p class="caption"><span class="caption-text">Codes</span></p>
+              <p class="caption"><span class="caption-text">Codes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
@@ -100,12 +87,21 @@
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Physics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
+<p class="caption"><span class="caption-text">Topics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE-GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION AND FIELD ORIENTATION</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Install and build GACODE from sources</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#typical-installations">Typical installations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compiling-on-a-new-platform">Compiling on a NEW platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#running-production-gyro-cases">Running production GYRO cases</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 
             
@@ -151,7 +147,7 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Install and build GACODE</li>
+      <li>Install and build GACODE from sources</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -170,8 +166,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="install-and-build-gacode">
-<h1>Install and build GACODE<a class="headerlink" href="#install-and-build-gacode" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="install-and-build-gacode-from-sources">
+<h1>Install and build GACODE from sources<a class="headerlink" href="#install-and-build-gacode-from-sources" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h2>
 <p>These instructions assume you have a complete <code class="docutils literal"><span class="pre">gacode</span></code> top-level directory, which can be cloned from GitHub:</p>
@@ -203,7 +199,7 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
 <div class="section" id="compiling-on-a-new-platform">
 <h2>Compiling on a NEW platform<a class="headerlink" href="#compiling-on-a-new-platform" title="Permalink to this headline">¶</a></h2>
 <p>In order to compile the full GACODE package on a new machine, so-called <strong>platform files</strong> must be created.  Let’s image you have a new laptop, and you want this platform to be known as MY_PC.  Then, as described above, you’ll need these lines in your shell RC file:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MYCOMPUTER
+<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=MY_PC
 export GACODE_ROOT=$HOME/gacode
 . $GACODE_ROOT/shared/bin/gacode_setup
 </pre></div>
@@ -211,17 +207,12 @@ export GACODE_ROOT=$HOME/gacode
 <p>Then you must create the following files:</p>
 <ol class="arabic">
 <li><p class="first">Machine-specific compilation options:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MYCOMPUTER
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/build/make.inc.MY_PC
 </pre></div>
 </div>
 </li>
 <li><p class="first">Parallel execution command syntax:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MYCOMPUTER
-</pre></div>
-</div>
-</li>
-<li><p class="first">Any module load commands (optional) go here:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/env/env.MYCOMPUTER
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ GACODE_ROOT/platform/exec/exec.MY_PC
 </pre></div>
 </div>
 </li>
@@ -247,6 +238,29 @@ $ cgyro -r -n 4 -nomp 2
 <p>This last command run the complete <code class="docutils literal"><span class="pre">cgyro</span></code> regression test suite using
 4 MPI tasks and 2 OpenMP threads (8 total threads).</p>
 </div>
+<div class="section" id="running-production-gyro-cases">
+<h2>Running production GYRO cases<a class="headerlink" href="#running-production-gyro-cases" title="Permalink to this headline">¶</a></h2>
+<p>Setup:</p>
+<p>The input files and configuration for numerous linear and nonlinear cases can be auto-generated using the &lt;tt&gt;-g&lt;/tt&gt; flag.  Often, it is easiest to find a template case that is close to what you would like to run, and then modify it accordingly.  A relatively simple nonlinear case is &lt;tt&gt;nl01&lt;/tt&gt;.  You can generate the template for this by typing</p>
+<p>&lt;pre&gt;
+$ gyro -g nl01
+&lt;/pre&gt;</p>
+<p>It is &lt;font color=red&gt;strongly suggested&lt;/font&gt; that you first run your case in ‘’‘test mode’‘’ using the &lt;tt&gt;-t&lt;/tt&gt; flag:</p>
+<p>&lt;pre&gt;
+$ gyro -t nl01
+&lt;/pre&gt;</p>
+<p>On large systems like hopper and jaguarpf, you will need to establish an [<a class="reference external" href="http://www.nersc.gov/users/computational-systems/hopper/running-jobs/interactive-jobs/">http://www.nersc.gov/users/computational-systems/hopper/running-jobs/interactive-jobs/</a> interactive queue] to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file &lt;tt&gt;out.gyro.efficiency&lt;/tt&gt;:
+&lt;pre&gt;
+$ cat nl01/out.gyro.efficiency
+&lt;/pre&gt;</p>
+<p>This shows the acceptable number of MPI tasks, together with the approximate parallel efficiency.  If you are using OpenMP, this number represents MPI tasks only, and the total core count would be multiplied by the number of OpenMP threads.</p>
+<p>=== Batch submission ===</p>
+<p>On established platforms, the burden of writing batch script files and setting core counts is solved for you using the &lt;tt&gt;gyro_bat&lt;/tt&gt; script.  To submit the nonlinear job above, you could type</p>
+<p>&lt;pre&gt;
+$ gyro_bat -e nl01 -n 256
+&lt;/pre&gt;</p>
+<p>and then answer the subsequent questions.  GYRO is built with OpenMP capability by default, so you can specify the number of OpenMP threads as well.  This is a bit tricky and its easiest to refer to the [[Gyrotiming | examples here]].</p>
+</div>
 </div>
 
 
@@ -260,7 +274,7 @@ $ cgyro -r -n 4 -nomp 2
         <a href="zreferences.html" class="btn btn-neutral float-right" title="References" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="download.html" class="btn btn-neutral" title="Download and user agreement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="input_profiles.html" class="btn btn-neutral" title="input.profiles" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

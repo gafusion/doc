@@ -81,7 +81,6 @@
             
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Environment setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#ga-iris">GA IRIS</a></li>
@@ -176,8 +175,8 @@
 <div class="section" id="ga-iris">
 <h2>GA IRIS<a class="headerlink" href="#ga-iris" title="Permalink to this headline">¶</a></h2>
 <p>To run on GA IRIS, add these
-lines to <code class="docutils literal"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>module load defaults
+lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load defaults
 module load atom/dev
 export GACODE_PLATFORM=SATURN_GCC
 export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
@@ -188,16 +187,16 @@ export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
 <div class="section" id="nersc-cori">
 <h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this headline">¶</a></h2>
 <p>To run on NERSC CORI KNL with the Intel Fortran and FFTW, add these
-lines to <code class="docutils literal"><span class="pre">.bashrc.ext</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_IFORT
+lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_IFORT
 export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 </pre></div>
 </div>
 <p>To run on NERSC CORI KNL with the Intel Fortran and MKL, add these
-lines to <code class="docutils literal"><span class="pre">.bashrc.ext</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
+lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
 export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
@@ -206,8 +205,8 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 </div>
 <div class="section" id="olcf-titan">
 <h2>OLCF TITAN<a class="headerlink" href="#olcf-titan" title="Permalink to this headline">¶</a></h2>
-<p>To run on OLCF TITAN with the PGI compiler, add these lines to <code class="docutils literal"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=TITAN_PGI
+<p>To run on OLCF TITAN with the PGI compiler, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=TITAN_PGI
 export GACODE_ROOT=/ccs/proj/fus116/candy/gacode
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM

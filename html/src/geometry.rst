@@ -154,3 +154,41 @@ In the table:
 - D means the parameter is not part of the model and is not used (although the effective value is printed for diagnostic purposes)
 
 For further information about geometry and normalization conventions, consult the GYRO Technical Guide   :cite:`candy:2010`.
+
+Magnetic field orientation
+--------------------------
+
+GACODE uses a right-handed (positively-oriented), field-aligned coordinate system :math:`(r,\theta,\varphi)`, whereas DIII-D uses a (positively-oriented) cylindrical system :math:`(R,\phi,Z)`.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:
+
+.. figure:: image/Orient_gacode.png
+	:scale: 100%
+	:alt: flux surface
+	:align: center
+
+.. figure:: image/Orient_d3d.png
+	:scale: 100%
+	:alt: flux surface
+	:align: center		
+
+In reality, quantities like the safety factor and poloidal flux have definite signs. Historically, these signs have been suppressed or neglected in both theory and modeling. For proper treatment of momentum transport, however, these signs must be retained. We can infer typically neglected signs by knowing :ref:`cgyro_ipccw` and :ref:`cgyro_btccw`. For example:
+
+- sign(:math:`B_{\rm tor}`) = -BTCCW
+- sign(:math:`B_{\rm pol}`) = -IPCCW
+- sign(:math:`\psi_{\rm pol}`) = -IPCCW
+- sign(:math:`q`) = IPCCW :math:`\times` BTCCW
+
+The standard configuration in DIII-D is shown below.
+
+.. figure:: image/Orient_d3d_standard.png
+	:scale: 100%
+	:alt: flux surface
+	:align: center
+
+This corresponds to :ref:`cgyro_ipccw` = 1 and :ref:`cgyro_btccw` =-1.  Thus, in GACODE coordinates, we expect:
+
+- sign(:math:`B_{\rm tor}`) = 1
+- sign(:math:`B_{\rm pol}`) = -1
+- sign(:math:`\psi_{\rm pol}`) = -1
+- sign(:math:`q`) = -1
+
+ In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed :doc:`input.profiles <input_profiles>` file. 
