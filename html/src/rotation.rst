@@ -22,7 +22,7 @@ It is this scalar flux-function, :math:`\omega_0`, that is the true free (input)
 The rotation profile
 --------------------
 
-The relevant profile that gives a *complete specification of rotation* is the potential :math:`\omega_0(r)`, which in defined consistently throughout GACODE as
+The relevant profile that gives a *complete specification of rotation* is the angular frequency :math:`\omega_0(r)`, which in defined consistently throughout GACODE as
 
 .. math::
    \omega_0(r) \longrightarrow \frac{c E_r }{R B_p} \; .
