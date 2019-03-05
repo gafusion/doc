@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -80,6 +79,7 @@
             
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Environment setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
@@ -101,8 +101,11 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">DIII-D L-mode shortfall</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#key-publications-and-presentations">Key publications and presentations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experimental-profiles">Experimental profiles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#experimental-profiles">EXPERIMENTAL profiles</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#gyro-results">GYRO results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#gkw-results-added-25-jan-2013">|GKW| results (added 25-jan-2013)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cross-code-benchmarking-results">Cross-code benchmarking results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
 </ul>
 </li>
 </ul>
@@ -170,41 +173,78 @@
            <div itemprop="articleBody">
             
   <div class="section" id="diii-d-l-mode-shortfall">
-<h1>DIII-D L-mode shortfall<a class="headerlink" href="#diii-d-l-mode-shortfall" title="Permalink to this headline">¶</a></h1>
+<span id="shortfall"></span><h1>DIII-D L-mode shortfall<a class="headerlink" href="#diii-d-l-mode-shortfall" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>This webpage is designed to serve as a central common resource and collaboration tool for research into the so-called “shortfall” observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (&lt;math&gt;rho=0.75&lt;/math&gt;) transport and fluctuations levels, and the ITPA T&amp;C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 &#64; 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to [<a class="reference external" href="mailto:chholland&#37;&#52;&#48;ucsd&#46;edu">mailto:chholland<span>&#64;</span>ucsd<span>&#46;</span>edu</a> Chris Holland].</p>
+<p>This webpage is designed to serve as a central common resource and collaboration tool for research into the so-called “shortfall” observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (<span class="math">\(\rho_{tor}=0.75\)</span>) transport and fluctuations levels, and the ITPA T&amp;C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 &#64; 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to <a class="reference external" href="mailto:chholland&#37;&#52;&#48;ucsd&#46;edu">Chris Holland</a>.</p>
 </div>
 <div class="section" id="key-publications-and-presentations">
 <h2>Key publications and presentations<a class="headerlink" href="#key-publications-and-presentations" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
+<li>Initial publication of discharge characteristics and <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> comparisons <a href="#id10"><span class="problematic" id="id11">|GKW|</span></a>.<ul>
 <li><ol class="first upperalpha">
-<li><ol class="first upperalpha" start="5">
-<li>White, L. Schmitz, G. R. McKee, C. Holland, W. A. Peebles, T. A. Carter, M. W. Shafer, M. E. Austin, K. H. Burrell, J. Candy, J. C. DeBoo, E. J. Doyle, M. A. Makowski, R. Prater, T. L. Rhodes, G. M. Staebler, G. R. Tynan, R. E. Waltz, and G. Wang, “Measurements of core electron temperature and density fluctuations in DIII-D and comparison to nonlinear gyrokinetic simulations,” Physics of Plasmas ‘’‘15’‘’ 056116 (2008)</li>
+<li>E. White <em>et al.</em>, “Measurements of core electron temperature and density fluctuations in DIII-D and comparison to nonlinear gyrokinetic simulations”, <em>Physics of Plasmas</em> <strong>15</strong> 056116 (2008) <a class="reference internal" href="zreferences.html#white-2008" id="id1">[WSM+08]</a></li>
 </ol>
 </li>
-</ol>
+</ul>
 </li>
+<li>More detailed <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> comparisons including documentation of synthetic diagnostic implementation.<ul>
 <li><ol class="first upperalpha" start="3">
-<li>Holland, A. E. White, G. R. McKee, M. W. Shafer, J. Candy, R. E. Waltz, L. Schmitz, and G. R. Tynan, “Implementation and Application of Two Synthetic Diagnostics for Validating Simulations of Core Tokamak Turbulence,” Physics of Plasmas ‘’‘16’‘’ 052301 (2009)</li>
+<li>Holland <em>et al.</em>, “Implementation and Application of Two Synthetic Diagnostics for Validating Simulations of Core Tokamak Turbulence”, <em>Physics of Plasmas</em> <strong>16</strong> 052301 (2009) <a class="reference internal" href="zreferences.html#holland-2009" id="id2">[HWM+09]</a></li>
 </ol>
 </li>
-<li>{{file|Holland_2012_fall_ITPA.pdf| Holland 2012 fall T&amp;C ITPA presentation}}</li>
+</ul>
+</li>
+<li>2012 ITPA presentation examing shortfall issue across multiple DIII-D dishcharges using <a class="reference internal" href="tglf.html"><span class="doc">TGLF</span></a>.<ul>
+<li><a class="reference download internal" href="_downloads/Holland_2012_fall_ITPA.pdf" download=""><code class="xref download docutils literal"><span class="pre">C.</span> <span class="pre">Holland</span> <span class="pre">2012</span> <span class="pre">Transport</span> <span class="pre">&amp;</span> <span class="pre">Confinement</span> <span class="pre">ITPA</span> <span class="pre">presentation</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>-<a href="#id12"><span class="problematic" id="id13">|GS2|</span></a> benchmark at <span class="math">\(\rho_{tor}=0.5\)</span> for this discharge.<ul>
 <li><ol class="first upperalpha" start="18">
-<li><ol class="first upperalpha" start="22">
-<li>Bravenec, J. Candy, M.Barnes, and C. Holland, “Linear and nonlinear verification of gyrokinetic microstability codes,” Physics of Plasmas ‘’‘18’‘’, 122505 (2011) [GYRO-GS2 benchmark at &lt;math&gt;rho=0.5&lt;/math&gt; for this shot]</li>
+<li>V. Bravenec, J. Candy, M. Barnes, and C. Holland, “Linear and nonlinear verification of gyrokinetic microstability codes”, <em>Physics of Plasmas</em> <strong>18</strong> 122505 (2011) <a class="reference internal" href="zreferences.html#bravenec-2011" id="id3">[BCBH11]</a></li>
 </ol>
 </li>
+</ul>
+</li>
+<li>Local and global predictions from <a href="#id46"><span class="problematic" id="id47">`GEM &lt;https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation &gt;`_</span></a> code for this discharge. <strong>NOTE: these simulations use similar but not identitical experimental profiles as other publications listed here</strong>.<ul>
+<li><ol class="first upperalpha" start="10">
+<li>Chowdhury <em>et al.</em>, “Study of the L-mode tokamak plasma ‘shortfall’ with local and global nonlinear gyrokinetic <span class="math">\(\delta f\)</span> particle-in-cell simulation”, <em>Physics of Plasmas</em> <strong>21</strong> 112503 (2014) <a class="reference internal" href="zreferences.html#chowdhury-2014" id="id4">[CWC+14]</a></li>
 </ol>
+</li>
+</ul>
+</li>
+<li>Analysis of this discharge using <a href="#id14"><span class="problematic" id="id15">|GENE|</span></a> code.<ul>
+<li><ol class="first upperalpha" start="20">
+<li>Görler <em>et al.</em>, “A flux-matched gyrokinetic analysis of DIII-D L-mode turbulence”, <em>Physics of Plasmas</em> <strong>21</strong> 122307 (2014) <a class="reference internal" href="zreferences.html#gorler-2014" id="id5">[GWT+14]</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>Validation tutorial article documenting systematic near-edge shortfall observations with <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> for multiple DIII-D L-mode discharges (including shot #128913)<ul>
+<li><ol class="first upperalpha" start="3">
+<li>Holland, “Validation metrics for turbulent plasma transport”, <em>Physics of Plasmas</em> <strong>23</strong> 060901 (2016) <a class="reference internal" href="zreferences.html#holland-2016" id="id6">[Hol16]</a></li>
+</ol>
+</li>
+</ul>
 </li>
 </ol>
 </div>
 <div class="section" id="experimental-profiles">
-<h2>Experimental profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this headline">¶</a></h2>
+<h2>EXPERIMENTAL profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Equilibrium profiles (including Miller parameterization of magnetic geometry) in ASCII input.profiles format is {{file|input.profiles.128913_shortfall.txt| here}}.</li>
-<li>The associated input.profiles.geo file is available {{file|input.profiles.geo.128913_shortfall.txt| here}} for those interested in investigating effects of possible up-down asymmetry effects.  Alternatively, the EFIT gfile used for this analysis can be found {{file|g128913.01500_shortfall.txt| here}}.</li>
-<li>Note that there may be small numerical (but not qualitative) differences between the profiles in these files and the values reported in Ref. 2 due to 4+ years of code evolution since the original publication.  We ‘’‘strongly’‘’ urge all future work use the updated {{file|input.profiles.128913_shortfall.txt| input.profiles}} file for future studies, to ensure a common starting point and basis for comparison.</li>
+<li>Equilibrium profiles (including Miller parameterization of magnetic geometry) in <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a> format are available here:<ul>
+<li><a class="reference download internal" href="_downloads/input.profiles.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">input.profiles</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/input.profiles.extra.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">input.profiles.extra</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/input.profiles.geo.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">input.profiles.geo</span></code></a></li>
+</ul>
+</li>
+<li>Those interested in examining possible up-down asymmetry effects can refer to the associated input.profiles.geo file above. Alternatively, the EFIT gEQDSK file used for this analysis can be downloaded <a class="reference download internal" href="_downloads/g128913.01500_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">here</span></code></a>. Also available for download are the ONETWO <a class="reference download internal" href="_downloads/D3D_iterdb_kinefit_128913.01500" download=""><code class="xref download docutils literal"><span class="pre">iterdb</span></code></a> and <a class="reference download internal" href="_downloads/dplasma_cer_format.128913.1500" download=""><code class="xref download docutils literal"><span class="pre">CER</span> <span class="pre">rotation</span></code></a> files used to generate the <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a> files above.</li>
+<li>Older versions of these files, used in references above and results shown below are also availble. These files have the same data as the more recent versions above, but in a slightly different format that will not be accurately read by current GACODE codes. <strong>These files are provided only for reference, and should not be used in future studies</strong>.<ul>
+<li><a class="reference download internal" href="_downloads/old.input.profiles.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">OLD</span> <span class="pre">input.profiles</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/old.input.profiles.geo.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">OLD</span> <span class="pre">input.profiles.geo</span></code></a></li>
+</ul>
+</li>
+<li>Note that there may be small numerical (but not qualitative) differences between the profiles in these files and the values reported in <a class="reference internal" href="zreferences.html#holland-2009" id="id7">[HWM+09]</a> due to 10 years of code evolution since the original publication.  We <strong>strongly</strong> urge all future work use the most recent input.profiles file for future studies, to ensure a common starting point and basis for comparison.</li>
 </ul>
 </div>
 <div class="section" id="gyro-results">
@@ -212,33 +252,85 @@
 <ul class="simple">
 <li>A series of linear electrostatic initial-value growth rate convergence calculations have been performed, the results of which are shown here</li>
 </ul>
-<p>[[Image:d3d128913.r8.linscan.convergence.png|600px]]
-* The base case (electrostatic, finite electron-ion collisions, drift-kinetic electrons) GYRO input file can be found {{file|input.gyro.128913_shortfall.txt| here}} and output summary file {{file|out.gyro.run.128913_shortfall.txt| here}}.
-* Error bars are plotted as standard deviations of time-averaged values, generally taken over &lt;math&gt;t=[30:ge 100] a/c_s&lt;/math&gt;.
-* Text files with results for this figure can be found here: {{file|es_collon_linfreq.128913_shortfall.txt| base case}}, {{file|es_dt5-3_linfreq.128913_shortfall.txt| &lt;math&gt;h = 0.005&lt;/math&gt;}}, {{file|es_NX50_linfreq.128913_shortfall.txt| &lt;math&gt;NX=50&lt;/math&gt;}}, {{file|es_EG10_linfreq.128913_shortfall.txt| &lt;math&gt;ENERGY_GRID=10&lt;/math&gt;}},
-{{file|es_PTG5_linfreq.128913_shortfall.txt| &lt;math&gt;PASS_GRID=TRAP_GRID=5&lt;/math&gt;}}, {{file|es_OG1PTG5_linfreq.128913_shortfall.txt| &lt;math&gt;ORBIT_GRID=10, PASS_GRID=TRAP_GRID=5&lt;/math&gt;}}, {{file|esRBF5_linfreq.128913_shortfall.txt| &lt;math&gt;5^{th}&lt;/math&gt;-order RBF}}</p>
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.convergence.png"><img alt="b250" src="_images/d3d128913.r8.linscan.convergence.png" style="width: 100%;" /></a>
 <ul class="simple">
+<li>The base case (electrostatic, finite electron-ion collisions, drift-kinetic electrons) <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> input file can be found
+<a class="reference download internal" href="_downloads/input.gyro.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">here</span></code></a>
+and output summary file
+<a class="reference download internal" href="_downloads/out.gyro.run.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">here</span></code></a>.</li>
+<li>Error bars are plotted as standard deviations of time-averaged values, generally taken over <span class="math">\(t=[30:\, \ge 100] a/c_s\)</span>.</li>
+<li>Text files with results for this figure can be found here:<ul>
+<li><a class="reference download internal" href="_downloads/ES_collon_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">base</span> <span class="pre">case</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_dt5e-3_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">h=0.005</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_dt5e-3_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">NX=50</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_dt5e-3_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">h=0.005</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_EG10_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">ENERGY_GRID=10</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_PTG5_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">PASS_GRID=TRAP_GRID=5</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_OG10PTG5_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">ORBIT_GRID=10,</span> <span class="pre">PASS_GRID=TRAP_GRID=5</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_RBF5_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">5th-order</span> <span class="pre">RBF</span></code></a></li>
+</ul>
+</li>
 <li>A second set of physics tests have been done, examining the effects of using only adiabatic electrons, inclusion of ion-electron collisions, and electromagnetic effects.  These results can be seen here</li>
 </ul>
-<p>[[Image:d3d128913.r8.linscan.physics.png|600px]]
-* Text files with results for this figure can be found here: {{file|ae_linfreq.128913_shortfall.txt| adiabatic electrons}}, {{file|es_colloff_linfreq.128913_shortfall.txt| ES &amp; &lt;math&gt;nu_{ei}=0&lt;/math&gt;}}, {{file|es_collon_linfreq.128913_shortfall.txt| ES &amp; finite &lt;math&gt;nu_{ei}&lt;/math&gt;}}, {{file|em_colloff_linfreq.128913_shortfall.txt| EM &amp; &lt;math&gt;nu_{ei}=0&lt;/math&gt;}}, {{file|em_collon_linfreq.128913_shortfall.txt| EM &amp; finite &lt;math&gt;nu_{ei}&lt;/math&gt;}}</p>
-<p>=== GKW results (added 25-jan-2013) ===</p>
-<p>[[Image:d3d128913.r8.GKW_freq.physics.png|600px]]
-[[Image:d3d128913.r8.GKW_gamma.physics.png|600px]]</p>
-<p>Text files for GKW electrostatic growth rates with: {{file|es_colloff_linfreq.GKW.128913_shortfall.txt| no collisions}} and {{file|es_pacollon_linfreq.GKW.128913_shortfall.txt| pitch-angle scattering only}}.</p>
-<p>=== Cross-code benchmarking results ===
-* The first completed benchmarking study compares results from the gyrokinetic  [[Gyro | GYRO]], [<a class="reference external" href="http://sourceforge.net/apps/mediawiki/gyrokinetics">http://sourceforge.net/apps/mediawiki/gyrokinetics</a> GS2], [<a class="reference external" href="http://cips.colorado.edu/simulation/gem.htm">http://cips.colorado.edu/simulation/gem.htm</a> GEM], and [<a class="reference external" href="http://www.ipp.mpg.de/~fsj/gene/">http://www.ipp.mpg.de/~fsj/gene/</a> GENE] codes, as well as the gyrofluid [[TGLF | TGLF]] model.  GYRO, GS2, GKW and GENE are continuum Eulearian (although with different velocity-space discretizations) codes, while GEM is a particle-in-cell code.  Unless otherwise noted, the results shown below are for electromagnetic, collisional simulations with a single gyrokinetic ion species.</p>
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.physics.png"><img alt="b250" src="_images/d3d128913.r8.linscan.physics.png" style="width: 100%;" /></a>
 <ul class="simple">
-<li>‘’‘Update 25-jan-2013:’‘’ Results from the continuum gyrokinetic [<a class="reference external" href="http://gkw.googlecode.com/">http://gkw.googlecode.com/</a> GKW] code have been added.</li>
-<li>‘’‘Update 27-mar-2013:’‘’ Results from the gyrofluid [[TGLF | TGLF]] model have been added.</li>
-<li>‘’‘Update 30-may-2013:’‘’ Results from the continuum gyrokinetic [<a class="reference external" href="http://www.ipp.mpg.de/~fsj/gene/">http://www.ipp.mpg.de/~fsj/gene/</a> GENE] code have been added.</li>
+<li>Text files with results for this figure can be found here:<ul>
+<li><a class="reference download internal" href="_downloads/AE_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">adiabatic</span> <span class="pre">electrions</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_colloff_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">ES</span> <span class="pre">&amp;</span> <span class="pre">nu_ei</span> <span class="pre">=</span> <span class="pre">0</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_collon_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">ES</span> <span class="pre">&amp;</span> <span class="pre">finite</span> <span class="pre">nu_ei</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/EM_colloff_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">EM</span> <span class="pre">&amp;</span> <span class="pre">nu_ei</span> <span class="pre">=</span> <span class="pre">0</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/EM_collon_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">EM</span> <span class="pre">&amp;</span> <span class="pre">finite</span> <span class="pre">nu_ei</span></code></a></li>
 </ul>
-<p>[[Image:d3d128913.r8.linscan.GYROvsGENEvsGS2vsGEMvsGKWvsTGLF.png|600px]]</p>
-<p>‘’‘Comparison of GYRO, GKW, and GENE linear calculations with no collisions and Miller geometry’‘’</p>
-<p>[[Image:d3d128913.r8.linscan.GYROvsGKWvsGENE_nocoll.png|600px]]</p>
-<p>Individual code results are here for cases with finite collisions: {{file|em_collon_linfreq.128913_shortfall.txt| GYRO}}, {{file|em_collon_linfreq.GS2.128913_shortfall.txt| GS2}}, {{file|em_collon_linfreq.GEM.128913_shortfall.txt| GEM}}, {{file|es_pacollon_linfreq.GKW.128913_shortfall.txt| GKW}}, {{file|em_collon_linfreq.TGLF.128913_shortfall.txt| TGLF}}, and {{file|D3D_128913_lin_em_miller_pitch_GENE.txt| GENE}}.</p>
-<p>Individual code results are here for cases with no collisions: {{file|es_colloff_linfreq.128913_shortfall.txt| GYRO}}, {{file|es_colloff_linfreq.GKW.128913_shortfall.txt| GKW}}, and {{file|D3D_128913_lin_es_miller_colloff_GENE.txt| GENE}}.</p>
-<p>A special thanks to [<a class="reference external" href="mailto:rvbravenec&#37;&#52;&#48;4th-state&#46;com">mailto:rvbravenec<span>&#64;</span>4th-state<span>&#46;</span>com</a> Ron Bravenec] for providing the GS2 and GEM data, [<a class="reference external" href="mailto:y&#46;pocari&#37;&#52;&#48;gmail&#46;com">mailto:y<span>&#46;</span>pocari<span>&#64;</span>gmail<span>&#46;</span>com</a> Yann Camenen] for the GKW results, and [<a class="reference external" href="mailto:tbg&#37;&#52;&#48;ipp&#46;mpg&#46;de">mailto:tbg<span>&#64;</span>ipp<span>&#46;</span>mpg<span>&#46;</span>de</a> Tobias Görler] for the GENE results.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="gkw-results-added-25-jan-2013">
+<h2><a href="#id16"><span class="problematic" id="id17">|GKW|</span></a> results (added 25-jan-2013)<a class="headerlink" href="#gkw-results-added-25-jan-2013" title="Permalink to this headline">¶</a></h2>
+<a class="reference internal image-reference" href="_images/GKW_physics_freq.png"><img alt="b250" src="_images/GKW_physics_freq.png" style="width: 48%;" /></a>
+<a class="reference internal image-reference" href="_images/GKW_physics_gamma.png"><img alt="b250" src="_images/GKW_physics_gamma.png" style="width: 48%;" /></a>
+<ul class="simple">
+<li>Text files for electrostatic <a href="#id18"><span class="problematic" id="id19">|GKW|</span></a> electrostatic growth rates with:<ul>
+<li><a class="reference download internal" href="_downloads/ES_colloff_linfreq.GKW.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">no</span> <span class="pre">collisions</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_pacollon_linfreq.GKW.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">pitch-angle</span> <span class="pre">scattering</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="cross-code-benchmarking-results">
+<h2>Cross-code benchmarking results<a class="headerlink" href="#cross-code-benchmarking-results" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The first completed benchmarking study compares results from the gyrokinetic <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>, <a href="#id20"><span class="problematic" id="id21">|GS2|</span></a>, <a href="#id48"><span class="problematic" id="id49">`GEM &lt;https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation &gt;`_</span></a>, and <a href="#id22"><span class="problematic" id="id23">|GENE|</span></a> codes, as well as the gyrofluid <a class="reference internal" href="tglf.html"><span class="doc">TGLF</span></a> model.  <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>, <a href="#id24"><span class="problematic" id="id25">|GS2|</span></a>, <a href="#id26"><span class="problematic" id="id27">|GKW|</span></a> and <a href="#id28"><span class="problematic" id="id29">|GENE|</span></a> are continuum Eulearian (although with different velocity-space discretizations) codes, while <a href="#id50"><span class="problematic" id="id51">`GEM &lt;https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation &gt;`_</span></a> is a particle-in-cell code.  Unless otherwise noted, the results shown below are for electromagnetic, collisional simulations with a single gyrokinetic ion species.</li>
+<li><strong>Update 25-jan-2013:</strong> Results from the continuum gyrokinetic <a href="#id30"><span class="problematic" id="id31">|GKW|</span></a> code have been added.</li>
+<li><strong>Update 27-mar-2013:</strong> Results from the gyrofluid <a class="reference internal" href="tglf.html"><span class="doc">TGLF</span></a> model have been added.</li>
+<li><strong>Update 30-may-2013:</strong> Results from the continuum gyrokinetic <a href="#id32"><span class="problematic" id="id33">|GENE|</span></a> code have been added.</li>
+</ul>
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.GYROvsGENEvsGS2vsGEMvsGKWvsTGLF.png"><img alt="b250" src="_images/d3d128913.r8.linscan.GYROvsGENEvsGS2vsGEMvsGKWvsTGLF.png" style="width: 100%;" /></a>
+<ul class="simple">
+<li>Individual code results are here for cases with finite collisions:<ul>
+<li><a class="reference download internal" href="_downloads/EM_collon_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GYRO</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/EM_collon_linfreq.GS2.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GS2</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/EM_collon_linfreq.GEM.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GEM</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_pacollon_linfreq.GKW.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GKW</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/EM_collon_linfreq.TGLF.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">TGLF</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/D3D_128913_lin_em_miller_pitch_GENE.txt" download=""><code class="xref download docutils literal"><span class="pre">GENE</span></code></a></li>
+</ul>
+</li>
+<li>Comparison of <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>, <a href="#id34"><span class="problematic" id="id35">|GKW|</span></a>, and <a href="#id36"><span class="problematic" id="id37">|GENE|</span></a> linear calculations with no collisions and Miller geometry</li>
+</ul>
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.GYROvsGKWvsGENE_nocoll.png"><img alt="b250" src="_images/d3d128913.r8.linscan.GYROvsGKWvsGENE_nocoll.png" style="width: 100%;" /></a>
+<dl class="docutils">
+<dt><a href="#id8"><span class="problematic" id="id9">*</span></a>Individual code results are here for cases with no collisions:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference download internal" href="_downloads/ES_colloff_linfreq.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GYRO</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/ES_colloff_linfreq.GKW.128913_shortfall.txt" download=""><code class="xref download docutils literal"><span class="pre">GKW</span></code></a></li>
+<li><a class="reference download internal" href="_downloads/D3D_128913_lin_es_miller_colloff_GENE.txt" download=""><code class="xref download docutils literal"><span class="pre">GENE</span></code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="acknowledgments">
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline">¶</a></h2>
+<p>Thanks to Ron Bravenec for providing the <a href="#id38"><span class="problematic" id="id39">|GS2|</span></a> and <a href="#id52"><span class="problematic" id="id53">`GEM &lt;https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation &gt;`_</span></a> data, Yann Camenen for the <a href="#id40"><span class="problematic" id="id41">|GKW|</span></a> results, and Tobias Görler for the <a href="#id42"><span class="problematic" id="id43">|GENE|</span></a> results.</p>
 </div>
 </div>
 
@@ -260,7 +352,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2018.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -279,34 +371,32 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 
