@@ -6,10 +6,14 @@ DIII-D L-mode shortfall
 .. |ip| replace:: :doc:`input.profiles <input_profiles>`
 .. |GYRO| replace:: :doc:`GYRO <gyro>`
 .. |TGLF| replace:: :doc:`TGLF <tglf>`
-.. |GKW| replace:: `GKW <https://bitbucket.org/gkw/gkw/wiki/Home>`_    
-.. |GS2| replace:: `GS2 <https://bitbucket.org/gyrokinetics/gs2/wiki/Home>`_    
-.. |GEM| replace:: `GEM <https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation >`_    
-.. |GENE| replace:: `GENE <http://genecode.org/>`_    
+.. |GKW| replace:: `GKW`
+.. _GKW: https://bitbucket.org/gkw/gkw/wiki/Home    
+.. |GS2| replace:: `GS2`
+.. _GS2: https://bitbucket.org/gyrokinetics/gs2/wiki/Home   
+.. |GEM| replace:: `GEM`
+.. _GEM: https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation
+.. |GENE| replace:: `GENE`
+.. _GENE: http://genecode.org
 		  
 Overview
 --------
@@ -18,7 +22,7 @@ This webpage is designed to serve as a central common resource and collaboration
 
 Key publications and presentations
 ----------------------------------
-#. Initial publication of discharge characteristics and |GYRO| comparisons |GKW|.
+#. Initial publication of discharge characteristics and |GYRO| comparisons.
 
    - A. \E. White *et al.*, “Measurements of core electron temperature and density fluctuations in DIII-D and comparison to nonlinear gyrokinetic simulations”, *Physics of Plasmas* **15** 056116 (2008) :cite:`white:2008`
 	
@@ -30,15 +34,15 @@ Key publications and presentations
 
     - :download:`C. Holland 2012 Transport & Confinement ITPA presentation <shortfall/Holland_2012_fall_ITPA.pdf>`
      
-#. |GYRO|-|GS2| benchmark at :math:`\rho_{tor}=0.5` for this discharge.
+#. |GYRO|-|GS2|_ benchmark at :math:`\rho_{tor}=0.5` for this discharge.
 
    - R. \V. Bravenec, J. Candy, M. Barnes, and C. Holland, “Linear and nonlinear verification of gyrokinetic microstability codes”, *Physics of Plasmas* **18** 122505 (2011) :cite:`bravenec:2011`
 
-#. Local and global predictions from |GEM| code for this discharge. **NOTE: these simulations use similar but not identitical experimental profiles as other publications listed here**.
+#. Local and global predictions from |GEM|_ code for this discharge. **NOTE: these simulations use similar but not identitical experimental profiles as other publications listed here**.
 
    - J. Chowdhury *et al.*, "Study of the L-mode tokamak plasma 'shortfall' with local and global nonlinear gyrokinetic :math:`\delta f` particle-in-cell simulation", *Physics of Plasmas* **21** 112503 (2014) :cite:`chowdhury:2014`
    
-#. Analysis of this discharge using |GENE| code.
+#. Analysis of this discharge using |GENE|_ code.
 
    - T. Görler *et al.*, "A flux-matched gyrokinetic analysis of DIII-D L-mode turbulence", *Physics of Plasmas* **21** 122307 (2014) :cite:`görler:2014`
    
@@ -71,7 +75,8 @@ GYRO results
 ------------
 
 * A series of linear electrostatic initial-value growth rate convergence calculations have been performed, the results of which are shown here
-.. image:: shortfall/figures/d3d128913.r8.linscan.convergence.png
+
+  .. image:: shortfall/figures/d3d128913.r8.linscan.convergence.png
 	:width: 100 %
 	:alt: b250
 
@@ -94,7 +99,8 @@ GYRO results
   - :download:`5th-order RBF <shortfall/ES_RBF5_linfreq.128913_shortfall.txt>`
   
 * A second set of physics tests have been done, examining the effects of using only adiabatic electrons, inclusion of ion-electron collisions, and electromagnetic effects.  These results can be seen here
-.. image:: shortfall/figures/d3d128913.r8.linscan.physics.png
+
+  .. image:: shortfall/figures/d3d128913.r8.linscan.physics.png
 	:width: 100 %
 	:alt: b250
 	      
@@ -106,8 +112,8 @@ GYRO results
   - :download:`EM & nu_ei = 0 <shortfall/EM_colloff_linfreq.128913_shortfall.txt>`
   - :download:`EM & finite nu_ei <shortfall/EM_collon_linfreq.128913_shortfall.txt>`
 
-|GKW| results (added 25-jan-2013)
--------------------------------
+GKW results (added 25-jan-2013)
+---------------------------------
 
 .. image:: shortfall/figures/GKW_physics_freq.png
 	:width: 48 %
@@ -116,18 +122,18 @@ GYRO results
 	:width: 48 %
 	:alt: b250
 
-* Text files for electrostatic |GKW| electrostatic growth rates with:
+* Text files for electrostatic |GKW|_ electrostatic growth rates with:
 
   - :download:`no collisions <shortfall/ES_colloff_linfreq.GKW.128913_shortfall.txt>`
   - :download:`pitch-angle scattering <shortfall/ES_pacollon_linfreq.GKW.128913_shortfall.txt>`
 
 Cross-code benchmarking results
 -------------------------------
-* The first completed benchmarking study compares results from the gyrokinetic |GYRO|, |GS2|, |GEM|, and |GENE| codes, as well as the gyrofluid |TGLF| model.  |GYRO|, |GS2|, |GKW| and |GENE| are continuum Eulearian (although with different velocity-space discretizations) codes, while |GEM| is a particle-in-cell code.  Unless otherwise noted, the results shown below are for electromagnetic, collisional simulations with a single gyrokinetic ion species.
+* The first completed benchmarking study compares results from the gyrokinetic |GYRO|, |GS2|_, |GEM|_, and |GENE|_ codes, as well as the gyrofluid |TGLF| model.  |GYRO|, |GS2|_, |GKW|_ and |GENE|_ are continuum Eulearian (although with different velocity-space discretizations) codes, while |GEM|_ is a particle-in-cell code.  Unless otherwise noted, the results shown below are for electromagnetic, collisional simulations with a single gyrokinetic ion species.
 
-* **Update 25-jan-2013:** Results from the continuum gyrokinetic |GKW| code have been added.
+* **Update 25-jan-2013:** Results from the continuum gyrokinetic |GKW|_ code have been added.
 * **Update 27-mar-2013:** Results from the gyrofluid |TGLF| model have been added.
-* **Update 30-may-2013:** Results from the continuum gyrokinetic |GENE| code have been added.
+* **Update 30-may-2013:** Results from the continuum gyrokinetic |GENE|_ code have been added.
 
 .. image:: shortfall/figures/d3d128913.r8.linscan.GYROvsGENEvsGS2vsGEMvsGKWvsTGLF.png
 	:width: 100 %
@@ -142,7 +148,7 @@ Cross-code benchmarking results
   - :download:`TGLF <shortfall/EM_collon_linfreq.TGLF.128913_shortfall.txt>`
   - :download:`GENE <shortfall/D3D_128913_lin_em_miller_pitch_GENE.txt>`
 
-* Comparison of |GYRO|, |GKW|, and |GENE| linear calculations with no collisions and Miller geometry
+* Comparison of |GYRO|, |GKW|_, and |GENE|_ linear calculations with no collisions and Miller geometry
 
 .. image:: shortfall/figures/d3d128913.r8.linscan.GYROvsGKWvsGENE_nocoll.png
 	:width: 100 %
@@ -154,8 +160,9 @@ Cross-code benchmarking results
    - :download:`GKW <shortfall/ES_colloff_linfreq.GKW.128913_shortfall.txt>`
    - :download:`GENE <shortfall/D3D_128913_lin_es_miller_colloff_GENE.txt>`
 
+     
 Acknowledgments
 -------------------------------
-Thanks to Ron Bravenec for providing the |GS2| and |GEM| data, Yann Camenen for the |GKW| results, and Tobias Görler for the |GENE| results.
+Thanks to Ron Bravenec for providing the |GS2|_ and |GEM|_ data, Yann Camenen for the |GKW|_ results, and Tobias Görler for the |GENE|_ results.
 
    
