@@ -24,8 +24,7 @@
 
   
 
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -81,6 +80,7 @@
             
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download and user agreement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup.html">Environment setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../build.html">Build from sources</a></li>
@@ -196,15 +196,15 @@ Sugama’s form of the transport equations, with some practical simplifications 
 notational differences.</p>
 <div class="section" id="density-transport">
 <h2>Density Transport<a class="headerlink" href="#density-transport" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial \langle n_a \rangle}{\partial t} +
 \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime \Gamma_a \right)
 = S_{n,a} \; ,\]</div>
 <p>where</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[S_{n,a} = S_{n,a}^{\rm beam} + S_{n,a}^{\rm wall} \; ,\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\Gamma_a = \Gamma_a^{\rm neo} + \Gamma_a^{\rm tur} \; .\]</div>
 <table border="1" class="colwidths-given docutils" id="id2">
 <caption><span class="caption-text"><strong>Density fluxes and sources</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
@@ -220,37 +220,37 @@ notational differences.</p>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\Gamma_a^{\rm neo}\)</span></td>
+<tr class="row-even"><td><span class="math">\(\Gamma_a^{\rm neo}\)</span></td>
 <td>Neoclassical particle flux</td>
-<td><span class="math notranslate nohighlight">\(1/s/cm^2\)</span></td>
+<td><span class="math">\(1/s/cm^2\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\Gamma_a^{\rm tur}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(\Gamma_a^{\rm tur}\)</span></td>
 <td>Turbulent particle flux</td>
-<td><span class="math notranslate nohighlight">\(1/s/cm^2\)</span></td>
+<td><span class="math">\(1/s/cm^2\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(S_{n,a}^{\rm beam}\)</span></td>
+<tr class="row-even"><td><span class="math">\(S_{n,a}^{\rm beam}\)</span></td>
 <td>Beam density source rate</td>
-<td><span class="math notranslate nohighlight">\(1/s/cm^3\)</span></td>
+<td><span class="math">\(1/s/cm^3\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(S_{n,a}^{\rm wall}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(S_{n,a}^{\rm wall}\)</span></td>
 <td>Wall density source rate</td>
-<td><span class="math notranslate nohighlight">\(1/s/cm^3\)</span></td>
+<td><span class="math">\(1/s/cm^3\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="energy-transport">
 <h2>Energy Transport<a class="headerlink" href="#energy-transport" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial \langle W_a \rangle}{\partial t} + \
 \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime Q_a \right) +
 \Pi_a \frac{\partial \omega_0}{\partial\psi} = S_{W,a} \; ,\]</div>
 <p>where</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[S_{W,a} = S_{W,a}^{\rm aux} + S_{W,a}^{\rm rad} + S_{W,a}^{\alpha} +
 S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[Q_a = Q_a^{\rm neo} + Q_a^{\rm tur} \; .\]</div>
 <table border="1" class="colwidths-given docutils" id="id3">
 <caption><span class="caption-text"><strong>Energy fluxes and sources</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
@@ -266,45 +266,45 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(Q_a^{\rm neo}\)</span></td>
+<tr class="row-even"><td><span class="math">\(Q_a^{\rm neo}\)</span></td>
 <td>Neoclassical energy flux</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^2\)</span></td>
+<td><span class="math">\(erg/s/cm^2\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(Q_a^{\rm tur}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(Q_a^{\rm tur}\)</span></td>
 <td>Turbulent energy flux</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^2\)</span></td>
+<td><span class="math">\(erg/s/cm^2\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(S_{W,a}^{\rm aux}\)</span></td>
+<tr class="row-even"><td><span class="math">\(S_{W,a}^{\rm aux}\)</span></td>
 <td>Auxiliary heating power density</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^3\)</span></td>
+<td><span class="math">\(erg/s/cm^3\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(S_{W,a}^{\rm rad}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(S_{W,a}^{\rm rad}\)</span></td>
 <td>Radiation heating power density</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^3\)</span></td>
+<td><span class="math">\(erg/s/cm^3\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(S_{W,a}^{\alpha}\)</span></td>
+<tr class="row-even"><td><span class="math">\(S_{W,a}^{\alpha}\)</span></td>
 <td>Alpha heating power density</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^3\)</span></td>
+<td><span class="math">\(erg/s/cm^3\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(S_{W,a}^{\rm tur}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(S_{W,a}^{\rm tur}\)</span></td>
 <td>Turbulent exchange power density</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^3\)</span></td>
+<td><span class="math">\(erg/s/cm^3\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(S_{W,a}^{\rm col}\)</span></td>
+<tr class="row-even"><td><span class="math">\(S_{W,a}^{\rm col}\)</span></td>
 <td>Collisional exchange power density</td>
-<td><span class="math notranslate nohighlight">\(erg/s/cm^3\)</span></td>
+<td><span class="math">\(erg/s/cm^3\)</span></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="momentum-transport">
 <h2>Momentum Transport<a class="headerlink" href="#momentum-transport" title="Permalink to this headline">¶</a></h2>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\frac{\partial}{\partial t} \left( \omega_0 \langle R^2 \rangle \sum_a m_a n_a \right)
 + \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime \sum_a \Pi_a \right)
   = \sum_a S_{\omega,a} \; ,\]</div>
 <p>and</p>
-<div class="math notranslate nohighlight">
+<div class="math">
 \[\Pi_a = \Pi_a^{\rm neo} + \Pi_a^{\rm tur} \; .\]</div>
 <table border="1" class="colwidths-given docutils" id="id4">
 <caption><span class="caption-text"><strong>Momentum fluxes and sources</strong></span><a class="headerlink" href="#id4" title="Permalink to this table">¶</a></caption>
@@ -320,17 +320,17 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 </tr>
 </thead>
 <tbody valign="top">
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(\Pi_a^{\rm neo}\)</span></td>
+<tr class="row-even"><td><span class="math">\(\Pi_a^{\rm neo}\)</span></td>
 <td>Neoclassical angular momentum flux</td>
-<td><span class="math notranslate nohighlight">\(erg/cm^2\)</span></td>
+<td><span class="math">\(erg/cm^2\)</span></td>
 </tr>
-<tr class="row-odd"><td><span class="math notranslate nohighlight">\(\Pi_a^{\rm tur}\)</span></td>
+<tr class="row-odd"><td><span class="math">\(\Pi_a^{\rm tur}\)</span></td>
 <td>Turbulent angular momentum flux</td>
-<td><span class="math notranslate nohighlight">\(erg/cm^2\)</span></td>
+<td><span class="math">\(erg/cm^2\)</span></td>
 </tr>
-<tr class="row-even"><td><span class="math notranslate nohighlight">\(S_{\omega,a}\)</span></td>
+<tr class="row-even"><td><span class="math">\(S_{\omega,a}\)</span></td>
 <td>Angular momentum density source rate</td>
-<td><span class="math notranslate nohighlight">\(erg/cm^3\)</span></td>
+<td><span class="math">\(erg/cm^3\)</span></td>
 </tr>
 </tbody>
 </table>
@@ -357,7 +357,7 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2018.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -376,34 +376,32 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'../',
+              VERSION:'',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 

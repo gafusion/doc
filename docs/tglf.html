@@ -24,13 +24,12 @@
 
   
 
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tabular list for input.tglf" href="tglf/tglf_table.html" />
-    <link rel="prev" title="GYRO" href="gyro.html" /> 
+    <link rel="prev" title="Gyrokinetic Simulation in the 2000s" href="gyro/gyro_history.html" /> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -81,6 +80,7 @@
             
               <p class="caption"><span class="caption-text">Software</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Environment setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
@@ -185,7 +185,7 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The TGLF model is a next generation gyro-Landau-fluid model that improves the accuracy of the trapped particle response and the finite Larmor radius effects compared to its predecessor, GLF23. The model solves for the linear eigenmodes of trapped ion and electron modes (TIM, TEM), ion and electron temperature gradient (ITG, ETG) modes and electromagnetic kinetic ballooning (KB) modes. The TGLF model generalizes the methods of GLF23 to a more accurate system of moment equations and an eigenmode solution method that is valid for shaped geometry and finite aspect ratio. The Miller equilibrium model is used in TGLF for shaped finite aspect ratio geometry. In the first phase of developing TGLF, the linear eigenmodes were benchmarked against a database of 1800 linear stability calculations using the GKS gyrokinetic code. The next phase focused on finding a saturation rule that used the quasilinear (QL) weights from TGLF and accurately fit the fluxes from nonlinear simulations. Using a database of 83 nonlinear GYRO simulations with Miller shaped geometry and kinetic electrons, a model for the saturated fluctuation intensity has been found. With a simple quasilinear (QL) saturation rule, remarkable agreement with the energy and particle fluxes from the GYRO database is obtained for both shaped or circular geometry and also for low aspect ratio. Using this new QL saturation rule along with a new ExB shear quench rule for shaped geometry, the density and temperature profiles have recently been predicted in over 500 transport code runs and the results compared against experimental data from 96 tokamak discharges from DIII-D, JET, and TFTR. Compared to GLF23, the TGLF model demonstrates better agreement between the predicted and experimental temperature profiles. Surprisingly, TGLF predicts that the high-k modes are found to play an important role in the central core region of low (L-mode) and high confinement (H-mode) plasmas lacking transport barriers. Using Miller finite aspect ratio shaped geometry in place of <span class="math notranslate nohighlight">\(s\text{-}\alpha\)</span> infinite aspect ratio circular geometry results in larger transport (especially <span class="math notranslate nohighlight">\(\chi_e\)</span>) and improved agreement with TFTR, which is circular. By contrast, we see little change in the agreement for DIII-D and JET, where the stabilizing effect of elongation compensates for the increase in <span class="math notranslate nohighlight">\(\chi\)</span> due to finite aspect ratio.</p>
+<p>The TGLF model is a next generation gyro-Landau-fluid model that improves the accuracy of the trapped particle response and the finite Larmor radius effects compared to its predecessor, GLF23. The model solves for the linear eigenmodes of trapped ion and electron modes (TIM, TEM), ion and electron temperature gradient (ITG, ETG) modes and electromagnetic kinetic ballooning (KB) modes. The TGLF model generalizes the methods of GLF23 to a more accurate system of moment equations and an eigenmode solution method that is valid for shaped geometry and finite aspect ratio. The Miller equilibrium model is used in TGLF for shaped finite aspect ratio geometry. In the first phase of developing TGLF, the linear eigenmodes were benchmarked against a database of 1800 linear stability calculations using the GKS gyrokinetic code. The next phase focused on finding a saturation rule that used the quasilinear (QL) weights from TGLF and accurately fit the fluxes from nonlinear simulations. Using a database of 83 nonlinear GYRO simulations with Miller shaped geometry and kinetic electrons, a model for the saturated fluctuation intensity has been found. With a simple quasilinear (QL) saturation rule, remarkable agreement with the energy and particle fluxes from the GYRO database is obtained for both shaped or circular geometry and also for low aspect ratio. Using this new QL saturation rule along with a new ExB shear quench rule for shaped geometry, the density and temperature profiles have recently been predicted in over 500 transport code runs and the results compared against experimental data from 96 tokamak discharges from DIII-D, JET, and TFTR. Compared to GLF23, the TGLF model demonstrates better agreement between the predicted and experimental temperature profiles. Surprisingly, TGLF predicts that the high-k modes are found to play an important role in the central core region of low (L-mode) and high confinement (H-mode) plasmas lacking transport barriers. Using Miller finite aspect ratio shaped geometry in place of <span class="math">\(s\text{-}\alpha\)</span> infinite aspect ratio circular geometry results in larger transport (especially <span class="math">\(\chi_e\)</span>) and improved agreement with TFTR, which is circular. By contrast, we see little change in the agreement for DIII-D and JET, where the stabilizing effect of elongation compensates for the increase in <span class="math">\(\chi\)</span> due to finite aspect ratio.</p>
 </div>
 </div>
 
@@ -200,7 +200,7 @@
         <a href="tglf/tglf_table.html" class="btn btn-neutral float-right" title="Tabular list for input.tglf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gyro.html" class="btn btn-neutral" title="GYRO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gyro/gyro_history.html" class="btn btn-neutral" title="Gyrokinetic Simulation in the 2000s" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -209,7 +209,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2018.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -228,34 +228,32 @@
 
   
 
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'en',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
 
   
 
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
+  <script type="text/javascript" src="_static/js/theme.js"></script>
 
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
   </script> 
 
