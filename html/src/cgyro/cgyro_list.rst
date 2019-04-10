@@ -87,7 +87,7 @@ Pressure gradient scaling factor.  Here, the pressure gradient factor is
 defined as
 
 .. math::
-   \beta_* = \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}
+   \beta_* = - \frac{8\pi}{B_\mathrm{unit}^2} \frac{dp}{dr}
 
 **Comments**
 
