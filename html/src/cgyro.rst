@@ -26,6 +26,11 @@ Quick links
    cgyro/plot
    cgyro/cgyro_platforms
 
+Source Code
+-----------
+
+`CGYRO source code <http://github.com/gafusion/gacode>`_  is available at GitHub.
+   
 Overview
 --------
 
