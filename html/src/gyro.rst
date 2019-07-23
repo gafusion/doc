@@ -1,7 +1,7 @@
 GYRO
 ====
 
-.. image:: gyro/figures/candy-supertorus-2.jpg
+.. image:: gyro/figures/supertorus-hi-2.jpg
 	:width: 95 %
 	:alt: Classic GYRO torus
 
@@ -13,11 +13,10 @@ Quick links
 
    gyro/gyro_table
    gyro/gyro_list
-   gyro/outputs
-   gyro/plot
    gyro/gyro_vv   
    gyro/gyro_history
-
+   gyro/gyro_gallery
+   
 Overview
 --------
 
