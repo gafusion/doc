@@ -17,35 +17,37 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="PLASMA ROTATION" href="rotation.html" />
     <link rel="prev" title="Alphabetical list for input.tglf" href="tglf/tglf_list.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -179,46 +181,46 @@
 <div class="section" id="coordinates">
 <h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline">¶</a></h2>
 <p>GYRO/CGYRO/NEO use a right-handed (positively-oriented), field-aligned coordinate system
-<span class="math">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
-<div class="math">
+<span class="math notranslate nohighlight">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
+<div class="math notranslate nohighlight">
 \[\mathbf{B} =\nabla \alpha \times \nabla \psi (r) \; ,\]</div>
-<p>where <span class="math">\(\psi\)</span> is the poloidal flux divided by <span class="math">\(2\pi\)</span> and</p>
-<div class="math">
+<p>where <span class="math notranslate nohighlight">\(\psi\)</span> is the poloidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span> and</p>
+<div class="math notranslate nohighlight">
 \[\alpha =\varphi +\nu (r,\theta )\]</div>
-<p>is the Clebsch angle. Here, <span class="math">\(\varphi\)</span> is the <strong>toroidal angle</strong>, oriented as shown
-in the figure below, and <span class="math">\(\theta\)</span> is the <strong>poloidal angle</strong> which increases as one
+<p>is the Clebsch angle. Here, <span class="math notranslate nohighlight">\(\varphi\)</span> is the <strong>toroidal angle</strong>, oriented as shown
+in the figure below, and <span class="math notranslate nohighlight">\(\theta\)</span> is the <strong>poloidal angle</strong> which increases as one
 moves counterclockwise along the flux-surface (shown in blue). The <strong>minor radius</strong>
-<span class="math">\(r\)</span> is in all cases taken to be one-half the width of the flux-surface at
-the elevation, <span class="math">\(Z_{c}\)</span>, of the flux-surface centroid.</p>
+<span class="math notranslate nohighlight">\(r\)</span> is in all cases taken to be one-half the width of the flux-surface at
+the elevation, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the flux-surface centroid.</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/flux_surface.png"><img alt="flux surface" src="_images/flux_surface.png" style="width: 422.0px; height: 396.0px;" /></a>
 </div>
-<p>The coordinate systems <span class="math">\((R,Z,\varphi)\)</span> and <span class="math">\((r,\theta,\varphi)\)</span> are positively oriented.</p>
+<p>The coordinate systems <span class="math notranslate nohighlight">\((R,Z,\varphi)\)</span> and <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span> are positively oriented.</p>
 </div>
 <div class="section" id="generalized-minor-radius">
 <h2>Generalized minor radius<a class="headerlink" href="#generalized-minor-radius" title="Permalink to this headline">¶</a></h2>
-<p>The minor radius variable, <span class="math">\(r\)</span>, used in GYRO/CGYRO/NEO is the half-width of the flux surface at
-the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
-<div class="math">
+<p>The minor radius variable, <span class="math notranslate nohighlight">\(r\)</span>, used in GYRO/CGYRO/NEO is the half-width of the flux surface at
+the height, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math notranslate nohighlight">
 \[r \doteq \frac{R_{+}-R_{-}}{2} \; .\]</div>
 <p>This definition is valid in all cases; that is, for circular equilibria, as well as for
 shaped Grad-Shafranov (Miller) and general equilibrium.</p>
 </div>
 <div class="section" id="generalized-major-radius">
 <h2>Generalized major radius<a class="headerlink" href="#generalized-major-radius" title="Permalink to this headline">¶</a></h2>
-<p>The major radius variable, <span class="math">\(R_{0}\)</span>, used in GYRO/CGYRO/NEO is the average of the maximum and
-minimum major radius of the flux-surface at the height, <span class="math">\(Z_{c}\)</span>, of the centroid:</p>
-<div class="math">
+<p>The major radius variable, <span class="math notranslate nohighlight">\(R_{0}\)</span>, used in GYRO/CGYRO/NEO is the average of the maximum and
+minimum major radius of the flux-surface at the height, <span class="math notranslate nohighlight">\(Z_{c}\)</span>, of the centroid:</p>
+<div class="math notranslate nohighlight">
 \[R_{0}=\frac{R_{+}+R_{-}}{2} \; .\]</div>
 <p>This definition is valid in all cases; that is, for circular equilibria, as well as for
 shaped Grad-Shafranov (Miller) and general equilibrium.</p>
 </div>
 <div class="section" id="effective-field">
 <h2>Effective field<a class="headerlink" href="#effective-field" title="Permalink to this headline">¶</a></h2>
-<p>The effective field strength, <span class="math">\(B_{\rm {unit}}\)</span>, is defined as</p>
-<div class="math">
+<p>The effective field strength, <span class="math notranslate nohighlight">\(B_{\rm {unit}}\)</span>, is defined as</p>
+<div class="math notranslate nohighlight">
 \[B_\mathrm{unit} = \frac{1}{r} \frac{d\chi _{t}}{dr} \; ,\]</div>
-<p>where <span class="math">\(\chi _{t}\)</span> is the toroidal flux divided by <span class="math">\(2\pi\)</span>. This gives the
+<p>where <span class="math notranslate nohighlight">\(\chi _{t}\)</span> is the toroidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span>. This gives the
 roughly equivalent field that would be obtained if the flux surface was deformed to a circle.</p>
 </div>
 <div class="section" id="equilibria">
@@ -226,259 +228,259 @@ roughly equivalent field that would be obtained if the flux surface was deformed
 <p>GYRO/CGYRO/NEO can be run using <strong>circular equilibrium</strong>, <strong>shaped Grad-Shafranov equilibrium</strong>, or <strong>general Grad-Shafranov equilibrium</strong>.</p>
 <p><strong>(1) Circular equilibrium</strong></p>
 <ul class="simple">
-<li>The flux surfaces, which are <strong>not</strong> local G-S equilibria, have the form:</li>
+<li><p>The flux surfaces, which are <strong>not</strong> local G-S equilibria, have the form:</p></li>
 </ul>
 <blockquote>
-<div><div class="math">
+<div><div class="math notranslate nohighlight">
 \[\begin{split}R(r,\theta) &amp;= R_0 + r \cos \theta \\
 Z(r,\theta) &amp;= r \sin \theta \\
 \nu(r,\theta) &amp;= -q(r) \theta\end{split}\]</div>
 </div></blockquote>
 <ul class="simple">
-<li>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 1</li>
-<li>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 1</li>
-<li>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 0</li>
+<li><p>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 1</p></li>
+<li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 1</p></li>
+<li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 0</p></li>
 </ul>
 <p><strong>(2) Model Grad-Shafranov (Miller-type) equilibrium</strong></p>
 <ul class="simple">
-<li>The flux surfaces, which are local G-S equilibria, have the parameterization:</li>
+<li><p>The flux surfaces, which are local G-S equilibria, have the parameterization:</p></li>
 </ul>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}R(r,\theta) &amp;= R_0(r) + r \cos (\theta + \arcsin[\delta(r)] \sin \theta) \\
 Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin (\theta + \zeta(r) \sin 2\theta) \\
 \nu(r,\theta) &amp; \rm{\;is\; computed \;numerically}\end{split}\]</div>
 <ul class="simple">
-<li>Available for local simulations only</li>
-<li>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5  or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 0</li>
-<li>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2</li>
-<li>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 1</li>
-<li>For local simulations, also specify shape parameters.  For experimental profiles, shape parameters are auto-generated from profile data.</li>
+<li><p>Available for local simulations only</p></li>
+<li><p>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5  or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 0</p></li>
+<li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2</p></li>
+<li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 1</p></li>
+<li><p>For local simulations, also specify shape parameters.  For experimental profiles, shape parameters are auto-generated from profile data.</p></li>
 </ul>
 <p><strong>(3) General equilibrium</strong></p>
 <ul class="simple">
-<li>The flux surface shape is an expansion of the form:</li>
+<li><p>The flux surface shape is an expansion of the form:</p></li>
 </ul>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}R(r,\theta) &amp;= a_0^R(r)/2 + \sum_{n=1}^{N} \left[ a_n^R(r) \cos(n \theta) +    b_n^R(r) \sin(n \theta) \right] \\
 Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) +    b_n^Z(r) \sin(n \theta) \right]\end{split}\]</div>
 <ul class="simple">
-<li><span class="math">\(\theta=0\)</span> labels the rightmost (outboard) point on the flux surface.</li>
-<li>By default, <span class="math">\(N=16\)</span>, although the number is in principle arbitrary.</li>
-<li>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5 or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 1</li>
-<li>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3</li>
-<li>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 2</li>
+<li><p><span class="math notranslate nohighlight">\(\theta=0\)</span> labels the rightmost (outboard) point on the flux surface.</p></li>
+<li><p>By default, <span class="math notranslate nohighlight">\(N=16\)</span>, although the number is in principle arbitrary.</p></li>
+<li><p>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5 or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 1</p></li>
+<li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3</p></li>
+<li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 2</p></li>
 </ul>
 </div>
 <div class="section" id="table-of-geometry-parameters">
 <h2>Table of geometry parameters<a class="headerlink" href="#table-of-geometry-parameters" title="Permalink to this headline">¶</a></h2>
-<table border="1" class="docutils">
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
-<col width="11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Symbol</th>
-<th class="head">input.gyro parameter</th>
-<th class="head">input.cgyro parameter</th>
-<th class="head">input.neo parameter</th>
-<th class="head">Circular (1)</th>
-<th class="head">Shaped (2a)</th>
-<th class="head">Exp. Shaped (2b)</th>
-<th class="head">General (3a)</th>
-<th class="head">Exp. General (3b)</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Symbol</p></th>
+<th class="head"><p>input.gyro parameter</p></th>
+<th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>input.neo parameter</p></th>
+<th class="head"><p>Circular (1)</p></th>
+<th class="head"><p>Shaped (2a)</p></th>
+<th class="head"><p>Exp. Shaped (2b)</p></th>
+<th class="head"><p>General (3a)</p></th>
+<th class="head"><p>Exp. General (3b)</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td><span class="math">\(r/a\)</span></td>
-<td><span class="xref std std-ref">gyro_radius</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmin"><span class="std std-ref">RMIN</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(r/a\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_radius</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmin"><span class="std std-ref">RMIN</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(R_0(r)/a\)</span></td>
-<td><span class="xref std std-ref">gyro_aspect_ratio</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmaj"><span class="std std-ref">RMAJ</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-rmaj-over-a"><span class="std std-ref">RMAJ_OVER_A</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(R_0(r)/a\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_aspect_ratio</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmaj"><span class="std std-ref">RMAJ</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-rmaj-over-a"><span class="std std-ref">RMAJ_OVER_A</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(\partial R_0/\partial r\)</span></td>
-<td><span class="xref std std-ref">gyro_shift</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shift"><span class="std std-ref">SHIFT</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-shift"><span class="std std-ref">SHIFT</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\partial R_0/\partial r\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shift</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shift"><span class="std std-ref">SHIFT</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-shift"><span class="std std-ref">SHIFT</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(Z_0(r)/a\)</span></td>
-<td><span class="xref std std-ref">gyro_zmag</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zmag"><span class="std std-ref">ZMAG</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-zmag-over-a"><span class="std std-ref">ZMAG_OVER_A</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(Z_0(r)/a\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_zmag</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zmag"><span class="std std-ref">ZMAG</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-zmag-over-a"><span class="std std-ref">ZMAG_OVER_A</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(\partial Z_0/\partial r\)</span></td>
-<td><span class="xref std std-ref">gyro_dzmag</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dzmag"><span class="std std-ref">DZMAG</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-s-zmag"><span class="std std-ref">S_ZMAG</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\partial Z_0/\partial r\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_dzmag</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dzmag"><span class="std std-ref">DZMAG</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-s-zmag"><span class="std std-ref">S_ZMAG</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(q\)</span></td>
-<td><span class="xref std std-ref">gyro_safety_factor</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-q"><span class="std std-ref">Q</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_safety_factor</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-q"><span class="std std-ref">Q</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(s\)</span></td>
-<td><span class="xref std std-ref">gyro_shear</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s"><span class="std std-ref">S</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-shear"><span class="std std-ref">SHEAR</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shear</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s"><span class="std std-ref">S</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-shear"><span class="std std-ref">SHEAR</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(\kappa\)</span></td>
-<td><span class="xref std std-ref">gyro_kappa</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-kappa"><span class="std std-ref">KAPPA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-kappa"><span class="std std-ref">KAPPA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\kappa\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_kappa</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-kappa"><span class="std std-ref">KAPPA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-kappa"><span class="std std-ref">KAPPA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(s_\kappa\)</span></td>
-<td><span class="xref std std-ref">gyro_s_kappa</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-kappa"><span class="std std-ref">S_KAPPA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-s-kappa"><span class="std std-ref">S_KAPPA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\kappa\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_s_kappa</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-kappa"><span class="std std-ref">S_KAPPA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-s-kappa"><span class="std std-ref">S_KAPPA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(\delta\)</span></td>
-<td><span class="xref std std-ref">gyro_delta</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta"><span class="std std-ref">DELTA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-delta"><span class="std std-ref">DELTA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\delta\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_delta</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta"><span class="std std-ref">DELTA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-delta"><span class="std std-ref">DELTA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(s_\delta\)</span></td>
-<td><span class="xref std std-ref">gyro_s_delta</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-delta"><span class="std std-ref">S_DELTA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-s-delta"><span class="std std-ref">S_DELTA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\delta\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_s_delta</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-delta"><span class="std std-ref">S_DELTA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-s-delta"><span class="std std-ref">S_DELTA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(\zeta\)</span></td>
-<td><span class="xref std std-ref">gyro_zeta</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zeta"><span class="std std-ref">ZETA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-zeta"><span class="std std-ref">ZETA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\zeta\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_zeta</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zeta"><span class="std std-ref">ZETA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-zeta"><span class="std std-ref">ZETA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(s_\zeta\)</span></td>
-<td><span class="xref std std-ref">gyro_s_zeta</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-zeta"><span class="std std-ref">S_ZETA</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-s-zeta"><span class="std std-ref">S_ZETA</span></a></td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>&#160;</td>
-<td>D</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\zeta\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_s_zeta</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-zeta"><span class="std std-ref">S_ZETA</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-s-zeta"><span class="std std-ref">S_ZETA</span></a></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td></td>
+<td><p>D</p></td>
 </tr>
-<tr class="row-odd"><td><span class="math">\(\beta_e\)</span></td>
-<td><span class="xref std std-ref">gyro_betae_unit</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a></td>
-<td>NA</td>
-<td>&#160;</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\beta_e\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_betae_unit</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a></p></td>
+<td><p>NA</p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-even"><td><span class="math">\(\beta_*\)</span> scaling</td>
-<td><span class="xref std std-ref">gyro_betaprime_scale</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-beta-star-scale"><span class="std std-ref">BETA_STAR_SCALE</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-beta-star"><span class="std std-ref">BETA_STAR</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
-<td>x</td>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta_*\)</span> scaling</p></td>
+<td><p><span class="xref std std-ref">gyro_betaprime_scale</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-beta-star-scale"><span class="std std-ref">BETA_STAR_SCALE</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-beta-star"><span class="std std-ref">BETA_STAR</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
 </tr>
-<tr class="row-odd"><td>BTCCW</td>
-<td><span class="xref std std-ref">gyro_btccw</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-btccw"><span class="std std-ref">BTCCW</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-odd"><td><p>BTCCW</p></td>
+<td><p><span class="xref std std-ref">gyro_btccw</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-btccw"><span class="std std-ref">BTCCW</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
-<tr class="row-even"><td>IPCCW</td>
-<td><span class="xref std std-ref">gyro_ipccw</span></td>
-<td><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a></td>
-<td><a class="reference internal" href="neo/neo_list.html#neo-ipccw"><span class="std std-ref">IPCCW</span></a></td>
-<td>x</td>
-<td>x</td>
-<td>C</td>
-<td>x</td>
-<td>C</td>
+<tr class="row-even"><td><p>IPCCW</p></td>
+<td><p><span class="xref std std-ref">gyro_ipccw</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
+<td><p><a class="reference internal" href="neo/neo_list.html#neo-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
+<td><p>x</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
 </tbody>
 </table>
 <p>In the table:</p>
 <ul class="simple">
-<li>x denotes the direct use of the parameter as specified in input.gyro, input.cgyro, input.neo,</li>
-<li>C means the parameter is computed from data in input.profiles</li>
-<li>D means the parameter is not part of the model and is not used (although the effective value is printed for diagnostic purposes)</li>
+<li><p>x denotes the direct use of the parameter as specified in input.gyro, input.cgyro, input.neo,</p></li>
+<li><p>C means the parameter is computed from data in input.profiles</p></li>
+<li><p>D means the parameter is not part of the model and is not used (although the effective value is printed for diagnostic purposes)</p></li>
 </ul>
-<p>For further information about geometry and normalization conventions, consult the GYRO Technical Guide   <a class="reference internal" href="zreferences.html#candy-2010" id="id1">[CB10]</a>.</p>
+<p>For further information about geometry and normalization conventions, consult the GYRO Technical Guide   <a class="bibtex reference internal" href="zreferences.html#candy-2010" id="id1">[CB10]</a>.</p>
 </div>
 <div class="section" id="magnetic-field-orientation">
 <h2>Magnetic field orientation<a class="headerlink" href="#magnetic-field-orientation" title="Permalink to this headline">¶</a></h2>
-<p>GACODE uses a right-handed (positively-oriented), field-aligned coordinate system <span class="math">\((r,\theta,\varphi)\)</span>, whereas DIII-D uses a (positively-oriented) cylindrical system <span class="math">\((R,\phi,Z)\)</span>.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:</p>
+<p>GACODE uses a right-handed (positively-oriented), field-aligned coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>, whereas DIII-D uses a (positively-oriented) cylindrical system <span class="math notranslate nohighlight">\((R,\phi,Z)\)</span>.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:</p>
 <div class="figure align-center">
 <a class="reference internal image-reference" href="_images/Orient_gacode.png"><img alt="flux surface" src="_images/Orient_gacode.png" style="width: 600.0px; height: 600.0px;" /></a>
 </div>
@@ -487,10 +489,10 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 </div>
 <p>In reality, quantities like the safety factor and poloidal flux have definite signs. Historically, these signs have been suppressed or neglected in both theory and modeling. For proper treatment of momentum transport, however, these signs must be retained. We can infer typically neglected signs by knowing <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a> and <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a>. For example:</p>
 <ul class="simple">
-<li>sign(<span class="math">\(B_{\rm tor}\)</span>) = -BTCCW</li>
-<li>sign(<span class="math">\(B_{\rm pol}\)</span>) = -IPCCW</li>
-<li>sign(<span class="math">\(\psi_{\rm pol}\)</span>) = -IPCCW</li>
-<li>sign(<span class="math">\(q\)</span>) = IPCCW <span class="math">\(\times\)</span> BTCCW</li>
+<li><p>sign(<span class="math notranslate nohighlight">\(B_{\rm tor}\)</span>) = -BTCCW</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(B_{\rm pol}\)</span>) = -IPCCW</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(\psi_{\rm pol}\)</span>) = -IPCCW</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(q\)</span>) = IPCCW <span class="math notranslate nohighlight">\(\times\)</span> BTCCW</p></li>
 </ul>
 <p>The standard configuration in DIII-D is shown below.</p>
 <div class="figure align-center">
@@ -498,13 +500,14 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 </div>
 <p>This corresponds to <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a> = 1 and <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a> =-1.  Thus, in GACODE coordinates, we expect:</p>
 <ul class="simple">
-<li>sign(<span class="math">\(B_{\rm tor}\)</span>) = 1</li>
-<li>sign(<span class="math">\(B_{\rm pol}\)</span>) = -1</li>
-<li>sign(<span class="math">\(\psi_{\rm pol}\)</span>) = -1</li>
-<li>sign(<span class="math">\(q\)</span>) = -1</li>
+<li><p>sign(<span class="math notranslate nohighlight">\(B_{\rm tor}\)</span>) = 1</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(B_{\rm pol}\)</span>) = -1</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(\psi_{\rm pol}\)</span>) = -1</p></li>
+<li><p>sign(<span class="math notranslate nohighlight">\(q\)</span>) = -1</p></li>
 </ul>
 <blockquote>
-<div>In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a> file.</div></blockquote>
+<div><p>In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a> file.</p>
+</div></blockquote>
 </div>
 </div>
 
@@ -519,7 +522,7 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
         <a href="rotation.html" class="btn btn-neutral float-right" title="PLASMA ROTATION" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tglf/tglf_list.html" class="btn btn-neutral" title="Alphabetical list for input.tglf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tglf/tglf_list.html" class="btn btn-neutral float-left" title="Alphabetical list for input.tglf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -528,7 +531,7 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -545,38 +548,16 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

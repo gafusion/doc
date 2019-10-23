@@ -17,35 +17,37 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="DIII-D L-mode shortfall" href="shortfall.html" />
     <link rel="prev" title="PLASMA ROTATION" href="rotation.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -173,7 +175,7 @@
   <div class="section" id="input-profiles">
 <span id="id1"></span><h1>input.profiles<a class="headerlink" href="#input-profiles" title="Permalink to this headline">¶</a></h1>
 <p>To see what a sample <a class="reference internal" href="#"><span class="doc">input.profiles</span></a> looks like, at the command line type</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span>$ gyro -g reg14 ; cat reg14/input.profiles
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ gyro -g reg14 <span class="p">;</span> cat reg14/input.profiles
 </pre></div>
 </div>
 <div class="section" id="overview">
@@ -181,10 +183,10 @@
 <p>The file <a class="reference internal" href="#"><span class="doc">input.profiles</span></a> contains the entire dataset required for specification of experimental
 profiles. All such profiles are specified on an N_EXP-point grid.  The information
 included is sufficient to use the <a class="reference internal" href="geometry.html"><span class="doc">Miller local equilibrium model</span></a>.  If general
-flux-surface shape is required, the optional file <code class="docutils literal"><span class="pre">input.profiles.geo</span></code> can be supplied
+flux-surface shape is required, the optional file <code class="docutils literal notranslate"><span class="pre">input.profiles.geo</span></code> can be supplied
 which overrides the model shape defined in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a>.</p>
 <p>The format of each data-block in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a> is fixed, but between data blocks any number of
-comment lines (starting with <code class="docutils literal"><span class="pre">#</span></code> in the first column) can be added for convenience.
+comment lines (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> in the first column) can be added for convenience.
 These comment lines are ignored by the parser.  Unlike input.gyro, no inputs are supplied
 by default; the program will halt and print an error message if data is missing.  Below,
 we list the individual scalar and vector data names (which correspond to the interface
@@ -202,392 +204,466 @@ the profile of the normalized root of the toroidal flux) for the dimensional tor
 flux.  So, we emphasize again that insofar as GYRO, NEO, etc are concerned, BT_EXP and
 ARHO_EXP are essentially arbitrary.</p>
 <p>Here is how they arose and what they mean: as an alternative to requiring input of the
-toroidal flux, one can introduce a (non-unique) function <span class="math">\(\rho\)</span> which parameterizes
+toroidal flux, one can introduce a (non-unique) function <span class="math notranslate nohighlight">\(\rho\)</span> which parameterizes
 the toroidal flux:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\chi_t = \frac{1}{2\pi} \iint {\mathbf B} \cdot d{\mathbf A}
 = \frac{1}{2} B_{\rm ref} \, \rho(r)^2 \; ,\]</div>
-<p>where <span class="math">\(\chi_t\)</span> is the toroidal flux divided by <span class="math">\(2\pi\)</span>, and <span class="math">\(B_{\rm ref}\)</span>
+<p>where <span class="math notranslate nohighlight">\(\chi_t\)</span> is the toroidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span>, and <span class="math notranslate nohighlight">\(B_{\rm ref}\)</span>
 is any <em>reference field</em>.  This is normally the vacuum toroidal field, or close to it.
 However, it is important to keep in mind that the choice is ultimately arbitrary.  What
-is required is that by knowing <span class="math">\(B_{\rm ref}\)</span> and <span class="math">\(\rho\)</span> one can exactly
-calculate <span class="math">\(\chi_t\)</span>.  This parameterization corresponds to the following variables
+is required is that by knowing <span class="math notranslate nohighlight">\(B_{\rm ref}\)</span> and <span class="math notranslate nohighlight">\(\rho\)</span> one can exactly
+calculate <span class="math notranslate nohighlight">\(\chi_t\)</span>.  This parameterization corresponds to the following variables
 in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a>:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\begin{split}B_{\rm ref} &amp;\rightarrow &amp; ~ \mathtt{BT\_EXP} \\
 \rho(a) &amp;\rightarrow &amp; ~ \mathtt{ARHO\_EXP} \\
 \rho/\rho(a) &amp; \rightarrow &amp; ~ \mathrm{rho(:)}\end{split}\]</div>
 <p>And again we emphasize that a less confusing alternative would be to have simply included
 the vector of toroidal flux values in <a class="reference internal" href="#"><span class="doc">input.profiles</span></a>.  In future specifications, this is what we
-would like to do.  One additional comment is that, in terms of <span class="math">\(\rho\)</span> the area
-enclosed by a flux surface is approximately given by <span class="math">\(A \simeq \pi\rho^2\)</span> so
-long as <span class="math">\(B_{\rm ref}\)</span> is representative of the average field passing through the
+would like to do.  One additional comment is that, in terms of <span class="math notranslate nohighlight">\(\rho\)</span> the area
+enclosed by a flux surface is approximately given by <span class="math notranslate nohighlight">\(A \simeq \pi\rho^2\)</span> so
+long as <span class="math notranslate nohighlight">\(B_{\rm ref}\)</span> is representative of the average field passing through the
 flux surface.</p>
 </div>
 <div class="section" id="file-structure">
 <h2>File Structure<a class="headerlink" href="#file-structure" title="Permalink to this headline">¶</a></h2>
 <p><strong>Scalar Data</strong></p>
 <ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">N_ION</span></code><ul>
-<li>Total number of ions (thermal and fast).</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">N_ION</span></code></p>
+<ul class="simple">
+<li><p>Total number of ions (thermal and fast).</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">N_EXP</span></code><ul>
-<li>Number of experimental data gridpoints.</li>
-<li>This is the dimension of the vectors which follow, for example, “size(rho(:))” = <code class="docutils literal"><span class="pre">N_EXP</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">N_EXP</span></code></p>
+<ul class="simple">
+<li><p>Number of experimental data gridpoints.</p></li>
+<li><p>This is the dimension of the vectors which follow, for example, “size(rho(:))” = <code class="docutils literal notranslate"><span class="pre">N_EXP</span></code></p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">BT_EXP</span></code><ul>
-<li>Reference magnetic field, <span class="math">\(B_{\rm ref}\)</span>, in Tesla.</li>
-<li>The sign is positive if the direction of <span class="math">\(\mathbf{B}\)</span> is positively oriented; that is, if it points in the clockwise direction viewed from above.</li>
-<li>In DIII-D, we typically have <span class="math">\(B_{\rm ref} &gt; 0\)</span>, or equivalently, <code class="docutils literal"><span class="pre">BTCCW</span></code> = -1.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BT_EXP</span></code></p>
+<ul class="simple">
+<li><p>Reference magnetic field, <span class="math notranslate nohighlight">\(B_{\rm ref}\)</span>, in Tesla.</p></li>
+<li><p>The sign is positive if the direction of <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> is positively oriented; that is, if it points in the clockwise direction viewed from above.</p></li>
+<li><p>In DIII-D, we typically have <span class="math notranslate nohighlight">\(B_{\rm ref} &gt; 0\)</span>, or equivalently, <code class="docutils literal notranslate"><span class="pre">BTCCW</span></code> = -1.</p></li>
 </ul>
 </li>
-<li><code class="docutils literal"><span class="pre">ARHO_EXP</span></code><ul>
-<li><span class="math">\(\rho(a)\)</span> (i.e., <span class="math">\(\rho\)</span> at the separatrix) in units of <span class="math">\(\mathrm{m}\)</span>.</li>
-<li>This will serve to denormalize the vector <span class="math">\(\hat\rho\)</span> defined in the next section.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ARHO_EXP</span></code></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\rho(a)\)</span> (i.e., <span class="math notranslate nohighlight">\(\rho\)</span> at the separatrix) in units of <span class="math notranslate nohighlight">\(\mathrm{m}\)</span>.</p></li>
+<li><p>This will serve to denormalize the vector <span class="math notranslate nohighlight">\(\hat\rho\)</span> defined in the next section.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 1 (1-5)</strong></p>
 <ol class="arabic simple">
-<li><strong>rho(:)</strong><ul>
-<li>The dimensionless areal variable, <span class="math">\(\hat\rho = \rho(r)/\rho(a)\)</span>.</li>
-<li>This should span the region <span class="math">\({\hat\rho} \in [0,1]\)</span> using n_grid_exp values.</li>
-<li>The grid-spacing can be nonuniform.</li>
+<li><p><strong>rho(:)</strong></p>
+<ul class="simple">
+<li><p>The dimensionless areal variable, <span class="math notranslate nohighlight">\(\hat\rho = \rho(r)/\rho(a)\)</span>.</p></li>
+<li><p>This should span the region <span class="math notranslate nohighlight">\({\hat\rho} \in [0,1]\)</span> using n_grid_exp values.</p></li>
+<li><p>The grid-spacing can be nonuniform.</p></li>
 </ul>
 </li>
-<li><strong>rmin(:)</strong><ul>
-<li>The generalized minor radius, <span class="math">\(r\)</span>, in units of <span class="math">\({\rm m}\)</span>. See <a class="reference internal" href="geometry.html"><span class="doc">here</span></a> for definition.</li>
+<li><p><strong>rmin(:)</strong></p>
+<ul class="simple">
+<li><p>The generalized minor radius, <span class="math notranslate nohighlight">\(r\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>. See <a class="reference internal" href="geometry.html"><span class="doc">here</span></a> for definition.</p></li>
 </ul>
 </li>
-<li><strong>polflux(:)</strong><ul>
-<li>Poloidal flux over <span class="math">\(2\pi\)</span>, in units of Webers/radian.</li>
+<li><p><strong>polflux(:)</strong></p>
+<ul class="simple">
+<li><p>Poloidal flux over <span class="math notranslate nohighlight">\(2\pi\)</span>, in units of Webers/radian.</p></li>
 </ul>
 </li>
-<li><strong>q(:)</strong><ul>
-<li>The dimensionless safety factor, <span class="math">\(q\)</span>.</li>
+<li><p><strong>q(:)</strong></p>
+<ul class="simple">
+<li><p>The dimensionless safety factor, <span class="math notranslate nohighlight">\(q\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>omega0(:)</strong><ul>
-<li>Rotation frequency, <span class="math">\(\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span>
-in units of <span class="math">\({\rm rad/s}\)</span>.</li>
-<li>This is effectively a proxy for <span class="math">\(E_r\)</span>, but is more convenient since it is (nearly) a flux function.</li>
+<li><p><strong>omega0(:)</strong></p>
+<ul class="simple">
+<li><p>Rotation frequency, <span class="math notranslate nohighlight">\(\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span>
+in units of <span class="math notranslate nohighlight">\({\rm rad/s}\)</span>.</p></li>
+<li><p>This is effectively a proxy for <span class="math notranslate nohighlight">\(E_r\)</span>, but is more convenient since it is (nearly) a flux function.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 2 (6-10)</strong></p>
 <ol class="arabic simple">
-<li><strong>rmaj(:)</strong><ul>
-<li>The generalized major radius, <span class="math">\(R_0(r)\)</span>, in units of <span class="math">\({\rm m}\)</span>.</li>
+<li><p><strong>rmaj(:)</strong></p>
+<ul class="simple">
+<li><p>The generalized major radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>zmag(:)</strong><ul>
-<li>Flux-surface elevation, <span class="math">\(Z_0\)</span>, in units of <span class="math">\({\rm m}\)</span>.</li>
+<li><p><strong>zmag(:)</strong></p>
+<ul class="simple">
+<li><p>Flux-surface elevation, <span class="math notranslate nohighlight">\(Z_0\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>kappa(:)</strong><ul>
-<li>The dimensionless plasma elongation, <span class="math">\(\kappa\)</span>.</li>
+<li><p><strong>kappa(:)</strong></p>
+<ul class="simple">
+<li><p>The dimensionless plasma elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>delta(:)</strong><ul>
-<li>The dimensionless plasma triangularity, <span class="math">\(\delta\)</span>.</li>
+<li><p><strong>delta(:)</strong></p>
+<ul class="simple">
+<li><p>The dimensionless plasma triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>zeta(:)</strong><ul>
-<li>Plasma squareness, <span class="math">\(\zeta\)</span>.</li>
+<li><p><strong>zeta(:)</strong></p>
+<ul class="simple">
+<li><p>Plasma squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 3 (11-15)</strong></p>
 <ol class="arabic simple">
-<li><strong>ne(:)</strong><ul>
-<li>The electron density, <span class="math">\(n_e\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ne(:)</strong></p>
+<ul class="simple">
+<li><p>The electron density, <span class="math notranslate nohighlight">\(n_e\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>te(:)</strong><ul>
-<li>The electron temperature, <span class="math">\(T_e\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>te(:)</strong></p>
+<ul class="simple">
+<li><p>The electron temperature, <span class="math notranslate nohighlight">\(T_e\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ptot(:)</strong><ul>
-<li>Total plasma pressure, in units of Pascals.</li>
+<li><p><strong>ptot(:)</strong></p>
+<ul class="simple">
+<li><p>Total plasma pressure, in units of Pascals.</p></li>
 </ul>
 </li>
-<li><strong>z_eff(:)</strong><ul>
-<li>The (dimensionless) effective ion charge, <span class="math">\(Z_{\rm eff}\)</span>.</li>
+<li><p><strong>z_eff(:)</strong></p>
+<ul class="simple">
+<li><p>The (dimensionless) effective ion charge, <span class="math notranslate nohighlight">\(Z_{\rm eff}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>null</strong></li>
+<li><p><strong>null</strong></p></li>
 </ol>
 <p><strong>Vector data, block 4 (16-20)</strong></p>
 <ol class="arabic simple">
-<li><strong>ni(1,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i1}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(1,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i1}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(2,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i2}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(2,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i2}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(3,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i3}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(3,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i3}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(4,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i4}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(4,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i4}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(5,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i5}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(5,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i5}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 5 (21-25)</strong></p>
 <ol class="arabic simple">
-<li><strong>ni(6,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i6}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(6,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i6}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(7,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i7}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(7,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i7}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(8,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i8}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(8,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i8}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(9,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i9}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(9,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i9}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ni(10,:)</strong><ul>
-<li>Ion density, <span class="math">\(n_{i10}\)</span>, in units of <span class="math">\(10^{19}/{\rm m}^3\)</span>.</li>
+<li><p><strong>ni(10,:)</strong></p>
+<ul class="simple">
+<li><p>Ion density, <span class="math notranslate nohighlight">\(n_{i10}\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 6 (26-30)</strong></p>
 <ol class="arabic simple">
-<li><strong>ti(1,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i1}\)</span>, in units of :math:{rm keV}`.</li>
+<li><p><strong>ti(1,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i1}\)</span>, in units of :math:{rm keV}`.</p></li>
 </ul>
 </li>
-<li><strong>ti(2,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i2}\)</span>, in units of :math:{rm keV}`.</li>
+<li><p><strong>ti(2,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i2}\)</span>, in units of :math:{rm keV}`.</p></li>
 </ul>
 </li>
-<li><strong>ti(3,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i3}\)</span>, in units of :math:{rm keV}`.</li>
+<li><p><strong>ti(3,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i3}\)</span>, in units of :math:{rm keV}`.</p></li>
 </ul>
 </li>
-<li><strong>ti(4,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i4}\)</span>, in units of :math:{rm keV}`.</li>
+<li><p><strong>ti(4,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i4}\)</span>, in units of :math:{rm keV}`.</p></li>
 </ul>
 </li>
-<li><strong>ti(5,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i5}\)</span>, in units of :math:{rm keV}`.</li>
+<li><p><strong>ti(5,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i5}\)</span>, in units of :math:{rm keV}`.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 7 (31-35)</strong></p>
 <ol class="arabic simple">
-<li><strong>ti(6,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i6}\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>ti(6,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i6}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ti(7,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i7}\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>ti(7,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i7}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ti(8,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i8}\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>ti(8,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i8}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ti(9,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i9}\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>ti(9,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i9}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>ti(10,:)</strong><ul>
-<li>Ion temperature, <span class="math">\(T_{i10}\)</span>, in units of <span class="math">\({\rm keV}\)</span>.</li>
+<li><p><strong>ti(10,:)</strong></p>
+<ul class="simple">
+<li><p>Ion temperature, <span class="math notranslate nohighlight">\(T_{i10}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 8 (36-40)</strong></p>
 <ol class="arabic simple">
-<li><strong>vtor(1,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i1}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(1,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i1}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(2,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i2}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(2,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i2}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(3,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i3}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(3,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i3}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(4,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i4}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(4,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i4}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(5,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i5}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(5,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i5}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 9 (41-55)</strong></p>
 <ol class="arabic simple">
-<li><strong>vtor(6,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i6}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(6,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i6}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(7,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i7}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(7,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i7}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(8,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i8}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(8,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i8}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(9,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i9}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(9,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i9}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vtor(10,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\phi,i10}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vtor(10,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\phi,i10}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 10 (56-60)</strong></p>
 <ol class="arabic simple">
-<li><strong>vpol(1,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i1}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(1,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i1}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(2,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i2}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(2,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i2}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(3,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i3}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(3,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i3}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(4,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i4}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(4,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i4}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(5,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\theta,i5}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(5,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i5}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 11 (61-65)</strong></p>
 <ol class="arabic simple">
-<li><strong>vpol(6,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i6}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(6,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i6}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(7,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i7}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(7,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i7}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(8,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i8}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(8,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i8}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(9,:)</strong><ul>
-<li>Ion poloidal velocity, <span class="math">\(v_{\theta,i9}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(9,:)</strong></p>
+<ul class="simple">
+<li><p>Ion poloidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i9}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>vpol(10,:)</strong><ul>
-<li>Ion toroidal velocity, <span class="math">\(v_{\theta,i10}\)</span>, in units of <span class="math">\({\rm m/s}\)</span>.</li>
+<li><p><strong>vpol(10,:)</strong></p>
+<ul class="simple">
+<li><p>Ion toroidal velocity, <span class="math notranslate nohighlight">\(v_{\theta,i10}\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 12 (66-70)</strong></p>
 <ol class="arabic simple">
-<li><strong>flow_beam(:)</strong><ul>
-<li>The total integrated beam flow (particle source), in units of <span class="math">\({\rm MW/keV} = 0.624 \times 10^{22} \, {\rm s}^{-1}\)</span>.</li>
+<li><p><strong>flow_beam(:)</strong></p>
+<ul class="simple">
+<li><p>The total integrated beam flow (particle source), in units of <span class="math notranslate nohighlight">\({\rm MW/keV} = 0.624 \times 10^{22} \, {\rm s}^{-1}\)</span>.</p></li>
 </ul>
 </li>
-<li>flow_wall(:)<ul>
-<li>Wall source in same units as above (generally this is poorly-known and ignored in TGYRO).</li>
+<li><p>flow_wall(:)</p>
+<ul class="simple">
+<li><p>Wall source in same units as above (generally this is poorly-known and ignored in TGYRO).</p></li>
 </ul>
 </li>
-<li>flow_mom(:)<ul>
-<li>The total (convected and conducted) integrated angular momentum flow (torque), in units of <span class="math">\({\rm N}\cdot{\rm m}\)</span>.</li>
-<li>The TRANSP variable is VOLINT(MVISC+MCOND).</li>
+<li><p>flow_mom(:)</p>
+<ul class="simple">
+<li><p>The total (convected and conducted) integrated angular momentum flow (torque), in units of <span class="math notranslate nohighlight">\({\rm N}\cdot{\rm m}\)</span>.</p></li>
+<li><p>The TRANSP variable is VOLINT(MVISC+MCOND).</p></li>
 </ul>
 </li>
-<li><strong>null</strong></li>
-<li><strong>null</strong></li>
+<li><p><strong>null</strong></p></li>
+<li><p><strong>null</strong></p></li>
 </ol>
 <p><strong>Vector data, block 13 (71-75)</strong></p>
 <ol class="arabic simple">
-<li><strong>pow_e(:)</strong><ul>
-<li>The total (convected and conducted) integrated electron power, in units of <span class="math">\({\rm MW}\)</span>.</li>
-<li>This is the electron heating power, corrected for the ion-electron energy transfer, the radiated power, and the rate of change of the energy stored by the electrons.
-- The TRANSP variable is VOLINT(PCONV+PCOND) <span class="math">\(\times 10^{-6}\)</span>.</li>
+<li><p><strong>pow_e(:)</strong></p>
+<ul class="simple">
+<li><p>The total (convected and conducted) integrated electron power, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
+<li><p>This is the electron heating power, corrected for the ion-electron energy transfer, the radiated power, and the rate of change of the energy stored by the electrons.
+- The TRANSP variable is VOLINT(PCONV+PCOND) <span class="math notranslate nohighlight">\(\times 10^{-6}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_i(:)</strong><ul>
-<li>The total (convected and conducted) integrated ion power, in units of <span class="math">\({\rm MW}\)</span>.</li>
-<li>This is the ion heating power, corrected for the ion-electron energy transfer, the net charge-exchange loss power, and the rate of change of the energy stored by the ions.</li>
-<li>The TRANSP variable is VOLINT(PCNVE+PCNDE) <span class="math">\(\times 10^{-6}\)</span>.</li>
+<li><p><strong>pow_i(:)</strong></p>
+<ul class="simple">
+<li><p>The total (convected and conducted) integrated ion power, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
+<li><p>This is the ion heating power, corrected for the ion-electron energy transfer, the net charge-exchange loss power, and the rate of change of the energy stored by the ions.</p></li>
+<li><p>The TRANSP variable is VOLINT(PCNVE+PCNDE) <span class="math notranslate nohighlight">\(\times 10^{-6}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_ei(:)</strong><ul>
-<li>The integrated electron-ion energy exchange power, in units of <span class="math">\({\rm MW}\)</span>.</li>
-<li>The TRANSP variable is VOLINT(QIE) <span class="math">\(\times 10^{-6}\)</span>.</li>
+<li><p><strong>pow_ei(:)</strong></p>
+<ul class="simple">
+<li><p>The integrated electron-ion energy exchange power, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
+<li><p>The TRANSP variable is VOLINT(QIE) <span class="math notranslate nohighlight">\(\times 10^{-6}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_e_aux(:)</strong><ul>
-<li>The integrated auxiliary power to electrons, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_e_aux(:)</strong></p>
+<ul class="simple">
+<li><p>The integrated auxiliary power to electrons, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_i_aux(:)</strong><ul>
-<li>The integrated auxiliary power to ions, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_i_aux(:)</strong></p>
+<ul class="simple">
+<li><p>The integrated auxiliary power to ions, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 13 (71-75) [DIAGNOSTIC – optional]</strong></p>
 <ol class="arabic simple">
-<li><strong>pow_e_fus(:)</strong><ul>
-<li>Fusion power to electrons, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_e_fus(:)</strong></p>
+<ul class="simple">
+<li><p>Fusion power to electrons, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_i_fus(:)</strong><ul>
-<li>Fusion power to ions, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_i_fus(:)</strong></p>
+<ul class="simple">
+<li><p>Fusion power to ions, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_e_sync(:)</strong><ul>
-<li>Electron synchrotron radiation, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_e_sync(:)</strong></p>
+<ul class="simple">
+<li><p>Electron synchrotron radiation, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_e_brem(:)</strong><ul>
-<li>Bremsstrahlung radiation, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_e_brem(:)</strong></p>
+<ul class="simple">
+<li><p>Bremsstrahlung radiation, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>pow_e_line(:)</strong><ul>
-<li>Electron line radiation, in units of <span class="math">\({\rm MW}\)</span>.</li>
+<li><p><strong>pow_e_line(:)</strong></p>
+<ul class="simple">
+<li><p>Electron line radiation, in units of <span class="math notranslate nohighlight">\({\rm MW}\)</span>.</p></li>
 </ul>
 </li>
 </ol>
 <p><strong>Vector data, block 14 (76-80) [DIAGNOSTIC – optional]</strong></p>
 <ol class="arabic simple">
-<li><strong>sbeame(:)</strong><ul>
-<li><span class="math">\(1/m^3/s\)</span>.</li>
+<li><p><strong>sbeame(:)</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1/m^3/s\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>sbcx(:)</strong><ul>
-<li><span class="math">\(1/m^3/s\)</span>.</li>
+<li><p><strong>sbcx(:)</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1/m^3/s\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>sscxl(:)</strong><ul>
-<li><span class="math">\(1/m^3/s\)</span>.</li>
+<li><p><strong>sscxl(:)</strong></p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(1/m^3/s\)</span>.</p></li>
 </ul>
 </li>
-<li><strong>null</strong></li>
-<li><strong>null</strong></li>
+<li><p><strong>null</strong></p></li>
+<li><p><strong>null</strong></p></li>
 </ol>
 </div>
 </div>
@@ -603,7 +679,7 @@ in units of <span class="math">\({\rm rad/s}\)</span>.</li>
         <a href="shortfall.html" class="btn btn-neutral float-right" title="DIII-D L-mode shortfall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rotation.html" class="btn btn-neutral" title="PLASMA ROTATION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rotation.html" class="btn btn-neutral float-left" title="PLASMA ROTATION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -612,7 +688,7 @@ in units of <span class="math">\({\rm rad/s}\)</span>.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -629,38 +705,16 @@ in units of <span class="math">\({\rm rad/s}\)</span>.</li>
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

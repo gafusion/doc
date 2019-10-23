@@ -17,35 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Equations solved in TGYRO" href="equations.html" />
     <link rel="prev" title="input.tgyro Tabular List" href="tgyro_table.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -214,7 +216,7 @@
 <p>Amount to scale electron beta</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>To shut off electromagnetic fluctuations, set LOC_BETAE_SCALE=0.0</li>
+<li><p>To shut off electromagnetic fluctuations, set LOC_BETAE_SCALE=0.0</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1.0</p>
@@ -226,31 +228,30 @@
 <p>Rules for evolving species.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)</li>
-<li>TGYRO_DEN_METHOD*=0: Do not evolve species</li>
-<li>TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation</li>
-<li>TGYRO_DEN_METHOD*=2: Species evolved with alpha particles from DT reaction as source</li>
+<li><p>TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)</p></li>
+<li><p>TGYRO_DEN_METHOD*=0: Do not evolve species</p></li>
+<li><p>TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation</p></li>
+<li><p>TGYRO_DEN_METHOD*=2: Species evolved with alpha particles from DT reaction as source</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul>
-<li><p class="first">Electrons are TGYRO_DEN_METHOD0, the first ion is TGYRO_DEN_METHOD1, etc.</p>
-</li>
-<li><p class="first">To evolve electrons, with first ion used to set quasineutrality, and second ion density fixed, set</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1
+<li><p>Electrons are TGYRO_DEN_METHOD0, the first ion is TGYRO_DEN_METHOD1, etc.</p></li>
+<li><p>To evolve electrons, with first ion used to set quasineutrality, and second ion density fixed, set</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1
 TGYRO_DEN_METHOD1=-1
 TGYRO_DEN_METHOD2=0
 </pre></div>
 </div>
 </li>
-<li><p class="first">To evolve the second ion density, and adjust the main ion to enforce quasineutrality, set</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=0
+<li><p>To evolve the second ion density, and adjust the main ion to enforce quasineutrality, set</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=0
 TGYRO_DEN_METHOD1=-1
 TGYRO_DEN_METHOD2=1
 </pre></div>
 </div>
 </li>
-<li><p class="first">For a DT main ion plasma (1), with He4 ash (2), an impurity species (3) and a fast ion NBI species, set:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1  #electron
+<li><p>For a DT main ion plasma (1), with He4 ash (2), an impurity species (3) and a fast ion NBI species, set:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>TGYRO_DEN_METHOD0=1  #electron
 TGYRO_DEN_METHOD1=-1 #main ion DT
 TGYRO_DEN_METHOD2=2  #ash He4
 TGYRO_DEN_METHOD3=0  #impurity
@@ -269,17 +270,17 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <p>Method for handling DT mixture (as separate or hybrid species).</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_DT_METHOD=1: two separate D and T species (requires two separate profiles)</li>
-<li>TGYRO_DT_METHOD=2: a single <em>hybrid</em> D-T species with density <span class="math">\(n_{DT}\)</span> and mass 2.5 AMU</li>
+<li><p>TGYRO_DT_METHOD=1: two separate D and T species (requires two separate profiles)</p></li>
+<li><p>TGYRO_DT_METHOD=2: a single <em>hybrid</em> D-T species with density <span class="math notranslate nohighlight">\(n_{DT}\)</span> and mass 2.5 AMU</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul>
-<li><p class="first">When TGYRO_DT_METHOD=1, the fusion cross section is computed as</p>
-<div class="math">
+<li><p>When TGYRO_DT_METHOD=1, the fusion cross section is computed as</p>
+<div class="math notranslate nohighlight">
 \[S = n_{D} n_{T} \left\langle \sigma v\right\rangle\]</div>
 </li>
-<li><p class="first">When TGYRO_DT_METHOD=2, the fusion cross section is computed as</p>
-<div class="math">
+<li><p>When TGYRO_DT_METHOD=2, the fusion cross section is computed as</p>
+<div class="math notranslate nohighlight">
 \[S = \frac{n_{DT}^2}{4} \left\langle \sigma v\right\rangle\]</div>
 </li>
 </ul>
@@ -290,11 +291,11 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <div class="section" id="loc-dx">
 <span id="tgyro-loc-dx"></span><h2>LOC_DX<a class="headerlink" href="#loc-dx" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Step length, <span class="math">\(\Delta z\)</span>, used to compute the finite-difference approximation to the Jacobian.</p>
+<p>Step length, <span class="math notranslate nohighlight">\(\Delta z\)</span>, used to compute the finite-difference approximation to the Jacobian.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>This can be safely increased for robustness. Root is unchanged.</li>
-<li>This is dimensionless, with <span class="math">\(\Delta z = \Delta (a/L_x)\)</span>, where <span class="math">\(L_x\)</span> is any of the gradient scale lengths.</li>
+<li><p>This can be safely increased for robustness. Root is unchanged.</p></li>
+<li><p>This is dimensionless, with <span class="math notranslate nohighlight">\(\Delta z = \Delta (a/L_x)\)</span>, where <span class="math notranslate nohighlight">\(L_x\)</span> is any of the gradient scale lengths.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0.1</p>
@@ -303,11 +304,11 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <div class="section" id="loc-dx-max">
 <span id="tgyro-loc-dx-max"></span><h2>LOC_DX_MAX<a class="headerlink" href="#loc-dx-max" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Maximum length, <span class="math">\(\Delta z_\mathrm{max}\)</span>, of any Newton step.</p>
+<p>Maximum length, <span class="math notranslate nohighlight">\(\Delta z_\mathrm{max}\)</span>, of any Newton step.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>This should probably always be smaller than unity.</li>
-<li>This is dimensionless, with <span class="math">\(\Delta z = \Delta (a/L_x)\)</span>, where <span class="math">\(L_x\)</span> is any of the gradient scale lengths.</li>
+<li><p>This should probably always be smaller than unity.</p></li>
+<li><p>This is dimensionless, with <span class="math notranslate nohighlight">\(\Delta z = \Delta (a/L_x)\)</span>, where <span class="math notranslate nohighlight">\(L_x\)</span> is any of the gradient scale lengths.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1.0</p>
@@ -319,8 +320,8 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <p>Flag to signal electric field evolution</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>LOC_ER_FEEDBACK_FLAG = 0 : Do not evolve electric field</li>
-<li>LOC_ER_FEEDBACK_FLAG = 1 : Evolve electric field</li>
+<li><p>LOC_ER_FEEDBACK_FLAG = 0 : Do not evolve electric field</p></li>
+<li><p>LOC_ER_FEEDBACK_FLAG = 1 : Evolve electric field</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -332,12 +333,12 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <p>Flag to allow decoupling of profile and corresponding gradient scale length evolution</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>LOC_EVOLVE_GRAD_ONLY_FLAG=0: Self-consistently evolve profiles and gradients.</li>
-<li>LOC_EVOLVE_GRAD_ONLY_FLAG=1: Evolve gradient scale lengths while holding density, temperature, and rotation profiles fixed.</li>
+<li><p>LOC_EVOLVE_GRAD_ONLY_FLAG=0: Self-consistently evolve profiles and gradients.</p></li>
+<li><p>LOC_EVOLVE_GRAD_ONLY_FLAG=1: Evolve gradient scale lengths while holding density, temperature, and rotation profiles fixed.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>By setting this flag to 1, one effectively transforms TGYRO from a transport code into a parallel job management routine which solves for the local flux-matching gradients at each specified radius, while holding local density, temperatures and rotation values fixed. This process allows one to more efficiently calculate local flux-matching solutions and stiffness assessments, while eliminating changes to the gyroBohm normalizations and plasma parameters such as <span class="math">\(T_e/T_i\)</span> and collisionality arising from model performance at other radii.</li>
+<li><p>By setting this flag to 1, one effectively transforms TGYRO from a transport code into a parallel job management routine which solves for the local flux-matching gradients at each specified radius, while holding local density, temperatures and rotation values fixed. This process allows one to more efficiently calculate local flux-matching solutions and stiffness assessments, while eliminating changes to the gyroBohm normalizations and plasma parameters such as <span class="math notranslate nohighlight">\(T_e/T_i\)</span> and collisionality arising from model performance at other radii.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -349,8 +350,8 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <p>Flag to signal helium ash evolution</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>LOC_HE_FEEDBACK_FLAG = 0 : Do not evolve ash`</li>
-<li>LOC_HE_FEEDBACK_FLAG = 1 : Evolve ash</li>
+<li><p>LOC_HE_FEEDBACK_FLAG = 0 : Do not evolve ash`</p></li>
+<li><p>LOC_HE_FEEDBACK_FLAG = 1 : Evolve ash</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -362,23 +363,23 @@ TGYRO_DEN_METHOD4=0  #fast ion
 <p>Variation of Newton method used for root-finding.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_ITERATION_METHOD=1 : Local residual (standard) method</li>
-<li>TGYRO_ITERATION_METHOD=4 : Global residual method (serial version)</li>
-<li>TGYRO_ITERATION_METHOD=5 : Global residual method (parallel version)</li>
-<li>TGYRO_ITERATION_METHOD=6 : Simple relaxation method (<strong>in development</strong>)</li>
+<li><p>TGYRO_ITERATION_METHOD=1 : Local residual (standard) method</p></li>
+<li><p>TGYRO_ITERATION_METHOD=4 : Global residual method (serial version)</p></li>
+<li><p>TGYRO_ITERATION_METHOD=5 : Global residual method (parallel version)</p></li>
+<li><p>TGYRO_ITERATION_METHOD=6 : Simple relaxation method (<strong>in development</strong>)</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>If TGYRO_ITERATION_METHOD=5, use (n_evolve+1)*n_mpi rather than simply n_mpi in <code class="docutils literal"><span class="pre">input.tgyro</span></code></li>
-<li>For example, if evolving <span class="math">\(T_e\)</span> and <span class="math">\(T_i\)</span>, then n_evolve+1=3, so set 3*n_mpi in <code class="docutils literal"><span class="pre">input.tgyro</span></code></li>
-<li>TGYRO_ITERATION_METHOD=6 uses a simple relaxation scheme</li>
+<li><p>If TGYRO_ITERATION_METHOD=5, use (n_evolve+1)*n_mpi rather than simply n_mpi in <code class="docutils literal notranslate"><span class="pre">input.tgyro</span></code></p></li>
+<li><p>For example, if evolving <span class="math notranslate nohighlight">\(T_e\)</span> and <span class="math notranslate nohighlight">\(T_i\)</span>, then n_evolve+1=3, so set 3*n_mpi in <code class="docutils literal notranslate"><span class="pre">input.tgyro</span></code></p></li>
+<li><p>TGYRO_ITERATION_METHOD=6 uses a simple relaxation scheme</p></li>
 </ul>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\frac{dz}{z} = -\mathrm{LOC\_RELAX} \, \frac{Q_\mathrm{tot} -
 Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <ul class="simple">
-<li>In TGYRO_ITERATION_METHOD=6, if <span class="math">\(dz/z &gt;\)</span> LOC_DX_MAX, then <span class="math">\(dz/z =\)</span> LOC_DX_MAX</li>
-<li>In TGYRO_ITERATION_METHOD=6, LOC_RELAX=0.1 and LOC_DX_MAX=0.05 are good starting points</li>
+<li><p>In TGYRO_ITERATION_METHOD=6, if <span class="math notranslate nohighlight">\(dz/z &gt;\)</span> LOC_DX_MAX, then <span class="math notranslate nohighlight">\(dz/z =\)</span> LOC_DX_MAX</p></li>
+<li><p>In TGYRO_ITERATION_METHOD=6, LOC_RELAX=0.1 and LOC_DX_MAX=0.05 are good starting points</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1</p>
@@ -390,14 +391,14 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>Flag to manage calculation of initial profile</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>LOC_LOCK_PROFILE_FLAG=0: Use profiles computed from gradients</li>
-<li>LOC_LOCK_PROFILE_FLAG=1: Use exact profiles</li>
+<li><p>LOC_LOCK_PROFILE_FLAG=0: Use profiles computed from gradients</p></li>
+<li><p>LOC_LOCK_PROFILE_FLAG=1: Use exact profiles</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>If set to 1, use temperature and density profiles as read from input.profiles, not as calculated from gradients.</li>
-<li>This has an effect only on the zeroth iteration.</li>
-<li>This can have a large effect when a coarse radial grid is used. In this case, the profile as calculated from the gradients at only a few points will not match the original (higher-resolution) profile.</li>
+<li><p>If set to 1, use temperature and density profiles as read from input.profiles, not as calculated from gradients.</p></li>
+<li><p>This has an effect only on the zeroth iteration.</p></li>
+<li><p>This can have a large effect when a coarse radial grid is used. In this case, the profile as calculated from the gradients at only a few points will not match the original (higher-resolution) profile.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -409,13 +410,13 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>Power-balance scenario.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>LOC_SCENARIO=1 : Fixed integrated powers with static exchange.</li>
-<li>LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.</li>
-<li>LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data.</li>
+<li><p>LOC_SCENARIO=1 : Fixed integrated powers with static exchange.</p></li>
+<li><p>LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.</p></li>
+<li><p>LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>In LOC_SCENARIO=3, pow_e and pow_i in input.profiles are assumed to be auxiliary heating profiles.  Otherwise, pow_e and pow_i are the usual total powers to ions and electrons.</li>
+<li><p>In LOC_SCENARIO=3, pow_e and pow_i in input.profiles are assumed to be auxiliary heating profiles.  Otherwise, pow_e and pow_i are the usual total powers to ions and electrons.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1</p>
@@ -443,12 +444,12 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>High-level control of TGYRO operational mode.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_MODE=1 : Operate as transport code.</li>
-<li>TGYRO_MODE=3 : Multi-job control of GYRO or CGYRO.</li>
+<li><p>TGYRO_MODE=1 : Operate as transport code.</p></li>
+<li><p>TGYRO_MODE=3 : Multi-job control of GYRO or CGYRO.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <p>Sample input.tgyro for TGYRO_MODE=1 to run as transport code</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>DIR TGLF1 1
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DIR TGLF1 1
 DIR TGLF2 1
 DIR TGLF3 1
 DIR TGLF4 1
@@ -490,7 +491,7 @@ LOC_RESTART_FLAG=0
 </pre></div>
 </div>
 <p>Sample input.tgyro for TGYRO_MODE=3 to run 6 instances of CGYRO</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>DIR c1 384 GAMMA_E=0.0
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DIR c1 384 GAMMA_E=0.0
 DIR c2 384 GAMMA_E=0.02
 DIR c3 384 GAMMA_E=0.04
 DIR c4 384 GAMMA_E=0.06
@@ -510,7 +511,7 @@ TGYRO_MODE=3
 <p>Maximum number of Newton iterations.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>Setting <code class="docutils literal"><span class="pre">TGYRO_RELAX_ITERATIONS</span></code> = 0 is useful to generate initial fluxes and other profiles on the TGYRO grid.</li>
+<li><p>Setting <code class="docutils literal notranslate"><span class="pre">TGYRO_RELAX_ITERATIONS</span></code> = 0 is useful to generate initial fluxes and other profiles on the TGYRO grid.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -519,14 +520,15 @@ TGYRO_MODE=3
 <div class="section" id="loc-relax">
 <span id="tgyro-loc-relax"></span><h2>LOC_RELAX<a class="headerlink" href="#loc-relax" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter <span class="math">\(C_\eta\)</span> controlling shrinkage of relaxation parameter.</p>
+<p>Parameter <span class="math notranslate nohighlight">\(C_\eta\)</span> controlling shrinkage of relaxation parameter.</p>
 <blockquote>
-<div><strong>DEFAULT</strong> = 2.0</div></blockquote>
+<div><p><strong>DEFAULT</strong> = 2.0</p>
+</div></blockquote>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>No effect if less than or equal to unity.</li>
-<li>Only controls the behaviour of <a class="reference internal" href="#tgyro-iteration-method"><span class="std std-ref">TGYRO_ITERATION_METHOD</span></a> = 1.</li>
-<li>Experience shows that LOC_RELAX=2.0 is a good choice (default).</li>
+<li><p>No effect if less than or equal to unity.</p></li>
+<li><p>Only controls the behaviour of <a class="reference internal" href="#tgyro-iteration-method"><span class="std std-ref">TGYRO_ITERATION_METHOD</span></a> = 1.</p></li>
+<li><p>Experience shows that LOC_RELAX=2.0 is a good choice (default).</p></li>
 </ul>
 </div>
 <div class="section" id="loc-residual-method">
@@ -535,14 +537,14 @@ TGYRO_MODE=3
 <p>Formula for residual (error) in TGYRO root finding.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>LOC_RESIDUAL_METHOD=2: <span class="math">\(\displaystyle \sum_p \left|f_p-f^\mathrm{target}_p\right|\)</span></li>
-<li>LOC_RESIDUAL_METHOD=3: <span class="math">\(\displaystyle \sum_p (f_p-f^\mathrm{target}_p)^2\)</span></li>
+<li><p>LOC_RESIDUAL_METHOD=2: <span class="math notranslate nohighlight">\(\displaystyle \sum_p \left|f_p-f^\mathrm{target}_p\right|\)</span></p></li>
+<li><p>LOC_RESIDUAL_METHOD=3: <span class="math notranslate nohighlight">\(\displaystyle \sum_p (f_p-f^\mathrm{target}_p)^2\)</span></p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>This parameter only affects LOC_ITERATION_METHOD=4,5.</li>
-<li>It does <strong>not</strong> affect <a class="reference internal" href="#tgyro-iteration-method"><span class="std std-ref">TGYRO_ITERATION_METHOD</span></a> = 1 because each residual is minimized independently.</li>
-<li>The total residual is renormalized in method 3 to make the value comparable to method 2.</li>
+<li><p>This parameter only affects LOC_ITERATION_METHOD=4,5.</p></li>
+<li><p>It does <strong>not</strong> affect <a class="reference internal" href="#tgyro-iteration-method"><span class="std std-ref">TGYRO_ITERATION_METHOD</span></a> = 1 because each residual is minimized independently.</p></li>
+<li><p>The total residual is renormalized in method 3 to make the value comparable to method 2.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>2</p>
@@ -554,8 +556,8 @@ TGYRO_MODE=3
 <p>TGYRO startup control (new or restart).</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>LOC_RESTART_FLAG=0: New simulation.</li>
-<li>LOC_RESTART_FLAG=1: Continue running based on last iteration.</li>
+<li><p>LOC_RESTART_FLAG=0: New simulation.</p></li>
+<li><p>LOC_RESTART_FLAG=1: Continue running based on last iteration.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -567,13 +569,13 @@ TGYRO_MODE=3
 <p>Thermal/nonthermal species toggle.  First ion is TGYRO_THERM_FLAG1, etc.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_THERM_FLAG* = 1: Thermal</li>
-<li>TGYRO_THERM_FLAG* = 0: Nonthermal (energetic)</li>
+<li><p>TGYRO_THERM_FLAG* = 1: Thermal</p></li>
+<li><p>TGYRO_THERM_FLAG* = 0: Nonthermal (energetic)</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>Only the shared thermal ion temperature is evolved in TGYRO</li>
-<li>Unequal thermal ion temperatures is not supported</li>
+<li><p>Only the shared thermal ion temperature is evolved in TGYRO</p></li>
+<li><p>Unequal thermal ion temperatures is not supported</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1</p>
@@ -585,8 +587,8 @@ TGYRO_MODE=3
 <p>Flag to signal electron temperature evolution</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>LOC_TE_FEEDBACK_FLAG = 0 : Do not evolve <span class="math">\(T_e\)</span></li>
-<li>LOC_TE_FEEDBACK_FLAG = 1 : Evolve <span class="math">\(T_e\)</span></li>
+<li><p>LOC_TE_FEEDBACK_FLAG = 0 : Do not evolve <span class="math notranslate nohighlight">\(T_e\)</span></p></li>
+<li><p>LOC_TE_FEEDBACK_FLAG = 1 : Evolve <span class="math notranslate nohighlight">\(T_e\)</span></p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1</p>
@@ -598,8 +600,8 @@ TGYRO_MODE=3
 <p>Flag to signal ion temperature evolution</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>LOC_TI_FEEDBACK_FLAG = 0 : Do not evolve <span class="math">\(T_i\)</span></li>
-<li>LOC_TI_FEEDBACK_FLAG = 1 : Evolve <span class="math">\(T_i\)</span></li>
+<li><p>LOC_TI_FEEDBACK_FLAG = 0 : Do not evolve <span class="math notranslate nohighlight">\(T_i\)</span></p></li>
+<li><p>LOC_TI_FEEDBACK_FLAG = 1 : Evolve <span class="math notranslate nohighlight">\(T_i\)</span></p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>1</p>
@@ -611,13 +613,13 @@ TGYRO_MODE=3
 <p>Manage how new <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> files are written.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>TGYRO_WRITE_PROFILES_FLAG=-1: Write new <code class="docutils literal"><span class="pre">input.profiles.*</span></code> at <strong>every iteration</strong>.</li>
-<li>TGYRO_WRITE_PROFILES_FLAG=0: No new files are written.</li>
-<li>TGYRO_WRITE_PROFILES_FLAG=1: Write <code class="docutils literal"><span class="pre">input.profiles.new</span></code> at final iteration</li>
+<li><p>TGYRO_WRITE_PROFILES_FLAG=-1: Write new <code class="docutils literal notranslate"><span class="pre">input.profiles.*</span></code> at <strong>every iteration</strong>.</p></li>
+<li><p>TGYRO_WRITE_PROFILES_FLAG=0: No new files are written.</p></li>
+<li><p>TGYRO_WRITE_PROFILES_FLAG=1: Write <code class="docutils literal notranslate"><span class="pre">input.profiles.new</span></code> at final iteration</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>If TGYRO_WRITE_PROFILES_FLAG=-1, then <code class="docutils literal"><span class="pre">input.profiles.n</span></code> is written at the nth iteration.</li>
+<li><p>If TGYRO_WRITE_PROFILES_FLAG=-1, then <code class="docutils literal notranslate"><span class="pre">input.profiles.n</span></code> is written at the nth iteration.</p></li>
 </ul>
 <p><strong>Default</strong></p>
 <p>0</p>
@@ -635,7 +637,7 @@ TGYRO_MODE=3
         <a href="equations.html" class="btn btn-neutral float-right" title="Equations solved in TGYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="tgyro_table.html" class="btn btn-neutral" title="input.tgyro Tabular List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="tgyro_table.html" class="btn btn-neutral float-left" title="input.tgyro Tabular List" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -644,7 +646,7 @@ TGYRO_MODE=3
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -661,38 +663,16 @@ TGYRO_MODE=3
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
