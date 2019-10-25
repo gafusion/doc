@@ -17,35 +17,37 @@
   
 
   
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="NEO Output Files" href="outputs.html" />
     <link rel="prev" title="Parameters for input.neo" href="neo_table.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -248,20 +250,21 @@
 <p>Parameter which selects whether to treat a species with an anisotropic temperature model.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>ANISO_MODEL_*=1: isotropic temperature model</li>
-<li>ANISO_MODEL_*=2: anisotropic temperature model<ul>
-<li>This option is presently not available for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</li>
-<li>This model requires <a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2 due to the induced poloidal density asymmetry.</li>
-<li>The parallel and perpendicular temperature <a class="reference internal" href="#neo-temp-para"><span class="std std-ref">TEMP_PARA_*</span></a> and <a class="reference internal" href="#neo-temp-perp"><span class="std std-ref">TEMP_PERP_*</span></a> and the parallel and perpendicular temperature gradient scale lengths <a class="reference internal" href="#neo-dlntdr-para"><span class="std std-ref">DLNTDR_PARA_*</span></a> and <a class="reference internal" href="#neo-dlntdr-perp"><span class="std std-ref">DLNTDR_PERP_*</span></a> must also be set.</li>
-<li>The parameters <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a> and <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a> are not used.  The effective Maxwellian temperature in the DKE is determined internally based on the parallel and perpendicular temperatures.</li>
+<li><p>ANISO_MODEL_*=1: isotropic temperature model</p></li>
+<li><p>ANISO_MODEL_*=2: anisotropic temperature model</p>
+<ul>
+<li><p>This option is presently not available for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</p></li>
+<li><p>This model requires <a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2 due to the induced poloidal density asymmetry.</p></li>
+<li><p>The parallel and perpendicular temperature <a class="reference internal" href="#neo-temp-para"><span class="std std-ref">TEMP_PARA_*</span></a> and <a class="reference internal" href="#neo-temp-perp"><span class="std std-ref">TEMP_PERP_*</span></a> and the parallel and perpendicular temperature gradient scale lengths <a class="reference internal" href="#neo-dlntdr-para"><span class="std std-ref">DLNTDR_PARA_*</span></a> and <a class="reference internal" href="#neo-dlntdr-perp"><span class="std std-ref">DLNTDR_PERP_*</span></a> must also be set.</p></li>
+<li><p>The parameters <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a> and <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a> are not used.  The effective Maxwellian temperature in the DKE is determined internally based on the parallel and perpendicular temperatures.</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>The anisotropic model of each species 1-11 is set as: ANISO_MODEL_1, ANISO_MODEL_2, ANISO_MODEL_3,…</li>
-<li>The subroutine interface parameter is specified as a vector: neo_aniso_model_in(1:11)</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>The anisotropic model of each species 1-11 is set as: ANISO_MODEL_1, ANISO_MODEL_2, ANISO_MODEL_3,…</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_aniso_model_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -269,32 +272,32 @@
 <span id="neo-beta-star"></span><h2>BETA_STAR<a class="headerlink" href="#beta-star" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized effective pressure gradient:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\beta_* = - \frac{8\pi a}{B_{\rm unit}^2} \sum_a \frac{d p_a}{d r}\]</div>
-<p>where <span class="math">\(B_{\rm unit}(r)=(q/r)\psi^\prime\)</span> is the effective magnetic field strength and <span class="math">\(p=\sum_a n_a T_a\)</span> is the total plasma pressure.</p>
+<p>where <span class="math notranslate nohighlight">\(B_{\rm unit}(r)=(q/r)\psi^\prime\)</span> is the effective magnetic field strength and <span class="math notranslate nohighlight">\(p=\sum_a n_a T_a\)</span> is the total plasma pressure.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>NOTE: This parameter is <em>not</em> used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. <a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2) to compute <span class="math">\(d\Phi_*/dr\)</span>.</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math">\(\beta_*\)</span> is computed internally from the profile parameters in input.profiles and the normalizing length scale is the plasma minor radius.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>NOTE: This parameter is <em>not</em> used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. <a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2) to compute <span class="math notranslate nohighlight">\(d\Phi_*/dr\)</span>.</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math notranslate nohighlight">\(\beta_*\)</span> is computed internally from the profile parameters in input.profiles and the normalizing length scale is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="btccw">
 <span id="neo-btccw"></span><h2>BTCCW<a class="headerlink" href="#btccw" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the orientation of the toroidal magnetic field <span class="math">\(B_t\)</span> relative to the toroidal angle <span class="math">\(\varphi\)</span>.</p>
+<p>Parameter which selects the orientation of the toroidal magnetic field <span class="math notranslate nohighlight">\(B_t\)</span> relative to the toroidal angle <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the negative <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
-<li>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_t\)</span> is oriented along the positive <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
+<li><p>BTCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_t\)</span> is oriented along the negative <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> direction.</p></li>
+<li><p>BTCCW = -1: Clockwise when viewed from above the torus - positive <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_t\)</span> is oriented along the positive <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> direction.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: -1</li>
-<li>In DIII-D, typically BTCCW = 1.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of BT is inferred from input.profiles.</li>
+<li><p>DEFAULT: -1</p></li>
+<li><p>In DIII-D, typically BTCCW = 1.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of BT is inferred from input.profiles.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -304,30 +307,30 @@
 <p>Parameter which selects the collision operator model.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>SIM_MODEL = 1: Connor model.</li>
-<li>SIM_MODEL = 2: Zeroth-order Hirshman-Sigmar model.</li>
-<li>SIM_MODEL = 3: Full Hirshman-Sigmar model.</li>
-<li>SIM_MODEL = 4: Full linearized Fokker-Plank operator.</li>
-<li>SIM_MODEL = 5: FP test particle operator with ad hoc field particle operator.</li>
+<li><p>SIM_MODEL = 1: Connor model.</p></li>
+<li><p>SIM_MODEL = 2: Zeroth-order Hirshman-Sigmar model.</p></li>
+<li><p>SIM_MODEL = 3: Full Hirshman-Sigmar model.</p></li>
+<li><p>SIM_MODEL = 4: Full linearized Fokker-Plank operator.</p></li>
+<li><p>SIM_MODEL = 5: FP test particle operator with ad hoc field particle operator.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 4</li>
+<li><p>DEFAULT: 4</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="delta">
 <span id="neo-delta"></span><h2>DELTA<a class="headerlink" href="#delta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Average triangularity, <span class="math">\(\delta\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Average triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[\delta = \frac{\delta_{+} + \delta_{-}}{2}\]</div>
-<p>where <span class="math">\(\delta_{+}\)</span> is the upper triangularity and <span class="math">\(\delta_{-}\)</span> is the lower triangularity.</p>
+<p>where <span class="math notranslate nohighlight">\(\delta_{+}\)</span> is the upper triangularity and <span class="math notranslate nohighlight">\(\delta_{-}\)</span> is the lower triangularity.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from input.profiles.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from input.profiles.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -335,15 +338,15 @@
 <span id="neo-dens"></span><h2>DENS_*<a class="headerlink" href="#dens" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DENS}\_* = \frac{n_{*}}{n_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: DENS_1=1.0, DENS_2=DENS_3=…=0.0</li>
-<li>The density of each species 1-11 is set as: DENS_1, DENS_2, DENS_3,…</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, <span class="math">\(n_{\rm norm}(r)=n_{0,{\rm species 1}}\)</span>.</li>
-<li>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_dens_in(1:11)</li>
+<li><p>DEFAULT: DENS_1=1.0, DENS_2=DENS_3=…=0.0</p></li>
+<li><p>The density of each species 1-11 is set as: DENS_1, DENS_2, DENS_3,…</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, <span class="math notranslate nohighlight">\(n_{\rm norm}(r)=n_{0,{\rm species 1}}\)</span>.</p></li>
+<li><p>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_dens_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -351,15 +354,15 @@
 <span id="neo-dlnndr"></span><h2>DLNNDR_*<a class="headerlink" href="#dlnndr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNNDR}\_* = -a \frac{\partial {\rm ln} n_{*}}{\partial r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The density gradient scale length of each species 1-11 is set as: DLNNDR_1, DLNNDR_2, DLNNDR_3,…</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.</li>
-<li>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_dlnndr_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The density gradient scale length of each species 1-11 is set as: DLNNDR_1, DLNNDR_2, DLNNDR_3,…</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.</p></li>
+<li><p>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_dlnndr_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -367,14 +370,14 @@
 <span id="neo-dlnndre-ade"></span><h2>DLNNDRE_ADE<a class="headerlink" href="#dlnndre-ade" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density gradient scale length of the electrons for the case of adiabatic electrons:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNNDRE\_ADE} = -a \frac{\partial {\rm ln} n_{0,e}}{\partial r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:<cite>neo_rotation_model</cite> = 2), for which it is the value at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
-<li>This paramter is used only if no species with Z &lt; 0 is specified.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:<cite>neo_rotation_model</cite> = 2), for which it is the value at the outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
+<li><p>This paramter is used only if no species with Z &lt; 0 is specified.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -382,14 +385,14 @@
 <span id="neo-dlntdr"></span><h2>DLNTDR_*<a class="headerlink" href="#dlntdr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNTDR}\_* = -a \frac{d {\rm ln} T_{*}}{d r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The temperature gradient scale length of each species 1-11 is set as: DLNTDR_1, DLNTDR_2, DLNTDR_3,…</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally. The normalizing length is the plasma minor radius.</li>
-<li>The subroutine interface parameter is specified as a vector: neo_dlntdr_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The temperature gradient scale length of each species 1-11 is set as: DLNTDR_1, DLNTDR_2, DLNTDR_3,…</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally. The normalizing length is the plasma minor radius.</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_dlntdr_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -397,14 +400,14 @@
 <span id="neo-dlntdr-para"></span><h2>DLNTDR_PARA_*<a class="headerlink" href="#dlntdr-para" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale parallel temperature gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNTDR}\_PARA\_* = -a \frac{d {\rm ln} T_{\|,*}}{d r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The parallel temperature gradient scale length of each species 1-11 is set as: DLNTDR_PARA_1, DLNTDR_PARA_2, DLNTDR_PARA_3,…</li>
-<li>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_dlntdr_para_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The parallel temperature gradient scale length of each species 1-11 is set as: DLNTDR_PARA_1, DLNTDR_PARA_2, DLNTDR_PARA_3,…</p></li>
+<li><p>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_dlntdr_para_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -412,14 +415,14 @@
 <span id="neo-dlntdr-perp"></span><h2>DLNTDR_PERP_*<a class="headerlink" href="#dlntdr-perp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale perpendicular temperature gradient scale length:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNTDR}\_PERP\_* = -a \frac{d {\rm ln} T_{\perp,*}}{d r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The perpendicular temperature gradient scale length of each species 1-11 is set as: DLNTDR_PERP_1, DLNTDR_PERP_2, DLNTDR_PERP_3,…</li>
-<li>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_dlntdr_perp_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The perpendicular temperature gradient scale length of each species 1-11 is set as: DLNTDR_PERP_1, DLNTDR_PERP_2, DLNTDR_PERP_3,…</p></li>
+<li><p>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_dlntdr_perp_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -427,14 +430,14 @@
 <span id="neo-dlntdre-ade"></span><h2>DLNTDRE_ADE<a class="headerlink" href="#dlntdre-ade" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature gradient scale length of the electrons for the case of adiabatic electrons:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DLNTDRE\_ADE} = -a \frac{\partial {\rm ln} T_{e}}{\partial r}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:<cite>neo_rotation_model</cite> = 2), for which it is the value at the outboard midplane (<span class="math">\(\theta=0\)</span>).</li>
-<li>This paramter is used only if no species with Z &lt; 0 is specified.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>This parameter does not enter the DKE and is used only as a diagnostic for strong rotation (ref:<cite>neo_rotation_model</cite> = 2), for which it is the value at the outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
+<li><p>This paramter is used only if no species with Z &lt; 0 is specified.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -442,16 +445,16 @@
 <span id="neo-dphi0dr"></span><h2>DPHI0DR<a class="headerlink" href="#dphi0dr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale radial electric field:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm DPHI0DR} = \frac{\partial \Phi_0}{\partial r} \left( \frac{a e}{T_{\rm norm}} \right)\]</div>
 <p>such that</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[E_r^{(0)} = -\frac{\partial \Phi_0}{\partial r} \nabla r\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this is computed internally from the profile parameters is in input.profiles and the normalizing length scale is the plasma minor radius.  See also the parameter <a class="reference internal" href="#neo-profile-erad0-model"><span class="std std-ref">PROFILE_ERAD0_MODEL</span></a>, which allows the simulation to be done with DPHI0DR = 0 regardless of the value in input.profiles.</li>
-<li>If sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), then this parameter is ignored and <span class="math">\(E_r^{(0)}\)</span> is assumed to be zero. With experimental profiles, this means that the <span class="math">\(E_r^{(0)}\)</span> in input.profiles is assumed to be the lowest-order field in sonic rotation theory, i.e. <span class="math">\(E_r^{(-1)}\)</span>,and is used to compute the lowest-order sonic toroidal rotation parameters, <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a>.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this is computed internally from the profile parameters is in input.profiles and the normalizing length scale is the plasma minor radius.  See also the parameter <a class="reference internal" href="#neo-profile-erad0-model"><span class="std std-ref">PROFILE_ERAD0_MODEL</span></a>, which allows the simulation to be done with DPHI0DR = 0 regardless of the value in input.profiles.</p></li>
+<li><p>If sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), then this parameter is ignored and <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> is assumed to be zero. With experimental profiles, this means that the <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> in input.profiles is assumed to be the lowest-order field in sonic rotation theory, i.e. <span class="math notranslate nohighlight">\(E_r^{(-1)}\)</span>,and is used to compute the lowest-order sonic toroidal rotation parameters, <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -459,22 +462,18 @@
 <span id="neo-epar0"></span><h2>EPAR0<a class="headerlink" href="#epar0" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale inductive electric field:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm EPAR0} = \left&lt; E_\| B \right&gt; \left( \frac{a e}{T_{\rm norm} B_{\rm unit}} \right)\]</div>
 <p><strong>Comments</strong></p>
 <ul>
-<li><p class="first">DEFAULT: 0.0</p>
-</li>
-<li><p class="first">In the neo theory module, the input <span class="math">\(\left&lt; E_\| B \right&gt;\)</span> is used directly.</p>
-</li>
-<li><p class="first">For the DKE, it into the RHS neoclassical source term as</p>
-<div class="math">
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>In the neo theory module, the input <span class="math notranslate nohighlight">\(\left&lt; E_\| B \right&gt;\)</span> is used directly.</p></li>
+<li><p>For the DKE, it into the RHS neoclassical source term as</p>
+<div class="math notranslate nohighlight">
 \[{\rm v_\|} \left&lt; E_\| B \right&gt; \frac{B}{\left&lt; B^2 \right&gt;}\]</div>
 </li>
-<li><p class="first"><span class="math">\(E_\|\)</span> is not presently in input.profiles.  When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), EPAR0 is read from input.neo and is assumed to be radially constant.</p>
-</li>
-<li><p class="first">For the Spitzer problem (<a class="reference internal" href="#neo-spitzer-model"><span class="std std-ref">SPITZER_MODEL</span></a> = 1), use <a class="reference internal" href="#neo-epar0-spitzer"><span class="std std-ref">EPAR0_SPITZER</span></a> instead.</p>
-</li>
+<li><p><span class="math notranslate nohighlight">\(E_\|\)</span> is not presently in input.profiles.  When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), EPAR0 is read from input.neo and is assumed to be radially constant.</p></li>
+<li><p>For the Spitzer problem (<a class="reference internal" href="#neo-spitzer-model"><span class="std std-ref">SPITZER_MODEL</span></a> = 1), use <a class="reference internal" href="#neo-epar0-spitzer"><span class="std std-ref">EPAR0_SPITZER</span></a> instead.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -482,13 +481,13 @@
 <span id="neo-epar0-spitzer"></span><h2>EPAR0_SPITZER<a class="headerlink" href="#epar0-spitzer" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale inductive electric field for use in the Spitzer problem:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm EPAR0} = E_\varphi \left( \frac{a e}{T_{\rm norm}} \right)\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>For the DKE, we assume that <span class="math">\(E_\varphi\)</span> is independent of <span class="math">\(\theta\)</span>, such that <span class="math">\({\rm v}_\| E_\varphi = {\rm v}_\| {\rm EPAR0\_SPITZER}\)</span>.</li>
-<li>This parameter is used only for the Spitzer problem (<a class="reference internal" href="#neo-spitzer-model"><span class="std std-ref">SPITZER_MODEL</span></a> = 1).  For the standard neoclassical problem, use <a class="reference internal" href="#neo-epar0"><span class="std std-ref">EPAR0</span></a> instead.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>For the DKE, we assume that <span class="math notranslate nohighlight">\(E_\varphi\)</span> is independent of <span class="math notranslate nohighlight">\(\theta\)</span>, such that <span class="math notranslate nohighlight">\({\rm v}_\| E_\varphi = {\rm v}_\| {\rm EPAR0\_SPITZER}\)</span>.</p></li>
+<li><p>This parameter is used only for the Spitzer problem (<a class="reference internal" href="#neo-spitzer-model"><span class="std std-ref">SPITZER_MODEL</span></a> = 1).  For the standard neoclassical problem, use <a class="reference internal" href="#neo-epar0"><span class="std std-ref">EPAR0</span></a> instead.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -498,17 +497,17 @@
 <p>Parameter which selects the geometric equilibrium model.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>EQUILIBRIUM_MODEL = 0: s-alpha</li>
-<li>EQUILIBRIUM_MODEL = 1: large aspect ratio</li>
-<li>EQUILIBRIUM_MODEL = 2: Miller</li>
-<li>EQUILIBRIUM_MODEL = 3: General Grad-Shafranov</li>
+<li><p>EQUILIBRIUM_MODEL = 0: s-alpha</p></li>
+<li><p>EQUILIBRIUM_MODEL = 1: large aspect ratio</p></li>
+<li><p>EQUILIBRIUM_MODEL = 2: Miller</p></li>
+<li><p>EQUILIBRIUM_MODEL = 3: General Grad-Shafranov</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0</li>
-<li>For experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter <a class="reference internal" href="#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a>.</li>
-<li>EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, <a class="reference internal" href="#neo-geo-ny"><span class="std std-ref">GEO_NY</span></a>, must be a positive integer, with the corresponding Fourier coefficients set in <a class="reference internal" href="#neo-geo-yin"><span class="std std-ref">GEO_YIN</span></a>. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a>, <a class="reference internal" href="#neo-rmaj-over-a"><span class="std std-ref">RMAJ_OVER_A</span></a>, <a class="reference internal" href="#neo-q"><span class="std std-ref">Q</span></a>, <a class="reference internal" href="#neo-shear"><span class="std std-ref">SHEAR</span></a>, <a class="reference internal" href="#neo-beta-star"><span class="std std-ref">BETA_STAR</span></a>, <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>, and <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> must also be specified.</li>
-<li>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the geometric equilibrium models.</li>
+<li><p>DEFAULT: 0</p></li>
+<li><p>For experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this parameter is ignored and the geometric equilibrium model is instead set by the parameter <a class="reference internal" href="#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a>.</p></li>
+<li><p>EQUILIBRIUM_MODEL=3 is available via interface.  For this option, the number of Fourier coefficients, <a class="reference internal" href="#neo-geo-ny"><span class="std std-ref">GEO_NY</span></a>, must be a positive integer, with the corresponding Fourier coefficients set in <a class="reference internal" href="#neo-geo-yin"><span class="std std-ref">GEO_YIN</span></a>. For input.neo, these parameters are set by the file input.geo.  Note that in addition to the fourier coefficients, the input equilibrium parameters <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a>, <a class="reference internal" href="#neo-rmaj-over-a"><span class="std std-ref">RMAJ_OVER_A</span></a>, <a class="reference internal" href="#neo-q"><span class="std std-ref">Q</span></a>, <a class="reference internal" href="#neo-shear"><span class="std std-ref">SHEAR</span></a>, <a class="reference internal" href="#neo-beta-star"><span class="std std-ref">BETA_STAR</span></a>, <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>, and <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> must also be specified.</p></li>
+<li><p>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the geometric equilibrium models.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -518,52 +517,52 @@
 <p>Number of Fourier coefficients for general Grad-Shafranov equilibrium.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0</li>
-<li>This parameter is only available via subroutine interface and not by input.neo.</li>
-<li>This parameter is used only if <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3.  It must be a positive integer.  The Fourier coefficient values themselves are specified by <a class="reference internal" href="#neo-geo-yin"><span class="std std-ref">GEO_YIN</span></a>.</li>
-<li>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the general geometry equilibrium model.</li>
+<li><p>DEFAULT: 0</p></li>
+<li><p>This parameter is only available via subroutine interface and not by input.neo.</p></li>
+<li><p>This parameter is used only if <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3.  It must be a positive integer.  The Fourier coefficient values themselves are specified by <a class="reference internal" href="#neo-geo-yin"><span class="std std-ref">GEO_YIN</span></a>.</p></li>
+<li><p>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the general geometry equilibrium model.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="geo-yin">
 <span id="neo-geo-yin"></span><h2>GEO_YIN<a class="headerlink" href="#geo-yin" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Array of dimension (8,0:32) with the normalized Fourier coefficients <span class="math">\(\{a\_R,b\_R,a\_Z,b\_Z\}/a\)</span> and their radial derivatives <span class="math">\(\{a\_Rp,b\_Rp,a\_Zp,b\_Zp\}\)</span> for general Grad-Shafranov equilibrium.</p>
+<p>Array of dimension (8,0:32) with the normalized Fourier coefficients <span class="math notranslate nohighlight">\(\{a\_R,b\_R,a\_Z,b\_Z\}/a\)</span> and their radial derivatives <span class="math notranslate nohighlight">\(\{a\_Rp,b\_Rp,a\_Zp,b\_Zp\}\)</span> for general Grad-Shafranov equilibrium.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This parameter is only available via subroutine interface and not by input.neo.</li>
-<li>This parameter is used only if <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3.  The number of Fourier coefficients is specified by <a class="reference internal" href="#neo-geo-ny"><span class="std std-ref">GEO_NY</span></a> and the coefficients are read-in as geo_yin(8,0:geo_ny).</li>
-<li>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the general geometry equilibrium model.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This parameter is only available via subroutine interface and not by input.neo.</p></li>
+<li><p>This parameter is used only if <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3.  The number of Fourier coefficients is specified by <a class="reference internal" href="#neo-geo-ny"><span class="std std-ref">GEO_NY</span></a> and the coefficients are read-in as geo_yin(8,0:geo_ny).</p></li>
+<li><p>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the general geometry equilibrium model.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="ipccw">
 <span id="neo-ipccw"></span><h2>IPCCW<a class="headerlink" href="#ipccw" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects the orientation of the plasma current (and thus the poloidal magnetic field <span class="math">\(B_p\)</span>) relative to the toroidal angle <span class="math">\(\varphi\)</span>.</p>
+<p>Parameter which selects the orientation of the plasma current (and thus the poloidal magnetic field <span class="math notranslate nohighlight">\(B_p\)</span>) relative to the toroidal angle <span class="math notranslate nohighlight">\(\varphi\)</span>.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>IPCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_p\)</span> is oriented along the negative <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
-<li>IPCCW = -1: Clockwise when viewed from above the torus - positive <span class="math">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math">\(B_p\)</span> is oriented along the positive <span class="math">\(\hat{e}_{\varphi}\)</span> direction.</li>
+<li><p>IPCCW = 1: Counter-clockwise when viewed from above the torus - negative <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_p\)</span> is oriented along the negative <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> direction.</p></li>
+<li><p>IPCCW = -1: Clockwise when viewed from above the torus - positive <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> for the right-handed coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>.  Thus, <span class="math notranslate nohighlight">\(B_p\)</span> is oriented along the positive <span class="math notranslate nohighlight">\(\hat{e}_{\varphi}\)</span> direction.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: -1</li>
-<li>In DIII-D, typically IPCCW = 1.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of IP is inferred from input.profiles.</li>
+<li><p>DEFAULT: -1</p></li>
+<li><p>In DIII-D, typically IPCCW = 1.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of IP is inferred from input.profiles.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="kappa">
 <span id="neo-kappa"></span><h2>KAPPA<a class="headerlink" href="#kappa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Elongation, <span class="math">\(\kappa\)</span>, of the flux surface.</p>
+<p>Elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>, of the flux surface.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.profiles.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.profiles.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -571,41 +570,41 @@
 <span id="neo-mass"></span><h2>MASS_*<a class="headerlink" href="#mass" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized mass:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm MASS}\_* = m_{*}/m_{\rm norm}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The mass of each species 1-11 is set as: MASS_1, MASS_2, MASS_3,…</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is deuterium, <span class="math">\(m_{\rm norm}=m_{D}\)</span> = 3.3452e-27 kg</li>
-<li>The subroutine interface parameter is specified as a vector: neo_mass_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The mass of each species 1-11 is set as: MASS_1, MASS_2, MASS_3,…</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is deuterium, <span class="math notranslate nohighlight">\(m_{\rm norm}=m_{D}\)</span> = 3.3452e-27 kg</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_mass_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="n-energy">
 <span id="neo-n-energy"></span><h2>N_ENERGY<a class="headerlink" href="#n-energy" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The number of energy polynomials -  1 in the computational domain (<span class="math">\(n_{\varepsilon,\rm total}\)</span> = N_ENERGY+1).</p>
+<p>The number of energy polynomials -  1 in the computational domain (<span class="math notranslate nohighlight">\(n_{\varepsilon,\rm total}\)</span> = N_ENERGY+1).</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 6</li>
-<li>The velocity-space coordinate <span class="math">\(x_a\)</span> is the normalized velocity: <span class="math">\(x_a = \sqrt{\varepsilon} = {\rm v}/(\sqrt{2}{\rm v}_{ta})\)</span>.</li>
-<li>NEO uses an expansion of associated Laguerre polynomials in <span class="math">\(x_a\)</span>, which is coupled with the Legendre expansion in <span class="math">\(\xi\)</span>: <span class="math">\(P_l(\xi) L_m^{k(l)+1/2}(x_a^2)x_a^{k(l)}\)</span>, where <span class="math">\(k(l)=0\)</span> for Legendre index <span class="math">\(l=0\)</span> and <span class="math">\(k(l)=1\)</span> for Legendre index <span class="math">\(l&gt;0\)</span>.</li>
-<li>The collocation integrals are formed from the monomial basis elements, <span class="math">\(x_a^{2m+k(l)}\)</span>, which can be written in terms of Gamma and Beta functions.</li>
+<li><p>DEFAULT: 6</p></li>
+<li><p>The velocity-space coordinate <span class="math notranslate nohighlight">\(x_a\)</span> is the normalized velocity: <span class="math notranslate nohighlight">\(x_a = \sqrt{\varepsilon} = {\rm v}/(\sqrt{2}{\rm v}_{ta})\)</span>.</p></li>
+<li><p>NEO uses an expansion of associated Laguerre polynomials in <span class="math notranslate nohighlight">\(x_a\)</span>, which is coupled with the Legendre expansion in <span class="math notranslate nohighlight">\(\xi\)</span>: <span class="math notranslate nohighlight">\(P_l(\xi) L_m^{k(l)+1/2}(x_a^2)x_a^{k(l)}\)</span>, where <span class="math notranslate nohighlight">\(k(l)=0\)</span> for Legendre index <span class="math notranslate nohighlight">\(l=0\)</span> and <span class="math notranslate nohighlight">\(k(l)=1\)</span> for Legendre index <span class="math notranslate nohighlight">\(l&gt;0\)</span>.</p></li>
+<li><p>The collocation integrals are formed from the monomial basis elements, <span class="math notranslate nohighlight">\(x_a^{2m+k(l)}\)</span>, which can be written in terms of Gamma and Beta functions.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="n-radial">
 <span id="neo-n-radial"></span><h2>N_RADIAL<a class="headerlink" href="#n-radial" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The number of radial gridpoints, <span class="math">\(n_r\)</span> in the computational domain.</p>
+<p>The number of radial gridpoints, <span class="math notranslate nohighlight">\(n_r\)</span> in the computational domain.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>The radial grid is defined on the range <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a>
-<span class="math">\(\le r/a \le\)</span> <a class="reference internal" href="#neo-rmin-over-a-2"><span class="std std-ref">RMIN_OVER_A_2</span></a>.  For a local simulation (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1), the normalizing length scale <span class="math">\(a\)</span> is arbitrary.  For a global simulation (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math">\(a\)</span> is the plasma minor radius at the center of the radial simulation domain.</li>
-<li>N_RADIAL &gt; 1 requires a global profile model (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).  Otherwise, N_RADIAL = 1 and the profile model is local (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1).</li>
-<li>For solution of only the first-order DKE, which is a radially-local problem, the radial grid is equally-spaced.</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>The radial grid is defined on the range <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a>
+<span class="math notranslate nohighlight">\(\le r/a \le\)</span> <a class="reference internal" href="#neo-rmin-over-a-2"><span class="std std-ref">RMIN_OVER_A_2</span></a>.  For a local simulation (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1), the normalizing length scale <span class="math notranslate nohighlight">\(a\)</span> is arbitrary.  For a global simulation (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math notranslate nohighlight">\(a\)</span> is the plasma minor radius at the center of the radial simulation domain.</p></li>
+<li><p>N_RADIAL &gt; 1 requires a global profile model (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).  Otherwise, N_RADIAL = 1 and the profile model is local (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1).</p></li>
+<li><p>For solution of only the first-order DKE, which is a radially-local problem, the radial grid is equally-spaced.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -615,19 +614,21 @@
 <p>The number of kinetic species.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>The maximum allowed N_SPECIES is 11.</li>
-<li>Only one species with charge Z &lt; 0 is allowed.  If no species with Z &lt; 0 is specified, then an adiabatic electron model is assumed.</li>
-<li>For local simulations (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1), the order of the species and the normalizing density and temperature are arbitrary.<ul>
-<li>For each species 1-N_SPECIES, <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>, <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a>, <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>, <a class="reference internal" href="#neo-dlnndr"><span class="std std-ref">DLNNDR_*</span></a>, and <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a> are set in input.neo.  The collision frequency with respect to species 1 (<a class="reference internal" href="#neo-nu-1"><span class="std std-ref">NU_1</span></a>) is also set in input.neo.</li>
-<li>Quasi-neutrality is not checked.</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>The maximum allowed N_SPECIES is 11.</p></li>
+<li><p>Only one species with charge Z &lt; 0 is allowed.  If no species with Z &lt; 0 is specified, then an adiabatic electron model is assumed.</p></li>
+<li><p>For local simulations (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 1), the order of the species and the normalizing density and temperature are arbitrary.</p>
+<ul>
+<li><p>For each species 1-N_SPECIES, <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>, <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a>, <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>, <a class="reference internal" href="#neo-dlnndr"><span class="std std-ref">DLNNDR_*</span></a>, and <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a> are set in input.neo.  The collision frequency with respect to species 1 (<a class="reference internal" href="#neo-nu-1"><span class="std std-ref">NU_1</span></a>) is also set in input.neo.</p></li>
+<li><p>Quasi-neutrality is not checked.</p></li>
 </ul>
 </li>
-<li>For experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is the mass of deuterium (<span class="math">\(m_D\)</span> = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and <span class="math">\(m_D\)</span>, with <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}\)</span>.<ul>
-<li>The electron species, if kinetic, must be species number N_SPECIES in input.neo.</li>
-<li>Of the species-dependent parameters in input.neo, only <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>  and <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a> are used, while <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>, <a class="reference internal" href="#neo-dlnndr"><span class="std std-ref">DLNNDR_*</span></a>, <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a>, and <a class="reference internal" href="#neo-nu-1"><span class="std std-ref">NU_1</span></a> are determined from the parameters read from input.profiles.</li>
-<li>Quasi-neutrality is checked.</li>
-<li>See <a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> for more details.</li>
+<li><p>For experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the normalizing mass is the mass of deuterium (<span class="math notranslate nohighlight">\(m_D\)</span> = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and <span class="math notranslate nohighlight">\(m_D\)</span>, with <span class="math notranslate nohighlight">\({\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}\)</span>.</p>
+<ul>
+<li><p>The electron species, if kinetic, must be species number N_SPECIES in input.neo.</p></li>
+<li><p>Of the species-dependent parameters in input.neo, only <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>  and <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a> are used, while <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>, <a class="reference internal" href="#neo-dlnndr"><span class="std std-ref">DLNNDR_*</span></a>, <a class="reference internal" href="#neo-dlntdr"><span class="std std-ref">DLNTDR_*</span></a>, and <a class="reference internal" href="#neo-nu-1"><span class="std std-ref">NU_1</span></a> are determined from the parameters read from input.profiles.</p></li>
+<li><p>Quasi-neutrality is checked.</p></li>
+<li><p>See <a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> for more details.</p></li>
 </ul>
 </li>
 </ul>
@@ -636,26 +637,26 @@
 <div class="section" id="n-theta">
 <span id="neo-n-theta"></span><h2>N_THETA<a class="headerlink" href="#n-theta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The number of theta gridpoints, <span class="math">\(n_\theta\)</span> in the computational domain.</p>
+<p>The number of theta gridpoints, <span class="math notranslate nohighlight">\(n_\theta\)</span> in the computational domain.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 17</li>
-<li>N_THETA must be an odd number</li>
-<li>The theta grid range is equally-spaced and defined on the range <span class="math">\(-\pi \le \theta &lt; \pi\)</span>.</li>
-<li>The theta derivatives in the kinetic equation are treated with a 4th-order centered finite difference scheme.  Periodic boundary conditions are assumed.</li>
+<li><p>DEFAULT: 17</p></li>
+<li><p>N_THETA must be an odd number</p></li>
+<li><p>The theta grid range is equally-spaced and defined on the range <span class="math notranslate nohighlight">\(-\pi \le \theta &lt; \pi\)</span>.</p></li>
+<li><p>The theta derivatives in the kinetic equation are treated with a 4th-order centered finite difference scheme.  Periodic boundary conditions are assumed.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="n-xi">
 <span id="neo-n-xi"></span><h2>N_XI<a class="headerlink" href="#n-xi" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The number of xi polynomials -  1 in the computational domain (<span class="math">\(n_{\xi,\rm total}\)</span> = N_XI+1).</p>
+<p>The number of xi polynomials -  1 in the computational domain (<span class="math notranslate nohighlight">\(n_{\xi,\rm total}\)</span> = N_XI+1).</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 17</li>
-<li>The velocity-space coordinate <span class="math">\(\xi\)</span> is the cosine of the pitch angle: <span class="math">\(\xi ={\rm v}_\|/{\rm v}\)</span>.</li>
-<li>NEO uses an expansion of Legendre polynomials in <span class="math">\(\xi\)</span>.</li>
-<li>The collocation integrals are done exactly analytically.</li>
+<li><p>DEFAULT: 17</p></li>
+<li><p>The velocity-space coordinate <span class="math notranslate nohighlight">\(\xi\)</span> is the cosine of the pitch angle: <span class="math notranslate nohighlight">\(\xi ={\rm v}_\|/{\rm v}\)</span>.</p></li>
+<li><p>NEO uses an expansion of Legendre polynomials in <span class="math notranslate nohighlight">\(\xi\)</span>.</p></li>
+<li><p>The collocation integrals are done exactly analytically.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -663,13 +664,13 @@
 <span id="neo-ne-ade"></span><h2>NE_ADE<a class="headerlink" href="#ne-ade" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale density of the electrons for the case of adiabatic electrons:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm NE\_ADE} = \frac{n_{0,e}}{n_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>This paramter is used only if no species with Z &lt; 0 is specified.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, <span class="math">\(n_{\rm norm}(r)=n_{{\rm species 1}}\)</span>.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>This paramter is used only if no species with Z &lt; 0 is specified.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is read from input.profiles and the normalizing density is the local density of Species 1, <span class="math notranslate nohighlight">\(n_{\rm norm}(r)=n_{{\rm species 1}}\)</span>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -677,17 +678,17 @@
 <span id="neo-nu-1"></span><h2>NU_1<a class="headerlink" href="#nu-1" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized collision frequency of the first kinetic species:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm NU}\_1 = \frac{\tau_{11}^{-1}}{{\rm v}_{\rm norm}/a}\]</div>
 <p>where</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\tau_{ss}^{-1} = \frac{\sqrt{2} \pi e^4 z_s^4 n_{0s}}{m_s^{1/2} T_{0s}^{3/2}} {\rm ln} \Lambda\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.1</li>
-<li>Only the collision frequency for Species 1 is specified. The collision frequencies for the other species are computed internally in the code using NU_1, <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>, <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a>, <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, and <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>.</li>
-<li>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math">\(\theta = 0\)</span>).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this is computed internally from the profile parameters read from input.profiles. Also, the normalizing length scale is the plasma minor radius and the normalizing velocity is <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{\rm species1}/m_{D}}\)</span>.</li>
+<li><p>DEFAULT: 0.1</p></li>
+<li><p>Only the collision frequency for Species 1 is specified. The collision frequencies for the other species are computed internally in the code using NU_1, <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>, <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a>, <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a>, and <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>.</p></li>
+<li><p>When rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the outboard midplane (<span class="math notranslate nohighlight">\(\theta = 0\)</span>).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), this is computed internally from the profile parameters read from input.profiles. Also, the normalizing length scale is the plasma minor radius and the normalizing velocity is <span class="math notranslate nohighlight">\({\rm v}_{\rm norm} = \sqrt{T_{\rm species1}/m_{D}}\)</span>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -695,14 +696,14 @@
 <span id="neo-omega-rot"></span><h2>OMEGA_ROT<a class="headerlink" href="#omega-rot" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized toroidal angular frequency:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm OMEGA\_ROT} = \frac{\omega_0}{{\rm v}_{\rm norm}/a}\]</div>
-<p>where <span class="math">\(\omega_0=-c\frac{d \Phi_{-1}}{d\psi}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(\omega_0=-c\frac{d \Phi_{-1}}{d\psi}\)</span></p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>Used only if sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the toroidal angular frequency as a function of radius is read from input.profiles.  The associated <span class="math">\(E_r\)</span> is assumed to be the lowest-order field, <span class="math">\(E_r^{(-1)}\)</span>, and <span class="math">\(E_r^{(0)}\)</span> is assumed to be 0.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>Used only if sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the toroidal angular frequency as a function of radius is read from input.profiles.  The associated <span class="math notranslate nohighlight">\(E_r\)</span> is assumed to be the lowest-order field, <span class="math notranslate nohighlight">\(E_r^{(-1)}\)</span>, and <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> is assumed to be 0.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -710,14 +711,14 @@
 <span id="neo-omega-rot-deriv"></span><h2>OMEGA_ROT_DERIV<a class="headerlink" href="#omega-rot-deriv" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized toroidal rotation shear:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm OMEGA\_ROT\_DERIV} = \frac{d \omega_0}{d r}\frac{a^2}{{\rm v}_{\rm norm}}\]</div>
-<p>where <span class="math">\(\omega_0=-c\frac{d \Phi_{-1}}{d\psi}\)</span> is the torodial angular frequency.</p>
+<p>where <span class="math notranslate nohighlight">\(\omega_0=-c\frac{d \Phi_{-1}}{d\psi}\)</span> is the torodial angular frequency.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>Used only if sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the toroidal angular frequency as a function of radius is read from input.profiles and its gradient is computed internally.  The associated <span class="math">\(E_r\)</span> is assumed to be the lowest-order field, <span class="math">\(E_r^{(-1)}\)</span>, and <span class="math">\(E_r^{(0)}\)</span> is assumed to be 0.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>Used only if sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the toroidal angular frequency as a function of radius is read from input.profiles and its gradient is computed internally.  The associated <span class="math notranslate nohighlight">\(E_r\)</span> is assumed to be the lowest-order field, <span class="math notranslate nohighlight">\(E_r^{(-1)}\)</span>, and <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> is assumed to be 0.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -725,14 +726,14 @@
 <span id="neo-profile-dlnndr-scale"></span><h2>PROFILE_DLNNDR_*_SCALE<a class="headerlink" href="#profile-dlnndr-scale" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Scaling factor for the normalized equilibrium-scale density gradient scale length in profile mode:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \rightarrow {\rm PROFILE\_DLNNDR\_*\_SCALE} \times \left(a \frac{\partial {\rm ln} n_{0,*}}{\partial r} \right)\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The scaling factor of each species 1-11 is set as: PROFILE_DLNNDR_1_SCALE, PROFILE_DLNNDR_2_SCALE, PROFILE_DLNNDR_3_SCALE,…</li>
-<li>This parameter is only used when experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2). The density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.</li>
-<li>The subroutine interface parameter is specified as a vector: neo_profile_dlnndr_scale_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The scaling factor of each species 1-11 is set as: PROFILE_DLNNDR_1_SCALE, PROFILE_DLNNDR_2_SCALE, PROFILE_DLNNDR_3_SCALE,…</p></li>
+<li><p>This parameter is only used when experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2). The density as a function of radius is read from input.profiles and the density gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_profile_dlnndr_scale_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -740,14 +741,14 @@
 <span id="neo-profile-dlntdr-scale"></span><h2>PROFILE_DLNTDR_*_SCALE<a class="headerlink" href="#profile-dlntdr-scale" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Scaling factor for the normalized equilibrium-scale temperature gradient scale length in profile mode:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[a \frac{d {\rm ln} T_{*}}{d r} \rightarrow {\rm PROFILE\_DLNTDR\_*\_SCALE} \times \left( a \frac{d {\rm ln} T_{*}}{d r} \right)\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The scaling factor of each species 1-11 is set as: PROFILE_DLNTDR_1_SCALE, PROFILE_DLNTDR_2_SCALE, PROFILE_DLNTDR_3_SCALE,…</li>
-<li>This parameter is only used when experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2). The temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.</li>
-<li>The subroutine interface parameter is specified as a vector: neo_profile_dlntdr_scale_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The scaling factor of each species 1-11 is set as: PROFILE_DLNTDR_1_SCALE, PROFILE_DLNTDR_2_SCALE, PROFILE_DLNTDR_3_SCALE,…</p></li>
+<li><p>This parameter is only used when experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2). The temperature as a function of radius is read from input.profiles and the temperature gradient is computed internally.  The normalizing length is the plasma minor radius.  This gradient scale length is then re-scaled.</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_profile_dlntdr_scale_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -757,31 +758,31 @@
 <p>Parameter which selects the geometric equilibrium model for experimental profiles.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>PROFILE_EQUILIBRIUM_MODEL = 1: Use Miller shaped geometry with the profiles of the geometric parameters as given in input.profiles.</li>
-<li>PROFILE_EQUILIBRIUM_MODEL = 2: Use the general Grad-Shafranov geometry with the fourier coefficients specified in input.profiles.geo.</li>
+<li><p>PROFILE_EQUILIBRIUM_MODEL = 1: Use Miller shaped geometry with the profiles of the geometric parameters as given in input.profiles.</p></li>
+<li><p>PROFILE_EQUILIBRIUM_MODEL = 2: Use the general Grad-Shafranov geometry with the fourier coefficients specified in input.profiles.geo.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>Used only for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2)</li>
-<li>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the geometric equilibrium models.</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>Used only for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2)</p></li>
+<li><p>See the <a class="reference internal" href="../geometry.html"><span class="doc">geometry notes</span></a> for more details about the geometric equilibrium models.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="profile-erad0-model">
 <span id="neo-profile-erad0-model"></span><h2>PROFILE_ERAD0_MODEL<a class="headerlink" href="#profile-erad0-model" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects whether to include <span class="math">\(E_r^{(0)}\)</span> for experimental profiles.</p>
+<p>Parameter which selects whether to include <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> for experimental profiles.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>PROFILE_ERAD0_MODEL = 0: <span class="math">\(E_r^{(0)}\)</span> is set to zero regardless of the value in input.profiles.</li>
-<li>PROFILE_ERAD0_MODEL = 1: <span class="math">\(E_r^{(0)}\)</span> as specified in input.profiles is used.</li>
+<li><p>PROFILE_ERAD0_MODEL = 0: <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> is set to zero regardless of the value in input.profiles.</p></li>
+<li><p>PROFILE_ERAD0_MODEL = 1: <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> as specified in input.profiles is used.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>Used only for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</li>
-<li>If sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2) with experimental profiles, then this parameter is ignored and <span class="math">\(E_r^{(0)}\)</span> is assumed to be zero. This means that the <span class="math">\(E_r^{(0)}\)</span> in input.profiles is assumed to be the lowest-order field in sonic rotation theory, i.e. <span class="math">\(E_r^{(-1)}\)</span>,and is used to compute the lowest-order sonic toroidal rotation parameters, <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a>.</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>Used only for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</p></li>
+<li><p>If sonic rotation effects are included (<a class="reference internal" href="#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2) with experimental profiles, then this parameter is ignored and <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> is assumed to be zero. This means that the <span class="math notranslate nohighlight">\(E_r^{(0)}\)</span> in input.profiles is assumed to be the lowest-order field in sonic rotation theory, i.e. <span class="math notranslate nohighlight">\(E_r^{(-1)}\)</span>,and is used to compute the lowest-order sonic toroidal rotation parameters, <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -791,22 +792,24 @@
 <p>Parameter which selects how the radial profile is defined.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>PROFILE_MODEL = 1: local (one radius)</li>
-<li>PROFILE_MODEL = 2: global, using experimental profiles</li>
+<li><p>PROFILE_MODEL = 1: local (one radius)</p></li>
+<li><p>PROFILE_MODEL = 2: global, using experimental profiles</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
-<li>For PROFILE_MODEL = 1, <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> must be 1.<ul>
-<li>The densities are set by <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a> and quasi-neutrality is not checked.</li>
-<li>The temperatures are set by <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>.</li>
+<li><p>DEFAULT: 1</p></li>
+<li><p>For PROFILE_MODEL = 1, <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> must be 1.</p>
+<ul>
+<li><p>The densities are set by <a class="reference internal" href="#neo-dens"><span class="std std-ref">DENS_*</span></a> and quasi-neutrality is not checked.</p></li>
+<li><p>The temperatures are set by <a class="reference internal" href="#neo-temp"><span class="std std-ref">TEMP_*</span></a>.</p></li>
 </ul>
 </li>
-<li>For PROFILE_MODEL = 2, experimental profiles are defined in input.profiles.  The number of radial gridpoints is specified by <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a>.<ul>
-<li>Additional models used for this case are specified by <a class="reference internal" href="#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> and <a class="reference internal" href="#neo-profile-erad0-model"><span class="std std-ref">PROFILE_ERAD0_MODEL</span></a>.</li>
-<li>Of the species-dependent parameters in input.neo, only <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>  and <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a> are used for this case. The normalizing mass is the mass of deuterium (<span class="math">\(m_D\)</span> = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and <span class="math">\(m_D\)</span>, with <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}\)</span>.</li>
-<li>The electron species, if kinetic, must be species number N_SPECIES in input.neo.</li>
-<li>If the density profiles in input.profiles are not quasi-neutral, then the density profile of the first ion species is re-set.</li>
+<li><p>For PROFILE_MODEL = 2, experimental profiles are defined in input.profiles.  The number of radial gridpoints is specified by <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a>.</p>
+<ul>
+<li><p>Additional models used for this case are specified by <a class="reference internal" href="#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> and <a class="reference internal" href="#neo-profile-erad0-model"><span class="std std-ref">PROFILE_ERAD0_MODEL</span></a>.</p></li>
+<li><p>Of the species-dependent parameters in input.neo, only <a class="reference internal" href="#neo-z"><span class="std std-ref">Z_*</span></a>  and <a class="reference internal" href="#neo-mass"><span class="std std-ref">MASS_*</span></a> are used for this case. The normalizing mass is the mass of deuterium (<span class="math notranslate nohighlight">\(m_D\)</span> = 3.3452e-27 kg), so the input masses should be given relative to this mass. The output quantities are normalized with respect to the density and temperature of the first species in input.neo and <span class="math notranslate nohighlight">\(m_D\)</span>, with <span class="math notranslate nohighlight">\({\rm v}_{\rm norm} = \sqrt{T_{0,{\rm species 1}}/m_{D}}\)</span>.</p></li>
+<li><p>The electron species, if kinetic, must be species number N_SPECIES in input.neo.</p></li>
+<li><p>If the density profiles in input.profiles are not quasi-neutral, then the density profile of the first ion species is re-set.</p></li>
 </ul>
 </li>
 </ul>
@@ -815,14 +818,14 @@
 <div class="section" id="q">
 <span id="neo-q"></span><h2>Q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Magnitude of the safety factor, <span class="math">\(|q|\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Magnitude of the safety factor, <span class="math notranslate nohighlight">\(|q|\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[q(\psi) \doteq \frac{1}{2 \pi} \int_{0}^{2\pi} d\theta \; \frac{\mathbf{B} \cdot \nabla \varphi}{\mathbf{B} \cdot \nabla \theta}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 2.0</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles.</li>
-<li>The orientation of the safety factor is determined by <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> and <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>.</li>
+<li><p>DEFAULT: 2.0</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles.</p></li>
+<li><p>The orientation of the safety factor is determined by <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> and <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -830,47 +833,47 @@
 <span id="neo-rho-star"></span><h2>RHO_STAR<a class="headerlink" href="#rho-star" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The ratio of the Larmor radius of the normalizing species to the normalizing length scale:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[\rho_* = \frac{\rho_{\rm norm}}{a} \; , {\rm where} \; \rho_{\rm norm} = \frac{c \sqrt{m_{\rm norm} T_{\rm norm}}}{e |B_{\rm unit}|}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.001</li>
-<li>This parameter must be a positive number. The sign of <span class="math">\(B_{\rm unit}\)</span> is determined by <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> and <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math">\(\rho_*\)</span> is computed internally from the profile parameters in input.profiles and the normalizing length scale is the plasma minor radius.</li>
+<li><p>DEFAULT: 0.001</p></li>
+<li><p>This parameter must be a positive number. The sign of <span class="math notranslate nohighlight">\(B_{\rm unit}\)</span> is determined by <a class="reference internal" href="#neo-ipccw"><span class="std std-ref">IPCCW</span></a> and <a class="reference internal" href="#neo-btccw"><span class="std std-ref">BTCCW</span></a>.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), <span class="math notranslate nohighlight">\(\rho_*\)</span> is computed internally from the profile parameters in input.profiles and the normalizing length scale is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="rmaj-over-a">
 <span id="neo-rmaj-over-a"></span><h2>RMAJ_OVER_A<a class="headerlink" href="#rmaj-over-a" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio of the flux-surface-center major radius, <span class="math">\(R_0\)</span>, to the normalizing length scale:math:<cite>a</cite>.</p>
+<p>The ratio of the flux-surface-center major radius, <span class="math notranslate nohighlight">\(R_0\)</span>, to the normalizing length scale:math:<cite>a</cite>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 3.0</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math">\(R_0(r)\)</span> is read from input.profiles and the normalizing length scale is the plasma minor radius.</li>
+<li><p>DEFAULT: 3.0</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span> is read from input.profiles and the normalizing length scale is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="rmin-over-a">
 <span id="neo-rmin-over-a"></span><h2>RMIN_OVER_A<a class="headerlink" href="#rmin-over-a" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio of the midplane minor radius <span class="math">\(r\)</span> to the normalizing length scale:math:<cite>a</cite>.</p>
+<p>The ratio of the midplane minor radius <span class="math notranslate nohighlight">\(r\)</span> to the normalizing length scale:math:<cite>a</cite>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.5</li>
-<li>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> &gt; 1, this parameter is the lower bound of the radial grid.</li>
+<li><p>DEFAULT: 0.5</p></li>
+<li><p>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> &gt; 1, this parameter is the lower bound of the radial grid.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="rmin-over-a-2">
 <span id="neo-rmin-over-a-2"></span><h2>RMIN_OVER_A_2<a class="headerlink" href="#rmin-over-a-2" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio of the midplane minor radius <span class="math">\(r\)</span> to the normalizing length scale:math:<cite>a</cite>.</p>
+<p>The ratio of the midplane minor radius <span class="math notranslate nohighlight">\(r\)</span> to the normalizing length scale:math:<cite>a</cite>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.6</li>
-<li>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> &gt; 1, this parameter is the upper bound of the radial grid.</li>
-<li>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> = 1, this parameter is not used.</li>
+<li><p>DEFAULT: 0.6</p></li>
+<li><p>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> &gt; 1, this parameter is the upper bound of the radial grid.</p></li>
+<li><p>For <a class="reference internal" href="#neo-n-radial"><span class="std std-ref">N_RADIAL</span></a> = 1, this parameter is not used.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -880,15 +883,16 @@
 <p>Parameter which selects whether to solve the DKE in the diamagnetic ordering limit or in the sonic toroidal rotation ordering limit.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>ROTATION_MODEL = 1: sonic rotation effects not included (diamagnetic ordering assumed)</li>
-<li>ROTATION_MODEL = 2: sonic rotation effects included (solves the Hinton-Wong generalized DKE which allows for flow speeds on the order of the thermal speed).<ul>
-<li>The toroidal rotation frequency <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and the toroidal rotation shear <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a> must be specified.</li>
+<li><p>ROTATION_MODEL = 1: sonic rotation effects not included (diamagnetic ordering assumed)</p></li>
+<li><p>ROTATION_MODEL = 2: sonic rotation effects included (solves the Hinton-Wong generalized DKE which allows for flow speeds on the order of the thermal speed).</p>
+<ul>
+<li><p>The toroidal rotation frequency <a class="reference internal" href="#neo-omega-rot"><span class="std std-ref">OMEGA_ROT</span></a> and the toroidal rotation shear <a class="reference internal" href="#neo-omega-rot-deriv"><span class="std std-ref">OMEGA_ROT_DERIV</span></a> must be specified.</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>COMMENTS</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1</li>
+<li><p>DEFAULT: 1</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -896,13 +900,13 @@
 <span id="neo-s-delta"></span><h2>S_DELTA<a class="headerlink" href="#s-delta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the average triangularity of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[s_\delta = r \frac{\partial \delta}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from input.profiles and the triangularity gradient is computed internally.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from input.profiles and the triangularity gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -910,13 +914,13 @@
 <span id="neo-s-kappa"></span><h2>S_KAPPA<a class="headerlink" href="#s-kappa" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the elongation of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[s_\kappa = \frac{r}{\kappa} \frac{\partial \kappa}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.profiles and the elongation gradient is computed internally.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.profiles and the elongation gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -924,13 +928,13 @@
 <span id="neo-s-zeta"></span><h2>S_ZETA<a class="headerlink" href="#s-zeta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the squareness of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[s_\zeta = r \frac{\partial \zeta}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.profiles and the squareness gradient is computed internally.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.profiles and the squareness gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -938,42 +942,42 @@
 <span id="neo-s-zmag"></span><h2>S_ZMAG<a class="headerlink" href="#s-zmag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Measure of the rate of change of the elevation of the flux surface:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[S_{Z0} = \frac{\partial Z_0}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface elevation as a function of radius, <span class="math">\(Z_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface elevation as a function of radius, <span class="math notranslate nohighlight">\(Z_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="shear">
 <span id="neo-shear"></span><h2>SHEAR<a class="headerlink" href="#shear" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Magnetic shear, <span class="math">\(s\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Magnetic shear, <span class="math notranslate nohighlight">\(s\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[s = \frac{r}{q} \frac{\partial q}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>NOTE: This parameter is <em>not</em> used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. <a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2) to compute <span class="math">\(d\Phi_*/dr\)</span>.</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>NOTE: This parameter is <em>not</em> used in the standard DKE equation!  It is only used in the case of an anisotropic temperature species (e.g. <a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2) to compute <span class="math notranslate nohighlight">\(d\Phi_*/dr\)</span>.</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="shift">
 <span id="neo-shift"></span><h2>SHIFT<a class="headerlink" href="#shift" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Shafranov shift, <span class="math">\(\Delta\)</span>, of the flux surface:</p>
-<div class="math">
+<p>Shafranov shift, <span class="math notranslate nohighlight">\(\Delta\)</span>, of the flux surface:</p>
+<div class="math notranslate nohighlight">
 \[\Delta = \frac{\partial R_0}{\partial r}\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -983,12 +987,12 @@
 <p>Parameter which selects how much data to print out.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>SILENT_FLAG = 0: output files are written.</li>
-<li>SILENT_FLAG &gt; 0: no output files are written.</li>
+<li><p>SILENT_FLAG = 0: output files are written.</p></li>
+<li><p>SILENT_FLAG &gt; 0: no output files are written.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0</li>
+<li><p>DEFAULT: 0</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -998,15 +1002,15 @@
 <p>Parameter which selects whether to determine the neoclassical transport from analytic theory or from numerical solution of the DKE.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>SIM_MODEL = 0: analytic theory only.</li>
-<li>SIM_MODEL = 1: numerical solution and analytic theory and NCLASS.</li>
-<li>SIM_MODEL = 2: numerical solution and analytic theory only.</li>
-<li>SIM_MODEL = 3: analytic theory and NCLASS only.</li>
-<li>SIM_MODEL = 4: neural network of NEO DKE solution.</li>
+<li><p>SIM_MODEL = 0: analytic theory only.</p></li>
+<li><p>SIM_MODEL = 1: numerical solution and analytic theory and NCLASS.</p></li>
+<li><p>SIM_MODEL = 2: numerical solution and analytic theory only.</p></li>
+<li><p>SIM_MODEL = 3: analytic theory and NCLASS only.</p></li>
+<li><p>SIM_MODEL = 4: neural network of NEO DKE solution.</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 2</li>
+<li><p>DEFAULT: 2</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1016,10 +1020,11 @@
 <p>Parameter which selects whether to solve the standard neoclassical transport problem or the Spitzer problem.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>SPITZER_MODEL = 0: solve the standard neoclassical transport problem.</li>
-<li>SPITZER_MODEL = 1: solve the Spitzer problem.<ul>
-<li>Must be run with an electron species and an ion species.</li>
-<li>The Spitzer coefficients (L11, L12, L21, L22) are output in the file out.neo.spitzer.</li>
+<li><p>SPITZER_MODEL = 0: solve the standard neoclassical transport problem.</p></li>
+<li><p>SPITZER_MODEL = 1: solve the Spitzer problem.</p>
+<ul>
+<li><p>Must be run with an electron species and an ion species.</p></li>
+<li><p>The Spitzer coefficients (L11, L12, L21, L22) are output in the file out.neo.spitzer.</p></li>
 </ul>
 </li>
 </ul>
@@ -1031,13 +1036,13 @@
 <span id="neo-te-ade"></span><h2>TE_ADE<a class="headerlink" href="#te-ade" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature of the electrons for the case of adiabatic electrons:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm TE\_ADE} = \frac{T_{0,e}}{T_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>This paramter is used only if no species with Z &lt; 0 is specified.</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, <span class="math">\(T_{\rm norm}(r)=T_{{\rm species 1}}\)</span>.</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>This paramter is used only if no species with Z &lt; 0 is specified.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, <span class="math notranslate nohighlight">\(T_{\rm norm}(r)=T_{{\rm species 1}}\)</span>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1045,14 +1050,14 @@
 <span id="neo-temp"></span><h2>TEMP_*<a class="headerlink" href="#temp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale temperature:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm TEMP}\_* = \frac{T_{0,*}}{T_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The temperature of each species 1-11 is set as: TEMP_1, TEMP_2, TEMP_3,…</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, <span class="math">\(T_{\rm norm}(r)=T_{{\rm species 1}}\)</span>.</li>
-<li>The subroutine interface parameter is specified as a vector: neo_temp_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The temperature of each species 1-11 is set as: TEMP_1, TEMP_2, TEMP_3,…</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is read from input.profiles and the normalizing temperature is the local temperature of Species 1, <span class="math notranslate nohighlight">\(T_{\rm norm}(r)=T_{{\rm species 1}}\)</span>.</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_temp_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1060,14 +1065,14 @@
 <span id="neo-temp-para"></span><h2>TEMP_PARA_*<a class="headerlink" href="#temp-para" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale parallel temperature:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm TEMP\_PARA}\_* = \frac{T_{\|0,*}}{T_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The parallel temperature of each species 1-11 is set as: TEMP_PARA_1, TEMP_PARA_2, TEMP_PARA_3,…</li>
-<li>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_temp_para_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The parallel temperature of each species 1-11 is set as: TEMP_PARA_1, TEMP_PARA_2, TEMP_PARA_3,…</p></li>
+<li><p>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_temp_para_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1075,14 +1080,14 @@
 <span id="neo-temp-perp"></span><h2>TEMP_PERP_*<a class="headerlink" href="#temp-perp" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>The normalized equilibrium-scale perpendicular temperature:</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[{\rm TEMP\_PERP}\_* = \frac{T_{\perp,*}}{T_{\rm norm}}\]</div>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The perpendicular temperature of each species 1-11 is set as: TEMP_PERP_1, TEMP_PERP_2, TEMP_PERP_3,…</li>
-<li>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</li>
-<li>The subroutine interface parameter is specified as a vector: neo_temp_perp_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The perpendicular temperature of each species 1-11 is set as: TEMP_PERP_1, TEMP_PERP_2, TEMP_PERP_3,…</p></li>
+<li><p>This parameter is used only when the species’ anisotropic flag is set (<a class="reference internal" href="#neo-aniso-model"><span class="std std-ref">ANISO_MODEL_*</span></a> = 2).</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_temp_perp_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1092,54 +1097,56 @@
 <p>Parameter which selects whether to solve the DKE in toroidally axisymmetric limit (2D) or with nonaxisymmetric effects (3D).</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>THREED_MODEL = 0: toroidally axisymmetric limit (2D).</li>
-<li>THREED_MODEL = 1: toroidally nonaxisymmetric effects are included (3D).<ul>
-<li>This option is presently not available for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</li>
-<li>The local 3D equilibrium solver LE3 must be run first.  All of the equilibrium parameters, including the spatial dimensions for <span class="math">\((\theta,\varphi)\)</span>, are read from the LE3 output file.</li>
-<li>Of the plasma equilibrium/geometry NEO input paramters, only <a class="reference internal" href="#neo-rho-star"><span class="std std-ref">RHO_STAR</span></a>, <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>, and <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a> are used.</li>
-<li>Of the numerical resolution NEO input parameters, only <a class="reference internal" href="#neo-n-xi"><span class="std std-ref">N_XI</span></a> and <a class="reference internal" href="#neo-n-energy"><span class="std std-ref">N_ENERGY</span></a> are used.</li>
+<li><p>THREED_MODEL = 0: toroidally axisymmetric limit (2D).</p></li>
+<li><p>THREED_MODEL = 1: toroidally nonaxisymmetric effects are included (3D).</p>
+<ul>
+<li><p>This option is presently not available for experimental profiles (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</p></li>
+<li><p>The local 3D equilibrium solver LE3 must be run first.  All of the equilibrium parameters, including the spatial dimensions for <span class="math notranslate nohighlight">\((\theta,\varphi)\)</span>, are read from the LE3 output file.</p></li>
+<li><p>Of the plasma equilibrium/geometry NEO input paramters, only <a class="reference internal" href="#neo-rho-star"><span class="std std-ref">RHO_STAR</span></a>, <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>, and <a class="reference internal" href="#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a> are used.</p></li>
+<li><p>Of the numerical resolution NEO input parameters, only <a class="reference internal" href="#neo-n-xi"><span class="std std-ref">N_XI</span></a> and <a class="reference internal" href="#neo-n-energy"><span class="std std-ref">N_ENERGY</span></a> are used.</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>COMMENTS</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0</li>
+<li><p>DEFAULT: 0</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="threed-exb-model">
 <span id="neo-threed-exb-model"></span><h2>THREED_EXB_MODEL<a class="headerlink" href="#threed-exb-model" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Parameter which selects whether to include the higher-order <span class="math">\({\bf E} \times {\bf B}\)</span> drift velocity in the DKE with nonaxisymmetric effects (3D).</p>
+<p>Parameter which selects whether to include the higher-order <span class="math notranslate nohighlight">\({\bf E} \times {\bf B}\)</span> drift velocity in the DKE with nonaxisymmetric effects (3D).</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li>THREED_EXB_MODEL = 0: higher-order <span class="math">\({\bf E} \times {\bf B}\)</span> drift velocity not included.</li>
-<li>THREED_EXB_MODEL = 1: higher-order <span class="math">\({\bf E} \times {\bf B}\)</span> drift velocity included.<ul>
-<li>Used only if toroidal nonaxisymmetric effects are included (<a class="reference internal" href="#neo-threed-model"><span class="std std-ref">THREED_MODEL</span></a> = 1).</li>
-<li>The value of the equilibrium potential in the higher-order  <span class="math">\({\bf E} \times {\bf B}\)</span> drift velocity is specified by <a class="reference internal" href="#neo-threed-exb-dphi0dr"><span class="std std-ref">THREED_EXB_DPHI0DR</span></a>.   Note that this does not affect the equilibrium potential in the neoclassical source term, which is specified by <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>.</li>
+<li><p>THREED_EXB_MODEL = 0: higher-order <span class="math notranslate nohighlight">\({\bf E} \times {\bf B}\)</span> drift velocity not included.</p></li>
+<li><p>THREED_EXB_MODEL = 1: higher-order <span class="math notranslate nohighlight">\({\bf E} \times {\bf B}\)</span> drift velocity included.</p>
+<ul>
+<li><p>Used only if toroidal nonaxisymmetric effects are included (<a class="reference internal" href="#neo-threed-model"><span class="std std-ref">THREED_MODEL</span></a> = 1).</p></li>
+<li><p>The value of the equilibrium potential in the higher-order  <span class="math notranslate nohighlight">\({\bf E} \times {\bf B}\)</span> drift velocity is specified by <a class="reference internal" href="#neo-threed-exb-dphi0dr"><span class="std std-ref">THREED_EXB_DPHI0DR</span></a>.   Note that this does not affect the equilibrium potential in the neoclassical source term, which is specified by <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>.</p></li>
 </ul>
 </li>
 </ul>
 <p><strong>COMMENTS</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0</li>
+<li><p>DEFAULT: 0</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="threed-exb-dphi0dr">
 <span id="neo-threed-exb-dphi0dr"></span><h2>THREED_EXB_DPHI0DR<a class="headerlink" href="#threed-exb-dphi0dr" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The normalized equilibrium-scale radial electric field in the higher-order <span class="math">\({\bf E} \times {\bf B}\)</span> drift velocity:</p>
-<div class="math">
+<p>The normalized equilibrium-scale radial electric field in the higher-order <span class="math notranslate nohighlight">\({\bf E} \times {\bf B}\)</span> drift velocity:</p>
+<div class="math notranslate nohighlight">
 \[{\rm THREED\_EXB\_DPHI0DR} = \frac{\partial \Phi_0}{\partial r} \left( \frac{a e}{T_{\rm norm}} \right)\]</div>
 <p>such that</p>
-<div class="math">
+<div class="math notranslate nohighlight">
 \[E_r^{(0)} = -\frac{\partial \Phi_0}{\partial r} \nabla r\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>Used only if toroidal nonaxisymmetric effects (3D) are included (<a class="reference internal" href="#neo-threed-model"><span class="std std-ref">THREED_MODEL</span></a> = 1).</li>
-<li>This does not affect the equilibrium potential in the neoclassical source term, which is specified by <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>Used only if toroidal nonaxisymmetric effects (3D) are included (<a class="reference internal" href="#neo-threed-model"><span class="std std-ref">THREED_MODEL</span></a> = 1).</p></li>
+<li><p>This does not affect the equilibrium potential in the neoclassical source term, which is specified by <a class="reference internal" href="#neo-dphi0dr"><span class="std std-ref">DPHI0DR</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1149,32 +1156,32 @@
 <p>The species’ charge.</p>
 <p><strong>Commments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 1.0</li>
-<li>The charge of each species 1-11 is set as: Z_1, Z_2, Z_3,…</li>
-<li>The subroutine interface parameter is specified as a vector: neo_z_in(1:11)</li>
+<li><p>DEFAULT: 1.0</p></li>
+<li><p>The charge of each species 1-11 is set as: Z_1, Z_2, Z_3,…</p></li>
+<li><p>The subroutine interface parameter is specified as a vector: neo_z_in(1:11)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="zeta">
 <span id="neo-zeta"></span><h2>ZETA<a class="headerlink" href="#zeta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Squareness, <span class="math">\(\zeta\)</span>, of the flux surface.</p>
+<p>Squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>, of the flux surface.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.profiles.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.profiles.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="zmag-over-a">
 <span id="neo-zmag-over-a"></span><h2>ZMAG_OVER_A<a class="headerlink" href="#zmag-over-a" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>The ratio of the elevation of the flux surface, <span class="math">\(Z_0\)</span>, to the normalizing length scale <span class="math">\(a\)</span>.</p>
+<p>The ratio of the elevation of the flux surface, <span class="math notranslate nohighlight">\(Z_0\)</span>, to the normalizing length scale <span class="math notranslate nohighlight">\(a\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li>DEFAULT: 0.0</li>
-<li>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface elevation as a function of radius, <span class="math">\(Z_0(r)\)</span> is read from input.profiles and the normalizing length scale is the plasma minor radius.</li>
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface elevation as a function of radius, <span class="math notranslate nohighlight">\(Z_0(r)\)</span> is read from input.profiles and the normalizing length scale is the plasma minor radius.</p></li>
 </ul>
 <hr class="docutils" />
 <p>Return to <a class="reference internal" href="neo_table.html"><span class="doc">table of inputs</span></a></p>
@@ -1192,7 +1199,7 @@
         <a href="outputs.html" class="btn btn-neutral float-right" title="NEO Output Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="neo_table.html" class="btn btn-neutral" title="Parameters for input.neo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="neo_table.html" class="btn btn-neutral float-left" title="Parameters for input.neo" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -1201,7 +1208,7 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -1218,38 +1225,16 @@
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

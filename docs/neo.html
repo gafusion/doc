@@ -17,35 +17,37 @@
   
 
   
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-  
     
 
   
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parameters for input.neo" href="neo/neo_table.html" />
     <link rel="prev" title="References" href="zreferences.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
@@ -187,18 +189,18 @@
 <li class="toctree-l1"><a class="reference internal" href="neo/outputs.html">NEO Output Files</a></li>
 </ul>
 </div>
-<p>NEO <a class="reference internal" href="zreferences.html#belli-2008" id="id1">[BC08]</a><a class="reference internal" href="zreferences.html#belli-2009" id="id2">[BC09]</a><a class="reference internal" href="zreferences.html#belli-2012" id="id3">[BC12]</a> is a multi-species drift-kinetic solver was developed by the ESL project as a practical tool for high accuracy neoclassical calculations.  NEO is an Eulerian code that solves the first-order (in the drift-ordering parameter <span class="math">\(\rho_*=\rho_i/a \ll 1\)</span>) drift-kinetic-Poisson equations.  In NEO, no approximations beyond the drift-ordering are made.  The full linearized Fokker-Planck collision operator is used for the collision dynamics, with complete cross-species collisional coupling for arbitrary mass ratio and an arbitrary number of species.  General flux-surface shape, including up-down asymmetry, is treated.  In addition, full sonic rotation and centrifugal terms are retained.  NEO has been extensively benchamarked with analytic theories, as well as with NCLASS, over a wide range of parameters and in various asymptotic limits.</p>
+<p>NEO <a class="bibtex reference internal" href="zreferences.html#belli-2008" id="id1">[BC08]</a><a class="bibtex reference internal" href="zreferences.html#belli-2009" id="id2">[BC09]</a><a class="bibtex reference internal" href="zreferences.html#belli-2012" id="id3">[BC12]</a> is a multi-species drift-kinetic solver was developed by the ESL project as a practical tool for high accuracy neoclassical calculations.  NEO is an Eulerian code that solves the first-order (in the drift-ordering parameter <span class="math notranslate nohighlight">\(\rho_*=\rho_i/a \ll 1\)</span>) drift-kinetic-Poisson equations.  In NEO, no approximations beyond the drift-ordering are made.  The full linearized Fokker-Planck collision operator is used for the collision dynamics, with complete cross-species collisional coupling for arbitrary mass ratio and an arbitrary number of species.  General flux-surface shape, including up-down asymmetry, is treated.  In addition, full sonic rotation and centrifugal terms are retained.  NEO has been extensively benchamarked with analytic theories, as well as with NCLASS, over a wide range of parameters and in various asymptotic limits.</p>
 <p>The equations solved in NEO complement those solved in gyrokinetic codes such as GYRO and CGYRO insofar as together they represent the complete first-order deviation of the plasma from a local Maxwellian.</p>
 </div>
 <div class="section" id="data-input">
 <h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline">¶</a></h2>
 <p>The primary NEO input file is <a class="reference internal" href="neo/neo_table.html"><span class="doc">input.neo</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_profiles.html"><span class="doc">input.profiles</span></a>.</p>
 <p>NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo_ and appending _in to the name of the corresponding input.neo parameter.</p>
-<div class="code fortran highlight-default"><div class="highlight"><pre><span></span>use neo_interface
-call neo_init
-! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)
-call neo_run
-! Get neo_interface outputs (e.g. jbs = neo_jpar_dke_out ...)
+<div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">neo_interface</span>
+<span class="k">call </span><span class="n">neo_init</span>
+<span class="c">! Set neo_interface inputs (e.g. neo_n_species_in = 2 ...)</span>
+<span class="k">call </span><span class="n">neo_run</span>
+<span class="c">! Get neo_interface outputs (e.g. jbs = neo_jpar_dke_out ...)</span>
 </pre></div>
 </div>
 </div>
@@ -208,35 +210,35 @@ call neo_run
 </div>
 <div class="section" id="normalization">
 <h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">¶</a></h2>
-<p>When run in local profile mode, the NEO normalizing length <span class="math">\(a\)</span>, normalizing mass <span class="math">\(m_{\rm norm}\)</span>, normalizing density <span class="math">\(n_{\rm norm}\)</span>, normalizing temperature <span class="math">\(T_{\rm norm}\)</span>, and normalizing velocity <span class="math">\({\rm v}_{\rm norm} = \sqrt{T_{\rm norm}/m_{\rm norm}}\)</span> are arbitrary, since the input.neo parameters are set with respect to these and the output parameters are defined with respect to these. For experimental profiles, the normalizations are set as follows:</p>
-<table border="1" class="docutils">
+<p>When run in local profile mode, the NEO normalizing length <span class="math notranslate nohighlight">\(a\)</span>, normalizing mass <span class="math notranslate nohighlight">\(m_{\rm norm}\)</span>, normalizing density <span class="math notranslate nohighlight">\(n_{\rm norm}\)</span>, normalizing temperature <span class="math notranslate nohighlight">\(T_{\rm norm}\)</span>, and normalizing velocity <span class="math notranslate nohighlight">\({\rm v}_{\rm norm} = \sqrt{T_{\rm norm}/m_{\rm norm}}\)</span> are arbitrary, since the input.neo parameters are set with respect to these and the output parameters are defined with respect to these. For experimental profiles, the normalizations are set as follows:</p>
+<table class="colwidths-given docutils align-default">
 <colgroup>
-<col width="25%" />
-<col width="28%" />
-<col width="47%" />
+<col style="width: 25%" />
+<col style="width: 28%" />
+<col style="width: 47%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Quantity</th>
-<th class="head">Unit</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Quantity</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>Length</td>
-<td><span class="math">\(a\)</span></td>
-<td>Minor radius</td>
+<tbody>
+<tr class="row-even"><td><p>Length</p></td>
+<td><p><span class="math notranslate nohighlight">\(a\)</span></p></td>
+<td><p>Minor radius</p></td>
 </tr>
-<tr class="row-odd"><td>Mass</td>
-<td><span class="math">\(m_{\rm norm} = m_{\rm D}\)</span></td>
-<td>Mass of deuterium (3.3452e-27 kg)</td>
+<tr class="row-odd"><td><p>Mass</p></td>
+<td><p><span class="math notranslate nohighlight">\(m_{\rm norm} = m_{\rm D}\)</span></p></td>
+<td><p>Mass of deuterium (3.3452e-27 kg)</p></td>
 </tr>
-<tr class="row-even"><td>Density</td>
-<td><span class="math">\(n_{\rm norm}(r)=n_{0,{\rm species 1}}\)</span></td>
-<td>Local density of species 1</td>
+<tr class="row-even"><td><p>Density</p></td>
+<td><p><span class="math notranslate nohighlight">\(n_{\rm norm}(r)=n_{0,{\rm species 1}}\)</span></p></td>
+<td><p>Local density of species 1</p></td>
 </tr>
-<tr class="row-odd"><td>Temperature</td>
-<td><span class="math">\(T_{\rm norm}(r)=T_{0,{\rm species 1}}\)</span></td>
-<td>Local temperature of species 1</td>
+<tr class="row-odd"><td><p>Temperature</p></td>
+<td><p><span class="math notranslate nohighlight">\(T_{\rm norm}(r)=T_{0,{\rm species 1}}\)</span></p></td>
+<td><p>Local temperature of species 1</p></td>
 </tr>
 </tbody>
 </table>
@@ -254,7 +256,7 @@ call neo_run
         <a href="neo/neo_table.html" class="btn btn-neutral float-right" title="Parameters for input.neo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="zreferences.html" class="btn btn-neutral" title="References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="zreferences.html" class="btn btn-neutral float-left" title="References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -263,7 +265,7 @@ call neo_run
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019.
+        &copy; Copyright 2010-2019
 
     </p>
   </div>
@@ -280,38 +282,16 @@ call neo_run
   
 
 
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'',
-            LANGUAGE:'en',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
-          
-          SphinxRtdTheme.Navigation.enableSticky();
-          
+          SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>
