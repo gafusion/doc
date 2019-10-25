@@ -1,6 +1,8 @@
+@STRING{aml	= "App.\ Math Lett." }
 @STRING{baps	= "Bull. Am. Phys. Soc." }
 @STRING{cpc	= "Comput. Phys. Commun." }
 @STRING{cpp	= "Contrib. Plasma Phys." }
+@STRING{cf	= "Computers \& Fluids" }
 @STRING{fst	= "Fus. Sci. Tech." }
 @STRING{jcp	= "J. Comput. Phys." }
 @STRING{jetp	= "JETP Lett." }
@@ -21,6 +23,7 @@
 @STRING{pub-anl:adr="Argonne, IL, USA" }
 @STRING{rmp	= "Rev. Mod. Phys." }
 @STRING{tps	= "IEEE Trans. Plasma Sci." }
+@STRING{sjna    = "SIAM J.\ Numer.\ Anal."}
 
 @Article{	  abel:2008,
   author =	 {I. G. Abel and M. Barnes and S. C. Cowley and
@@ -454,7 +457,7 @@
 @Article{	  ascher:1995,
   author =	 {U.M. Ascher and S.J. Ruuth and B.T. Wetton},
   title =	 {Implicit-Explicit Methods for Time-Dependent PDEs},
-  journal =	 {SIAM J. Numer. Anal.},
+  journal =	 sjna,
   volume =	 32,
   pages =	 {797-823},
   year =	 1995
@@ -1585,6 +1588,16 @@
   year =	 2016
 }
 
+@Article{	  boyd:2007,
+  author =	 {J.P. Boyd},
+  title =	 {Exponentially accurate {R}unge-free approximation of non-periodic functions from
+                  samples on an evenly spaced grid},
+  journal =	 aml,
+  volume =	 20,
+  pages =	 971,
+  year =	 2007
+}
+
 @Article{	  boyle:2012,
   author =	 {D.P. Boyle and R. Maingi and P.B. Snyder and
                   J. Manickam and T.H. Osborne and R.E. Bell and
@@ -1592,11 +1605,12 @@
   title =	 {The relationships between edge localized modes
                   suppression, pedestal profiles and lithium wall
                   coatings in NSTX},
-  journal =	 {PPCF},
+  journal =	 ppcf,
   volume =	 53,
   pages =	 105011,
   year =	 2012
 }
+
 
 @InBook{	  braginskii:1965,
   author =	 {S.I. Braginskii},
@@ -2215,7 +2229,7 @@
                   E.D`Azevedo},
   title =	 {Multiscale-optimized plasma turbulence simulation on
                   petascale architechtures},
-  journal =	 {Computers and Fluids},
+  journal =	 cf,
   volume =	 188,
   pages =	 125,
   year =	 2019
@@ -5725,6 +5739,16 @@ year = {2018}
   year =	 2017
 }
 
+@Article{	  hornsby:2018,
+  author =	 {W.A. Hornsby and C. Angioni and Z.X. Lu and E. Fable and I. Erofeev and R. McDermott and
+                  A. Medvedeva and A. Lebschy and A.G. Peeters and others},
+  title =	 {{Global gyrokinetic simulations of intrinsic rotation in ASDEX Upgrade Ohmic L-mode plasmas}},
+  journal =	 nf,
+  volume =	 58,
+  pages =	 056008,
+  year =	 2018
+}
+
 @Article{	  horton:1999,
   author =	 {W. Horton},
   title =	 {Drift waves and transport},
@@ -5963,14 +5987,22 @@ year = {2018}
   year =	 2001
 }
 
+@Article{	  huybrechs:2010,
+  author =	 {D. Huybrechs},
+  title =	 {On the {F}ourier extension of nonperiodic functions},
+  journal =	 sjna,
+  volume =	 47,
+  year =	 2010,
+  pages =	 4326
+}
+
 @Article{	  huysmans:2005,
-  author =	 {G.~T.~A. Huysmans},
-  title =	 {{{ELMs: MHD instabilities in the transport
-                  barrier}}},
-  journal =	 {PPCF},
+  author =	 {G.T.A. Huysmans},
+  title =	 {{ELMs: MHD instabilities in the transport barrier}},
+  journal =	 ppcf,
   volume =	 47,
   year =	 2005,
-  pages =	 {B165}
+  pages =	 B165
 }
 
 @Article{	  huysmans:2005b,
@@ -8170,12 +8202,21 @@ year = {2018}
 }
 
 @Article{	  maqueda:2003,
-  author =	 {{R. J. Maqueda, {\it et al.}}},
+  author =	 {R.J. Maqueda and others},
   title =	 {Gas puff imaging of edge turbulence},
   journal =	 {Review of Scientific Instruments},
   volume =	 74,
   pages =	 2020,
   year =	 2003
+}
+
+@Article{	  mariani:2019,
+  title =	 {Gyrokinetic analysis of radial dependence and global effects on the zero particle flux condition in a {TCV} plasma},
+  author =	 {A. Mariani and S. Brunner and G. Merlo and O. Sauter},
+  journal =	 ppcf,
+  volume =	 61,
+  pages =	 064005,
+  year =	 2019
 }
 
 @Article{	  marmar2009,
@@ -8312,6 +8353,15 @@ year = {2018}
   volume =	 41,
   pages =	 1235,
   year =	 2001
+}
+
+@Article{	  mcmillan:2008,
+  author =	 {B.F. McMillan and S. Joliet and T.M. Tran and L. Villard and A. Bottino and P. Angelino},
+  title =	 {Long global gyrokinetic simulations: {S}ource terms and particle noise control},
+  journal =	 pop,
+  volume =	 15,
+  pages =	 052308,
+  year =	 2008
 }
 
 @Article{	  meneghihi2011,
@@ -9709,6 +9759,15 @@ year = {2018}
   volume =	 6,
   pages =	 77,
   year =	 1993
+}
+
+@Article{	  parker:1999,
+  author =	 {S.E. Parker and C. Kim and Y. Chen},
+  title =	 {Large-scale gyrokinetic turbulence simulations: Effects of profile variation},
+  journal =	 pop,
+  volume =	 6,
+  pages =	 1709,
+  year =	 1999
 }
 
 @Article{	  parker:2004,
@@ -13603,6 +13662,15 @@ year = {2018}
   volume =	 52,
   pages =	 103015,
   year =	 2012
+}
+
+@Article{	  wangj:1998,
+  author =	 {J.P. Wang},
+  title =	 {Finite spectral method based on non-periodic {F}ourier transform},
+  journal =	 cf,
+  volume =	 27,
+  pages =	 639,
+  year =	 1998
 }
 
 @Article{	  ward1993,
