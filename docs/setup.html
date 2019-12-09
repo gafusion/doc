@@ -198,14 +198,15 @@ export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
 </div>
 <div class="section" id="nersc-cori">
 <h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this headline">¶</a></h2>
-<p><strong>Bleeding edge:</strong> Add to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
+<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
+<p><strong>Bleeding edge:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
 export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mklht
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 </pre></div>
 </div>
-<p><strong>Stable:</strong> Add to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
+<p><strong>Stable:</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
 export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 . $GACODE_ROOT/shared/bin/gacode_setup
@@ -215,13 +216,10 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 </div>
 <div class="section" id="olcf-summit">
 <h2>OLCF SUMMIT<a class="headerlink" href="#olcf-summit" title="Permalink to this headline">¶</a></h2>
-<p>To run on OLCF Summit with the PGI compiler, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=SUMMIT_JC
-export GACODE_ROOT=/ccs/proj/fus116/candy/gacode
-. $GACODE_ROOT/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
+<p>Add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<p>export GACODE_ROOT=$PROJWORK/fus129/gacode
+. ${GACODE_ROOT}/shared/bin/gacode_setup
+. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}</p>
 </div>
 </div>
 

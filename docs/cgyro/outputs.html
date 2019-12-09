@@ -97,7 +97,10 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO output files</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO output files</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#output-normalization">Output Normalization</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
 </ul>
@@ -302,11 +305,29 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
 <tr class="row-even"><td><p>out.cgyro.tag</p></td>
 <td><p>Restart tag file (contains time index and value)</p></td>
 </tr>
-<tr class="row-odd"><td><p>out.cgyro.restart</p></td>
+<tr class="row-odd"><td><p>bin.cgyro.restart</p></td>
 <td><p>Binary restart file</p></td>
 </tr>
 </tbody>
 </table>
+<div class="section" id="output-normalization">
+<h2>Output Normalization<a class="headerlink" href="#output-normalization" title="Permalink to this headline">¶</a></h2>
+<p>Ion sound gyroradius</p>
+<div class="math notranslate nohighlight">
+\[\rho_{s,{\rm unit}} = \frac{c_s}{e B_{\rm unit}/(m_D c)}\]</div>
+<p>Ion sound speed</p>
+<div class="math notranslate nohighlight">
+\[c_s=\sqrt{T_e/m_D}\]</div>
+<p>gyroBohm particle flux</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{\rm GB} = n_e c_s (\rho_{s,{\rm unit}}/a)^2\]</div>
+<p>gyroBohm momentum flux</p>
+<div class="math notranslate nohighlight">
+\[\Pi_{\rm GB} = n_e a T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
+<p>gyroBohm energy flux</p>
+<div class="math notranslate nohighlight">
+\[Q_{\rm GB} = n_e c_s T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
+</div>
 </div>
 
 

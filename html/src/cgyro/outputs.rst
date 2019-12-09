@@ -39,4 +39,32 @@ of the CGYRO :doc:`python data interface <plot>`.
    :widths: 20, 30
 
    out.cgyro.tag,Restart tag file (contains time index and value)
-   out.cgyro.restart,Binary restart file
+   bin.cgyro.restart,Binary restart file
+
+Output Normalization
+--------------------
+
+Ion sound gyroradius
+
+.. math::
+   \rho_{s,{\rm unit}} = \frac{c_s}{e B_{\rm unit}/(m_D c)}
+
+Ion sound speed 
+
+.. math::
+   c_s=\sqrt{T_e/m_D}
+
+gyroBohm particle flux
+
+.. math::
+   \Gamma_{\rm GB} = n_e c_s (\rho_{s,{\rm unit}}/a)^2
+
+gyroBohm momentum flux
+
+.. math::
+   \Pi_{\rm GB} = n_e a T_e (\rho_{s,{\rm unit}}/a)^2
+
+gyroBohm energy flux
+
+.. math::
+   Q_{\rm GB} = n_e c_s T_e (\rho_{s,{\rm unit}}/a)^2
