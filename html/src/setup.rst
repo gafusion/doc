@@ -30,19 +30,20 @@ NERSC CORI
 
 Add the following lines to ``.bashrc.ext``:
 
-**Bleeding edge:** ::
-
-  export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
-  export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mklht
-  . $GACODE_ROOT/shared/bin/gacode_setup
-  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-
-**Stable:** ::
+**Standard MKL** ::
 
   export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-  export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
+  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
   . $GACODE_ROOT/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+
+**Extra nonlinear threading** ::
+
+  export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
+  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mklht
+  . $GACODE_ROOT/shared/bin/gacode_setup
+  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+
 
 
 OLCF SUMMIT
@@ -50,8 +51,10 @@ OLCF SUMMIT
 
 Add these lines to ``.bashrc``::
 
-export GACODE_ROOT=$PROJWORK/fus129/gacode
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
+  export GACODE_PLATFORM=SUMMIT
+  export GACODE_ROOT=$PROJWORK/fus129/gacode
+  . ${GACODE_ROOT}/shared/bin/gacode_setup
+  . ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
+
 
 

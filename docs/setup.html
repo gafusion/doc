@@ -199,16 +199,16 @@ export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
 <div class="section" id="nersc-cori">
 <h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this headline">¶</a></h2>
 <p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
-<p><strong>Bleeding edge:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
-export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mklht
+<p><strong>Standard MKL</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
+export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 </pre></div>
 </div>
-<p><strong>Stable:</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
+<p><strong>Extra nonlinear threading</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
+export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mklht
 . $GACODE_ROOT/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 </pre></div>
@@ -217,9 +217,12 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 <div class="section" id="olcf-summit">
 <h2>OLCF SUMMIT<a class="headerlink" href="#olcf-summit" title="Permalink to this headline">¶</a></h2>
 <p>Add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<p>export GACODE_ROOT=$PROJWORK/fus129/gacode
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=SUMMIT
+export GACODE_ROOT=$PROJWORK/fus129/gacode
 . ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}</p>
+. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -243,7 +246,7 @@ export GACODE_ROOT=/project/projectdirs/atom/atom-install-cori/gacode-source-mkl
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2010-2019
+        &copy; Copyright 2010-2020
 
     </p>
   </div>
