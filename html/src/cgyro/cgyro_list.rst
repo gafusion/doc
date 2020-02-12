@@ -302,6 +302,29 @@ Simulation timestep :math:`(c_s/a) \Delta t`.
 
 ----
 
+.. _cgyro_delta_t_method:
+
+DELTA_T_METHOD
+--------------
+
+**Definition**
+
+Control for adaptive or fixed time-stepping.
+
+**Choices**
+
+- DELTA_T_METHOD = 0: RK4 4:4(3) [non-adaptive]
+- DELTA_T_METHOD = 1: Cash-Karp 6:5(4) 
+- DELTA_T_METHOD = 2: Bogacki-Shampine 7:5(4) 
+- DELTA_T_METHOD = 3: Verner 10:7(6)
+
+**Comments**
+
+- DEFAULT = 0
+- Notation is s:o(e) where s=stages,o=order,e=order of error estimate.
+  
+----
+
 .. _cgyro_dens:
 
 DENS_*
@@ -399,6 +422,22 @@ Maximum value of (pseudospectral) dimensionless energy, :math:`\varepsilon_\math
 
 - DEFAULT = 8.0
 - Corresponds to Maxwellian factor :math:`\displaystyle e^{-\varepsilon_\mathrm{max}}`
+
+----
+
+.. _cgyro_error_tol:
+
+ERROR_TOL
+---------
+
+**Definition**
+
+Error tolerance for adaptive time-stepping.
+
+**Comments**
+
+- DEFAULT = 1e-4
+- Decrease this slightly for very-high-transport cases
 
 ----
 
@@ -590,19 +629,19 @@ Elongation, :math:`\kappa`, of the flux surface.
 
 ----
 
-.. _cgyro_kxkyflux_print_flag:
+.. _cgyro_gflux_print_flag:
 
-KXKYFLUX_PRINT_FLAG
--------------------
+GFLUX_PRINT_FLAG
+----------------
 
 **Definition**
 
-Toggle printing of :math:`Q_a(k_x^0,k_y,t)` .
+Toggle printing of global flux profiles.
 
 **Comments**
 
 - DEFAULT = 0
-- Only the energy flux is considered.  There is not option for density or momentum fluxes.
+- See also :ref:`cgyro_n_global`
 
 ----
 
@@ -737,12 +776,12 @@ Specify the relative ordering of MPI ranks.
 **Choices**
 
 - MPI_RANK_ORDER = 1: Depth-first mode
-- MPI_RANK_ORDER = 2: Breath-first mode
+- MPI_RANK_ORDER = 2: Breadth-first mode
 
 **Comments**
 
-- DEFAULT = 1.
-- The optimal value depends on both the HW and the problem being run.
+- DEFAULT = 2
+- The optimal value depends on both the hardware and the problem being run.
 
 ----
 
@@ -784,6 +823,38 @@ Selector for number of fluctuating fields
 **Comments**
 
 - DEFAULT = 1
+
+----
+
+.. _cgyro_n_global:
+
+N_GLOBAL
+--------
+
+**Definition**
+
+Control number of global output harmonics
+  
+**Comments**
+
+- DEFAULT = 4
+- Making this larger retains shorter scales in the output
+
+----
+
+.. _cgyro_nu_global:
+
+NU_GLOBAL
+---------
+
+**Definition**
+
+Source rate
+
+**Comments**
+
+- DEFAULT = 15.0
+- Making this larger increases the source rate
 
 ----
 
@@ -1011,6 +1082,19 @@ The ratio :math:`R_0/a`, where :math:`R_0` is the :doc:`major radius <../geometr
 ROTATION_MODEL
 --------------
 
+**Definition**
+
+**Choices**
+
+- ROTATION_MODEL = 1: Weak rotation 
+- ROTATION_MODEL = 2: Sonic (Sugama) rotation
+
+**Comments**
+
+- DEFAULT = 1
+
+----
+
 .. _cgyro_s:
 
 S
@@ -1048,6 +1132,136 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
+
+----
+
+.. _cgyro_shape_cos0:
+
+SHAPE_COS0
+----------
+
+**Definition**
+
+0th antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_s_cos0:
+
+SHAPE_S_COS0
+------------
+
+**Definition**
+
+0th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_cos1:
+
+SHAPE_COS1
+----------
+
+**Definition**
+
+1st antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_s_cos1:
+
+SHAPE_S_COS1
+------------
+
+**Definition**
+
+1th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_cos2:
+
+SHAPE_COS2
+----------
+
+**Definition**
+
+2nd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_s_cos2:
+
+SHAPE_S_COS2
+------------
+
+**Definition**
+
+2th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_cos3:
+
+SHAPE_COS3
+----------
+
+**Definition**
+
+3rd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_s_cos3:
+
+SHAPE_S_COS3
+------------
+
+**Definition**
+
+3rd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_sin3:
+
+SHAPE_SIN3
+----------
+
+**Definition**
+
+3rd symmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _cgyro_shape_s_sin3:
+
+SHAPE_S_SIN3
+------------
+
+**Definition**
+
+3rd symmetric moment shear.
+
+- DEFAULT = 0.0
 
 ----
 

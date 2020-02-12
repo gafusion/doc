@@ -23,6 +23,21 @@ Tabular list for input.cgyro
    ":ref:`cgyro_ipccw`", Current orientation,-1.0
    ":ref:`cgyro_udsymmetry_flag`", Enforce up-down symmetry,1
 
+.. csv-table:: **Advanced shape parameters**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_shape_cos0`", Tilt,0.0
+   ":ref:`cgyro_shape_s_cos0`", Tilt shear,0.0
+   ":ref:`cgyro_shape_cos1`", Ovality,0.0
+   ":ref:`cgyro_shape_s_cos1`", Ovality shear,0.0
+   ":ref:`cgyro_shape_cos2`", 2nd antisymmetric moment,0.0
+   ":ref:`cgyro_shape_s_cos2`", 2nd antisymmetric moment shear,0.0
+   ":ref:`cgyro_shape_cos3`", 3rd antisymmetric moment, 0.0
+   ":ref:`cgyro_shape_s_cos3`", 3rd antisymmetric moment shear,0.0
+   ":ref:`cgyro_shape_sin3`", 3rd symmetric moment, 0.0
+   ":ref:`cgyro_shape_s_sin3`", 3rd symmetric moment shear,0.0
+
 .. csv-table:: **Control parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -73,24 +88,13 @@ Tabular list for input.cgyro
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
+   ":ref:`cgyro_delta_t_method`", Time integrator selection,0
    ":ref:`cgyro_delta_t`", Time step,0.01
+   ":ref:`cgyro_error_tol`", Error tolerance,1e-4
    ":ref:`cgyro_max_time`", Simulation time ,1.0
    ":ref:`cgyro_freq_tol`", Error tolerance for frequency,0.001
    ":ref:`cgyro_print_step`", Data output interval,100
    ":ref:`cgyro_restart_step`", Restart data output interval,10
-
-.. csv-table:: **Collisions**
-   :header: "input.cgyro parameter", "Short description", "Default"
-   :widths: 13, 25, 5
-
-   ":ref:`cgyro_nu_ee`", Electron-electron collision frequency, 0.1
-   ":ref:`cgyro_collision_model`", Collision model selector, 4
-   ":ref:`cgyro_collision_field_model`", Toggle self-consistent field update,1
-   ":ref:`cgyro_collision_mom_restore`", Toggle momentum conservation,1
-   ":ref:`cgyro_collision_ene_restore`", Toggle energy conservation,1
-   ":ref:`cgyro_collision_ene_diffusion`", Toggle energy diffusion,1
-   ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
-   ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload, 0
 
 .. csv-table:: **Species-related parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
@@ -104,10 +108,24 @@ Tabular list for input.cgyro
    ":ref:`cgyro_dlnndr`", Species density gradient, 1.0
    ":ref:`cgyro_dlntdr`", Species temperature gradient, 1.0
 	    
+.. csv-table:: **Collisions**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_nu_ee`", Electron-electron collision frequency, 0.1
+   ":ref:`cgyro_collision_model`", Collision model selector, 4
+   ":ref:`cgyro_collision_field_model`", Toggle self-consistent field update,1
+   ":ref:`cgyro_collision_mom_restore`", Toggle momentum conservation,1
+   ":ref:`cgyro_collision_ene_restore`", Toggle energy conservation,1
+   ":ref:`cgyro_collision_ene_diffusion`", Toggle energy diffusion,1
+   ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
+   ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload, 0
+
 .. csv-table:: **Rotation physics**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
+   ":ref:`cgyro_rotation_model`", Rotation model selector,1
    ":ref:`cgyro_gamma_e`", Dopper shearing rate (:math:`E \times B` shear), 0.0
    ":ref:`cgyro_gamma_p`", Rotation shearing rate, 0.0
    ":ref:`cgyro_mach`", Rotation speed (Mach number), 0.0
@@ -115,11 +133,18 @@ Tabular list for input.cgyro
    ":ref:`cgyro_gamma_p_scale`", Rotation shearing rate scaling factor, 1.0
    ":ref:`cgyro_mach_scale`", Rotation speed scaling factor, 1.0 
 
+.. csv-table:: **Global-spectral parameters**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_n_global`", Global output resolution, 4
+   ":ref:`cgyro_nu_global`", Source rate, 15.0
+	    
 .. csv-table:: **Output file control**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
    ":ref:`cgyro_field_print_flag`", Output of electromagnetic field components, 0
    ":ref:`cgyro_moment_print_flag`", Output of density and energy moments, 0
-   ":ref:`cgyro_kxkyflux_print_flag`", Energy flux including radial wavenumbers, 0
-   ":ref:`cgyro_h_print_flag`", Distribution output (for single-mode run), 0
+   ":ref:`cgyro_gflux_print_flag`", Output of global flux profiles, 0
+   ":ref:`cgyro_h_print_flag`", Output of distribution (single-mode only), 0
