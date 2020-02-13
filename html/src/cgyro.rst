@@ -38,8 +38,7 @@ CGYRO is a multi-species spectral gyrokinetic solver with sonic rotation capabil
 Over the last decade the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
 was GYRO :cite:`candy:2003,candy:2003b,candy:2004a,candy:2010`.
-Thousands of nonlinear
-simulations with GYRO have informed the fusion community's understanding of
+Thousands of nonlinear simulations with GYRO have informed the fusion community's understanding of
 core plasma turbulence :cite:`kinsey:2005,kinsey:2006,kinsey:2007,howard:2016b`
 and provided a *transport database* for the calibration of reduced transport models
 such as TGLF :cite:`staebler:2007`.  GYRO was the first global electromagnetic solver,
@@ -67,8 +66,7 @@ calculation of collisional transport in toroidal geometry.
 Data input 
 ----------
 
-The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured 
-from  :ref:`input.profiles`.
+The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured from  :ref:`input.gacode`.
 
 Data output, python interface, and plotting
 -------------------------------------------

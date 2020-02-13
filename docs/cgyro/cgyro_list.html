@@ -112,11 +112,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#collision-kperp">COLLISION_KPERP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#delta">DELTA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#delta-t">DELTA_T</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delta-t-method">DELTA_T_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dens">DENS_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dlnndr">DLNNDR_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dlntdr">DLNTDR_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#dzmag">DZMAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#e-max">E_MAX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#error-tol">ERROR_TOL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#equilibrium-model">EQUILIBRIUM_MODEL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#field-print-flag">FIELD_PRINT_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#freq-tol">FREQ_TOL</a></li>
@@ -128,7 +130,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#h-print-flag">H_PRINT_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ipccw">IPCCW</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#kappa">KAPPA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kxkyflux-print-flag">KXKYFLUX_PRINT_FLAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#gflux-print-flag">GFLUX_PRINT_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ky">KY</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lambda-debye">LAMBDA_DEBYE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#lambda-debye-scale">LAMBDA_DEBYE_SCALE</a></li>
@@ -140,6 +142,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#mpi-rank-order">MPI_RANK_ORDER</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nonlinear-flag">NONLINEAR_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#n-field">N_FIELD</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#n-global">N_GLOBAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nu-global">NU_GLOBAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nup-radial">NUP_RADIAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#up-theta">UP_THETA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nup-theta">NUP_THETA</a></li>
@@ -161,6 +165,16 @@
 <li class="toctree-l4"><a class="reference internal" href="#rotation-model">ROTATION_MODEL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s">S</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#shift">SHIFT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-cos0">SHAPE_COS0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-s-cos0">SHAPE_S_COS0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-cos1">SHAPE_COS1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-s-cos1">SHAPE_S_COS1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-cos2">SHAPE_COS2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-s-cos2">SHAPE_S_COS2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-cos3">SHAPE_COS3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-s-cos3">SHAPE_S_COS3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-sin3">SHAPE_SIN3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shape-s-sin3">SHAPE_S_SIN3</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#silent-flag">SILENT_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s-delta">S_DELTA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#s-kappa">S_KAPPA</a></li>
@@ -195,7 +209,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../input_profiles.html">input.profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shortfall.html">DIII-D L-mode shortfall</a></li>
 </ul>
 
@@ -480,6 +494,24 @@ defined as</p>
 </ul>
 <hr class="docutils" />
 </div>
+<div class="section" id="delta-t-method">
+<span id="cgyro-delta-t-method"></span><h2>DELTA_T_METHOD<a class="headerlink" href="#delta-t-method" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Control for adaptive or fixed time-stepping.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>DELTA_T_METHOD = 0: RK4 4:4(3) [non-adaptive]</p></li>
+<li><p>DELTA_T_METHOD = 1: Cash-Karp 6:5(4)</p></li>
+<li><p>DELTA_T_METHOD = 2: Bogacki-Shampine 7:5(4)</p></li>
+<li><p>DELTA_T_METHOD = 3: Verner 10:7(6)</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0</p></li>
+<li><p>Notation is s:o(e) where s=stages,o=order,e=order of error estimate.</p></li>
+</ul>
+<hr class="docutils" />
+</div>
 <div class="section" id="dens">
 <span id="cgyro-dens"></span><h2>DENS_*<a class="headerlink" href="#dens" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
@@ -547,6 +579,17 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <ul class="simple">
 <li><p>DEFAULT = 8.0</p></li>
 <li><p>Corresponds to Maxwellian factor <span class="math notranslate nohighlight">\(\displaystyle e^{-\varepsilon_\mathrm{max}}\)</span></p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="error-tol">
+<span id="cgyro-error-tol"></span><h2>ERROR_TOL<a class="headerlink" href="#error-tol" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Error tolerance for adaptive time-stepping.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1e-4</p></li>
+<li><p>Decrease this slightly for very-high-transport cases</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -683,14 +726,14 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 </ul>
 <hr class="docutils" />
 </div>
-<div class="section" id="kxkyflux-print-flag">
-<span id="cgyro-kxkyflux-print-flag"></span><h2>KXKYFLUX_PRINT_FLAG<a class="headerlink" href="#kxkyflux-print-flag" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="gflux-print-flag">
+<span id="cgyro-gflux-print-flag"></span><h2>GFLUX_PRINT_FLAG<a class="headerlink" href="#gflux-print-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Toggle printing of <span class="math notranslate nohighlight">\(Q_a(k_x^0,k_y,t)\)</span> .</p>
+<p>Toggle printing of global flux profiles.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0</p></li>
-<li><p>Only the energy flux is considered.  There is not option for density or momentum fluxes.</p></li>
+<li><p>See also <a class="reference internal" href="#cgyro-n-global"><span class="std std-ref">N_GLOBAL</span></a></p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -782,12 +825,12 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <p><strong>Choices</strong></p>
 <ul class="simple">
 <li><p>MPI_RANK_ORDER = 1: Depth-first mode</p></li>
-<li><p>MPI_RANK_ORDER = 2: Breath-first mode</p></li>
+<li><p>MPI_RANK_ORDER = 2: Breadth-first mode</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li><p>DEFAULT = 1.</p></li>
-<li><p>The optimal value depends on both the HW and the problem being run.</p></li>
+<li><p>DEFAULT = 2</p></li>
+<li><p>The optimal value depends on both the hardware and the problem being run.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -819,6 +862,28 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 1</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="n-global">
+<span id="cgyro-n-global"></span><h2>N_GLOBAL<a class="headerlink" href="#n-global" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Control number of global output harmonics</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 4</p></li>
+<li><p>Making this larger retains shorter scales in the output</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="nu-global">
+<span id="cgyro-nu-global"></span><h2>NU_GLOBAL<a class="headerlink" href="#nu-global" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Source rate</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 15.0</p></li>
+<li><p>Making this larger increases the source rate</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -964,6 +1029,17 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 </div>
 <div class="section" id="rotation-model">
 <span id="cgyro-rotation-model"></span><h2>ROTATION_MODEL<a class="headerlink" href="#rotation-model" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>ROTATION_MODEL = 1: Weak rotation</p></li>
+<li><p>ROTATION_MODEL = 2: Sonic (Sugama) rotation</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1</p></li>
+</ul>
+<hr class="docutils" />
 </div>
 <div class="section" id="s">
 <span id="cgyro-s"></span><h2>S<a class="headerlink" href="#s" title="Permalink to this headline">¶</a></h2>
@@ -990,6 +1066,96 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <li><p>DEFAULT = 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
 <li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-cos0">
+<span id="cgyro-shape-cos0"></span><h2>SHAPE_COS0<a class="headerlink" href="#shape-cos0" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>0th antisymmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-s-cos0">
+<span id="cgyro-shape-s-cos0"></span><h2>SHAPE_S_COS0<a class="headerlink" href="#shape-s-cos0" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>0th antisymmetric moment shear.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-cos1">
+<span id="cgyro-shape-cos1"></span><h2>SHAPE_COS1<a class="headerlink" href="#shape-cos1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>1st antisymmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-s-cos1">
+<span id="cgyro-shape-s-cos1"></span><h2>SHAPE_S_COS1<a class="headerlink" href="#shape-s-cos1" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>1th antisymmetric moment shear.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-cos2">
+<span id="cgyro-shape-cos2"></span><h2>SHAPE_COS2<a class="headerlink" href="#shape-cos2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>2nd antisymmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-s-cos2">
+<span id="cgyro-shape-s-cos2"></span><h2>SHAPE_S_COS2<a class="headerlink" href="#shape-s-cos2" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>2th antisymmetric moment shear.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-cos3">
+<span id="cgyro-shape-cos3"></span><h2>SHAPE_COS3<a class="headerlink" href="#shape-cos3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>3rd antisymmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-s-cos3">
+<span id="cgyro-shape-s-cos3"></span><h2>SHAPE_S_COS3<a class="headerlink" href="#shape-s-cos3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>3rd antisymmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-sin3">
+<span id="cgyro-shape-sin3"></span><h2>SHAPE_SIN3<a class="headerlink" href="#shape-sin3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>3rd symmetric moment.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="shape-s-sin3">
+<span id="cgyro-shape-s-sin3"></span><h2>SHAPE_S_SIN3<a class="headerlink" href="#shape-s-sin3" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>3rd symmetric moment shear.</p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
 </ul>
 <hr class="docutils" />
 </div>

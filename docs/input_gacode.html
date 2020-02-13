@@ -1,0 +1,339 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>input.gacode &mdash; GACODE</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DIII-D L-mode shortfall" href="shortfall.html" />
+    <link rel="prev" title="PLASMA ROTATION" href="rotation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> GACODE
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Environment setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Codes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Physics</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">input.gacode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GACODE</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>input.gacode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/input_gacode.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="input-gacode">
+<span id="id1"></span><h1>input.gacode<a class="headerlink" href="#input-gacode" title="Permalink to this headline">¶</a></h1>
+<p>To see what a sample <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> looks like, at the command line type</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cgyro -g reg14 <span class="p">;</span> cat reg14/input.gacode
+</pre></div>
+</div>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">HAM equilibrium parameters</span></a>.</p>
+<p>Profile ordering in <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> is arbitrary and comment lines (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate <a class="reference internal" href="#"><span class="doc">input.gacode</span></a>, please use the <code class="docutils literal notranslate"><span class="pre">profiles_gen</span></code> command-line tool.</p>
+<table class="colwidths-given docutils align-default" id="id2">
+<caption><span class="caption-text"><strong>File structure</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameter</p></th>
+<th class="head"><p>description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">nion</span></code></p></td>
+<td><p>Total number of ions (thermal and fast).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">nexp</span></code></p></td>
+<td><p>Number of experimental data gridpoints.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rho(:)</span></code></p></td>
+<td><p>The dimensionless ONETWO flux-surface label, <span class="math notranslate nohighlight">\(\hat\rho = \rho(r)/\rho(a)\)</span>. This should span the region <span class="math notranslate nohighlight">\({\hat\rho} \in [0,1]\)</span> using n_grid_exp values. The grid-spacing can be nonuniform.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rmin(:)</span></code></p></td>
+<td><p>The generalized minor radius, <span class="math notranslate nohighlight">\(r\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>. See <a class="reference internal" href="geometry.html"><span class="doc">here</span></a> for definition.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">polflux(:)</span></code></p></td>
+<td><p>Poloidal flux over <span class="math notranslate nohighlight">\(2\pi\)</span>, in units of Webers/radian.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">q(:)</span></code></p></td>
+<td><p>Safety factor, <span class="math notranslate nohighlight">\(q\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">omega0(:)</span></code></p></td>
+<td><p>Rotation frequency, <span class="math notranslate nohighlight">\(\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span> in units of <span class="math notranslate nohighlight">\({\rm rad/s}\)</span>. For more information, see <a class="reference internal" href="rotation.html"><span class="doc">plasma rotation</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rmaj(:)</span></code></p></td>
+<td><p>The generalized major radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zmag(:)</span></code></p></td>
+<td><p>Flux-surface elevation, <span class="math notranslate nohighlight">\(Z_0\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kappa(:)</span></code></p></td>
+<td><p>The dimensionless plasma elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delta(:)</span></code></p></td>
+<td><p>The dimensionless plasma triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zeta(:)</span></code></p></td>
+<td><p>Plasma squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos0(:)</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos1(:)</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos2(:)</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos3(:)</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_sin3(:)</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ne(:)</span></code></p></td>
+<td><p>The electron density, <span class="math notranslate nohighlight">\(n_e\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">te(:)</span></code></p></td>
+<td><p>The electron temperature, <span class="math notranslate nohighlight">\(T_e\)</span>, in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ptot(:)</span></code></p></td>
+<td><p>Total plasma pressure, in units of Pascals.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">z_eff(:)</span></code></p></td>
+<td><p>The (dimensionless) effective ion charge, <span class="math notranslate nohighlight">\(Z_{\rm eff}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ni(:,:)</span></code></p></td>
+<td><p>Ion density in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>. There is a column for every ion species.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ti(:,:)</span></code></p></td>
+<td><p>Ion temperature in units of <span class="math notranslate nohighlight">\({\rm keV}\)</span>. There is a column for every ion species.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jbs(:)</span></code></p></td>
+<td><p>Bootstrap current (parallel) in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jbstor(:)</span></code></p></td>
+<td><p>Bootstrap current (toroidal) in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">vtor(:,:)</span></code></p></td>
+<td><p>Ion toroidal velocity in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>. There is a column for every ion species.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vpol(:,:)</span></code></p></td>
+<td><p>Ion poloidal velocity in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>. There is a column for every ion species.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qsync(:)</span></code></p></td>
+<td><p>Electron synchrotron radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qbrem(:)</span></code></p></td>
+<td><p>Bremsstrahlung radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qline(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="shortfall.html" class="btn btn-neutral float-right" title="DIII-D L-mode shortfall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rotation.html" class="btn btn-neutral float-left" title="PLASMA ROTATION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2010-2020
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

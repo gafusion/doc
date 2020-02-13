@@ -110,7 +110,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
-<li class="toctree-l1"><a class="reference internal" href="input_profiles.html">input.profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a></li>
 </ul>
 
@@ -225,7 +225,7 @@ roughly equivalent field that would be obtained if the flux surface was deformed
 </div>
 <div class="section" id="equilibria">
 <h2>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this headline">¶</a></h2>
-<p>GYRO/CGYRO/NEO can be run using <strong>circular equilibrium</strong>, <strong>shaped Grad-Shafranov equilibrium</strong>, or <strong>general Grad-Shafranov equilibrium</strong>.</p>
+<p>GYRO/CGYRO/NEO can be run using <strong>circular equilibrium</strong> or <strong>shaped Grad-Shafranov equilibrium</strong>.</p>
 <p><strong>(1) Circular equilibrium</strong></p>
 <ul class="simple">
 <li><p>The flux surfaces, which are <strong>not</strong> local G-S equilibria, have the form:</p></li>
@@ -241,49 +241,33 @@ Z(r,\theta) &amp;= r \sin \theta \\
 <li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 1</p></li>
 <li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 0</p></li>
 </ul>
-<p><strong>(2) Model Grad-Shafranov (Miller-type) equilibrium</strong></p>
+<p><strong>(2) Shaped Grad-Shafranov equilibrium</strong></p>
 <ul class="simple">
 <li><p>The flux surfaces, which are local G-S equilibria, have the parameterization:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[\begin{split}R(r,\theta) &amp;= R_0(r) + r \cos (\theta + \arcsin[\delta(r)] \sin \theta) \\
-Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin (\theta + \zeta(r) \sin 2\theta) \\
+\[\begin{split}R(r,\theta) &amp;= R_0(r) + r \cos \left[\theta + \sum_n c_n(r) \cos(n \theta) + \sum_m s_m(r) \sin(m \theta) \right] \\
+Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta  \\
 \nu(r,\theta) &amp; \rm{\;is\; computed \;numerically}\end{split}\]</div>
 <ul class="simple">
-<li><p>Available for local simulations only</p></li>
+<li><p>Here <span class="math notranslate nohighlight">\(c_n\)</span> are anti-symmetric moments and <span class="math notranslate nohighlight">\(s_m\)</span> are symmetric moments.  Physically, <span class="math notranslate nohighlight">\(c_0\)</span> is the tilt, <span class="math notranslate nohighlight">\(c_1\)</span> is the ovality, <span class="math notranslate nohighlight">\(s_1=\arcsin[\delta(r)]\)</span> where <span class="math notranslate nohighlight">\(\delta\)</span> is the triangularity, and <span class="math notranslate nohighlight">\(s_2=-\zeta\)</span> where <span class="math notranslate nohighlight">\(\zeta\)</span> is the squareness.</p></li>
 <li><p>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5  or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 0</p></li>
 <li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2</p></li>
 <li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 1</p></li>
 <li><p>For local simulations, also specify shape parameters.  For experimental profiles, shape parameters are auto-generated from profile data.</p></li>
-</ul>
-<p><strong>(3) General equilibrium</strong></p>
-<ul class="simple">
-<li><p>The flux surface shape is an expansion of the form:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}R(r,\theta) &amp;= a_0^R(r)/2 + \sum_{n=1}^{N} \left[ a_n^R(r) \cos(n \theta) +    b_n^R(r) \sin(n \theta) \right] \\
-Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) +    b_n^Z(r) \sin(n \theta) \right]\end{split}\]</div>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\theta=0\)</span> labels the rightmost (outboard) point on the flux surface.</p></li>
-<li><p>By default, <span class="math notranslate nohighlight">\(N=16\)</span>, although the number is in principle arbitrary.</p></li>
-<li><p>GYRO: select <span class="xref std std-ref">gyro_radial_profile_method</span> = 5 or <span class="xref std std-ref">gyro_radial_profile_method</span> = 3 with <span class="xref std std-ref">gyro_num_equil_flag</span> = 1</p></li>
-<li><p>CGYRO: select <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3</p></li>
-<li><p>NEO: select <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 3 or <a class="reference internal" href="neo/neo_list.html#neo-profile-equilibrium-model"><span class="std std-ref">PROFILE_EQUILIBRIUM_MODEL</span></a> = 2</p></li>
 </ul>
 </div>
 <div class="section" id="table-of-geometry-parameters">
 <h2>Table of geometry parameters<a class="headerlink" href="#table-of-geometry-parameters" title="Permalink to this headline">¶</a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
-<col style="width: 11%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
+<col style="width: 14%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Symbol</p></th>
@@ -293,8 +277,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <th class="head"><p>Circular (1)</p></th>
 <th class="head"><p>Shaped (2a)</p></th>
 <th class="head"><p>Exp. Shaped (2b)</p></th>
-<th class="head"><p>General (3a)</p></th>
-<th class="head"><p>Exp. General (3b)</p></th>
 </tr>
 </thead>
 <tbody>
@@ -302,8 +284,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td><p><span class="xref std std-ref">gyro_radius</span></p></td>
 <td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmin"><span class="std std-ref">RMIN</span></a></p></td>
 <td><p><a class="reference internal" href="neo/neo_list.html#neo-rmin-over-a"><span class="std std-ref">RMIN_OVER_A</span></a></p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>x</p></td>
@@ -315,8 +295,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\partial R_0/\partial r\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_shift</span></p></td>
@@ -325,8 +303,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(Z_0(r)/a\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_zmag</span></p></td>
@@ -335,8 +311,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\partial Z_0/\partial r\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_dzmag</span></p></td>
@@ -345,16 +319,12 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(q\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_safety_factor</span></p></td>
 <td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></p></td>
 <td><p><a class="reference internal" href="neo/neo_list.html#neo-q"><span class="std std-ref">Q</span></a></p></td>
 <td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
 </tr>
@@ -365,8 +335,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\kappa\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_kappa</span></p></td>
@@ -375,8 +343,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\kappa\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_s_kappa</span></p></td>
@@ -385,8 +351,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\delta\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_delta</span></p></td>
@@ -395,8 +359,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\delta\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_s_delta</span></p></td>
@@ -405,8 +367,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\zeta\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_zeta</span></p></td>
@@ -415,8 +375,6 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td></td>
-<td><p>D</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_\zeta\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_s_zeta</span></p></td>
@@ -425,8 +383,86 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_0\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_cos0</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos0"><span class="std std-ref">SHAPE_COS0</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_cos0</span></p></td>
 <td></td>
-<td><p>D</p></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_{c_0}\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_s_cos0</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos0"><span class="std std-ref">SHAPE_S_COS0</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_s_cos0</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_1\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_cos1</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos1"><span class="std std-ref">SHAPE_COS1</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_cos1</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_{c_1}\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_s_cos1</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos1"><span class="std std-ref">SHAPE_S_COS1</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_s_cos1</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_2\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_cos2</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos2"><span class="std std-ref">SHAPE_COS2</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_cos2</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_{c_2}\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_s_cos2</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos2"><span class="std std-ref">SHAPE_S_COS2</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_s_cos2</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(c_3\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_cos3</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos3"><span class="std std-ref">SHAPE_COS3</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_cos3</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_{c_3}\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_s_cos3</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos3"><span class="std std-ref">SHAPE_S_COS3</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_s_cos3</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(s_3\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_sin3</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-sin3"><span class="std std-ref">SHAPE_SIN3</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_sin3</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(s_{s_3}\)</span></p></td>
+<td><p><span class="xref std std-ref">gyro_shape_s_sin3</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-sin3"><span class="std std-ref">SHAPE_S_SIN3</span></a></p></td>
+<td><p><span class="xref std std-ref">neo_shape_s_sin3</span></p></td>
+<td></td>
+<td><p>x</p></td>
+<td><p>C</p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\beta_e\)</span></p></td>
 <td><p><span class="xref std std-ref">gyro_betae_unit</span></p></td>
@@ -435,15 +471,11 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\beta_*\)</span> scaling</p></td>
 <td><p><span class="xref std std-ref">gyro_betaprime_scale</span></p></td>
 <td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-beta-star-scale"><span class="std std-ref">BETA_STAR_SCALE</span></a></p></td>
 <td><p><a class="reference internal" href="neo/neo_list.html#neo-beta-star"><span class="std std-ref">BETA_STAR</span></a></p></td>
-<td><p>x</p></td>
-<td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>x</p></td>
@@ -455,16 +487,12 @@ Z(r,\theta) &amp;= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) + 
 <td><p>x</p></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 </tr>
 <tr class="row-even"><td><p>IPCCW</p></td>
 <td><p><span class="xref std std-ref">gyro_ipccw</span></p></td>
 <td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
 <td><p><a class="reference internal" href="neo/neo_list.html#neo-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
 <td><p>x</p></td>
-<td><p>x</p></td>
-<td><p>C</p></td>
 <td><p>x</p></td>
 <td><p>C</p></td>
 </tr>

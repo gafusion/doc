@@ -112,7 +112,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../input_profiles.html">input.profiles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../shortfall.html">DIII-D L-mode shortfall</a></li>
 </ul>
 
@@ -183,7 +183,7 @@
   <div class="section" id="tabular-list-for-input-gyro">
 <h1>Tabular list for input.gyro<a class="headerlink" href="#tabular-list-for-input-gyro" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text"><strong>Plasma shape/geometry</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-text"><strong>Control parameters</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 30%" />
 <col style="width: 58%" />
@@ -196,73 +196,9 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a></p></td>
-<td><p>Geometry model selector</p></td>
-<td><p>2</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-rmin"><span class="std std-ref">RMIN</span></a></p></td>
-<td><p>Normalized minor radius</p></td>
-<td><p>0.5</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-rmaj"><span class="std std-ref">RMAJ</span></a></p></td>
-<td><p>Normalized major radius</p></td>
-<td><p>3.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-shift"><span class="std std-ref">SHIFT</span></a></p></td>
-<td><p>Shafranov shift</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-kappa"><span class="std std-ref">KAPPA</span></a></p></td>
-<td><p>Elongation</p></td>
-<td><p>1.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-s-kappa"><span class="std std-ref">S_KAPPA</span></a></p></td>
-<td><p>Elongation shear</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-delta"><span class="std std-ref">DELTA</span></a></p></td>
-<td><p>Triangularity</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-s-delta"><span class="std std-ref">S_DELTA</span></a></p></td>
-<td><p>Triangularity shear</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-zeta"><span class="std std-ref">ZETA</span></a></p></td>
-<td><p>Squareness</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-s-zeta"><span class="std std-ref">S_ZETA</span></a></p></td>
-<td><p>Squareness shear</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-zmag"><span class="std std-ref">ZMAG</span></a></p></td>
-<td><p>Elevation</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-dzmag"><span class="std std-ref">DZMAG</span></a></p></td>
-<td><p>Gradient of elevation</p></td>
-<td><p>0.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></p></td>
-<td><p>Safety factor</p></td>
-<td><p>2.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-s"><span class="std std-ref">S</span></a></p></td>
-<td><p>Magnetic shear</p></td>
-<td><p>1.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a></p></td>
-<td><p>Field orientation</p></td>
-<td><p>-1.0</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
-<td><p>Current orientation</p></td>
-<td><p>-1.0</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="../cgyro/cgyro_list.html#cgyro-udsymmetry-flag"><span class="std std-ref">UDSYMMETRY_FLAG</span></a></p></td>
-<td><p>Enforce up-down symmetry</p></td>
-<td><p>1</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="gyro_list.html#gyro-amp-phi-n"><span class="std std-ref">AMP_PHI_N</span></a></p></td>
+<td><p>Initial n &gt; 0 amplitude</p></td>
+<td><p>1e-4</p></td>
 </tr>
 </tbody>
 </table>
