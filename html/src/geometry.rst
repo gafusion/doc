@@ -71,7 +71,7 @@ roughly equivalent field that would be obtained if the flux surface was deformed
 Equilibria
 ----------
 
-GYRO/CGYRO/NEO can be run using **circular equilibrium**, **shaped Grad-Shafranov equilibrium**, or **general Grad-Shafranov equilibrium**.
+GYRO/CGYRO/NEO can be run using **circular equilibrium** or **shaped Grad-Shafranov equilibrium**.
 
 **(1) Circular equilibrium**
 
@@ -87,63 +87,57 @@ GYRO/CGYRO/NEO can be run using **circular equilibrium**, **shaped Grad-Shafrano
 - CGYRO: select :ref:`cgyro_equilibrium_model` = 1
 - NEO: select :ref:`neo_equilibrium_model` = 0  
   
-**(2) Model Grad-Shafranov (Miller-type) equilibrium**
+**(2) Shaped Grad-Shafranov equilibrium**
 
 - The flux surfaces, which are local G-S equilibria, have the parameterization:
 
 .. math::
 
-    R(r,\theta) &= R_0(r) + r \cos (\theta + \arcsin[\delta(r)] \sin \theta) \\
-    Z(r,\theta) &= Z_0(r) + \kappa(r) r \sin (\theta + \zeta(r) \sin 2\theta) \\
+    R(r,\theta) &= R_0(r) + r \cos \left[\theta + \sum_n c_n(r) \cos(n \theta) + \sum_m s_m(r) \sin(m \theta) \right] \\
+    Z(r,\theta) &= Z_0(r) + \kappa(r) r \sin \theta  \\
     \nu(r,\theta) & \rm{\;is\; computed \;numerically}
 
-- Available for local simulations only
+-  Here :math:`c_n` are anti-symmetric moments and :math:`s_m` are symmetric moments.  Physically, :math:`c_0` is the tilt, :math:`c_1` is the ovality, :math:`s_1=\arcsin[\delta(r)]` where :math:`\delta` is the triangularity, and :math:`s_2=-\zeta` where :math:`\zeta` is the squareness.
 - GYRO: select :ref:`gyro_radial_profile_method` = 5  or :ref:`gyro_radial_profile_method` = 3 with :ref:`gyro_num_equil_flag` = 0 
 - CGYRO: select :ref:`cgyro_equilibrium_model` = 2
 - NEO: select :ref:`neo_equilibrium_model` = 2 or :ref:`neo_profile_equilibrium_model` = 1
 - For local simulations, also specify shape parameters.  For experimental profiles, shape parameters are auto-generated from profile data.
-  
-**(3) General equilibrium**
-
-- The flux surface shape is an expansion of the form:
-
-.. math::
-
-    R(r,\theta) &= a_0^R(r)/2 + \sum_{n=1}^{N} \left[ a_n^R(r) \cos(n \theta) +    b_n^R(r) \sin(n \theta) \right] \\
-    Z(r,\theta) &= a_0^Z(r)/2 + \sum_{n=1}^{N} \left[ a_n^Z(r) \cos(n \theta) +    b_n^Z(r) \sin(n \theta) \right]
-
-- :math:`\theta=0` labels the rightmost (outboard) point on the flux surface.
-
-- By default, :math:`N=16`, although the number is in principle arbitrary.  
-  
-- GYRO: select :ref:`gyro_radial_profile_method` = 5 or :ref:`gyro_radial_profile_method` = 3 with :ref:`gyro_num_equil_flag` = 1 
-- CGYRO: select :ref:`cgyro_equilibrium_model` = 3
-- NEO: select :ref:`neo_equilibrium_model` = 3 or :ref:`neo_profile_equilibrium_model` = 2   
+    
   
 Table of geometry parameters
 ----------------------------
 
 .. csv-table::
-   :header: "Symbol", "input.gyro parameter", "input.cgyro parameter", "input.neo parameter", "Circular (1)", "Shaped (2a)", "Exp. Shaped (2b)", "General (3a)", "Exp. General (3b)"   
-   :widths: 5, 5, 5, 5, 5, 5, 5, 5, 5
+   :header: "Symbol", "input.gyro parameter", "input.cgyro parameter", "input.neo parameter", "Circular (1)", "Shaped (2a)", "Exp. Shaped (2b)"   
+   :widths: 5, 5, 5, 5, 5, 5, 5
 	   
-	:math:`r/a`, :ref:`gyro_radius`, :ref:`cgyro_rmin`, :ref:`neo_rmin_over_a`, x, x, x, x, x
-	:math:`R_0(r)/a`, :ref:`gyro_aspect_ratio`, :ref:`cgyro_rmaj`, :ref:`neo_rmaj_over_a`, x, x, C, x, C
-	:math:`\partial R_0/\partial r`, :ref:`gyro_shift`, :ref:`cgyro_shift`,:ref:`neo_shift`, , x, C, ,D
-	:math:`Z_0(r)/a`, :ref:`gyro_zmag`, :ref:`cgyro_zmag`,:ref:`neo_zmag_over_a`, , x, C, ,D
-	:math:`\partial Z_0/\partial r`, :ref:`gyro_dzmag`, :ref:`cgyro_dzmag`,:ref:`neo_s_zmag`, , x, C, ,D      
-	:math:`q`, :ref:`gyro_safety_factor`, :ref:`cgyro_q`, :ref:`neo_q`, x, x, C, x, C
-	:math:`s`, :ref:`gyro_shear`, :ref:`cgyro_s`, :ref:`neo_shear`, x, x, C, x, C
-	:math:`\kappa`, :ref:`gyro_kappa`, :ref:`cgyro_kappa`,:ref:`neo_kappa`, , x, C, ,D
-	:math:`s_\kappa`, :ref:`gyro_s_kappa`, :ref:`cgyro_s_kappa`,:ref:`neo_s_kappa`, , x, C, ,D
-	:math:`\delta`, :ref:`gyro_delta`, :ref:`cgyro_delta`,:ref:`neo_delta`, , x, C, ,D
-	:math:`s_\delta`, :ref:`gyro_s_delta`, :ref:`cgyro_s_delta`,:ref:`neo_s_delta`, , x, C, ,D
-	:math:`\zeta`, :ref:`gyro_zeta`, :ref:`cgyro_zeta`,:ref:`neo_zeta`, , x, C, ,D
-	:math:`s_\zeta`, :ref:`gyro_s_zeta`, :ref:`cgyro_s_zeta`,:ref:`neo_s_zeta`, , x, C, ,D
-	:math:`\beta_e`, :ref:`gyro_betae_unit`, :ref:`cgyro_betae_unit`, NA, , x, C, x, C
-	:math:`\beta_*` scaling, :ref:`gyro_betaprime_scale`, :ref:`cgyro_beta_star_scale`, :ref:`neo_beta_star`, x, x, x, x, x
-	BTCCW, :ref:`gyro_btccw`, :ref:`cgyro_btccw`, :ref:`neo_btccw`, x, x, C, x, C
-	IPCCW, :ref:`gyro_ipccw`, :ref:`cgyro_ipccw`, :ref:`neo_ipccw`, x, x, C, x, C
+	:math:`r/a`, :ref:`gyro_radius`, :ref:`cgyro_rmin`, :ref:`neo_rmin_over_a`, x, x, x
+	:math:`R_0(r)/a`, :ref:`gyro_aspect_ratio`, :ref:`cgyro_rmaj`, :ref:`neo_rmaj_over_a`, x, x, C
+	:math:`\partial R_0/\partial r`, :ref:`gyro_shift`, :ref:`cgyro_shift`,:ref:`neo_shift`, , x, C
+	:math:`Z_0(r)/a`, :ref:`gyro_zmag`, :ref:`cgyro_zmag`,:ref:`neo_zmag_over_a`, , x, C
+	:math:`\partial Z_0/\partial r`, :ref:`gyro_dzmag`, :ref:`cgyro_dzmag`,:ref:`neo_s_zmag`, , x, C     
+	:math:`q`, :ref:`gyro_safety_factor`, :ref:`cgyro_q`, :ref:`neo_q`, x, x, C
+	:math:`s`, :ref:`gyro_shear`, :ref:`cgyro_s`, :ref:`neo_shear`, x, x, C
+	:math:`\kappa`, :ref:`gyro_kappa`, :ref:`cgyro_kappa`,:ref:`neo_kappa`, , x, C
+	:math:`s_\kappa`, :ref:`gyro_s_kappa`, :ref:`cgyro_s_kappa`,:ref:`neo_s_kappa`, , x, C
+	:math:`\delta`, :ref:`gyro_delta`, :ref:`cgyro_delta`,:ref:`neo_delta`, , x, C
+	:math:`s_\delta`, :ref:`gyro_s_delta`, :ref:`cgyro_s_delta`,:ref:`neo_s_delta`, , x, C
+	:math:`\zeta`, :ref:`gyro_zeta`, :ref:`cgyro_zeta`,:ref:`neo_zeta`, , x, C
+	:math:`s_\zeta`, :ref:`gyro_s_zeta`, :ref:`cgyro_s_zeta`,:ref:`neo_s_zeta`, , x, C
+	:math:`c_0`, :ref:`gyro_shape_cos0`, :ref:`cgyro_shape_cos0`,:ref:`neo_shape_cos0`, , x, C
+	:math:`s_{c_0}`, :ref:`gyro_shape_s_cos0`, :ref:`cgyro_shape_s_cos0`,:ref:`neo_shape_s_cos0`, , x, C
+	:math:`c_1`, :ref:`gyro_shape_cos1`, :ref:`cgyro_shape_cos1`,:ref:`neo_shape_cos1`, , x, C
+	:math:`s_{c_1}`, :ref:`gyro_shape_s_cos1`, :ref:`cgyro_shape_s_cos1`,:ref:`neo_shape_s_cos1`, , x, C
+	:math:`c_2`, :ref:`gyro_shape_cos2`, :ref:`cgyro_shape_cos2`,:ref:`neo_shape_cos2`, , x, C
+	:math:`s_{c_2}`, :ref:`gyro_shape_s_cos2`, :ref:`cgyro_shape_s_cos2`,:ref:`neo_shape_s_cos2`, , x, C
+        :math:`c_3`, :ref:`gyro_shape_cos3`, :ref:`cgyro_shape_cos3`,:ref:`neo_shape_cos3`, , x, C
+	:math:`s_{c_3}`, :ref:`gyro_shape_s_cos3`, :ref:`cgyro_shape_s_cos3`,:ref:`neo_shape_s_cos3`, , x, C
+	:math:`s_3`, :ref:`gyro_shape_sin3`, :ref:`cgyro_shape_sin3`,:ref:`neo_shape_sin3`, , x, C
+	:math:`s_{s_3}`, :ref:`gyro_shape_s_sin3`, :ref:`cgyro_shape_s_sin3`,:ref:`neo_shape_s_sin3`, , x, C      
+	:math:`\beta_e`, :ref:`gyro_betae_unit`, :ref:`cgyro_betae_unit`, NA, , x, C
+	:math:`\beta_*` scaling, :ref:`gyro_betaprime_scale`, :ref:`cgyro_beta_star_scale`, :ref:`neo_beta_star`, x, x, x
+	BTCCW, :ref:`gyro_btccw`, :ref:`cgyro_btccw`, :ref:`neo_btccw`, x, x, C
+	IPCCW, :ref:`gyro_ipccw`, :ref:`cgyro_ipccw`, :ref:`neo_ipccw`, x, x, C
 	      
 In the table:
 
