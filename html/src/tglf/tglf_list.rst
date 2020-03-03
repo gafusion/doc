@@ -1014,7 +1014,7 @@ USE_BPAR
 
 **Definition**
 
-Include compressional magnetic fluctuations, {\:math:'\delta B_{\lVert }}'.
+Include compressional magnetic fluctuations, :math:`\delta B_{\lVert }}`.
 
 
 **Comments**

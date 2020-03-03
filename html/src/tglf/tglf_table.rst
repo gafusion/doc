@@ -1,5 +1,5 @@
-Tabular list for input.tglf
-===========================
+Tabular list for input.tglf and outputs
+=======================================
 
 .. csv-table:: **Control**
    :header: "input.tglf parameter", "Interface parameter", "Short description", "Default"
@@ -17,7 +17,7 @@ Tabular list for input.tglf
    ":ref:`TGLF_KYGRID_MODEL`",tglf_kygrid_model_in,"1=standard ky spectrum for transport model, 0=user defined with NKY modes up to KY equal spaced",1
    ":ref:`TGLF_XNU_MODEL`",tglf_xnu_model_in,Collision model (2=new),2
    ":ref:`TGLF_VPAR_MODEL`",tglf_vpar_model_in,0=low-Mach-number limit,0
-   ":ref:`TGLF_VPAR_SHEAR_MODEL`",tglf_vpar_shear_model_in,depricated parameter,0
+   ":ref:`TGLF_VPAR_SHEAR_MODEL`",tglf_vpar_shear_model_in,deprecated parameter,0
    ":ref:`TGLF_SIGN_BT`",tglf_sign_bt_in,sign of :math:`B_{T}`  with respect to CCW toroidal direction from top,1.0
    ":ref:`TGLF_SIGN_IT`",tglf_sign_it_in,sign of :math:`I_{T}`  with respect to CCW toroidal direction from top,1.0
    ":ref:`TGLF_KY`",tglf_ky_in,":math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF",0.3
@@ -119,3 +119,17 @@ Tabular list for input.tglf
    ":ref:`TGLF_LINSKER_FACTOR`",tglf_linsker_factor_in,multiplies the Linsker terms,0.0
    ":ref:`TGLF_GRADB_FACTOR`",tglf_gradB_factor_in,multiplies the gradB terms,0.0
    ":ref:`TGLF_FILTER`",tglf_filter_in,sets threshold for frequency/drift frequency to filter out non-driftwave instabilities,2.0
+
+.. csv-table:: **TGLF output parameters**
+   :header: "Interface Parameter", "Definition", "Description"
+   :widths: 13, 5, 15
+   
+   tglf_elec_pflux_out, :math:`\overline{\Gamma_e}\left/\Gamma_{GB}`, Gyrobohm-normalized electron particle flux density
+   tglf_elec_mflux_out, :math:`\overline{\Pi_e}\left/\Pi_{GB}`, Gyrobohm-normalized electron angular momentum flux density
+   tglf_elec_eflux_out, :math:`\overline{Q_e}\left/Q_{GB}`, Gyrobohm-normalized electron energy flux density
+   tglf_ion1_pflux_out, :math:`\overline{\Gamma_1}\left/\Gamma_{GB}`, Gyrobohm-normalized main ion particle flux density
+   tglf_ion1_mflux_out, :math:`\overline{\Pi_1}\left/\Pi_{GB}`, Gyrobohm-normalized main ion angular momentum flux density
+   tglf_ion1_eflux_out, :math:`\overline{Q_1}\left/Q_{GB}`, Gyrobohm-normalized main ion energy flux density
+   tglf_ion2_pflux_out, :math:`\overline{\Gamma_2}\left/\Gamma_{GB}`, Gyrobohm-normalized 2nd ion particle flux density
+   tglf_ion2_mflux_out, :math:`\overline{\Pi_2}\left/\Pi_{GB}`, Gyrobohm-normalized 2nd ion angular momentum flux density
+   tglf_ion2_eflux_out, :math:`\overline{Q_2}\left/Q_{GB}`, Gyrobohm-normalized 2nd ion energy flux density

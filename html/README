@@ -2,8 +2,10 @@ To *edit* webpages:
 
 - edit files in the src directory.
 
-To *build* webpages
+To *build* webpages:
 
+- $ module purge 
+- $ module load omfit/unstable (this loads the sphinx-build and bibtex modules)
 - $ make (this will generate html files)
 
 To *publish* webpages:

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Tabular list for input.tglf &mdash; GACODE</title>
+  <title>Tabular list for input.tglf and outputs &mdash; GACODE</title>
   
 
   
@@ -97,7 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../tglf.html">TGLF</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../tglf.html#quick-links">Quick links</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Tabular list for input.tglf</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Tabular list for input.tglf and outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tglf_list.html">Alphabetical list for input.tglf</a></li>
 </ul>
 </li>
@@ -158,7 +158,7 @@
         
           <li><a href="../tglf.html">TGLF</a> &raquo;</li>
         
-      <li>Tabular list for input.tglf</li>
+      <li>Tabular list for input.tglf and outputs</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -177,8 +177,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="tabular-list-for-input-tglf">
-<h1>Tabular list for input.tglf<a class="headerlink" href="#tabular-list-for-input-tglf" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="tabular-list-for-input-tglf-and-outputs">
+<h1>Tabular list for input.tglf and outputs<a class="headerlink" href="#tabular-list-for-input-tglf-and-outputs" title="Permalink to this headline">¶</a></h1>
 <table class="colwidths-given docutils align-default" id="id1">
 <caption><span class="caption-text"><strong>Control</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
 <colgroup>
@@ -257,7 +257,7 @@
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="tglf_list.html#tglf-vpar-shear-model"><span class="std std-ref">VPAR_SHEAR_MODEL</span></a></p></td>
 <td><p>tglf_vpar_shear_model_in</p></td>
-<td><p>depricated parameter</p></td>
+<td><p>deprecated parameter</p></td>
 <td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="tglf_list.html#tglf-sign-bt"><span class="std std-ref">SIGN_BT</span></a></p></td>
@@ -704,6 +704,58 @@
 <td><p>tglf_filter_in</p></td>
 <td><p>sets threshold for frequency/drift frequency to filter out non-driftwave instabilities</p></td>
 <td><p>2.0</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-text"><strong>TGLF output parameters</strong></span><a class="headerlink" href="#id7" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 15%" />
+<col style="width: 45%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface Parameter</p></th>
+<th class="head"><p>Definition</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tglf_elec_pflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Gamma_e}\left/\Gamma_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized electron particle flux density</p></td>
+</tr>
+<tr class="row-odd"><td><p>tglf_elec_mflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Pi_e}\left/\Pi_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized electron angular momentum flux density</p></td>
+</tr>
+<tr class="row-even"><td><p>tglf_elec_eflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{Q_e}\left/Q_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized electron energy flux density</p></td>
+</tr>
+<tr class="row-odd"><td><p>tglf_ion1_pflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Gamma_1}\left/\Gamma_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized main ion particle flux density</p></td>
+</tr>
+<tr class="row-even"><td><p>tglf_ion1_mflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Pi_1}\left/\Pi_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized main ion angular momentum flux density</p></td>
+</tr>
+<tr class="row-odd"><td><p>tglf_ion1_eflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{Q_1}\left/Q_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized main ion energy flux density</p></td>
+</tr>
+<tr class="row-even"><td><p>tglf_ion2_pflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Gamma_2}\left/\Gamma_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized 2nd ion particle flux density</p></td>
+</tr>
+<tr class="row-odd"><td><p>tglf_ion2_mflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{\Pi_2}\left/\Pi_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized 2nd ion angular momentum flux density</p></td>
+</tr>
+<tr class="row-even"><td><p>tglf_ion2_eflux_out</p></td>
+<td><p><span class="math notranslate nohighlight">\(\overline{Q_2}\left/Q_{GB}\)</span></p></td>
+<td><p>Gyrobohm-normalized 2nd ion energy flux density</p></td>
 </tr>
 </tbody>
 </table>
