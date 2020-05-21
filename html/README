@@ -5,7 +5,7 @@ To *edit* webpages:
 To *build* webpages:
 
 - $ module purge 
-- $ module load omfit/unstable (this loads the sphinx-build and bibtex modules)
+- $ module load omfit/unstable_strahl (this loads the sphinx-build and bibtex modules)
 - $ make (this will generate html files)
 
 To *publish* webpages:

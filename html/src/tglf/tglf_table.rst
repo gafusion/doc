@@ -124,12 +124,12 @@ Tabular list for input.tglf and outputs
    :header: "Interface Parameter", "Definition", "Description"
    :widths: 13, 5, 15
    
-   tglf_elec_pflux_out, :math:`\overline{\Gamma_e}\left/\Gamma_{GB}`, Gyrobohm-normalized electron particle flux density
-   tglf_elec_mflux_out, :math:`\overline{\Pi_e}\left/\Pi_{GB}`, Gyrobohm-normalized electron angular momentum flux density
-   tglf_elec_eflux_out, :math:`\overline{Q_e}\left/Q_{GB}`, Gyrobohm-normalized electron energy flux density
-   tglf_ion1_pflux_out, :math:`\overline{\Gamma_1}\left/\Gamma_{GB}`, Gyrobohm-normalized main ion particle flux density
-   tglf_ion1_mflux_out, :math:`\overline{\Pi_1}\left/\Pi_{GB}`, Gyrobohm-normalized main ion angular momentum flux density
-   tglf_ion1_eflux_out, :math:`\overline{Q_1}\left/Q_{GB}`, Gyrobohm-normalized main ion energy flux density
-   tglf_ion2_pflux_out, :math:`\overline{\Gamma_2}\left/\Gamma_{GB}`, Gyrobohm-normalized 2nd ion particle flux density
-   tglf_ion2_mflux_out, :math:`\overline{\Pi_2}\left/\Pi_{GB}`, Gyrobohm-normalized 2nd ion angular momentum flux density
-   tglf_ion2_eflux_out, :math:`\overline{Q_2}\left/Q_{GB}`, Gyrobohm-normalized 2nd ion energy flux density
+   tglf_elec_pflux_out, :math:`\overline{\Gamma_e}/\Gamma_{GB}`, Gyrobohm-normalized electron particle flux density
+   tglf_elec_mflux_out, :math:`\overline{\Pi_e}/\Pi_{GB}`, Gyrobohm-normalized electron angular momentum flux density
+   tglf_elec_eflux_out, :math:`\overline{Q_e}/Q_{GB}`, Gyrobohm-normalized electron energy flux density
+   tglf_ion1_pflux_out, :math:`\overline{\Gamma_1}/\Gamma_{GB}`, Gyrobohm-normalized main ion particle flux density
+   tglf_ion1_mflux_out, :math:`\overline{\Pi_1}/\Pi_{GB}`, Gyrobohm-normalized main ion angular momentum flux density
+   tglf_ion1_eflux_out, :math:`\overline{Q_1}/Q_{GB}`, Gyrobohm-normalized main ion energy flux density
+   tglf_ion2_pflux_out, :math:`\overline{\Gamma_2}/\Gamma_{GB}`, Gyrobohm-normalized 2nd ion particle flux density
+   tglf_ion2_mflux_out, :math:`\overline{\Pi_2}/\Pi_{GB}`, Gyrobohm-normalized 2nd ion angular momentum flux density
+   tglf_ion2_eflux_out, :math:`\overline{Q_2}/Q_{GB}`, Gyrobohm-normalized 2nd ion energy flux density
