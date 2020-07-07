@@ -1403,6 +1403,45 @@ Species charge.  First species charge is Z_1, and so on.
      
 ----
 
+.. _cgyro_z_eff:
+
+Z_EFF
+-----
+
+**Definition**
+
+User-specified value for :math:`Z_\mathrm{eff}`. 
+     
+**Comments**
+
+- DEFAULT = 1.0
+- Normally this is computed self-consistently by CGYRO, but can be set by the user
+- Enabled by setting :ref:`cgyro_z_eff_method` = 1 
+- Only allowable with **simple** collision models: :ref:`cgyro_collision_model` = 1 or 5 
+
+----
+
+.. _cgyro_z_eff_method:
+
+Z_EFF_METHOD
+------------
+
+**Definition**
+
+Control how :math:`Z_\mathrm{eff}` is computed.
+
+**Choices**
+
+- Z_EFF_METHOD=1: Use value for Z_EFF defined in input.cgyro (or input.gacode)
+- Z_EFF_METHOD=2: Compute Z_EFF automatically and self-consistently based on species data **(recommended)**
+
+**Comments**
+
+- DEFAULT = 2
+- Only allowable with **simple** collision models: :ref:`cgyro_collision_model` = 1 or 5 
+
+----
+
 .. _cgyro_zeta:
 
 ZETA

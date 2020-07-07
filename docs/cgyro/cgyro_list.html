@@ -183,6 +183,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#udsymmetry-flag">UDSYMMETRY_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#up-radial">UP_RADIAL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#z">Z_*</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z-eff">Z_EFF</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#z-eff-method">Z_EFF_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zeta">ZETA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zf-test-mode">ZF_TEST_MODE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#zmag">ZMAG</a></li>
@@ -1255,6 +1257,35 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 </pre></div>
 </div>
 </li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="z-eff">
+<span id="cgyro-z-eff"></span><h2>Z_EFF<a class="headerlink" href="#z-eff" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>User-specified value for <span class="math notranslate nohighlight">\(Z_\mathrm{eff}\)</span>.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1.0</p></li>
+<li><p>Normally this is computed self-consistently by CGYRO, but can be set by the user</p></li>
+<li><p>Enabled by setting <a class="reference internal" href="#cgyro-z-eff-method"><span class="std std-ref">Z_EFF_METHOD</span></a> = 1</p></li>
+<li><p>Only allowable with <strong>simple</strong> collision models: <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> = 1 or 5</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="z-eff-method">
+<span id="cgyro-z-eff-method"></span><h2>Z_EFF_METHOD<a class="headerlink" href="#z-eff-method" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Control how <span class="math notranslate nohighlight">\(Z_\mathrm{eff}\)</span> is computed.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>Z_EFF_METHOD=1: Use value for Z_EFF defined in input.cgyro (or input.gacode)</p></li>
+<li><p>Z_EFF_METHOD=2: Compute Z_EFF automatically and self-consistently based on species data</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 2</p></li>
+<li><p>Only allowable with <strong>simple</strong> collision models: <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> = 1 or 5</p></li>
 </ul>
 <hr class="docutils" />
 </div>
