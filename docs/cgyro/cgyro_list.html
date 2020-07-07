@@ -900,6 +900,18 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="nup-theta">
 <span id="cgyro-nup-theta"></span><h2>NUP_THETA<a class="headerlink" href="#nup-theta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Accuracy control for the poloidal discretization scheme.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>NUP_THETA=1: 1st-order conservative upwind</p></li>
+<li><p>NUP_THETA=2: 3rd-order conservative upwind</p></li>
+<li><p>NUP_THETA=3: 5th-order conservative upwind</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT=3 (5th order)</p></li>
+<li><p>The numerical scheme (conservative upwind) is modified by projecting out density and current perturbations induced by the grid-scale dissipation.</p></li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="up-alpha">
@@ -929,11 +941,12 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="n-radial">
 <span id="cgyro-n-radial"></span><h2>N_RADIAL<a class="headerlink" href="#n-radial" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Number of radial wavenumbers to retain in simulation.</p>
+<p>Number of radial wavenumbers (radial Fourier harmonics) to retain in simulation.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 4</p></li>
-<li><p>For linear simulations with <a class="reference internal" href="#cgyro-box-size"><span class="std std-ref">BOX_SIZE</span></a> =1, this can be as small as 2, but a minimium of 4 is recommended.</p></li>
+<li><p>For <strong>linear simulations</strong> with <a class="reference internal" href="#cgyro-box-size"><span class="std std-ref">BOX_SIZE</span></a> =1, this can be as small as 2, but a minimium of 4 is recommended.</p></li>
+<li><p>For <strong>nonlinear simulations</strong>, we recommend N_RADIAL &gt; <span class="math notranslate nohighlight">\(L_x/\rho\)</span></p></li>
 <li><p>Wavenumbers span <span class="math notranslate nohighlight">\(p = -N , \ldots , N-1\)</span> where <span class="math notranslate nohighlight">\(N\)</span> = N_RADIAL/2</p></li>
 </ul>
 <hr class="docutils" />
@@ -941,10 +954,11 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="n-theta">
 <span id="cgyro-n-theta"></span><h2>N_THETA<a class="headerlink" href="#n-theta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Number of poloidal gridpoints <span class="math notranslate nohighlight">\(\theta_i\)</span> to retain in simulation.</p>
+<p>Number of poloidal gridpoints <span class="math notranslate nohighlight">\(\theta_i\)</span>.  There is a single poloidal mesh for both the distribution function and the fields (unlike GYRO).</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 24</p></li>
+<li><p>The order of accuracy of the poloidal discretization is controlled by  <a class="reference internal" href="#cgyro-nup-theta"><span class="std std-ref">NUP_THETA</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -975,6 +989,11 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="n-toroidal">
 <span id="cgyro-n-toroidal"></span><h2>N_TOROIDAL<a class="headerlink" href="#n-toroidal" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Number of toroidal harmonics (binormal Fourier modes).</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>Together with <a class="reference internal" href="#cgyro-ky"><span class="std std-ref">KY</span></a>, this controls the toroidal resolution.</p></li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="n-species">

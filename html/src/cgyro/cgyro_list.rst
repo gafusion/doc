@@ -883,6 +883,19 @@ NUP_THETA
 
 **Definition**
 
+Accuracy control for the poloidal discretization scheme.
+
+**Choices**
+
+- NUP_THETA=1: 1st-order conservative upwind
+- NUP_THETA=2: 3rd-order conservative upwind
+- NUP_THETA=3: 5th-order conservative upwind
+
+**Comments**
+
+- DEFAULT=3 (5th order)
+- The numerical scheme (conservative upwind) is modified by projecting out density and current perturbations induced by the grid-scale dissipation.
+  
 ----
 
 .. _cgyro_up_alpha:
@@ -930,12 +943,13 @@ N_RADIAL
 
 **Definition**
 
-Number of radial wavenumbers to retain in simulation.
+Number of radial wavenumbers (radial Fourier harmonics) to retain in simulation.
 
 **Comments**
 
 - DEFAULT = 4
-- For linear simulations with :ref:`cgyro_box_size` =1, this can be as small as 2, but a minimium of 4 is recommended.
+- For **linear simulations** with :ref:`cgyro_box_size` =1, this can be as small as 2, but a minimium of 4 is recommended.
+- For **nonlinear simulations**, we recommend N_RADIAL > :math:`L_x/\rho`
 - Wavenumbers span :math:`p = -N , \ldots , N-1` where :math:`N` = N_RADIAL/2
   
 ----
@@ -947,12 +961,13 @@ N_THETA
 
 **Definition**
 
-Number of poloidal gridpoints :math:`\theta_i` to retain in simulation.
+Number of poloidal gridpoints :math:`\theta_i`.  There is a single poloidal mesh for both the distribution function and the fields (unlike GYRO).
 
 **Comments**
 
 - DEFAULT = 24
-
+- The order of accuracy of the poloidal discretization is controlled by  :ref:`cgyro_nup_theta`.
+  
 ----
 
 .. _cgyro_n_xi:
@@ -996,6 +1011,12 @@ N_TOROIDAL
 
 **Definition**
 
+Number of toroidal harmonics (binormal Fourier modes).  
+
+**Comments**
+
+- Together with :ref:`cgyro_ky`, this controls the toroidal resolution.
+  
 ----
 
 .. _cgyro_n_species:
