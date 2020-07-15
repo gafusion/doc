@@ -29,7 +29,7 @@ Some notes about :doc:`plasma rotation <rotation>`.
 Experimental profiles
 ---------------------
 
-GACODE software works with the :ref:`input.profiles` format.   
+GACODE software works with the :ref:`input.gacode` format.   
 
 .. toctree::
    :caption: Software

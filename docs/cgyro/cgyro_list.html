@@ -159,6 +159,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#print-step">PRINT_STEP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#profile-model">PROFILE_MODEL</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#q">Q</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#quasineutral-flag">QUASINEUTRAL_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#restart-step">RESTART_STEP</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rmin">RMIN</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#rmaj">RMAJ</a></li>
@@ -357,7 +358,7 @@ defined as</p>
 <ul class="simple">
 <li><p>DEFAULT = -1</p></li>
 <li><p>In DIII-D, typically BTCCW = 1.</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of <span class="math notranslate nohighlight">\(B_t\)</span> is inferred from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of <span class="math notranslate nohighlight">\(B_t\)</span> is inferred from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -481,7 +482,7 @@ defined as</p>
 <ul class="simple">
 <li><p>DEFAULT = 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -541,7 +542,7 @@ is the density at the outboard midplane (<span class="math notranslate nohighlig
 <ul class="simple">
 <li><p>DEFAULT = <span class="math notranslate nohighlight">\([1,1,1,\ldots]\)</span></p></li>
 <li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the density as a function of radius is
-read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the gradient is computed internally.  The normalizing length is the
+read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> and the gradient is computed internally.  The normalizing length is the
 plasma minor radius.</p></li>
 <li><p>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
 outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
@@ -558,7 +559,7 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <ul class="simple">
 <li><p>DEFAULT = <span class="math notranslate nohighlight">\([1,1,1,\ldots]\)</span></p></li>
 <li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the temperature as a function of radius is
-read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the gradient is computed internally.  The normalizing length is the
+read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> and the gradient is computed internally.  The normalizing length is the
 plasma minor radius.</p></li>
 <li><p>When rotation effects are included (<a class="reference internal" href="#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2), this parameter is the value at the
 outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span>).</p></li>
@@ -712,7 +713,7 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <ul class="simple">
 <li><p>DEFAULT = -1</p></li>
 <li><p>In DIII-D, typically IPCCW = 1.</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of IP is inferred from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a>.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the orientiation of IP is inferred from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -724,7 +725,7 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <ul class="simple">
 <li><p>DEFAULT = 1.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.profiles.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from input.gacode.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1011,6 +1012,16 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="profile-model">
 <span id="cgyro-profile-model"></span><h2>PROFILE_MODEL<a class="headerlink" href="#profile-model" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Selector for profile data input.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>PROFILE_MODEL=1: Set local profile parameters in input.cgyro.</p></li>
+<li><p>PROFILE_MODEL=2: Compute local profile parameters from data in <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1</p></li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="q">
@@ -1021,7 +1032,23 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <ul class="simple">
 <li><p>DEFAULT = 2.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> and the safety factor gradient is computed internally.</p></li>
+</ul>
+<hr class="docutils" />
+</div>
+<div class="section" id="quasineutral-flag">
+<span id="cgyro-quasineutral-flag"></span><h2>QUASINEUTRAL_FLAG<a class="headerlink" href="#quasineutral-flag" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Enforce quasineutrality when using experimental profiles.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>QUASINEUTRAL_FLAG=0: Use raw density data.</p></li>
+<li><p>QUASINEUTRAL_FLAG=1: Reset main ion density to enforce quasineutrality.</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1</p></li>
+<li><p>This is only active when experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2).</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1072,7 +1099,7 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <ul class="simple">
 <li><p>DEFAULT = 1.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the safety factor as a function of radius is read from input.gacode and the safety factor gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1086,7 +1113,7 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <ul class="simple">
 <li><p>DEFAULT = 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>,  is read from input.profiles and its derivative is computed internally.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the flux-surface-center major radius as a function of radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>,  is read from input.gacode and its derivative is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1195,7 +1222,7 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <ul class="simple">
 <li><p>DEFAULT: 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the triangularity gradient is computed internally.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the triangularity as a function of radius is read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> and the triangularity gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1209,7 +1236,7 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <ul class="simple">
 <li><p>DEFAULT: 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from <a class="reference internal" href="../input_profiles.html#input-profiles"><span class="std std-ref">input.profiles</span></a> and the elongation gradient is computed internally.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the elongation as a function of radius is read from <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> and the elongation gradient is computed internally.</p></li>
 </ul>
 <hr class="docutils" />
 </div>
@@ -1280,7 +1307,7 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 <p><strong>Choices</strong></p>
 <ul class="simple">
 <li><p>Z_EFF_METHOD=1: Use value for Z_EFF defined in input.cgyro (or input.gacode)</p></li>
-<li><p>Z_EFF_METHOD=2: Compute Z_EFF automatically and self-consistently based on species data</p></li>
+<li><p>Z_EFF_METHOD=2: Compute Z_EFF automatically and self-consistently based on species data <strong>(recommended)</strong></p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -1297,7 +1324,7 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 <ul class="simple">
 <li><p>DEFAULT = 0.0</p></li>
 <li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
-<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.profiles.</p></li>
+<li><p>When experimental profiles are used (<a class="reference internal" href="#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2), the squareness as a function of radius is read from input.gacode.</p></li>
 </ul>
 <hr class="docutils" />
 </div>

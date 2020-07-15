@@ -143,7 +143,7 @@ In the table:
 
 - x denotes the direct use of the parameter as specified in input.gyro, input.cgyro, input.neo,
 
-- C means the parameter is computed from data in input.profiles
+- C means the parameter is computed from data in input.gacode
 
 - D means the parameter is not part of the model and is not used (although the effective value is printed for diagnostic purposes)
 
@@ -185,4 +185,4 @@ This corresponds to :ref:`cgyro_ipccw` = 1 and :ref:`cgyro_btccw` =-1.  Thus, in
 - sign(:math:`\psi_{\rm pol}`) = -1
 - sign(:math:`q`) = -1
 
- In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed :doc:`input.profiles <input_profiles>` file. 
+ In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed :doc:`input.gacode <input_gacode>` file. 

@@ -115,7 +115,7 @@ Parameter which selects the orientation of the toroidal magnetic field :math:`B_
 
 - DEFAULT = -1
 - In DIII-D, typically BTCCW = 1.
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of :math:`B_t` is inferred from :ref:`input.profiles`.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of :math:`B_t` is inferred from :ref:`input.gacode`.
 
 
 ----
@@ -282,7 +282,7 @@ Triangularity, :math:`\delta`, of the flux surface:
 
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.profiles`.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.gacode`.
 
 ----
 
@@ -364,7 +364,7 @@ The normalized equilibrium-scale density gradient scale length:
 
 - DEFAULT = :math:`[1,1,1,\ldots]`
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the density as a function of radius is
-  read from :ref:`input.profiles` and the gradient is computed internally.  The normalizing length is the
+  read from :ref:`input.gacode` and the gradient is computed internally.  The normalizing length is the
   plasma minor radius.
 - When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
   outboard midplane (:math:`\theta=0`).  
@@ -387,7 +387,7 @@ The normalized equilibrium-scale temperature gradient scale length:
 
 - DEFAULT = :math:`[1,1,1,\ldots]`
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the temperature as a function of radius is
-  read from :ref:`input.profiles` and the gradient is computed internally.  The normalizing length is the
+  read from :ref:`input.gacode` and the gradient is computed internally.  The normalizing length is the
   plasma minor radius.
 - When rotation effects are included (:ref:`cgyro_rotation_model` = 2), this parameter is the value at the
   outboard midplane (:math:`\theta=0`).  
@@ -608,7 +608,7 @@ Parameter which selects the orientation of the plasma current (and thus the polo
 
 - DEFAULT = -1
 - In DIII-D, typically IPCCW = 1.
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of IP is inferred from :ref:`input.profiles`.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the orientiation of IP is inferred from :ref:`input.gacode`.
 
 ----
 
@@ -625,7 +625,7 @@ Elongation, :math:`\kappa`, of the flux surface.
 
 - DEFAULT = 1.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from input.profiles.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from input.gacode.
 
 ----
 
@@ -1044,6 +1044,17 @@ PROFILE_MODEL
 
 **Definition**
 
+Selector for profile data input.
+
+**Choices**
+
+- PROFILE_MODEL=1: Set local profile parameters in input.cgyro.
+- PROFILE_MODEL=2: Compute local profile parameters from data in :ref:`input.gacode`.
+
+**Comments**
+
+- DEFAULT = 1
+  
 ----
 
 .. _cgyro_q:
@@ -1059,7 +1070,28 @@ Safety factor, :math:`q`, of the flux surface.
 
 - DEFAULT = 2.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from :ref:`input.gacode` and the safety factor gradient is computed internally.
+  
+----
+
+.. _cgyro_quasineutral_flag:
+
+QUASINEUTRAL_FLAG
+-----------------
+
+**Definition**
+
+Enforce quasineutrality when using experimental profiles.
+
+**Choices**
+
+- QUASINEUTRAL_FLAG=0: Use raw density data.
+- QUASINEUTRAL_FLAG=1: Reset main ion density to enforce quasineutrality.
+
+**Comments**
+
+- DEFAULT = 1
+- This is only active when experimental profiles are used (:ref:`cgyro_profile_model` = 2).
   
 ----
   
@@ -1132,7 +1164,7 @@ Magnetic shear, :math:`s`, of the flux surface:
 
 - DEFAULT = 1.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.profiles and the safety factor gradient is computed internally.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from input.gacode and the safety factor gradient is computed internally.
   
 ----
 
@@ -1152,7 +1184,7 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
 
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.profiles and its derivative is computed internally.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the flux-surface-center major radius as a function of radius, :math:`R_0(r)`,  is read from input.gacode and its derivative is computed internally.
 
 ----
 
@@ -1311,7 +1343,7 @@ Measure of the rate of change of the average triangularity of the flux surface:
 
 - DEFAULT: 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.profiles` and the triangularity gradient is computed internally.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the triangularity as a function of radius is read from :ref:`input.gacode` and the triangularity gradient is computed internally.
 
 ----
 
@@ -1331,7 +1363,7 @@ Measure of the rate of change of the elongation of the flux surface:
 
 - DEFAULT: 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from :ref:`input.profiles` and the elongation gradient is computed internally.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the elongation as a function of radius is read from :ref:`input.gacode` and the elongation gradient is computed internally.
  
 ----
 
@@ -1455,7 +1487,7 @@ Squareness, :math:`\zeta`, of the flux surface.
 
 - DEFAULT = 0.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
-- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the squareness as a function of radius is read from input.profiles.
+- When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the squareness as a function of radius is read from input.gacode.
 
 ----
 

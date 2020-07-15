@@ -43,6 +43,7 @@ Tabular list for input.cgyro
    :widths: 13, 25, 5
 
    ":ref:`cgyro_profile_model`", Profile input selector,1
+   ":ref:`cgyro_quasineutral_flag`", Toggle quasineutrality,1
    ":ref:`cgyro_nonlinear_flag`", Toggle nonlinear simulation,0
    ":ref:`cgyro_zf_test_mode`", Control zonal flow testing,0
    ":ref:`cgyro_silent_flag`", Toggle silent output,0
