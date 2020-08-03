@@ -127,7 +127,7 @@ BOX_SIZE
 
 **Definition**
 
-Factor to determine the radial box length, :math:`L_x`, as a multiple of the distance between reference singular surfaces, :math:`L_0 = r/(qs)`.
+Integer multiplier to determine the radial box length, :math:`L_x`, as a multiple of the distance between reference singular surfaces, :math:`L_0 = r/(qs)`.
 
 .. math::
     \frac{L_x}{a} = \mathrm{BOX\_SIZE} \; \left( \frac{r}{qs} \right)
@@ -135,7 +135,7 @@ Factor to determine the radial box length, :math:`L_x`, as a multiple of the dis
 
 **Comments**
 
-- DEFAULT = 1.0
+- DEFAULT = 1 (integer)
 - Note that the reference singular surface spacing refers to :math:`n=1` which is always the lowest non-zero mode in CGYRO.
 - Also, :math:`r \rightarrow` :ref:`cgyro_rmin`, :math:`s \rightarrow` :ref:`cgyro_s`, :math:`q \rightarrow` :ref:`cgyro_q`. 
 
@@ -1026,6 +1026,12 @@ N_SPECIES
 
 **Definition**
 
+Number of kinetic species (includes electrons and all ions).
+
+**Comments**
+
+- DEFAULT = 1
+
 ----
 
 .. _cgyro_print_step:
@@ -1373,6 +1379,16 @@ S_ZETA
 ------
 
 **Definition**
+
+Measure of the rate of change of the average squareness of the flux surface:
+
+.. math::
+       s_\zeta = r \, \frac{\partial \zeta}{\partial r} \; .
+
+**Comments**
+
+- DEFAULT: 0.0
+- This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 
 ----
 
