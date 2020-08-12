@@ -30,7 +30,7 @@ Data input
 ----------
 
 The primary TGYRO input file is :doc:`input.tgyro <tgyro/tgyro_table>`, with
-profile data defined in :ref:`input.profiles`.  
+profile data defined in :ref:`input.gacode`.  
 
 Data output, python interface, and plotting
 -------------------------------------------

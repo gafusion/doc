@@ -19,7 +19,7 @@ The equations solved in NEO complement those solved in gyrokinetic codes such as
 Data input 
 ----------
 
-The primary NEO input file is :doc:`input.neo <neo/neo_table>`.  Profile data can be optionally captured from  :doc:`input.profiles <input_profiles>`.
+The primary NEO input file is :doc:`input.neo <neo/neo_table>`.  Profile data can be optionally captured from  :doc:`input.gacode <input_gacode>`.
 
 NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo\_ and appending \_in to the name of the corresponding input.neo parameter.
 

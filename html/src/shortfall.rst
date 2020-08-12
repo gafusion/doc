@@ -69,7 +69,7 @@ EXPERIMENTAL profiles
 
   - :download:`OLD input.profiles.geo <shortfall/old.input.profiles.geo.128913_shortfall.txt>`
 	      
-* Note that there may be small numerical (but not qualitative) differences between the profiles in these files and the values reported in :cite:`holland:2009` due to 10 years of code evolution since the original publication.  We **strongly** urge all future work use the most recent input.profiles file for future studies, to ensure a common starting point and basis for comparison.
+* Note that there may be small numerical (but not qualitative) differences between the profiles in these files and the values reported in :cite:`holland:2009` due to 10 years of code evolution since the original publication.  We **strongly** urge all future work use the most recent :ref:`input.gacode` file for future studies, to ensure a common starting point and basis for comparison.
 
 GYRO results
 ------------
