@@ -20,7 +20,7 @@ input.tgyro Tabular List
    ":ref:`tgyro_loc_residual_method`", Residual formula,2
    ":ref:`tgyro_iteration_method`", Iteration scheme,1
    ":ref:`tgyro_relax_iterations`", Number of Newton iterations,0
-   ":ref:`tgyro_write_profiles_flag`", Manage writing of updated :ref:`input.profiles`,0
+   ":ref:`tgyro_write_profiles_flag`", Manage writing of updated :ref:`input.gacode`,0
 
 .. csv-table:: **Profile Feedback Control**
    :header: "input.tgyro parameter", "Short description", "Default"

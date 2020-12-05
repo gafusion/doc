@@ -1,9 +1,9 @@
 The General Atomics GACODE Suite
 ================================
 
-.. figure:: image/marshall_code.png
+.. figure:: images/marshall_code.png
 	:width: 90 %
-	:alt: Marshall
+	:alt: Marshall Rosenbluth (early 1980s)
 	:align: center
 
 

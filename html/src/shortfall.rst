@@ -3,7 +3,7 @@
 DIII-D L-mode shortfall
 =======================
 
-.. |ip| replace:: :doc:`input.profiles <input_profiles>`
+.. |ip| replace:: :doc:`input.gacode <input_gacode>`
 .. |GYRO| replace:: :doc:`GYRO <gyro>`
 .. |TGLF| replace:: :doc:`TGLF <tglf>`
 .. |GKW| replace:: `GKW`

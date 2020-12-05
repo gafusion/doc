@@ -277,7 +277,7 @@ Flag to manage calculation of initial profile
 
 **Comments**
 
-- If set to 1, use temperature and density profiles as read from input.profiles, not as calculated from gradients.
+- If set to 1, use temperature and density profiles as read from :ref:`input.gacode`, not as calculated from gradients.
 - This has an effect only on the zeroth iteration.
 - This can have a large effect when a coarse radial grid is used. In this case, the profile as calculated from the gradients at only a few points will not match the original (higher-resolution) profile.
 
@@ -601,7 +601,7 @@ TGYRO_WRITE_PROFILES_FLAG
 
 **Definition**
 
-Manage how new :ref:`input.profiles` files are written.
+Manage how new :ref:`input.gacode` files are written.
 
 **Choices**
 

@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,28 +11,34 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   
   
   
 
   
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script type="text/javascript" src="_static/jquery.js"></script>
-        <script type="text/javascript" src="_static/underscore.js"></script>
-        <script type="text/javascript" src="_static/doctools.js"></script>
-        <script type="text/javascript" src="_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+        <script src="_static/contentui.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="prev" title="input.gacode" href="input_gacode.html" /> 
@@ -50,7 +55,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> GACODE
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> GACODE
           
 
           
@@ -73,6 +78,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -116,6 +122,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -154,7 +161,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>DIII-D L-mode shortfall</li>
     
@@ -242,14 +249,14 @@
 <div class="section" id="experimental-profiles">
 <h2>EXPERIMENTAL profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>Equilibrium profiles (including Miller parameterization of magnetic geometry) in <span class="xref std std-doc">input.profiles</span> format are available here:</p>
+<li><p>Equilibrium profiles (including Miller parameterization of magnetic geometry) in <a class="reference internal" href="input_gacode.html"><span class="doc">input.gacode</span></a> format are available here:</p>
 <ul>
 <li><p><a class="reference download internal" download="" href="_downloads/65ef998982d88a645943e32960230495/input.profiles.128913_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">input.profiles</span></code></a></p></li>
 <li><p><a class="reference download internal" download="" href="_downloads/96b4cc3120dbcc911278098e0986fbad/input.profiles.extra.128913_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">input.profiles.extra</span></code></a></p></li>
 <li><p><a class="reference download internal" download="" href="_downloads/2d6b129e4e84472cc1cae69f3a6bdaf8/input.profiles.geo.128913_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">input.profiles.geo</span></code></a></p></li>
 </ul>
 </li>
-<li><p>Those interested in examining possible up-down asymmetry effects can refer to the associated input.profiles.geo file above. Alternatively, the EFIT gEQDSK file used for this analysis can be downloaded <a class="reference download internal" download="" href="_downloads/ab859459785dd8cb8d1fa9f200432c95/g128913.01500_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. Also available for download are the ONETWO <a class="reference download internal" download="" href="_downloads/a58953c41c77f94e7062841b3237af61/D3D_iterdb_kinefit_128913.01500"><code class="xref download docutils literal notranslate"><span class="pre">iterdb</span></code></a> and <a class="reference download internal" download="" href="_downloads/63bad8473268cc422951db9c343a33dc/dplasma_cer_format.128913.1500"><code class="xref download docutils literal notranslate"><span class="pre">CER</span> <span class="pre">rotation</span></code></a> files used to generate the <span class="xref std std-doc">input.profiles</span> files above.</p></li>
+<li><p>Those interested in examining possible up-down asymmetry effects can refer to the associated input.profiles.geo file above. Alternatively, the EFIT gEQDSK file used for this analysis can be downloaded <a class="reference download internal" download="" href="_downloads/ab859459785dd8cb8d1fa9f200432c95/g128913.01500_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>. Also available for download are the ONETWO <a class="reference download internal" download="" href="_downloads/a58953c41c77f94e7062841b3237af61/D3D_iterdb_kinefit_128913.01500"><code class="xref download docutils literal notranslate"><span class="pre">iterdb</span></code></a> and <a class="reference download internal" download="" href="_downloads/63bad8473268cc422951db9c343a33dc/dplasma_cer_format.128913.1500"><code class="xref download docutils literal notranslate"><span class="pre">CER</span> <span class="pre">rotation</span></code></a> files used to generate the <a class="reference internal" href="input_gacode.html"><span class="doc">input.gacode</span></a> files above.</p></li>
 <li><p>Older versions of these files, used in references above and results shown below are also availble. These files have the same data as the more recent versions above, but in a slightly different format that will not be accurately read by current GACODE codes. <strong>These files are provided only for reference, and should not be used in future studies</strong>.</p>
 <ul>
 <li><p><a class="reference download internal" download="" href="_downloads/9ea37442277bb97b3376f5db1a276bbe/old.input.profiles.128913_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">OLD</span> <span class="pre">input.profiles</span></code></a></p></li>
@@ -365,11 +372,19 @@ and output summary file
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -380,7 +395,6 @@ and output summary file
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

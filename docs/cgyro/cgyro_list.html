@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,28 +11,34 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
-        <script type="text/javascript" src="../_static/jquery.js"></script>
-        <script type="text/javascript" src="../_static/underscore.js"></script>
-        <script type="text/javascript" src="../_static/doctools.js"></script>
-        <script type="text/javascript" src="../_static/language_data.js"></script>
-        <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/contentui.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="CGYRO output files" href="outputs.html" />
@@ -51,7 +56,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> GACODE
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> GACODE
           
 
           
@@ -74,6 +79,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -194,6 +200,8 @@
 <li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running_cases.html">Running Cases</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FAQ.html">FAQ</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#source-code">Source Code</a></li>
@@ -201,8 +209,6 @@
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-input">Data input</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#normalization">Normalization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#running-cases">Running cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#batch-submission">Batch submission</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
@@ -219,6 +225,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -257,7 +264,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../cgyro.html">CGYRO</a> &raquo;</li>
         
@@ -365,12 +372,12 @@ defined as</p>
 <div class="section" id="box-size">
 <span id="cgyro-box-size"></span><h2>BOX_SIZE<a class="headerlink" href="#box-size" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
-<p>Factor to determine the radial box length, <span class="math notranslate nohighlight">\(L_x\)</span>, as a multiple of the distance between reference singular surfaces, <span class="math notranslate nohighlight">\(L_0 = r/(qs)\)</span>.</p>
+<p>Integer multiplier to determine the radial box length, <span class="math notranslate nohighlight">\(L_x\)</span>, as a multiple of the distance between reference singular surfaces, <span class="math notranslate nohighlight">\(L_0 = r/(qs)\)</span>.</p>
 <div class="math notranslate nohighlight">
 \[\frac{L_x}{a} = \mathrm{BOX\_SIZE} \; \left( \frac{r}{qs} \right)\]</div>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li><p>DEFAULT = 1.0</p></li>
+<li><p>DEFAULT = 1 (integer)</p></li>
 <li><p>Note that the reference singular surface spacing refers to <span class="math notranslate nohighlight">\(n=1\)</span> which is always the lowest non-zero mode in CGYRO.</p></li>
 <li><p>Also, <span class="math notranslate nohighlight">\(r \rightarrow\)</span> <a class="reference internal" href="#cgyro-rmin"><span class="std std-ref">RMIN</span></a>, <span class="math notranslate nohighlight">\(s \rightarrow\)</span> <a class="reference internal" href="#cgyro-s"><span class="std std-ref">S</span></a>, <span class="math notranslate nohighlight">\(q \rightarrow\)</span> <a class="reference internal" href="#cgyro-q"><span class="std std-ref">Q</span></a>.</p></li>
 </ul>
@@ -1002,6 +1009,11 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="n-species">
 <span id="cgyro-n-species"></span><h2>N_SPECIES<a class="headerlink" href="#n-species" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Number of kinetic species (includes electrons and all ions).</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1</p></li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="print-step">
@@ -1243,6 +1255,14 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <div class="section" id="s-zeta">
 <span id="cgyro-s-zeta"></span><h2>S_ZETA<a class="headerlink" href="#s-zeta" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
+<p>Measure of the rate of change of the average squareness of the flux surface:</p>
+<div class="math notranslate nohighlight">
+\[s_\zeta = r \, \frac{\partial \zeta}{\partial r} \; .\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT: 0.0</p></li>
+<li><p>This is only active with <a class="reference internal" href="#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 2 (the Miller equilibrium model).</p></li>
+</ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="temp">
@@ -1361,11 +1381,19 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2010-2020
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -1376,7 +1404,6 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {

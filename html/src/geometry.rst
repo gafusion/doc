@@ -23,7 +23,7 @@ moves counterclockwise along the flux-surface (shown in blue). The **minor radiu
 :math:`r` is in all cases taken to be one-half the width of the flux-surface at
 the elevation, :math:`Z_{c}`, of the flux-surface centroid.
    
-.. figure:: image/flux_surface.png
+.. figure:: images/flux_surface.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center
@@ -154,12 +154,12 @@ Magnetic field orientation
 
 GACODE uses a right-handed (positively-oriented), field-aligned coordinate system :math:`(r,\theta,\varphi)`, whereas DIII-D uses a (positively-oriented) cylindrical system :math:`(R,\phi,Z)`.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:
 
-.. figure:: image/Orient_gacode.png
+.. figure:: images/Orient_gacode.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center
 
-.. figure:: image/Orient_d3d.png
+.. figure:: images/Orient_d3d.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center		
@@ -173,7 +173,7 @@ In reality, quantities like the safety factor and poloidal flux have definite si
 
 The standard configuration in DIII-D is shown below.
 
-.. figure:: image/Orient_d3d_standard.png
+.. figure:: images/Orient_d3d_standard.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center

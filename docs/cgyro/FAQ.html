@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>CGYRO output files &mdash; GACODE</title>
+  <title>FAQ &mdash; GACODE</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="CGYRO data interface and plotting" href="plot.html" />
-    <link rel="prev" title="Alphabetical list for input.cgyro" href="cgyro_list.html" /> 
+    <link rel="next" title="GYRO" href="../gyro.html" />
+    <link rel="prev" title="Running Cases" href="running_cases.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -103,14 +103,11 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">CGYRO output files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#output-normalization">Output Normalization</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="running_cases.html">Running Cases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FAQ.html">FAQ</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FAQ</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../cgyro.html#source-code">Source Code</a></li>
@@ -177,13 +174,13 @@
         
           <li><a href="../cgyro.html">CGYRO</a> &raquo;</li>
         
-      <li>CGYRO output files</li>
+      <li>FAQ</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cgyro/outputs.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cgyro/FAQ.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -196,144 +193,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="cgyro-output-files">
-<h1>CGYRO output files<a class="headerlink" href="#cgyro-output-files" title="Permalink to this headline">¶</a></h1>
-<p>It is not <strong>not recommended</strong> to read these files directly.  Rather, we encourage the use
-of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">python data interface</span></a>.</p>
-<table class="colwidths-given docutils align-default" id="id1">
-<caption><span class="caption-text"><strong>Time-independent output</strong></span><a class="headerlink" href="#id1" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Filename</p></th>
-<th class="head"><p>Short description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>out.cgyro.egrid</p></td>
-<td><p>Energy mesh and various weights</p></td>
-</tr>
-<tr class="row-odd"><td><p>out.cgyro.equilibrium</p></td>
-<td><p>Physics input data</p></td>
-</tr>
-<tr class="row-even"><td><p>out.cgyro.grids</p></td>
-<td><p>Mesh dimensions and coordinates</p></td>
-</tr>
-<tr class="row-odd"><td><p>out.cgyro.hosts</p></td>
-<td><p>MPI ranks and hostnames</p></td>
-</tr>
-<tr class="row-even"><td><p>out.cgyro.info</p></td>
-<td><p>Human-readable description of simulation</p></td>
-</tr>
-<tr class="row-odd"><td><p>out.cgyro.memory</p></td>
-<td><p>Memory usage statistics</p></td>
-</tr>
-<tr class="row-even"><td><p>out.cgyro.mpi</p></td>
-<td><p>Recommendations for choosing MPI tasks and OMP threads</p></td>
-</tr>
-<tr class="row-odd"><td><p>out.cgyro.version</p></td>
-<td><p>Version information and timestamp for simulation</p></td>
-</tr>
-<tr class="row-even"><td><p>bin.cgyro.geo</p></td>
-<td><p>GK equation coefficients versus <span class="math notranslate nohighlight">\(\theta\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text"><strong>Common time-dependent output</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 42%" />
-<col style="width: 25%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Filename</p></th>
-<th class="head"><p>Short description</p></th>
-<th class="head"><p>Switch</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>out.cgyro.time</p></td>
-<td><p>Time and error vector</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>out.cgyro.timing</p></td>
-<td><p>Kernel timer data</p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>bin.cgyro.freq</p></td>
-<td><p>Mode frequency vector</p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><p>bin.cgyro.kxky_phi</p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta\phi(k_x^0,k_y,t)\)</span></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td><p>bin.cgyro.kxky_apar</p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></p></td>
-<td><p><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>bin.cgyro.kxky_bpar</p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></p></td>
-<td><p><a class="reference internal" href="cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</p></td>
-</tr>
-<tr class="row-even"><td><p>bin.cgyro.kxky_n</p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta n_a(k_x^0,k_y,t)\)</span></p></td>
-<td><p><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>bin.cgyro.kxky_e</p></td>
-<td><p><span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span></p></td>
-<td><p><a class="reference internal" href="cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</p></td>
-</tr>
-<tr class="row-even"><td><p>bin.cgyro.kxky_flux_e</p></td>
-<td><p><span class="math notranslate nohighlight">\(Q_a(k_x^0,k_y,t)\)</span></p></td>
-<td><p><span class="xref std std-ref">cgyro_kxkyflux_print_flag</span> = 1</p></td>
-</tr>
-<tr class="row-odd"><td><p>bin.cgyro.ky_flux</p></td>
-<td><p><span class="math notranslate nohighlight">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math notranslate nohighlight">\((k_y,t)\)</span></p></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<table class="colwidths-given docutils align-default" id="id3">
-<caption><span class="caption-text"><strong>Restart data</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
-<colgroup>
-<col style="width: 40%" />
-<col style="width: 60%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Filename</p></th>
-<th class="head"><p>Short description</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>out.cgyro.tag</p></td>
-<td><p>Restart tag file (contains time index and value)</p></td>
-</tr>
-<tr class="row-odd"><td><p>bin.cgyro.restart</p></td>
-<td><p>Binary restart file</p></td>
-</tr>
-</tbody>
-</table>
-<div class="section" id="output-normalization">
-<h2>Output Normalization<a class="headerlink" href="#output-normalization" title="Permalink to this headline">¶</a></h2>
-<p>Ion sound gyroradius</p>
+  <div class="section" id="faq">
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
+<div class="toggle-header docutils container">
+<p>What is <span class="math notranslate nohighlight">\(k_y \rho_s\)</span> and why does CGYRO modify <span class="math notranslate nohighlight">\(\rho_s\)</span> ?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>The fundamental definition of the wavenumber and unit gyroradius are given in <a class="bibtex reference internal" href="../zreferences.html#candy-2016" id="id1">[CBB16]</a>.
+These are</p>
 <div class="math notranslate nohighlight">
-\[\rho_{s,{\rm unit}} = \frac{c_s}{e B_{\rm unit}/(m_D c)}\]</div>
-<p>Ion sound speed</p>
+\[\begin{split}\begin{align}
+k_y \doteq &amp;~nq/r \; , \\
+\rho_s \doteq &amp;~\rho_{s,\rm{unit}} = \frac{e B_\rm{unit}}{m_D c} \; , \\
+B_\rm{unit} \doteq &amp;~\displaystyle \frac{q}{r} \frac{\partial \psi}{\partial r} \; .
+\end{align}\end{split}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(B_\rm{unit}\)</span> is the <em>Waltz effective magnetic field</em> which is standard
+across all GACODE tools/codes, and <span class="math notranslate nohighlight">\(r\)</span> is the midplane minor radius.  For a given
+value of <span class="math notranslate nohighlight">\(k_y \rho_s\)</span>, the gyrokinetic equations are invariant to the scaling
+<span class="math notranslate nohighlight">\(n \rightarrow \alpha n\)</span> and <span class="math notranslate nohighlight">\(\rho_s \rightarrow \rho_s/\alpha\)</span>,
+where <span class="math notranslate nohighlight">\(\alpha\)</span> is an arbitrary scaling parameter.</p>
+<p>The CGYRO input parameter KY is</p>
 <div class="math notranslate nohighlight">
-\[c_s=\sqrt{T_e/m_D}\]</div>
-<p>gyroBohm particle flux</p>
+\[\mathtt{KY} \doteq \Delta(k_y \rho_s) = \Delta n \left(\frac{q}{r}\right) \rho_s \; .\]</div>
+<p>CGYRO enforces <span class="math notranslate nohighlight">\(\Delta n = 1\)</span>, which sets the (artificial) value of <span class="math notranslate nohighlight">\(\rho_s\)</span> to</p>
 <div class="math notranslate nohighlight">
-\[\Gamma_{\rm GB} = n_e c_s (\rho_{s,{\rm unit}}/a)^2\]</div>
-<p>gyroBohm momentum flux</p>
-<div class="math notranslate nohighlight">
-\[\Pi_{\rm GB} = n_e a T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
-<p>gyroBohm energy flux</p>
-<div class="math notranslate nohighlight">
-\[Q_{\rm GB} = n_e c_s T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
+\[\rho_s \rightarrow \left(\frac{r}{q}\right) \mathtt{KY} \; .\]</div>
+<p>To see the physical values of key parameters, you can use profiles_gen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ profiles_gen -i input.gacode -loc_rad 0.6
+INFO: (profiles_gen) input.gacode is autodetected as GACODE.
+INFO: (locpargen) Quasineutrality NOT enforced.
+INFO: (locpargen) rhos/a   =+2.44577E-03
+INFO: (locpargen) Te [keV] =+8.81550E-01
+INFO: (locpargen) Ti [keV] =+7.58644E-01
+INFO: (locpargen) Bunit    =+2.92020E+00
+INFO: (locpargen) beta_*   =+4.84003E-03
+INFO: -----&gt;  n=1: ky*rhos =-7.74754E-03
+INFO: (locpargen) Wrote input.*.locpargen
+</pre></div>
+</div>
+</div></blockquote>
 </div>
 </div>
 
@@ -345,10 +244,10 @@ of the CGYRO <a class="reference internal" href="plot.html"><span class="doc">py
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plot.html" class="btn btn-neutral float-right" title="CGYRO data interface and plotting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="cgyro_list.html" class="btn btn-neutral float-left" title="Alphabetical list for input.cgyro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="running_cases.html" class="btn btn-neutral float-left" title="Running Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
