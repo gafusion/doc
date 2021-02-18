@@ -28,8 +28,10 @@ extensions=[
     'sphinx.ext.mathjax',
     'sphinxcontrib.bibtex',
     'sphinxcontrib.contentui',
-    'sphinx.ext.autosectionlabel',
+#    'sphinx.ext.autosectionlabel',
     'fluiddoc.mathmacro']
+
+bibtex_bibfiles = ['references.bib']
 
 autodoc_member_order = 'bysource'
 

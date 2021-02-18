@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>input.gacode &mdash; GACODE</title>
   
@@ -19,7 +19,10 @@
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   
+
   
+  
+
   
 
   
@@ -32,7 +35,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
@@ -56,7 +58,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> GACODE
+            <a href="index.html" class="icon icon-home"> GACODE
           
 
           
@@ -152,6 +154,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -163,7 +167,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/input_gacode.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -185,10 +189,10 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">HAM equilibrium parameters</span></a>.</p>
+<p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">MXH equilibrium parameters</span></a> <span id="id2">[<a class="reference internal" href="zreferences.html#id3"><span>ACB20</span></a>]</span>.</p>
 <p>Profile ordering in <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> is arbitrary and comment lines (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate <a class="reference internal" href="#"><span class="doc">input.gacode</span></a>, please use the <code class="docutils literal notranslate"><span class="pre">profiles_gen</span></code> command-line tool.</p>
-<table class="colwidths-given docutils align-default" id="id2">
-<caption><span class="caption-text"><strong>File structure</strong></span><a class="headerlink" href="#id2" title="Permalink to this table">¶</a></caption>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-text"><strong>File structure</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
 <colgroup>
 <col style="width: 20%" />
 <col style="width: 80%" />
@@ -206,7 +210,7 @@
 <td><p>Number of experimental data gridpoints.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rho(:)</span></code></p></td>
-<td><p>The dimensionless ONETWO flux-surface label, <span class="math notranslate nohighlight">\(\hat\rho = \rho(r)/\rho(a)\)</span>. This should span the region <span class="math notranslate nohighlight">\({\hat\rho} \in [0,1]\)</span> using n_grid_exp values. The grid-spacing can be nonuniform.</p></td>
+<td><p>The dimensionless ONETWO flux-surface label, <span class="math notranslate nohighlight">\(\hat\rho = \rho(r)/\rho(a) \in [0,1]\)</span> (nonuniform allowed).</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rmin(:)</span></code></p></td>
 <td><p>The generalized minor radius, <span class="math notranslate nohighlight">\(r\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>. See <a class="reference internal" href="geometry.html"><span class="doc">here</span></a> for definition.</p></td>
@@ -227,16 +231,16 @@
 <td><p>Flux-surface elevation, <span class="math notranslate nohighlight">\(Z_0\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kappa(:)</span></code></p></td>
-<td><p>The dimensionless plasma elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>.</p></td>
+<td><p>Flux-surface elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delta(:)</span></code></p></td>
-<td><p>The dimensionless plasma triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>.</p></td>
+<td><p>Flux-surface triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zeta(:)</span></code></p></td>
-<td><p>Plasma squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>.</p></td>
+<td><p>Flux-surface squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos0(:)</span></code></p></td>
-<td></td>
+<td><p>Flux-surface tilt.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos1(:)</span></code></p></td>
 <td></td>
@@ -299,37 +303,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="shortfall.html" class="btn btn-neutral float-right" title="DIII-D L-mode shortfall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="rotation.html" class="btn btn-neutral float-left" title="PLASMA ROTATION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="shortfall.html" class="btn btn-neutral float-right" title="DIII-D L-mode shortfall" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rotation.html" class="btn btn-neutral float-left" title="PLASMA ROTATION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2010-2020
+        &#169; Copyright 2010-2021.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

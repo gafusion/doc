@@ -155,12 +155,11 @@ Cross-code benchmarking results
 	:alt: b250
 
 
-*Individual code results are here for cases with no collisions:
+* Individual code results are here for cases with no collisions:
    - :download:`GYRO <shortfall/ES_colloff_linfreq.128913_shortfall.txt>`
    - :download:`GKW <shortfall/ES_colloff_linfreq.GKW.128913_shortfall.txt>`
    - :download:`GENE <shortfall/D3D_128913_lin_es_miller_colloff_GENE.txt>`
-
-     
+   
 Acknowledgments
 -------------------------------
 Thanks to Ron Bravenec for providing the |GS2|_ and |GEM|_ data, Yann Camenen for the |GKW|_ results, and Tobias Görler for the |GENE|_ results.

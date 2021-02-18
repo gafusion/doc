@@ -14,7 +14,7 @@ To see what a sample |ip| looks like, at the command line type
 Overview
 --------
 
-The file |ip| contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new :doc:`HAM equilibrium parameters <geometry>`.  
+The file |ip| contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new :doc:`MXH equilibrium parameters <geometry>` :cite:`arbon:2020`.  
 
 Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate |ip|, please use the ``profiles_gen`` command-line tool. 
 
@@ -24,17 +24,17 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
 
    ``nion``, Total number of ions (thermal and fast).
    ``nexp``, Number of experimental data gridpoints.
-   ``rho(:)``,"The dimensionless ONETWO flux-surface label, :math:`\hat\rho = \rho(r)/\rho(a)`. This should span the region :math:`{\hat\rho} \in [0,1]` using n_grid_exp values. The grid-spacing can be nonuniform."
+   ``rho(:)``,"The dimensionless ONETWO flux-surface label, :math:`\hat\rho = \rho(r)/\rho(a) \in [0,1]` (nonuniform allowed)."
    ``rmin(:)``,"The generalized minor radius, :math:`r`, in units of :math:`{\rm m}`. See :doc:`here <geometry>` for definition."
    ``polflux(:)``, "Poloidal flux over :math:`2\pi`, in units of Webers/radian."
    ``q(:)``, "Safety factor, :math:`q`."
    ``omega0(:)``, "Rotation frequency, :math:`\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}` in units of :math:`{\rm rad/s}`. For more information, see :doc:`plasma rotation <rotation>`."
    ``rmaj(:)``,"The generalized major radius, :math:`R_0(r)`, in units of :math:`{\rm m}`."
    ``zmag(:)``,"Flux-surface elevation, :math:`Z_0`, in units of :math:`{\rm m}`."
-   ``kappa(:)``,"The dimensionless plasma elongation, :math:`\kappa`."
-   ``delta(:)``,"The dimensionless plasma triangularity, :math:`\delta`."
-   ``zeta(:)``,"Plasma squareness, :math:`\zeta`."
-   ``shape_cos0(:)``," " 
+   ``kappa(:)``,"Flux-surface elongation, :math:`\kappa`."
+   ``delta(:)``,"Flux-surface triangularity, :math:`\delta`."
+   ``zeta(:)``,"Flux-surface squareness, :math:`\zeta`."
+   ``shape_cos0(:)``,"Flux-surface tilt." 
    ``shape_cos1(:)``," "
    ``shape_cos2(:)``," " 
    ``shape_cos3(:)``," "

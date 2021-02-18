@@ -1,5 +1,5 @@
-Running CGYRO on OLCF Titan
-=================================
+Running CGYRO on OLCF Titan (deprecated)
+========================================
 
 ORNL Titan is one of the most popular GPU platforms on which to run CGYRO.
 This document provides some guidance on how to best make use of its resources

@@ -36,8 +36,9 @@ Source Code
 Overview
 --------
 
-CGYRO is a multi-species spectral gyrokinetic solver with sonic rotation capability.  
-Over the last decade the fusion community has focused its modeling efforts
+**The past: GYRO**
+
+Over the past two decades, the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
 was GYRO :cite:`candy:2003,candy:2003b,candy:2004a,candy:2010`.
 Thousands of nonlinear simulations with GYRO have informed the fusion community's understanding of
@@ -48,18 +49,21 @@ and pioneered the development of numerical algorithms for the GK equations
 with kinetic electrons.  It is formulated in real space and like all global solvers
 requires *ad hoc* absorbing-layer boundary conditions when simulating cases
 with profile variation.  This approach is suitable for core turbulence simulations,
-which cover a large radial region and are dominated by low wavenumbers.  More recently,
-as the understanding of core transport has become increasingly complete, the cutting
-edge of research moved radially toward the pedestal region, where plasmas are
+which cover a large radial region and are dominated by low wavenumbers.
+
+**The future: CGYRO**
+
+As the understanding of core transport has become increasingly complete, the
+cutting edge of research moved radially toward the pedestal region, where plasmas are
 characterized by larger collisionality and steeper pressure gradients that
 greatly modify the turbulent phenomena at play. This motivated the development,
-from scratch, of the CGYRO code :cite:`candy:2016,belli:2017,candy:2018,belli:2018`
+from scratch, of the CGYRO code :cite:`candy:2016,belli:2017,belli:2018,candy:2019`
 to complement GYRO.  CGYRO is an Eulerian GK solver specifically designed and
 optimized for **collisional, electromagnetic, multiscale simulation**.
 A key algorithmic aspect of CGYRO is the **radially spectral formulation**
 used to reduce the complicated integral gyroaveraging kernel into a
 multiplication in wavenumber space, but retaining the ability to treat profile
-variation important for edge plasmas.  A new coordinate system that is more
+variation important for edge plasmas :cite:`candy:2018,candy:2020`.  A new coordinate system that is more
 suitable for the highly collisional and shaped edge regime was adopted from
 the NEO code :cite:`belli:2008,belli:2012`, which is the community standard for
 calculation of collisional transport in toroidal geometry.

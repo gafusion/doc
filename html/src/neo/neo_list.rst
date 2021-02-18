@@ -1102,6 +1102,135 @@ Shafranov shift, :math:`\Delta`, of the flux surface:
 
 -----
 
+.. _neo_shape_cos0:
+
+SHAPE_COS0
+----------
+
+**Definition**
+
+0th antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_s_cos0:
+
+SHAPE_S_COS0
+------------
+
+**Definition**
+
+0th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_cos1:
+
+SHAPE_COS1
+----------
+
+**Definition**
+
+1st antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_s_cos1:
+
+SHAPE_S_COS1
+------------
+
+**Definition**
+
+1th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_cos2:
+
+SHAPE_COS2
+----------
+
+**Definition**
+
+2nd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_s_cos2:
+
+SHAPE_S_COS2
+------------
+
+**Definition**
+
+2th antisymmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_cos3:
+
+SHAPE_COS3
+----------
+
+**Definition**
+
+3rd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_s_cos3:
+
+SHAPE_S_COS3
+------------
+
+**Definition**
+
+3rd antisymmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_sin3:
+
+SHAPE_SIN3
+----------
+
+**Definition**
+
+3rd symmetric moment.
+
+- DEFAULT = 0.0
+
+----
+
+.. _neo_shape_s_sin3:
+
+SHAPE_S_SIN3
+------------
+
+**Definition**
+
+3rd symmetric moment shear.
+
+- DEFAULT = 0.0
+
+----
 
 .. ===========================================================================================
 

@@ -31,8 +31,9 @@ of the CGYRO :doc:`python data interface <plot>`.
    bin.cgyro.kxky_bpar, ":math:`\delta B_\parallel(k_x^0,k_y,t)`",":ref:`cgyro_field_print_flag` = 1"
    bin.cgyro.kxky_n, ":math:`\delta n_a(k_x^0,k_y,t)`",":ref:`cgyro_moment_print_flag` = 1"
    bin.cgyro.kxky_e, ":math:`\delta E_a(k_x^0,k_y,t)`",":ref:`cgyro_moment_print_flag` = 1"
-   bin.cgyro.kxky_flux_e, ":math:`Q_a(k_x^0,k_y,t)`",":ref:`cgyro_kxkyflux_print_flag` = 1"
+   bin.cgyro.kxky_v, ":math:`\delta v_a(k_x^0,k_y,t)`",":ref:`cgyro_moment_print_flag` = 1"
    bin.cgyro.ky_flux, ":math:`\Gamma_a, \Pi_a, Q_a` versus :math:`(k_y,t)`" 
+   bin.cgyro.ky_cflux, ":math:`\Gamma_a, \Pi_a, Q_a` (half domain) versus :math:`(k_y,t)`" 
 
 .. csv-table:: **Restart data**
    :header: "Filename", "Short description"
