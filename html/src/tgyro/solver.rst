@@ -1,7 +1,7 @@
 .. _tgyro_solver:
 
-TGYRO Solver
-~~~~~~~~~~~~
+TGYRO solver algorithm
+~~~~~~~~~~~~~~~~~~~~~~
 
 .. |vpr| mathmacro:: V^\prime
 .. |qgb| mathmacro:: Q_{\rm GB}
@@ -287,3 +287,4 @@ We approximate the derivatives in the Jacobian matrix using a forward difference
 A desireable feature of this approximation is that the iteration scheme, Eq.~(\ref{eq.newton}) if it converges, 
 will converge to the exact root of the original equations without any influence of the finite-difference truncation 
 error.
+

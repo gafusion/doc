@@ -306,7 +306,7 @@ Power-balance scenario.
 
 **Comments**
 
-- In LOC_SCENARIO=3, pow_e and pow_i in input.profiles are assumed to be auxiliary heating profiles.  Otherwise, pow_e and pow_i are the usual total powers to ions and electrons. 
+- See :ref:`tgyro_scenarios` for details
   
 **Default**
 

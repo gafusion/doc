@@ -28,7 +28,8 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
    ``rmin(:)``,"The generalized minor radius, :math:`r`, in units of :math:`{\rm m}`. See :doc:`here <geometry>` for definition."
    ``polflux(:)``, "Poloidal flux over :math:`2\pi`, in units of Webers/radian."
    ``q(:)``, "Safety factor, :math:`q`."
-   ``omega0(:)``, "Rotation frequency, :math:`\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}` in units of :math:`{\rm rad/s}`. For more information, see :doc:`plasma rotation <rotation>`."
+   ``omega0(:)``, "Rotation frequency, :math:`\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}` in units of :math:`{\rm rad/s}` (see :doc:`plasma rotation <rotation>`)."
+   *shape*,--
    ``rmaj(:)``,"The generalized major radius, :math:`R_0(r)`, in units of :math:`{\rm m}`."
    ``zmag(:)``,"Flux-surface elevation, :math:`Z_0`, in units of :math:`{\rm m}`."
    ``kappa(:)``,"Flux-surface elongation, :math:`\kappa`."
@@ -39,6 +40,7 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
    ``shape_cos2(:)``," " 
    ``shape_cos3(:)``," "
    ``shape_sin3(:)``," "
+   " ",--
    ``ne(:)``,"The electron density, :math:`n_e`, in units of :math:`10^{19}/{\rm m}^3`."
    ``te(:)``,"The electron temperature, :math:`T_e`, in units of :math:`{\rm keV}`."
    ``ptot(:)``,"Total plasma pressure, in units of Pascals."
@@ -49,7 +51,20 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
    ``jbstor(:)``,"Bootstrap current (toroidal) in units of :math:`{\rm MA/m^2}`."
    "``vtor(:,:)``","Ion toroidal velocity in units of :math:`{\rm m/s}`. There is a column for every ion species."
    "``vpol(:,:)``","Ion poloidal velocity in units of :math:`{\rm m/s}`. There is a column for every ion species."
+   *powers*,--
+   ``qohme(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qbeame(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qbeami(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qrfe(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qrfi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qfuse(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qfusi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qione(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qioni(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qcxi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
    ``qsync(:)``,"Electron synchrotron radiation in units of :math:`{\rm MW/m^3}`."
    ``qbrem(:)``,"Bremsstrahlung radiation in units of :math:`{\rm MW/m^3}`."
    ``qline(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qei(:)``,"Electron-ion exchange :math:`{\rm MW/m^3}`."
 
+   

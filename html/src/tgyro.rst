@@ -11,6 +11,7 @@ Quick links
    tgyro/tgyro_list
    tgyro/equations
    tgyro/solver
+   tgyro/scenarios
    tgyro/output
    tgyro/plot
 

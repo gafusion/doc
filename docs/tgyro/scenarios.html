@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>OUTPUT &mdash; GACODE</title>
+  <title>Scenarios and connection to energy sources &mdash; GACODE</title>
   
 
   
@@ -36,14 +36,15 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="PLOT" href="plot.html" />
-    <link rel="prev" title="Scenarios and connection to energy sources" href="scenarios.html" /> 
+    <link rel="next" title="OUTPUT" href="output.html" />
+    <link rel="prev" title="TGYRO solver algorithm" href="solver.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -105,8 +106,8 @@
 <li class="toctree-l3"><a class="reference internal" href="tgyro_list.html">input.tgyro Alphabetical List</a></li>
 <li class="toctree-l3"><a class="reference internal" href="equations.html">Equations solved in TGYRO</a></li>
 <li class="toctree-l3"><a class="reference internal" href="solver.html">TGYRO solver algorithm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scenarios.html">Scenarios and connection to energy sources</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">OUTPUT</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Scenarios and connection to energy sources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="output.html">OUTPUT</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">PLOT</a></li>
 </ul>
 </li>
@@ -176,13 +177,13 @@
         
           <li><a href="../tgyro.html">TGYRO</a> &raquo;</li>
         
-      <li>OUTPUT</li>
+      <li>Scenarios and connection to energy sources</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/tgyro/output.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/tgyro/scenarios.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -195,8 +196,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="output">
-<h1>OUTPUT<a class="headerlink" href="#output" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="scenarios-and-connection-to-energy-sources">
+<span id="tgyro-scenarios"></span><h1>Scenarios and connection to energy sources<a class="headerlink" href="#scenarios-and-connection-to-energy-sources" title="Permalink to this headline">¶</a></h1>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_e^\mathrm{aux} = &amp;~\mathtt{qohme}+\mathtt{qbeame}+\mathtt{qrfe}+\mathtt{qione} \\
+q_i^\mathrm{aux} = &amp;~\mathtt{qcxi}+\mathtt{qbeami}+\mathtt{qrfi}+\mathtt{qioni} \\
+q_e^\mathrm{rad} = &amp;~\mathtt{qbrem}+\mathtt{qsync}+\mathtt{qline} \\
+q_e^\mathrm{fus} = &amp;~\mathtt{qfuse} \\
+q_i^\mathrm{fus} = &amp;~\mathtt{qfusi} \\
+q_{ei}           = &amp;~\mathtt{qei}
+\end{align}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_e^\mathrm{TOT} = &amp;~-q_{ei}+q_e^\mathrm{aux}+q_e^\mathrm{fus}-q_e^\mathrm{rad}\\
+q_i^\mathrm{TOT} = &amp;~+q_{ei}+q_i^\mathrm{aux}+q_i^\mathrm{fus}
+\end{align}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathtt{LOC\_SCENARIO=1}\)</span> (static exchange)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_e = &amp;~ q_e^\mathrm{TOT}\\
+q_i = &amp;~ q_i^\mathrm{TOT}
+\end{align}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathtt{LOC\_SCENARIO=2}\)</span> (dynamic exchange)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_e = &amp;~ \left( q_e^\mathrm{TOT} + q_{ei} \right) - q_{ei}' \\
+q_i = &amp;~ \left( q_e^\mathrm{TOT} - q_{ei} \right) + q_{ei}'
+\end{align}\end{split}\]</div>
+<p><span class="math notranslate nohighlight">\(\mathtt{LOC\_SCENARIO=3}\)</span> (reactor)</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+q_e = &amp;~ q_e^\mathrm{aux} + (q_e^\mathrm{fus})' - (q_e^\mathrm{rad})' - q_{ei}' \\
+q_i = &amp;~ q_i^\mathrm{aux} + (q_i^\mathrm{fus})' + q_{ei}'
+\end{align}\end{split}\]</div>
 </div>
 
 
@@ -205,8 +238,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="plot.html" class="btn btn-neutral float-right" title="PLOT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="scenarios.html" class="btn btn-neutral float-left" title="Scenarios and connection to energy sources" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="output.html" class="btn btn-neutral float-right" title="OUTPUT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="solver.html" class="btn btn-neutral float-left" title="TGYRO solver algorithm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

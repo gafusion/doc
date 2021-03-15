@@ -222,37 +222,43 @@
 <td><p>Safety factor, <span class="math notranslate nohighlight">\(q\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">omega0(:)</span></code></p></td>
-<td><p>Rotation frequency, <span class="math notranslate nohighlight">\(\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span> in units of <span class="math notranslate nohighlight">\({\rm rad/s}\)</span>. For more information, see <a class="reference internal" href="rotation.html"><span class="doc">plasma rotation</span></a>.</p></td>
+<td><p>Rotation frequency, <span class="math notranslate nohighlight">\(\omega_0 = \displaystyle \frac{c E_r }{R B_p} = -c \frac{d \Phi}{d \psi}\)</span> in units of <span class="math notranslate nohighlight">\({\rm rad/s}\)</span> (see <a class="reference internal" href="rotation.html"><span class="doc">plasma rotation</span></a>).</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">rmaj(:)</span></code></p></td>
+<tr class="row-odd"><td><p><em>shape</em></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">rmaj(:)</span></code></p></td>
 <td><p>The generalized major radius, <span class="math notranslate nohighlight">\(R_0(r)\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zmag(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zmag(:)</span></code></p></td>
 <td><p>Flux-surface elevation, <span class="math notranslate nohighlight">\(Z_0\)</span>, in units of <span class="math notranslate nohighlight">\({\rm m}\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">kappa(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">kappa(:)</span></code></p></td>
 <td><p>Flux-surface elongation, <span class="math notranslate nohighlight">\(\kappa\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">delta(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">delta(:)</span></code></p></td>
 <td><p>Flux-surface triangularity, <span class="math notranslate nohighlight">\(\delta\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">zeta(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">zeta(:)</span></code></p></td>
 <td><p>Flux-surface squareness, <span class="math notranslate nohighlight">\(\zeta\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos0(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos0(:)</span></code></p></td>
 <td><p>Flux-surface tilt.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos1(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos1(:)</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos2(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos2(:)</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos3(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_cos3(:)</span></code></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">shape_sin3(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">shape_sin3(:)</span></code></p></td>
 <td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>–</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">ne(:)</span></code></p></td>
 <td><p>The electron density, <span class="math notranslate nohighlight">\(n_e\)</span>, in units of <span class="math notranslate nohighlight">\(10^{19}/{\rm m}^3\)</span>.</p></td>
@@ -284,14 +290,50 @@
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">vpol(:,:)</span></code></p></td>
 <td><p>Ion poloidal velocity in units of <span class="math notranslate nohighlight">\({\rm m/s}\)</span>. There is a column for every ion species.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qsync(:)</span></code></p></td>
+<tr class="row-odd"><td><p><em>powers</em></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qohme(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qbeame(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qbeami(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qrfe(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qrfi(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qfuse(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qfusi(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qione(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qioni(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qcxi(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qsync(:)</span></code></p></td>
 <td><p>Electron synchrotron radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qbrem(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qbrem(:)</span></code></p></td>
 <td><p>Bremsstrahlung radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qline(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qline(:)</span></code></p></td>
 <td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qei(:)</span></code></p></td>
+<td><p>Electron-ion exchange <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 </tbody>
 </table>
