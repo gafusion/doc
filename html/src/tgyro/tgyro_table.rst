@@ -35,7 +35,6 @@ input.tgyro Tabular List
    :header: "input.tgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":ref:`tgyro_dt_method`", Method for handling D/T mixture, 2
    ":ref:`tgyro_loc_betae_scale`", Amount to scale electron :math:`\beta`,1.0
    ":ref:`tgyro_loc_scenario`", Power-balance scenario,1
 
@@ -43,6 +42,4 @@ input.tgyro Tabular List
    :header: "input.tgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
 
-   ":ref:`tgyro_loc_ma`", Ion masses in units of :math:`m_H` , 2.0
-   ":ref:`tgyro_loc_z`", Ion charge , 1.0
    ":ref:`tgyro_therm_flag`", Toggle thermal/nonthermal species , 1
