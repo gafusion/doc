@@ -49,6 +49,7 @@ GACODE software works with the :ref:`input.gacode` format.
    cgyro
    gyro
    tglf
+   prgen
 
 .. toctree::
    :caption: Physics
