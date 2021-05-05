@@ -36,6 +36,7 @@ input.tgyro Tabular List
    :widths: 13, 25, 5
 
    ":ref:`tgyro_loc_betae_scale`", Amount to scale electron :math:`\beta`,1.0
+   ":ref:`tgyro_neo_method`", Control of NEO simulation,1
    ":ref:`tgyro_loc_scenario`", Power-balance scenario,1
 
 .. csv-table:: **Species Parameters**

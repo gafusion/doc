@@ -113,12 +113,13 @@
 <li class="toctree-l4"><a class="reference internal" href="#loc-he-feedback-flag">LOC_HE_FEEDBACK_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-iteration-method">TGYRO_ITERATION_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-lock-profile-flag">LOC_LOCK_PROFILE_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#loc-scenario">LOC_SCENARIO</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-mode">TGYRO_MODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tgyro-neo-method">TGYRO_NEO_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-relax-iterations">TGYRO_RELAX_ITERATIONS</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-relax">LOC_RELAX</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-residual-method">LOC_RESIDUAL_METHOD</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-restart-flag">LOC_RESTART_FLAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#loc-scenario">LOC_SCENARIO</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tgyro-therm-flag">TGYRO_THERM_FLAG*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-te-feedback-flag">LOC_TE_FEEDBACK_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#loc-ti-feedback-flag">LOC_TI_FEEDBACK_FLAG</a></li>
@@ -141,6 +142,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../prgen.html">profiles_gen</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Physics</span></p>
 <ul>
@@ -237,6 +239,7 @@
 <p>Rules for evolving species.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
+<li><p>TGYRO_DEN_METHOD*=-2: Species given same shape as electron density profile (with pivot density ratio)</p></li>
 <li><p>TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)</p></li>
 <li><p>TGYRO_DEN_METHOD*=0: Do not evolve species</p></li>
 <li><p>TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation</p></li>
@@ -389,24 +392,6 @@ Q_\mathrm{target}}{\max(|Q_\mathrm{tot}|,|Q_\mathrm{target}|,1)}\]</div>
 <p>0</p>
 <hr class="docutils" />
 </div>
-<div class="section" id="loc-scenario">
-<span id="tgyro-loc-scenario"></span><h2>LOC_SCENARIO<a class="headerlink" href="#loc-scenario" title="Permalink to this headline">¶</a></h2>
-<p><strong>Definition</strong></p>
-<p>Power-balance scenario.</p>
-<p><strong>Choices</strong></p>
-<ul class="simple">
-<li><p>LOC_SCENARIO=1 : Fixed integrated powers with static exchange.</p></li>
-<li><p>LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.</p></li>
-<li><p>LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data.</p></li>
-</ul>
-<p><strong>Comments</strong></p>
-<ul class="simple">
-<li><p>See <a class="reference internal" href="scenarios.html#tgyro-scenarios"><span class="std std-ref">Scenarios and connection to energy sources</span></a> for details</p></li>
-</ul>
-<p><strong>Default</strong></p>
-<p>1</p>
-<hr class="docutils" />
-</div>
 <div class="section" id="tgyro-mode">
 <span id="id3"></span><h2>TGYRO_MODE<a class="headerlink" href="#tgyro-mode" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
@@ -427,7 +412,7 @@ TGYRO_MODE=1
 
 #-----------------------------------------------------
 # NEO control
-LOC_NEO_METHOD=1
+TGYRO_NEO_METHOD=1
 #-----------------------------------------------------
 
 #-----------------------------------------------------
@@ -474,8 +459,22 @@ TGYRO_MODE=3
 <p>1</p>
 <hr class="docutils" />
 </div>
+<div class="section" id="tgyro-neo-method">
+<span id="id4"></span><h2>TGYRO_NEO_METHOD<a class="headerlink" href="#tgyro-neo-method" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Control of NEO code.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>TGYRO_NEO_METHOD=0 : Zero neoclassical flux</p></li>
+<li><p>TGYRO_NEO_METHOD=1 : Hirshman-Sigmar theory for all species (fast)</p></li>
+<li><p>TGYRO_NEO_METHOD=2 : Kinetic NEO simulation</p></li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1</p>
+<hr class="docutils" />
+</div>
 <div class="section" id="tgyro-relax-iterations">
-<span id="id4"></span><h2>TGYRO_RELAX_ITERATIONS<a class="headerlink" href="#tgyro-relax-iterations" title="Permalink to this headline">¶</a></h2>
+<span id="id5"></span><h2>TGYRO_RELAX_ITERATIONS<a class="headerlink" href="#tgyro-relax-iterations" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Maximum number of Newton iterations.</p>
 <p><strong>Comments</strong></p>
@@ -532,8 +531,26 @@ TGYRO_MODE=3
 <p>0</p>
 <hr class="docutils" />
 </div>
+<div class="section" id="loc-scenario">
+<span id="tgyro-loc-scenario"></span><h2>LOC_SCENARIO<a class="headerlink" href="#loc-scenario" title="Permalink to this headline">¶</a></h2>
+<p><strong>Definition</strong></p>
+<p>Power-balance scenario.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>LOC_SCENARIO=1 : Fixed integrated powers with static exchange.</p></li>
+<li><p>LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.</p></li>
+<li><p>LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data.</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="scenarios.html#tgyro-scenarios"><span class="std std-ref">Scenarios and connection to energy sources</span></a> for details</p></li>
+</ul>
+<p><strong>Default</strong></p>
+<p>1</p>
+<hr class="docutils" />
+</div>
 <div class="section" id="tgyro-therm-flag">
-<span id="id5"></span><h2>TGYRO_THERM_FLAG*<a class="headerlink" href="#tgyro-therm-flag" title="Permalink to this headline">¶</a></h2>
+<span id="id6"></span><h2>TGYRO_THERM_FLAG*<a class="headerlink" href="#tgyro-therm-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Thermal/nonthermal species toggle.  First ion is TGYRO_THERM_FLAG1, etc.</p>
 <p><strong>Choices</strong></p>
@@ -577,7 +594,7 @@ TGYRO_MODE=3
 <hr class="docutils" />
 </div>
 <div class="section" id="tgyro-write-profiles-flag">
-<span id="id6"></span><h2>TGYRO_WRITE_PROFILES_FLAG<a class="headerlink" href="#tgyro-write-profiles-flag" title="Permalink to this headline">¶</a></h2>
+<span id="id7"></span><h2>TGYRO_WRITE_PROFILES_FLAG<a class="headerlink" href="#tgyro-write-profiles-flag" title="Permalink to this headline">¶</a></h2>
 <p><strong>Definition</strong></p>
 <p>Manage how new <a class="reference internal" href="../input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> files are written.</p>
 <p><strong>Choices</strong></p>

@@ -35,6 +35,7 @@ Rules for evolving species.
 
 **Choices**
 
+- TGYRO_DEN_METHOD*=-2: Species given same shape as electron density profile (with pivot density ratio)
 - TGYRO_DEN_METHOD*=-1: Use species to enforce quasineutrality (can use this for more than one species simultaneously)
 - TGYRO_DEN_METHOD*=0: Do not evolve species
 - TGYRO_DEN_METHOD*=1: Evolve species by solving transport equation
@@ -257,33 +258,6 @@ Flag to manage calculation of initial profile
 
 .. ===========================================================================================
 
-.. _tgyro_loc_scenario:
-
-LOC_SCENARIO
-------------
-
-**Definition**
-
-Power-balance scenario.
-
-**Choices**
-
-- LOC_SCENARIO=1 : Fixed integrated powers with static exchange.
-- LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.
-- LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data. 
-
-**Comments**
-
-- See :ref:`tgyro_scenarios` for details
-  
-**Default**
-
-1
-
-----
-
-.. ===========================================================================================
-
 .. _tgyro_mode:
 
 TGYRO_MODE
@@ -313,7 +287,7 @@ Sample input.tgyro for TGYRO_MODE=1 to run as transport code
    
    #-----------------------------------------------------
    # NEO control
-   LOC_NEO_METHOD=1
+   TGYRO_NEO_METHOD=1
    #-----------------------------------------------------
 
    #-----------------------------------------------------
@@ -357,6 +331,29 @@ Sample input.tgyro for TGYRO_MODE=3 to run 6 instances of CGYRO
    DIR c6 384 GAMMA_E=0.10
 
    TGYRO_MODE=3
+
+**Default**
+
+1
+
+----
+
+.. ===========================================================================================
+
+.. _tgyro_neo_method:
+
+TGYRO_NEO_METHOD
+----------------
+
+**Definition**
+
+Control of NEO code.
+
+**Choices**
+
+- TGYRO_NEO_METHOD=0 : Zero neoclassical flux
+- TGYRO_NEO_METHOD=1 : Hirshman-Sigmar theory for all species (fast)
+- TGYRO_NEO_METHOD=2 : Kinetic NEO simulation 
 
 **Default**
 
@@ -451,6 +448,33 @@ TGYRO startup control (new or restart).
 **Default**
 
 0
+
+----
+
+.. ===========================================================================================
+
+.. _tgyro_loc_scenario:
+
+LOC_SCENARIO
+------------
+
+**Definition**
+
+Power-balance scenario.
+
+**Choices**
+
+- LOC_SCENARIO=1 : Fixed integrated powers with static exchange.
+- LOC_SCENARIO=2 : Fixed integrated powers with dynamic exchange.
+- LOC_SCENARIO=3 : Thermonuclear source, radiation and exchange with auxiliary heating from data. 
+
+**Comments**
+
+- See :ref:`tgyro_scenarios` for details
+  
+**Default**
+
+1
 
 ----
 
