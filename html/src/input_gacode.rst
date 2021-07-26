@@ -1,7 +1,7 @@
 .. _input.gacode:
 
 input.gacode
-==============
+============
 
 .. |ip| replace:: :doc:`input.gacode <input_gacode>`
 
@@ -48,23 +48,32 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
    "``ni(:,:)``","Ion density in units of :math:`10^{19}/{\rm m}^3`. There is a column for every ion species."
    "``ti(:,:)``","Ion temperature in units of :math:`{\rm keV}`. There is a column for every ion species."
    ``jbs(:)``,"Bootstrap current (parallel) in units of :math:`{\rm MA/m^2}`."
+   ``jrf(:)``,"RF-driven current in units of :math:`{\rm MA/m^2}`."
+   ``jnb(:)``,"Beam-driven current in units of :math:`{\rm MA/m^2}`."
    ``jbstor(:)``,"Bootstrap current (toroidal) in units of :math:`{\rm MA/m^2}`."
    "``vtor(:,:)``","Ion toroidal velocity in units of :math:`{\rm m/s}`. There is a column for every ion species."
    "``vpol(:,:)``","Ion poloidal velocity in units of :math:`{\rm m/s}`. There is a column for every ion species."
    *powers*,--
-   ``qohme(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qbeame(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qbeami(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qrfe(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qrfi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qfuse(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qfusi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qione(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qioni(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
-   ``qcxi(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
+   ``qohme(:)``,"Ohmic power to electrons in units of :math:`{\rm MW/m^3}`."
+   ``qbeame(:)``,"Beam power to electrons in units of :math:`{\rm MW/m^3}`."
+   ``qbeami(:)``,"Beam power to ions in units of :math:`{\rm MW/m^3}`."
+   ``qrfe(:)``,"RF power to electrons in units of :math:`{\rm MW/m^3}`."
+   ``qrfi(:)``,"RF power to ions in units of :math:`{\rm MW/m^3}`."
+   ``qfuse(:)``,"Fusion power to electrons in units of :math:`{\rm MW/m^3}`."
+   ``qfusi(:)``,"Fusion power to ions in units of :math:`{\rm MW/m^3}`."
    ``qsync(:)``,"Electron synchrotron radiation in units of :math:`{\rm MW/m^3}`."
    ``qbrem(:)``,"Bremsstrahlung radiation in units of :math:`{\rm MW/m^3}`."
    ``qline(:)``,"Electron line radiation in units of :math:`{\rm MW/m^3}`."
    ``qei(:)``,"Electron-ion exchange :math:`{\rm MW/m^3}`."
+   ``qione(:)``,"Recombination power to electrons in units of :math:`{\rm MW/m^3}`."
+   ``qioni(:)``,"Recombination power to ions in units of :math:`{\rm MW/m^3}`."
+   ``qcxi(:)``,"Charge-exchange power to ions in units of :math:`{\rm MW/m^3}`."
+   *particle sources*,--   
+   ``qpar_beam(:)``,"Electron line radiation in units of :math:`{\rm 1/m^3/s}`."
+   ``qpar_wall(:)``,"Electron line radiation in units of :math:`{\rm 1/m^3/s}`."
+   *momentum source source*,--   
+   ``qmom(:)``,"Electron line radiation in units of :math:`{\rm Nm}`."
 
    
+.. important::
+   For more information about how powers are summed in TGYRO, please see :doc:`Scenarios and connection to energy sources <tgyro/scenarios>`.
