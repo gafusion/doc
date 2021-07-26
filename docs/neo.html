@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
 
   
@@ -32,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -89,7 +92,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
@@ -97,7 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Codes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Codes</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">NEO</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
@@ -117,7 +120,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Physics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
@@ -201,7 +204,7 @@
 <li class="toctree-l1"><a class="reference internal" href="neo/outputs.html">NEO Output Files</a></li>
 </ul>
 </div>
-<p>NEO <span id="id1">[<a class="reference internal" href="zreferences.html#id7">BC08</a>, <a class="reference internal" href="zreferences.html#id9">BC09</a>, <a class="reference internal" href="zreferences.html#id11">BC12</a>]</span> is a multi-species drift-kinetic solver was developed by the ESL project as a practical tool for high accuracy neoclassical calculations.  NEO is an Eulerian code that solves the first-order (in the drift-ordering parameter <span class="math notranslate nohighlight">\(\rho_*=\rho_i/a \ll 1\)</span>) drift-kinetic-Poisson equations.  In NEO, no approximations beyond the drift-ordering are made.  The full linearized Fokker-Planck collision operator is used for the collision dynamics, with complete cross-species collisional coupling for arbitrary mass ratio and an arbitrary number of species.  General flux-surface shape, including up-down asymmetry, is treated.  In addition, full sonic rotation and centrifugal terms are retained.  NEO has been extensively benchamarked with analytic theories, as well as with NCLASS, over a wide range of parameters and in various asymptotic limits.</p>
+<p>NEO <span id="id1">[<a class="reference internal" href="zreferences.html#id7" title="E.A. Belli and J. Candy. Kinetic calculation of neoclassical transport including self-consistent electron and impurity dynamics. Plasma Phys. Control. Fusion, 50:095010, 2008. doi:10.1088/0741-3335/50/9/095010.">BC08</a>, <a class="reference internal" href="zreferences.html#id9" title="E.A. Belli and J. Candy. An Eulerian method for the solution of the multi-species drift-kinetic equation. Plasma Phys. Control. Fusion, 51:075018, 2009.">BC09</a>, <a class="reference internal" href="zreferences.html#id11" title="E.A. Belli and J. Candy. Full linearized Fokker-Planck collisions in neoclassical transport simulations. Plasma Phys. Control. Fusion, 54:015015, 2012.">BC12</a>]</span> is a multi-species drift-kinetic solver was developed by the ESL project as a practical tool for high accuracy neoclassical calculations.  NEO is an Eulerian code that solves the first-order (in the drift-ordering parameter <span class="math notranslate nohighlight">\(\rho_*=\rho_i/a \ll 1\)</span>) drift-kinetic-Poisson equations.  In NEO, no approximations beyond the drift-ordering are made.  The full linearized Fokker-Planck collision operator is used for the collision dynamics, with complete cross-species collisional coupling for arbitrary mass ratio and an arbitrary number of species.  General flux-surface shape, including up-down asymmetry, is treated.  In addition, full sonic rotation and centrifugal terms are retained.  NEO has been extensively benchamarked with analytic theories, as well as with NCLASS, over a wide range of parameters and in various asymptotic limits.</p>
 <p>The equations solved in NEO complement those solved in gyrokinetic codes such as GYRO and CGYRO insofar as together they represent the complete first-order deviation of the plasma from a local Maxwellian.</p>
 </div>
 <div class="section" id="data-input">
