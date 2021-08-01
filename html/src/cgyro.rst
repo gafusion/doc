@@ -20,12 +20,12 @@ Quick links
 .. toctree::
    :titlesonly:
 
+   cgyro/running_cases
    cgyro/cgyro_table
    cgyro/cgyro_list
    cgyro/outputs
    cgyro/plot
    cgyro/cgyro_platforms
-   cgyro/running_cases
    cgyro/FAQ
 
 Source Code

@@ -43,3 +43,21 @@ FAQ
 	       INFO: (locpargen) Wrote input.*.locpargen
 
 		      
+.. toggle-header::
+   :header: How does adaptive time-stepping work?
+
+	    Time-stepping is controlled with the parameter :ref:`cgyro_delta_t_method`. Setting the parameter
+	    to 0 gives the legacy fixed timestep, whereas values greater than 0 are adaptive methods. For the
+	    adaptive methods we recommend setting :ref:`cgyro_delta_t` = 0.01. Here is the recommendation:
+
+	    .. code-block:: 
+
+	       DELTA_T_METHOD=1
+	       DELTA_T=0.01
+	       PRINT_STEP=100
+
+	    The overall time-integration step is split between an explicit high-order step, and an implicit
+	    second-order step for collisions and trapping. When using the adaptive method, the value of
+	    :ref:`cgyro_delta_t` is the size of the (large) implicit timestep. Then, the value of the explicit
+	    timestep is decreased to match the error tolerance, :ref:`cgyro_error_tol` -- the default value of
+	    which should be sufficient.

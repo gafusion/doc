@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
 
   
@@ -32,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -44,7 +47,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="GYRO" href="../gyro.html" />
-    <link rel="prev" title="Running Cases" href="running_cases.html" /> 
+    <link rel="prev" title="Running CGYRO on OLCF Titan (deprecated)" href="cgyro_titan.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,7 +92,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../download.html">Download and user agreement</a></li>
@@ -97,18 +100,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../build.html">Build from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Codes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Codes</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../cgyro.html">CGYRO</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="running_cases.html">Running Cases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
 <li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
 <li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="running_cases.html">Running Cases</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">FAQ</a></li>
 </ul>
 </li>
@@ -123,7 +126,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prgen.html">profiles_gen</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Physics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
@@ -205,7 +208,7 @@
 </div>
 <div class="toggle-content docutils container">
 <blockquote>
-<div><p>The fundamental definition of the wavenumber and unit gyroradius are given in <span id="id1">[<a class="reference internal" href="../zreferences.html#id35">CBB16</a>]</span>.
+<div><p>The fundamental definition of the wavenumber and unit gyroradius are given in <span id="id1">[<a class="reference internal" href="../zreferences.html#id35" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:10.1016/j.jcp.2016.07.039.">CBB16</a>]</span>.
 These are</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -239,6 +242,26 @@ INFO: (locpargen) Wrote input.*.locpargen
 </div>
 </div></blockquote>
 </div>
+<div class="toggle-header docutils container">
+<p>How does adaptive time-stepping work?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>Time-stepping is controlled with the parameter <a class="reference internal" href="cgyro_list.html#cgyro-delta-t-method"><span class="std std-ref">DELTA_T_METHOD</span></a>. Setting the parameter
+to 0 gives the legacy fixed timestep, whereas values greater than 0 are adaptive methods. For the
+adaptive methods we recommend setting <a class="reference internal" href="cgyro_list.html#cgyro-delta-t"><span class="std std-ref">DELTA_T</span></a> = 0.01. Here is the recommendation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELTA_T_METHOD</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">DELTA_T</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="n">PRINT_STEP</span><span class="o">=</span><span class="mi">100</span>
+</pre></div>
+</div>
+<p>The overall time-integration step is split between an explicit high-order step, and an implicit
+second-order step for collisions and trapping. When using the adaptive method, the value of
+<a class="reference internal" href="cgyro_list.html#cgyro-delta-t"><span class="std std-ref">DELTA_T</span></a> is the size of the (large) implicit timestep. Then, the value of the explicit
+timestep is decreased to match the error tolerance, <a class="reference internal" href="cgyro_list.html#cgyro-error-tol"><span class="std std-ref">ERROR_TOL</span></a> – the default value of
+which should be sufficient.</p>
+</div></blockquote>
+</div>
 </div>
 
 
@@ -248,7 +271,7 @@ INFO: (locpargen) Wrote input.*.locpargen
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="../gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="running_cases.html" class="btn btn-neutral float-left" title="Running Cases" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cgyro_titan.html" class="btn btn-neutral float-left" title="Running CGYRO on OLCF Titan (deprecated)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

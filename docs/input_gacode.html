@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
 
   
@@ -32,11 +34,12 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -89,7 +92,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
@@ -97,7 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Codes</span></p>
+<p class="caption" role="heading"><span class="caption-text">Codes</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
@@ -106,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Physics</span></p>
+<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
@@ -190,7 +193,7 @@
 </div>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">MXH equilibrium parameters</span></a> <span id="id2">[<a class="reference internal" href="zreferences.html#id3">ACB20</a>]</span>.</p>
+<p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">MXH equilibrium parameters</span></a> <span id="id2">[<a class="reference internal" href="zreferences.html#id3" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>.</p>
 <p>Profile ordering in <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> is arbitrary and comment lines (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate <a class="reference internal" href="#"><span class="doc">input.gacode</span></a>, please use the <code class="docutils literal notranslate"><span class="pre">profiles_gen</span></code> command-line tool.</p>
 <table class="colwidths-given docutils align-default" id="id3">
 <caption><span class="caption-text"><strong>File structure</strong></span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
