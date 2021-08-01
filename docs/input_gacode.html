@@ -285,6 +285,12 @@
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jbs(:)</span></code></p></td>
 <td><p>Bootstrap current (parallel) in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
 </tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jrf(:)</span></code></p></td>
+<td><p>RF-driven current in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">jnb(:)</span></code></p></td>
+<td><p>Beam-driven current in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
+</tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">jbstor(:)</span></code></p></td>
 <td><p>Bootstrap current (toroidal) in units of <span class="math notranslate nohighlight">\({\rm MA/m^2}\)</span>.</p></td>
 </tr>
@@ -298,49 +304,68 @@
 <td><p>–</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qohme(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>Ohmic power to electrons in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qbeame(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>Beam power to electrons in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qbeami(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>Beam power to ions in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qrfe(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>RF power to electrons in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qrfi(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>RF power to ions in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qfuse(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>Fusion power to electrons in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qfusi(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+<td><p>Fusion power to ions in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qione(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qioni(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qcxi(:)</span></code></p></td>
-<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
-</tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qsync(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qsync(:)</span></code></p></td>
 <td><p>Electron synchrotron radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qbrem(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qbrem(:)</span></code></p></td>
 <td><p>Bremsstrahlung radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qline(:)</span></code></p></td>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qline(:)</span></code></p></td>
 <td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qei(:)</span></code></p></td>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qei(:)</span></code></p></td>
 <td><p>Electron-ion exchange <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qione(:)</span></code></p></td>
+<td><p>Recombination power to electrons in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qioni(:)</span></code></p></td>
+<td><p>Recombination power to ions in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qcxi(:)</span></code></p></td>
+<td><p>Charge-exchange power to ions in units of <span class="math notranslate nohighlight">\({\rm MW/m^3}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><em>particle sources</em></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">qpar_beam(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm 1/m^3/s}\)</span>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qpar_wall(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm 1/m^3/s}\)</span>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><em>momentum source source</em></p></td>
+<td><p>–</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">qmom(:)</span></code></p></td>
+<td><p>Electron line radiation in units of <span class="math notranslate nohighlight">\({\rm Nm}\)</span>.</p></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For more information about how powers are summed in TGYRO, please see <a class="reference internal" href="tgyro/scenarios.html"><span class="doc">Scenarios and connection to energy sources</span></a>.</p>
+</div>
 </div>
 </div>
 
