@@ -69,10 +69,10 @@ Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in 
    ``qioni(:)``,"Recombination power to ions in units of :math:`{\rm MW/m^3}`."
    ``qcxi(:)``,"Charge-exchange power to ions in units of :math:`{\rm MW/m^3}`."
    *particle sources*,--   
-   ``qpar_beam(:)``,"Electron line radiation in units of :math:`{\rm 1/m^3/s}`."
-   ``qpar_wall(:)``,"Electron line radiation in units of :math:`{\rm 1/m^3/s}`."
+   ``qpar_beam(:)``,"Beam-particle source density in units of :math:`{\rm 1/m^3/s}`."
+   ``qpar_wall(:)``,"Wall-particle source density in units of :math:`{\rm 1/m^3/s}`."
    *momentum source source*,--   
-   ``qmom(:)``,"Electron line radiation in units of :math:`{\rm Nm}`."
+   ``qmom(:)``,"The total (convected and conducted) torque density in units of :math:`{\rm N/m^2}`."
 
    
 .. important::
