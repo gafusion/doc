@@ -1,5 +1,5 @@
-Alphabetical list of output files
-===================================
+Alphabetical list for out.tglf files
+====================================
 
 
 .. _TGLF_DENSITY_SPECTRUM:
@@ -8,12 +8,13 @@ density_spectrum
 ----------------
 
 **Description**
+
 Gyro-bohm normalized density fluctuation amplitude spectra
 
 
 **Comments**
 
-- columns: density(nky, ns=1), density(nky, ns=2), ... , density(nky, ns=ns_in)
+- columns: density(ns=1,..,ns_in)
 
 ----
 
@@ -23,6 +24,7 @@ eigenvalue_spectrum
 -------------------
 
 **Description**
+
 Gyro-bohm normalized eigenvalue spectra
 
 
@@ -38,6 +40,7 @@ field_spectrum
 --------------
 
 **Description**
+
 Gyro-bohm normalized field fluctuation intensity spectra per mode
 
 
@@ -52,6 +55,7 @@ intensity_spectrum
 ------------------
 
 **Description**
+
 Gyro-bohm normalized intensity fluctuation amplitude spectra per mode
 
 
@@ -68,6 +72,7 @@ nsts_crossphase_spectrum
 ------------------------
 
 **Description**
+
 Density-temperature cross phase spectra per mode for each species
 
 
@@ -83,6 +88,7 @@ QL_flux_spectrum
 ----------------
 
 **Description**
+
 QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)
 
 **Comments**
@@ -97,7 +103,8 @@ sat_geo_spectrum
 ----------------
 
 **Description**
-Saturation model geometry factor per mode :math:`={\left(\frac{<\phi| B^2/B_{unit}^2 |\phi>}{<\phi|\phi>} \right)^{-1}`
+
+Saturation model geometry factor per mode :math:`{\frac {<\phi|\phi>}{<\phi| B^2/B_{unit}^2 |\phi>}}`
 
 **Comments**
 
@@ -111,7 +118,7 @@ scalar_saturation_parameters
 ----------------------------
 
 **Description**
-This output file has all of the scalar saturation paramters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`
+This output file has all of the scalar saturation parameters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`
 
 ----
 

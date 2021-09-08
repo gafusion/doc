@@ -145,8 +145,8 @@ Table of inputs and outputs
    ":ref:`TGLF_INTENSITY_SPECTRUM`",Gyro-bohm normalized intensity fluctuation amplitude spectra per mode
    ":ref:`TGLF_NSTS_CROSSPHASE_SPECTRUM`", density-temperature cross phase spectra per mode for each species
    ":ref:`TGLF_QL_FLUX_SPECTRUM`","QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)"
-   ":ref:`TGLF_SAT_GEO_SPECTRUM`","saturation model geometry factor per mode :math:`={\left(\frac{<\phi| B^2/B_{unit}^2 |\phi>}{<\phi|\phi>} \right)^{-1}`"
-   ":ref:`TGLF_SCALAR_SATURATION_PARAMETERS`", "This output file has all of the scalar saturation paramters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`"
+   ":ref:`TGLF_SAT_GEO_SPECTRUM`","saturation model geometry factor per mode :math:`{\frac {<\phi|\phi>}{<\phi| B^2/B_{unit}^2 |\phi>}}`"
+   ":ref:`TGLF_SCALAR_SATURATION_PARAMETERS`", "This output file has all of the scalar saturation parameters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`"
    ":ref:`TGLF_SPECTRAL_SHIFT`","kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}`, depends on which saturation model is being used: SAT_RULE and UNITS settings"
    ":ref:`TGLF_SUM_FLUX_SPECTRUM`",flux spectrum summed over nmodes
    ":ref:`TGLF_TEMPERATURE_SPECTRUM`", Gyro-bohm normalized temperature fluctuation amplitude spectra

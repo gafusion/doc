@@ -43,7 +43,7 @@ ALPHA_ZF
 
 **Definition**
 
-Switch that turns off the q/2 factor in SAT2 when ALPHA_ZF=-1.0
+Zonal flow mixing coefficient (for SAT1 and SAT2). Note: Can be used as hidden switch that turns off the q/2 factor in SAT2 when ALPHA_ZF=-1.0
 
 
 **Comments**
@@ -1008,7 +1008,7 @@ Parameter to adjust trapped fraction model.
 .. _TGLF_UNITS:
 
 UNITS
--------------
+------
 
 **Definition**
 
@@ -1044,7 +1044,7 @@ USE_BPAR
 
 **Definition**
 
-Include compressional magnetic fluctuations, :math:`\delta B_{\lVert }}`.
+Include compressional magnetic fluctuations, :math:`\delta B_{\lVert }`.
 
 
 **Comments**
