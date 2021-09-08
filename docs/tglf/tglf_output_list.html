@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Alphabetical list of output files &mdash; GACODE</title>
+  <title>Alphabetical list for out.tglf files &mdash; GACODE</title>
   
 
   
@@ -110,7 +110,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../tglf.html#quick-links">Quick links</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="tglf_table.html">Table of inputs and outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tglf_list.html">Alphabetical list for input.tglf</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Alphabetical list of output files</a><ul>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Alphabetical list for out.tglf files</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#density-spectrum">density_spectrum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#eigenvalue-spectrum">eigenvalue_spectrum</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#field-spectrum">field_spectrum</a></li>
@@ -187,7 +187,7 @@
         
           <li><a href="../tglf.html">TGLF</a> &raquo;</li>
         
-      <li>Alphabetical list of output files</li>
+      <li>Alphabetical list for out.tglf files</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -206,22 +206,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="alphabetical-list-of-output-files">
-<h1>Alphabetical list of output files<a class="headerlink" href="#alphabetical-list-of-output-files" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="alphabetical-list-for-out-tglf-files">
+<h1>Alphabetical list for out.tglf files<a class="headerlink" href="#alphabetical-list-for-out-tglf-files" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="density-spectrum">
 <span id="tglf-density-spectrum"></span><h2>density_spectrum<a class="headerlink" href="#density-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Gyro-bohm normalized density fluctuation amplitude spectra</p>
+<p><strong>Description</strong></p>
+<p>Gyro-bohm normalized density fluctuation amplitude spectra</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li><p>columns: density(nky, ns=1), density(nky, ns=2), … , density(nky, ns=ns_in)</p></li>
+<li><p>columns: density(ns=1,..,ns_in)</p></li>
 </ul>
 <hr class="docutils" />
 </div>
 <div class="section" id="eigenvalue-spectrum">
 <span id="tglf-eigenvalue-spectrum"></span><h2>eigenvalue_spectrum<a class="headerlink" href="#eigenvalue-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Gyro-bohm normalized eigenvalue spectra</p>
+<p><strong>Description</strong></p>
+<p>Gyro-bohm normalized eigenvalue spectra</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>columns: gamma(nm=1), freq(nm=1), gamma(nm=2), freq(nm=2)</p></li>
@@ -230,8 +230,8 @@ Gyro-bohm normalized eigenvalue spectra</p>
 </div>
 <div class="section" id="field-spectrum">
 <span id="tglf-field-spectrum"></span><h2>field_spectrum<a class="headerlink" href="#field-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Gyro-bohm normalized field fluctuation intensity spectra per mode</p>
+<p><strong>Description</strong></p>
+<p>Gyro-bohm normalized field fluctuation intensity spectra per mode</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky, nmodes</p></li>
@@ -239,8 +239,8 @@ Gyro-bohm normalized field fluctuation intensity spectra per mode</p>
 </div>
 <div class="section" id="intensity-spectrum">
 <span id="tglf-intensity-spectrum"></span><h2>intensity_spectrum<a class="headerlink" href="#intensity-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Gyro-bohm normalized intensity fluctuation amplitude spectra per mode</p>
+<p><strong>Description</strong></p>
+<p>Gyro-bohm normalized intensity fluctuation amplitude spectra per mode</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>columns: density, temperature, parallel velocity, parallel energy</p></li>
@@ -250,8 +250,8 @@ Gyro-bohm normalized intensity fluctuation amplitude spectra per mode</p>
 </div>
 <div class="section" id="nsts-crossphase-spectrum">
 <span id="tglf-nsts-crossphase-spectrum"></span><h2>nsts_crossphase_spectrum<a class="headerlink" href="#nsts-crossphase-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Density-temperature cross phase spectra per mode for each species</p>
+<p><strong>Description</strong></p>
+<p>Density-temperature cross phase spectra per mode for each species</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky, nmodes</p></li>
@@ -260,8 +260,8 @@ Density-temperature cross phase spectra per mode for each species</p>
 </div>
 <div class="section" id="ql-flux-spectrum">
 <span id="tglf-ql-flux-spectrum"></span><h2>QL_flux_spectrum<a class="headerlink" href="#ql-flux-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)</p>
+<p><strong>Description</strong></p>
+<p>QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky, nmodes, ns, field, type</p></li>
@@ -270,8 +270,8 @@ QL weights per mode, species, field and type (type = particle, energy, toroidal 
 </div>
 <div class="section" id="sat-geo-spectrum">
 <span id="tglf-sat-geo-spectrum"></span><h2>sat_geo_spectrum<a class="headerlink" href="#sat-geo-spectrum" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong>
-Saturation model geometry factor per mode <span class="math notranslate nohighlight">\(={\left(\frac{&lt;\phi| B^2/B_{unit}^2 |\phi&gt;}{&lt;\phi|\phi&gt;} \right)^{-1}\)</span></p>
+<p><strong>Description</strong></p>
+<p>Saturation model geometry factor per mode <span class="math notranslate nohighlight">\({\frac {&lt;\phi|\phi&gt;}{&lt;\phi| B^2/B_{unit}^2 |\phi&gt;}}\)</span></p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky, nmodes</p></li>
@@ -281,13 +281,13 @@ Saturation model geometry factor per mode <span class="math notranslate nohighli
 <div class="section" id="scalar-saturation-parameters">
 <span id="tglf-scalar-saturation-parameters"></span><h2>scalar_saturation_parameters<a class="headerlink" href="#scalar-saturation-parameters" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong>
-This output file has all of the scalar saturation paramters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <span class="xref std std-ref">TGLF_UNITS</span>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p>
+This output file has all of the scalar saturation parameters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-units"><span class="std std-ref">UNITS</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p>
 <hr class="docutils" />
 </div>
 <div class="section" id="spectral-shift">
 <span id="tglf-spectral-shift"></span><h2>spectral_shift<a class="headerlink" href="#spectral-shift" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong>
-kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p>
+kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky</p></li>
@@ -312,7 +312,7 @@ Gyro-bohm normalized temperature fluctuation amplitude spectra</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index: nky, ns</p></li>
-<li><p>columns: temperature(nky, ns=1), temperature(nky, ns=2), … , temperature(nky, ns=ns_in)</p></li>
+<li><p>columns: temperature(ns=1,..,ns_in)</p></li>
 </ul>
 <p>—–Return to <a class="reference internal" href="tglf_table.html"><span class="doc">table of inputs and outputs</span></a></p>
 </div>

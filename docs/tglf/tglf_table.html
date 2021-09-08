@@ -110,7 +110,7 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../tglf.html#quick-links">Quick links</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Table of inputs and outputs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="tglf_list.html">Alphabetical list for input.tglf</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tglf_output_list.html">Alphabetical list of output files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tglf_output_list.html">Alphabetical list for out.tglf files</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../tglf.html#overview">Overview</a></li>
@@ -405,6 +405,11 @@
 <td><p>tglf_write_wavefunction_flag_in</p></td>
 <td><p>Self-explanatory</p></td>
 <td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="tglf_list.html#tglf-units"><span class="std std-ref">UNITS</span></a></p></td>
+<td><p>units_in</p></td>
+<td><p>units system used for SAT1</p></td>
+<td><p>GYRO</p></td>
 </tr>
 </tbody>
 </table>
@@ -806,13 +811,13 @@
 <td><p>QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="tglf_output_list.html#tglf-sat-geo-spectrum"><span class="std std-ref">sat_geo_spectrum</span></a></p></td>
-<td><p>saturation model geometry factor per mode <span class="math notranslate nohighlight">\(={\left(\frac{&lt;\phi| B^2/B_{unit}^2 |\phi&gt;}{&lt;\phi|\phi&gt;} \right)^{-1}\)</span></p></td>
+<td><p>saturation model geometry factor per mode <span class="math notranslate nohighlight">\({\frac {&lt;\phi|\phi&gt;}{&lt;\phi| B^2/B_{unit}^2 |\phi&gt;}}\)</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="tglf_output_list.html#tglf-scalar-saturation-parameters"><span class="std std-ref">scalar_saturation_parameters</span></a></p></td>
-<td><p>This output file has all of the scalar saturation paramters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <span class="xref std std-ref">TGLF_UNITS</span>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p></td>
+<td><p>This output file has all of the scalar saturation parameters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-units"><span class="std std-ref">UNITS</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="tglf_output_list.html#tglf-spectral-shift"><span class="std std-ref">spectral_shift</span></a></p></td>
-<td><p>kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p></td>
+<td><p>kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="tglf_output_list.html#tglf-sum-flux-spectrum"><span class="std std-ref">sum_flux_spectrum</span></a></p></td>
 <td><p>flux spectrum summed over nmodes</p></td>

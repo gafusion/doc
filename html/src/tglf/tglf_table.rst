@@ -44,6 +44,7 @@ Table of inputs and outputs
    ":ref:`TGLF_DEBYE_FACTOR`",tglf_debye_factor_in,multiplies the debye length,1.0
    ":ref:`TGLF_ETG_FACTOR`",tglf_etg_factor_in,exponent for ETG saturation rule,1.25
    ":ref:`TGLF_WRITE_WAVEFUNCTION_FLAG`",tglf_write_wavefunction_flag_in,Self-explanatory,0
+   ":ref:`TGLF_UNITS`",units_in,units system used for SAT1,GYRO
 
 
 .. csv-table:: **Species Vectors**
@@ -147,6 +148,6 @@ Table of inputs and outputs
    ":ref:`TGLF_QL_FLUX_SPECTRUM`","QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)"
    ":ref:`TGLF_SAT_GEO_SPECTRUM`","saturation model geometry factor per mode :math:`{\frac {<\phi|\phi>}{<\phi| B^2/B_{unit}^2 |\phi>}}`"
    ":ref:`TGLF_SCALAR_SATURATION_PARAMETERS`", "This output file has all of the scalar saturation parameters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`"
-   ":ref:`TGLF_SPECTRAL_SHIFT`","kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}`, depends on which saturation model is being used: SAT_RULE and UNITS settings"
+   ":ref:`TGLF_SPECTRAL_SHIFT`","kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}}`, depends on which saturation model is being used: SAT_RULE and UNITS settings"
    ":ref:`TGLF_SUM_FLUX_SPECTRUM`",flux spectrum summed over nmodes
    ":ref:`TGLF_TEMPERATURE_SPECTRUM`", Gyro-bohm normalized temperature fluctuation amplitude spectra

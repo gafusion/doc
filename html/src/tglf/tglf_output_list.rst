@@ -128,7 +128,7 @@ spectral_shift
 --------------
 
 **Description**
-kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}`, depends on which saturation model is being used: SAT_RULE and UNITS settings
+kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}}`, depends on which saturation model is being used: SAT_RULE and UNITS settings
 
 **Comments**
 
@@ -162,7 +162,7 @@ Gyro-bohm normalized temperature fluctuation amplitude spectra
 **Comments**
 
 - index: nky, ns
-- columns: temperature(nky, ns=1), temperature(nky, ns=2), ... , temperature(nky, ns=ns_in)
+- columns: temperature(ns=1,..,ns_in)
 
 
 -----Return to :doc:`table of inputs and outputs <tglf_table>`
