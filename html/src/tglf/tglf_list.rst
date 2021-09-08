@@ -11,7 +11,7 @@ ADIABATIC_ELEC
 
 **Definition**
 
-Use adiabatic electrons.
+Use adiabatic electrons. Adiabatic electrons are assumed to be perfectly Maxwellian and remain so by responding immediately to any change in electrostatic potential along the magnetic field. Generally this assumption works for ITG cases, but not for trapped electron modes, so can be used to distinguish their relative importance.
 
 
 **Comments**
@@ -28,6 +28,22 @@ ALPHA_E
 **Definition**
 
 Multiplies ExB velocity shear for spectral shift model.
+
+
+**Comments**
+
+- DEFAULT = 1.0
+
+----
+
+.. _TGLF_ALPHA_ZF:
+
+ALPHA_ZF
+--------
+
+**Definition**
+
+Switch that turns off the q/2 factor in SAT2 when ALPHA_ZF=-1.0
 
 
 **Comments**
@@ -254,8 +270,7 @@ ETG_FACTOR
 
 **Definition**
 
-Exponent for ETG saturation rule.
-
+Exponent for ETG saturation rule. Hidden switch: ETG_FACTOR=-1.0 turns off the 12*Lp/R factor in SAT2 and ETG_FACTOR=-2.0 computes Lp from the input P_PRIME_LOC rather than the input gradients.
 
 **Comments**
 
@@ -835,10 +850,9 @@ SAT_RULE
 
 **Definition**
 
-
-**Choices**
-
-- SAT_RULE = 0 default saturation rule 
+- SAT_RULE = 0 finds zonal flow shear at each ky (e.g. Kinsey, Staebler, Waltz, PoP, 2008)
+- SAT_RULE = 1 finds dominant saturation mechanism (ZF mixing rate or drift-wave growth rate) and includes ky-coupling (Staebler et al., PoP, 2016)
+- SAT_RULE = 2 builds on SAT1 with refined geometric effects, useful for edge (e.g. Staebler et al., NF, 2021)
 
 
 **Comments**
@@ -988,6 +1002,22 @@ Parameter to adjust trapped fraction model.
 **Comments**
 
 - DEFAULT = 0.7
+
+----
+
+.. _TGLF_UNITS:
+
+UNITS
+-------------
+
+**Definition**
+
+Units system used for SAT1 (default is GYRO, but with CGYRO you get the more recent Nov. 2019 version of the spectral shift model and overall geometry factors calibrated by CGYRO runs). Note that  UNITS=CGYRO is enforced for SAT2, and GYRO is enforced for SAT0.
+
+
+**Comments**
+
+- DEFAULT = GYRO
 
 ----
 
@@ -1381,5 +1411,5 @@ Species charge numbers.
 
 - DEFAULT = -1.0 , 1.0
 
-----Return to :doc:`table of inputs <tglf_table>`
+----Return to :doc:`table of inputs and outputs <tglf_table>`
 

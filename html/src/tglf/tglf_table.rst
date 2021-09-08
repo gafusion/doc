@@ -1,4 +1,4 @@
-Tabular list for input.tglf and outputs
+Table of inputs and outputs
 =======================================
 
 .. csv-table:: **Control**
@@ -23,7 +23,7 @@ Tabular list for input.tglf and outputs
    ":ref:`TGLF_KY`",tglf_ky_in,":math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF",0.3
    ":ref:`TGLF_NEW_EIKONAL`",tglf_new_eikonal_in,".true. = compute the eikonal, .false. = use the eikonal computed on the last call to TGLF made with tglf_new_eikonal_in = .true.",.true.
    ":ref:`TGLF_VEXB`",tglf_vexb_in,"normalized of ExB velocity Doppler shift common to all species (not in use, see VPAR)",0.0
-   ":ref:`TGLF_VEXB_SHEAR`",tglf_vexb_shear_in,normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{ExB}`  :math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}})\frac {a}{c_{s}}`,0.0
+   ":ref:`TGLF_VEXB_SHEAR`",tglf_vexb_shear_in,normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{E\times B}`. VExB_shear :math:`=-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{E\times B}}{R}})\frac {a}{c_{s}}`,0.0
    ":ref:`TGLF_BETAE`",tglf_betae_in,":math:`\beta _{e}\,\!`  defined with respect to :math:`B_{\rm {unit}}\,\!`",0.0
    ":ref:`TGLF_XNUE`",tglf_xnue_in,electron-ion collision frequency :math:`{\frac {v_{ei}}{c_{s}/a}}`,0.0
    ":ref:`TGLF_ZEFF`",tglf_zeff_in,effective ion charge,1.0
@@ -133,3 +133,20 @@ Tabular list for input.tglf and outputs
    tglf_ion2_pflux_out, :math:`\overline{\Gamma_2}/\Gamma_{GB}`, Gyrobohm-normalized 2nd ion particle flux density
    tglf_ion2_mflux_out, :math:`\overline{\Pi_2}/\Pi_{GB}`, Gyrobohm-normalized 2nd ion angular momentum flux density
    tglf_ion2_eflux_out, :math:`\overline{Q_2}/Q_{GB}`, Gyrobohm-normalized 2nd ion energy flux density
+
+
+.. csv-table:: **TGLF output files**
+   :header: "out.tglf filename", "Short description"
+   :widths: 13, 35
+
+   ":ref:`TGLF_DENSITY_SPECTRUM`",Gyro-bohm normalized density fluctuation amplitude spectra
+   ":ref:`TGLF_EIGENVALUE_SPECTRUM`",Gyro-bohm normalized eigenvalue spectra
+   ":ref:`TGLF_FIELD_SPECTRUM`",Gyro-bohm normalized field fluctuation intensity spectra per mode
+   ":ref:`TGLF_INTENSITY_SPECTRUM`",Gyro-bohm normalized intensity fluctuation amplitude spectra per mode
+   ":ref:`TGLF_NSTS_CROSSPHASE_SPECTRUM`", density-temperature cross phase spectra per mode for each species
+   ":ref:`TGLF_QL_FLUX_SPECTRUM`","QL weights per mode, species, field and type (type = particle, energy, toroidal stress, parallel stress, exchange)"
+   ":ref:`TGLF_SAT_GEO_SPECTRUM`","saturation model geometry factor per mode :math:`={\left(\frac{<\phi| B^2/B_{unit}^2 |\phi>}{<\phi|\phi>} \right)^{-1}`"
+   ":ref:`TGLF_SCALAR_SATURATION_PARAMETERS`", "This output file has all of the scalar saturation paramters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`"
+   ":ref:`TGLF_SPECTRAL_SHIFT`","kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}`, depends on which saturation model is being used: SAT_RULE and UNITS settings"
+   ":ref:`TGLF_SUM_FLUX_SPECTRUM`",flux spectrum summed over nmodes
+   ":ref:`TGLF_TEMPERATURE_SPECTRUM`", Gyro-bohm normalized temperature fluctuation amplitude spectra

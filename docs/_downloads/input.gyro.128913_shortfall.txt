@@ -1,0 +1,103 @@
+#Miller: 0, general: 1
+NUM_EQUIL_FLAG=0
+
+# Number of radial gridpoints (should be even)
+RADIAL_GRID=40
+
+# Factor to multiply box size
+BOX_MULTIPLIER=1.
+
+# Normalized central radius (r0/a)
+RADIUS=0.8
+
+# Banding parameters
+RADIAL_DERIVATIVE_BAND=2
+RADIAL_GYRO_BAND=20
+
+# Number of gridpoints in an orbit section
+ORBIT_GRID=8
+
+# Number of blending functions
+BLEND_GRID=8
+
+# Order of blending functions (2=tent,3=quadratic,4=cubic)
+BLEND_FIT_ORDER=3
+
+# Velocity-space grid:
+PASS_GRID=4
+TRAP_GRID=4
+ENERGY_GRID=8
+ENERGY_MAX=5.0
+
+# Number of plotted points in theta
+THETA_PLOT=8
+THETA_MULT=1
+
+# Toroidal grid (minimum, number and spacing):
+TOROIDAL_MIN=0
+TOROIDAL_GRID=20
+TOROIDAL_SEP=12
+
+# Reference toroidal mode (for calculation of
+# box length)
+TOROIDAL_REFERENCE=-1
+
+# Time step
+TIME_STEP=0.01
+INTEGRATOR_METHOD=2
+
+# Time steps between data output steps
+TIME_SKIP=100
+
+# Maximum run time
+TIME_MAX=500.0
+
+# Radial profile method:
+#  1=flux-tube, s-alpha geometry
+#  3=experimental
+#  5=flux-tube, shaped Miller geometry
+RADIAL_PROFILE_METHOD=3
+DENSITY_METHOD=2
+FLAT_PROFILE_FLAG=1
+
+# Boundary Conditions (periodic=1,nonperiodic=2)
+BOUNDARY_METHOD=1
+
+# Rotation flags 
+ROTATION_THEORY_METHOD=1
+DOPPLER_SCALE=0.0
+PGAMMA_SCALE=1.0
+MACH_SCALE=1.0
+
+# Nonlinear simulation flag (0=linear,1=nonlinear)
+NONLINEAR_FLAG=0
+
+# Initial amplitudes
+AMP_PHI_N=1e-4
+AMP_PHI_0=1e-4
+
+# Model for electron dynamics (1=adiabatic,2=kinetic)
+ELECTRON_METHOD=2
+
+# Square root of ion/electron mass ratio, and electron beta
+MU_ELECTRON=60.0
+AMPERE_SCALE=1.0
+
+# Collision frequencies
+NU_II_SCALE=0.0
+NU_EI_SCALE=1.0
+
+PLOT_U_FLAG=1
+PLOT_N_FLAG=0
+PLOT_E_FLAG=0
+PLOT_V_FLAG=0
+
+# Control of adaptive source
+SOURCE_FLAG=1
+NU_SOURCE=1.0
+N_SOURCE=1
+
+# Source wave selector:(increase with physical box size)
+EXPLICIT_DAMP_GRID=20
+
+AMPERE_SCALE=0.0
