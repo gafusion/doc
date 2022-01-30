@@ -1,78 +1,38 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>TGYRO solver algorithm &mdash; GACODE</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
-
-  
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-  
-
-  
-  
-
-  
-
-  
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Scenarios and connection to energy sources" href="scenarios.html" />
     <link rel="prev" title="Equations solved in TGYRO" href="equations.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> GACODE
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -80,18 +40,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../license.html">GACODE License</a></li>
@@ -140,82 +89,40 @@
 <li class="toctree-l1"><a class="reference internal" href="../shortfall.html">DIII-D L-mode shortfall</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">GACODE</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../tgyro.html">TGYRO</a> &raquo;</li>
-        
       <li>TGYRO solver algorithm</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/tgyro/solver.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="tgyro-solver-algorithm">
-<span id="tgyro-solver"></span><h1>TGYRO solver algorithm<a class="headerlink" href="#tgyro-solver-algorithm" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="tgyro-solver-algorithm">
+<span id="tgyro-solver"></span><h1>TGYRO solver algorithm<a class="headerlink" href="#tgyro-solver-algorithm" title="Permalink to this headline"></a></h1>
 <p>TGYRO solves the <em>steady-state transport problem</em>; that is, the transport
 equations with <span class="math notranslate nohighlight">\(\partial_t \rightarrow 0\)</span>.  This algorithm was originally
 envisioned to form the basis for a time-implicit solver, but frankly there has
 been little interest or need for this capability.  Instead, flexibility in
 dealing with multiple ions and solver robustness have been emphasized.</p>
-<div class="section" id="formulation">
-<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline">¶</a></h2>
+<section id="formulation">
+<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline"></a></h2>
 <p>To describe the algorithm, we will restrict attention to coupled <span class="math notranslate nohighlight">\(T_i\)</span>
 and <span class="math notranslate nohighlight">\(T_e\)</span> evolution, even though density and rotation can also be
 evolved.</p>
@@ -235,9 +142,9 @@ Q_e = &amp; ~Q_e^{\rm Neo} + Q_e^{\rm Turb}
 \end{align}\end{split}\]</div>
 <p>The total ion and electron sources, <span class="math notranslate nohighlight">\(S_e\)</span> and <span class="math notranslate nohighlight">\(S_i\)</span>, are described in more
 detail in the <a class="reference internal" href="equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a> .</p>
-</div>
-<div class="section" id="some-comments-regarding-units">
-<h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="some-comments-regarding-units">
+<h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this headline"></a></h2>
 <p>In TGYRO, we have found it convenient to use CGS units rather than employing some variant of the more
 popular dimensionless normalizations.  Thus, we have</p>
 <div class="math notranslate nohighlight">
@@ -247,9 +154,9 @@ popular dimensionless normalizations.  Thus, we have</p>
 {\rm Power}: \quad &amp; P \sim  \frac{{\rm erg}}{{\rm s}} \rightarrow
 \int_0^r dx \, V^\prime(x) S(x)
 \end{align}\end{split}\]</div>
-</div>
-<div class="section" id="solution-strategy">
-<h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solution-strategy">
+<h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline"></a></h2>
 <p>Rather than solving the equations directly, we prefer to solve the volume-integrated form
 of the equation so that we can deal directly with the fluxes:</p>
 <div class="math notranslate nohighlight">
@@ -283,9 +190,9 @@ T_\sigma(r_*) = T_\sigma^* \; .
 T_\sigma(r) = T_\sigma^*
 \exp\left( \int_r^{r_*} dx \, z_\sigma(x) \right) \; .
 \end{equation}\]</div>
-</div>
-<div class="section" id="formulation-on-a-discrete-grid">
-<h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="formulation-on-a-discrete-grid">
+<h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline"></a></h2>
 <p>On a discrete grid <span class="math notranslate nohighlight">\(r_j\)</span>, the temperature profile can be approximately determined using
 the trapezoidal rule</p>
 <div class="math notranslate nohighlight">
@@ -327,7 +234,7 @@ so that the Jacobian associated with <span class="math notranslate nohighlight">
 <p>Above, we have used the shorthand <span class="math notranslate nohighlight">\(z \doteq \{z_{\sigma,j}\}\)</span> and
 <span class="math notranslate nohighlight">\(z^0 \doteq \{z^0_{\sigma,j}\}\)</span>.  This can be written in terms of Jacobian matrices as</p>
 <div class="math notranslate nohighlight" id="equation-newton">
-<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation">¶</a></span>\[\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
+<span class="eqno">(1)<a class="headerlink" href="#equation-newton" title="Permalink to this equation"></a></span>\[\widehat{{\cal J}}_{{\sigma\sigma^\prime,jj^\prime}} \, \delta z_{\sigma^\prime,j^\prime} =
 -\left[ \widehat{Q}_{\sigma,j}(z^0) - \widehat{Q}^T_{\sigma,j}(z^0) \right] \eta_{\sigma,j} \; ,\]</div>
 <p>where</p>
 <div class="math notranslate nohighlight">
@@ -427,9 +334,9 @@ ignored</p></li>
 </ul>
 <p>If the temperature dependence of <span class="math notranslate nohighlight">\(\widehat{Q}\)</span> was included, there would be no fixed-point
 iteration component.</p>
-</div>
-<div class="section" id="computation-of-the-jacobian">
-<h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="computation-of-the-jacobian">
+<h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline"></a></h2>
 <p>We approximate the derivatives in the Jacobian matrix using a forward difference approximation</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq
@@ -437,55 +344,38 @@ iteration component.</p>
 <p>A desireable feature of this approximation is that the iteration scheme, Eq.~(ref{eq.newton}) if it converges,
 will converge to the exact root of the original equations without any influence of the finite-difference truncation
 error.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="scenarios.html" class="btn btn-neutral float-right" title="Scenarios and connection to energy sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="equations.html" class="btn btn-neutral float-left" title="Equations solved in TGYRO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="scenarios.html" class="btn btn-neutral float-right" title="Scenarios and connection to energy sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2010-2021.
-
-    </p>
+    <p>&#169; Copyright 2010-2022.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Environment setup &mdash; GACODE</title>
+  <title>Workshops &mdash; GACODE</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
@@ -20,9 +20,7 @@
         <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Build from sources" href="build.html" />
-    <link rel="prev" title="Download and user agreement" href="download.html" /> 
+    <link rel="search" title="Search" href="search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -41,15 +39,10 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Software</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Environment setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ga-iris">GA IRIS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nersc-cori">NERSC CORI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#olcf-summit">OLCF SUMMIT</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Environment setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
@@ -84,9 +77,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Environment setup</li>
+      <li>Workshops</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/workshop.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -94,67 +87,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="environment-setup">
-<h1>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this headline"></a></h1>
-<p>Below we give information about the environment setup required to run GACODE tools on maintained platforms.  One this step is complete, proceed to instructions on the code-specific pages for <a class="reference internal" href="cgyro/cgyro_platforms.html"><span class="doc">CGYRO</span></a>, <a class="reference internal" href="neo.html"><span class="doc">NEO</span></a>, <a class="reference internal" href="tgyro.html"><span class="doc">TGYRO</span></a>, and so on.</p>
-<section id="ga-iris">
-<h2>GA IRIS<a class="headerlink" href="#ga-iris" title="Permalink to this headline"></a></h2>
-<p>To run in a <strong>dedicated GACODE environment</strong>, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=IRIS
-export GACODE_ROOT=/fusion/projects/theory/gacode
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
-</pre></div>
-</div>
-<p>This will purge all modules before setup, so if you want to add additional modules, do so after
-executing the last line.</p>
-<p>To run in an <strong>OMFIT-friendly environment</strong> (perhaps missing the most up-to-date GACODE functionality)
-add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>module load defaults
-module load atom/dev
-export GACODE_PLATFORM=SATURN_GCC
-export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
-. $GACODE_ROOT/shared/bin/gacode_setup
-</pre></div>
-</div>
+  <section id="workshops">
+<h1>Workshops<a class="headerlink" href="#workshops" title="Permalink to this headline"></a></h1>
+<section id="cgyro-workshop-2022">
+<h2>2022.02.24-25 – CGYRO Workshop 2022<a class="headerlink" href="#cgyro-workshop-2022" title="Permalink to this headline"></a></h2>
+<dl class="field-list simple">
+<dt class="field-odd">Dates</dt>
+<dd class="field-odd"><p>February 24-25</p>
+</dd>
+<dt class="field-even">Time</dt>
+<dd class="field-even"><p>9:00am-11:45am (PST) both days</p>
+</dd>
+<dt class="field-odd">Zoom link</dt>
+<dd class="field-odd"><p>Send email to <a class="reference external" href="mailto:gacode&#37;&#52;&#48;fusion&#46;gat&#46;com">gacode<span>&#64;</span>fusion<span>&#46;</span>gat<span>&#46;</span>com</a> with “CGYRO ZOOM” in subject line</p>
+</dd>
+</dl>
+<section id="agenda">
+<h3>AGENDA<a class="headerlink" href="#agenda" title="Permalink to this headline"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 49%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Day</p></th>
+<th class="head"><p>Time</p></th>
+<th class="head"><p>Speaker</p></th>
+<th class="head"><p>Title</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Thursday</strong></p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>09:00AM</p></td>
+<td><p>Candy</p></td>
+<td><p>Welcome</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>09:15AM</p></td>
+<td><p>Belli</p></td>
+<td><p>HAM Geometry</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>09:45PM</p></td>
+<td><p>Candy</p></td>
+<td><p>Perpendicular resolution</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>10:15PM</p></td>
+<td><p><strong>BREAK</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>10:30AM</p></td>
+<td><p>Ashourvan</p></td>
+<td><p>Pedestal Simulation</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>11:00AM</p></td>
+<td><p>Belli</p></td>
+<td><p>Rotation</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Friday</strong></p></td>
+<td colspan="3"></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>09:00AM</p></td>
+<td><p>Belli</p></td>
+<td><p>Welcome</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>09:15AM</p></td>
+<td><p>Candy</p></td>
+<td><p>Platform files</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>09:35AM</p></td>
+<td><p>Belli</p></td>
+<td><p>Local profile method</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>10:00AM</p></td>
+<td><p><strong>BREAK</strong></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>10:15AM</p></td>
+<td><p>Candy</p></td>
+<td><p>Adaptive timestepping</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>10:35AM</p></td>
+<td><p>Sfilogoi</p></td>
+<td><p>Performance on CPU/GPU systems</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>11:15AM</p></td>
+<td><p>Belli</p></td>
+<td><p>Collisions</p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="nersc-cori">
-<h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this headline"></a></h2>
-<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
-<p><strong>Standard MKL</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
-. $GACODE_ROOT/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-<p><strong>Extra nonlinear threading</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
-export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mklht
-. $GACODE_ROOT/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-</section>
-<section id="olcf-summit">
-<h2>OLCF SUMMIT<a class="headerlink" href="#olcf-summit" title="Permalink to this headline"></a></h2>
-<p>Add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=SUMMIT
-export GACODE_ROOT=$PROJWORK/fus129/gacode
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
-</pre></div>
-</div>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="download.html" class="btn btn-neutral float-left" title="Download and user agreement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="build.html" class="btn btn-neutral float-right" title="Build from sources" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
