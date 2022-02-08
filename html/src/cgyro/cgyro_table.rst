@@ -1,6 +1,21 @@
 Tabular list for input.cgyro
 ============================
 
+* :ref:`tab-shape`
+* :ref:`tab-advshape`
+* :ref:`tab-control`
+* :ref:`tab-fields`
+* :ref:`tab-resolution`
+* :ref:`tab-dissipation`
+* :ref:`tab-time`
+* :ref:`tab-species`
+* :ref:`tab-collisions`
+* :ref:`tab-rotation`
+* :ref:`tab-global`
+* :ref:`tab-output`
+
+.. _tab-shape:
+  
 .. csv-table:: **Plasma shape/geometry**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -23,6 +38,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_ipccw`", Current orientation,-1.0
    ":ref:`cgyro_udsymmetry_flag`", Enforce up-down symmetry,1
 
+.. _tab-advshape:
+
 .. csv-table:: **Advanced shape parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -38,6 +55,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_shape_sin3`", 3rd symmetric moment, 0.0
    ":ref:`cgyro_shape_s_sin3`", 3rd symmetric moment shear,0.0
 
+.. _tab-control:
+
 .. csv-table:: **Control parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -50,6 +69,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_amp`", Initial :math:`n>0` amplitude,0.1
    ":ref:`cgyro_amp0`", Initial :math:`n=0` amplitude,0.0
 
+.. _tab-fields:
+
 .. csv-table:: **Fields**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -60,6 +81,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_beta_star_scale`", Pressure gradient scaling factor,1.0
    ":ref:`cgyro_lambda_debye`", Debye length,0.0
    ":ref:`cgyro_lambda_debye_scale`", Debye length scaling factor,0.0
+
+.. _tab-resolution:
 
 .. csv-table:: **Numerical Resolution**
    :header: "input.cgyro parameter", "Short description", "Default"
@@ -74,6 +97,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_ky`", Binormal wavenumber or domain size,0.3
    ":ref:`cgyro_box_size`", Radial domain size,1
 
+.. _tab-dissipation:
+
 .. csv-table:: **Numerical Dissipation**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -84,6 +109,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_nup_radial`", Radial spectral upwind order,3
    ":ref:`cgyro_nup_theta`", Poloidal upwind order,3
    ":ref:`cgyro_nup_alpha`", Binormal spectral upwind order,3
+
+.. _tab-time:
 
 .. csv-table:: **Time Stepping**
    :header: "input.cgyro parameter", "Short description", "Default"
@@ -97,6 +124,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_print_step`", Data output interval,100
    ":ref:`cgyro_restart_step`", Restart data output interval,10
 
+.. _tab-species:
+
 .. csv-table:: **Species-related parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -109,6 +138,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_dlnndr`", Species density gradient, 1.0
    ":ref:`cgyro_dlntdr`", Species temperature gradient, 1.0
 	    
+.. _tab-collisions:
+
 .. csv-table:: **Collisions**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -122,6 +153,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
    ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload, 0
 
+.. _tab-rotation:
+
 .. csv-table:: **Rotation physics**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -134,6 +167,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_gamma_p_scale`", Rotation shearing rate scaling factor, 1.0
    ":ref:`cgyro_mach_scale`", Rotation speed scaling factor, 1.0 
 
+.. _tab-global:
+
 .. csv-table:: **Global-spectral parameters**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5
@@ -141,6 +176,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_n_global`", Global output resolution, 4
    ":ref:`cgyro_nu_global`", Source rate, 15.0
 	    
+.. _tab-output:
+
 .. csv-table:: **Output file control**
    :header: "input.cgyro parameter", "Short description", "Default"
    :widths: 13, 25, 5

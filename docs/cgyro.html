@@ -54,6 +54,11 @@
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CGYRO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="cgyro/running_cases.html">Running Cases</a></li>
 <li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
@@ -64,11 +69,6 @@
 <li class="toctree-l3"><a class="reference internal" href="cgyro/FAQ.html">FAQ</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
@@ -113,24 +113,6 @@
 <a class="reference internal image-reference" href="_images/b990.png"><img alt="b990" src="_images/b990.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1020.png"><img alt="b1020" src="_images/b1020.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1480.png"><img alt="b1480" src="_images/b1480.png" style="width: 48%;" /></a>
-<section id="quick-links">
-<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/running_cases.html">Running Cases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_platforms.html">Supported CGYRO Platforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_cori.html">Running CGYRO on NERSC Cori</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_titan.html">Running CGYRO on OLCF Titan (deprecated)</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/FAQ.html">FAQ</a></li>
-</ul>
-</div>
-</section>
 <section id="source-code">
 <h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="http://github.com/gafusion/gacode">CGYRO source code</a>  is available at GitHub.</p>
@@ -168,7 +150,11 @@ calculation of collisional transport in toroidal geometry.</p>
 </section>
 <section id="data-input">
 <h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h2>
-<p>The primary CGYRO input file is <a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">input.cgyro</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">Tabular list</span></a></p></li>
+<li><p><a class="reference internal" href="cgyro/cgyro_list.html"><span class="doc">Alphabetical list</span></a></p></li>
+<li><p>Profile data: <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
+</ul>
 </section>
 <section id="data-output-python-interface-and-plotting">
 <h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this headline"></a></h2>
@@ -216,6 +202,24 @@ calculation of collisional transport in toroidal geometry.</p>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="quick-links">
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/running_cases.html">Running Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_platforms.html">Supported CGYRO Platforms</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_cori.html">Running CGYRO on NERSC Cori</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_titan.html">Running CGYRO on OLCF Titan (deprecated)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cgyro/FAQ.html">FAQ</a></li>
+</ul>
+</div>
 </section>
 </section>
 

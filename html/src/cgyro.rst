@@ -14,20 +14,6 @@ CGYRO
 	:width: 48 %
 	:alt: b1480
 
-Quick links
------------
-
-.. toctree::
-   :titlesonly:
-
-   cgyro/running_cases
-   cgyro/cgyro_table
-   cgyro/cgyro_list
-   cgyro/outputs
-   cgyro/plot
-   cgyro/cgyro_platforms
-   cgyro/FAQ
-
 Source Code
 -----------
 
@@ -72,7 +58,9 @@ calculation of collisional transport in toroidal geometry.
 Data input 
 ----------
 
-The primary CGYRO input file is :doc:`input.cgyro <cgyro/cgyro_table>`.  Profile data can be optionally captured from  :ref:`input.gacode`.
+* :doc:`Tabular list <cgyro/cgyro_table>`
+* :doc:`Alphabetical list <cgyro/cgyro_list>`
+* Profile data: :ref:`input.gacode`.
 
 Data output, python interface, and plotting
 -------------------------------------------
@@ -92,3 +80,18 @@ Normalization
    temperature, :math:`T_e`, electron temperature 
    velocity, :math:`c_s = \sqrt{T_e/m_\mathrm{D}}`, deuterium sound speed
    time, :math:`a/c_s`, minor radius over sound speed
+
+Quick links
+-----------
+
+.. toctree::
+   :titlesonly:
+
+   cgyro/running_cases
+   cgyro/cgyro_table
+   cgyro/cgyro_list
+   cgyro/outputs
+   cgyro/plot
+   cgyro/cgyro_platforms
+   cgyro/FAQ
+   
