@@ -60,6 +60,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#density-transport">Density Transport</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#energy-transport">Energy Transport</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#momentum-transport">Momentum Transport</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#connection-of-fluxes-to-powers">Connection of Fluxes to Powers</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="solver.html">TGYRO solver algorithm</a></li>
@@ -116,7 +117,7 @@
 <span id="tgyro-equations"></span><h1>Equations solved in TGYRO<a class="headerlink" href="#equations-solved-in-tgyro" title="Permalink to this headline"></a></h1>
 <p>Below we write the most general form of the transport equations solved by TGYRO.  The
 calculation chain in NEO-CGYRO-TGYRO is a faithful representation of the comprehensive
-transport theory of Sugama <span id="id1">[<a class="reference internal" href="../zreferences.html#id97" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998.">SH98</a>]</span>.  This paper is <em>required reading</em> for a
+transport theory of Sugama <span id="id1">[<a class="reference internal" href="../zreferences.html#id102" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998.">SH98</a>]</span>.  This paper is <em>required reading</em> for a
 detailed understanding of the theoretical foundations of GACODE.  Below we summarize
 Sugama’s form of the transport equations, with some practical simplifications and
 notational differences.</p>
@@ -260,6 +261,52 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 </tr>
 </tbody>
 </table>
+</section>
+<section id="connection-of-fluxes-to-powers">
+<h2>Connection of Fluxes to Powers<a class="headerlink" href="#connection-of-fluxes-to-powers" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Volume element</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}dV &amp; = dr \, d\theta \, d\varphi \, J_r \\
+   &amp; = dn \, dS\end{split}\]</div>
+<ul class="simple">
+<li><p>Jacobian</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[J_r = \frac{\partial(x,y,z)}{\partial(r,\theta,\varphi)}\]</div>
+<ul class="simple">
+<li><p>Normal to surface</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[dn = \frac{dr}{\left| \nabla r \right|}\]</div>
+<ul class="simple">
+<li><p>Volume</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V(r) = \int_0^r dr \oint \frac{dS}{\left| \nabla r \right|} \quad \text{and} \quad V^\prime = \oint \frac{dS}{\left| \nabla r \right|}\]</div>
+<ul class="simple">
+<li><p>Flux-surface Average</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\left\langle f \right\rangle = \frac{\oint d\theta \, d\varphi \, J_r \; f}{\oint d\theta \, d\varphi}
+= \frac{1}{V^\prime} \oint \frac{dS}{\left| \nabla r \right|} \, f\]</div>
+<ul class="simple">
+<li><p>Surface Area</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[\begin{split}S(r) &amp;= \oint dS = \oint \left| \nabla r \right| \, d\theta \, d\varphi \, J_r \\
+     &amp;= V^\prime \left\langle \left| \nabla r \right| \right\rangle\end{split}\]</div>
+<ul class="simple">
+<li><p>Flux-power relation</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V^\prime Q = \int dr \, V^\prime \, S_W = \int dV \, S_W = P\]</div>
+<ul class="simple">
+<li><p>Flux-power relation units</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[V^\prime[\mathrm{cm}^2] Q [\mathrm{erg}/\mathrm{s}/\mathrm{cm}^2] = P [\mathrm{erg}/\mathrm{s}]\]</div>
 </section>
 </section>
 

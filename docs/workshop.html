@@ -18,6 +18,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -104,94 +105,46 @@
 </dl>
 <section id="agenda">
 <h3>AGENDA<a class="headerlink" href="#agenda" title="Permalink to this headline"></a></h3>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 20%" />
-<col style="width: 13%" />
-<col style="width: 17%" />
-<col style="width: 49%" />
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Day</p></th>
-<th class="head"><p>Time</p></th>
-<th class="head"><p>Speaker</p></th>
-<th class="head"><p>Title</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>Thursday</strong></p></td>
-<td colspan="3"></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>09:00AM</p></td>
-<td><p>Candy</p></td>
-<td><p>Welcome</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>09:15AM</p></td>
-<td><p>Belli</p></td>
-<td><p>HAM Geometry</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>09:45PM</p></td>
-<td><p>Candy</p></td>
-<td><p>Perpendicular resolution</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>10:15PM</p></td>
-<td><p><strong>BREAK</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>10:30AM</p></td>
-<td><p>Ashourvan</p></td>
-<td><p>Pedestal Simulation</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>11:00AM</p></td>
-<td><p>Belli</p></td>
-<td><p>Rotation</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>Friday</strong></p></td>
-<td colspan="3"></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>09:00AM</p></td>
-<td><p>Belli</p></td>
-<td><p>Welcome</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>09:15AM</p></td>
-<td><p>Candy</p></td>
-<td><p>Platform files</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>09:35AM</p></td>
-<td><p>Belli</p></td>
-<td><p>Local profile method</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>10:00AM</p></td>
-<td><p><strong>BREAK</strong></p></td>
-<td></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>10:15AM</p></td>
-<td><p>Candy</p></td>
-<td><p>Adaptive timestepping</p></td>
-</tr>
-<tr class="row-odd"><td></td>
-<td><p>10:35AM</p></td>
-<td><p>Sfilogoi</p></td>
-<td><p>Performance on CPU/GPU systems</p></td>
-</tr>
-<tr class="row-even"><td></td>
-<td><p>11:15AM</p></td>
-<td><p>Belli</p></td>
-<td><p>Collisions</p></td>
-</tr>
-</tbody>
-</table>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="cgyro/cgyro_table.html#tab-resolution"><span class="std std-ref">Numerical Resolution</span></a></p>
+<ul class="simple">
+<li><p>perpendicular resolution and box size</p></li>
+<li><p>poloidal resolution (N_THETA)</p></li>
+<li><p>velocity resolution (N_XI,N_ENERGY)</p></li>
+<li><p>nonlinear resolution checks (NL_FLAG=0, <span class="math notranslate nohighlight">\(\theta_0\)</span>)</p></li>
+<li><p>linear versus nonlinear simulation</p></li>
+<li><p>timestep (fixed versus adaptive)</p></li>
+</ul>
+</li>
+<li><p>Plotting</p>
+<ul class="simple">
+<li><p>resolution diagnostics (ky_phi, kx_phi, ball, ky_flux)</p></li>
+<li><p>monitoring simulations (flux)</p></li>
+<li><p>using pygacode for custom plotting and analysis</p></li>
+<li><p>generating visualizations (vis)</p></li>
+</ul>
+</li>
+<li><p>profiles_gen</p>
+<ul class="simple">
+<li><p>generating input.gacode</p></li>
+<li><p>using the loc_rad option</p></li>
+<li><p>profiles_gen_plot and other plotting tools</p></li>
+</ul>
+</li>
+<li><p>Source code</p>
+<ul class="simple">
+<li><p>platform file hierarchy (PPPL, PSFC, etc)</p></li>
+<li><p>real-time work on Perlmutter and Cori (NERSC)</p></li>
+<li><p>use of virtual environments (pip)</p></li>
+</ul>
+</li>
+<li><p>Brief presentations</p>
+<ul class="simple">
+<li><p>Igor Sfiligoi: <em>CGYRO Performance on HPC systems (JIFT talk)</em></p></li>
+<li><p>Arash Ashourvan: <em>Strategies for pedestal simulation</em></p></li>
+</ul>
+</li>
+</ol>
 </section>
 </section>
 </section>
