@@ -12,36 +12,37 @@ Workshops
 AGENDA
 ------
 
-+-----------------+-----------+--------------+-----------------------------------------+
-| Day             | Time      |      Speaker | Title                                   |
-+=================+===========+==============+=========================================+
-| **Thursday**    |                                                                    |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:00AM   | Candy        | Welcome                                 |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:15AM   | Belli        | HAM Geometry                            |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:45PM   | Candy        | Perpendicular resolution                |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 10:15PM   | **BREAK**    |                                         |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 10:30AM   | Ashourvan    | Pedestal Simulation                     |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 11:00AM   | Belli        | Rotation                                |
-+-----------------+-----------+--------------+-----------------------------------------+
-| **Friday**      |                                                                    |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:00AM   | Belli        | Welcome                                 |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:15AM   | Candy        | Platform files                          |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 09:35AM   | Belli        | Local profile method                    |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 10:00AM   | **BREAK**    |                                         |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 10:15AM   | Candy        | Adaptive timestepping                   |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 10:35AM   | Sfilogoi     | Performance on CPU/GPU systems          |
-+-----------------+-----------+--------------+-----------------------------------------+
-|                 | 11:15AM   | Belli        | Collisions                              |
-+-----------------+-----------+--------------+-----------------------------------------+
+
+#. :ref:`Numerical Resolution <tab-resolution>`
+
+   * perpendicular resolution and box size
+   * poloidal resolution (N_THETA) 
+   * velocity resolution (N_XI,N_ENERGY)
+   * nonlinear resolution checks (NL_FLAG=0, :math:`\theta_0`)
+   * linear versus nonlinear simulation
+   * timestep (fixed versus adaptive)
+
+#. Plotting
+
+   * resolution diagnostics (ky_phi, kx_phi, ball, ky_flux)
+   * monitoring simulations (flux)
+   * using pygacode for custom plotting and analysis
+   * generating visualizations (vis)
+
+#. profiles_gen
+
+   * generating input.gacode 
+   * using the loc_rad option 
+   * profiles_gen_plot and other plotting tools
+
+#. Source code
+
+   * platform file hierarchy (PPPL, PSFC, etc)  
+   * real-time work on Perlmutter and Cori (NERSC) 
+   * use of virtual environments (pip)
+
+#. Brief presentations
+
+   * Igor Sfiligoi: *CGYRO Performance on HPC systems (JIFT talk)*
+   * Arash Ashourvan: *Strategies for pedestal simulation*
+

@@ -95,3 +95,62 @@ and
    ":math:`\Pi_a^{\rm neo}`", Neoclassical angular momentum flux, ":math:`erg/cm^2`"
    ":math:`\Pi_a^{\rm tur}`", Turbulent angular momentum flux, ":math:`erg/cm^2`"
    ":math:`S_{\omega,a}`", Angular momentum density source rate, ":math:`erg/cm^3`"
+
+Connection of Fluxes to Powers
+------------------------------
+
+.. |gradr| mathmacro:: \left| \nabla r \right|
+
+* Volume element
+
+.. math::
+   
+   dV & = dr \, d\theta \, d\varphi \, J_r \\
+      & = dn \, dS
+
+* Jacobian
+
+.. math::
+   
+   J_r = \frac{\partial(x,y,z)}{\partial(r,\theta,\varphi)}
+
+* Normal to surface
+
+.. math::
+
+   dn = \frac{dr}{\gradr}
+
+* Volume
+
+.. math::
+   
+   V(r) = \int_0^r dr \oint \frac{dS}{\gradr} \quad \text{and} \quad V^\prime = \oint \frac{dS}{\gradr}
+
+* Flux-surface Average
+
+.. math::
+
+   \left\langle f \right\rangle = \frac{\oint d\theta \, d\varphi \, J_r \; f}{\oint d\theta \, d\varphi}
+   = \frac{1}{V^\prime} \oint \frac{dS}{\gradr} \, f 
+
+* Surface Area
+
+.. math::
+
+   S(r) &= \oint dS = \oint \gradr \, d\theta \, d\varphi \, J_r \\
+        &= V^\prime \left\langle \gradr \right\rangle
+
+* Flux-power relation
+
+.. math::
+
+   V^\prime Q = \int dr \, V^\prime \, S_W = \int dV \, S_W = P 
+
+   
+* Flux-power relation units
+
+.. math::
+
+   V^\prime[\mathrm{cm}^2] Q [\mathrm{erg}/\mathrm{s}/\mathrm{cm}^2] = P [\mathrm{erg}/\mathrm{s}]
+
+   
