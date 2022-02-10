@@ -22,7 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="input.gacode" href="input_gacode.html" /> 
+    <link rel="next" title="CGYRO Workshop 2022" href="workshop.html" />
+    <link rel="prev" title="Miscellaneous" href="misc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -62,14 +63,18 @@
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">DIII-D L-mode shortfall</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#key-publications-and-presentations">Key publications and presentations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#experimental-profiles">EXPERIMENTAL profiles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gyro-results">GYRO results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#gkw-results-added-25-jan-2013">GKW results (added 25-jan-2013)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cross-code-benchmarking-results">Cross-code benchmarking results</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="misc.html">Miscellaneous</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">DIII-D L-mode shortfall</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#key-publications-and-presentations">Key publications and presentations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#experimental-profiles">EXPERIMENTAL profiles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gyro-results">GYRO results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gkw-results-added-25-jan-2013">GKW results (added 25-jan-2013)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#cross-code-benchmarking-results">Cross-code benchmarking results</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
 </ul>
 </li>
 </ul>
@@ -88,6 +93,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="misc.html">Miscellaneous</a> &raquo;</li>
       <li>DIII-D L-mode shortfall</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/shortfall.rst.txt" rel="nofollow"> View page source</a>
@@ -102,7 +108,7 @@
 <span id="shortfall"></span><h1>DIII-D L-mode shortfall<a class="headerlink" href="#diii-d-l-mode-shortfall" title="Permalink to this headline"></a></h1>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
-<p>This webpage is designed to serve as a central common resource and collaboration tool for research into the so-called “shortfall” observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (<span class="math notranslate nohighlight">\(\rho_{tor}=0.75\)</span>) transport and fluctuations levels, and the ITPA T&amp;C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 &#64; 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to <a class="reference external" href="mailto:chholland&#37;&#52;&#48;ucsd&#46;edu">Chris Holland</a>.</p>
+<p>This page is designed to serve as a central common resource and collaboration tool for research into the so-called <em>shortfall</em> observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (<span class="math notranslate nohighlight">\(\rho_{tor}=0.75\)</span>) transport and fluctuations levels, and the ITPA T&amp;C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 &#64; 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to <a class="reference external" href="mailto:chholland&#37;&#52;&#48;ucsd&#46;edu">Chris Holland</a>.</p>
 </section>
 <section id="key-publications-and-presentations">
 <h2>Key publications and presentations<a class="headerlink" href="#key-publications-and-presentations" title="Permalink to this headline"></a></h2>
@@ -186,7 +192,9 @@
 <h2>GYRO results<a class="headerlink" href="#gyro-results" title="Permalink to this headline"></a></h2>
 <ul>
 <li><p>A series of linear electrostatic initial-value growth rate convergence calculations have been performed, the results of which are shown here</p>
-<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.convergence.png"><img alt="b250" src="_images/d3d128913.r8.linscan.convergence.png" style="width: 100%;" /></a>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.convergence.png"><img alt="linscan" src="_images/d3d128913.r8.linscan.convergence.png" style="width: 90%;" /></a>
+</figure>
 </li>
 <li><p>The base case (electrostatic, finite electron-ion collisions, drift-kinetic electrons) <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> input file can be found
 <a class="reference download internal" download="" href="_downloads/6522bc179dfb38d737aea5fdf9f268ae/input.gyro.128913_shortfall.txt"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a>
@@ -206,7 +214,9 @@ and output summary file
 </ul>
 </li>
 <li><p>A second set of physics tests have been done, examining the effects of using only adiabatic electrons, inclusion of ion-electron collisions, and electromagnetic effects.  These results can be seen here</p>
-<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.physics.png"><img alt="b250" src="_images/d3d128913.r8.linscan.physics.png" style="width: 100%;" /></a>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/d3d128913.r8.linscan.physics.png"><img alt="linscan" src="_images/d3d128913.r8.linscan.physics.png" style="width: 90%;" /></a>
+</figure>
 </li>
 <li><p>Text files with results for this figure can be found here:</p>
 <ul class="simple">
@@ -277,7 +287,8 @@ and output summary file
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="input_gacode.html" class="btn btn-neutral float-left" title="input.gacode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="misc.html" class="btn btn-neutral float-left" title="Miscellaneous" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="workshop.html" class="btn btn-neutral float-right" title="CGYRO Workshop 2022" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Workshops &mdash; GACODE</title>
+  <title>CGYRO Workshop 2022 &mdash; GACODE</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
@@ -21,7 +21,8 @@
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="DIII-D L-mode shortfall" href="shortfall.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,11 +58,18 @@
 <li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="misc.html">Miscellaneous</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">CGYRO Workshop 2022</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#agenda">AGENDA</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 
         </div>
@@ -78,7 +86,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Workshops</li>
+          <li><a href="misc.html">Miscellaneous</a> &raquo;</li>
+      <li>CGYRO Workshop 2022</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/workshop.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -88,10 +97,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="workshops">
-<h1>Workshops<a class="headerlink" href="#workshops" title="Permalink to this headline"></a></h1>
-<section id="cgyro-workshop-2022">
-<h2>2022.02.24-25 – CGYRO Workshop 2022<a class="headerlink" href="#cgyro-workshop-2022" title="Permalink to this headline"></a></h2>
+  <section id="cgyro-workshop-2022">
+<h1>CGYRO Workshop 2022<a class="headerlink" href="#cgyro-workshop-2022" title="Permalink to this headline"></a></h1>
 <dl class="field-list simple">
 <dt class="field-odd">Dates</dt>
 <dd class="field-odd"><p>February 24-25</p>
@@ -104,15 +111,22 @@
 </dd>
 </dl>
 <section id="agenda">
-<h3>AGENDA<a class="headerlink" href="#agenda" title="Permalink to this headline"></a></h3>
-<ol class="arabic simple">
+<h2>AGENDA<a class="headerlink" href="#agenda" title="Permalink to this headline"></a></h2>
+<ul>
+<li><p>profiles_gen</p>
+<ul class="simple">
+<li><p>generating input.gacode</p></li>
+<li><p>using the -loc_rad option</p></li>
+<li><p>profiles_gen_plot and other plotting tools</p></li>
+</ul>
+</li>
 <li><p><a class="reference internal" href="cgyro/cgyro_table.html#tab-resolution"><span class="std std-ref">Numerical Resolution</span></a></p>
 <ul class="simple">
 <li><p>perpendicular resolution and box size</p></li>
 <li><p>poloidal resolution (N_THETA)</p></li>
 <li><p>velocity resolution (N_XI,N_ENERGY)</p></li>
-<li><p>nonlinear resolution checks (NL_FLAG=0, <span class="math notranslate nohighlight">\(\theta_0\)</span>)</p></li>
 <li><p>linear versus nonlinear simulation</p></li>
+<li><p>nonlinear resolution checks (NL_FLAG=0, <span class="math notranslate nohighlight">\(\theta_0\)</span>)</p></li>
 <li><p>timestep (fixed versus adaptive)</p></li>
 </ul>
 </li>
@@ -124,35 +138,38 @@
 <li><p>generating visualizations (vis)</p></li>
 </ul>
 </li>
-<li><p>profiles_gen</p>
+<li><p>Physics parameters and implications</p>
 <ul class="simple">
-<li><p>generating input.gacode</p></li>
-<li><p>using the loc_rad option</p></li>
-<li><p>profiles_gen_plot and other plotting tools</p></li>
+<li><p>NU_EE, BETAE_UNIT, GAMMA_E, GAMMA_P</p></li>
 </ul>
 </li>
 <li><p>Source code</p>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li><p>platform file hierarchy (PPPL, PSFC, etc)</p></li>
 <li><p>real-time work on Perlmutter and Cori (NERSC)</p></li>
 <li><p>use of virtual environments (pip)</p></li>
 </ul>
+</div></blockquote>
 </li>
 <li><p>Brief presentations</p>
-<ul class="simple">
+<blockquote>
+<div><ul class="simple">
 <li><p>Igor Sfiligoi: <em>CGYRO Performance on HPC systems (JIFT talk)</em></p></li>
 <li><p>Arash Ashourvan: <em>Strategies for pedestal simulation</em></p></li>
 </ul>
+</div></blockquote>
 </li>
-</ol>
-</section>
+</ul>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shortfall.html" class="btn btn-neutral float-left" title="DIII-D L-mode shortfall" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
 
   <hr/>
 

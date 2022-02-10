@@ -57,4 +57,4 @@ GACODE software works with the :ref:`input.gacode` format.
    geometry
    rotation
    input_gacode
-   shortfall
+   misc

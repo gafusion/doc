@@ -18,7 +18,7 @@ DIII-D L-mode shortfall
 Overview
 --------
 
-This webpage is designed to serve as a central common resource and collaboration tool for research into the so-called "shortfall" observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (:math:`\rho_{tor}=0.75`) transport and fluctuations levels, and the ITPA T&C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 @ 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to `Chris Holland <mailto:chholland@ucsd.edu>`_.
+This page is designed to serve as a central common resource and collaboration tool for research into the so-called *shortfall* observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (:math:`\rho_{tor}=0.75`) transport and fluctuations levels, and the ITPA T&C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 @ 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to `Chris Holland <mailto:chholland@ucsd.edu>`_.
 
 Key publications and presentations
 ----------------------------------
@@ -76,9 +76,9 @@ GYRO results
 
 * A series of linear electrostatic initial-value growth rate convergence calculations have been performed, the results of which are shown here
 
-  .. image:: shortfall/figures/d3d128913.r8.linscan.convergence.png
-	:width: 100 %
-	:alt: b250
+  .. figure:: shortfall/figures/d3d128913.r8.linscan.convergence.png
+	:width: 90 %
+	:alt: linscan
 
 * The base case (electrostatic, finite electron-ion collisions, drift-kinetic electrons) |GYRO| input file can be found
   :download:`here <shortfall/input.gyro.128913_shortfall.txt>`
@@ -100,9 +100,9 @@ GYRO results
   
 * A second set of physics tests have been done, examining the effects of using only adiabatic electrons, inclusion of ion-electron collisions, and electromagnetic effects.  These results can be seen here
 
-  .. image:: shortfall/figures/d3d128913.r8.linscan.physics.png
-	:width: 100 %
-	:alt: b250
+  .. figure:: shortfall/figures/d3d128913.r8.linscan.physics.png
+	:width: 90 %
+	:alt: linscan
 	      
 * Text files with results for this figure can be found here:
 

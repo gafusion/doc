@@ -192,8 +192,6 @@ Flag to signal helium ash evolution
 
 .. ===========================================================================================
 
-.. _tgyro_iteration_method:
-
 TGYRO_ITERATION_METHOD
 ----------------------
 
@@ -257,8 +255,6 @@ Flag to manage calculation of initial profile
 ----
 
 .. ===========================================================================================
-
-.. _tgyro_mode:
 
 TGYRO_MODE
 ----------
@@ -340,8 +336,6 @@ Sample input.tgyro for TGYRO_MODE=3 to run 6 instances of CGYRO
 
 .. ===========================================================================================
 
-.. _tgyro_neo_method:
-
 TGYRO_NEO_METHOD
 ----------------
 
@@ -362,8 +356,6 @@ Control of NEO code.
 ----
 
 .. ===========================================================================================
-
-.. _tgyro_relax_iterations:
 
 TGYRO_RELAX_ITERATIONS
 ----------------------
@@ -551,8 +543,6 @@ Flag to signal ion temperature evolution
 ----
 
 .. ===========================================================================================
-
-.. _tgyro_write_profiles_flag:
 
 TGYRO_WRITE_PROFILES_FLAG
 -------------------------

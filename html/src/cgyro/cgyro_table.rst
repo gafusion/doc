@@ -89,13 +89,13 @@ Tabular list for input.cgyro
    :widths: 13, 25, 5
 
    ":ref:`cgyro_n_radial`", Number of radial :math:`k_x^0` wavenumbers,4
+   ":ref:`cgyro_box_size`", Radial domain size,1
+   ":ref:`cgyro_n_toroidal`", Number of binormal :math:`k_y` wavenumbers,1
+   ":ref:`cgyro_ky`", Binormal wavenumber or domain size,0.3
    ":ref:`cgyro_n_theta`", Number of poloidal :math:`\theta` gridpoints,24
    ":ref:`cgyro_n_xi`", Number of pitch angle :math:`\xi` gridpoints,16
    ":ref:`cgyro_n_energy`", Number of energy :math:`u` gridpoints,8
    ":ref:`cgyro_e_max`", Maximum energy ,8.0
-   ":ref:`cgyro_n_toroidal`", Number of binormal :math:`k_y` wavenumbers,1
-   ":ref:`cgyro_ky`", Binormal wavenumber or domain size,0.3
-   ":ref:`cgyro_box_size`", Radial domain size,1
 
 .. _tab-dissipation:
 
