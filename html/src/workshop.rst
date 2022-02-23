@@ -9,7 +9,6 @@ CGYRO Workshop 2022
 AGENDA
 ------
 
-
 **profiles_gen**
 
   - generating input.gacode 
@@ -44,8 +43,10 @@ AGENDA
   - real-time work on Perlmutter and Cori (NERSC) 
   - use of virtual environments (pip)
 
-**Brief presentations** 
+**Thursday presentation (11am)** 
 
-  - **Igor Sfiligoi**: *CGYRO Performance on HPC systems (JIFT talk)*
   - **Arash Ashourvan**: *Strategies for pedestal simulation*
 
+**Friday presentation (9am)**
+
+  - **Igor Sfiligoi**: *CGYRO Performance on HPC systems (JIFT talk)*
