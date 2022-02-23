@@ -18,7 +18,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -113,44 +112,44 @@
 <section id="agenda">
 <h2>AGENDA<a class="headerlink" href="#agenda" title="Permalink to this headline"></a></h2>
 <p><strong>profiles_gen</strong></p>
-<ul class="simple">
-<li><p>generating <code class="docutils literal notranslate"><span class="pre">input.gacode</span></code></p></li>
-<li><p>options: <code class="docutils literal notranslate"><span class="pre">-loc_rad</span></code>, <code class="docutils literal notranslate"><span class="pre">-nion</span></code>, <code class="docutils literal notranslate"><span class="pre">-ntheta</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">profiles_gen_plot</span></code></p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">generating</span> <span class="nb">input</span><span class="o">.</span><span class="n">gacode</span>
+<span class="o">-</span> <span class="n">options</span><span class="p">:</span> <span class="o">-</span><span class="n">loc_rad</span><span class="p">,</span> <span class="o">-</span><span class="n">nion</span><span class="p">,</span> <span class="o">-</span><span class="n">ntheta</span>
+<span class="o">-</span> <span class="n">profiles_gen_plot</span>
+</pre></div>
+</div>
 <p><strong>Numerical Resolution</strong></p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">cgyro</span> <span class="pre">-t</span></code> is your friend</p></li>
-<li><p>perpendicular resolution and box size</p></li>
-<li><p>poloidal resolution (N_THETA)</p></li>
-<li><p>velocity resolution (N_XI,N_ENERGY)</p></li>
-<li><p>linear versus nonlinear simulation</p></li>
-<li><p>nonlinear resolution checks (NL_FLAG=0, <span class="math notranslate nohighlight">\(\theta_0\)</span>)</p></li>
-<li><p>timestep (fixed versus adaptive)</p></li>
-<li><p>restarting</p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>- cgyro -t is your friend
+- perpendicular resolution and box size
+- poloidal resolution (N_THETA)
+- velocity resolution (N_XI,N_ENERGY)
+- linear versus nonlinear simulation
+- nonlinear resolution checks (NL_FLAG=0, :math:`\theta_0`)
+- timestep (fixed versus adaptive)
+- restarting
+</pre></div>
+</div>
 <p><strong>Plotting</strong></p>
-<ul class="simple">
-<li><p>resolution diagnostics (ky_phi, kx_phi, ball, ky_flux, geo)</p></li>
-<li><p>monitoring simulations (flux)</p></li>
-<li><p>using pygacode for custom plotting and analysis</p></li>
-<li><p>generating visualizations (<code class="docutils literal notranslate"><span class="pre">-plot</span> <span class="pre">fluct</span></code>)</p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">resolution</span> <span class="n">diagnostics</span> <span class="p">(</span><span class="n">ky_phi</span><span class="p">,</span> <span class="n">kx_phi</span><span class="p">,</span> <span class="n">ball</span><span class="p">,</span> <span class="n">ky_flux</span><span class="p">,</span> <span class="n">geo</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">monitoring</span> <span class="n">simulations</span> <span class="p">(</span><span class="n">flux</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">using</span> <span class="n">pygacode</span> <span class="k">for</span> <span class="n">custom</span> <span class="n">plotting</span> <span class="ow">and</span> <span class="n">analysis</span>
+<span class="o">-</span> <span class="n">generating</span> <span class="n">visualizations</span> <span class="p">(</span><span class="o">-</span><span class="n">plot</span> <span class="n">fluct</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Physics parameters and implications</strong></p>
-<ul class="simple">
-<li><p>NU_EE, BETAE_UNIT, GAMMA_E, GAMMA_P</p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">NU_EE</span><span class="p">,</span> <span class="n">BETAE_UNIT</span><span class="p">,</span> <span class="n">GAMMA_E</span><span class="p">,</span> <span class="n">GAMMA_P</span>
+</pre></div>
+</div>
 <p><strong>Source code</strong></p>
-<ul class="simple">
-<li><p>platform file hierarchy (PPPL, PSFC, etc)</p></li>
-<li><p>real-time work on Perlmutter and Cori (NERSC)</p></li>
-<li><p>use of virtual environments (pip)</p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">platform</span> <span class="n">file</span> <span class="n">hierarchy</span> <span class="p">(</span><span class="n">PPPL</span><span class="p">,</span> <span class="n">PSFC</span><span class="p">,</span> <span class="n">etc</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">real</span><span class="o">-</span><span class="n">time</span> <span class="n">work</span> <span class="n">on</span> <span class="n">Perlmutter</span> <span class="ow">and</span> <span class="n">Cori</span> <span class="p">(</span><span class="n">NERSC</span><span class="p">)</span>
+<span class="o">-</span> <span class="n">use</span> <span class="n">of</span> <span class="n">virtual</span> <span class="n">environments</span> <span class="p">(</span><span class="n">pip</span><span class="p">)</span>
+</pre></div>
+</div>
 <p><strong>Brief presentations</strong></p>
-<ul class="simple">
-<li><p>Igor Sfiligoi: <em>CGYRO Performance on HPC systems (JIFT talk)</em></p></li>
-<li><p>Arash Ashourvan: <em>Strategies for pedestal simulation</em></p></li>
-</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="o">**</span><span class="n">Igor</span> <span class="n">Sfiligoi</span><span class="o">**</span><span class="p">:</span> <span class="o">*</span><span class="n">CGYRO</span> <span class="n">Performance</span> <span class="n">on</span> <span class="n">HPC</span> <span class="n">systems</span> <span class="p">(</span><span class="n">JIFT</span> <span class="n">talk</span><span class="p">)</span><span class="o">*</span>
+<span class="o">-</span> <span class="o">**</span><span class="n">Arash</span> <span class="n">Ashourvan</span><span class="o">**</span><span class="p">:</span> <span class="o">*</span><span class="n">Strategies</span> <span class="k">for</span> <span class="n">pedestal</span> <span class="n">simulation</span><span class="o">*</span>
+</pre></div>
+</div>
 </section>
 </section>
 
