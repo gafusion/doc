@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -99,9 +100,9 @@
            <div itemprop="articleBody">
              
   <section id="flux-surface-geometry">
-<h1>FLUX-SURFACE GEOMETRY<a class="headerlink" href="#flux-surface-geometry" title="Permalink to this headline"></a></h1>
+<h1>FLUX-SURFACE GEOMETRY<a class="headerlink" href="#flux-surface-geometry" title="Permalink to this heading"></a></h1>
 <section id="coordinates">
-<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this headline"></a></h2>
+<h2>Coordinates<a class="headerlink" href="#coordinates" title="Permalink to this heading"></a></h2>
 <p>GYRO/CGYRO/NEO use a right-handed (positively-oriented), field-aligned coordinate system
 <span class="math notranslate nohighlight">\((r,\theta,\alpha)\)</span> and the Clebsch field representation</p>
 <div class="math notranslate nohighlight">
@@ -115,8 +116,8 @@ moves counterclockwise along the flux-surface (shown in blue).</p>
 <p>The coordinate systems <span class="math notranslate nohighlight">\((R,Z,\varphi)\)</span> and <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span> are positively oriented.</p>
 </section>
 <section id="bounding-box-method">
-<h2>Bounding-box method<a class="headerlink" href="#bounding-box-method" title="Permalink to this headline"></a></h2>
-<p>In the MXH parameterization <span id="id1">[<a class="reference internal" href="zreferences.html#id8" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>, we use the bounding-box method to define</p>
+<h2>Bounding-box method<a class="headerlink" href="#bounding-box-method" title="Permalink to this heading"></a></h2>
+<p>In the MXH parameterization <span id="id1">[<a class="reference internal" href="zreferences.html#id11" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>, we use the bounding-box method to define</p>
 <ul class="simple">
 <li><p><strong>minor radius</strong> <span class="math notranslate nohighlight">\(r\)</span></p></li>
 <li><p><strong>major radius</strong> <span class="math notranslate nohighlight">\(R_0\)</span></p></li>
@@ -131,7 +132,7 @@ moves counterclockwise along the flux-surface (shown in blue).</p>
 2 Z_0      = &amp; \max_\ell(Z) + \min_\ell(Z) \; .\end{split}\]</div>
 </section>
 <section id="effective-field">
-<h2>Effective field<a class="headerlink" href="#effective-field" title="Permalink to this headline"></a></h2>
+<h2>Effective field<a class="headerlink" href="#effective-field" title="Permalink to this heading"></a></h2>
 <p>The effective field strength, <span class="math notranslate nohighlight">\(B_{\rm {unit}}\)</span>, is defined as</p>
 <div class="math notranslate nohighlight">
 \[B_\mathrm{unit} = \frac{1}{r} \frac{d\chi _{t}}{dr} \; ,\]</div>
@@ -139,7 +140,7 @@ moves counterclockwise along the flux-surface (shown in blue).</p>
 roughly equivalent field that would be obtained if the flux surface was deformed to a circle.</p>
 </section>
 <section id="equilibria">
-<h2>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this headline"></a></h2>
+<h2>Equilibria<a class="headerlink" href="#equilibria" title="Permalink to this heading"></a></h2>
 <p>GYRO/CGYRO/NEO can be run using <strong>circular equilibrium</strong> or <strong>shaped Grad-Shafranov equilibrium</strong>.</p>
 <p><strong>(1) Circular equilibrium</strong></p>
 <p>The flux surfaces, which are <strong>not</strong> local G-S equilibria, have the form:</p>
@@ -154,7 +155,7 @@ Z(r,\theta) &amp;= r \sin \theta \\\end{split}\]</div>
 <li><p>NEO: <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 0</p></li>
 </ul>
 <p><strong>(2) Shaped Grad-Shafranov equilibrium</strong></p>
-<p>The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization <span id="id2">[<a class="reference internal" href="zreferences.html#id8" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>:</p>
+<p>The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization <span id="id2">[<a class="reference internal" href="zreferences.html#id11" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}R(r,\theta) &amp;= R_0(r) + r \cos \theta_R \\
 Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
@@ -172,7 +173,7 @@ Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
 </figure>
 </section>
 <section id="table-of-geometry-parameters">
-<h2>Table of geometry parameters<a class="headerlink" href="#table-of-geometry-parameters" title="Permalink to this headline"></a></h2>
+<h2>Table of geometry parameters<a class="headerlink" href="#table-of-geometry-parameters" title="Permalink to this heading"></a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -325,10 +326,10 @@ Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
 </tr>
 </tbody>
 </table>
-<p>For further information about geometry and normalization conventions, consult the GYRO Technical Guide   <span id="id3">[<a class="reference internal" href="zreferences.html#id36" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>]</span>.</p>
+<p>For further information about geometry and normalization conventions, consult the GYRO Technical Guide   <span id="id3">[<a class="reference internal" href="zreferences.html#id39" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>]</span>.</p>
 </section>
 <section id="magnetic-field-orientation">
-<h2>Magnetic field orientation<a class="headerlink" href="#magnetic-field-orientation" title="Permalink to this headline"></a></h2>
+<h2>Magnetic field orientation<a class="headerlink" href="#magnetic-field-orientation" title="Permalink to this heading"></a></h2>
 <p>GACODE uses a right-handed (positively-oriented), field-aligned coordinate system <span class="math notranslate nohighlight">\((r,\theta,\varphi)\)</span>, whereas DIII-D uses a (positively-oriented) cylindrical system <span class="math notranslate nohighlight">\((R,\phi,Z)\)</span>.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:</p>
 <figure class="align-center">
 <a class="reference internal image-reference" href="_images/Orient_gacode.png"><img alt="flux surface" src="_images/Orient_gacode.png" style="width: 600.0px; height: 600.0px;" /></a>

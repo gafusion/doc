@@ -16,6 +16,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -112,17 +113,17 @@
            <div itemprop="articleBody">
              
   <section id="running-cgyro-on-olcf-titan-deprecated">
-<h1>Running CGYRO on OLCF Titan (deprecated)<a class="headerlink" href="#running-cgyro-on-olcf-titan-deprecated" title="Permalink to this headline"></a></h1>
+<h1>Running CGYRO on OLCF Titan (deprecated)<a class="headerlink" href="#running-cgyro-on-olcf-titan-deprecated" title="Permalink to this heading"></a></h1>
 <p>ORNL Titan is one of the most popular GPU platforms on which to run CGYRO.
 This document provides some guidance on how to best make use of its resources</p>
 <section id="titan-capabilities">
-<h2>Titan capabilities<a class="headerlink" href="#titan-capabilities" title="Permalink to this headline"></a></h2>
+<h2>Titan capabilities<a class="headerlink" href="#titan-capabilities" title="Permalink to this heading"></a></h2>
 <p>The bulk of the Titan compute power comes from the approximately 18k nodes, each hosting a single AMD Opteron CPU and a NVIDIA K20X GPU.
 For our purposes, each Opteron provides 16 execution threads.
 Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
 </section>
 <section id="titan-platform-file">
-<h2>Titan Platform File<a class="headerlink" href="#titan-platform-file" title="Permalink to this headline"></a></h2>
+<h2>Titan Platform File<a class="headerlink" href="#titan-platform-file" title="Permalink to this heading"></a></h2>
 <p>The recommended platform file is:</p>
 <blockquote>
 <div><ul class="simple">
@@ -131,7 +132,7 @@ Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
 </div></blockquote>
 </section>
 <section id="memory-vs-speed-tradeoff-in-collisional-term">
-<h2>Memory vs speed tradeoff in collisional term<a class="headerlink" href="#memory-vs-speed-tradeoff-in-collisional-term" title="Permalink to this headline"></a></h2>
+<h2>Memory vs speed tradeoff in collisional term<a class="headerlink" href="#memory-vs-speed-tradeoff-in-collisional-term" title="Permalink to this heading"></a></h2>
 <p>Unless you are using the simplified collision operator, i.e. <strong>not COLLISION_MODEL=5</strong>,
 CGYRO will run that operator on CPU-only by default.
 This choice has been made due to the significant memory cost of the other operators,
@@ -146,14 +147,14 @@ To force the collisional operator to execute on the (much faster) GPU, set</p>
 <p>The faster setup will require significantly more GPU memory. If your job fails with CUDA errors, try increasing the number of nodes being used.</p>
 </section>
 <section id="balancing-mpi-rank-vs-omp">
-<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this headline"></a></h2>
+<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this heading"></a></h2>
 <p>When submitting a CGYRO job, you are asked to pick an MPI rank ( <em>-n</em> ) and the number of threads/process ( <em>-nomp</em> ).
 The product will determine the amount of compute resources you will use.</p>
 <p>The recommended setting is to pick <strong>nomp</strong> to be 2.</p>
 <p>For really big runs, you can make use of more nodes by setting <strong>-nomp 4</strong> or even <strong>-nomp 8</strong>.</p>
 </section>
 <section id="trading-speed-vs-efficiency">
-<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this headline"></a></h2>
+<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this heading"></a></h2>
 <p>As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. compute nodes).
 However, like most HPC codes, the efficiency will generally decrease as you use more resources, too.
 I.e. you will be able to get <strong>less computation done with the same amount of allocation time</strong>.</p>

@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -93,9 +94,9 @@
            <div itemprop="articleBody">
              
   <section id="profiles-gen">
-<h1>profiles_gen<a class="headerlink" href="#profiles-gen" title="Permalink to this headline"></a></h1>
+<h1>profiles_gen<a class="headerlink" href="#profiles-gen" title="Permalink to this heading"></a></h1>
 <section id="history-and-overview">
-<h2>History and Overview<a class="headerlink" href="#history-and-overview" title="Permalink to this headline"></a></h2>
+<h2>History and Overview<a class="headerlink" href="#history-and-overview" title="Permalink to this heading"></a></h2>
 <p>[DRAFT]</p>
 <p>The initial motivation for profiles_gen (circa 2005) was to separate the source code required to read and process ONETWO profile data from the main GYRO code base. The rationale was that reading plasma profile and geometry data to calculate suitable inputs for gyrokinetic simulation was not the job of a gyrokinetic code. In the early days, global gyrokinetic simulation was done with artificial/model profiles, and only GYRO was attempting to use bonafide experimental inputs. So in the summer of 2005 it was decided to split the GYRO experimental profile handling into a new tool called iterdb_read. This morphed into the tool iterdb2gyro, which finally became profiles_gen in 2010. The conceptual motivation for profiles_gen was to provide a barrier between the challenges of experimental profile data formats and the standard (typically dimensionless) inputs for gyrokinetic (GYRO) and neoclassical (NEO) simulation. Also, in the pre-2010 period, it became clear that there was a need to standardize and improve geometry input, as ONETWO geometry data was of limited quality. This led to the idea of separating the profile date (typically from ONETWO or TRANSP) from the equilibrium shape data (from EFIT). By 2009 (?), the ability to specify both a “profile statefile” and an EFIT “gfile” was established. The output from profiles_gen creates a unique form for use with the other GACODE transport codes.</p>
 </section>

@@ -16,6 +16,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -112,17 +113,17 @@
            <div itemprop="articleBody">
              
   <section id="running-cgyro-on-nersc-cori">
-<h1>Running CGYRO on NERSC Cori<a class="headerlink" href="#running-cgyro-on-nersc-cori" title="Permalink to this headline"></a></h1>
+<h1>Running CGYRO on NERSC Cori<a class="headerlink" href="#running-cgyro-on-nersc-cori" title="Permalink to this heading"></a></h1>
 <p>NERSC Cori is one of the most popular platforms on which to run CGYRO.
 This document provides some guidance on how to best make use of its resources</p>
 <section id="cori-capabilities">
-<h2>Cori capabilities<a class="headerlink" href="#cori-capabilities" title="Permalink to this headline"></a></h2>
+<h2>Cori capabilities<a class="headerlink" href="#cori-capabilities" title="Permalink to this heading"></a></h2>
 <p>The bulk of the Cori compute power comes from the approximately 10k nodes, each hosting a single Xeon Phi CPU.
 For our purposes, each Xeon Phi provides 128 execution threads.
 Each node is also equiped with 96 GB of RAM.</p>
 </section>
 <section id="cgyro-platform-file">
-<h2>CGYRO Platform File<a class="headerlink" href="#cgyro-platform-file" title="Permalink to this headline"></a></h2>
+<h2>CGYRO Platform File<a class="headerlink" href="#cgyro-platform-file" title="Permalink to this heading"></a></h2>
 <p>There are two recommended platform files available:</p>
 <ul class="simple">
 <li><p>CORI_KNL_HT2_IFORT</p></li>
@@ -136,14 +137,14 @@ Each node is also equiped with 96 GB of RAM.</p>
 </div>
 </section>
 <section id="balancing-mpi-rank-vs-omp">
-<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this headline"></a></h2>
+<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this heading"></a></h2>
 <p>When submitting a CGYRO job, you are asked to pick an MPI rank ( <em>-n</em> ) and the number of threads/process ( <em>-nomp</em> ).
 The product will determine the amount of compute resources you will use.</p>
 <p>The recommended setting is to pick <strong>nomp</strong> to be 4.</p>
 <p>For jobs that use only a few nodes, <strong>-nomp 2</strong> may be better, and for really big runs, you may get a marginal speedup using <strong>-nomp 8</strong> or even <strong>-nomp 16</strong>.</p>
 </section>
 <section id="trading-speed-vs-efficiency">
-<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this headline"></a></h2>
+<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this heading"></a></h2>
 <p>As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. compute nodes).
 However, like most HPC codes, the efficiency will generally decrease as you use more resources, too.
 I.e. you will be able to get <strong>less computation done with the same amount of allocation time</strong>.</p>

@@ -16,6 +16,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -110,11 +111,11 @@
            <div itemprop="articleBody">
              
   <section id="neo-output-files">
-<h1>NEO Output Files<a class="headerlink" href="#neo-output-files" title="Permalink to this headline"></a></h1>
+<h1>NEO Output Files<a class="headerlink" href="#neo-output-files" title="Permalink to this heading"></a></h1>
 <p>NEO output files are produced only if <a class="reference internal" href="neo_list.html#neo-silent-flag"><span class="std std-ref">SILENT_FLAG</span></a> = 0.</p>
 <p>All NEO runtime information is written to out.neo.run.</p>
 <section id="standard-output-files">
-<h2>Standard output files<a class="headerlink" href="#standard-output-files" title="Permalink to this headline"></a></h2>
+<h2>Standard output files<a class="headerlink" href="#standard-output-files" title="Permalink to this heading"></a></h2>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 40%" />
@@ -163,7 +164,7 @@
 </table>
 </section>
 <section id="experimental-profiles-output-files">
-<h2>Experimental profiles output files<a class="headerlink" href="#experimental-profiles-output-files" title="Permalink to this headline"></a></h2>
+<h2>Experimental profiles output files<a class="headerlink" href="#experimental-profiles-output-files" title="Permalink to this heading"></a></h2>
 <p>Produced only if <a class="reference internal" href="neo_list.html#neo-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a> = 2.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -186,7 +187,7 @@
 </table>
 </section>
 <section id="rotation-output-files">
-<h2>Rotation output files<a class="headerlink" href="#rotation-output-files" title="Permalink to this headline"></a></h2>
+<h2>Rotation output files<a class="headerlink" href="#rotation-output-files" title="Permalink to this heading"></a></h2>
 <p>Produced only if <a class="reference internal" href="neo_list.html#neo-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a> = 2.</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -206,7 +207,7 @@
 </table>
 </section>
 <section id="subroutine-output">
-<h2>Subroutine output<a class="headerlink" href="#subroutine-output" title="Permalink to this headline"></a></h2>
+<h2>Subroutine output<a class="headerlink" href="#subroutine-output" title="Permalink to this heading"></a></h2>
 <p>When neo is run in subroutine mode, the outputs are contained in a monolithic file named neo_interface.  The NEO subroutine output parameters are as follows:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>
@@ -326,9 +327,9 @@
 </section>
 <hr class="docutils" />
 <section id="detailed-description-of-neo-output-files">
-<h2>Detailed description of NEO output files<a class="headerlink" href="#detailed-description-of-neo-output-files" title="Permalink to this headline"></a></h2>
+<h2>Detailed description of NEO output files<a class="headerlink" href="#detailed-description-of-neo-output-files" title="Permalink to this heading"></a></h2>
 <section id="out-neo-equil">
-<span id="neo-out-neo-equil"></span><h3>out.neo.equil<a class="headerlink" href="#out-neo-equil" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-equil"></span><h3>out.neo.equil<a class="headerlink" href="#out-neo-equil" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Equilibrium/geometry input data</p>
 <p><strong>Format</strong></p>
@@ -357,7 +358,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-exp-norm">
-<span id="neo-out-neo-exp-norm"></span><h3>out.neo.exp_norm<a class="headerlink" href="#out-neo-exp-norm" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-exp-norm"></span><h3>out.neo.exp_norm<a class="headerlink" href="#out-neo-exp-norm" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Normalizing experimental parameters (in units)</p>
 <p><strong>Format</strong></p>
@@ -378,7 +379,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-f">
-<span id="neo-out-neo-f"></span><h3>out.neo.f<a class="headerlink" href="#out-neo-f" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-f"></span><h3>out.neo.f<a class="headerlink" href="#out-neo-f" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>First-order distribution function solution (dimensionless), specifically vector of <span class="math notranslate nohighlight">\(\hat{g}_{a,ie,ix,it}\)</span> (first-order non-adiabatic distribution function for each species <span class="math notranslate nohighlight">\(a\)</span>), where</p>
 <div class="math notranslate nohighlight">
@@ -392,7 +393,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-grid">
-<span id="neo-out-neo-grid"></span><h3>out.neo.grid<a class="headerlink" href="#out-neo-grid" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-grid"></span><h3>out.neo.grid<a class="headerlink" href="#out-neo-grid" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Numerical grid parameters</p>
 <p><strong>Format</strong></p>
@@ -412,7 +413,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-phi">
-<span id="neo-out-neo-phi"></span><h3>out.neo.phi<a class="headerlink" href="#out-neo-phi" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-phi"></span><h3>out.neo.phi<a class="headerlink" href="#out-neo-phi" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical first-order electrostatic potential (normalized) vs. <span class="math notranslate nohighlight">\(\theta\)</span></p>
 <p><strong>Format</strong></p>
@@ -427,7 +428,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-rotation">
-<span id="neo-out-neo-rotation"></span><h3>out.neo.rotation<a class="headerlink" href="#out-neo-rotation" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-rotation"></span><h3>out.neo.rotation<a class="headerlink" href="#out-neo-rotation" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Strong rotation poloidal asymmetry parameters (normalized)</p>
 <p>Define:</p>
@@ -467,7 +468,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-theory">
-<span id="neo-out-neo-theory"></span><h3>out.neo.theory<a class="headerlink" href="#out-neo-theory" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-theory"></span><h3>out.neo.theory<a class="headerlink" href="#out-neo-theory" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical transport coefficients from analytic theory (normalized)</p>
 <ul class="simple">
@@ -520,7 +521,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-theory-nclass">
-<span id="neo-out-neo-theory-nclass"></span><h3>out.neo.theory_nclass<a class="headerlink" href="#out-neo-theory-nclass" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-theory-nclass"></span><h3>out.neo.theory_nclass<a class="headerlink" href="#out-neo-theory-nclass" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical transport coefficients from the NCLASS code (normalized)</p>
 <ul class="simple">
@@ -549,7 +550,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-transport">
-<span id="neo-out-neo-transport"></span><h3>out.neo.transport<a class="headerlink" href="#out-neo-transport" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-transport"></span><h3>out.neo.transport<a class="headerlink" href="#out-neo-transport" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical transport coefficients from DKE solve (normalized)</p>
 <p><strong>Format</strong></p>
@@ -579,7 +580,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-transport-exp">
-<span id="neo-out-neo-transport-exp"></span><h3>out.neo.transport_exp<a class="headerlink" href="#out-neo-transport-exp" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-transport-exp"></span><h3>out.neo.transport_exp<a class="headerlink" href="#out-neo-transport-exp" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical transport coefficients from DKE solve (in units)</p>
 <p><strong>Format</strong></p>
@@ -609,7 +610,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-transport-flux">
-<span id="neo-out-neo-transport-flux"></span><h3>out.neo.transport_flux<a class="headerlink" href="#out-neo-transport-flux" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-transport-flux"></span><h3>out.neo.transport_flux<a class="headerlink" href="#out-neo-transport-flux" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical fluxes in GB units from DKE solve</p>
 <p>Define:</p>
@@ -640,7 +641,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-transport-gv">
-<span id="neo-out-neo-transport-gv"></span><h3>out.neo.transport_gv<a class="headerlink" href="#out-neo-transport-gv" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-transport-gv"></span><h3>out.neo.transport_gv<a class="headerlink" href="#out-neo-transport-gv" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Neoclassical fluxes from gyroviscosity (normalized)</p>
 <ul class="simple">
@@ -666,7 +667,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-vel">
-<span id="neo-out-neo-vel"></span><h3>out.neo.vel<a class="headerlink" href="#out-neo-vel" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-vel"></span><h3>out.neo.vel<a class="headerlink" href="#out-neo-vel" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Poloidal variation of first-order flows (normalized)</p>
 <p><strong>Format</strong></p>
@@ -682,7 +683,7 @@
 <hr class="docutils" />
 </section>
 <section id="out-neo-vel-fourier">
-<span id="neo-out-neo-vel-fourier"></span><h3>out.neo.vel_fourier<a class="headerlink" href="#out-neo-vel-fourier" title="Permalink to this headline"></a></h3>
+<span id="neo-out-neo-vel-fourier"></span><h3>out.neo.vel_fourier<a class="headerlink" href="#out-neo-vel-fourier" title="Permalink to this heading"></a></h3>
 <p><strong>Description</strong></p>
 <p>Poloidal variation of first-order flows (normalized) in Fourier series components</p>
 <div class="math notranslate nohighlight">
