@@ -568,9 +568,15 @@ GPU_BIGMEM_FLAG
 
 Enable (or disable) memory intensive GPU offload.
 
+**Choices**
+
+- GPU_BIGMEM_FLAG = 0: The slower but less GPU memory demanding CPU-only Sugama operator is used.
+- GPU_BIGMEM_FLAG = 1: The GPU-accelerated Sugama operator is used. Large memory use due to cmat.
+- GPU_BIGMEM_FLAG > 1: Less GPU memory demanding, as only 1/GPU_BIGMEM_FLAG of cmat is kept in memory at any time. Slower due to memory copies.
+
 **Comments**
 
-- DEFAULT = 0
+- DEFAULT = 1
 - Only active on GPU systems for :ref:`cgyro_collision_model` =4
 
 ----
