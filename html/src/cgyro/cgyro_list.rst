@@ -1437,6 +1437,29 @@ UP_RADIAL
 
 ----
 
+.. _velocity_order:
+
+VELOCITY_ORDER
+--------------
+
+**Definition**
+
+Specify the ordering inside the velocity space
+
+**Choices**
+
+- VELOCITY_ORDER = 1: species inner loop, energy outer loop
+- VELOCITY_ORDER = 2: xi inner loop, species outer loop
+
+**Comments**
+
+- DEFAULT = 1
+- VELOCITY_ORDER=2 drastically reduces the cost of communication, but requires MPI rank to be a multiple of both N_TOROIDAL and N_SPECIES.
+- The restart file format is specific to VELOCITY_ORDER.
+
+----
+
+
 .. _cgyro_z:
 
 Z_*
