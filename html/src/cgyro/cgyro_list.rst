@@ -1476,6 +1476,26 @@ UP_RADIAL
 
 ----
 
+.. _cgyro_upwind_single_flag:
+
+UPWIND_SINGLE_FLAG
+------------------
+
+**Definition**
+
+Control the precision of upwind communication.
+
+**Choices**
+
+- UPWIND_SINGLE_FLAG = 0: Full 64-bit precision
+- UPWIND_SINGLE_FLAG = 1: Faster but lower 32-bit precision.
+
+**Comments**
+
+- DEFAULT = 0
+
+----
+
 .. _cgyro_velocity_order:
 
 VELOCITY_ORDER
