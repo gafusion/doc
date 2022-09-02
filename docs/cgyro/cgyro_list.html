@@ -77,6 +77,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#collision-ene-restore">COLLISION_ENE_RESTORE</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#collision-ene-diffusion">COLLISION_ENE_DIFFUSION</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#collision-kperp">COLLISION_KPERP</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collision-precision-mode">COLLISION_PRECISION_MODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#collision-full-stripes">COLLISION_FULL_STRIPES</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#delta">DELTA</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#delta-t">DELTA_T</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#delta-t-method">DELTA_T_METHOD</a></li>
@@ -150,6 +152,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#temp">TEMP_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#udsymmetry-flag">UDSYMMETRY_FLAG</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#up-radial">UP_RADIAL</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upwind-single-flag">UPWIND_SINGLE_FLAG</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#velocity-order">VELOCITY_ORDER</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#z">Z_*</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#z-eff">Z_EFF</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#z-eff-method">Z_EFF_METHOD</a></li>
@@ -314,6 +318,7 @@ defined as</p>
 <ul class="simple">
 <li><p>DEFAULT = 4</p></li>
 <li><p>To control conservation and other properties, the following parameters can be set: <a class="reference internal" href="#cgyro-collision-field-model"><span class="std std-ref">COLLISION_FIELD_MODEL</span></a>, <a class="reference internal" href="#cgyro-collision-mom-restore"><span class="std std-ref">COLLISION_MOM_RESTORE</span></a>, <a class="reference internal" href="#cgyro-collision-ene-restore"><span class="std std-ref">COLLISION_ENE_RESTORE</span></a>, <a class="reference internal" href="#cgyro-collision-ene-diffusion"><span class="std std-ref">COLLISION_ENE_DIFFUSION</span></a>, <a class="reference internal" href="#cgyro-collision-kperp"><span class="std std-ref">COLLISION_KPERP</span></a></p></li>
+<li><p>Memory usage can be reduced by setting <a class="reference internal" href="#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a>.</p></li>
 <li><p>On GPU systems, GPU offload is controlled by <a class="reference internal" href="#cgyro-gpu-bigmem-flag"><span class="std std-ref">GPU_BIGMEM_FLAG</span></a>. When that is not enabled, the slower but less GPU memory demanding CPU-only Sugama operator is used.</p></li>
 </ul>
 <hr class="docutils" />
@@ -394,6 +399,34 @@ defined as</p>
 <ul class="simple">
 <li><p>DEFAULT = 1</p></li>
 <li><p>For test purposes only.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="collision-precision-mode">
+<span id="cgyro-collision-precision-mode"></span><h2>COLLISION_PRECISION_MODE<a class="headerlink" href="#collision-precision-mode" title="Permalink to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Control the precision of the Sugama cmat constants.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>COLLISION_PRECISION_MODE = 0: Full 64-bit precision</p></li>
+<li><p>COLLISION_PRECISION_MODE = 1: Use lower-precision 32-bit precision for off-diagonal element.</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0</p></li>
+<li><p>Only active for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4</p></li>
+<li><p>Selecting COLLISION_PRECISION_MODE = 1 results in significant memory saving and negligible precision loss in most use-cases.</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="collision-full-stripes">
+<span id="cgyro-collision-full-stripes"></span><h2>COLLISION_FULL_STRIPES<a class="headerlink" href="#collision-full-stripes" title="Permalink to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Number of full 64-bit stripes to use close to the diagonal in low-precision mode.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 8</p></li>
+<li><p>Only active for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4 and <a class="reference internal" href="#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a> =1</p></li>
 </ul>
 <hr class="docutils" />
 </section>
@@ -606,9 +639,15 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <span id="cgyro-gpu-bigmem-flag"></span><h2>GPU_BIGMEM_FLAG<a class="headerlink" href="#gpu-bigmem-flag" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
 <p>Enable (or disable) memory intensive GPU offload.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>GPU_BIGMEM_FLAG = 0: The slower but less GPU memory demanding CPU-only Sugama operator is used.</p></li>
+<li><p>GPU_BIGMEM_FLAG = 1: The GPU-accelerated Sugama operator is used. Large memory use due to cmat.</p></li>
+<li><p>GPU_BIGMEM_FLAG &gt; 1: Less GPU memory demanding, as only 1/GPU_BIGMEM_FLAG of cmat is kept in memory at any time. Slower due to memory copies.</p></li>
+</ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
-<li><p>DEFAULT = 0</p></li>
+<li><p>DEFAULT = 1</p></li>
 <li><p>Only active on GPU systems for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4</p></li>
 </ul>
 <hr class="docutils" />
@@ -1204,6 +1243,38 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 <section id="up-radial">
 <span id="cgyro-up-radial"></span><h2>UP_RADIAL<a class="headerlink" href="#up-radial" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
+<hr class="docutils" />
+</section>
+<section id="upwind-single-flag">
+<span id="cgyro-upwind-single-flag"></span><h2>UPWIND_SINGLE_FLAG<a class="headerlink" href="#upwind-single-flag" title="Permalink to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Control the precision of upwind communication.</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>UPWIND_SINGLE_FLAG = 0: Full 64-bit precision</p></li>
+<li><p>UPWIND_SINGLE_FLAG = 1: Faster but lower 32-bit precision.</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="velocity-order">
+<span id="cgyro-velocity-order"></span><h2>VELOCITY_ORDER<a class="headerlink" href="#velocity-order" title="Permalink to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Specify the ordering inside the velocity space</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>VELOCITY_ORDER = 1: species inner loop, energy outer loop</p></li>
+<li><p>VELOCITY_ORDER = 2: xi inner loop, species outer loop</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 1</p></li>
+<li><p>VELOCITY_ORDER=2 drastically reduces the cost of communication, but requires MPI rank to be a multiple of both N_TOROIDAL and N_SPECIES.</p></li>
+<li><p>The restart file format is specific to VELOCITY_ORDER.</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="z">
