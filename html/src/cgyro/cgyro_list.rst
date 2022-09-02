@@ -161,6 +161,7 @@ Collision operator selection.
 
 - DEFAULT = 4
 - To control conservation and other properties, the following parameters can be set: :ref:`cgyro_collision_field_model`, :ref:`cgyro_collision_mom_restore`, :ref:`cgyro_collision_ene_restore`, :ref:`cgyro_collision_ene_diffusion`, :ref:`cgyro_collision_kperp`
+- Memory usage can be reduced by setting :ref:`cgyro_collision_precision_mode`.
 - On GPU systems, GPU offload is controlled by :ref:`cgyro_gpu_bigmem_flag`. When that is not enabled, the slower but less GPU memory demanding CPU-only Sugama operator is used.
   
 ----
@@ -268,6 +269,26 @@ Flag to toggle :math:`k_\perp^2` terms in collision operator.
 - For test purposes only.
 
 ----
+
+.. _cgyro_collision_precision_mode:
+
+COLLISION_PRECISION_MODE
+------------------------
+
+**Definition**
+
+Control the precision of the Sugama cmat constants.
+
+**Choices**
+
+- COLLISION_PRECISION_MODE = 0: Full 64-bit precision
+- COLLISION_PRECISION_MODE = 1: Use lower-precision 32-bit precision for off-diagonal element.
+
+**Comments**
+
+- DEFAULT = 0
+- Only active for :ref:`cgyro_collision_model` =4
+- Selecting COLLISION_PRECISION_MODE = 1 results in significant memory saving and negligible precision loss in most use-cases.
 
 .. _cgyro_delta:
 
@@ -1437,7 +1458,7 @@ UP_RADIAL
 
 ----
 
-.. _velocity_order:
+.. _cgyro_velocity_order:
 
 VELOCITY_ORDER
 --------------
@@ -1458,7 +1479,6 @@ Specify the ordering inside the velocity space
 - The restart file format is specific to VELOCITY_ORDER.
 
 ----
-
 
 .. _cgyro_z:
 
