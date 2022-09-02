@@ -290,6 +290,24 @@ Control the precision of the Sugama cmat constants.
 - Only active for :ref:`cgyro_collision_model` =4
 - Selecting COLLISION_PRECISION_MODE = 1 results in significant memory saving and negligible precision loss in most use-cases.
 
+----
+
+.. _cgyro_collision_full_stripes:
+
+COLLISION_FULL_STRIPES
+----------------------
+
+**Definition**
+
+Number of full 64-bit stripes to use close to the diagonal in low-precision mode.
+
+**Comments**
+
+- DEFAULT = 8
+- Only active for :ref:`cgyro_collision_model` =4 and :ref:`cgyro_collision_precision_mode` =1
+
+----
+
 .. _cgyro_delta:
 
 DELTA
