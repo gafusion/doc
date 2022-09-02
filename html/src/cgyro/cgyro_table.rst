@@ -109,6 +109,8 @@ Tabular list for input.cgyro
    ":ref:`cgyro_nup_radial`", Radial spectral upwind order,3
    ":ref:`cgyro_nup_theta`", Poloidal upwind order,3
    ":ref:`cgyro_nup_alpha`", Binormal spectral upwind order,3
+   ":ref:`cgyro_velocity_order`", What internal velocity order to use,1
+   ":ref:`cgyro_upwind_single_flag`", Use reduced precision communication,0
 
 .. _tab-time:
 
