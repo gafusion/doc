@@ -18,6 +18,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -46,9 +47,9 @@
 <li class="toctree-l1"><a class="reference internal" href="license.html">GACODE License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download.html">Download and user agreement</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Environment setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ga-iris">GA IRIS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#nersc-cori">NERSC CORI</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#olcf-summit">OLCF SUMMIT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nersc-perlmutter-gpu">NERSC PERLMUTTER (GPU)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ga-iris">GA IRIS</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build from sources</a></li>
@@ -84,8 +85,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Environment setup</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Environment setup</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -98,6 +99,34 @@
   <section id="environment-setup">
 <h1>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading"></a></h1>
 <p>Below we give information about the environment setup required to run GACODE tools on maintained platforms.  One this step is complete, proceed to instructions on the code-specific pages for <a class="reference internal" href="cgyro/cgyro_platforms.html"><span class="doc">CGYRO</span></a>, <a class="reference internal" href="neo.html"><span class="doc">NEO</span></a>, <a class="reference internal" href="tgyro.html"><span class="doc">TGYRO</span></a>, and so on.</p>
+<section id="nersc-cori">
+<h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this heading"></a></h2>
+<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
+export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
+. ${GACODE_ROOT}/shared/bin/gacode_setup
+. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+</pre></div>
+</div>
+<p>Sample job layout (1 node, 32 MPI, 4 OpenMP):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 32 -nomp 4 -repo atom -w 15
+</pre></div>
+</div>
+</section>
+<section id="nersc-perlmutter-gpu">
+<h2>NERSC PERLMUTTER (GPU)<a class="headerlink" href="#nersc-perlmutter-gpu" title="Permalink to this heading"></a></h2>
+<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=PERLMUTTER_GPU
+export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-perlmutter/gacode-gpu
+. ${GACODE_ROOT}/shared/bin/gacode_setup
+. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+</pre></div>
+</div>
+<p>Sample job layout (1 node, 4 GPU, 16 MPI, 8 OpenMP):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom_g -w 15
+</pre></div>
+</div>
+</section>
 <section id="ga-iris">
 <h2>GA IRIS<a class="headerlink" href="#ga-iris" title="Permalink to this heading"></a></h2>
 <p>To run in a <strong>dedicated GACODE environment</strong>, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
@@ -116,34 +145,6 @@ module load atom/dev
 export GACODE_PLATFORM=SATURN_GCC
 export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
 . $GACODE_ROOT/shared/bin/gacode_setup
-</pre></div>
-</div>
-</section>
-<section id="nersc-cori">
-<h2>NERSC CORI<a class="headerlink" href="#nersc-cori" title="Permalink to this heading"></a></h2>
-<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc.ext</span></code>:</p>
-<p><strong>Standard MKL</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
-. $GACODE_ROOT/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-<p><strong>Extra nonlinear threading</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
-export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mklht
-. $GACODE_ROOT/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-</section>
-<section id="olcf-summit">
-<h2>OLCF SUMMIT<a class="headerlink" href="#olcf-summit" title="Permalink to this heading"></a></h2>
-<p>Add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=SUMMIT
-export GACODE_ROOT=$PROJWORK/fus129/gacode
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
 </pre></div>
 </div>
 </section>

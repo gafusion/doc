@@ -3,6 +3,37 @@ Environment setup
 
 Below we give information about the environment setup required to run GACODE tools on maintained platforms.  One this step is complete, proceed to instructions on the code-specific pages for :doc:`CGYRO <cgyro/cgyro_platforms>`, :doc:`NEO <neo>`, :doc:`TGYRO <tgyro>`, and so on.
 
+  
+NERSC CORI
+----------
+
+Add the following lines to ``.bashrc``::
+
+  export GACODE_PLATFORM=CORI_KNL_HT2_MKL
+  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
+  . ${GACODE_ROOT}/shared/bin/gacode_setup
+  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+
+
+Sample job layout (1 node, 32 MPI, 4 OpenMP)::
+
+  $ gacode_qsub -code cgyro -n 32 -nomp 4 -repo atom -w 15
+
+NERSC PERLMUTTER (GPU)
+----------------------
+
+Add the following lines to ``.bashrc``::
+
+  export GACODE_PLATFORM=PERLMUTTER_GPU
+  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-perlmutter/gacode-gpu
+  . ${GACODE_ROOT}/shared/bin/gacode_setup
+  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
+
+
+Sample job layout (1 node, 4 GPU, 16 MPI, 8 OpenMP)::
+
+  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom_g -w 15
+
 GA IRIS
 -------
 
@@ -24,37 +55,4 @@ add these lines to ``.bashrc``::
   export GACODE_PLATFORM=SATURN_GCC
   export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
   . $GACODE_ROOT/shared/bin/gacode_setup
-  
-NERSC CORI
-----------
-
-Add the following lines to ``.bashrc.ext``:
-
-**Standard MKL** ::
-
-  export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
-  . $GACODE_ROOT/shared/bin/gacode_setup
-  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-
-**Extra nonlinear threading** ::
-
-  export GACODE_PLATFORM=CORI_KNL_HT2_MKLHT
-  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mklht
-  . $GACODE_ROOT/shared/bin/gacode_setup
-  . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-
-
-
-OLCF SUMMIT
-------------
-
-Add these lines to ``.bashrc``::
-
-  export GACODE_PLATFORM=SUMMIT
-  export GACODE_ROOT=$PROJWORK/fus129/gacode
-  . ${GACODE_ROOT}/shared/bin/gacode_setup
-  . ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
-
-
 
