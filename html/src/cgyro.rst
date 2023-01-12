@@ -62,10 +62,10 @@ Data input
 * :doc:`Alphabetical list <cgyro/cgyro_list>`
 * Profile data: :ref:`input.gacode`.
 
-Data output, python interface, and plotting
--------------------------------------------
+Data output and plotting
+------------------------
 
-Although there is a description of :doc:`output data <cgyro/outputs>`, it is suggested that users use the :doc:`python interface <cgyro/plot>` to output data.
+Although there is a description of :doc:`output data <cgyro/outputs>`, it is suggested that users use the python interface to output data.
 
 Normalization
 -------------
@@ -81,17 +81,15 @@ Normalization
    velocity, :math:`c_s = \sqrt{T_e/m_\mathrm{D}}`, deuterium sound speed
    time, :math:`a/c_s`, minor radius over sound speed
 
-Quick links
------------
+Running Cases
+-------------
 
-.. toctree::
-   :titlesonly:
+* :doc:`running cases <cgyro/running_cases>`
+* :doc:`cori <cgyro/cgyro_cori>`
+* :doc:`titan <cgyro/cgyro_titan>`
 
-   cgyro/running_cases
-   cgyro/cgyro_table
-   cgyro/cgyro_list
-   cgyro/outputs
-   cgyro/plot
-   cgyro/cgyro_platforms
-   cgyro/FAQ
+Frequently Asked Questions
+--------------------------
+
+* :doc:`FAQ <cgyro/FAQ>`
    

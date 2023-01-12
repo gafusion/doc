@@ -2,7 +2,7 @@ CGYRO output files
 ==================
 
 It is not **not recommended** to read these files directly.  Rather, we encourage the use
-of the CGYRO :doc:`python data interface <plot>`.
+of the CGYRO python data interface.
 
 
 .. csv-table:: **Time-independent output**

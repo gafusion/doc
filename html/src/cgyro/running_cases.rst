@@ -33,7 +33,7 @@ It is **strongly suggested** that you first run your case in *test mode* using t
 
   $ cgyro -t nl00
 
-On the large systems at :doc:`NERSC, ORNL and elsewhere <cgyro_platforms>`, you will need to establish an **interactive queue** to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file ``out.cgyro.mpi``. This shows the acceptable number of MPI tasks.
+On the large systems at NERSC, ORNL and elsewhere, you will need to establish an **interactive queue** to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file ``out.cgyro.mpi``. This shows the acceptable number of MPI tasks.
 
 Batch submission
 ----------------
@@ -43,8 +43,6 @@ On established platforms, the burden of writing batch script files and setting c
   $ gacode_qsub -e nl01 -n 512 -nomp 2 -queue regular -repo atom -w 0:09:00 
 
 Additional flags are also accepted. Adding the ``-s`` flag to the above will submit the job.
-
-.. note:: Beyond the general instructions given above, we also give hints for running on systems with :doc:`public GACODE installs <cgyro_platforms>`.
 
 
 
