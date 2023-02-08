@@ -43,7 +43,7 @@ ALPHA_ZF
 
 **Definition**
 
-Zonal flow mixing coefficient (for SAT1 and SAT2). Note: Can be used as hidden switch that turns off the q/2 factor in SAT2 when ALPHA_ZF=-1.0
+Zonal flow mixing coefficient (for SAT1 and SAT2). Note: Can be used as hidden switch that avoids picking the lowest ky as the peak in gamma/ky when ALPHA_ZF=-1.0. This switch is useful when an MHD mode at the lowest ky causes a large amount of flux.
 
 
 **Comments**
@@ -270,7 +270,7 @@ ETG_FACTOR
 
 **Definition**
 
-Exponent for ETG saturation rule. Hidden switch: ETG_FACTOR=-1.0 turns off the 12*Lp/R factor in SAT2 and ETG_FACTOR=-2.0 computes Lp from the input P_PRIME_LOC rather than the input gradients.
+Exponent for ETG saturation rule.
 
 **Comments**
 
@@ -475,7 +475,7 @@ KY
 
 **Definition**
 
-:math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF.
+:math:`k_{\theta }\rho _{s,{\rm {unit}}}\,\!` for single-mode call to TGLF or user-definded ky grid (see KYGRID_MODEL=0 below).
 
 **Comments**
 
@@ -493,9 +493,9 @@ KYGRID_MODEL
 
 **Choices**
 
-- KYGRID_MODEL = 0: user defined with NKY modes up to KY equal spaced
-- KYGRID_MODEL = 1: standard ky spectrum for transport model
-
+- KYGRID_MODEL = 0: user defined ky grid with NKY modes up to maximum KY, equal spaced with kymin=KY/NKY
+- KYGRID_MODEL = 1: standard ky spectrum often used for SAT0 and SAT1, where kymin=0.1/rho_ion
+- KYGRID_MODEL = 4: additional low-ky modes preferred for SAT2, where kymin=0.05*grad_r0/rho_ion
 
 **Comments**
 
@@ -852,7 +852,7 @@ SAT_RULE
 
 - SAT_RULE = 0 finds zonal flow shear at each ky (e.g. Kinsey, Staebler, Waltz, PoP, 2008)
 - SAT_RULE = 1 finds dominant saturation mechanism (ZF mixing rate or drift-wave growth rate) and includes ky-coupling (Staebler et al., PoP, 2016)
-- SAT_RULE = 2 builds on SAT1 with refined geometric effects, useful for edge (e.g. Staebler et al., NF, 2021)
+- SAT_RULE = 2 builds on SAT1 with refined geometric effects (due to Shafranov shift and elongation), improved TEM physics, simplified spectral shift (e.g. Staebler et al., NF, 2021)
 
 
 **Comments**
@@ -1044,7 +1044,7 @@ USE_BPAR
 
 **Definition**
 
-Include compressional magnetic fluctuations, :math:`\delta B_{\lVert }`.
+Include compressional magnetic fluctuations, :math:`\delta B_{\lVert }`. Note: The BPAR flutter is not well resolved by TGLF (not enough moments) and does not reproduce GYRO linear results for NSTX-U.
 
 
 **Comments**
@@ -1092,7 +1092,7 @@ USE_MHD_RULE
 
 **Definition**
 
-Ignore pressure gradient contribution to curvature drift.
+Ignore pressure gradient contribution to curvature drift. Recommend setting to .false. for high beta.
 
 
 **Comments**
@@ -1139,7 +1139,8 @@ VEXB_SHEAR
 
 **Definition**
 
-Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{ExB}`  :math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}`.
+Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering :math:`V_{tor}=V_{ExB}`.
+VEXB_SHEAR = :math:`-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}`.
 
 
 **Comments**
@@ -1155,7 +1156,7 @@ VPAR_1
 
 **Definition**
 
-Species array of parallel velocities :math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}`.
+Species array of parallel velocities, :math:`SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}`.
 
 
 **Comments**
@@ -1191,7 +1192,7 @@ VPAR_SHEAR_1
 
 **Definition**
 
-Normalized parallel velocity gradient :math:`-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}`.
+Normalized parallel velocity gradient, :math:`-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}`.
 
 
 **Comments**
@@ -1324,7 +1325,8 @@ Collision model.
 
 **Choices**
 
-- XNU_MODEL = 2: new
+- XNU_MODEL = 2: default preset for SAT0 and SAT1
+- XNU_MODEL = 3: default preset for SAT2
 
 
 **Comments**

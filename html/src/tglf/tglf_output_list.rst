@@ -9,7 +9,7 @@ density_spectrum
 
 **Description**
 
-Gyro-bohm normalized density fluctuation amplitude spectra
+Gyro-bohm normalized density fluctuation amplitude spectra, :math:`{\frac {a \delta \tilde{n}_{s,k_y}}{\rho_s n_{e0}}}`.
 
 
 **Comments**
@@ -118,6 +118,7 @@ scalar_saturation_parameters
 ----------------------------
 
 **Description**
+
 This output file has all of the scalar saturation parameters used for different settings of :ref:`TGLF_SAT_RULE`,  :ref:`TGLF_UNITS`,  :ref:`TGLF_ALPHA_ZF`
 
 ----
@@ -128,6 +129,7 @@ spectral_shift
 --------------
 
 **Description**
+
 kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, :math:`kx_e={\frac{<\phi| k_x/k_y |\phi>}{<\phi|\phi>}}`, depends on which saturation model is being used: SAT_RULE and UNITS settings
 
 **Comments**
@@ -142,7 +144,8 @@ sum_flux_spectrum
 -----------------
 
 **Description**
-flux spectrum summed over nmodes
+
+flux spectrum summed over nmodes. A simple sum over nky axis will give total flux.
 
 **Comments**
 
@@ -157,6 +160,7 @@ temperature_spectrum
 --------------------
 
 **Description**
+
 Gyro-bohm normalized temperature fluctuation amplitude spectra
 
 **Comments**
