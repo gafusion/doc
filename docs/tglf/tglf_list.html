@@ -215,7 +215,7 @@
 <section id="alpha-zf">
 <span id="tglf-alpha-zf"></span><h2>ALPHA_ZF<a class="headerlink" href="#alpha-zf" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Zonal flow mixing coefficient (for SAT1 and SAT2). Note: Can be used as hidden switch that turns off the q/2 factor in SAT2 when ALPHA_ZF=-1.0</p>
+<p>Zonal flow mixing coefficient (for SAT1 and SAT2). Note: Can be used as hidden switch that avoids picking the lowest ky as the peak in gamma/ky when ALPHA_ZF=-1.0. This switch is useful when an MHD mode at the lowest ky causes a large amount of flux.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 1.0</p></li>
@@ -358,7 +358,7 @@
 <section id="etg-factor">
 <span id="tglf-etg-factor"></span><h2>ETG_FACTOR<a class="headerlink" href="#etg-factor" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Exponent for ETG saturation rule. Hidden switch: ETG_FACTOR=-1.0 turns off the 12*Lp/R factor in SAT2 and ETG_FACTOR=-2.0 computes Lp from the input P_PRIME_LOC rather than the input gradients.</p>
+<p>Exponent for ETG saturation rule.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 1.25</p></li>
@@ -493,7 +493,7 @@
 <section id="ky">
 <span id="tglf-ky"></span><h2>KY<a class="headerlink" href="#ky" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p><span class="math notranslate nohighlight">\(k_{\theta }\rho _{s,{\rm {unit}}}\,\!\)</span> for single-mode call to TGLF.</p>
+<p><span class="math notranslate nohighlight">\(k_{\theta }\rho _{s,{\rm {unit}}}\,\!\)</span> for single-mode call to TGLF or user-definded ky grid (see KYGRID_MODEL=0 below).</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0.3</p></li>
@@ -505,8 +505,9 @@
 <p><strong>Definition</strong></p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li><p>KYGRID_MODEL = 0: user defined with NKY modes up to KY equal spaced</p></li>
-<li><p>KYGRID_MODEL = 1: standard ky spectrum for transport model</p></li>
+<li><p>KYGRID_MODEL = 0: user defined ky grid with NKY modes up to maximum KY, equal spaced with kymin=KY/NKY</p></li>
+<li><p>KYGRID_MODEL = 1: standard ky spectrum often used for SAT0 and SAT1, where kymin=0.1/rho_ion</p></li>
+<li><p>KYGRID_MODEL = 4: additional low-ky modes preferred for SAT2, where kymin=0.05*grad_r0/rho_ion</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -734,7 +735,7 @@
 <ul class="simple">
 <li><p>SAT_RULE = 0 finds zonal flow shear at each ky (e.g. Kinsey, Staebler, Waltz, PoP, 2008)</p></li>
 <li><p>SAT_RULE = 1 finds dominant saturation mechanism (ZF mixing rate or drift-wave growth rate) and includes ky-coupling (Staebler et al., PoP, 2016)</p></li>
-<li><p>SAT_RULE = 2 builds on SAT1 with refined geometric effects, useful for edge (e.g. Staebler et al., NF, 2021)</p></li>
+<li><p>SAT_RULE = 2 builds on SAT1 with refined geometric effects (due to Shafranov shift and elongation), improved TEM physics, simplified spectral shift (e.g. Staebler et al., NF, 2021)</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -855,7 +856,7 @@
 <section id="use-bpar">
 <span id="tglf-use-bpar"></span><h2>USE_BPAR<a class="headerlink" href="#use-bpar" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Include compressional magnetic fluctuations, <span class="math notranslate nohighlight">\(\delta B_{\lVert }\)</span>.</p>
+<p>Include compressional magnetic fluctuations, <span class="math notranslate nohighlight">\(\delta B_{\lVert }\)</span>. Note: The BPAR flutter is not well resolved by TGLF (not enough moments) and does not reproduce GYRO linear results for NSTX-U.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = .false.</p></li>
@@ -885,7 +886,7 @@
 <section id="use-mhd-rule">
 <span id="tglf-use-mhd-rule"></span><h2>USE_MHD_RULE<a class="headerlink" href="#use-mhd-rule" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Ignore pressure gradient contribution to curvature drift.</p>
+<p>Ignore pressure gradient contribution to curvature drift. Recommend setting to .false. for high beta.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = .true.</p></li>
@@ -914,7 +915,8 @@
 <section id="vexb-shear">
 <span id="tglf-vexb-shear"></span><h2>VEXB_SHEAR<a class="headerlink" href="#vexb-shear" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering <span class="math notranslate nohighlight">\(V_{tor}=V_{ExB}\)</span>  <span class="math notranslate nohighlight">\(-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}\)</span>.</p>
+<p>Normalized toroidal ExB velocity Doppler shift gradient common to all species. For large ExB velocity ordering <span class="math notranslate nohighlight">\(V_{tor}=V_{ExB}\)</span>.
+VEXB_SHEAR = <span class="math notranslate nohighlight">\(-SIGN(I_{tor}){\frac {r}{ABS(q)}}{\frac {\partial }{\partial r}}({\frac {V_{ExB}}{R}}){\frac {a}{c_{s}}}\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0.0</p></li>
@@ -924,7 +926,7 @@
 <section id="vpar-1">
 <span id="tglf-vpar-1"></span><h2>VPAR_1<a class="headerlink" href="#vpar-1" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Species array of parallel velocities <span class="math notranslate nohighlight">\(SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}\)</span>.</p>
+<p>Species array of parallel velocities, <span class="math notranslate nohighlight">\(SIGN(I_{tor}){\frac {R_{maj}V_{tor}}{Rc_{s}}}\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0.0 , 0.0</p></li>
@@ -947,7 +949,7 @@
 <section id="vpar-shear-1">
 <span id="tglf-vpar-shear-1"></span><h2>VPAR_SHEAR_1<a class="headerlink" href="#vpar-shear-1" title="Permalink to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Normalized parallel velocity gradient <span class="math notranslate nohighlight">\(-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}\)</span>.</p>
+<p>Normalized parallel velocity gradient, <span class="math notranslate nohighlight">\(-SIGN(I_{tor})R_{maj}{\frac {\partial }{\partial r}}({\frac {V_{tor}}{R}}){\frac {a}{c_{s}}}\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0.0 , 0.0</p></li>
@@ -1030,7 +1032,8 @@
 <p>Collision model.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li><p>XNU_MODEL = 2: new</p></li>
+<li><p>XNU_MODEL = 2: default preset for SAT0 and SAT1</p></li>
+<li><p>XNU_MODEL = 3: default preset for SAT2</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
@@ -1101,7 +1104,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2022.</p>
+    <p>&#169; Copyright 2010-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

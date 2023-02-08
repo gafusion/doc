@@ -120,7 +120,7 @@
 <section id="density-spectrum">
 <span id="tglf-density-spectrum"></span><h2>density_spectrum<a class="headerlink" href="#density-spectrum" title="Permalink to this heading"></a></h2>
 <p><strong>Description</strong></p>
-<p>Gyro-bohm normalized density fluctuation amplitude spectra</p>
+<p>Gyro-bohm normalized density fluctuation amplitude spectra, <span class="math notranslate nohighlight">\({\frac {a \delta \tilde{n}_{s,k_y}}{\rho_s n_{e0}}}\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>columns: density(ns=1,..,ns_in)</p></li>
@@ -189,14 +189,14 @@
 </section>
 <section id="scalar-saturation-parameters">
 <span id="tglf-scalar-saturation-parameters"></span><h2>scalar_saturation_parameters<a class="headerlink" href="#scalar-saturation-parameters" title="Permalink to this heading"></a></h2>
-<p><strong>Description</strong>
-This output file has all of the scalar saturation parameters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-units"><span class="std std-ref">UNITS</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p>
+<p><strong>Description</strong></p>
+<p>This output file has all of the scalar saturation parameters used for different settings of <a class="reference internal" href="tglf_list.html#tglf-sat-rule"><span class="std std-ref">SAT_RULE</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-units"><span class="std std-ref">UNITS</span></a>,  <a class="reference internal" href="tglf_list.html#tglf-alpha-zf"><span class="std std-ref">ALPHA_ZF</span></a></p>
 <hr class="docutils" />
 </section>
 <section id="spectral-shift">
 <span id="tglf-spectral-shift"></span><h2>spectral_shift<a class="headerlink" href="#spectral-shift" title="Permalink to this heading"></a></h2>
-<p><strong>Description</strong>
-kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p>
+<p><strong>Description</strong></p>
+<p>kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The mode for the spectral shift, <span class="math notranslate nohighlight">\(kx_e={\frac{&lt;\phi| k_x/k_y |\phi&gt;}{&lt;\phi|\phi&gt;}}\)</span>, depends on which saturation model is being used: SAT_RULE and UNITS settings</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky</p></li>
@@ -205,8 +205,8 @@ kx spectral shift model is used when ALPHA_QUENCH=0 and ALPHA_E=1.0. Note: The m
 </section>
 <section id="sum-flux-spectrum">
 <span id="tglf-sum-flux-spectrum"></span><h2>sum_flux_spectrum<a class="headerlink" href="#sum-flux-spectrum" title="Permalink to this heading"></a></h2>
-<p><strong>Description</strong>
-flux spectrum summed over nmodes</p>
+<p><strong>Description</strong></p>
+<p>flux spectrum summed over nmodes. A simple sum over nky axis will give total flux.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index limits: nky</p></li>
@@ -216,8 +216,8 @@ flux spectrum summed over nmodes</p>
 </section>
 <section id="temperature-spectrum">
 <span id="tglf-temperature-spectrum"></span><h2>temperature_spectrum<a class="headerlink" href="#temperature-spectrum" title="Permalink to this heading"></a></h2>
-<p><strong>Description</strong>
-Gyro-bohm normalized temperature fluctuation amplitude spectra</p>
+<p><strong>Description</strong></p>
+<p>Gyro-bohm normalized temperature fluctuation amplitude spectra</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>index: nky, ns</p></li>
@@ -238,7 +238,7 @@ Gyro-bohm normalized temperature fluctuation amplitude spectra</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2022.</p>
+    <p>&#169; Copyright 2010-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
