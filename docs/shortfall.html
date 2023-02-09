@@ -16,9 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -94,9 +92,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="misc.html">Miscellaneous</a></li>
-      <li class="breadcrumb-item active">DIII-D L-mode shortfall</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="misc.html">Miscellaneous</a> &raquo;</li>
+      <li>DIII-D L-mode shortfall</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/shortfall.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -107,13 +105,13 @@
            <div itemprop="articleBody">
              
   <section id="diii-d-l-mode-shortfall">
-<span id="shortfall"></span><h1>DIII-D L-mode shortfall<a class="headerlink" href="#diii-d-l-mode-shortfall" title="Permalink to this heading"></a></h1>
+<span id="shortfall"></span><h1>DIII-D L-mode shortfall<a class="headerlink" href="#diii-d-l-mode-shortfall" title="Permalink to this headline"></a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p>This page is designed to serve as a central common resource and collaboration tool for research into the so-called <em>shortfall</em> observed in some gyrokinetic and gyrofluid predictions of DIII-D near-edge (<span class="math notranslate nohighlight">\(\rho_{tor}=0.75\)</span>) transport and fluctuations levels, and the ITPA T&amp;C group work on this topic.  Below are links to key references documenting the issue, equilibrium profiles (in the GACODE input.profiles ASCII format) for DIII-D shot 128913 &#64; 1500 ms which has been the primary discharge for investigating this issue, and results to date from various codes. We encourage and welcome any and all groups interested in investigating this issue with their model or theory to use the profile data below, and compare their results against those documented here.  Questions and comments should be directed to <a class="reference external" href="mailto:chholland&#37;&#52;&#48;ucsd&#46;edu">Chris Holland</a>.</p>
 </section>
 <section id="key-publications-and-presentations">
-<h2>Key publications and presentations<a class="headerlink" href="#key-publications-and-presentations" title="Permalink to this heading"></a></h2>
+<h2>Key publications and presentations<a class="headerlink" href="#key-publications-and-presentations" title="Permalink to this headline"></a></h2>
 <ol class="arabic simple">
 <li><p>Initial publication of discharge characteristics and <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a> comparisons.</p>
 <ul class="simple">
@@ -171,7 +169,7 @@
 </ol>
 </section>
 <section id="experimental-profiles">
-<h2>EXPERIMENTAL profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this heading"></a></h2>
+<h2>EXPERIMENTAL profiles<a class="headerlink" href="#experimental-profiles" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>Equilibrium profiles (including Miller parameterization of magnetic geometry) in <a class="reference internal" href="input_gacode.html"><span class="doc">input.gacode</span></a> format are available here:</p>
 <ul>
@@ -191,7 +189,7 @@
 </ul>
 </section>
 <section id="gyro-results">
-<h2>GYRO results<a class="headerlink" href="#gyro-results" title="Permalink to this heading"></a></h2>
+<h2>GYRO results<a class="headerlink" href="#gyro-results" title="Permalink to this headline"></a></h2>
 <ul>
 <li><p>A series of linear electrostatic initial-value growth rate convergence calculations have been performed, the results of which are shown here</p>
 <figure class="align-default">
@@ -232,7 +230,7 @@ and output summary file
 </ul>
 </section>
 <section id="gkw-results-added-25-jan-2013">
-<h2>GKW results (added 25-jan-2013)<a class="headerlink" href="#gkw-results-added-25-jan-2013" title="Permalink to this heading"></a></h2>
+<h2>GKW results (added 25-jan-2013)<a class="headerlink" href="#gkw-results-added-25-jan-2013" title="Permalink to this headline"></a></h2>
 <a class="reference internal image-reference" href="_images/GKW_physics_freq.png"><img alt="b250" src="_images/GKW_physics_freq.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/GKW_physics_gamma.png"><img alt="b250" src="_images/GKW_physics_gamma.png" style="width: 48%;" /></a>
 <ul class="simple">
@@ -245,7 +243,7 @@ and output summary file
 </ul>
 </section>
 <section id="cross-code-benchmarking-results">
-<h2>Cross-code benchmarking results<a class="headerlink" href="#cross-code-benchmarking-results" title="Permalink to this heading"></a></h2>
+<h2>Cross-code benchmarking results<a class="headerlink" href="#cross-code-benchmarking-results" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p>The first completed benchmarking study compares results from the gyrokinetic <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>, <a class="reference external" href="https://bitbucket.org/gyrokinetics/gs2/wiki/Home"><cite>GS2</cite></a>, <a class="reference external" href="https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation"><cite>GEM</cite></a>, and <a class="reference external" href="http://genecode.org"><cite>GENE</cite></a> codes, as well as the gyrofluid <a class="reference internal" href="tglf.html"><span class="doc">TGLF</span></a> model.  <a class="reference internal" href="gyro.html"><span class="doc">GYRO</span></a>, <a class="reference external" href="https://bitbucket.org/gyrokinetics/gs2/wiki/Home"><cite>GS2</cite></a>, <a class="reference external" href="https://bitbucket.org/gkw/gkw/wiki/Home"><cite>GKW</cite></a> and <a class="reference external" href="http://genecode.org"><cite>GENE</cite></a> are continuum Eulearian (although with different velocity-space discretizations) codes, while <a class="reference external" href="https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation"><cite>GEM</cite></a> is a particle-in-cell code.  Unless otherwise noted, the results shown below are for electromagnetic, collisional simulations with a single gyrokinetic ion species.</p></li>
 <li><p><strong>Update 25-jan-2013:</strong> Results from the continuum gyrokinetic <a class="reference external" href="https://bitbucket.org/gkw/gkw/wiki/Home"><cite>GKW</cite></a> code have been added.</p></li>
@@ -280,7 +278,7 @@ and output summary file
 </ul>
 </section>
 <section id="acknowledgments">
-<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this heading"></a></h2>
+<h2>Acknowledgments<a class="headerlink" href="#acknowledgments" title="Permalink to this headline"></a></h2>
 <p>Thanks to Ron Bravenec for providing the <a class="reference external" href="https://bitbucket.org/gyrokinetics/gs2/wiki/Home"><cite>GS2</cite></a> and <a class="reference external" href="https://www.colorado.edu/center/cips/research/plasma-theory-and-simulation/gem-electromagnetic-gyrokinetic-turbulence-simulation"><cite>GEM</cite></a> data, Yann Camenen for the <a class="reference external" href="https://bitbucket.org/gkw/gkw/wiki/Home"><cite>GKW</cite></a> results, and Tobias Görler for the <a class="reference external" href="http://genecode.org"><cite>GENE</cite></a> results.</p>
 </section>
 </section>
@@ -296,7 +294,7 @@ and output summary file
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2022.</p>
+    <p>&#169; Copyright 2010-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

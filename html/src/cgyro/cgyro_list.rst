@@ -1458,6 +1458,23 @@ The normalized equilibrium-scale temperature.  First species temperature is TEMP
 
 ----
 
+.. _cgyro_theta_plot:
+
+THETA_PLOT
+----------
+
+**Definition**
+
+The number of poloidal points for output of large fluctuation moment arrays.
+
+**Commments**
+
+- DEFAULT: THETA\_PLOT=1
+- Value should be an integer divisor of :ref:`cgyro_n_theta`
+  
+
+----
+
 .. _cgyro_udsymmetry_flag:
 
 UDSYMMETRY_FLAG

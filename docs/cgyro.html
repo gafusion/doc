@@ -16,15 +16,13 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Running Cases" href="cgyro/running_cases.html" />
+    <link rel="next" title="GYRO" href="gyro.html" />
     <link rel="prev" title="PLOT" href="tgyro/plot.html" /> 
 </head>
 
@@ -59,18 +57,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#source-code">Source Code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-output-and-plotting">Data output and plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#quick-links">Quick links</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/running_cases.html">Running Cases</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/cgyro_platforms.html">Supported CGYRO Platforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro/FAQ.html">FAQ</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#running-cases">Running Cases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
@@ -98,8 +88,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">CGYRO</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>CGYRO</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/cgyro.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -110,17 +100,17 @@
            <div itemprop="articleBody">
              
   <section id="cgyro">
-<h1>CGYRO<a class="headerlink" href="#cgyro" title="Permalink to this heading"></a></h1>
+<h1>CGYRO<a class="headerlink" href="#cgyro" title="Permalink to this headline"></a></h1>
 <a class="reference internal image-reference" href="_images/b250.png"><img alt="b250" src="_images/b250.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b990.png"><img alt="b990" src="_images/b990.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1020.png"><img alt="b1020" src="_images/b1020.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1480.png"><img alt="b1480" src="_images/b1480.png" style="width: 48%;" /></a>
 <section id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline"></a></h2>
 <p><a class="reference external" href="http://github.com/gafusion/gacode">CGYRO source code</a>  is available at GitHub.</p>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
 <p><strong>The past: GYRO</strong></p>
 <p>Over the past two decades, the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
@@ -151,19 +141,19 @@ the NEO code <span id="id6">[<a class="reference internal" href="zreferences.htm
 calculation of collisional transport in toroidal geometry.</p>
 </section>
 <section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
+<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">Tabular list</span></a></p></li>
 <li><p><a class="reference internal" href="cgyro/cgyro_list.html"><span class="doc">Alphabetical list</span></a></p></li>
 <li><p>Profile data: <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
 </ul>
 </section>
-<section id="data-output-python-interface-and-plotting">
-<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this heading"></a></h2>
-<p>Although there is a description of <a class="reference internal" href="cgyro/outputs.html"><span class="doc">output data</span></a>, it is suggested that users use the <a class="reference internal" href="cgyro/plot.html"><span class="doc">python interface</span></a> to output data.</p>
+<section id="data-output-and-plotting">
+<h2>Data output and plotting<a class="headerlink" href="#data-output-and-plotting" title="Permalink to this headline"></a></h2>
+<p>Although there is a description of <a class="reference internal" href="cgyro/outputs.html"><span class="doc">output data</span></a>, it is suggested that users use the python interface to output data.</p>
 </section>
 <section id="normalization">
-<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this heading"></a></h2>
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline"></a></h2>
 <table class="colwidths-given docutils align-default" id="id7">
 <caption><span class="caption-text"><strong>CGYRO Normalization</strong></span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
 <colgroup>
@@ -205,23 +195,19 @@ calculation of collisional transport in toroidal geometry.</p>
 </tbody>
 </table>
 </section>
-<section id="quick-links">
-<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this heading"></a></h2>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/running_cases.html">Running Cases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_table.html">Tabular list for input.cgyro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/outputs.html">CGYRO output files</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/plot.html">CGYRO data interface and plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/cgyro_platforms.html">Supported CGYRO Platforms</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_cori.html">Running CGYRO on NERSC Cori</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro/cgyro_titan.html">Running CGYRO on OLCF Titan (deprecated)</a></li>
+<section id="running-cases">
+<h2>Running Cases<a class="headerlink" href="#running-cases" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="cgyro/running_cases.html"><span class="doc">running cases</span></a></p></li>
+<li><p><a class="reference internal" href="cgyro/cgyro_cori.html"><span class="doc">cori</span></a></p></li>
+<li><p><a class="reference internal" href="cgyro/cgyro_titan.html"><span class="doc">titan</span></a></p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro/FAQ.html">FAQ</a></li>
+</section>
+<section id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="cgyro/FAQ.html"><span class="doc">FAQ</span></a></p></li>
 </ul>
-</div>
 </section>
 </section>
 
@@ -230,13 +216,13 @@ calculation of collisional transport in toroidal geometry.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="tgyro/plot.html" class="btn btn-neutral float-left" title="PLOT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cgyro/running_cases.html" class="btn btn-neutral float-right" title="Running Cases" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2022.</p>
+    <p>&#169; Copyright 2010-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

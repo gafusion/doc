@@ -16,15 +16,11 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/contentui.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tabular list for input.cgyro" href="cgyro_table.html" />
-    <link rel="prev" title="CGYRO" href="../cgyro.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,32 +47,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../zreferences.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codes</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tgyro.html">TGYRO</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../cgyro.html">CGYRO</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#source-code">Source Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cgyro.html#normalization">Normalization</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../cgyro.html#quick-links">Quick links</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Running Cases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#quick-start-example">Quick-start example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#command-line-usage">Command-line usage</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#batch-submission">Batch submission</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro_table.html">Tabular list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro_list.html">Alphabetical list for input.cgyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="outputs.html">CGYRO output files</a></li>
-<li class="toctree-l3"><a class="reference internal" href="plot.html">CGYRO data interface and plotting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cgyro_platforms.html">Supported CGYRO Platforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="FAQ.html">FAQ</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../cgyro.html">CGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../prgen.html">profiles_gen</a></li>
@@ -102,9 +76,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
-          <li class="breadcrumb-item"><a href="../cgyro.html">CGYRO</a></li>
-      <li class="breadcrumb-item active">Running Cases</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Running Cases</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/cgyro/running_cases.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,9 +88,9 @@
            <div itemprop="articleBody">
              
   <section id="running-cases">
-<h1>Running Cases<a class="headerlink" href="#running-cases" title="Permalink to this heading"></a></h1>
+<h1>Running Cases<a class="headerlink" href="#running-cases" title="Permalink to this headline"></a></h1>
 <section id="quick-start-example">
-<h2>Quick-start example<a class="headerlink" href="#quick-start-example" title="Permalink to this heading"></a></h2>
+<h2>Quick-start example<a class="headerlink" href="#quick-start-example" title="Permalink to this headline"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -g reg08
 $ cd reg08
 $ cgyro -e .
@@ -129,7 +102,7 @@ $ cgyro_plot -plot ball -field 1
 </figure>
 </section>
 <section id="command-line-usage">
-<h2>Command-line usage<a class="headerlink" href="#command-line-usage" title="Permalink to this heading"></a></h2>
+<h2>Command-line usage<a class="headerlink" href="#command-line-usage" title="Permalink to this headline"></a></h2>
 <p>The input files and configuration for numerous linear and nonlinear cases can
 be auto-generated using the <code class="docutils literal notranslate"><span class="pre">-g</span></code> flag.  Often, it is easiest to find a template case that is close to what you would like to run, and then modify it accordingly.  A list of all regression and template cases in generated by typing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -g
@@ -143,34 +116,27 @@ be auto-generated using the <code class="docutils literal notranslate"><span cla
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -t nl00
 </pre></div>
 </div>
-<p>On the large systems at <a class="reference internal" href="cgyro_platforms.html"><span class="doc">NERSC, ORNL and elsewhere</span></a>, you will need to establish an <strong>interactive queue</strong> to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file <code class="docutils literal notranslate"><span class="pre">out.cgyro.mpi</span></code>. This shows the acceptable number of MPI tasks.</p>
+<p>On the large systems at NERSC, ORNL and elsewhere, you will need to establish an <strong>interactive queue</strong> to execute the command above.  The result should be diagnostics printed to the screen plus a few output files.  Pay attention to the file <code class="docutils literal notranslate"><span class="pre">out.cgyro.mpi</span></code>. This shows the acceptable number of MPI tasks.</p>
 </section>
 <section id="batch-submission">
-<h2>Batch submission<a class="headerlink" href="#batch-submission" title="Permalink to this heading"></a></h2>
+<h2>Batch submission<a class="headerlink" href="#batch-submission" title="Permalink to this headline"></a></h2>
 <p>On established platforms, the burden of writing batch script files and setting core counts is managed by the <code class="docutils literal notranslate"><span class="pre">gacode_qsub</span></code> script.  To generate a <code class="docutils literal notranslate"><span class="pre">batch.src</span></code> file, you could type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -e nl01 -n 512 -nomp 2 -queue regular -repo atom -w 0:09:00
 </pre></div>
 </div>
 <p>Additional flags are also accepted. Adding the <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag to the above will submit the job.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Beyond the general instructions given above, we also give hints for running on systems with <a class="reference internal" href="cgyro_platforms.html"><span class="doc">public GACODE installs</span></a>.</p>
-</div>
 </section>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../cgyro.html" class="btn btn-neutral float-left" title="CGYRO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="cgyro_table.html" class="btn btn-neutral float-right" title="Tabular list for input.cgyro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2022.</p>
+    <p>&#169; Copyright 2010-2023.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
