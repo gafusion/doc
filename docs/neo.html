@@ -16,7 +16,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -90,8 +92,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>NEO</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">NEO</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/neo.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -102,9 +104,9 @@
            <div itemprop="articleBody">
              
   <section id="neo">
-<h1>NEO<a class="headerlink" href="#neo" title="Permalink to this headline"></a></h1>
+<h1>NEO<a class="headerlink" href="#neo" title="Permalink to this heading"></a></h1>
 <section id="quick-links">
-<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline"></a></h2>
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="neo/neo_table.html">Parameters for input.neo</a></li>
@@ -116,7 +118,7 @@
 <p>The equations solved in NEO complement those solved in gyrokinetic codes such as GYRO and CGYRO insofar as together they represent the complete first-order deviation of the plasma from a local Maxwellian.</p>
 </section>
 <section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h2>
+<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
 <p>The primary NEO input file is <a class="reference internal" href="neo/neo_table.html"><span class="doc">input.neo</span></a>.  Profile data can be optionally captured from  <a class="reference internal" href="input_gacode.html"><span class="doc">input.gacode</span></a>.</p>
 <p>NEO can also be run using a subroutine interface. In this case, inputs and outputs are contained in a monolithic module file named neo_interface. The interface parameter name is formed by prepending neo_ and appending _in to the name of the corresponding input.neo parameter.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">use </span><span class="n">neo_interface</span>
@@ -128,11 +130,11 @@
 </div>
 </section>
 <section id="data-output">
-<h2>Data output<a class="headerlink" href="#data-output" title="Permalink to this headline"></a></h2>
+<h2>Data output<a class="headerlink" href="#data-output" title="Permalink to this heading"></a></h2>
 <p>A description of the NEO output files and output subroutine parameters is <a class="reference internal" href="neo/outputs.html"><span class="doc">here</span></a>.</p>
 </section>
 <section id="normalization">
-<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline"></a></h2>
+<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this heading"></a></h2>
 <p>When run in local profile mode, the NEO normalizing length <span class="math notranslate nohighlight">\(a\)</span>, normalizing mass <span class="math notranslate nohighlight">\(m_{\rm norm}\)</span>, normalizing density <span class="math notranslate nohighlight">\(n_{\rm norm}\)</span>, normalizing temperature <span class="math notranslate nohighlight">\(T_{\rm norm}\)</span>, and normalizing velocity <span class="math notranslate nohighlight">\({\rm v}_{\rm norm} = \sqrt{T_{\rm norm}/m_{\rm norm}}\)</span> are arbitrary, since the input.neo parameters are set with respect to these and the output parameters are defined with respect to these. For experimental profiles, the normalizations are set as follows:</p>
 <table class="colwidths-given docutils align-default">
 <colgroup>

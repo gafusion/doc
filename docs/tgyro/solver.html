@@ -16,7 +16,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script src="../_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -102,9 +104,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../tgyro.html">TGYRO</a> &raquo;</li>
-      <li>TGYRO solver algorithm</li>
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+          <li class="breadcrumb-item"><a href="../tgyro.html">TGYRO</a></li>
+      <li class="breadcrumb-item active">TGYRO solver algorithm</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/tgyro/solver.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -115,14 +117,14 @@
            <div itemprop="articleBody">
              
   <section id="tgyro-solver-algorithm">
-<span id="tgyro-solver"></span><h1>TGYRO solver algorithm<a class="headerlink" href="#tgyro-solver-algorithm" title="Permalink to this headline"></a></h1>
+<span id="tgyro-solver"></span><h1>TGYRO solver algorithm<a class="headerlink" href="#tgyro-solver-algorithm" title="Permalink to this heading"></a></h1>
 <p>TGYRO solves the <em>steady-state transport problem</em>; that is, the transport
 equations with <span class="math notranslate nohighlight">\(\partial_t \rightarrow 0\)</span>.  This algorithm was originally
 envisioned to form the basis for a time-implicit solver, but frankly there has
 been little interest or need for this capability.  Instead, flexibility in
 dealing with multiple ions and solver robustness have been emphasized.</p>
 <section id="formulation">
-<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this headline"></a></h2>
+<h2>Formulation<a class="headerlink" href="#formulation" title="Permalink to this heading"></a></h2>
 <p>To describe the algorithm, we will restrict attention to coupled <span class="math notranslate nohighlight">\(T_i\)</span>
 and <span class="math notranslate nohighlight">\(T_e\)</span> evolution, even though density and rotation can also be
 evolved.</p>
@@ -144,7 +146,7 @@ Q_e = &amp; ~Q_e^{\rm Neo} + Q_e^{\rm Turb}
 detail in the <a class="reference internal" href="equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a> .</p>
 </section>
 <section id="some-comments-regarding-units">
-<h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this headline"></a></h2>
+<h2>Some comments regarding units<a class="headerlink" href="#some-comments-regarding-units" title="Permalink to this heading"></a></h2>
 <p>In TGYRO, we have found it convenient to use CGS units rather than employing some variant of the more
 popular dimensionless normalizations.  Thus, we have</p>
 <div class="math notranslate nohighlight">
@@ -156,7 +158,7 @@ popular dimensionless normalizations.  Thus, we have</p>
 \end{align}\end{split}\]</div>
 </section>
 <section id="solution-strategy">
-<h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this headline"></a></h2>
+<h2>Solution strategy<a class="headerlink" href="#solution-strategy" title="Permalink to this heading"></a></h2>
 <p>Rather than solving the equations directly, we prefer to solve the volume-integrated form
 of the equation so that we can deal directly with the fluxes:</p>
 <div class="math notranslate nohighlight">
@@ -192,7 +194,7 @@ T_\sigma(r) = T_\sigma^*
 \end{equation}\]</div>
 </section>
 <section id="formulation-on-a-discrete-grid">
-<h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this headline"></a></h2>
+<h2>Formulation on a discrete grid<a class="headerlink" href="#formulation-on-a-discrete-grid" title="Permalink to this heading"></a></h2>
 <p>On a discrete grid <span class="math notranslate nohighlight">\(r_j\)</span>, the temperature profile can be approximately determined using
 the trapezoidal rule</p>
 <div class="math notranslate nohighlight">
@@ -336,7 +338,7 @@ ignored</p></li>
 iteration component.</p>
 </section>
 <section id="computation-of-the-jacobian">
-<h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this headline"></a></h2>
+<h2>Computation of the Jacobian<a class="headerlink" href="#computation-of-the-jacobian" title="Permalink to this heading"></a></h2>
 <p>We approximate the derivatives in the Jacobian matrix using a forward difference approximation</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \widehat{Q}_{\sigma,j}}{\partial z_{\sigma^\prime,j^\prime}} \simeq

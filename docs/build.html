@@ -16,7 +16,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -83,8 +85,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Build from sources</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Build from sources</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/build.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -95,16 +97,16 @@
            <div itemprop="articleBody">
              
   <section id="build-from-sources">
-<h1>Build from sources<a class="headerlink" href="#build-from-sources" title="Permalink to this headline"></a></h1>
+<h1>Build from sources<a class="headerlink" href="#build-from-sources" title="Permalink to this heading"></a></h1>
 <section id="prerequisites">
-<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline"></a></h2>
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this heading"></a></h2>
 <p>These instructions assume you have a complete GACODE top-level directory, which can be cloned from GitHub:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:gafusion/gacode.git
 </pre></div>
 </div>
 </section>
 <section id="environment-variables">
-<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h2>
+<h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading"></a></h2>
 <p>First, you need to locate a suitable platform, or make your own platform files.  After cloning the repository, you can query the existing platforms using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./gacode/shared/bin/gacode_platforms
 </pre></div>
@@ -136,7 +138,7 @@ export GACODE_ROOT=$HOME/gacode
 <p>Numerous templates for each of these files can be found in the specific folders, and most often there will be an existing machine files that is almost exactly what you need.  So, the strategy is to copy a similar machine file to your new one, and tweak as required.</p>
 </section>
 <section id="building">
-<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline"></a></h2>
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
 <p>To build the entire GACODE project, type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT
 $ make
