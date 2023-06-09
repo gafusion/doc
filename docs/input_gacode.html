@@ -16,7 +16,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -82,8 +84,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>input.gacode</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">input.gacode</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/input_gacode.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -94,13 +96,13 @@
            <div itemprop="articleBody">
              
   <section id="input-gacode">
-<span id="id1"></span><h1>input.gacode<a class="headerlink" href="#input-gacode" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>input.gacode<a class="headerlink" href="#input-gacode" title="Permalink to this heading"></a></h1>
 <p>To see what a sample <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> looks like, at the command line type</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ cgyro -g reg14 <span class="p">;</span> cat reg14/input.gacode
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>cgyro<span class="w"> </span>-g<span class="w"> </span>reg14<span class="w"> </span><span class="p">;</span><span class="w"> </span>cat<span class="w"> </span>reg14/input.gacode
 </pre></div>
 </div>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p>The file <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new <a class="reference internal" href="geometry.html"><span class="doc">MXH equilibrium parameters</span></a> <span id="id2">[<a class="reference internal" href="zreferences.html#id9" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2020. doi:10.1088/1361-6587/abc63b.">ACB20</a>]</span>.</p>
 <p>Profile ordering in <a class="reference internal" href="#"><span class="doc">input.gacode</span></a> is arbitrary and comment lines (starting with <code class="docutils literal notranslate"><span class="pre">#</span></code> in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate <a class="reference internal" href="#"><span class="doc">input.gacode</span></a>, please use the <code class="docutils literal notranslate"><span class="pre">profiles_gen</span></code> command-line tool.</p>
 <table class="colwidths-given docutils align-default" id="id3">

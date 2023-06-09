@@ -15,9 +15,9 @@ Add the following lines to ``.bashrc``::
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
 
-Sample job layout (1 node, 32 MPI, 4 OpenMP)::
+Sample job layout (1 node, 32 MPI, 4 OpenMP, 59 min wall-clock time)::
 
-  $ gacode_qsub -code cgyro -n 32 -nomp 4 -repo atom -w 15
+  $ gacode_qsub -code cgyro -n 32 -nomp 4 -repo atom -w 00:59:00
 
 NERSC PERLMUTTER (GPU)
 ----------------------
@@ -30,9 +30,9 @@ Add the following lines to ``.bashrc``::
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
 
-Sample job layout (1 node, 4 GPU, 16 MPI, 8 OpenMP)::
+Sample job layout (1 node, 4 GPU, 16 MPI, 8 OpenMP, 59 min wall-clock time)::
 
-  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom_g -w 15
+  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom_g -w 00:59:00
 
 GA IRIS
 -------

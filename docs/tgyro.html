@@ -16,7 +16,9 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -94,8 +96,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>TGYRO</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">TGYRO</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tgyro.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -106,9 +108,9 @@
            <div itemprop="articleBody">
              
   <section id="tgyro">
-<h1>TGYRO<a class="headerlink" href="#tgyro" title="Permalink to this headline"></a></h1>
+<h1>TGYRO<a class="headerlink" href="#tgyro" title="Permalink to this heading"></a></h1>
 <section id="quick-links">
-<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this headline"></a></h2>
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tgyro/tgyro_table.html">input.tgyro Tabular List</a></li>
@@ -122,7 +124,7 @@
 </div>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
 <p>TGYRO is a parallel transport manager with the ability to call multiple
 instances of TGLF and NEO in order to obtain steady-state temperature,
 density and rotation profiles.  The code was designed to operate with a
@@ -132,17 +134,17 @@ to the transport model.</p>
 manager for ensembles of independent GYRO/CGYRO simulations.</p>
 </section>
 <section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this headline"></a></h2>
+<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
 <p>The primary TGYRO input file is <a class="reference internal" href="tgyro/tgyro_table.html"><span class="doc">input.tgyro</span></a>, with
 profile data defined in <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p>
 </section>
 <section id="data-output-python-interface-and-plotting">
-<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this headline"></a></h2>
+<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this heading"></a></h2>
 <p>Although there is a description of <a class="reference internal" href="tgyro/output.html"><span class="doc">output data</span></a>, it is
 suggested that users use the <a class="reference internal" href="tgyro/plot.html"><span class="doc">python interface</span></a> to output data.</p>
 </section>
 <section id="transport-equations-and-solution">
-<h2>Transport equations and solution<a class="headerlink" href="#transport-equations-and-solution" title="Permalink to this headline"></a></h2>
+<h2>Transport equations and solution<a class="headerlink" href="#transport-equations-and-solution" title="Permalink to this heading"></a></h2>
 <p>We give a brief description of the transport equations, see <a class="reference internal" href="tgyro/equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a>.
 Unlike most other transport solvers, the solution algorithm in TGYRO is <strong>not</strong> based
 on time-integration of the transport equations.  Instead, the steady-state
