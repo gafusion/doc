@@ -1,41 +1,48 @@
 Environment setup
 =================
 
-Below we give information about the environment setup required to run GACODE tools on maintained platforms.  One this step is complete, proceed to instructions on running cases :doc:`CGYRO <cgyro/running_cases>`, :doc:`NEO <neo>`, :doc:`TGYRO <tgyro>`, and so on.
+Below we give information about the environment setup required to run GACODE tools on maintained platforms.  Once this step is complete, proceed to instructions on running cases :doc:`CGYRO <cgyro/running_cases>`, :doc:`NEO <neo>`, :doc:`TGYRO <tgyro>`, and so on.
 
-  
-NERSC CORI
-----------
+NERSC PERLMUTTER (CPU)
+----------------------
 
 Add the following lines to ``.bashrc``::
 
-  export GACODE_PLATFORM=CORI_KNL_HT2_MKL
-  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-cori/gacode-source-mkl
+  export GACODE_PLATFORM=PERLMUTTER_CPU
+  export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-cpu
   . ${GACODE_ROOT}/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
+  
+Sample job layout (32 MPI, 8 OMP) = 1 node, 59 min wall-clock time::
 
-Sample job layout (1 node, 32 MPI, 4 OpenMP, 59 min wall-clock time)::
+  $ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 00:59:00
 
-  $ gacode_qsub -code cgyro -n 32 -nomp 4 -repo atom -w 00:59:00
-
+.. important::
+   Perlmutter CPU has 256 logical cores per node (8 OMP * 32 MPI)
+  
 NERSC PERLMUTTER (GPU)
 ----------------------
 
 Add the following lines to ``.bashrc``::
 
   export GACODE_PLATFORM=PERLMUTTER_GPU
-  export GACODE_ROOT=/global/cfs/cdirs/atom/atom-install-perlmutter/gacode-gpu
+  export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-gpu
   . ${GACODE_ROOT}/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
+Sample job layout (16 MPI, 8 OMP) = (1 node, 4 GPU) 59 min wall-clock time::
 
-Sample job layout (1 node, 4 GPU, 16 MPI, 8 OpenMP, 59 min wall-clock time)::
+  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom -w 00:59:00
 
-  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom_g -w 00:59:00
+.. important::
+   Perlmutter GPU has 4 GPUs and 128 logical cores per node (8 OMP * 16 MPI)
 
-GA IRIS
--------
+.. important::
+   Better to set TOROIDALS_PER_PROC > 1 in input.cgyro and use -nomp 32
+
+GA OMEGA
+--------
 
 To run in a **dedicated GACODE environment**, add these lines to ``.bashrc``::
 
@@ -43,16 +50,4 @@ To run in a **dedicated GACODE environment**, add these lines to ``.bashrc``::
   export GACODE_ROOT=/fusion/projects/theory/gacode
   . ${GACODE_ROOT}/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
-
-This will purge all modules before setup, so if you want to add additional modules, do so after
-executing the last line.
-
-To run in an **OMFIT-friendly environment** (perhaps missing the most up-to-date GACODE functionality)
-add these lines to ``.bashrc``::
- 
-  module load defaults
-  module load atom/dev
-  export GACODE_PLATFORM=SATURN_GCC
-  export GACODE_ROOT=/fusion/projects/codes/atom/dev/atom_SATURN_GCC/gacode
-  . $GACODE_ROOT/shared/bin/gacode_setup
 
