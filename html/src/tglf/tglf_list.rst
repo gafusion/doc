@@ -27,7 +27,7 @@ ALPHA_E
 
 **Definition**
 
-Multiplies ExB velocity shear for spectral shift model [Staebler et al., PRL, 2013].
+Multiplies ExB velocity shear for spectral shift model :cite:`staebler:2013`.
 
 
 **Comments**
@@ -850,10 +850,10 @@ SAT_RULE
 
 **Definition**
 
-- SAT_RULE = 0 finds zonal flow shear at each ky (e.g. Kinsey, Staebler, Waltz, PoP, 2008)
-- SAT_RULE = 1 finds dominant saturation mechanism (ZF mixing rate or drift-wave growth rate) and includes ky-coupling (Staebler et al., PoP, 2016)
-- SAT_RULE = 2 builds on SAT1 with refined geometric effects (due to Shafranov shift and elongation), improved TEM physics, simplified spectral shift (e.g. Staebler et al., NF, 2021; Staebler et al., PPCF, 2021)
-- SAT_RULE = 3 builds on SAT2, captures anti-gyroBohm scaling of fluxes, treats saturation of ITG and TEM differently, has quasi-linear model approximations to align quasi-linear weights with NL GK simulations (e.g. Dudding et al., NF, 2022; Dudding PhD Thesis)
+- SAT_RULE = 0 finds zonal flow shear at each ky :cite:`staebler:2007`.
+- SAT_RULE = 1 finds dominant saturation mechanism (ZF mixing rate or drift-wave growth rate) and includes ky-coupling :cite:`staebler:2016`.
+- SAT_RULE = 2 builds on SAT1 with refined geometric effects (due to Shafranov shift and elongation), improved TEM physics, simplified spectral shift :cite:`staebler:2020,staebler:2021`.
+- SAT_RULE = 3 builds on SAT2, captures anti-gyroBohm scaling of fluxes, treats saturation of ITG and TEM differently, has quasi-linear model approximations to align quasi-linear weights with NL GK simulations :cite:`dudding:2022a,dudding:2022b`.
 
 **Comments**
 

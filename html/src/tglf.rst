@@ -21,7 +21,7 @@ The TGLF model is a next generation gyro-Landau-fluid model that improves the ac
    :widths: 20,20
 
     SAT0, ":cite:`staebler:2007,kinsey:2008`"
-    Spectral Shift,  ":cite:`staebler:2013`"
+    Spectral Shift,  ":cite:`staebler:2013,staebler:2013b`"
     SAT1,  ":cite:`staebler:2016`"
     SAT2,  ":cite:`staebler:2020,staebler:2021`"
     SAT3,  ":cite:`dudding:2022a,dudding:2022b`"
