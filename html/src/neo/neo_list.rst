@@ -93,11 +93,11 @@ Parameter which selects the collision operator model.
      
 **Choices**
   
-- SIM_MODEL = 1: Connor model.
-- SIM_MODEL = 2: Zeroth-order Hirshman-Sigmar model.
-- SIM_MODEL = 3: Full Hirshman-Sigmar model.
-- SIM_MODEL = 4: Full linearized Fokker-Plank operator.
-- SIM_MODEL = 5: FP test particle operator with ad hoc field particle operator.
+- COLLISION_MODEL = 1: Connor model.
+- COLLISION_MODEL = 2: Zeroth-order Hirshman-Sigmar model.
+- COLLISION_MODEL = 3: Full Hirshman-Sigmar model.
+- COLLISION_MODEL = 4: Full linearized Fokker-Plank operator.
+- COLLISION_MODEL = 5: FP test particle operator with ad hoc field particle operator.
 
 **Comments**
 
