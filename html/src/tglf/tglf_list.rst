@@ -43,7 +43,7 @@ ALPHA_ZF
 
 **Definition**
 
-Zonal flow mixing coefficient (used by SAT1, SAT2, SAT3). Note: Can be used as hidden switch that avoids picking the lowest ky as the peak in gamma/ky when ALPHA_ZF=-1.0. This switch is useful when an MHD mode at the lowest ky causes a large amount of flux.
+Zonal flow mixing coefficient (used by SAT1, SAT2, SAT3). Note: Can be used as hidden switch that avoids picking unphysically low ky as the peak in gamma/ky when ALPHA_ZF=-1.0. This switch is useful when an MHD mode at the lowest ky causes a large amount of flux.
 
 
 **Comments**
@@ -868,7 +868,7 @@ SHAT_SA
 
 **Definition**
 
-Magnetic shear :math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}`.
+Magnetic shear :math:`{\frac {r}{q}}{\frac {\partial q}{\partial r}}`. Caution: Only used for :math:`s-\alpha` geometry (GEOMETRY_FLAG = 0), otherwise see Q_PRIME_LOC.
 
 
 **Comments**
