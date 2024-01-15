@@ -21,13 +21,13 @@ Geometry
 
 A description of the unified method used to describe :doc:`flux-surface geometry <geometry>`.
 
-Plasma rotation
+Plasma Rotation
 ---------------
 
-Some notes about :doc:`plasma rotation <rotation>`.
+Some notes about the Hinton-Sugama formulation of plasma rotation :doc:`plasma rotation <rotation>`.
 
-Experimental profiles
----------------------
+Equilibrium and Profiles
+------------------------
 
 GACODE software works with the :ref:`input.gacode` format.   
 
@@ -41,7 +41,6 @@ GACODE software works with the :ref:`input.gacode` format.
    zreferences
 
 .. toctree::
-   :maxdepth: 2
    :caption: Codes
 
    neo

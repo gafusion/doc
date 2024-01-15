@@ -6,7 +6,7 @@ Alphabetical list for input.neo
 .. _neo_aniso_model_*:
 
 ANISO_MODEL_*
--------------
+-----------------
 
 **Definition**
 
