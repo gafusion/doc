@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>TGYRO &mdash; GACODE</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+
+  
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/contentui.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/contentui.js?v=9ee86694"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -81,7 +83,7 @@
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 </ul>
@@ -111,9 +113,9 @@
            <div itemprop="articleBody">
              
   <section id="tgyro">
-<h1>TGYRO<a class="headerlink" href="#tgyro" title="Permalink to this heading"></a></h1>
+<h1>TGYRO<a class="headerlink" href="#tgyro" title="Link to this heading"></a></h1>
 <section id="quick-links">
-<h2>Quick links<a class="headerlink" href="#quick-links" title="Permalink to this heading"></a></h2>
+<h2>Quick links<a class="headerlink" href="#quick-links" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="tgyro/tgyro_table.html">input.tgyro Tabular List</a></li>
@@ -127,7 +129,7 @@
 </div>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>TGYRO is a parallel transport manager with the ability to call multiple
 instances of TGLF and NEO in order to obtain steady-state temperature,
 density and rotation profiles.  The code was designed to operate with a
@@ -137,17 +139,17 @@ to the transport model.</p>
 manager for ensembles of independent GYRO/CGYRO simulations.</p>
 </section>
 <section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
+<h2>Data input<a class="headerlink" href="#data-input" title="Link to this heading"></a></h2>
 <p>The primary TGYRO input file is <a class="reference internal" href="tgyro/tgyro_table.html"><span class="doc">input.tgyro</span></a>, with
 profile data defined in <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p>
 </section>
 <section id="data-output-python-interface-and-plotting">
-<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Permalink to this heading"></a></h2>
+<h2>Data output, python interface, and plotting<a class="headerlink" href="#data-output-python-interface-and-plotting" title="Link to this heading"></a></h2>
 <p>Although there is a description of <a class="reference internal" href="tgyro/output.html"><span class="doc">output data</span></a>, it is
 suggested that users use the <a class="reference internal" href="tgyro/plot.html"><span class="doc">python interface</span></a> to output data.</p>
 </section>
 <section id="transport-equations-and-solution">
-<h2>Transport equations and solution<a class="headerlink" href="#transport-equations-and-solution" title="Permalink to this heading"></a></h2>
+<h2>Transport equations and solution<a class="headerlink" href="#transport-equations-and-solution" title="Link to this heading"></a></h2>
 <p>We give a brief description of the transport equations, see <a class="reference internal" href="tgyro/equations.html#tgyro-equations"><span class="std std-ref">Equations solved in TGYRO</span></a>.
 Unlike most other transport solvers, the solution algorithm in TGYRO is <strong>not</strong> based
 on time-integration of the transport equations.  Instead, the steady-state
@@ -166,7 +168,7 @@ equations are solved (see  <a class="reference internal" href="tgyro/solver.html
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2023.</p>
+    <p>&#169; Copyright 2010-2024.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

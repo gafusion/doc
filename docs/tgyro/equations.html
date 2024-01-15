@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Equations solved in TGYRO &mdash; GACODE</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/contentui.css?v=4cf5b151" />
+
+  
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/contentui.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/contentui.js?v=9ee86694"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -88,7 +90,7 @@
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION THEORY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc.html">Miscellaneous</a></li>
 </ul>
@@ -119,15 +121,15 @@
            <div itemprop="articleBody">
              
   <section id="equations-solved-in-tgyro">
-<span id="tgyro-equations"></span><h1>Equations solved in TGYRO<a class="headerlink" href="#equations-solved-in-tgyro" title="Permalink to this heading"></a></h1>
+<span id="tgyro-equations"></span><h1>Equations solved in TGYRO<a class="headerlink" href="#equations-solved-in-tgyro" title="Link to this heading"></a></h1>
 <p>Below we write the most general form of the transport equations solved by TGYRO.  The
 calculation chain in NEO-CGYRO-TGYRO is a faithful representation of the comprehensive
-transport theory of Sugama <span id="id1">[<a class="reference internal" href="../zreferences.html#id104" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998.">SH98</a>]</span>.  This paper is <em>required reading</em> for a
+transport theory of Sugama <span id="id1">[<a class="reference internal" href="../zreferences.html#id110" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998.">SH98</a>]</span>.  This paper is <em>required reading</em> for a
 detailed understanding of the theoretical foundations of GACODE.  Below we summarize
 Sugama’s form of the transport equations, with some practical simplifications and
 notational differences.</p>
 <section id="density-transport">
-<h2>Density Transport<a class="headerlink" href="#density-transport" title="Permalink to this heading"></a></h2>
+<h2>Density Transport<a class="headerlink" href="#density-transport" title="Link to this heading"></a></h2>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \langle n_a \rangle}{\partial t} +
 \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime \Gamma_a \right)
@@ -139,11 +141,11 @@ notational differences.</p>
 <div class="math notranslate nohighlight">
 \[\Gamma_a = \Gamma_a^{\rm neo} + \Gamma_a^{\rm tur} \; .\]</div>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text"><strong>Density fluxes and sources</strong></span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>Density fluxes and sources</strong></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 58%" />
-<col style="width: 12%" />
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
@@ -172,7 +174,7 @@ notational differences.</p>
 </table>
 </section>
 <section id="energy-transport">
-<h2>Energy Transport<a class="headerlink" href="#energy-transport" title="Permalink to this heading"></a></h2>
+<h2>Energy Transport<a class="headerlink" href="#energy-transport" title="Link to this heading"></a></h2>
 <div class="math notranslate nohighlight">
 \[\frac{\partial \langle W_a \rangle}{\partial t} + \
 \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime Q_a \right) +
@@ -185,11 +187,11 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 <div class="math notranslate nohighlight">
 \[Q_a = Q_a^{\rm neo} + Q_a^{\rm tur} \; .\]</div>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text"><strong>Energy fluxes and sources</strong></span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>Energy fluxes and sources</strong></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 58%" />
-<col style="width: 12%" />
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
@@ -230,7 +232,7 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 </table>
 </section>
 <section id="momentum-transport">
-<h2>Momentum Transport<a class="headerlink" href="#momentum-transport" title="Permalink to this heading"></a></h2>
+<h2>Momentum Transport<a class="headerlink" href="#momentum-transport" title="Link to this heading"></a></h2>
 <div class="math notranslate nohighlight">
 \[\frac{\partial}{\partial t} \left( \omega_0 \langle R^2 \rangle \sum_a m_a n_a \right)
 + \frac{1}{V^\prime}\frac{\partial}{\partial r} \left( V^\prime \sum_a \Pi_a \right)
@@ -239,11 +241,11 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 <div class="math notranslate nohighlight">
 \[\Pi_a = \Pi_a^{\rm neo} + \Pi_a^{\rm tur} \; .\]</div>
 <table class="docutils align-default" id="id4">
-<caption><span class="caption-text"><strong>Momentum fluxes and sources</strong></span><a class="headerlink" href="#id4" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>Momentum fluxes and sources</strong></span><a class="headerlink" href="#id4" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 30%" />
-<col style="width: 58%" />
-<col style="width: 12%" />
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Variable</p></th>
@@ -268,7 +270,7 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
 </table>
 </section>
 <section id="connection-of-fluxes-to-powers">
-<h2>Connection of Fluxes to Powers<a class="headerlink" href="#connection-of-fluxes-to-powers" title="Permalink to this heading"></a></h2>
+<h2>Connection of Fluxes to Powers<a class="headerlink" href="#connection-of-fluxes-to-powers" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p>Volume element</p></li>
 </ul>
@@ -326,7 +328,7 @@ S_{W,a}^{\rm tur} + S_{W,a}^{\rm col} \; ,\]</div>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2023.</p>
+    <p>&#169; Copyright 2010-2024.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

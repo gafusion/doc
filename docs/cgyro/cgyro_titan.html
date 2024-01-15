@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Running CGYRO on OLCF Titan (deprecated) &mdash; GACODE</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/contentui.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/contentui.css?v=4cf5b151" />
+
+  
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
-        <script src="../_static/contentui.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/contentui.js?v=9ee86694"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -63,7 +65,7 @@
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rotation.html">PLASMA ROTATION THEORY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../misc.html">Miscellaneous</a></li>
 </ul>
@@ -93,17 +95,17 @@
            <div itemprop="articleBody">
              
   <section id="running-cgyro-on-olcf-titan-deprecated">
-<h1>Running CGYRO on OLCF Titan (deprecated)<a class="headerlink" href="#running-cgyro-on-olcf-titan-deprecated" title="Permalink to this heading"></a></h1>
+<h1>Running CGYRO on OLCF Titan (deprecated)<a class="headerlink" href="#running-cgyro-on-olcf-titan-deprecated" title="Link to this heading"></a></h1>
 <p>ORNL Titan is one of the most popular GPU platforms on which to run CGYRO.
 This document provides some guidance on how to best make use of its resources</p>
 <section id="titan-capabilities">
-<h2>Titan capabilities<a class="headerlink" href="#titan-capabilities" title="Permalink to this heading"></a></h2>
+<h2>Titan capabilities<a class="headerlink" href="#titan-capabilities" title="Link to this heading"></a></h2>
 <p>The bulk of the Titan compute power comes from the approximately 18k nodes, each hosting a single AMD Opteron CPU and a NVIDIA K20X GPU.
 For our purposes, each Opteron provides 16 execution threads.
 Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
 </section>
 <section id="titan-platform-file">
-<h2>Titan Platform File<a class="headerlink" href="#titan-platform-file" title="Permalink to this heading"></a></h2>
+<h2>Titan Platform File<a class="headerlink" href="#titan-platform-file" title="Link to this heading"></a></h2>
 <p>The recommended platform file is:</p>
 <blockquote>
 <div><ul class="simple">
@@ -112,7 +114,7 @@ Each node is also equiped with 32 GB of CPU RAM and 5GB of GPU RAM.</p>
 </div></blockquote>
 </section>
 <section id="memory-vs-speed-tradeoff-in-collisional-term">
-<h2>Memory vs speed tradeoff in collisional term<a class="headerlink" href="#memory-vs-speed-tradeoff-in-collisional-term" title="Permalink to this heading"></a></h2>
+<h2>Memory vs speed tradeoff in collisional term<a class="headerlink" href="#memory-vs-speed-tradeoff-in-collisional-term" title="Link to this heading"></a></h2>
 <p>Unless you are using the simplified collision operator, i.e. <strong>not COLLISION_MODEL=5</strong>,
 CGYRO will run that operator on CPU-only by default.
 This choice has been made due to the significant memory cost of the other operators,
@@ -127,14 +129,14 @@ To force the collisional operator to execute on the (much faster) GPU, set</p>
 <p>The faster setup will require significantly more GPU memory. If your job fails with CUDA errors, try increasing the number of nodes being used.</p>
 </section>
 <section id="balancing-mpi-rank-vs-omp">
-<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Permalink to this heading"></a></h2>
+<h2>Balancing MPI Rank vs OMP<a class="headerlink" href="#balancing-mpi-rank-vs-omp" title="Link to this heading"></a></h2>
 <p>When submitting a CGYRO job, you are asked to pick an MPI rank ( <em>-n</em> ) and the number of threads/process ( <em>-nomp</em> ).
 The product will determine the amount of compute resources you will use.</p>
 <p>The recommended setting is to pick <strong>nomp</strong> to be 2.</p>
 <p>For really big runs, you can make use of more nodes by setting <strong>-nomp 4</strong> or even <strong>-nomp 8</strong>.</p>
 </section>
 <section id="trading-speed-vs-efficiency">
-<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Permalink to this heading"></a></h2>
+<h2>Trading speed vs efficiency<a class="headerlink" href="#trading-speed-vs-efficiency" title="Link to this heading"></a></h2>
 <p>As with most HPC codes, CGYRO will run faster when using more compute resources (i.e. compute nodes).
 However, like most HPC codes, the efficiency will generally decrease as you use more resources, too.
 I.e. you will be able to get <strong>less computation done with the same amount of allocation time</strong>.</p>
@@ -146,7 +148,7 @@ instead of running them sequentially using as many resources as possible for eac
 <p>The actual speedup, and the related efficiency, depends on the actual input setup.
 Below you can see the wallclock results doing a few steps for the very small <em>nl01</em>, the medium sized <em>nl03</em> and the large <em>nl04</em>.</p>
 <table class="docutils align-default" id="id1">
-<caption><span class="caption-text"><strong>nl01</strong></span><a class="headerlink" href="#id1" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>nl01</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>#nodes</p></th>
 <th class="head"><p>Wallclock time</p></th>
@@ -188,7 +190,7 @@ Below you can see the wallclock results doing a few steps for the very small <em
 </tbody>
 </table>
 <table class="docutils align-default" id="id2">
-<caption><span class="caption-text"><strong>nl03</strong></span><a class="headerlink" href="#id2" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>nl03</strong></span><a class="headerlink" href="#id2" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>#nodes</p></th>
 <th class="head"><p>Wallclock time</p></th>
@@ -225,7 +227,7 @@ Below you can see the wallclock results doing a few steps for the very small <em
 </tbody>
 </table>
 <table class="docutils align-default" id="id3">
-<caption><span class="caption-text"><strong>nl04</strong></span><a class="headerlink" href="#id3" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>nl04</strong></span><a class="headerlink" href="#id3" title="Link to this table"></a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>#nodes</p></th>
 <th class="head"><p>Wallclock time</p></th>
@@ -263,7 +265,7 @@ Below you can see the wallclock results doing a few steps for the very small <em
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2023.</p>
+    <p>&#169; Copyright 2010-2024.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

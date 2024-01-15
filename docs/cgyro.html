@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CGYRO &mdash; GACODE</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+
+  
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/contentui.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/contentui.js?v=9ee86694"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -75,7 +77,7 @@
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 </ul>
@@ -105,25 +107,25 @@
            <div itemprop="articleBody">
              
   <section id="cgyro">
-<h1>CGYRO<a class="headerlink" href="#cgyro" title="Permalink to this heading"></a></h1>
+<h1>CGYRO<a class="headerlink" href="#cgyro" title="Link to this heading"></a></h1>
 <a class="reference internal image-reference" href="_images/b250.png"><img alt="b250" src="_images/b250.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b990.png"><img alt="b990" src="_images/b990.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1020.png"><img alt="b1020" src="_images/b1020.png" style="width: 48%;" /></a>
 <a class="reference internal image-reference" href="_images/b1480.png"><img alt="b1480" src="_images/b1480.png" style="width: 48%;" /></a>
 <section id="source-code">
-<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this heading"></a></h2>
+<h2>Source Code<a class="headerlink" href="#source-code" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="http://github.com/gafusion/gacode">CGYRO source code</a>  is available at GitHub.</p>
 </section>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading"></a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p><strong>The past: GYRO</strong></p>
 <p>Over the past two decades, the fusion community has focused its modeling efforts
 primarily on the core region. A popular kinetic code used for this purpose
 was GYRO <span id="id1">[<a class="reference internal" href="zreferences.html#id37" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>, <a class="reference internal" href="zreferences.html#id26" title="J. Candy and R.E. Waltz. Anomalous transport scaling in the DIII-D tokamak matched by supercomputer simulation. Phys. Rev. Lett., 91:045001, 2003. doi:10.1103/PhysRevLett.91.045001.">CW03a</a>, <a class="reference internal" href="zreferences.html#id25" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:10.1016/S0021-9991(03)00079-2.">CW03b</a>, <a class="reference internal" href="zreferences.html#id27" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:10.1063/1.1695358.">CWD04</a>]</span>.
 Thousands of nonlinear simulations with GYRO have informed the fusion community’s understanding of
-core plasma turbulence <span id="id2">[<a class="reference internal" href="zreferences.html#id76" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id79" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id80" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id81" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span>
+core plasma turbulence <span id="id2">[<a class="reference internal" href="zreferences.html#id78" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id81" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id82" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id83" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span>
 and provided a <em>transport database</em> for the calibration of reduced transport models
-such as TGLF <span id="id3">[<a class="reference internal" href="zreferences.html#id96" title="G.M. Staebler, J.E. Kinsey, and R.E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14:055909, 2007.">SKW07</a>]</span>.  GYRO was the first global electromagnetic solver,
+such as TGLF <span id="id3">[<a class="reference internal" href="zreferences.html#id98" title="G. M. Staebler, J. E. Kinsey, and R. E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14(5):055909, 2007. doi:10.1063/1.2436852.">SKW07</a>]</span>.  GYRO was the first global electromagnetic solver,
 and pioneered the development of numerical algorithms for the GK equations
 with kinetic electrons.  It is formulated in real space and like all global solvers
 requires <em>ad hoc</em> absorbing-layer boundary conditions when simulating cases
@@ -146,7 +148,7 @@ the NEO code <span id="id6">[<a class="reference internal" href="zreferences.htm
 calculation of collisional transport in toroidal geometry.</p>
 </section>
 <section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Permalink to this heading"></a></h2>
+<h2>Data input<a class="headerlink" href="#data-input" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">Tabular list</span></a></p></li>
 <li><p><a class="reference internal" href="cgyro/cgyro_list.html"><span class="doc">Alphabetical list</span></a></p></li>
@@ -154,17 +156,17 @@ calculation of collisional transport in toroidal geometry.</p>
 </ul>
 </section>
 <section id="data-output-and-plotting">
-<h2>Data output and plotting<a class="headerlink" href="#data-output-and-plotting" title="Permalink to this heading"></a></h2>
+<h2>Data output and plotting<a class="headerlink" href="#data-output-and-plotting" title="Link to this heading"></a></h2>
 <p>Although there is a description of <a class="reference internal" href="cgyro/outputs.html"><span class="doc">output data</span></a>, it is suggested that users use the python interface to output data.</p>
 </section>
 <section id="normalization">
-<h2>Normalization<a class="headerlink" href="#normalization" title="Permalink to this heading"></a></h2>
+<h2>Normalization<a class="headerlink" href="#normalization" title="Link to this heading"></a></h2>
 <table class="docutils align-default" id="id7">
-<caption><span class="caption-text"><strong>CGYRO Normalization</strong></span><a class="headerlink" href="#id7" title="Permalink to this table"></a></caption>
+<caption><span class="caption-text"><strong>CGYRO Normalization</strong></span><a class="headerlink" href="#id7" title="Link to this table"></a></caption>
 <colgroup>
-<col style="width: 33%" />
-<col style="width: 25%" />
-<col style="width: 42%" />
+<col style="width: 33.3%" />
+<col style="width: 25.0%" />
+<col style="width: 41.7%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Quantity</p></th>
@@ -201,7 +203,7 @@ calculation of collisional transport in toroidal geometry.</p>
 </table>
 </section>
 <section id="running-cases">
-<h2>Running Cases<a class="headerlink" href="#running-cases" title="Permalink to this heading"></a></h2>
+<h2>Running Cases<a class="headerlink" href="#running-cases" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="cgyro/running_cases.html"><span class="doc">running cases</span></a></p></li>
 <li><p><a class="reference internal" href="cgyro/cgyro_cori.html"><span class="doc">cori</span></a></p></li>
@@ -209,7 +211,7 @@ calculation of collisional transport in toroidal geometry.</p>
 </ul>
 </section>
 <section id="frequently-asked-questions">
-<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this heading"></a></h2>
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="cgyro/FAQ.html"><span class="doc">FAQ</span></a></p></li>
 </ul>
@@ -227,7 +229,7 @@ calculation of collisional transport in toroidal geometry.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2023.</p>
+    <p>&#169; Copyright 2010-2024.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,24 +1,26 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Environment setup &mdash; GACODE</title>
-      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+
+  
     <link rel="shortcut icon" href="_static/favicon.ico"/>
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="_static/jquery.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
-        <script src="_static/contentui.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/contentui.js?v=9ee86694"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -70,7 +72,7 @@
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
 </ul>
@@ -100,10 +102,10 @@
            <div itemprop="articleBody">
              
   <section id="environment-setup">
-<h1>Environment setup<a class="headerlink" href="#environment-setup" title="Permalink to this heading"></a></h1>
+<h1>Environment setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h1>
 <p>Below we give information about the environment setup required to run GACODE tools on maintained platforms.  Once this step is complete, proceed to instructions on running cases <a class="reference internal" href="cgyro/running_cases.html"><span class="doc">CGYRO</span></a>, <a class="reference internal" href="neo.html"><span class="doc">NEO</span></a>, <a class="reference internal" href="tgyro.html"><span class="doc">TGYRO</span></a>, and so on.</p>
 <section id="nersc-perlmutter-cpu">
-<h2>NERSC PERLMUTTER (CPU)<a class="headerlink" href="#nersc-perlmutter-cpu" title="Permalink to this heading"></a></h2>
+<h2>NERSC PERLMUTTER (CPU)<a class="headerlink" href="#nersc-perlmutter-cpu" title="Link to this heading"></a></h2>
 <p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=PERLMUTTER_CPU
 export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-cpu
@@ -121,7 +123,7 @@ export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-cpu
 </div>
 </section>
 <section id="nersc-perlmutter-gpu">
-<h2>NERSC PERLMUTTER (GPU)<a class="headerlink" href="#nersc-perlmutter-gpu" title="Permalink to this heading"></a></h2>
+<h2>NERSC PERLMUTTER (GPU)<a class="headerlink" href="#nersc-perlmutter-gpu" title="Link to this heading"></a></h2>
 <p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=PERLMUTTER_GPU
 export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-gpu
@@ -143,7 +145,7 @@ export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-gpu
 </div>
 </section>
 <section id="ga-omega">
-<h2>GA OMEGA<a class="headerlink" href="#ga-omega" title="Permalink to this heading"></a></h2>
+<h2>GA OMEGA<a class="headerlink" href="#ga-omega" title="Link to this heading"></a></h2>
 <p>To run in a <strong>dedicated GACODE environment</strong>, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=IRIS
 export GACODE_ROOT=/fusion/projects/theory/gacode
@@ -165,7 +167,7 @@ export GACODE_ROOT=/fusion/projects/theory/gacode
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2023.</p>
+    <p>&#169; Copyright 2010-2024.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
