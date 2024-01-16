@@ -8,34 +8,45 @@ These instructions assume you have a complete GACODE top-level directory, which 
 
   $ git clone git@github.com:gafusion/gacode.git
 
+Concept of platform files
+-------------------------
+
+In order to compile the full GACODE package on a new machine, **platform files** must be created. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using::
+
+  $ ./gacode/shared/bin/gacode_platforms 
+
+To create new platform files (say, for a new platform MINE) then copy/edit the following files::
+
+  $GACODE_ROOT/platform/build/make.inc.MINE
+  $GACODE_ROOT/platform/exec/exec.MINE
+  $GACODE_ROOT/platform/env/env.MINE (if needed)
+
+Numerous templates for each of these files can be found in the specific folders, and most often there will be an existing machine files that is almost exactly what you need
+  
 Environment variables
 ---------------------
 
-First, you need to locate a suitable platform, or make your own platform files.  After cloning the repository, you can query the existing platforms using::
-
-  $ ./gacode/shared/bin/gacode_platforms 
-    
-In order to compile the full GACODE package on a new machine, **platform files** must be created.  Let's imagine you have a new laptop, and you want this platform to be known as MY_PC.  In this case you'll need these lines in your shell RC file::
+To use your new platform files, enter the following lines in your shell RC file::
   
-  export GACODE_PLATFORM=MY_PC
+  export GACODE_PLATFORM=MINE
   export GACODE_ROOT=$HOME/gacode
   . $GACODE_ROOT/shared/bin/gacode_setup
+  . $GACODE_ROOT/platform/env/env.MINE (if needed)
 
-Then you must create the following files:
+OpenBLAS
+--------
 
-#. Machine-specific compilation options:: 
+When building with gfortran, we recommend using `OpenBLAS <https://github.com/xianyi/OpenBLAS.git>`_. It is important to build with **single-threaded** settings. In the Makefile.rule file in the top-level OpenBLAS directory, set::
 
-   $GACODE_ROOT/platform/build/make.inc.MY_PC
+   FC=gfortran
+   BINARY=64
+   USE_THREAD=0
+   NUM_THREADS=1
+   NO_SHARED=1
+   NO_CBLAS=1
+   NO_LAPACKE=1
 
-#. Parallel execution command syntax::
-
-   $GACODE_ROOT/platform/exec/exec.MY_PC
-
-#. Any module load commands (optional) go here::
-
-   $GACODE_ROOT/platform/env/env.MY_PC
-
-Numerous templates for each of these files can be found in the specific folders, and most often there will be an existing machine files that is almost exactly what you need.  So, the strategy is to copy a similar machine file to your new one, and tweak as required. 
+You can find an example of linking to OpenBLAS in platform/build/make.inc.MINT.
 
 Building
 --------
