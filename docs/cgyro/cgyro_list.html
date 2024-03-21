@@ -485,6 +485,8 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <p>Normalized <span class="math notranslate nohighlight">\(\mathbf{E}\times\mathbf{B}\)</span> shearing rate <span class="math notranslate nohighlight">\(\displaystyle \frac{a}{c_s} \gamma_E\)</span>.</p>
 <p><strong>Comments</strong></p>
 <ul class="simple">
+<li><p>This is the radial electric field shear and is a <strong>global</strong> term (can’t be treated in a local simulation)</p></li>
+<li><p>It it zeroed automatically in a linear simulation</p></li>
 <li><p>DEFAULT = 0.0</p></li>
 <li><p>See discussion on <a class="reference internal" href="../rotation.html"><span class="doc">plasma rotation</span></a></p></li>
 </ul>
@@ -876,6 +878,19 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 1</p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="px0">
+<span id="cgyro-px0"></span><h2>PX0<a class="headerlink" href="#px0" title="Link to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>The ballooning angle parameter <span class="math notranslate nohighlight">\(\mathrm{PX0} = \theta_0/(2\pi)\)</span>.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+<li><p>This is used only for linear simulations.</p></li>
+<li><p>The most unstable linear mode is normally at <span class="math notranslate nohighlight">\(\mathrm{PX0} = 0\)</span>.</p></li>
+<li><p>Choose <span class="math notranslate nohighlight">\(0 \le \mathrm{PX0} &lt; 1\)</span>.</p></li>
 </ul>
 <hr class="docutils" />
 </section>

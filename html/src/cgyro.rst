@@ -85,8 +85,6 @@ Running Cases
 -------------
 
 * :doc:`running cases <cgyro/running_cases>`
-* :doc:`cori <cgyro/cgyro_cori>`
-* :doc:`titan <cgyro/cgyro_titan>`
 
 Frequently Asked Questions
 --------------------------

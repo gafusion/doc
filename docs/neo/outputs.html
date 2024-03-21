@@ -148,22 +148,25 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-theory"><span class="std std-ref">out.neo.theory</span></a></p></td>
 <td><p>Neoclassical transport coefficients from analytic theory</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-theory-nclass"><span class="std std-ref">out.neo.theory_nclass</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-species"><span class="std std-ref">out.neo.species</span></a></p></td>
+<td><p>Mass and charge of all species</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-theory-nclass"><span class="std std-ref">out.neo.theory_nclass</span></a></p></td>
 <td><p>Neoclassical transport coefficients from the NCLASS code</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-transport"><span class="std std-ref">out.neo.transport</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-transport"><span class="std std-ref">out.neo.transport</span></a></p></td>
 <td><p>Neoclassical transport coefficients from DKE solve</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-transport-flux"><span class="std std-ref">out.neo.transport_flux</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-transport-flux"><span class="std std-ref">out.neo.transport_flux</span></a></p></td>
 <td><p>Neoclassical fluxes in GB units from DKE solve</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-transport-gv"><span class="std std-ref">out.neo.transport_gv</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-transport-gv"><span class="std std-ref">out.neo.transport_gv</span></a></p></td>
 <td><p>Neoclassical fluxes from gyroviscosity</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-vel"><span class="std std-ref">out.neo.vel</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-vel"><span class="std std-ref">out.neo.vel</span></a></p></td>
 <td><p>Poloidal variation of first-order flows</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#neo-out-neo-vel-fourier"><span class="std std-ref">out.neo.vel_fourier</span></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#neo-out-neo-vel-fourier"><span class="std std-ref">out.neo.vel_fourier</span></a></p></td>
 <td><p>Poloidal variation of first-order flows (Fourier components)</p></td>
 </tr>
 </tbody>
@@ -470,6 +473,27 @@
 <ol class="arabic simple" start="5">
 <li><p><span class="math notranslate nohighlight">\(\frac{e \Phi_*(\theta_j)}{T_\mathrm{norm}}\)</span>: difference between the equilibrium-scale potential and the value at the outboard midplane (0 in the diamagnetic ordering limit)</p></li>
 <li><p><span class="math notranslate nohighlight">\(\frac{n_{\sigma}(\theta_j)}{n_{\sigma}(\theta=0)}\)</span>: poloidal variation of the equilibrium-scale density normalized to the value at the outboard midplane (1 in the diamagnetic ordering limit)</p></li>
+</ol>
+<hr class="docutils" />
+</section>
+<section id="out-neo-species">
+<span id="neo-out-neo-species"></span><h3>out.neo.species<a class="headerlink" href="#out-neo-species" title="Link to this heading"></a></h3>
+<p><strong>Description</strong></p>
+<p>Mass and charge of all species</p>
+<p><strong>Format</strong></p>
+<p>Rectangular array of ASCII data:</p>
+<ul class="simple">
+<li><p>cols: <span class="math notranslate nohighlight">\(2 \times \mathtt{N\_SPECIES}\)</span></p></li>
+</ul>
+<ol class="arabic">
+<li><p>For each species <span class="math notranslate nohighlight">\(\sigma\)</span>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(m_\sigma/m_\mathrm{norm}\)</span>: species mass (we suggest always taking deuterium as the normalizing mass)</p></li>
+<li><p><span class="math notranslate nohighlight">\(z_\sigma\)</span>: species charge</p></li>
+</ul>
+</div></blockquote>
+</li>
 </ol>
 <hr class="docutils" />
 </section>

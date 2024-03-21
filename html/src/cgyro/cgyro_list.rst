@@ -541,10 +541,12 @@ GAMMA_E
 
 **Definition**
 
-Normalized :math:`\exb` shearing rate :math:`\displaystyle \frac{a}{c_s} \gamma_E`.
+Normalized :math:`\exb` shearing rate :math:`\displaystyle \frac{a}{c_s} \gamma_E`. 
 
 **Comments**
 
+- This is the radial electric field shear and is a **global** term (can't be treated in a local simulation)
+- It it zeroed automatically in a linear simulation
 - DEFAULT = 0.0
 - See discussion on :doc:`plasma rotation <../rotation>`
      
@@ -1108,6 +1110,24 @@ Selector for profile data input.
   
 ----
 
+.. _cgyro_px0:
+
+PX0
+---
+
+**Definition**
+
+The ballooning angle parameter :math:`\mathrm{PX0} = \theta_0/(2\pi)`.
+     
+**Comments**
+
+- DEFAULT = 0.0
+- This is used only for linear simulations.
+- The most unstable linear mode is normally at :math:`\mathrm{PX0} = 0`.
+- Choose :math:`0 \le \mathrm{PX0} < 1`.
+
+----
+
 .. _cgyro_q:
 
 Q
@@ -1122,7 +1142,7 @@ Safety factor, :math:`q`, of the flux surface.
 - DEFAULT = 2.0
 - This is only active with :ref:`cgyro_equilibrium_model` = 2 (the Miller equilibrium model).
 - When experimental profiles are used (:ref:`cgyro_profile_model` = 2), the safety factor as a function of radius is read from :ref:`input.gacode` and the safety factor gradient is computed internally.
-  
+
 ----
 
 .. _cgyro_quasineutral_flag:

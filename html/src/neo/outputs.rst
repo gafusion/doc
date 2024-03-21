@@ -26,6 +26,7 @@ Standard output files
    :ref:`neo_out.neo.grid`, "Numerical grid parameters"
    :ref:`neo_out.neo.phi`, "Poloidal variation of first-order es potential"
    :ref:`neo_out.neo.theory`, "Neoclassical transport coefficients from analytic theory"
+   :ref:`neo_out.neo.species`, "Mass and charge of all species"
    :ref:`neo_out.neo.theory_nclass`, "Neoclassical transport coefficients from the NCLASS code"
    :ref:`neo_out.neo.transport`, "Neoclassical transport coefficients from DKE solve"
    :ref:`neo_out.neo.transport_flux`, "Neoclassical fluxes in GB units from DKE solve"
@@ -280,6 +281,30 @@ For each :math:`\theta_j`, j=1..N_THETA
 5. :math:`\frac{e \Phi_*(\theta_j)}{T_\nrm}`: difference between the equilibrium-scale potential and the value at the outboard midplane (0 in the diamagnetic ordering limit)
 6. :math:`\frac{n_{\sigma}(\theta_j)}{n_{\sigma}(\theta=0)}`: poloidal variation of the equilibrium-scale density normalized to the value at the outboard midplane (1 in the diamagnetic ordering limit)
    
+-----
+
+.. ===========================================================================================
+
+.. _neo_out.neo.species:
+
+out.neo.species
+---------------
+
+**Description**
+
+Mass and charge of all species
+  
+**Format**
+
+Rectangular array of ASCII data:
+
+* cols: :math:`2 \times \nspec`
+
+1. For each species :math:`\sigma`:
+
+    - :math:`m_\sigma/m_\nrm`: species mass (we suggest always taking deuterium as the normalizing mass)
+    - :math:`z_\sigma`: species charge 
+
 -----
 
 .. ===========================================================================================
