@@ -54,6 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Environment setup</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Build from sources</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#source-code">Source code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#concept-of-platform-files">Concept of platform files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openblas">OpenBLAS</a></li>
@@ -107,7 +108,11 @@
 <h1>Build from sources<a class="headerlink" href="#build-from-sources" title="Link to this heading"></a></h1>
 <section id="prerequisites">
 <h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
-<p>These instructions assume you have a complete GACODE top-level directory, which can be cloned from GitHub:</p>
+<p>You will need suitable python and fortran environments. There is detailed help for <a class="reference internal" href="build/pre_osx.html"><span class="doc">OSX users</span></a> and <a class="reference internal" href="build/pre_linux.html"><span class="doc">Linux users</span></a>.</p>
+</section>
+<section id="source-code">
+<h2>Source code<a class="headerlink" href="#source-code" title="Link to this heading"></a></h2>
+<p>You should clone the gacode repository from GitHub. This was you can keep you installation up to date:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:gafusion/gacode.git
 </pre></div>
 </div>
@@ -139,22 +144,25 @@ export GACODE_ROOT=$HOME/gacode
 <section id="openblas">
 <h2>OpenBLAS<a class="headerlink" href="#openblas" title="Link to this heading"></a></h2>
 <p>When building with gfortran, we recommend using <a class="reference external" href="https://github.com/xianyi/OpenBLAS.git">OpenBLAS</a>. It is important to build with <strong>single-threaded</strong> settings. In the Makefile.rule file in the top-level OpenBLAS directory, set:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FC</span><span class="o">=</span><span class="n">gfortran</span>
-<span class="n">BINARY</span><span class="o">=</span><span class="mi">64</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY</span><span class="o">=</span><span class="mi">64</span>
 <span class="n">USE_THREAD</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">NUM_THREADS</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">USE_LOCKING</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">NO_SHARED</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">NO_CBLAS</span><span class="o">=</span><span class="mi">1</span>
 <span class="n">NO_LAPACKE</span><span class="o">=</span><span class="mi">1</span>
 </pre></div>
 </div>
-<p>You can find an example of linking to OpenBLAS in platform/build/make.inc.MINT.</p>
+<p>You can find an example of linking to OpenBLAS in the <a class="reference external" href="https://github.com/gafusion/gacode/blob/master/platform/build/make.inc.MINT">MINT platform file</a>. To test the thread safety, you can use the test program in shared/hybridtest:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd gacode/shared/hybridtest
+$ make clean ; make
+$ ./test
+</pre></div>
+</div>
 </section>
 <section id="building">
 <h2>Building<a class="headerlink" href="#building" title="Link to this heading"></a></h2>
 <p>To build the entire GACODE project, type:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT
-$ make
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT ; make
 </pre></div>
 </div>
 <p>To test that the build is successful, you can run regression tests:</p>

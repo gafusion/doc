@@ -4,7 +4,12 @@ Build from sources
 Prerequisites
 -------------
 
-These instructions assume you have a complete GACODE top-level directory, which can be cloned from GitHub::
+You will need suitable python and fortran environments. There is detailed help for :doc:`OSX users <build/pre_osx>` and :doc:`Linux users <build/pre_linux>`.
+
+Source code
+-----------
+
+You should clone the gacode repository from GitHub. This was you can keep you installation up to date::
 
   $ git clone git@github.com:gafusion/gacode.git
 
@@ -38,23 +43,25 @@ OpenBLAS
 
 When building with gfortran, we recommend using `OpenBLAS <https://github.com/xianyi/OpenBLAS.git>`_. It is important to build with **single-threaded** settings. In the Makefile.rule file in the top-level OpenBLAS directory, set::
 
-   FC=gfortran
    BINARY=64
    USE_THREAD=0
-   NUM_THREADS=1
+   USE_LOCKING=1
    NO_SHARED=1
    NO_CBLAS=1
    NO_LAPACKE=1
 
-You can find an example of linking to OpenBLAS in platform/build/make.inc.MINT.
+You can find an example of linking to OpenBLAS in the `MINT platform file <https://github.com/gafusion/gacode/blob/master/platform/build/make.inc.MINT>`_. To test the thread safety, you can use the test program in shared/hybridtest::
+
+   $ cd gacode/shared/hybridtest
+   $ make clean ; make
+   $ ./test
 
 Building
 --------
 
 To build the entire GACODE project, type::
 
-  $ cd $GACODE_ROOT
-  $ make
+  $ cd $GACODE_ROOT ; make
 
 To test that the build is successful, you can run regression tests::
 
