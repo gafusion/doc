@@ -32,6 +32,7 @@ Equilibrium and Profiles
 GACODE software works with the :ref:`input.gacode` format.   
 
 .. toctree::
+   :maxdepth: 4
    :caption: Software
 
    license

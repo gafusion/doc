@@ -4,7 +4,6 @@ Running Cases
 Quick-start example
 -------------------
 
-
 ::
 
    $ cgyro -g reg08
