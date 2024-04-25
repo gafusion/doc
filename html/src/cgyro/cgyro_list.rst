@@ -440,11 +440,14 @@ DZMAG
 
 **Definition**
 
-Rate of change of plasma elevation:
+The derivative of the elevation:
 
 .. math::
-   a \frac{\partial Z_0(r)}{\partial r} \; .
+   \frac{\partial Z_0(r)}{\partial r} \; .
 
+**Comments**
+
+- DEFAULT = 0.0
 
 ----
 
@@ -1088,6 +1091,13 @@ PRINT_STEP
 
 **Definition**
 
+Frequency of simulation data output.
+
+**Comments**
+
+- DEFAULT = 100
+- If PRINT_STEP=100, simulation data will be output after every 100 timesteps
+
 ----
 
 .. _cgyro_profile_model:
@@ -1170,6 +1180,16 @@ Enforce quasineutrality when using experimental profiles.
 
 RESTART_STEP
 ------------
+
+**Definition**
+
+Frequency of restart file generation
+
+**Comments**
+
+- DEFAULT = 10
+- If PRINT_STEP=100 and RESTART_STEP=10, simulation data will be output once every 100 timesteps and restart
+  data will be output once every 1000 timesteps (i.e., once every 10 data outputs)
 
 .. _cgyro_rmin:
 
@@ -1638,6 +1658,19 @@ ZF_TEST_MODE
 
 **Definition**
 
+Toggle test for time-evolution of a single :math:`k_x` mode (the classic zonal flow test).
+
+**Choices**
+
+- ZF_TEST_MODE = 0: No test (default)
+- ZF_TEST_MODE = 1: Trigger test
+
+**Comments**
+
+- DEFAULT = 0
+- The standard test is to evolve a single radial mode (N_RADIAL=1)
+- If N_RADIAL > 1, multiple independent modes will be evolved with :math:`k_x \rho = 2\pi p/L` where :math:`1 \le p \le` N_RADIAL 
+
 ----
 
 .. _cgyro_zmag:
@@ -1646,6 +1679,12 @@ ZMAG
 ----
 
 **Definition**
+
+The ratio :math:`Z_0(r)/a`, where :math:`Z_0` is the :doc:`elevation <../geometry>` and :math:`a` is the radius of the LCFS.
+
+**Comments**
+
+- DEFAULT = 0.0
 
 ----
 

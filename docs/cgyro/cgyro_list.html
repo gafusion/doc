@@ -7,7 +7,7 @@
   <title>Alphabetical list for input.cgyro &mdash; GACODE</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/contentui.css?v=4cf5b151" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
@@ -18,9 +18,9 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/contentui.js"></script>
+        <script src="../_static/contentui.js?v=9ee86694"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -413,9 +413,13 @@ outboard midplane (<span class="math notranslate nohighlight">\(\theta=0\)</span
 <section id="dzmag">
 <span id="cgyro-dzmag"></span><h2>DZMAG<a class="headerlink" href="#dzmag" title="Link to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Rate of change of plasma elevation:</p>
+<p>The derivative of the elevation:</p>
 <div class="math notranslate nohighlight">
-\[a \frac{\partial Z_0(r)}{\partial r} \; .\]</div>
+\[\frac{\partial Z_0(r)}{\partial r} \; .\]</div>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="e-max">
@@ -864,6 +868,12 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <section id="print-step">
 <span id="cgyro-print-step"></span><h2>PRINT_STEP<a class="headerlink" href="#print-step" title="Link to this heading"></a></h2>
 <p><strong>Definition</strong></p>
+<p>Frequency of simulation data output.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 100</p></li>
+<li><p>If PRINT_STEP=100, simulation data will be output after every 100 timesteps</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="profile-model">
@@ -924,6 +934,14 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 </section>
 <section id="restart-step">
 <span id="cgyro-restart-step"></span><h2>RESTART_STEP<a class="headerlink" href="#restart-step" title="Link to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Frequency of restart file generation</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 10</p></li>
+<li><p>If PRINT_STEP=100 and RESTART_STEP=10, simulation data will be output once every 100 timesteps and restart
+data will be output once every 1000 timesteps (i.e., once every 10 data outputs)</p></li>
+</ul>
 </section>
 <section id="rmin">
 <span id="cgyro-rmin"></span><h2>RMIN<a class="headerlink" href="#rmin" title="Link to this heading"></a></h2>
@@ -1252,11 +1270,28 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 <section id="zf-test-mode">
 <span id="cgyro-zf-test-mode"></span><h2>ZF_TEST_MODE<a class="headerlink" href="#zf-test-mode" title="Link to this heading"></a></h2>
 <p><strong>Definition</strong></p>
+<p>Toggle test for time-evolution of a single <span class="math notranslate nohighlight">\(k_x\)</span> mode (the classic zonal flow test).</p>
+<p><strong>Choices</strong></p>
+<ul class="simple">
+<li><p>ZF_TEST_MODE = 0: No test (default)</p></li>
+<li><p>ZF_TEST_MODE = 1: Trigger test</p></li>
+</ul>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0</p></li>
+<li><p>The standard test is to evolve a single radial mode (N_RADIAL=1)</p></li>
+<li><p>If N_RADIAL &gt; 1, multiple independent modes will be evolved with <span class="math notranslate nohighlight">\(k_x \rho = 2\pi p/L\)</span> where <span class="math notranslate nohighlight">\(1 \le p \le\)</span> N_RADIAL</p></li>
+</ul>
 <hr class="docutils" />
 </section>
 <section id="zmag">
 <span id="cgyro-zmag"></span><h2>ZMAG<a class="headerlink" href="#zmag" title="Link to this heading"></a></h2>
 <p><strong>Definition</strong></p>
+<p>The ratio <span class="math notranslate nohighlight">\(Z_0(r)/a\)</span>, where <span class="math notranslate nohighlight">\(Z_0\)</span> is the <a class="reference internal" href="../geometry.html"><span class="doc">elevation</span></a> and <span class="math notranslate nohighlight">\(a\)</span> is the radius of the LCFS.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT = 0.0</p></li>
+</ul>
 <hr class="docutils" />
 <p>Return to <a class="reference internal" href="cgyro_table.html"><span class="doc">table of inputs</span></a></p>
 </section>

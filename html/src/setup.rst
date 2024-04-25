@@ -16,7 +16,7 @@ Add the following lines to ``.bashrc``::
   
 Sample job layout (32 MPI, 8 OMP) = 1 node, 59 min wall-clock time::
 
-  $ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 00:59:00
+  $ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 59
 
 .. important::
    Perlmutter CPU has 256 logical cores per node (8 OMP * 32 MPI)
@@ -31,23 +31,23 @@ Add the following lines to ``.bashrc``::
   . ${GACODE_ROOT}/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 
-Sample job layout (16 MPI, 8 OMP) = (1 node, 4 GPU) 59 min wall-clock time::
+Sample job layout (16 MPI, 16 OMP) = (2 nodes, 8 GPUs) 59 min wall-clock time::
 
-  $ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom -w 00:59:00
-
-.. important::
-   Perlmutter GPU has 4 GPUs and 128 logical cores per node (8 OMP * 16 MPI)
+  $ gacode_qsub -code cgyro -n 16 -nomp 16 -repo atom -w 59
 
 .. important::
-   Better to set TOROIDALS_PER_PROC > 1 in input.cgyro and use -nomp 32
+   Perlmutter GPU has 4 GPUs and 128 logical cores per node
+
+.. important::
+   Use ONLY either -nomp 16 (2 MPI/GPU) or -nomp 32 (1 MPI/GPU)
 
 GA OMEGA
 --------
 
 To run in a **dedicated GACODE environment**, add these lines to ``.bashrc``::
 
-  export GACODE_PLATFORM=IRIS
-  export GACODE_ROOT=/fusion/projects/theory/gacode
+  export GACODE_PLATFORM=OMEGA_INTEL
+  export GACODE_ROOT=/fusion/projects/theory/shared/gacode
   . ${GACODE_ROOT}/shared/bin/gacode_setup
   . ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
 

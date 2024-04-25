@@ -7,7 +7,7 @@
   <title>Environment setup &mdash; GACODE</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
@@ -18,9 +18,9 @@
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
         <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/contentui.js"></script>
+        <script src="_static/contentui.js?v=9ee86694"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -114,7 +114,7 @@ export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-cpu
 </pre></div>
 </div>
 <p>Sample job layout (32 MPI, 8 OMP) = 1 node, 59 min wall-clock time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 00:59:00
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 59
 </pre></div>
 </div>
 <div class="admonition important">
@@ -131,24 +131,24 @@ export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-gpu
 . ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
 </pre></div>
 </div>
-<p>Sample job layout (16 MPI, 8 OMP) = (1 node, 4 GPU) 59 min wall-clock time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 16 -nomp 8 -repo atom -w 00:59:00
+<p>Sample job layout (16 MPI, 16 OMP) = (2 nodes, 8 GPUs) 59 min wall-clock time:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 16 -nomp 16 -repo atom -w 59
 </pre></div>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Perlmutter GPU has 4 GPUs and 128 logical cores per node (8 OMP * 16 MPI)</p>
+<p>Perlmutter GPU has 4 GPUs and 128 logical cores per node</p>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>Better to set TOROIDALS_PER_PROC &gt; 1 in input.cgyro and use -nomp 32</p>
+<p>Use ONLY either -nomp 16 (2 MPI/GPU) or -nomp 32 (1 MPI/GPU)</p>
 </div>
 </section>
 <section id="ga-omega">
 <h2>GA OMEGA<a class="headerlink" href="#ga-omega" title="Link to this heading"></a></h2>
 <p>To run in a <strong>dedicated GACODE environment</strong>, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=IRIS
-export GACODE_ROOT=/fusion/projects/theory/gacode
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=OMEGA_INTEL
+export GACODE_ROOT=/fusion/projects/theory/shared/gacode
 . ${GACODE_ROOT}/shared/bin/gacode_setup
 . ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
 </pre></div>
