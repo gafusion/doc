@@ -1,6 +1,20 @@
 CGYRO
 =====
 
+Brief description
+-----------------
+
+CGYRO is a global-spectral gyrokinetic code. Core developers are
+
+* Emily Belli, `General Atomics <https://www.ga.com/>`_ (collisions, rotation)
+* Jeff Candy, `General Atomics <https://www.ga.com/>`_ (global-spectral method)
+* Igor Sfiligoi, `SDSC <https://www.sdsc.edu/>`_ (performance)
+
+Simulation images
+-----------------
+
+Simulation data courtesy Nathan Howard (MIT)
+
 .. image:: cgyro/figures/b250.png
 	:width: 48 %
 	:alt: b250
@@ -19,8 +33,8 @@ Source Code
 
 `CGYRO source code <http://github.com/gafusion/gacode>`_  is available at GitHub.
    
-Overview
---------
+Past and Future
+---------------
 
 **The past: GYRO**
 
