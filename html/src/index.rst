@@ -42,6 +42,7 @@ GACODE software works with the :ref:`input.gacode` format.
    zreferences
 
 .. toctree::
+   :maxdepth: 4
    :caption: Codes
 
    neo

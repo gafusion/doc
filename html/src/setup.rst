@@ -1,5 +1,5 @@
-Environment setup
-=================
+Prebuilt Environments
+=====================
 
 Below we give information about the environment setup required to run GACODE tools on maintained platforms.  Once this step is complete, proceed to instructions on running cases :doc:`CGYRO <cgyro/running_cases>`, :doc:`NEO <neo>`, :doc:`TGYRO <tgyro>`, and so on.
 

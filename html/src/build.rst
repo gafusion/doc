@@ -1,10 +1,15 @@
-Build from sources
-==================
+Build on your laptop
+====================
 
-Prerequisites
--------------
+First step
+----------
 
-You will need suitable python and fortran environments. There is detailed help for :doc:`OSX users <build/pre_osx>` and :doc:`Linux users <build/pre_linux>`.
+You will need suitable python and fortran environments. There is detailed help for
+
+* :doc:`OSX users <build/pre_osx>` (MAC M2)
+* :doc:`Linux users <build/pre_linux>` (MINT, UBUNTU)
+
+If you need more help, please raise an issue at https://github.com/gafusion/gacode/issues
 
 Source code
 -----------
