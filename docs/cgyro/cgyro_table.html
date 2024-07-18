@@ -110,6 +110,7 @@
 <li><p><a class="reference internal" href="#tab-rotation"><span class="std std-ref">Rotation physics</span></a></p></li>
 <li><p><a class="reference internal" href="#tab-global"><span class="std std-ref">Global-spectral parameters</span></a></p></li>
 <li><p><a class="reference internal" href="#tab-output"><span class="std std-ref">Output file control</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-optimization"><span class="std std-ref">Optimization related parameters</span></a></p></li>
 </ul>
 <span id="tab-shape"></span><table class="docutils align-default" id="id1">
 <caption><span class="caption-text"><strong>Plasma shape/geometry</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
@@ -421,11 +422,7 @@
 <td><p>Binormal spectral upwind order</p></td>
 <td><p>3</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-velocity-order"><span class="std std-ref">VELOCITY_ORDER</span></a></p></td>
-<td><p>What internal velocity order to use</p></td>
-<td><p>1</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-upwind-single-flag"><span class="std std-ref">UPWIND_SINGLE_FLAG</span></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-upwind-single-flag"><span class="std std-ref">UPWIND_SINGLE_FLAG</span></a></p></td>
 <td><p>Use reduced precision communication</p></td>
 <td><p>0</p></td>
 </tr>
@@ -565,10 +562,6 @@
 <td><p>Reduce Sugama memory use</p></td>
 <td><p>0</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-gpu-bigmem-flag"><span class="std std-ref">GPU_BIGMEM_FLAG</span></a></p></td>
-<td><p>Enable GPU offload</p></td>
-<td><p>1</p></td>
-</tr>
 </tbody>
 </table>
 <span id="tab-rotation"></span><table class="docutils align-default" id="id10">
@@ -668,6 +661,38 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-h-print-flag"><span class="std std-ref">H_PRINT_FLAG</span></a></p></td>
 <td><p>Output of distribution (single-mode only)</p></td>
 <td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-optimization"></span><table class="docutils align-default" id="id13">
+<caption><span class="caption-text"><strong>Optimization related parameters</strong></span><a class="headerlink" href="#id13" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-toroidals-per-proc"><span class="std std-ref">TOROIDALS_PER_PROC</span></a></p></td>
+<td><p>How many toroidal harmonics per MPI process</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-mpi-rank-order"><span class="std std-ref">MPI_RANK_ORDER</span></a></p></td>
+<td><p>Relative ordering of MPI ranks</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-velocity-order"><span class="std std-ref">VELOCITY_ORDER</span></a></p></td>
+<td><p>What internal velocity order to use</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-gpu-bigmem-flag"><span class="std std-ref">GPU_BIGMEM_FLAG</span></a></p></td>
+<td><p>Enable GPU offload when possible</p></td>
+<td><p>1</p></td>
 </tr>
 </tbody>
 </table>
