@@ -1051,6 +1051,7 @@ Number of toroidal harmonics (binormal Fourier modes).
 **Comments**
 
 - Together with :ref:`cgyro_ky`, this controls the toroidal resolution.
+- Together with :ref:`cgyro_toroidals_per_proc`, this controls the number of MPI processes needed.
   
 ----
 
@@ -1497,6 +1498,23 @@ The number of poloidal points for output of large fluctuation moment arrays.
 - DEFAULT: THETA\_PLOT=1
 - Value should be an integer divisor of :ref:`cgyro_n_theta`
   
+
+----
+
+.. _cgyro_toroidals_per_proc:
+
+TOROIDALS_PER_PROC
+------------------
+
+**Definition**
+
+Number of toroidal harmonics to process in a single MPI process.
+
+**Comments**
+
+- DEFAULT: 1
+- Must be a divisor of :ref:`cgyro_n_toroidal`.
+- A higher number typically results in faster simulation on low node count.
 
 ----
 
