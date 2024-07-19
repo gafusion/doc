@@ -277,34 +277,19 @@ COLLISION_PRECISION_MODE
 
 **Definition**
 
-Control the precision of the Sugama cmat constants.
+Control the precision of the cmat constants.
 
 **Choices**
 
-- COLLISION_PRECISION_MODE = 0: Full 64-bit precision
-- COLLISION_PRECISION_MODE = 1: Use lower-precision 32-bit precision for off-diagonal element.
+- COLLISION_PRECISION_MODE = 0: Full 64-bit precision.
+- COLLISION_PRECISION_MODE = 1: Heuristics-based lower-precision setup, slightly better than 32-bit precision.
+- COLLISION_PRECISION_MODE = 32: Reduced 32-bit precision.
+- COLLISION_PRECISION_MODE = 64: Full 64-bit precision. (Same as 0)
 
 **Comments**
 
 - DEFAULT = 0
-- Only active for :ref:`cgyro_collision_model` =4
-- Selecting COLLISION_PRECISION_MODE = 1 results in significant memory saving and negligible precision loss in most use-cases.
-
-----
-
-.. _cgyro_collision_full_stripes:
-
-COLLISION_FULL_STRIPES
-----------------------
-
-**Definition**
-
-Number of full 64-bit stripes to use close to the diagonal in low-precision mode.
-
-**Comments**
-
-- DEFAULT = 8
-- Only active for :ref:`cgyro_collision_model` =4 and :ref:`cgyro_collision_precision_mode` =1
+- Selecting COLLISION_PRECISION_MODE 1 and 32 results in significant memory saving and negligible precision loss in most use-cases.
 
 ----
 
@@ -1066,6 +1051,7 @@ Number of toroidal harmonics (binormal Fourier modes).
 **Comments**
 
 - Together with :ref:`cgyro_ky`, this controls the toroidal resolution.
+- Together with :ref:`cgyro_toroidals_per_proc`, this controls the number of MPI processes needed.
   
 ----
 
@@ -1512,6 +1498,23 @@ The number of poloidal points for output of large fluctuation moment arrays.
 - DEFAULT: THETA\_PLOT=1
 - Value should be an integer divisor of :ref:`cgyro_n_theta`
   
+
+----
+
+.. _cgyro_toroidals_per_proc:
+
+TOROIDALS_PER_PROC
+------------------
+
+**Definition**
+
+Number of toroidal harmonics to process in a single MPI process.
+
+**Comments**
+
+- DEFAULT: 1
+- Must be a divisor of :ref:`cgyro_n_toroidal`.
+- A higher number typically results in faster simulation on low node count.
 
 ----
 

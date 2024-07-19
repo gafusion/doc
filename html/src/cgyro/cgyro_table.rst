@@ -13,6 +13,7 @@ Tabular list for input.cgyro
 * :ref:`tab-rotation`
 * :ref:`tab-global`
 * :ref:`tab-output`
+* :ref:`tab-optimization`
 
 .. _tab-shape:
   
@@ -109,7 +110,6 @@ Tabular list for input.cgyro
    ":ref:`cgyro_nup_radial`", Radial spectral upwind order,3
    ":ref:`cgyro_nup_theta`", Poloidal upwind order,3
    ":ref:`cgyro_nup_alpha`", Binormal spectral upwind order,3
-   ":ref:`cgyro_velocity_order`", What internal velocity order to use,1
    ":ref:`cgyro_upwind_single_flag`", Use reduced precision communication,0
 
 .. _tab-time:
@@ -154,7 +154,6 @@ Tabular list for input.cgyro
    ":ref:`cgyro_collision_ene_diffusion`", Toggle energy diffusion,1
    ":ref:`cgyro_collision_kperp`", Toggle so-called FLR term, 0
    ":ref:`cgyro_collision_precision_mode`", Reduce Sugama memory use, 0
-   ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload, 1
 
 .. _tab-rotation:
 
@@ -189,3 +188,15 @@ Tabular list for input.cgyro
    ":ref:`cgyro_moment_print_flag`", Output of density and energy moments, 0
    ":ref:`cgyro_gflux_print_flag`", Output of global flux profiles, 0
    ":ref:`cgyro_h_print_flag`", Output of distribution (single-mode only), 0
+
+.. _tab-optimization:
+
+.. csv-table:: **Optimization related parameters**
+   :header: "input.cgyro parameter", "Short description", "Default"
+   :widths: 13, 25, 5
+
+   ":ref:`cgyro_toroidals_per_proc`", How many toroidal harmonics per MPI process,1
+   ":ref:`cgyro_mpi_rank_order`", Relative ordering of MPI ranks,2
+   ":ref:`cgyro_velocity_order`", What internal velocity order to use,1
+   ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload when possible, 1
+

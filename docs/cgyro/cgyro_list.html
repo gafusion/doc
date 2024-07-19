@@ -293,28 +293,18 @@ defined as</p>
 <section id="collision-precision-mode">
 <span id="cgyro-collision-precision-mode"></span><h2>COLLISION_PRECISION_MODE<a class="headerlink" href="#collision-precision-mode" title="Link to this heading"></a></h2>
 <p><strong>Definition</strong></p>
-<p>Control the precision of the Sugama cmat constants.</p>
+<p>Control the precision of the cmat constants.</p>
 <p><strong>Choices</strong></p>
 <ul class="simple">
-<li><p>COLLISION_PRECISION_MODE = 0: Full 64-bit precision</p></li>
-<li><p>COLLISION_PRECISION_MODE = 1: Use lower-precision 32-bit precision for off-diagonal element.</p></li>
+<li><p>COLLISION_PRECISION_MODE = 0: Full 64-bit precision.</p></li>
+<li><p>COLLISION_PRECISION_MODE = 1: Heuristics-based lower-precision setup, slightly better than 32-bit precision.</p></li>
+<li><p>COLLISION_PRECISION_MODE = 32: Reduced 32-bit precision.</p></li>
+<li><p>COLLISION_PRECISION_MODE = 64: Full 64-bit precision. (Same as 0)</p></li>
 </ul>
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>DEFAULT = 0</p></li>
-<li><p>Only active for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4</p></li>
-<li><p>Selecting COLLISION_PRECISION_MODE = 1 results in significant memory saving and negligible precision loss in most use-cases.</p></li>
-</ul>
-<hr class="docutils" />
-</section>
-<section id="collision-full-stripes">
-<span id="cgyro-collision-full-stripes"></span><h2>COLLISION_FULL_STRIPES<a class="headerlink" href="#collision-full-stripes" title="Link to this heading"></a></h2>
-<p><strong>Definition</strong></p>
-<p>Number of full 64-bit stripes to use close to the diagonal in low-precision mode.</p>
-<p><strong>Comments</strong></p>
-<ul class="simple">
-<li><p>DEFAULT = 8</p></li>
-<li><p>Only active for <a class="reference internal" href="#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a> =4 and <a class="reference internal" href="#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a> =1</p></li>
+<li><p>Selecting COLLISION_PRECISION_MODE 1 and 32 results in significant memory saving and negligible precision loss in most use-cases.</p></li>
 </ul>
 <hr class="docutils" />
 </section>
@@ -852,6 +842,7 @@ and <span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span
 <p><strong>Comments</strong></p>
 <ul class="simple">
 <li><p>Together with <a class="reference internal" href="#cgyro-ky"><span class="std std-ref">KY</span></a>, this controls the toroidal resolution.</p></li>
+<li><p>Together with <a class="reference internal" href="#cgyro-toroidals-per-proc"><span class="std std-ref">TOROIDALS_PER_PROC</span></a>, this controls the number of MPI processes needed.</p></li>
 </ul>
 <hr class="docutils" />
 </section>
@@ -1164,6 +1155,18 @@ are automatically normalized to <span class="math notranslate nohighlight">\(T_e
 <ul class="simple">
 <li><p>DEFAULT: THETA_PLOT=1</p></li>
 <li><p>Value should be an integer divisor of <a class="reference internal" href="#cgyro-n-theta"><span class="std std-ref">N_THETA</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="toroidals-per-proc">
+<span id="cgyro-toroidals-per-proc"></span><h2>TOROIDALS_PER_PROC<a class="headerlink" href="#toroidals-per-proc" title="Link to this heading"></a></h2>
+<p><strong>Definition</strong></p>
+<p>Number of toroidal harmonics to process in a single MPI process.</p>
+<p><strong>Comments</strong></p>
+<ul class="simple">
+<li><p>DEFAULT: 1</p></li>
+<li><p>Must be a divisor of <a class="reference internal" href="#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a>.</p></li>
+<li><p>A higher number typically results in faster simulation on low node count.</p></li>
 </ul>
 <hr class="docutils" />
 </section>
