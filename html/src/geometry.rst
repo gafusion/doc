@@ -1,27 +1,67 @@
+.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
+.. |B| mathmacro:: \mathbf{B}
+.. |jp|	mathmacro:: {\mathcal J}_\psi
+	     
 FLUX-SURFACE GEOMETRY
 =====================
 
-Coordinates
------------
+Clebsch coordinates
+-------------------
 
 GYRO/CGYRO/NEO use a right-handed (positively-oriented), field-aligned coordinate system
-:math:`(r,\theta,\alpha)` and the Clebsch field representation
+:math:`(r,\theta,\alpha)` and the Clebsch field representation :cite:`kruskal:1958`
 
 .. math::
 
-   \mathbf{B} =\nabla \alpha \times \nabla \psi (r) \; ,
+   \B = \nabla\alpha\times\nabla\psi \quad \text{such that} \quad\B\cdot\nabla\alpha = \B\cdot\nabla\psi = 0 
+
 
 where :math:`\psi` is the poloidal flux divided by :math:`2\pi` and
 
 .. math::
    
-    \alpha =\varphi +\nu (r,\theta ) 
+    \alpha =\varphi +\nu (r,\theta) 
 
 is the Clebsch angle. Here, :math:`\varphi` is the **toroidal angle**, oriented as shown
 in the figure below, and :math:`\theta` is the **poloidal angle** which increases as one
-moves counterclockwise along the flux-surface (shown in blue).
+moves counterclockwise along the flux-surface (shown in blue). In these coordinates, the Jacobian is 
 
-The coordinate systems :math:`(R,Z,\varphi)` and :math:`(r,\theta,\varphi)` are positively oriented.
+.. math::
+
+   \jp \doteq \frac{1}{\nabla\psi\times\nabla\theta\cdot\nabla\alpha} = \frac{1}{\nabla\psi\times\nabla\theta\cdot\nabla\varphi} \; . 
+
+Since the coordinates :math:`(\psi,\theta,\alpha)` and :math:`(\psi,\theta,\varphi)` form right-handed systems, the Jacobian :math:`\jp` is positive-definite.  In the latter coordinates, the magnetic field becomes
+
+.. math::
+   \B = \nabla\varphi\times\nabla\psi + \frac{\partial \nu}{\partial \theta} \nabla\theta\times\nabla\psi
+
+Using the definition of the safety factor, :math:`q(\psi)`, we may deduce
+
+.. math::
+
+   q(\psi) \doteq \frac{1}{2\pi} \int_0^{2\pi} \frac{\B\cdot\nabla\varphi}{\B\cdot\nabla\theta} \, d\theta = \frac{1}{2\pi} \int_0^{2\pi} \left( -\frac{\partial \nu}{\partial \theta} \right) \, d\theta = \frac{\nu(\psi,0)-\nu(\psi,2\pi)}{2\pi} \; .
+
+.. math::
+   
+For concreteness, we choose the following boundary conditions for :math:`\nu`:
+
+.. math::
+   \nu(\psi,2\pi) = &~-2\pi \, q(\psi) \; , \\
+    \nu(\psi,0)   = &~0 \; .
+
+By writing :math:`\B` in the standard form
+
+.. math::
+   
+   \B = \nabla\varphi\times\nabla\psi + I(\psi) \nabla\varphi \; ,
+
+we can derive the following integral for :math:`\nu`:
+
+.. math::
+   \nu(\psi,\theta) = -I(\psi)\int_0^\theta \jp \left|\nabla\varphi\right|^2 d\theta\; .
+   
+In the case of concentric (unshifted) circular flux surfaces, one will obtain the approximate result 
+:math:`\nu(\psi,\theta) \sim -q(\psi)\theta`.  Finally, we remark that the coordinate systems :math:`(R,Z,\varphi)` and :math:`(r,\theta,\varphi)` are positively oriented.
 		
 Bounding-box method
 -------------------
@@ -173,3 +213,35 @@ This corresponds to :ref:`cgyro_ipccw` = 1 and :ref:`cgyro_btccw` =-1.  Thus, in
 - sign(:math:`q`) = -1
 
  In other words, the safety factor and poloidal flux are negative in the typical case. This will be reflected in a properly-constructed :doc:`input.gacode <input_gacode>` file. 
+
+Toroidal and poloidal flux
+--------------------------
+
+We can start from the general forms of the toroidal and poloidal fluxes :cite:`dhaeseleer:1991`
+
+.. math::
+   \Psi_t \doteq &~\iint\limits_{S_t} \B \cdot d{\bf S} = \frac{1}{2\pi} \iiint\limits_{V_t} \B \cdot \nabla\varphi \, dV \; , \\
+   \Psi_p \doteq &~\iint\limits_{S_p} \B \cdot d{\bf S} = \frac{1}{2\pi} \iiint\limits_{V_p} \B \cdot \nabla\theta \, dV \; .
+
+Explicitly inserting the field-aligned coordinate system of the previous section, and differentiating these with respect to :math:`\psi`, gives
+
+.. math::
+   \frac{d\Psi_t}{d\psi} = &~\frac{1}{2\pi} \int_0^{2\pi} d\varphi \int_0^{2\pi} d\theta \,\, \B\cdot\nabla\varphi \, \jp \; , \\
+   = &~\frac{1}{2\pi} \int_0^{2\pi} d\varphi \int_0^{2\pi} d\theta \,\, \frac{\B\cdot\nabla\varphi}{\B\cdot\nabla\theta} \; , \\
+   = &~2 \pi \, q(\psi) \; ,
+
+.. math::
+   \frac{d\Psi_p}{d\psi} = &~\frac{1}{2\pi} \int_0^{2\pi} d\varphi \int_0^{2\pi} d\theta 
+  \,\, \B\cdot\nabla\theta \, \jp \; , \\
+   = &~\frac{1}{2\pi} \int_0^{2\pi} d\varphi \int_0^{2\pi} d\theta \; , \\
+   = &~2 \pi \; .
+
+Thus, :math:`\psi` is the poloidal flux divided by :math:`2\pi`.  For this reason, it is useful to also define the toroidal flux divided by :math:`2\pi`:
+
+.. math::
+   \chi_t \doteq \frac{1}{2\pi} \Psi_t\; .
+
+According to these conventions, 
+
+.. math::
+   d\Psi_t = q \, d\Psi_p \quad \mbox{and} \quad d\chi_t = q \, d\psi \; .

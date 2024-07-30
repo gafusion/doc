@@ -17,7 +17,7 @@ The rigorous derivation of the gyrokinetic equations for sonic rotation was carr
 
    \mathbf{U}_0 = \omega_0(\psi) R^2 \nabla \varphi \; .
 
-It is this scalar flux-function, :math:`\omega_0`, that is the true free (input) function in both neoclassical and gyrokinetic theory.  Here, :math:`\psi` is the poloidal flux.
+It is this scalar flux-function, :math:`\omega_0`, that is the true free (input) function in both neoclassical and gyrokinetic theory.  Here, :math:`\psi` is the poloidal flux divided by :math:`2\pi`.
 
 The rotation profile
 --------------------
@@ -90,14 +90,13 @@ where :math:`U_\varphi \doteq \mathbf{e}_\varphi \cdot \mathbf{U}` is the *toroi
    \mathbf{U}_0 = \omega_0(\psi) R \mathbf{e}_{\varphi} \quad \text{where} \quad
    \omega_{0}(\psi) \doteq -c \frac{d \Phi_{-1}}{d \psi} \; .
 
-It is important to note that :math:`\Phi_{-1}` is a **flux function**, whereas higher orders are not constant on a flux surface.
+It is important to note that :math:`\Phi_{-1}` is a **flux function**, whereas higher orders are **not** constant on a flux surface.
 
 Connection to experimental data
 -------------------------------
 
 We remark that :math:`\omega_{0}` is a **theoretical quantity** that cannot be measured in the experiment.  This is similar
-to the observation that the experimentally-measured temperature :math:`T_i` is really the sum of an *equilibrium temperature* and a small *fluctuating temperature* driven by turbulence: :math:`T_i = T_{i0} + T_{i1}`.  If the drift ordering is valid, then we are justified in approximating the equilibrium temperature :math:`T_{i0}` by the measured temperature :math:`T_i`.
-For the rotation frequency, similar considerations hold.  We note that the theory shows that the potential always appears in the combination
+to the observation that the experimentally-measured temperature :math:`T_i` is really the sum of an *equilibrium temperature* and a small *fluctuating temperature* driven by turbulence: :math:`T_i = T_{i0} + T_{i1}`.  If the drift ordering is valid, then we are justified in approximating the equilibrium temperature :math:`T_{i0}` by the measured temperature :math:`T_i`. For the rotation frequency, similar considerations hold.  We note that the theory shows that the potential always appears in the combination
 
 .. math::
 
