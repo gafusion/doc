@@ -41,16 +41,16 @@ CGYRO and NEO implement *full sonic rotation* (GYRO implements only a reduced mo
    :header: "input.cgyro parameter", "Definition", "Description"
    :widths: 10, 15, 15
 
-   ":ref:`cgyro_gamma_e`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_{\rm E} \doteq -\frac{r}{q}\frac{d \omega_{0}}{d r}`",":math:`\exb` shearing rate" 
-   ":ref:`cgyro_gamma_p`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_p \doteq -R_0\frac{d \omega_{0}}{d r}`","rotation shearing rate" 
-   ":ref:`cgyro_mach`",":math:`\displaystyle M \doteq \frac{\omega_0 R_0}{c_s}`","rotation rate" 
+   ":ref:`cgyro_gamma_e`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_{\rm E}\;` where :math:`\; \displaystyle \gamma_{\rm E} \doteq -\frac{r}{q}\frac{d \omega_{0}}{d r}`",":math:`\exb` shearing rate" 
+   ":ref:`cgyro_gamma_p`",":math:`\displaystyle \frac{a}{c_s} \, \gamma_p\;` where :math:`\; \displaystyle \gamma_{\rm p} \doteq -R_0\frac{d \omega_{0}}{d r}`","rotation shearing rate" 
+   ":ref:`cgyro_mach`",":math:`\displaystyle M\;` where :math:`\;\displaystyle M \doteq \frac{\omega_0 R_0}{c_s}`","rotation rate" 
 
 .. csv-table::
    :header: "input.neo parameter", "Definition", "Description"
    :widths: 10, 15, 15
 
-   ":ref:`neo_omega_rot`",":math:`\displaystyle  \frac{a}{v_{norm}} \omega_0`","rotation rate" 
-   ":ref:`neo_omega_rot_deriv`",":math:`\displaystyle \frac{a^{2}}{v_{norm}} \frac{d \omega_{0}}{dr}`","derivative of rotation rate" 
+   ":ref:`neo_omega_rot`",":math:`\displaystyle  \frac{a}{v_{\rm norm}} \omega_0`","rotation rate" 
+   ":ref:`neo_omega_rot_deriv`",":math:`\displaystyle \frac{a^{2}}{v_{\rm norm}} \frac{d \omega_{0}}{dr}`","derivative of rotation rate" 
 
 Theoretical basis for sonic rotation
 ------------------------------------
