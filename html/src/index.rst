@@ -35,8 +35,7 @@ GACODE software works with the :ref:`input.gacode` format.
    :maxdepth: 4
    :caption: Software
 
-   license
-   download
+   README
    setup
    build
    zreferences

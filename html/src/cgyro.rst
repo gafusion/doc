@@ -29,8 +29,8 @@ Simulation data courtesy Nathan Howard (MIT)
 	:width: 48 %
 	:alt: b1480
 
-Source Code
------------
+CGYRO Source Code
+-----------------
 
 `CGYRO source code <http://github.com/gafusion/gacode>`_  is available at GitHub.
    
