@@ -27,9 +27,9 @@ The TGLF model is a next generation gyro-Landau-fluid model that improves the ac
     SAT3,  ":cite:`dudding:2022a,dudding:2022b`"
 
 .. csv-table:: **References: TGLF validation against experimental data**
-   :header: "Device",  "Required citation"
+   :header: "Device",  "Useful reference"
    :widths: 20,20
 
-    DIII-D, ":cite:`grierson:2018,thome:2021`"
+    DIII-D, ":cite:`grierson:2018,thome:2021,abbate:2024`"
     NSTX,  ":cite:`kaye:2019`"
     ASDEX,  ":cite:`angioni:2022`"

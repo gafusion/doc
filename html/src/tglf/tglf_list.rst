@@ -175,7 +175,7 @@ DEBYE
 
 **Definition**
 
-Debye length/gyroradius.
+Debye length/gyroradius. DEBYE = 7.43e2 * sqrt(Te[eV] / (ne[10^13/cm^3])) / rho_s[cm].
 
 
 **Comments**

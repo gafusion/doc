@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>profiles_gen &mdash; GACODE</title>
+  <title>Using GACODE &mdash; GACODE</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/contentui.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="FLUX-SURFACE GEOMETRY" href="geometry.html" />
-    <link rel="prev" title="Alphabetical list for out.tglf files" href="tglf/tglf_output_list.html" /> 
+    <link rel="next" title="Prebuilt Environments" href="setup.html" />
+    <link rel="prev" title="The General Atomics GACODE Suite" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -39,23 +39,23 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Software</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using GACODE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-and-documentation">Source code and documentation</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build on your laptop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codes</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">profiles_gen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#history-and-overview">History and Overview</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
@@ -79,9 +79,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">profiles_gen</li>
+      <li class="breadcrumb-item active">Using GACODE</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/prgen.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -89,11 +89,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="profiles-gen">
-<h1>profiles_gen<a class="headerlink" href="#profiles-gen" title="Link to this heading"></a></h1>
-<section id="history-and-overview">
-<h2>History and Overview<a class="headerlink" href="#history-and-overview" title="Link to this heading"></a></h2>
-<p>The initial motivation for <strong>profiles_gen</strong> (circa 2005) was to separate the source code required to read and process ONETWO profile data from the main GYRO code base. The rationale was that reading plasma profile and geometry data to calculate suitable inputs for gyrokinetic simulation was not the job of a gyrokinetic code. So in the summer of 2005 it was decided to split the GYRO experimental profile handling into a new tool called iterdb_read. This morphed into the tool iterdb2gyro, which finally became profiles_gen in 2010. The conceptual motivation for profiles_gen was to provide a barrier between the challenges of experimental profile data formats and the standard (typically dimensionless) inputs for gyrokinetic (GYRO) and neoclassical (NEO) simulation. Also, in the pre-2010 period, it became clear that there was a need to standardize and improve geometry input, as ONETWO geometry data was low quality. This led to the idea of separating the profile date (typically from ONETWO or TRANSP) from the equilibrium shape data (from EFIT). By 2010, the ability to specify both a “profile statefile” and an EFIT “gfile” was established. The output from profiles_gen creates a unique format for use with the other GACODE transport codes.</p>
+  <section id="using-gacode">
+<h1>Using GACODE<a class="headerlink" href="#using-gacode" title="Link to this heading"></a></h1>
+<p>GACODE is free software released under the Apache 2.0 license. The developers of GACODE recommend the following <strong>best practices</strong></p>
+<ol class="arabic simple">
+<li><p>Compile/use the Software source code AS IS for publication purposes. You are welcome and encouraged to request changes through the <a class="reference external" href="https://github.com/gafusion/gacode/issues">github issues system</a>, to make code modifications for testing purposes, or to issue pull requests</p></li>
+<li><p>In published results or presentations, include the code name(s) and appropriate references in the table below</p></li>
+</ol>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text"><strong>Appropriate References</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 27.3%" />
+<col style="width: 36.4%" />
+<col style="width: 36.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Physics code</p></th>
+<th class="head"><p>Topical Area</p></th>
+<th class="head"><p>Suitable citation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CGYRO</p></td>
+<td><p>gyrokinetic simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2016.07.039">JCP2016</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GYRO</p></td>
+<td><p>gyrokinetic simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1016/S0021-9991(03)00079-2">JCP2003</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NEO</p></td>
+<td><p>neoclassical simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1088/0741-3335/50/9/095010">PPCF2008</a> | <a class="reference external" href="https://doi.org/10.1088/0741-3335/54/1/015015">PPCF2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>TGLF</p></td>
+<td><p>transport model</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1063/1.2436852">POP2007</a> | <a class="reference external" href="https://doi.org/10.1063/1.3505308">POP2010</a></p></td>
+</tr>
+<tr class="row-even"><td><p>TGYRO</p></td>
+<td><p>profile evolution</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1063/1.3167820">POP2009</a></p></td>
+</tr>
+</tbody>
+</table>
+<section id="source-code-and-documentation">
+<h2>Source code and documentation<a class="headerlink" href="#source-code-and-documentation" title="Link to this heading"></a></h2>
+<p>Source code is found in the <a class="reference external" href="https://github.com/gafusion">gacode repository</a>.
+For technical documentation, please refer to the <a class="reference external" href="https://gacode.io">GACODE website</a>.</p>
 </section>
 </section>
 
@@ -101,8 +143,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tglf/tglf_output_list.html" class="btn btn-neutral float-left" title="Alphabetical list for out.tglf files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="geometry.html" class="btn btn-neutral float-right" title="FLUX-SURFACE GEOMETRY" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="The General Atomics GACODE Suite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="Prebuilt Environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
