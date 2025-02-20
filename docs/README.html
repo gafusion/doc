@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prebuilt Environments &mdash; GACODE</title>
+  <title>Using GACODE &mdash; GACODE</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
@@ -22,8 +22,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Build on your laptop" href="build.html" />
-    <link rel="prev" title="Using GACODE" href="README.html" /> 
+    <link rel="next" title="Prebuilt Environments" href="setup.html" />
+    <link rel="prev" title="The General Atomics GACODE Suite" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,13 +47,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Software</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Prebuilt Environments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#nersc-perlmutter-cpu">NERSC PERLMUTTER (CPU)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#nersc-perlmutter-gpu">NERSC PERLMUTTER (GPU)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#ga-omega">GA OMEGA</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using GACODE</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#source-code-and-documentation">Source code and documentation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
 <li class="toctree-l1"><a class="reference internal" href="build.html">Build on your laptop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
 </ul>
@@ -88,9 +86,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Prebuilt Environments</li>
+      <li class="breadcrumb-item active">Using GACODE</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/setup.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,58 +96,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="prebuilt-environments">
-<h1>Prebuilt Environments<a class="headerlink" href="#prebuilt-environments" title="Link to this heading"></a></h1>
-<p>Below we give information about the environment setup required to run GACODE tools on maintained platforms.  Once this step is complete, proceed to instructions on running cases <a class="reference internal" href="cgyro/running_cases.html"><span class="doc">CGYRO</span></a>, <a class="reference internal" href="neo.html"><span class="doc">NEO</span></a>, <a class="reference internal" href="tgyro.html"><span class="doc">TGYRO</span></a>, and so on.</p>
-<section id="nersc-perlmutter-cpu">
-<h2>NERSC PERLMUTTER (CPU)<a class="headerlink" href="#nersc-perlmutter-cpu" title="Link to this heading"></a></h2>
-<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=PERLMUTTER_CPU
-export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-cpu
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-<p>Sample job layout (32 MPI, 8 OMP) = 1 node, 59 min wall-clock time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 32 -nomp 8 -repo atom -w 59
-</pre></div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Perlmutter CPU has 256 logical cores per node (8 OMP * 32 MPI)</p>
-</div>
-</section>
-<section id="nersc-perlmutter-gpu">
-<h2>NERSC PERLMUTTER (GPU)<a class="headerlink" href="#nersc-perlmutter-gpu" title="Link to this heading"></a></h2>
-<p>Add the following lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=PERLMUTTER_GPU
-export GACODE_ROOT=/global/common/software/atom/gacode-perlmutter-gpu
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.$GACODE_PLATFORM
-</pre></div>
-</div>
-<p>Sample job layout (16 MPI, 16 OMP) = (2 nodes, 8 GPUs) 59 min wall-clock time:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -code cgyro -n 16 -nomp 16 -repo atom -w 59
-</pre></div>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Perlmutter GPU has 4 GPUs and 128 logical cores per node</p>
-</div>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>Use ONLY either -nomp 16 (2 MPI/GPU) or -nomp 32 (1 MPI/GPU)</p>
-</div>
-</section>
-<section id="ga-omega">
-<h2>GA OMEGA<a class="headerlink" href="#ga-omega" title="Link to this heading"></a></h2>
-<p>To run in a <strong>dedicated GACODE environment</strong>, add these lines to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>export GACODE_PLATFORM=OMEGA_INTEL
-export GACODE_ROOT=/fusion/projects/theory/shared/gacode
-. ${GACODE_ROOT}/shared/bin/gacode_setup
-. ${GACODE_ROOT}/platform/env/env.${GACODE_PLATFORM}
-</pre></div>
-</div>
+  <section id="using-gacode">
+<h1>Using GACODE<a class="headerlink" href="#using-gacode" title="Link to this heading"></a></h1>
+<p>GACODE is free software released under the Apache 2.0 license. The developers of GACODE recommend the following <strong>best practices</strong></p>
+<ol class="arabic simple">
+<li><p>Compile/use the Software source code AS IS for publication purposes. You are welcome and encouraged to request changes through the <a class="reference external" href="https://github.com/gafusion/gacode/issues">github issues system</a>, to make code modifications for testing purposes, or to issue pull requests</p></li>
+<li><p>In published results or presentations, include the code name(s) and appropriate references in the table below</p></li>
+</ol>
+<table class="docutils align-default" id="id1">
+<caption><span class="caption-text"><strong>Appropriate References</strong></span><a class="headerlink" href="#id1" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 27.3%" />
+<col style="width: 36.4%" />
+<col style="width: 36.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Physics code</p></th>
+<th class="head"><p>Topical Area</p></th>
+<th class="head"><p>Suitable citation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CGYRO</p></td>
+<td><p>gyrokinetic simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1016/j.jcp.2016.07.039">JCP2016</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>GYRO</p></td>
+<td><p>gyrokinetic simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1016/S0021-9991(03)00079-2">JCP2003</a></p></td>
+</tr>
+<tr class="row-even"><td><p>NEO</p></td>
+<td><p>neoclassical simulation</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1088/0741-3335/50/9/095010">PPCF2008</a> | <a class="reference external" href="https://doi.org/10.1088/0741-3335/54/1/015015">PPCF2012</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>TGLF</p></td>
+<td><p>transport model</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1063/1.2436852">POP2007</a> | <a class="reference external" href="https://doi.org/10.1063/1.3505308">POP2010</a></p></td>
+</tr>
+<tr class="row-even"><td><p>TGYRO</p></td>
+<td><p>profile evolution</p></td>
+<td><p><a class="reference external" href="https://doi.org/10.1063/1.3167820">POP2009</a></p></td>
+</tr>
+</tbody>
+</table>
+<section id="source-code-and-documentation">
+<h2>Source code and documentation<a class="headerlink" href="#source-code-and-documentation" title="Link to this heading"></a></h2>
+<p>Source code is found in the <a class="reference external" href="https://github.com/gafusion">gacode repository</a>.
+For technical documentation, please refer to the <a class="reference external" href="https://gacode.io">GACODE website</a>.</p>
 </section>
 </section>
 
@@ -157,8 +150,8 @@ export GACODE_ROOT=/fusion/projects/theory/shared/gacode
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="README.html" class="btn btn-neutral float-left" title="Using GACODE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="build.html" class="btn btn-neutral float-right" title="Build on your laptop" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="The General Atomics GACODE Suite" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="setup.html" class="btn btn-neutral float-right" title="Prebuilt Environments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
