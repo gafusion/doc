@@ -8,6 +8,7 @@ You will need suitable python and fortran environments. There is detailed help f
 
 * :doc:`OSX users <build/pre_osx>` (MAC M2)
 * :doc:`Linux users <build/pre_linux>` (MINT, UBUNTU)
+* :doc:`Conda users, works on both OSX and Linux <build/pre_conda>` (CONDA_OMPI_GNU)
 
 If you need more help, please raise an issue at https://github.com/gafusion/gacode/issues
 
@@ -21,11 +22,11 @@ You should clone the gacode repository from GitHub. This was you can keep you in
 Concept of platform files
 -------------------------
 
-In order to compile the full GACODE package on a new machine, **platform files** must be created. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using::
+In order to compile the full GACODE package on a new machine, a version of the **platform files** must be selected. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using::
 
   $ ./gacode/shared/bin/gacode_platforms 
 
-To create new platform files (say, for a new platform MINE) then copy/edit the following files::
+If you decide to create new platform files (say, for a new platform MINE) then create the following files, starting from one of the existing ones (say, CONDA_OMPI_GNU)::
 
   $GACODE_ROOT/platform/build/make.inc.MINE
   $GACODE_ROOT/platform/exec/exec.MINE
@@ -46,7 +47,7 @@ To use your new platform files, enter the following lines in your shell RC file:
 OpenBLAS
 --------
 
-When building with gfortran, we recommend using `OpenBLAS <https://github.com/xianyi/OpenBLAS.git>`_. It is important to build with **single-threaded** settings. In the Makefile.rule file in the top-level OpenBLAS directory, set::
+Using system provided builds is better, but when building from scrath with gfortran, we recommend using `OpenBLAS <https://github.com/xianyi/OpenBLAS.git>`_. It is important to build with **single-threaded** settings. In the Makefile.rule file in the top-level OpenBLAS directory, set::
 
    BINARY=64
    USE_THREAD=0
@@ -67,6 +68,11 @@ Building
 To build the entire GACODE project, type::
 
   $ cd $GACODE_ROOT ; make
+
+To build just one of the tools, go into the specific subdirectory::
+
+  $ cd $GACODE_ROOT/cgyro ; make
+
 
 To test that the build is successful, you can run regression tests::
 
