@@ -196,6 +196,7 @@ Tabular list for input.cgyro
    :widths: 13, 25, 5
 
    ":ref:`cgyro_toroidals_per_proc`", How many toroidal harmonics per MPI process,1
+   ":ref:`cgyro_nl_single_flag`", Use FP64 or FP32 math for nonlinear term,1
    ":ref:`cgyro_mpi_rank_order`", Relative ordering of MPI ranks,2
    ":ref:`cgyro_velocity_order`", What internal velocity order to use,1
    ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload when possible, 1
