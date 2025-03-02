@@ -97,6 +97,7 @@ Tabular list for input.cgyro
    ":ref:`cgyro_n_xi`", Number of pitch angle :math:`\xi` gridpoints,16
    ":ref:`cgyro_n_energy`", Number of energy :math:`u` gridpoints,8
    ":ref:`cgyro_e_max`", Maximum energy ,8.0
+   ":ref:`cgyro_nl_single_flag`", Use FP64 or FP32 math for nonlinear term,0
 
 .. _tab-dissipation:
 
@@ -196,6 +197,8 @@ Tabular list for input.cgyro
    :widths: 13, 25, 5
 
    ":ref:`cgyro_toroidals_per_proc`", How many toroidal harmonics per MPI process,1
+   ":ref:`cgyro_collision_precision_mode`", Use FP64 or FP32 constants for the cmat constants,0
+   ":ref:`cgyro_nl_single_flag`", Use FP64 or FP32 math for nonlinear term,0
    ":ref:`cgyro_mpi_rank_order`", Relative ordering of MPI ranks,2
    ":ref:`cgyro_velocity_order`", What internal velocity order to use,1
    ":ref:`cgyro_gpu_bigmem_flag`", Enable GPU offload when possible, 1

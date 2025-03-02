@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -7,19 +5,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tabular list for input.cgyro &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/contentui.js"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/contentui.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" /> 
@@ -379,6 +381,10 @@
 <td><p>Maximum energy</p></td>
 <td><p>8.0</p></td>
 </tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-nl-single-flag"><span class="std std-ref">NL_SINGLE_FLAG</span></a></p></td>
+<td><p>Use FP64 or FP32 math for nonlinear term</p></td>
+<td><p>0</p></td>
+</tr>
 </tbody>
 </table>
 <span id="tab-dissipation"></span><table class="docutils align-default" id="id6">
@@ -678,6 +684,14 @@
 <tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-toroidals-per-proc"><span class="std std-ref">TOROIDALS_PER_PROC</span></a></p></td>
 <td><p>How many toroidal harmonics per MPI process</p></td>
 <td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a></p></td>
+<td><p>Use FP64 or FP32 constants for the cmat constants</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-nl-single-flag"><span class="std std-ref">NL_SINGLE_FLAG</span></a></p></td>
+<td><p>Use FP64 or FP32 math for nonlinear term</p></td>
+<td><p>0</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="cgyro_list.html#cgyro-mpi-rank-order"><span class="std std-ref">MPI_RANK_ORDER</span></a></p></td>
 <td><p>Relative ordering of MPI ranks</p></td>

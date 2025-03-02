@@ -840,6 +840,28 @@ Toggle inclusion of nonlinear terms.
   
 ----
 
+.. _cgyro_nl_single_flag:
+
+NL_SINGLE_FLAG
+--------------
+
+**Definition**
+
+Toggle FP precision used by nonlinear terms compute.
+
+**Choices**
+
+- NL_SINGLE_FLAG=0: Use full FP64 (double) precision for all phases, including compute and MPI communication.
+- NL_SINGLE_FLAG=1: Use FP64 (double) precision for foreard communication and compute, FP32 (single) precision for reverse communication.
+- NL_SINGLE_FLAG=2: Use FP32 (single) precision for all phases, including compute and MPI communication.
+
+**Comments**
+
+- DEFAULT = 0
+- Use of FP32 validated for modest sized simulations.
+  
+----
+
 .. _cgyro_n_field:
 
 N_FIELD
