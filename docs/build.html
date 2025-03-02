@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -7,18 +5,22 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Build on your laptop &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-      <script src="_static/jquery.js?v=5d32c60e"></script>
-      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/contentui.js"></script>
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -109,6 +111,7 @@
 <ul class="simple">
 <li><p><a class="reference internal" href="build/pre_osx.html"><span class="doc">OSX users</span></a> (MAC M2)</p></li>
 <li><p><a class="reference internal" href="build/pre_linux.html"><span class="doc">Linux users</span></a> (MINT, UBUNTU)</p></li>
+<li><p><a class="reference internal" href="build/pre_conda.html"><span class="doc">Conda users, works on both OSX and Linux</span></a> (CONDA_OMPI_GNU)</p></li>
 </ul>
 <p>If you need more help, please raise an issue at <a class="reference external" href="https://github.com/gafusion/gacode/issues">https://github.com/gafusion/gacode/issues</a></p>
 </section>
@@ -121,11 +124,11 @@
 </section>
 <section id="concept-of-platform-files">
 <h2>Concept of platform files<a class="headerlink" href="#concept-of-platform-files" title="Link to this heading"></a></h2>
-<p>In order to compile the full GACODE package on a new machine, <strong>platform files</strong> must be created. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using:</p>
+<p>In order to compile the full GACODE package on a new machine, a version of the <strong>platform files</strong> must be selected. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ./gacode/shared/bin/gacode_platforms
 </pre></div>
 </div>
-<p>To create new platform files (say, for a new platform MINE) then copy/edit the following files:</p>
+<p>If you decide to create new platform files (say, for a new platform MINE) then create the following files, starting from one of the existing ones (say, CONDA_OMPI_GNU):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$GACODE_ROOT/platform/build/make.inc.MINE
 $GACODE_ROOT/platform/exec/exec.MINE
 $GACODE_ROOT/platform/env/env.MINE (if needed)
@@ -145,7 +148,7 @@ export GACODE_ROOT=$HOME/gacode
 </section>
 <section id="openblas">
 <h2>OpenBLAS<a class="headerlink" href="#openblas" title="Link to this heading"></a></h2>
-<p>When building with gfortran, we recommend using <a class="reference external" href="https://github.com/xianyi/OpenBLAS.git">OpenBLAS</a>. It is important to build with <strong>single-threaded</strong> settings. In the Makefile.rule file in the top-level OpenBLAS directory, set:</p>
+<p>Using system provided builds is better, but when building from scrath with gfortran, we recommend using <a class="reference external" href="https://github.com/xianyi/OpenBLAS.git">OpenBLAS</a>. It is important to build with <strong>single-threaded</strong> settings. In the Makefile.rule file in the top-level OpenBLAS directory, set:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">BINARY</span><span class="o">=</span><span class="mi">64</span>
 <span class="n">USE_THREAD</span><span class="o">=</span><span class="mi">0</span>
 <span class="n">USE_LOCKING</span><span class="o">=</span><span class="mi">1</span>
@@ -165,6 +168,10 @@ $ ./test
 <h2>Building<a class="headerlink" href="#building" title="Link to this heading"></a></h2>
 <p>To build the entire GACODE project, type:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT ; make
+</pre></div>
+</div>
+<p>To build just one of the tools, go into the specific subdirectory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cd $GACODE_ROOT/cgyro ; make
 </pre></div>
 </div>
 <p>To test that the build is successful, you can run regression tests:</p>

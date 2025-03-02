@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="../">
 <head>
@@ -7,19 +5,23 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GYRO verification and validation (pre 2010) &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/contentui.css" />
 
   
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
-      <script src="../_static/jquery.js?v=5d32c60e"></script>
-      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="../_static/contentui.js"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/contentui.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -121,8 +123,7 @@
 <p>A complete <span class="math notranslate nohighlight">\(R/L_T\)</span> scan for the Cyclone Base Case with adiabatic electron
 was published in <span id="id1">[<a class="reference internal" href="../zreferences.html#id30" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:doi.org/10.1016/S0021-9991(03)00079-2.">CW03a</a>]</span>.  We reproduce below Fig. 11 from that publication:</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/candy_jcp2003_fig11.png"><img alt="candy_jcp2003_fig11" src="../_images/candy_jcp2003_fig11.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/candy_jcp2003_fig11.png"><img alt="candy_jcp2003_fig11" src="../_images/candy_jcp2003_fig11.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 1:</strong> <span class="math notranslate nohighlight">\(\chi_i\)</span> versus <span class="math notranslate nohighlight">\(R/L_T\)</span> scan for the Cyclone Base Case, compared with results from the LLNL and Univ. of Colorado gyrokinetic PIC codes.</p>
 </section>
@@ -130,8 +131,7 @@ was published in <span id="id1">[<a class="reference internal" href="../zreferen
 <h3>Local limit of Global Simulations (2004)<a class="headerlink" href="#local-limit-of-global-simulations-2004" title="Link to this heading"></a></h3>
 <p>After the publication of this work, a community-wide benchmark exercise was carried out between codes with local capability (GYRO and GS2) and a global code (GTC).  The difficulties encountered by the global code in attempting to reproduce the local limit in <span class="math notranslate nohighlight">\(s-\alpha\)</span> geometry was addressed in <span id="id2">[<a class="reference internal" href="../zreferences.html#id33" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:doi.org/10.1063/1.1695358.">CWD04</a>]</span>, where it was demonstrated that the local limit can be achieved in a truly global simulation.  We reproduce below Fig. 3 of that paper:</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/candy_pop2004_fig3.png"><img alt="candy_pop2004_fig3" src="../_images/candy_pop2004_fig3.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/candy_pop2004_fig3.png"><img alt="candy_pop2004_fig3" src="../_images/candy_pop2004_fig3.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 2:</strong> Curves show radial profile of <span class="math notranslate nohighlight">\(\chi_i\)</span> averaged over the time inteval <span class="math notranslate nohighlight">\(400 \le (c_s/a) t \le 900\)</span>, as computed by GYRO.  Solid dots show results of three separate GS2 flux-tube simulations.</p>
 </section>
@@ -139,8 +139,7 @@ was published in <span id="id1">[<a class="reference internal" href="../zreferen
 <h3>Gyrokinetic Simulation of Impurities (2004)<a class="headerlink" href="#gyrokinetic-simulation-of-impurities-2004" title="Link to this heading"></a></h3>
 <p>Prior to 2004, basically all simulation work was done with pure plasmas.  As part of a Ph.D. thesis (Estrada-Mila), a paper on the topic of transport in impure plasmas <span id="id3">[<a class="reference internal" href="../zreferences.html#id61" title="C. Estrada-Mila, J. Candy, and R.E. Waltz. Gyrokinetic simulations of ion and impurity transport. Phys. Plasmas, 12:022305, 2005.">EMCW05</a>]</span> was published.  This work contained crucial benchmarks with the GS2 code.  Figure 1 from that paper is reproduced below:</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/estrada_pop2005_fig1.png"><img alt="estrada_pop2005_fig1" src="../_images/estrada_pop2005_fig1.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/estrada_pop2005_fig1.png"><img alt="estrada_pop2005_fig1" src="../_images/estrada_pop2005_fig1.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 3:</strong> Adiabatic electron comparison of growth rates for the GYRO (solid line) and GS2 (black dot) codes.  Also shown are published results by Dong <span id="id4">[<a class="reference internal" href="../zreferences.html#id56" title="J.Q. Dong and W. Horton. Study of impurity mode and ion temperature gradient mode in toroidal plasmas. Phys. Plasmas, 2:3412, 1995.">DH95</a>]</span> (dotted line) which neglect trapping.  Plot (a) shows the growth rate as functions of <span class="math notranslate nohighlight">\(k_\theta \rho_s\)</span>. Plot (b) shows the effect of carbon concentration, <span class="math notranslate nohighlight">\(f_C = z_C n_C/n_e\)</span>, for <span class="math notranslate nohighlight">\(k_\theta \rho_s = 1/\sqrt{2}\)</span> and <span class="math notranslate nohighlight">\(s=1\)</span>.  All other parameters are the same in both plots.  Agreement between GYRO and GS2 is extremely good.</p>
 </section>
@@ -148,8 +147,7 @@ was published in <span id="id1">[<a class="reference internal" href="../zreferen
 <h3>Electron Temperature Gradient Turbulence (2006)<a class="headerlink" href="#electron-temperature-gradient-turbulence-2006" title="Link to this heading"></a></h3>
 <p>Motivated by incorrect published results from a global code, a large community-wide benchmark exercise was carried out including the most advanced European gyrokinetic code, GENE.  The results were published in a paper <span id="id5">[<a class="reference internal" href="../zreferences.html#id104" title="W.M. Nevins, J. Candy, S. Cowley, T. Dannert, A. Dimits, W. Dorland, C. Estrada-Mila, G.W. Hammett, F. Jenko, M.J. Pueschel, and D.E. Shumaker. Characterizing electron temperature gradient turbulence via numerical simulation. Phys. Plasmas, 13:122306, 2006.">NCC+06</a>]</span> that clarified difficulties associated with simulations of ETG turbulence, and a new low-shear operating point was designed so that benchmark case was physically well-behaved.  Remarkable intercode agreement was obtained</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/nevins_pop2006_fig8.png"><img alt="nevins_pop2006_fig8" src="../_images/nevins_pop2006_fig8.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/nevins_pop2006_fig8.png"><img alt="nevins_pop2006_fig8" src="../_images/nevins_pop2006_fig8.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 4:</strong> <span class="math notranslate nohighlight">\(\chi_e = -Q_e/n_0 \nabla T_0\)</span> from GYRO (black curve), GS2 (blue curve), GENE (green curve), and
 PG3EQ (red curve) are plotted versus time.</p>
@@ -159,8 +157,7 @@ PG3EQ (red curve) are plotted versus time.</p>
 <h3>Energetic particle transport coefficients (2009)<a class="headerlink" href="#energetic-particle-transport-coefficients-2009" title="Link to this heading"></a></h3>
 <p>Following up on initial work by Estrada-Mila <span id="id6">[<a class="reference internal" href="../zreferences.html#id62" title="C. Estrada-Mila, J. Candy, and R.E. Waltz. Density peaking and turbulent pinch in DIII-D discharges. Phys. Plasmas, 13:074505, 2006.">EMCW06a</a>]</span>, Angioni <span id="id7">[<a class="reference internal" href="../zreferences.html#id7" title="C. Angioni, A.G. Peeters, G.V. Pereverzev, A. Bottino, J. Candy, R. Dux, E. Fable, T. Hein, and R.E. Waltz. Gyrokinetic simulations of impurity, He ash and α particle transport and consequences on ITER transport modelling. Nucl. Fusion, 49:055013, 2009.">APP+09</a>]</span> carried out detailed GS2-GYRO comparsions of alpha particle quasilinear transport coefficients.  This comparison tests, among other things, the multi-scale accuracy of the gyro-averaging operators for electrons and ions.  Below we reproduce Fig. 5 of that paper:</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/angioni_nf2009_fig5.png"><img alt="angioni_nf2009_fig5" src="../_images/angioni_nf2009_fig5.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/angioni_nf2009_fig5.png"><img alt="angioni_nf2009_fig5" src="../_images/angioni_nf2009_fig5.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 5:</strong> Diffusion, thermodiffusion and pure convection coefficients for <span class="math notranslate nohighlight">\(\alpha\)</span> particles in the case of a Maxwellian unperturbed distribution function, computed by linear GYRO (open squares), and linear GS2 (full circles). The codes are found in perfect agreement. The same quantities computed by GS2 in the case of an equilibrium slowing down distribution function are also plotted for comparison (full squares).  For the particle thermodiffusion coefficient <span class="math notranslate nohighlight">\(C_{T\alpha}\)</span> as well as for the diagonal heat conduction coefficient <span class="math notranslate nohighlight">\(\chi_{T\alpha}/\chi_{n\alpha}\)</span> both the actual curve obtained with a Maxwellian distribution (dashed line), as well as the same curve but rescaled by the factor <span class="math notranslate nohighlight">\(d {\rm ln} T_\alpha/d {\rm ln} T_e\)</span> (solid line), have been plotted. The latter curve allows a direct comparison with the corresponding coefficients obtained in the case of a slowing down distribution function.</p>
 </section>
@@ -168,8 +165,7 @@ PG3EQ (red curve) are plotted versus time.</p>
 <h3>Compressional Electromagnetic Perturbations (2010)<a class="headerlink" href="#compressional-electromagnetic-perturbations-2010" title="Link to this heading"></a></h3>
 <p>Recently, compressional electromagnetic capability, <span class="math notranslate nohighlight">\(\delta B_\lVert\)</span> was added to GYRO and linear benchmarks were carried out against GS2 – the only other nonlinear code with the same capability:</p>
 <figure class="align-center">
-<a class="reference internal image-reference" href="../_images/belli_pop2010_fig1.png"><img alt="belli_pop2010_fig1" src="../_images/belli_pop2010_fig1.png" style="width: 75%;" />
-</a>
+<a class="reference internal image-reference" href="../_images/belli_pop2010_fig1.png"><img alt="belli_pop2010_fig1" src="../_images/belli_pop2010_fig1.png" style="width: 75%;" /></a>
 </figure>
 <p><strong>Figure 6:</strong> GYRO (solid red) versus GS2 (dashed red).  GYRO results without the compressional terms are shown in blue.</p>
 </section>
