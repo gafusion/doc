@@ -24,5 +24,6 @@ Install compilers::
   $ sudo port install mpich-gcc13
   $ sudo port select --set mpi mpich-gcc13-fortran
   $ sudo port install fftw-3 
+  $ sudo port install fftw-3-single
   $ sudo port install netcdf
   $ sudo port install netcdf-fortran

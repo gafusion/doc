@@ -1,32 +1,32 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PLASMA ROTATION THEORY &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>Rotation Theory &mdash; GACODE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/contentui.js"></script>
+      <script>window.MathJax = {"tex": {"macros": {"qfilt": "{\\mathcal{Q}}", "exb": "{\\mathbf{E} \\hskip -1pt \\times \\hskip -1pt \\mathbf{B}}", "df": "{\\delta \\hskip -0.5pt f}", "vpar": "{{\\rm v}_\\parallel}", "vta": "{{\\rm v}_{ta}}", "bhat": "{\\textbf{b}}", "dv": "{d^{\\hskip 1pt 3} \\hskip -1pt {\\rm v}}", "jp": "{{\\cal J}_\\psi}", "B": "{\\mathbf{B}}", "bunit": "{B_\\mathrm{unit}}", "betae": "{\\beta_{e,{\\rm unit}}}", "dphi": "{\\delta \\hskip -1pt \\phi}", "dap": "{\\delta \\hskip -1pt A_\\parallel}", "dbp": "{\\delta \\hskip -1pt B_\\parallel}", "dphif": "{\\delta \\hskip -0.5pt \\widetilde{\\phi}}", "dapf": "{\\delta \\hskip -0.5pt \\widetilde{A}_\\parallel}", "dbpf": "{\\delta \\hskip -0.5pt \\widetilde{B}_\\parallel}", "na": "{N_\\alpha}", "nr": "{N_r}", "nx": "{N_\\xi}", "nux": "{N_u}", "nt": "{N_\\theta}", "ux": "{u}", "uxa": "{{\\ux}_a}", "uxb": "{{\\ux}_b}", "kpv": "{{\\bf k}_\\perp}", "md": "{m_\\mathrm{D}}", "Hf": "{\\widetilde{H}_a}", "Hk": "{H_{a,\\kpv}}", "Hkb": "{H_{b,\\kpv}}", "Hfb": "{\\widetilde{H}_b}", "pf": "{\\widetilde{\\Psi}_a}", "rhos": "{\\rho_s}", "hf": "{\\widetilde{h}_a}", "kperp": "{{\\mathbf k}_\\perp}", "qgb": "{Q_\\mathrm{GB}}", "kx": "{k_x^0}", "fwid": "{3.2in}", "nlc": "{\\texttt{nl03}\\xspace}", "rhof": "{\\rho_\\mathrm{f}}"}}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="input.gacode" href="input_gacode.html" />
-    <link rel="prev" title="FLUX-SURFACE GEOMETRY" href="geometry.html" /> 
+    <link rel="prev" title="Flux-Surface Geometry" href="geometry.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,7 +48,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
@@ -66,8 +66,8 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">PLASMA ROTATION THEORY</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Flux-Surface Geometry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Rotation Theory</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#physical-considerations">Physical considerations</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sonic-rotation-formalism">Sonic rotation formalism</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-rotation-profile">The rotation profile</a></li>
@@ -78,7 +78,11 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Computational Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
 </ul>
 
         </div>
@@ -95,7 +99,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">PLASMA ROTATION THEORY</li>
+      <li class="breadcrumb-item active">Rotation Theory</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/rotation.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -105,15 +109,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="plasma-rotation-theory">
-<h1>PLASMA ROTATION THEORY<a class="headerlink" href="#plasma-rotation-theory" title="Link to this heading"></a></h1>
+  <section id="rotation-theory">
+<h1>Rotation Theory<a class="headerlink" href="#rotation-theory" title="Link to this heading"></a></h1>
 <section id="physical-considerations">
 <h2>Physical considerations<a class="headerlink" href="#physical-considerations" title="Link to this heading"></a></h2>
-<p>Sonic rotation can arise in tokamaks from torque due to neutral beam injection.  It is believed to play an important role in the suppression of turbulence and the formation of transport barriers through <span class="math notranslate nohighlight">\(\mathbf{E}\times\mathbf{B}\)</span> shear.  In addition, it produces a strong centrifugal force that pushes ions toroidally outward, causing them to redistribute nonuniformly around a flux surface.  As a result of quasi-neutrality, a poloidally-varying electrostatic potential is generated by the electrons to balance the density asymmetry.  This generates <strong>centrifugal drifts</strong> in addition to the usual <span class="math notranslate nohighlight">\(\mathbf{E}\times\mathbf{B}\)</span> rotation, Coriolis drift, and parallel velocity shear. Because of their complexity, these centrifugal effects, which are second-order in the main ion Mach number, are ignored in most neoclassical and gyrokinetic codes.  Inclusion of full sonic rotation effects is particularly critical for studying transport of heavy impurities <span id="id1">[<a class="reference internal" href="zreferences.html#id14" title="E.A. Belli and J. Candy. Kinetic calculation of neoclassical transport including self-consistent electron and impurity dynamics. Plasma Phys. Control. Fusion, 50:095010, 2008. doi:doi.org/10.1088/0741-3335/50/9/095010.">BC08</a>]</span>, as the influence of the centrifugal force is amplified by their large mass.</p>
+<p>Sonic rotation can arise in tokamaks from torque due to neutral beam injection.  It is believed to play an important role in the suppression of turbulence and the formation of transport barriers through <span class="math notranslate nohighlight">\(\exb\)</span> shear.  In addition, it produces a strong centrifugal force that pushes ions toroidally outward, causing them to redistribute nonuniformly around a flux surface.  As a result of quasi-neutrality, a poloidally-varying electrostatic potential is generated by the electrons to balance the density asymmetry.  This generates <strong>centrifugal drifts</strong> in addition to the usual <span class="math notranslate nohighlight">\(\exb\)</span> rotation, Coriolis drift, and parallel velocity shear. Because of their complexity, these centrifugal effects, which are second-order in the main ion Mach number, are ignored in most neoclassical and gyrokinetic codes.  Inclusion of full sonic rotation effects is particularly critical for studying transport of heavy impurities <span id="id1">[<a class="reference internal" href="zreferences.html#id79" title="E.A. Belli and J. Candy. Kinetic calculation of neoclassical transport including self-consistent electron and impurity dynamics. Plasma Phys. Control. Fusion, 50:095010, 2008. doi:doi.org/10.1088/0741-3335/50/9/095010.">BC08</a>]</span>, as the influence of the centrifugal force is amplified by their large mass.</p>
 </section>
 <section id="sonic-rotation-formalism">
 <h2>Sonic rotation formalism<a class="headerlink" href="#sonic-rotation-formalism" title="Link to this heading"></a></h2>
-<p>The rigorous derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama <span id="id2">[<a class="reference internal" href="zreferences.html#id120" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998.">SH98</a>]</span>.  Sugama followed the underlying rotation formulation of Hinton and Wong <span id="id3">[<a class="reference internal" href="zreferences.html#id68" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985. doi:10.1063/1.865350.">HW85</a>]</span>, who showed that in an axisymmetric system the zeroth-order flow velocity is</p>
+<p>The rigorous derivation of the gyrokinetic equations for sonic rotation was carried out by Sugama <span id="id2">[<a class="reference internal" href="zreferences.html#id1039" title="H. Sugama and W. Horton. Nonlinear electromagnetic gyrokinetic equation for plasmas with large mean flows. Phys. Plasmas, 5:2560, 1998. doi:doi.org/10.1063/1.872941.">SH98</a>]</span>.  Sugama followed the underlying rotation formulation of Hinton and Wong <span id="id3">[<a class="reference internal" href="zreferences.html#id480" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985.">HW85</a>]</span>, who showed that in an axisymmetric system the zeroth-order flow velocity is</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{U}_0 = \omega_0(\psi) R^2 \nabla \varphi \; .\]</div>
 <p>It is this scalar flux-function, <span class="math notranslate nohighlight">\(\omega_0\)</span>, that is the true free (input) function in both neoclassical and gyrokinetic theory.  Here, <span class="math notranslate nohighlight">\(\psi\)</span> is the poloidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span>.</p>
@@ -127,7 +131,7 @@
 </section>
 <section id="input-parameters">
 <h2>Input parameters<a class="headerlink" href="#input-parameters" title="Link to this heading"></a></h2>
-<p>CGYRO and NEO implement <em>full sonic rotation</em> (GYRO implements only a reduced model) according to the formulation of Hinton and Wong <span id="id4">[<a class="reference internal" href="zreferences.html#id68" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985. doi:10.1063/1.865350.">HW85</a>]</span>.  Neoclassically, the induced poloidally-varying electrostatic potential leads to the formation of potential wells.  In the banana regime these increase the effective trapped particle fraction, and in the Pfirsh-Schlüter regime increase the effective toroidal curvature.  In both instances, this may lead to enhanced neoclassical transport.  The code inputs are given in the tables below.</p>
+<p>CGYRO and NEO implement <em>full sonic rotation</em> (GYRO implements only a reduced model) according to the formulation of Hinton and Wong <span id="id4">[<a class="reference internal" href="zreferences.html#id480" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985.">HW85</a>]</span>.  Neoclassically, the induced poloidally-varying electrostatic potential leads to the formation of potential wells.  In the banana regime these increase the effective trapped particle fraction, and in the Pfirsh-Schlüter regime increase the effective toroidal curvature.  In both instances, this may lead to enhanced neoclassical transport.  The code inputs are given in the tables below.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Note that all the inputs are derived from the single free function, <span class="math notranslate nohighlight">\(\omega_0\)</span>.</p>
@@ -147,7 +151,7 @@
 <tbody>
 <tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-e"><span class="std std-ref">GAMMA_E</span></a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{a}{c_s} \, \gamma_{\rm E}\;\)</span> where <span class="math notranslate nohighlight">\(\; \displaystyle \gamma_{\rm E} \doteq -\frac{r}{q}\frac{d \omega_{0}}{d r}\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\mathbf{E}\times\mathbf{B}\)</span> shearing rate</p></td>
+<td><p><span class="math notranslate nohighlight">\(\exb\)</span> shearing rate</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-p"><span class="std std-ref">GAMMA_P</span></a></p></td>
 <td><p><span class="math notranslate nohighlight">\(\displaystyle \frac{a}{c_s} \, \gamma_p\;\)</span> where <span class="math notranslate nohighlight">\(\; \displaystyle \gamma_{\rm p} \doteq -R_0\frac{d \omega_{0}}{d r}\)</span></p></td>
@@ -186,7 +190,7 @@
 <section id="theoretical-basis-for-sonic-rotation">
 <h2>Theoretical basis for sonic rotation<a class="headerlink" href="#theoretical-basis-for-sonic-rotation" title="Link to this heading"></a></h2>
 <p>In presence of rapid rotation, where the flow speed <span class="math notranslate nohighlight">\(U\)</span> is allowed to be of the order of the ion thermal speed, the Lorentz
-force term in the the Fokker-Planck equation (see <span id="id5">[<a class="reference internal" href="zreferences.html#id68" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985. doi:10.1063/1.865350.">HW85</a>]</span>)</p>
+force term in the the Fokker-Planck equation (see <span id="id5">[<a class="reference internal" href="zreferences.html#id480" title="F.L. Hinton and S.K. Wong. Neoclassical ion transport in rotating axisymmetric plasmas. Phys. Fluids, 28:3082, 1985.">HW85</a>]</span>)</p>
 <div class="math notranslate nohighlight">
 \[\frac{\partial f_i}{\partial t} + \mathbf{v} \cdot \nabla f_i + \frac{e}{m_i}(\mathbf{E}+\mathbf{v} \times \mathbf{B})
 \cdot \frac{\partial f_i}{\partial \mathbf{v}} = C_i + S_i\]</div>
@@ -229,9 +233,9 @@ Alternatively, in the diamagnetic rotation limit, we set <span class="math notra
 \[E_r = \frac{R B_p}{n_a z_a e} \frac{d p_a}{d\psi} + \frac{U_\varphi}{c} B_p - \frac{U_\theta}{c} B_t \; .\]</div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>We emphasize that this relation is <em>valid at long wavelength (equilibrium scales) only</em>, and is subject to the same ordering requirements as standard neoclassical and gyrokinetic theory.  This means a restriction on the steepness of gradients in the form <span class="math notranslate nohighlight">\(d \ln p/dr \ll 1/\rho_i\)</span>.  See, for example, the discussion in <span id="id6">[<a class="reference internal" href="zreferences.html#id124" title="H. Sugama, T.-H. Watanabe, M. Nunami, and S. Nishimura. Momentum balance and radial electric fields in axisymmetric and nonaxisymmetric toroidal plasmas. Plasma Phys. Control. Fusion, 53:024004, 2011.">SWNN11</a>]</span>.</p>
+<p>We emphasize that this relation is <em>valid at long wavelength (equilibrium scales) only</em>, and is subject to the same ordering requirements as standard neoclassical and gyrokinetic theory.  This means a restriction on the steepness of gradients in the form <span class="math notranslate nohighlight">\(d \ln p/dr \ll 1/\rho_i\)</span>.  See, for example, the discussion in <span id="id6">[<a class="reference internal" href="zreferences.html#id1043" title="H. Sugama, T.-H. Watanabe, M. Nunami, and S. Nishimura. Momentum balance and radial electric fields in axisymmetric and nonaxisymmetric toroidal plasmas. Plasma Phys. Control. Fusion, 53:024004, 2011. doi:doi.org/10.1088/0741-3335/53/2/024004.">SWNN11</a>]</span>.</p>
 </div>
-<p>The force balance relation contains terms of order 0 and 1, as described in the previous sections.  We can write the velocities in terms of the neoclassical flow coefficient <span class="math notranslate nohighlight">\(K_a\)</span> (see <span id="id7">[<a class="reference internal" href="zreferences.html#id16" title="E.A. Belli and J. Candy. An Eulerian method for the solution of the multi-species drift-kinetic equation. Plasma Phys. Control. Fusion, 51:075018, 2009. doi:doi.org/10.1088/0741-3335/51/7/075018.">BC09</a>]</span>) as</p>
+<p>The force balance relation contains terms of order 0 and 1, as described in the previous sections.  We can write the velocities in terms of the neoclassical flow coefficient <span class="math notranslate nohighlight">\(K_a\)</span> (see <span id="id7">[<a class="reference internal" href="zreferences.html#id81" title="E.A. Belli and J. Candy. An Eulerian method for the solution of the multi-species drift-kinetic equation. Plasma Phys. Control. Fusion, 51:075018, 2009. doi:doi.org/10.1088/0741-3335/51/7/075018.">BC09</a>]</span>) as</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 U_\varphi = &amp;~ \frac{K_a}{n_a} B_t + \omega_{1,a} R + \omega_0 R \; , \\
@@ -255,14 +259,16 @@ U_\theta = &amp;~ \frac{K_a}{n_a} B_p \; .
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="geometry.html" class="btn btn-neutral float-left" title="FLUX-SURFACE GEOMETRY" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="geometry.html" class="btn btn-neutral float-left" title="Flux-Surface Geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="input_gacode.html" class="btn btn-neutral float-right" title="input.gacode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2025.</p>
+    <p>&#169; Copyright 2000-2025.
+      <span class="lastupdated">Last updated on Apr 24, 2025.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

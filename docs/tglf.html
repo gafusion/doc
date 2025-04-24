@@ -1,27 +1,27 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TGLF &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>TGLF &mdash; GACODE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/contentui.js"></script>
+      <script>window.MathJax = {"tex": {"macros": {"qfilt": "{\\mathcal{Q}}", "exb": "{\\mathbf{E} \\hskip -1pt \\times \\hskip -1pt \\mathbf{B}}", "df": "{\\delta \\hskip -0.5pt f}", "vpar": "{{\\rm v}_\\parallel}", "vta": "{{\\rm v}_{ta}}", "bhat": "{\\textbf{b}}", "dv": "{d^{\\hskip 1pt 3} \\hskip -1pt {\\rm v}}", "jp": "{{\\cal J}_\\psi}", "B": "{\\mathbf{B}}", "bunit": "{B_\\mathrm{unit}}", "betae": "{\\beta_{e,{\\rm unit}}}", "dphi": "{\\delta \\hskip -1pt \\phi}", "dap": "{\\delta \\hskip -1pt A_\\parallel}", "dbp": "{\\delta \\hskip -1pt B_\\parallel}", "dphif": "{\\delta \\hskip -0.5pt \\widetilde{\\phi}}", "dapf": "{\\delta \\hskip -0.5pt \\widetilde{A}_\\parallel}", "dbpf": "{\\delta \\hskip -0.5pt \\widetilde{B}_\\parallel}", "na": "{N_\\alpha}", "nr": "{N_r}", "nx": "{N_\\xi}", "nux": "{N_u}", "nt": "{N_\\theta}", "ux": "{u}", "uxa": "{{\\ux}_a}", "uxb": "{{\\ux}_b}", "kpv": "{{\\bf k}_\\perp}", "md": "{m_\\mathrm{D}}", "Hf": "{\\widetilde{H}_a}", "Hk": "{H_{a,\\kpv}}", "Hkb": "{H_{b,\\kpv}}", "Hfb": "{\\widetilde{H}_b}", "pf": "{\\widetilde{\\Psi}_a}", "rhos": "{\\rho_s}", "hf": "{\\widetilde{h}_a}", "kperp": "{{\\mathbf k}_\\perp}", "qgb": "{Q_\\mathrm{GB}}", "kx": "{k_x^0}", "fwid": "{3.2in}", "nlc": "{\\texttt{nl03}\\xspace}", "rhof": "{\\rho_\\mathrm{f}}"}}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,7 +48,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
@@ -75,10 +75,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Flux-Surface Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Computational Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
 </ul>
 
         </div>
@@ -121,7 +125,7 @@
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
 <p>The TGLF model is a next generation gyro-Landau-fluid model that improves the accuracy of the trapped particle response and the finite Larmor radius effects compared to its predecessor, GLF23. The model solves for the linear eigenmodes of trapped ion and electron modes (TIM, TEM), ion and electron temperature gradient (ITG, ETG) modes and electromagnetic kinetic ballooning (KB) modes. The TGLF model generalizes the methods of GLF23 to a more accurate system of moment equations and an eigenmode solution method that is valid for shaped geometry and finite aspect ratio. The Miller equilibrium model is used in TGLF for shaped finite aspect ratio geometry. In the first phase of developing TGLF, the linear eigenmodes were benchmarked against a database of 1800 linear stability calculations using the GKS gyrokinetic code. The next phase focused on finding a saturation rule that used the quasilinear (QL) weights from TGLF and accurately fit the fluxes from nonlinear simulations. Using a database of 83 nonlinear GYRO simulations with Miller shaped geometry and kinetic electrons, a model for the saturated fluctuation intensity has been found. With a simple quasilinear (QL) saturation rule, remarkable agreement with the energy and particle fluxes from the GYRO database is obtained for both shaped or circular geometry and also for low aspect ratio. Using this new QL saturation rule along with a new ExB shear quench rule for shaped geometry, the density and temperature profiles have recently been predicted in over 500 transport code runs and the results compared against experimental data from 96 tokamak discharges from DIII-D, JET, and TFTR. Compared to GLF23, the TGLF model demonstrates better agreement between the predicted and experimental temperature profiles. Surprisingly, TGLF predicts that the high-k modes are found to play an important role in the central core region of low (L-mode) and high confinement (H-mode) plasmas lacking transport barriers. Using Miller finite aspect ratio shaped geometry in place of <span class="math notranslate nohighlight">\(s\text{-}\alpha\)</span> infinite aspect ratio circular geometry results in larger transport (especially <span class="math notranslate nohighlight">\(\chi_e\)</span>) and improved agreement with TFTR, which is circular. By contrast, we see little change in the agreement for DIII-D and JET, where the stabilizing effect of elongation compensates for the increase in <span class="math notranslate nohighlight">\(\chi\)</span> due to finite aspect ratio.</p>
 <table class="docutils align-default" id="id9">
-<caption><span class="caption-text"><strong>References: TGLF saturation models</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<caption><span class="caption-number">Table 28 </span><span class="caption-text"><strong>References: TGLF saturation models</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -133,24 +137,24 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>SAT0</p></td>
-<td><p><span id="id1">[<a class="reference internal" href="zreferences.html#id93" title="J. E. Kinsey, G. M. Staebler, and R. E. Waltz. The first transport code simulations using the trapped gyro-Landau-fluid model. Phys. Plasmas, 15(5):055908, 2008. doi:10.1063/1.2889008.">KSW08</a>, <a class="reference internal" href="zreferences.html#id107" title="G. M. Staebler, J. E. Kinsey, and R. E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14(5):055909, 2007. doi:10.1063/1.2436852.">SKW07</a>]</span></p></td>
+<td><p><span id="id1">[<a class="reference internal" href="zreferences.html#id600" title="J.E. Kinsey, G.M. Staebler, and R.E. Waltz. The first transport code simulations using the trapped gyro-landau-fluid model. Phys. Plasmas, 15:055908, 2008.">KSW08</a>, <a class="reference internal" href="zreferences.html#id1020" title="G.M. Staebler, J.E. Kinsey, and R.E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14:055909, 2007.">SKW07</a>]</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>Spectral Shift</p></td>
-<td><p><span id="id2">[<a class="reference internal" href="zreferences.html#id112" title="G. M. Staebler, R. E. Waltz, J. Candy, and J. E. Kinsey. New paradigm for suppression of gyrokinetic turbulence by velocity shear. Phys. Rev. Lett., 110:055003, 2013. doi:10.1103/PhysRevLett.110.055003.">SWCK13</a>, <a class="reference internal" href="zreferences.html#id113" title="G.M. Staebler, J. Candy, R.E. Waltz, J.E. Kinsey, and W.M. Solomon. A new paradigm for ExB velocity shear suppression of gyro-kinetic turbulence and the momentum pinch. Nuclear Fusion, 53(11):113017, 2013. doi:10.1088/0029-5515/53/11/113017.">SCW+13</a>]</span></p></td>
+<td><p><span id="id2">[<a class="reference internal" href="zreferences.html#id1024" title="G. M. Staebler, R. E. Waltz, J. Candy, and J. E. Kinsey. New paradigm for suppression of gyrokinetic turbulence by velocity shear. Phys. Rev. Lett., 110:055003, 2013. doi:10.1103/PhysRevLett.110.055003.">SWCK13</a>, <a class="reference internal" href="zreferences.html#id1025" title="G.M. Staebler, J. Candy, R.E. Waltz, J.E. Kinsey, and W.M. Solomon. A new paradigm for ExB velocity shear suppression of gyro-kinetic turbulence and the momentum pinch. Nucl. Fusion, 53:113017, 2013. doi:10.1088/0029-5515/53/11/113017.">SCW+13</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p>SAT1</p></td>
-<td><p><span id="id3">[<a class="reference internal" href="zreferences.html#id115" title="G. M. Staebler, J. Candy, N. T. Howard, and C. Holland. The role of zonal flows in the saturation of multi-scale gyrokinetic turbulence. Phys. Plasmas, 23(6):062518, 2016. doi:10.1063/1.4954905.">SCHH16</a>]</span></p></td>
+<td><p><span id="id3">[<a class="reference internal" href="zreferences.html#id1026" title="G. M. Staebler, J. Candy, N. T. Howard, and C. Holland. The role of zonal flows in the saturation of multi-scale gyrokinetic turbulence. Phys. Plasmas, 23:062518, 2016. doi:10.1063/1.4954905.">SCHH16</a>]</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>SAT2</p></td>
-<td><p><span id="id4">[<a class="reference internal" href="zreferences.html#id114" title="G M Staebler, J Candy, E A Belli, J E Kinsey, N Bonanomi, and B Patel. Geometry dependence of the fluctuation intensity in gyrokinetic turbulence. Plasma Physics and Controlled Fusion, 63(1):015013, 2020. doi:10.1088/1361-6587/abc861.">SCB+20</a>, <a class="reference internal" href="zreferences.html#id116" title="G.M. Staebler, E. A. Belli, J. Candy, J.E. Kinsey, H. Dudding, and B. Patel. Verification of a quasi-linear model for gyrokinetic turbulent transport. Nuclear Fusion, 61(11):116007, 2021. doi:10.1088/1741-4326/ac243a.">SBC+21</a>]</span></p></td>
+<td><p><span id="id4">[<a class="reference internal" href="zreferences.html#id1027" title="G M Staebler, J Candy, E A Belli, J E Kinsey, N Bonanomi, and B Patel. Geometry dependence of the fluctuation intensity in gyrokinetic turbulence. Plasma Phys. Control. Fusion, 63:015013, 2020. doi:10.1088/1361-6587/abc861.">SCB+20</a>, <a class="reference internal" href="zreferences.html#id1028" title="G.M. Staebler, E. A. Belli, J. Candy, J.E. Kinsey, H. Dudding, and B. Patel. Verification of a quasi-linear model for gyrokinetic turbulent transport. Nuclear Fusion, 61:116007, 2021. doi:10.1088/1741-4326/ac243a.">SBC+21</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p>SAT3</p></td>
-<td><p><span id="id5">[<a class="reference internal" href="zreferences.html#id59" title="H.G. Dudding, F.J. Casson, D. Dickinson, B.S. Patel, C.M. Roach, E.A. Belli, and G.M. Staebler. A new quasilinear saturation rule for tokamak turbulence with application to the isotope scaling of transport. Nuclear Fusion, 62(9):096005, 2022. doi:10.1088/1741-4326/ac7a4d.">DCD+22</a>, <a class="reference internal" href="zreferences.html#id60" title="Harry George Dudding. A new quasilinear saturation rule for tokamak turbulence. PhD thesis, University of York, October 2022. URL: https://etheses.whiterose.ac.uk/32664/.">Dud22</a>]</span></p></td>
+<td><p><span id="id5">[<a class="reference internal" href="zreferences.html#id324" title="H.G. Dudding, F.J. Casson, D. Dickinson, B.S. Patel, C.M. Roach, E.A. Belli, and G.M. Staebler. A new quasilinear saturation rule for tokamak turbulence with application to the isotope scaling of transport. Nuclear Fusion, 62(9):096005, 2022. doi:10.1088/1741-4326/ac7a4d.">DCD+22</a>, <a class="reference internal" href="zreferences.html#id1334" title="Harry George Dudding. A new quasilinear saturation rule for tokamak turbulence. PhD thesis, University of York, October 2022. URL: https://etheses.whiterose.ac.uk/32664/.">Dud22</a>]</span></p></td>
 </tr>
 </tbody>
 </table>
 <table class="docutils align-default" id="id10">
-<caption><span class="caption-text"><strong>References: TGLF validation against experimental data</strong></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
+<caption><span class="caption-number">Table 29 </span><span class="caption-text"><strong>References: TGLF validation against experimental data</strong></span><a class="headerlink" href="#id10" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 50.0%" />
 <col style="width: 50.0%" />
@@ -162,13 +166,13 @@
 </thead>
 <tbody>
 <tr class="row-even"><td><p>DIII-D</p></td>
-<td><p><span id="id6">[<a class="reference internal" href="zreferences.html#id8" title="J. Abbate, E. Fable, B. Grierson, A. Pankin, G. Tardini, and E. Kolemen. Large-database cross-verification and validation of tokamak transport models using baselines for comparison. Phys. Plasmas, 31:042506, 2024. doi:10.1063/5.0190908.">AFG+24</a>, <a class="reference internal" href="zreferences.html#id65" title="B.A. Grierson, G.M. Staebler, W.M. Solomon, G.R. McKee, C. Holland, M. Austin, A. Marinoni, L. Schmitz, R.I. Pinsker, and DIII-D Team. Multi-scale transport in the DIII-D ITER baseline scenario with direct electron heating and projection to ITER. Phys. Plasmas, 25(2):022509, 2018.">GSS+18</a>, <a class="reference internal" href="zreferences.html#id125" title="K.E. Thome, X.D. Du, B.A. Grierson, G.J. Kramer, C.C. Petty, C. Holland, M. Knolker, G.R. McKee, J. McClenaghan, D.C. Pace, T.L. Rhodes, S.P. Smith, C. Sung, F. Turco, M.A. Van Zeeland, L. Zeng, and Y.B. Zhu. Response of thermal and fast-ion transport to beam ion population, rotation and Te/Ti in the DIII-D steady state hybrid scenario. Nucl. Fusion, 61:036036, 2021.">TDG+21</a>]</span></p></td>
+<td><p><span id="id6">[<a class="reference internal" href="zreferences.html#id7" title="J. Abbate, E. Fable, B. Grierson, A. Pankin, G. Tardini, and E. Kolemen. Large-database cross-verification and validation of tokamak transport models using baselines for comparison. Phys. Plasmas, 31:042506, 2024. doi:10.1063/5.0190908.">AFG+24</a>, <a class="reference internal" href="zreferences.html#id423" title="B.A. Grierson, G.M. Staebler, W.M. Solomon, G.R. McKee, C. Holland, M. Austin, A. Marinoni, L. Schmitz, R.I. Pinsker, and DIII-D Team. Multi-scale transport in the DIII-D ITER baseline scenario with direct electron heating and projection to ITER. Phys. Plasmas, 25(2):022509, 2018.">GSS+18</a>, <a class="reference internal" href="zreferences.html#id1062" title="K.E. Thome, X.D. Du, B.A. Grierson, G.J. Kramer, C.C. Petty, C. Holland, M. Knolker, G.R. McKee, J. McClenaghan, D.C. Pace, T.L. Rhodes, S.P. Smith, C. Sung, F. Turco, M.A. Van Zeeland, L. Zeng, and Y.B. Zhu. Response of thermal and fast-ion transport to beam ion population, rotation and Te/Ti in the DIII-D steady state hybrid scenario. Nucl. Fusion, 61:036036, 2021.">TDG+21</a>]</span></p></td>
 </tr>
 <tr class="row-odd"><td><p>NSTX</p></td>
-<td><p><span id="id7">[<a class="reference internal" href="zreferences.html#id88" title="S.M. Kaye and others. NSTX/NSTX-U theory, modeling and analysis results. Nucl. Fusion, 59:112007, 2019.">K+19</a>]</span></p></td>
+<td><p><span id="id7">[<a class="reference internal" href="zreferences.html#id581" title="S.M. Kaye and others. NSTX/NSTX-U theory, modeling and analysis results. Nucl. Fusion, 59:112007, 2019.">K+19</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p>ASDEX</p></td>
-<td><p><span id="id8">[<a class="reference internal" href="zreferences.html#id9" title="C. Angioni, T. Gamot, G. Tardini, E. Fable, T. Luda, N. Bonanomi, C.K. Kiefer, G.M. Staebler, the ASDEX Upgrade Team, and the EUROfusion MST1 Team. Confinement properties of L-mode plasmas in ASDEX Upgrade and full-radius predictions of the TGLF transport model. Nucl. Fusion, 62:066015, 2022. doi:10.1088/1741-4326/ac592b.">AGT+22</a>]</span></p></td>
+<td><p><span id="id8">[<a class="reference internal" href="zreferences.html#id34" title="C. Angioni, T. Gamot, G. Tardini, E. Fable, T. Luda, N. Bonanomi, C.K. Kiefer, G.M. Staebler, the ASDEX Upgrade Team, and the EUROfusion MST1 Team. Confinement properties of L-mode plasmas in ASDEX Upgrade and full-radius predictions of the TGLF transport model. Nucl. Fusion, 62:066015, 2022. doi:10.1088/1741-4326/ac592b.">AGT+22</a>]</span></p></td>
 </tr>
 </tbody>
 </table>
@@ -186,7 +190,9 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2025.</p>
+    <p>&#169; Copyright 2000-2025.
+      <span class="lastupdated">Last updated on Apr 24, 2025.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

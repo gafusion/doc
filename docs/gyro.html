@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GYRO &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+  <title>GYRO &mdash; GACODE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/contentui.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -48,7 +46,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
@@ -77,10 +75,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Flux-Surface Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Computational Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
 </ul>
 
         </div>
@@ -109,7 +111,8 @@
              
   <section id="gyro">
 <h1>GYRO<a class="headerlink" href="#gyro" title="Link to this heading"></a></h1>
-<a class="reference internal image-reference" href="_images/supertorus-hi-2.jpg"><img alt="Classic GYRO torus" src="_images/supertorus-hi-2.jpg" style="width: 95%;" /></a>
+<a class="reference internal image-reference" href="_images/supertorus-hi-2.jpg"><img alt="Classic GYRO torus" src="_images/supertorus-hi-2.jpg" style="width: 95%;" />
+</a>
 <section id="quick-links">
 <h2>Quick links<a class="headerlink" href="#quick-links" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
@@ -124,8 +127,8 @@
 </section>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>GYRO <span id="id1">[<a class="reference internal" href="zreferences.html#id43" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>, <a class="reference internal" href="zreferences.html#id30" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:doi.org/10.1016/S0021-9991(03)00079-2.">CW03a</a>, <a class="reference internal" href="zreferences.html#id31" title="J. Candy and R.E. Waltz. Anomalous transport in the DIII-D tokamak matched by supercomputer simulation. Phys. Rev. Lett., 91:045001-1, 2003. doi:doi.org/10.1103/PhysRevLett.91.045001.">CW03b</a>, <a class="reference internal" href="zreferences.html#id33" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:doi.org/10.1063/1.1695358.">CWD04</a>]</span> is a legacy multi-species global electromagnetic gyrokinetic solver.  Thousands of nonlinear simulations with GYRO have informed the fusion community’s understanding of core plasma turbulence <span id="id2">[<a class="reference internal" href="zreferences.html#id61" title="C. Estrada-Mila, J. Candy, and R.E. Waltz. Gyrokinetic simulations of ion and impurity transport. Phys. Plasmas, 12:022305, 2005.">EMCW05</a>, <a class="reference internal" href="zreferences.html#id86" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id90" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id91" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id92" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span>
-and provided a <em>transport database</em> for the calibration of reduced transport models such as TGLF <span id="id3">[<a class="reference internal" href="zreferences.html#id107" title="G. M. Staebler, J. E. Kinsey, and R. E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14(5):055909, 2007. doi:10.1063/1.2436852.">SKW07</a>]</span>.  GYRO was the first – and for many years the only – global electromagnetic solver.  It pioneered the development of numerical algorithms for the GK equations with kinetic electrons.  GYRO is formulated in real space and like all global solvers requires <em>ad hoc</em> absorbing-layer boundary conditions when simulating cases with profile variation. This approach is suitable for core turbulence simulations, which cover a large radial region and are dominated by low wavenumbers.  More recently, as the understanding of core transport has become increasingly complete, the cutting edge of research moved radially toward the pedestal region, where plasmas are characterized by larger collisionality and steeper pressure gradients that greatly modify the turbulent phenomena at play. This motivated the development, from scratch, of the <a class="reference internal" href="cgyro.html"><span class="doc">CGYRO</span></a> code <span id="id4">[<a class="reference internal" href="zreferences.html#id22" title="E.A. Belli and J. Candy. Implications of advanced collision operators for gyrokinetic simulation. Plasma Phys. Control. Fusion, 59:045005, 2017. doi:doi.org/10.1088/1361-6587/aa5c94.">BC17</a>, <a class="reference internal" href="zreferences.html#id23" title="E.A. Belli and J. Candy. Impact of centrifugal drifts on ion turbulent transport. Phys. Plasmas, 25:032301, 2018. doi:doi.org/10.1063/1.5020298.">BC18</a>, <a class="reference internal" href="zreferences.html#id49" title="J. Candy and E.A. Belli. Spectral treatment of gyrokinetic shear flow. J. Comput. Phys., 356:448, 2018. doi:doi.org/10.1016/j.jcp.2017.12.020.">CB18</a>, <a class="reference internal" href="zreferences.html#id48" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:doi.org/10.1016/j.jcp.2016.07.039.">CBB16</a>]</span> to complement GYRO.</p>
+<p>GYRO <span id="id1">[<a class="reference internal" href="zreferences.html#id189" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>, <a class="reference internal" href="zreferences.html#id178" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:doi.org/10.1016/S0021-9991(03)00079-2.">CW03a</a>, <a class="reference internal" href="zreferences.html#id179" title="J. Candy and R.E. Waltz. Anomalous transport in the DIII-D tokamak matched by supercomputer simulation. Phys. Rev. Lett., 91:045001-1, 2003. doi:doi.org/10.1103/PhysRevLett.91.045001.">CW03b</a>, <a class="reference internal" href="zreferences.html#id180" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:doi.org/10.1063/1.1695358.">CWD04</a>]</span> is a legacy multi-species global electromagnetic gyrokinetic solver.  Thousands of nonlinear simulations with GYRO have informed the fusion community’s understanding of core plasma turbulence <span id="id2">[<a class="reference internal" href="zreferences.html#id341" title="C. Estrada-Mila, J. Candy, and R.E. Waltz. Gyrokinetic simulations of ion and impurity transport. Phys. Plasmas, 12:022305, 2005.">EMCW05</a>, <a class="reference internal" href="zreferences.html#id515" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:doi.org/10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id597" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id598" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id599" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span>
+and provided a <em>transport database</em> for the calibration of reduced transport models such as TGLF <span id="id3">[<a class="reference internal" href="zreferences.html#id1020" title="G.M. Staebler, J.E. Kinsey, and R.E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14:055909, 2007.">SKW07</a>]</span>.  GYRO was the first – and for many years the only – global electromagnetic solver.  It pioneered the development of numerical algorithms for the GK equations with kinetic electrons.  GYRO is formulated in real space and like all global solvers requires <em>ad hoc</em> absorbing-layer boundary conditions when simulating cases with profile variation. This approach is suitable for core turbulence simulations, which cover a large radial region and are dominated by low wavenumbers.  More recently, as the understanding of core transport has become increasingly complete, the cutting edge of research moved radially toward the pedestal region, where plasmas are characterized by larger collisionality and steeper pressure gradients that greatly modify the turbulent phenomena at play. This motivated the development, from scratch, of the <a class="reference internal" href="cgyro.html"><span class="doc">CGYRO</span></a> code <span id="id4">[<a class="reference internal" href="zreferences.html#id87" title="E.A. Belli and J. Candy. Implications of advanced collision operators for gyrokinetic simulation. Plasma Phys. Control. Fusion, 59:045005, 2017. doi:doi.org/10.1088/1361-6587/aa5c94.">BC17</a>, <a class="reference internal" href="zreferences.html#id88" title="E.A. Belli and J. Candy. Impact of centrifugal drifts on ion turbulent transport. Phys. Plasmas, 25:032301, 2018. doi:doi.org/10.1063/1.5020298.">BC18</a>, <a class="reference internal" href="zreferences.html#id194" title="J. Candy and E.A. Belli. Spectral treatment of gyrokinetic shear flow. J. Comput. Phys., 356:448, 2018. doi:doi.org/10.1016/j.jcp.2017.12.020.">CB18</a>, <a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:doi.org/10.1016/j.jcp.2016.07.039.">CBB16</a>]</span> to complement GYRO.</p>
 <p>For the interested reader we offer a <a class="reference internal" href="gyro/gyro_history.html"><span class="doc">brief history of gyrokinetic simulation</span></a>, including some idiosyncratic and possibly forgotten aspects of gyrokinetic research in the 2000s.  We also reproduce a <a class="reference internal" href="gyro/gyro_vv.html"><span class="doc">summary of GYRO verification and validation results</span></a> from the same era.</p>
 </section>
 </section>
@@ -141,7 +144,9 @@ and provided a <em>transport database</em> for the calibration of reduced transp
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2025.</p>
+    <p>&#169; Copyright 2000-2025.
+      <span class="lastupdated">Last updated on Apr 24, 2025.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

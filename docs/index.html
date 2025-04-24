@@ -1,27 +1,25 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The General Atomics GACODE Suite &mdash; GACODE</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
+  <title>The General Atomics GACODE Suite &mdash; GACODE 1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=9a2dae69"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="_static/contentui.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/contentui.js?v=9ee86694"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -47,7 +45,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Software</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a></li>
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a></li>
@@ -65,10 +63,14 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Physics</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a></li>
+<li class="toctree-l1"><a class="reference internal" href="geometry.html">Flux-Surface Geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rotation.html">Rotation Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Misc</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="performance.html">Computational Performance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
 </ul>
 
         </div>
@@ -98,402 +100,18 @@
   <section id="the-general-atomics-gacode-suite">
 <h1>The General Atomics GACODE Suite<a class="headerlink" href="#the-general-atomics-gacode-suite" title="Link to this heading"></a></h1>
 <figure class="align-center">
-<a class="reference internal image-reference" href="_images/marshall_code.png"><img alt="Marshall Rosenbluth (early 1980s)" src="_images/marshall_code.png" style="width: 90%;" /></a>
+<a class="reference internal image-reference" href="_images/marshall_code.png"><img alt="Marshall Rosenbluth (early 1980s)" src="_images/marshall_code.png" style="width: 90%;" />
+</a>
 </figure>
-<p>GACODE refers to a collection of serial and HPC software developed by the Theory Group
-at <a class="reference external" href="http://www.ga.com/magnetic-fusion">General Atomics</a>, and distributed through
-the <a class="reference external" href="https://github.com/gafusion/gacode/">GACODE source code repository</a> at GitHub.</p>
-<section id="running-gacode">
-<h2>Running GACODE<a class="headerlink" href="#running-gacode" title="Link to this heading"></a></h2>
-<p>There are numerous <a class="reference internal" href="setup.html"><span class="doc">public installations</span></a> of GACODE (via <a class="reference external" href="https://scidac.github.io/atom">AToM</a> or local maintainers).  You can also <a class="reference internal" href="build.html"><span class="doc">install and build</span></a> the GACODE suite from sources to run on your desktop or laptop.</p>
-</section>
-<section id="geometry">
-<h2>Geometry<a class="headerlink" href="#geometry" title="Link to this heading"></a></h2>
-<p>A description of the unified method used to describe <a class="reference internal" href="geometry.html"><span class="doc">flux-surface geometry</span></a>.</p>
-</section>
-<section id="plasma-rotation">
-<h2>Plasma Rotation<a class="headerlink" href="#plasma-rotation" title="Link to this heading"></a></h2>
-<p>Some notes about the Hinton-Sugama formulation of plasma rotation <a class="reference internal" href="rotation.html"><span class="doc">plasma rotation</span></a>.</p>
-</section>
-<section id="equilibrium-and-profiles">
-<h2>Equilibrium and Profiles<a class="headerlink" href="#equilibrium-and-profiles" title="Link to this heading"></a></h2>
-<p>GACODE software works with the <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a> format.</p>
+<p>GACODE refers to a collection of serial and HPC software developed by the Theory Group at <a class="reference external" href="http://www.ga.com/magnetic-fusion">General Atomics</a>, and distributed through the <a class="reference external" href="https://github.com/gafusion/gacode/">GACODE source code repository</a> at GitHub. There are numerous <a class="reference internal" href="setup.html"><span class="doc">public installations</span></a> of GACODE (via <a class="reference external" href="https://scidac.github.io/atom">AToM</a> or local maintainers).  You can also <a class="reference internal" href="build.html"><span class="doc">install and build</span></a> the GACODE suite from sources to run on your desktop or laptop.</p>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Software</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="README.html">Using GACODE</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="README.html#source-code-and-documentation">Source code and documentation</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="setup.html">Prebuilt Environments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#nersc-perlmutter-cpu">NERSC PERLMUTTER (CPU)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#nersc-perlmutter-gpu">NERSC PERLMUTTER (GPU)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setup.html#ga-omega">GA OMEGA</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="build.html">Build on your laptop</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="build.html#first-step">First step</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#source-code">Source code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#concept-of-platform-files">Concept of platform files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#environment-variables">Environment variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#openblas">OpenBLAS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build.html#building">Building</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="zreferences.html">References</a></li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Codes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="neo.html#quick-links">Quick links</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="neo/neo_table.html">Parameters for input.neo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_table.html#extra-subroutine-interface-parameters">Extra subroutine interface parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="neo/neo_list.html">Alphabetical list for input.neo</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#aniso-model">ANISO_MODEL_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#beta-star">BETA_STAR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#btccw">BTCCW</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#collision-model">COLLISION_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#delta">DELTA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dens">DENS_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlnndr">DLNNDR_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlnndre-ade">DLNNDRE_ADE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlntdr">DLNTDR_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlntdr-para">DLNTDR_PARA_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlntdr-perp">DLNTDR_PERP_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dlntdre-ade">DLNTDRE_ADE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#dphi0dr">DPHI0DR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#epar0">EPAR0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#epar0-spitzer">EPAR0_SPITZER</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#equilibrium-model">EQUILIBRIUM_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#geo-ny">GEO_NY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#geo-yin">GEO_YIN</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#ipccw">IPCCW</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#kappa">KAPPA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#mass">MASS_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#n-energy">N_ENERGY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#n-radial">N_RADIAL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#n-species">N_SPECIES</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#n-theta">N_THETA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#n-xi">N_XI</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#ne-ade">NE_ADE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#nu-1">NU_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#omega-rot">OMEGA_ROT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#omega-rot-deriv">OMEGA_ROT_DERIV</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#profile-dlnndr-scale">PROFILE_DLNNDR_*_SCALE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#profile-dlntdr-scale">PROFILE_DLNTDR_*_SCALE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#profile-equilibrium-model">PROFILE_EQUILIBRIUM_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#profile-erad0-model">PROFILE_ERAD0_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#profile-model">PROFILE_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#q">Q</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#rho-star">RHO_STAR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#rmaj-over-a">RMAJ_OVER_A</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#rmin-over-a">RMIN_OVER_A</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#rmin-over-a-2">RMIN_OVER_A_2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#rotation-model">ROTATION_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#s-delta">S_DELTA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#s-kappa">S_KAPPA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#s-zeta">S_ZETA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#s-zmag">S_ZMAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shear">SHEAR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shift">SHIFT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-cos0">SHAPE_COS0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-s-cos0">SHAPE_S_COS0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-cos1">SHAPE_COS1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-s-cos1">SHAPE_S_COS1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-cos2">SHAPE_COS2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-s-cos2">SHAPE_S_COS2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-cos3">SHAPE_COS3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-s-cos3">SHAPE_S_COS3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-sin3">SHAPE_SIN3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#shape-s-sin3">SHAPE_S_SIN3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#silent-flag">SILENT_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#sim-model">SIM_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#spitzer-model">SPITZER_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#te-ade">TE_ADE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#temp">TEMP_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#temp-para">TEMP_PARA_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#temp-perp">TEMP_PERP_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#threed-model">THREED_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#threed-exb-model">THREED_EXB_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#threed-exb-dphi0dr">THREED_EXB_DPHI0DR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#z">Z_*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#zeta">ZETA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/neo_list.html#zmag-over-a">ZMAG_OVER_A</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="neo/outputs.html">NEO Output Files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="neo/outputs.html#standard-output-files">Standard output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/outputs.html#experimental-profiles-output-files">Experimental profiles output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/outputs.html#rotation-output-files">Rotation output files</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/outputs.html#subroutine-output">Subroutine output</a></li>
-<li class="toctree-l4"><a class="reference internal" href="neo/outputs.html#detailed-description-of-neo-output-files">Detailed description of NEO output files</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="neo.html#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neo.html#data-output">Data output</a></li>
-<li class="toctree-l2"><a class="reference internal" href="neo.html#normalization">Normalization</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tgyro.html#quick-links">Quick links</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/tgyro_table.html">input.tgyro Tabular List</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/tgyro_list.html">input.tgyro Alphabetical List</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-betae-scale">LOC_BETAE_SCALE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-den-method">TGYRO_DEN_METHOD*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-dx">LOC_DX</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-dx-max">LOC_DX_MAX</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-er-feedback-flag">LOC_ER_FEEDBACK_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-evolve-grad-only-flag">LOC_EVOLVE_GRAD_ONLY_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-he-feedback-flag">LOC_HE_FEEDBACK_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-iteration-method">TGYRO_ITERATION_METHOD</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-lock-profile-flag">LOC_LOCK_PROFILE_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-mode">TGYRO_MODE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-neo-method">TGYRO_NEO_METHOD</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-relax-iterations">TGYRO_RELAX_ITERATIONS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-relax">LOC_RELAX</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-residual-method">LOC_RESIDUAL_METHOD</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-restart-flag">LOC_RESTART_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-scenario">LOC_SCENARIO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-therm-flag">TGYRO_THERM_FLAG*</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-te-feedback-flag">LOC_TE_FEEDBACK_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#loc-ti-feedback-flag">LOC_TI_FEEDBACK_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/tgyro_list.html#tgyro-write-profiles-flag">TGYRO_WRITE_PROFILES_FLAG</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/equations.html">Equations solved in TGYRO</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/equations.html#density-transport">Density Transport</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/equations.html#energy-transport">Energy Transport</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/equations.html#momentum-transport">Momentum Transport</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/equations.html#connection-of-fluxes-to-powers">Connection of Fluxes to Powers</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/solver.html">TGYRO solver algorithm</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/solver.html#formulation">Formulation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/solver.html#some-comments-regarding-units">Some comments regarding units</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/solver.html#solution-strategy">Solution strategy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/solver.html#formulation-on-a-discrete-grid">Formulation on a discrete grid</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tgyro/solver.html#computation-of-the-jacobian">Computation of the Jacobian</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/scenarios.html">Scenarios and connection to energy sources</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/output.html">OUTPUT</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tgyro/plot.html">PLOT</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tgyro.html#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tgyro.html#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tgyro.html#data-output-python-interface-and-plotting">Data output, python interface, and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tgyro.html#transport-equations-and-solution">Transport equations and solution</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#brief-description">Brief description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#simulation-images">Simulation images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#cgyro-source-code">CGYRO Source Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#past-and-future">Past and Future</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#data-output-and-plotting">Data output and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#normalization">Normalization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#running-cases">Running Cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cgyro.html#frequently-asked-questions">Frequently Asked Questions</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gyro.html#quick-links">Quick links</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_table.html">Tabular list for input.gyro</a></li>
-<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_list.html">Alphabetical list for input.gyro</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_list.html#amp-phi-n">AMP_PHI_N</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_vv.html">GYRO verification and validation (pre 2010)</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_vv.html#verification-studies">Verification Studies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_vv.html#gyro-validation-abstracts">GYRO Validation Abstracts</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_history.html">Gyrokinetic Simulation in the 2000s</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_history.html#prehistory">Prehistory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_history.html#design-history">Design History</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_history.html#yearly-publication-synopsis">Yearly Publication Synopsis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_history.html#a-computational-science-and-user-perspective">A Computational Science and User Perspective</a></li>
-<li class="toctree-l4"><a class="reference internal" href="gyro/gyro_history.html#urban-legends">Urban Legends</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="gyro/gyro_gallery.html">Gallery of classic GYRO images (circa 2003)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="gyro.html#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tglf.html#quick-links">Quick links</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tglf/tglf_table.html">Table of inputs and outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tglf/tglf_list.html">Alphabetical list for input.tglf</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#adiabatic-elec">ADIABATIC_ELEC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-e">ALPHA_E</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-zf">ALPHA_ZF</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-mach">ALPHA_MACH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-p">ALPHA_P</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-quench">ALPHA_QUENCH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#alpha-sa">ALPHA_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#as-1">AS_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#betae">BETAE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#b-model-sa">B_MODEL_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#debye">DEBYE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#debye-factor">DEBYE_FACTOR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#delta-loc">DELTA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#drmajdx-loc">DRMAJDX_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#drmindx-loc">DRMINDX_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#dzmajdx-loc">DZMAJDX_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#etg-factor">ETG_FACTOR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#filter">FILTER</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#find-width">FIND_WIDTH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#ft-model-sa">FT_MODEL_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#gchat">GCHAT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#geometry-flag">GEOMETRY_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#ghat">GHAT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#gradb-factor">GRADB_FACTOR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#ibranch">IBRANCH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#iflux">IFLUX</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#kappa-loc">KAPPA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#kx0-loc">KX0_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#ky">KY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#kygrid-model">KYGRID_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#linsker-factor">LINSKER_FACTOR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#mass-1">MASS_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nbasis-max">NBASIS_MAX</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nbasis-min">NBASIS_MIN</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#new-eikonal">NEW_EIKONAL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nky">NKY</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nmodes">NMODES</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#ns">NS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nwidth">NWIDTH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#nxgrid">NXGRID</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#park">PARK</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#p-prime-loc">P_PRIME_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#q-loc">Q_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#q-prime-loc">Q_PRIME_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#q-sa">Q_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rlns-1">RLNS_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rlts-1">RLTS_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rmaj-loc">RMAJ_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rmaj-sa">RMAJ_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rmin-loc">RMIN_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#rmin-sa">RMIN_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#sat-rule">SAT_RULE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#shat-sa">SHAT_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#sign-bt">SIGN_BT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#sign-it">SIGN_IT</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#s-delta-loc">S_DELTA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#s-kappa-loc">S_KAPPA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#s-zeta-loc">S_ZETA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#taus-1">TAUS_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#theta0-sa">THETA0_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#theta-trapped">THETA_TRAPPED</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#units">UNITS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-bisection">USE_BISECTION</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-bpar">USE_BPAR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-bper">USE_BPER</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-inboard-detrapped">USE_INBOARD_DETRAPPED</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-mhd-rule">USE_MHD_RULE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#use-transport-model">USE_TRANSPORT_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vexb">VEXB</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vexb-shear">VEXB_SHEAR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vpar-1">VPAR_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vpar-model">VPAR_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vpar-shear-1">VPAR_SHEAR_1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#vpar-shear-model">VPAR_SHEAR_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#wd-zero">WD_ZERO</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#width">WIDTH</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#width-min">WIDTH_MIN</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#write-wavefunction-flag">WRITE_WAVEFUNCTION_FLAG</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#xnue">XNUE</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#xnu-factor">XNU_FACTOR</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#xnu-model">XNU_MODEL</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#xwell-sa">XWELL_SA</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#zeff">ZEFF</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#zeta-loc">ZETA_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#zmaj-loc">ZMAJ_LOC</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_list.html#zs-1">ZS_1</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="tglf/tglf_output_list.html">Alphabetical list for out.tglf files</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#density-spectrum">density_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#eigenvalue-spectrum">eigenvalue_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#field-spectrum">field_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#intensity-spectrum">intensity_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#nsts-crossphase-spectrum">nsts_crossphase_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#ql-flux-spectrum">QL_flux_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#sat-geo-spectrum">sat_geo_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#scalar-saturation-parameters">scalar_saturation_parameters</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#spectral-shift">spectral_shift</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#sum-flux-spectrum">sum_flux_spectrum</a></li>
-<li class="toctree-l4"><a class="reference internal" href="tglf/tglf_output_list.html#temperature-spectrum">temperature_spectrum</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tglf.html#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="prgen.html#history-and-overview">History and Overview</a></li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Physics</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">FLUX-SURFACE GEOMETRY</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#clebsch-coordinates">Clebsch coordinates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#bounding-box-method">Bounding-box method</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#effective-field">Effective field</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#equilibria">Equilibria</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#table-of-geometry-parameters">Table of geometry parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#magnetic-field-orientation">Magnetic field orientation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry.html#toroidal-and-poloidal-flux">Toroidal and poloidal flux</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="rotation.html">PLASMA ROTATION THEORY</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#physical-considerations">Physical considerations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#sonic-rotation-formalism">Sonic rotation formalism</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#the-rotation-profile">The rotation profile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#input-parameters">Input parameters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#theoretical-basis-for-sonic-rotation">Theoretical basis for sonic rotation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#connection-to-experimental-data">Connection to experimental data</a></li>
-<li class="toctree-l2"><a class="reference internal" href="rotation.html#consistency-with-force-balance">Consistency with force balance</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="input_gacode.html">input.gacode</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="input_gacode.html#overview">Overview</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="misc.html">Miscellaneous</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="shortfall.html">DIII-D L-mode shortfall</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#overview">Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#key-publications-and-presentations">Key publications and presentations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#experimental-profiles">EXPERIMENTAL profiles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#gyro-results">GYRO results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#gkw-results-added-25-jan-2013">GKW results (added 25-jan-2013)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#cross-code-benchmarking-results">Cross-code benchmarking results</a></li>
-<li class="toctree-l3"><a class="reference internal" href="shortfall.html#acknowledgments">Acknowledgments</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="workshop.html#agenda">AGENDA</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
-</section>
+<div class="toctree-wrapper compound">
+</div>
 </section>
 
 
@@ -506,7 +124,9 @@ the <a class="reference external" href="https://github.com/gafusion/gacode/">GAC
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2010-2025.</p>
+    <p>&#169; Copyright 2000-2025.
+      <span class="lastupdated">Last updated on Apr 24, 2025.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,7 +1,5 @@
-.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
-
-PLASMA ROTATION THEORY
-======================
+Rotation Theory
+===============
 
 Physical considerations
 -----------------------

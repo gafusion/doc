@@ -1,5 +1,9 @@
+numpy
+matplotlib
 sphinx
 sphinxcontrib.bibtex
 sphinxcontrib.contentui
-fluiddyn
 sphinx_rtd_theme
+sphinx_subfigure
+sphinx_toolbox
+fluiddyn

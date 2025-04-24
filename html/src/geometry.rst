@@ -1,8 +1,4 @@
-.. |exb| mathmacro:: \mathbf{E}\times\mathbf{B}
-.. |B| mathmacro:: \mathbf{B}
-.. |jp|	mathmacro:: {\mathcal J}_\psi
-	     
-FLUX-SURFACE GEOMETRY
+Flux-Surface Geometry
 =====================
 
 Clebsch coordinates
@@ -66,7 +62,7 @@ In the case of concentric (unshifted) circular flux surfaces, one will obtain th
 Bounding-box method
 -------------------
 
-In the MXH parameterization :cite:`arbon:2020`, we use the bounding-box method to define
+In the MXH parameterization :cite:`arbon:2021`, we use the bounding-box method to define
 
 * **minor radius** :math:`r`
 * **major radius** :math:`R_0`
@@ -115,7 +111,7 @@ where :math:`\nu(r,\theta) = -q(r) \theta`.
   
 **(2) Shaped Grad-Shafranov equilibrium**
 
-The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization :cite:`arbon:2020`:
+The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization :cite:`arbon:2021`:
 
 .. math::
 
@@ -134,7 +130,7 @@ where :math:`\nu(r,\theta)` is computed numerically.  The harmonic angle :math:`
 - NEO: :ref:`neo_equilibrium_model` = 2 or :ref:`neo_profile_equilibrium_model` = 1
 - For experimental profiles, shape parameters are auto-generated from profile data.   
 
-.. figure:: images/mxh.png
+.. figure:: images/geometry/mxh.png
 	:width: 90 %
 	:alt: Shape moments
 	:align: center
@@ -181,12 +177,12 @@ Magnetic field orientation
 
 GACODE uses a right-handed (positively-oriented), field-aligned coordinate system :math:`(r,\theta,\varphi)`, whereas DIII-D uses a (positively-oriented) cylindrical system :math:`(R,\phi,Z)`.  Looking down on the tokamak from above, the orientation of the GACODE toroidal angle is clockwise, whereas the DIII-D toroidal angle is counter-clockwise:
 
-.. figure:: images/Orient_gacode.png
+.. figure:: images/geometry/Orient_gacode.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center
 
-.. figure:: images/Orient_d3d.png
+.. figure:: images/geometry/Orient_d3d.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center		
@@ -200,7 +196,7 @@ In reality, quantities like the safety factor and poloidal flux have definite si
 
 The standard configuration in DIII-D is shown below.
 
-.. figure:: images/Orient_d3d_standard.png
+.. figure:: images/geometry/Orient_d3d_standard.png
 	:scale: 100%
 	:alt: flux surface
 	:align: center

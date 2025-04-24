@@ -14,7 +14,7 @@ To see what a sample |ip| looks like, at the command line type
 Overview
 --------
 
-The file |ip| contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new :doc:`MXH equilibrium parameters <geometry>` :cite:`arbon:2020`.  
+The file |ip| contains the entire dataset required for specification of experimental profiles. All such profiles are specified on an nexp-point grid.  The information included is sufficient to carry out simulations of strongly-shaped up-down asymmetric (i.e., arbitrary) equilibria using the new :doc:`MXH equilibrium parameters <geometry>` :cite:`arbon:2021`.  
 
 Profile ordering in |ip| is arbitrary and comment lines (starting with ``#`` in the first column) can be added for convenience.  These comment lines are ignored by the parser.  To generate |ip|, please use the ``profiles_gen`` command-line tool. 
 
