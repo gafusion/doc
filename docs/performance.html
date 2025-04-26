@@ -9,7 +9,7 @@
   <title>Computational Performance &mdash; GACODE 1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
-      <link rel="stylesheet" type="text/css" href="_static/contentui.css?v=4cf5b151" />
+      <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
       <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
@@ -19,7 +19,7 @@
       <script src="_static/documentation_options.js?v=f2a433a1"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script src="_static/contentui.js?v=9ee86694"></script>
+      <script src="_static/contentui.js"></script>
       <script>window.MathJax = {"tex": {"macros": {"qfilt": "{\\mathcal{Q}}", "exb": "{\\mathbf{E} \\hskip -1pt \\times \\hskip -1pt \\mathbf{B}}", "df": "{\\delta \\hskip -0.5pt f}", "vpar": "{{\\rm v}_\\parallel}", "vta": "{{\\rm v}_{ta}}", "bhat": "{\\textbf{b}}", "dv": "{d^{\\hskip 1pt 3} \\hskip -1pt {\\rm v}}", "jp": "{{\\cal J}_\\psi}", "B": "{\\mathbf{B}}", "bunit": "{B_\\mathrm{unit}}", "betae": "{\\beta_{e,{\\rm unit}}}", "dphi": "{\\delta \\hskip -1pt \\phi}", "dap": "{\\delta \\hskip -1pt A_\\parallel}", "dbp": "{\\delta \\hskip -1pt B_\\parallel}", "dphif": "{\\delta \\hskip -0.5pt \\widetilde{\\phi}}", "dapf": "{\\delta \\hskip -0.5pt \\widetilde{A}_\\parallel}", "dbpf": "{\\delta \\hskip -0.5pt \\widetilde{B}_\\parallel}", "na": "{N_\\alpha}", "nr": "{N_r}", "nx": "{N_\\xi}", "nux": "{N_u}", "nt": "{N_\\theta}", "ux": "{u}", "uxa": "{{\\ux}_a}", "uxb": "{{\\ux}_b}", "kpv": "{{\\bf k}_\\perp}", "md": "{m_\\mathrm{D}}", "Hf": "{\\widetilde{H}_a}", "Hk": "{H_{a,\\kpv}}", "Hkb": "{H_{b,\\kpv}}", "Hfb": "{\\widetilde{H}_b}", "pf": "{\\widetilde{\\Psi}_a}", "rhos": "{\\rho_s}", "hf": "{\\widetilde{h}_a}", "kperp": "{{\\mathbf k}_\\perp}", "qgb": "{Q_\\mathrm{GB}}", "kx": "{k_x^0}", "fwid": "{3.2in}", "nlc": "{\\texttt{nl03}\\xspace}", "rhof": "{\\rho_\\mathrm{f}}"}}}</script>
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -78,8 +78,16 @@
 <li class="toctree-l3"><a class="reference internal" href="#gyrokinetic-framework">Gyrokinetic framework</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#time-advance">Time advance</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#fft-based-evaluation-of-the-nonlinearity">FFT-based evaluation of the nonlinearity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#array-layouts-and-communication">Array layouts and communication</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#parallel-performance-and-scalability">Parallel Performance and Scalability</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#strong-scaling-performance">Strong-scaling performance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#kernel-based-performance-analysis">Kernel-based performance analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parallel-i-o-performance">Parallel I/O performance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#porting-and-optimizing-for-olcf-frontier">Porting and Optimizing for OLCF Frontier</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="workshop.html">CGYRO Workshop 2022</a></li>
@@ -109,7 +117,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="computational-performance">
+  
+<style>
+  .ss-layout-default-AB { grid-template-areas: 'A B'; }
+  .ss-layout-default-A { grid-template-areas: 'A'; }
+</style>
+<section id="computational-performance">
 <h1>Computational Performance<a class="headerlink" href="#computational-performance" title="Link to this heading"></a></h1>
 <p><strong>Updated April 2025</strong></p>
 <p>Recent information about the computational approach and scaling performance of CGYRO <span id="id1">[<a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:doi.org/10.1016/j.jcp.2016.07.039.">CBB16</a>, <a class="reference internal" href="zreferences.html#id195" title="J. Candy, I. Sfiligoi, E. Belli, K. Hallatschek, C. Holland, N. Howard, and E.D`Azevedo. Multiscale-optimized plasma turbulence simulation on petascale architechtures. Computers &amp; Fluids, 188:125, 2019. doi:doi.org/10.1016/j.compfluid.2019.04.016.">CSB+19</a>, <a class="reference internal" href="zreferences.html#id975" title="I. Sfiligoi, E. Belli, J. Candy, and R.D. Budiardja. Optimization and portability of a fusion OpenACC-based HPC code from NVIDIA to AMD GPUs. In PEARC '23: Practice and Experience in Advanced Research Computing, Association for Computing Machinery, pages 246-250, 2023.">SBCB23</a>, <a class="reference internal" href="zreferences.html#id974" title="I. Sfiligoi, E. Belli, J. Candy, and F. Wurthwein. Comparing single-node and multi-node performance of an important fusion HPC code benchmark. In PEARC '22: Practice and Experience in Advanced Research Computing, Association for Computing Machinery, Article No. 10, p.1-4, 2022.">SBCW22</a>]</span> is documented here.</p>
@@ -233,6 +246,99 @@ a single 2D real-to-complex <code class="docutils literal notranslate"><span cla
 </tbody>
 </table>
 </section>
+<section id="array-layouts-and-communication">
+<h3>Array layouts and communication<a class="headerlink" href="#array-layouts-and-communication" title="Link to this heading"></a></h3>
+<p>There are three computational array layouts.  Two are associated with the linear terms, and the third with the nonlinear kernel.  Internally, we define <em>lumped</em> variables for convenience; the configuration pair <span class="math notranslate nohighlight">\((\kx,\theta)\)</span> uses a single array with length <span class="math notranslate nohighlight">\(\mathtt{nc} = N_x \times N_\theta\)</span>, and the velocity triplet <span class="math notranslate nohighlight">\((\xi,{\rm v},a)\)</span> uses a single array with length <span class="math notranslate nohighlight">\(\mathtt{nv} = N_\xi \times N_{\rm v} \times N_a\)</span>.  In the binormal direction, <span class="math notranslate nohighlight">\(N_y\)</span> values of <span class="math notranslate nohighlight">\(k_y\)</span> are simulated, with the <span class="math notranslate nohighlight">\(h_a\)</span> for different values of <span class="math notranslate nohighlight">\(k_y\)</span> <em>independent</em> in the linear case.  First, there is a <strong>collisionless layout</strong> for the linear terms in <span class="math notranslate nohighlight">\(A(\Hf,\pf)\)</span> with <code class="docutils literal notranslate"><span class="pre">nc</span></code> configuration space gridpoints on an MPI task, but distributed in velocity space (<code class="docutils literal notranslate"><span class="pre">nv</span></code> gridpoints) on communicator 1 and in <span class="math notranslate nohighlight">\(k_y\)</span> on communicator 2 (with a single <span class="math notranslate nohighlight">\(k_y\)</span> per task):</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{h(ic,iv\_loc)} \longrightarrow \underbrace{\kx,\theta}_{\mathtt{ic}},[k_y]_2,\underbrace{[\xi,{\rm v},a]_1}_{\mathtt{iv\_loc}} \; .\]</div>
+<p>There is no distributed <span class="math notranslate nohighlight">\(k_y\)</span> index because there is <em>one</em> value of <span class="math notranslate nohighlight">\(k_y\)</span> per MPI task.  The <strong>collisional layout</strong> for <span class="math notranslate nohighlight">\(B(H_a,\Psi_a)\)</span> has all of velocity space on an MPI task, but is distributed in configuration space:</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{h(ic\_loc,iv)} \longrightarrow \underbrace{[\kx,\theta]_1}_{\mathtt{ic\_loc}},[k_y]_2,\underbrace{\xi,{\rm v},a}_{\mathtt{iv}} \; .\]</div>
+<p>Finally, there is a <strong>nonlinear layout</strong></p>
+<div class="math notranslate nohighlight">
+\[\mathtt{h(ir,j\_loc,in)} \longrightarrow \underbrace{\kx}_{\mathtt{ir}},\underbrace{[\theta,[\xi,{\rm v},a]_1]_2}_\mathtt{j\_loc},  \underbrace{k_y}_\mathtt{in} \; .\]</div>
+<p>To switch from the collisionless to the collisional layout and back, we use a <em>collision communication</em> (<code class="docutils literal notranslate"><span class="pre">coll_comm</span></code>).  To treat the nonlinearity in <span class="math notranslate nohighlight">\(A(\Hf,\pf)\)</span>, the linear process grid is multiplied by <span class="math notranslate nohighlight">\(N_y\)</span> and all toroidal modes are collected on a single core using the <em>nonlinear communication</em> (<code class="docutils literal notranslate"><span class="pre">nl_comm</span></code>).  These two communication operations use <code class="docutils literal notranslate"><span class="pre">MPI_ALLTOALL</span></code>, but only on a <em>single</em> (not both) MPI subcommunicator. A relatively inexpensive <em>field communication</em> (<code class="docutils literal notranslate"><span class="pre">field_comm</span></code>) based on <code class="docutils literal notranslate"><span class="pre">MPI_ALLREDUCE</span></code> solves the Maxwell equations. Finally, there is a communication associated with the conservative upwind scheme (<code class="docutils literal notranslate"><span class="pre">str_comm</span></code>).  The eight <em>computational kernels</em> are summarized in <a class="reference internal" href="#tab-kernels"><span class="std std-numref">Table 31</span></a>.</p>
+</section>
+</section>
+<section id="parallel-performance-and-scalability">
+<h2>Parallel Performance and Scalability<a class="headerlink" href="#parallel-performance-and-scalability" title="Link to this heading"></a></h2>
+<p>label{sec.performance}
+vspace{-12pt}</p>
+<section id="strong-scaling-performance">
+<h3>Strong-scaling performance<a class="headerlink" href="#strong-scaling-performance" title="Link to this heading"></a></h3>
+<p>Part (a) of <a class="reference internal" href="#fig-nl03"><span class="std std-numref">Fig. 1</span></a> shows strong-scaling results for two CPU-only architectures (<em>NERSC Cori</em> (KNL) and <em>TACC Stampede2</em> (Skylake)) and three hybrid-CPU/GPU architectures (<em>OLCF Summit</em>, <em>NERSC Perlmutter</em>, and <em>OLCF Frontier</em>).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case <span class="math notranslate nohighlight">\((\nlc)\)</span> is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with <span class="math notranslate nohighlight">\((N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)\)</span>. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.</p>
+<figure class="sphinx-subfigure align-center" id="fig-nl03" style="width: 100%">
+<div class="sphinx-subfigure-grid ss-layout-default-AB" style="display: grid;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/nl03_strong_frontier.png" src="_images/nl03_strong_frontier.png" />
+</div>
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: B;">
+<img alt="_images/nl03_bar_frontier.png" src="_images/nl03_bar_frontier.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The (a) Multi-platform strong-scaling comparison for CGYRO test case texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis.</span><a class="headerlink" href="#fig-nl03" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.}}</p>
+</section>
+<section id="kernel-based-performance-analysis">
+<h3>Kernel-based performance analysis<a class="headerlink" href="#kernel-based-performance-analysis" title="Link to this heading"></a></h3>
+<p>Part (b) of <a class="reference internal" href="#fig-nl03"><span class="std std-numref">Fig. 1</span></a> shows a breakdown of the time spent in each computational kernel (see <a class="reference internal" href="#tab-kernels"><span class="std std-numref">Table 31</span></a>). Data for the CPU-only systems is taken at 128 nodes for Cori and 64 nodes for Skylake.  Data for the GPU architectures is taken at 32 nodes. The data is normalized to the total time, ensuring that the total bar area is constant.  On the CPU systems, the compute time is dominated by <code class="docutils literal notranslate"><span class="pre">nl</span></code>.  This is a feature of the spectral algorithm that pushes the computational burden to the nonlinear (FFT) term. On the GPU systems, the <strong>high performance of cuFFT/rocFFT</strong> means a relatively short time spent in <code class="docutils literal notranslate"><span class="pre">nl</span></code>.  This is evident in the small area of the solid blue bar on all GPU systems.  On CPU systems, the time spent in <code class="docutils literal notranslate"><span class="pre">nl</span></code> is higher.  A second apparent feature of the kernel timings is the <em>high cost of the nonlinear communication</em>, <code class="docutils literal notranslate"><span class="pre">nl_comm</span></code>, implemented using <code class="docutils literal notranslate"><span class="pre">MPI_ALLTOALL</span></code> communication outside the FFT library. On the CPU systems, the cost of <code class="docutils literal notranslate"><span class="pre">nl_comm</span></code> is always smaller than the cost of <code class="docutils literal notranslate"><span class="pre">nl</span></code>, whereas on the GPU systems the opposite is true.  Importantly, this result is due to extremely high GPU performance, rather than poor interconnect performance. On the GPU systems, CGYRO heavily leverages GPU-aware MPI, giving a 30-40% reduction in communication timing.  <a class="reference internal" href="#fig-nl03"><span class="std std-numref">Fig. 1</span></a> part (b)  also shows a significant improvement in communication management from Summit/Perlmutter to Frontier, due to optimizations from the porting to Frontier, which are discussed in the next section.</p>
+</section>
+<section id="parallel-i-o-performance">
+<h3>Parallel I/O performance<a class="headerlink" href="#parallel-i-o-performance" title="Link to this heading"></a></h3>
+<p>CGYRO output and checkpointing data are in binary format (single and double precision, respectively).  CGYRO I/O implements MPI-IO for parallel/collective-write to single individual files.  In our experience, I/O takes less than 2% of total time in production runs on Frontier. We remark that I/O timings for the Orion filesystem on Frontier were found to be nearly twice as fast as Alpine on Crusher/Summit.</p>
+</section>
+</section>
+<section id="porting-and-optimizing-for-olcf-frontier">
+<h2>Porting and Optimizing for OLCF Frontier<a class="headerlink" href="#porting-and-optimizing-for-olcf-frontier" title="Link to this heading"></a></h2>
+<p>Here we elaborate on the development work that was undertaken in early 2023 for porting and optimizing CGYRO for Frontier.
+From an application perspective, Frontier’s node architecture is very similar to Summit’s: a multicore CPU is connected by high-speed links to multiple GPUs as accelerators. On Summit, each of the two 21-core IBM P9 CPUs is connected to three Nvidia V100 GPUs by NVLink. On Frontier, one 64-core AMD EPYC 7A53 CPU is connected by AMD Infinity Fabric to four AMD Instinct MI250X accelerators. Each of these accelerators consists of two modules, such that an application sees eight GPUs on a Frontier node. Thus, porting CGYRO from NVIDIA GPU-based systems like Summit and Perlmutter to AMD GPU-based systems like Frontier was relatively straightforward, but performance optimization required more fine-tuning, as described next.</p>
+<p>CGYRO uses OpenACC directives to offload computational kernels to GPU accelerators.  On Frontier, OpenACC is supported by the HPE Cray Compiling Environment (CCE) Fortran compiler <span id="id12">[<a class="reference internal" href="zreferences.html#id1323" title="Openacc use for cce fortran. https://support.hpe.com/hpesc/public/docDisplay?docId=a00115296en_us&amp;page=OpenACC_Use.html. Accessed: 2022-06-12.">cce</a>]</span>.  Compilation (first on the OLCF testbed system Crusher) was relatively straightforward and required only minimal code changes to CGYRO, mainly related to explicit specification of fields in existing OpenACC directives that were optional for the NVIDIA compiler. For performing FFTs, on Frontier CGYRO calls the <code class="docutils literal notranslate"><span class="pre">hipFFT</span></code> marshaling library, which in turn uses the optimized <code class="docutils literal notranslate"><span class="pre">rocFFT</span></code> library for AMD GPUs <span id="id13">[<a class="reference internal" href="zreferences.html#id1325" title="Hipfft marshalling library. https://hipfft.readthedocs.io/en/rocm-5.1.3. Accessed: 2022-06-12.">hipa</a>, <a class="reference internal" href="zreferences.html#id1328" title="Rocfft documentation. https://rocfft.readthedocs.io/en/rocm-5.1.3. Accessed: 2022-06-12.">roc</a>]</span>. The <code class="docutils literal notranslate"><span class="pre">hipFFT</span></code> library provides exactly the same interface as the cuFFT library to ease porting. We also use AMD <code class="docutils literal notranslate"><span class="pre">hipfort</span></code>, which provides Fortran interfaces for calling HIP libraries <span id="id14">[<a class="reference internal" href="zreferences.html#id1326" title="Hipfort: fortran interface for gpu kernel libraries. https://github.com/ROCmSoftwarePlatform/hipfort. Accessed: 2022-06-12.">hipb</a>]</span>.</p>
+<p>In the optimization effort on Frontier, some fine-tuning was needed to improve performance and scalability. Specifically, it was discovered that the CCE compiler was less capable of automatically choosing the ideal parallelization strategy for some loops, compared to the NVIDIA compiler.  Thus, explicitly directing the compiler to use the OpenACC gang vector parallelization was needed for optimal performance.  This was mainly important for the <em>stream kernel</em> and <em>field kernel</em>.  A sequence of optimizations addressing dominant loop operations was also implemented.  In the <em>stream kernel</em>, we reordered loops to remove the need for reductions.  In the <em>shear kernel</em>, we removed an intermediary table, trading memory intensity for compute intensity.  In both cases, the new code was faster on both AMD and NVIDIA GPU-based systems, but the overall impact was significantly larger for the AMD GPUs. Performance gains comparing the original and optimized code are shown in <a class="reference internal" href="#fig-amd1"><span class="std std-numref">Fig. 2</span></a>.  For the <em>nonlinear kernel</em> (FFT), we also improved the zero-padding scheme used to avoid aliasing to provide decompositions that eliminate large primes. Significant speed-ups were then observed on all platforms, but more so on the AMD GPU-based system (factor of 3 for test cases), indicating that NVIDIA libraries are more tolerant of sub-optimal programming patterns.  This is shown in <a class="reference internal" href="#fig-amd2"><span class="std std-numref">Fig. 3</span></a>.  Taken altogether, CGYRO performance on the AMD GPU-nodes on OLCF Frontier is now faster than on the NVIDIA GPU-based nodes on NERSC Perlmutter, as summarized in <a class="reference internal" href="#fig-amd3"><span class="std std-numref">Fig. 4</span></a>.  In addition, with these optimizations for Frontier, modest speed improvements were also seen on NVIDIA GPUs, which was an unexpected benefit.</p>
+<p>For the communication, CGYRO heavily leverages GPU-aware MPI on Summit to optimize communication performance. On Frontier, GPU-aware MPI – passing GPU memory addresses directly to MPI routines – is not only supported but is also the recommended way to perform MPI communications, since each of the four HPE Slingshot Network Interface Controller (NIC) is directly connected to the four AMD MI250X GPUs.  In comparison with Perlmutter, we found that the in-node communication capabilities of Frontier are almost identical.  However, we also found that the dedicated NIC-setup in the Frontier system delivers greater performance than the shared-NIC setup in Perlmutter, as shown in Fig.~ref{fig.amd}d.</p>
+<p>Below we show CGYRO performance optimizations from porting to Frontier, comparing wallclock benchmark timings (s) of the Frontier AMD GPU-based system with the Perlmutter NVIDIA GPU-based system, both using 24 GPUs.  <em>Original</em> indicates before the Frontier-porting effort. Performance on both systems was improved in all cases.</p>
+<figure class="sphinx-subfigure align-center" id="fig-amd1" style="width: 80%">
+<div class="sphinx-subfigure-grid ss-layout-default-A" style="display: grid;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/pearc23_shear.png" src="_images/pearc23_shear.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">CGYRO performance optimization results from porting to Frontier, comparing original and optimized <em>shear</em> and <em>stream</em> kernels.</span><a class="headerlink" href="#fig-amd1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="sphinx-subfigure align-center" id="fig-amd2" style="width: 80%">
+<div class="sphinx-subfigure-grid ss-layout-default-A" style="display: grid;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/pearc23_nl.png" src="_images/pearc23_nl.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">CGYRO performance optimization results from porting to Frontier, comparing original and optimized <em>nonlinear</em> FFT kernel.</span><a class="headerlink" href="#fig-amd2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="sphinx-subfigure align-center" id="fig-amd3" style="width: 80%">
+<div class="sphinx-subfigure-grid ss-layout-default-A" style="display: grid;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/pearc23_compute.png" src="_images/pearc23_compute.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">CGYRO performance optimization results from porting to Frontier, comparing original and optimized <em>overall compute</em> time.</span><a class="headerlink" href="#fig-amd3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="sphinx-subfigure align-center" id="fig-amd4" style="width: 96%">
+<div class="sphinx-subfigure-grid ss-layout-default-A" style="display: grid;">
+<div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
+<img alt="_images/pearc23_amd_comm_1_2.png" src="_images/pearc23_amd_comm_1_2.png" />
+</div>
+</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">CGYRO performance optimization results from porting to Frontier, showing communication benchmark with <em>final</em> code.</span><a class="headerlink" href="#fig-amd4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 
@@ -248,7 +354,7 @@ a single 2D real-to-complex <code class="docutils literal notranslate"><span cla
 
   <div role="contentinfo">
     <p>&#169; Copyright 2000-2025.
-      <span class="lastupdated">Last updated on Apr 24, 2025.
+      <span class="lastupdated">Last updated on Apr 26, 2025.
       </span></p>
   </div>
 

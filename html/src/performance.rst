@@ -131,4 +131,120 @@ a single 2D real-to-complex ``r2c`` transform
    ``field_comm``,Same as ``str_comm``,MPI_ALLREDUCE 
    ``coll_comm``,":math:`\kx,\theta,[k_y]_2,[\xi,{\rm v},a]_1`:math:`\leftrightarrow [\kx,\theta]_1,[k_y]_2,\xi,{\rm v},a`",MPI_ALLTOALL
    ``nl_comm``,":math:`\kx,\theta,[k_y]_2,[\xi,{\rm v},a]_1`:math:`\leftrightarrow \kx,k_y,[\theta,[\xi,{\rm v},a]_1]_2`",MPI_ALLTOALL  
+
+Array layouts and communication
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+There are three computational array layouts.  Two are associated with the linear terms, and the third with the nonlinear kernel.  Internally, we define *lumped* variables for convenience; the configuration pair :math:`(\kx,\theta)` uses a single array with length :math:`\mathtt{nc} = N_x \times N_\theta`, and the velocity triplet :math:`(\xi,{\rm v},a)` uses a single array with length :math:`\mathtt{nv} = N_\xi \times N_{\rm v} \times N_a`.  In the binormal direction, :math:`N_y` values of :math:`k_y` are simulated, with the :math:`h_a` for different values of :math:`k_y` *independent* in the linear case.  First, there is a **collisionless layout** for the linear terms in :math:`A(\Hf,\pf)` with ``nc`` configuration space gridpoints on an MPI task, but distributed in velocity space (``nv`` gridpoints) on communicator 1 and in :math:`k_y` on communicator 2 (with a single :math:`k_y` per task):
+
+.. math::
+
+  \mathtt{h(ic,iv\_loc)} \longrightarrow \underbrace{\kx,\theta}_{\mathtt{ic}},[k_y]_2,\underbrace{[\xi,{\rm v},a]_1}_{\mathtt{iv\_loc}} \; .
+
+
+There is no distributed :math:`k_y` index because there is *one* value of :math:`k_y` per MPI task.  The **collisional layout** for :math:`B(H_a,\Psi_a)` has all of velocity space on an MPI task, but is distributed in configuration space:
+
+.. math::
+   
+   \mathtt{h(ic\_loc,iv)} \longrightarrow \underbrace{[\kx,\theta]_1}_{\mathtt{ic\_loc}},[k_y]_2,\underbrace{\xi,{\rm v},a}_{\mathtt{iv}} \; .
+
+
+Finally, there is a **nonlinear layout**
+
+.. math::
+   
+  \mathtt{h(ir,j\_loc,in)} \longrightarrow \underbrace{\kx}_{\mathtt{ir}},\underbrace{[\theta,[\xi,{\rm v},a]_1]_2}_\mathtt{j\_loc},  \underbrace{k_y}_\mathtt{in} \; .
+
+
+To switch from the collisionless to the collisional layout and back, we use a *collision communication* (``coll_comm``).  To treat the nonlinearity in :math:`A(\Hf,\pf)`, the linear process grid is multiplied by :math:`N_y` and all toroidal modes are collected on a single core using the *nonlinear communication* (``nl_comm``).  These two communication operations use ``MPI_ALLTOALL``, but only on a *single* (not both) MPI subcommunicator. A relatively inexpensive *field communication* (``field_comm``) based on ``MPI_ALLREDUCE`` solves the Maxwell equations. Finally, there is a communication associated with the conservative upwind scheme (``str_comm``).  The eight *computational kernels* are summarized in :numref:`tab.kernels`. 
+
+Parallel Performance and Scalability
+------------------------------------
+
+\label{sec.performance}
+\vspace{-12pt}
+
+Strong-scaling performance
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Part (a) of :numref:`fig.nl03` shows strong-scaling results for two CPU-only architectures (*NERSC Cori* (KNL) and *TACC Stampede2* (Skylake)) and three hybrid-CPU/GPU architectures (*OLCF Summit*, *NERSC Perlmutter*, and *OLCF Frontier*).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case :math:`(\nlc)` is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with :math:`(N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)`. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.
+
+.. subfigure:: AB
+   :name: fig.nl03
+   :width: 100%
+   :align: center
+   :subcaptions: below
+
+   .. image:: images/performance/nl03_strong_frontier.png
+   .. image:: images/performance/nl03_bar_frontier.png
+
+   The (a) Multi-platform strong-scaling comparison for CGYRO test case \texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis.  
+Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.}}
+
+
+Kernel-based performance analysis
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Part (b) of :numref:`fig.nl03` shows a breakdown of the time spent in each computational kernel (see :numref:`tab.kernels`). Data for the CPU-only systems is taken at 128 nodes for Cori and 64 nodes for Skylake.  Data for the GPU architectures is taken at 32 nodes. The data is normalized to the total time, ensuring that the total bar area is constant.  On the CPU systems, the compute time is dominated by ``nl``.  This is a feature of the spectral algorithm that pushes the computational burden to the nonlinear (FFT) term. On the GPU systems, the **high performance of cuFFT/rocFFT** means a relatively short time spent in ``nl``.  This is evident in the small area of the solid blue bar on all GPU systems.  On CPU systems, the time spent in ``nl`` is higher.  A second apparent feature of the kernel timings is the *high cost of the nonlinear communication*, ``nl_comm``, implemented using ``MPI_ALLTOALL`` communication outside the FFT library. On the CPU systems, the cost of ``nl_comm`` is always smaller than the cost of ``nl``, whereas on the GPU systems the opposite is true.  Importantly, this result is due to extremely high GPU performance, rather than poor interconnect performance. On the GPU systems, CGYRO heavily leverages GPU-aware MPI, giving a 30-40% reduction in communication timing.  :numref:`fig.nl03` part (b)  also shows a significant improvement in communication management from Summit/Perlmutter to Frontier, due to optimizations from the porting to Frontier, which are discussed in the next section.
+
+Parallel I/O performance
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+CGYRO output and checkpointing data are in binary format (single and double precision, respectively).  CGYRO I/O implements MPI-IO for parallel/collective-write to single individual files.  In our experience, I/O takes less than 2% of total time in production runs on Frontier. We remark that I/O timings for the Orion filesystem on Frontier were found to be nearly twice as fast as Alpine on Crusher/Summit.
+
+Porting and Optimizing for OLCF Frontier
+----------------------------------------
+
+Here we elaborate on the development work that was undertaken in early 2023 for porting and optimizing CGYRO for Frontier.
+From an application perspective, Frontier's node architecture is very similar to Summit's: a multicore CPU is connected by high-speed links to multiple GPUs as accelerators. On Summit, each of the two 21-core IBM P9 CPUs is connected to three Nvidia V100 GPUs by NVLink. On Frontier, one 64-core AMD EPYC 7A53 CPU is connected by AMD Infinity Fabric to four AMD Instinct MI250X accelerators. Each of these accelerators consists of two modules, such that an application sees eight GPUs on a Frontier node. Thus, porting CGYRO from NVIDIA GPU-based systems like Summit and Perlmutter to AMD GPU-based systems like Frontier was relatively straightforward, but performance optimization required more fine-tuning, as described next.
+
+CGYRO uses OpenACC directives to offload computational kernels to GPU accelerators.  On Frontier, OpenACC is supported by the HPE Cray Compiling Environment (CCE) Fortran compiler :cite:`cce_openacc`.  Compilation (first on the OLCF testbed system Crusher) was relatively straightforward and required only minimal code changes to CGYRO, mainly related to explicit specification of fields in existing OpenACC directives that were optional for the NVIDIA compiler. For performing FFTs, on Frontier CGYRO calls the ``hipFFT`` marshaling library, which in turn uses the optimized ``rocFFT`` library for AMD GPUs :cite:`hipfft,rocfft`. The ``hipFFT`` library provides exactly the same interface as the cuFFT library to ease porting. We also use AMD ``hipfort``, which provides Fortran interfaces for calling HIP libraries :cite:`hipfort`.
+
+In the optimization effort on Frontier, some fine-tuning was needed to improve performance and scalability. Specifically, it was discovered that the CCE compiler was less capable of automatically choosing the ideal parallelization strategy for some loops, compared to the NVIDIA compiler.  Thus, explicitly directing the compiler to use the OpenACC gang vector parallelization was needed for optimal performance.  This was mainly important for the *stream kernel* and *field kernel*.  A sequence of optimizations addressing dominant loop operations was also implemented.  In the *stream kernel*, we reordered loops to remove the need for reductions.  In the *shear kernel*, we removed an intermediary table, trading memory intensity for compute intensity.  In both cases, the new code was faster on both AMD and NVIDIA GPU-based systems, but the overall impact was significantly larger for the AMD GPUs. Performance gains comparing the original and optimized code are shown in :numref:`fig.amd1`.  For the *nonlinear kernel* (FFT), we also improved the zero-padding scheme used to avoid aliasing to provide decompositions that eliminate large primes. Significant speed-ups were then observed on all platforms, but more so on the AMD GPU-based system (factor of 3 for test cases), indicating that NVIDIA libraries are more tolerant of sub-optimal programming patterns.  This is shown in :numref:`fig.amd2`.  Taken altogether, CGYRO performance on the AMD GPU-nodes on OLCF Frontier is now faster than on the NVIDIA GPU-based nodes on NERSC Perlmutter, as summarized in :numref:`fig.amd3`.  In addition, with these optimizations for Frontier, modest speed improvements were also seen on NVIDIA GPUs, which was an unexpected benefit.
+
+For the communication, CGYRO heavily leverages GPU-aware MPI on Summit to optimize communication performance. On Frontier, GPU-aware MPI -- passing GPU memory addresses directly to MPI routines -- is not only supported but is also the recommended way to perform MPI communications, since each of the four HPE Slingshot Network Interface Controller (NIC) is directly connected to the four AMD MI250X GPUs.  In comparison with Perlmutter, we found that the in-node communication capabilities of Frontier are almost identical.  However, we also found that the dedicated NIC-setup in the Frontier system delivers greater performance than the shared-NIC setup in Perlmutter, as shown in Fig.~\ref{fig.amd}d.
+
+Below we show CGYRO performance optimizations from porting to Frontier, comparing wallclock benchmark timings (s) of the Frontier AMD GPU-based system with the Perlmutter NVIDIA GPU-based system, both using 24 GPUs.  *Original* indicates before the Frontier-porting effort. Performance on both systems was improved in all cases.
+
+ 
+.. subfigure:: A
+   :name: fig.amd1
+   :width: 80%
+   :align: center
+   :subcaptions: below
+
+   .. image:: images/performance/pearc23_shear.png
+
+   CGYRO performance optimization results from porting to Frontier, comparing original and optimized *shear* and *stream* kernels.
+
 	  
+.. subfigure:: A
+   :name: fig.amd2
+   :width: 80%
+   :align: center
+   :subcaptions: below
+
+   .. image:: images/performance/pearc23_nl.png
+
+   CGYRO performance optimization results from porting to Frontier, comparing original and optimized *nonlinear* FFT kernel.
+ 
+.. subfigure:: A
+   :name: fig.amd3
+   :width: 80%
+   :align: center
+   :subcaptions: below
+
+   .. image:: images/performance/pearc23_compute.png
+
+   CGYRO performance optimization results from porting to Frontier, comparing original and optimized *overall compute* time.
+ 
+	    
+.. subfigure:: A
+   :name: fig.amd4
+   :width: 96%
+   :align: center
+   :subcaptions: below
+
+   .. image:: images/performance/pearc23_amd_comm_1_2.png
+
+   CGYRO performance optimization results from porting to Frontier, showing communication benchmark with *final* code.
