@@ -3,14 +3,13 @@
 input.gacode
 ============
 
-.. |ip| replace:: :doc:`input.gacode <input_gacode>`
-
-To see what a sample |ip| looks like, at the command line type
+To see what a sample ``input.gacode`` looks like, at the command line type
 
 .. code:: bash
 
-	  $ cgyro -g reg14 ; cat reg14/input.gacode
+   $ cgyro -g reg14 ; cat reg14/input.gacode
 
+ 
 Overview
 --------
 

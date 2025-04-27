@@ -6,25 +6,29 @@ First step
 
 You will need suitable python and fortran environments. There is detailed help for
 
-* :doc:`OSX users <build/pre_osx>` (MAC M2)
-* :doc:`Linux users <build/pre_linux>` (MINT, UBUNTU)
-* :doc:`Conda users, works on both OSX and Linux <build/pre_conda>` (CONDA_OMPI_GNU)
+* :ref:`Linux MINT/UBUNTU users <buildlinux>` 
+* :ref:`OSX users <buildosx>` 
+* :ref:`Conda users <buildconda>`
 
-If you need more help, please raise an issue at https://github.com/gafusion/gacode/issues
+If you need more help, please don't hesitate to raise an issue at https://github.com/gafusion/gacode/issues.
 
 Source code
 -----------
 
-You should clone the gacode repository from GitHub. This was you can keep you installation up to date::
+You should clone the gacode repository from GitHub. This was you can keep your installation up to date
 
-  $ git clone git@github.com:gafusion/gacode.git
+.. code::
+   
+   $ git clone git@github.com:gafusion/gacode.git
 
 Concept of platform files
 -------------------------
 
-In order to compile the full GACODE package on a new machine, a version of the **platform files** must be selected. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using::
+In order to compile the full GACODE package on a new machine, a version of the **platform files** must be selected. You can use existing ones or create your own.  After cloning the repository, you can query the existing platforms using
 
-  $ ./gacode/shared/bin/gacode_platforms 
+.. code::
+   
+   $ ./gacode/shared/bin/gacode_platforms 
 
 If you decide to create new platform files (say, for a new platform MINE) then create the following files, starting from one of the existing ones (say, CONDA_OMPI_GNU)::
 

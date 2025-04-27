@@ -161,9 +161,6 @@ To switch from the collisionless to the collisional layout and back, we use a *c
 Parallel Performance and Scalability
 ------------------------------------
 
-\label{sec.performance}
-\vspace{-12pt}
-
 Strong-scaling performance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -178,8 +175,7 @@ Part (a) of :numref:`fig.nl03` shows strong-scaling results for two CPU-only arc
    .. image:: images/performance/nl03_strong_frontier.png
    .. image:: images/performance/nl03_bar_frontier.png
 
-   The (a) Multi-platform strong-scaling comparison for CGYRO test case \texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis.  
-Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.}}
+   The (a) Multi-platform strong-scaling comparison for CGYRO test case \texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis. Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.
 
 
 Kernel-based performance analysis
