@@ -10,13 +10,13 @@
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="_static/contentui.css" />
-      <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+      <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=a0fb6060" />
 
   
     <link rel="shortcut icon" href="_static/favicon.ico"/>
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=f2a433a1"></script>
+      <script src="_static/documentation_options.js?v=2882ecd3"></script>
       <script src="_static/doctools.js?v=9bcbadda"></script>
       <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="_static/contentui.js"></script>
@@ -263,7 +263,7 @@ a single 2D real-to-complex <code class="docutils literal notranslate"><span cla
 <h2>Parallel Performance and Scalability<a class="headerlink" href="#parallel-performance-and-scalability" title="Link to this heading"></a></h2>
 <section id="strong-scaling-performance">
 <h3>Strong-scaling performance<a class="headerlink" href="#strong-scaling-performance" title="Link to this heading"></a></h3>
-<p>Part (a) of <a class="reference internal" href="#fig-nl03"><span class="std std-numref">Fig. 1</span></a> shows strong-scaling results for two CPU-only architectures (<em>NERSC Cori</em> (KNL) and <em>TACC Stampede2</em> (Skylake)) and three hybrid-CPU/GPU architectures (<em>OLCF Summit</em>, <em>NERSC Perlmutter</em>, and <em>OLCF Frontier</em>).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case <span class="math notranslate nohighlight">\((\nlc)\)</span> is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with <span class="math notranslate nohighlight">\((N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)\)</span>. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.</p>
+<p>Part (a) of <a class="reference internal" href="#fig-nl03"><span class="std std-numref">Fig. 1</span></a> shows strong-scaling results for two CPU-only architectures (<em>NERSC Cori</em> (KNL) and <em>TACC Stampede2</em> (Skylake)) and three hybrid-CPU/GPU architectures (<em>OLCF Summit</em>, <em>NERSC Perlmutter</em>, and <em>OLCF Frontier</em>).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case <code class="docutils literal notranslate"><span class="pre">nl03</span></code> is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with <span class="math notranslate nohighlight">\((N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)\)</span>. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.</p>
 <figure class="sphinx-subfigure align-center" id="fig-nl03" style="width: 100%">
 <div class="sphinx-subfigure-grid ss-layout-default-AB" style="display: grid;">
 <div class="sphinx-subfigure-area" style="display: flex; flex-direction: column; justify-content: center; align-items: center; grid-area: A;">
@@ -274,7 +274,7 @@ a single 2D real-to-complex <code class="docutils literal notranslate"><span cla
 </div>
 </div>
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The (a) Multi-platform strong-scaling comparison for CGYRO test case texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis. Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.</span><a class="headerlink" href="#fig-nl03" title="Link to this image"></a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">The (a) Multi-platform strong-scaling comparison for CGYRO test case <code class="docutils literal notranslate"><span class="pre">nl03</span></code>, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis. Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.</span><a class="headerlink" href="#fig-nl03" title="Link to this image"></a></p>
 </figcaption>
 </figure>
 </section>

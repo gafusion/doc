@@ -38,7 +38,7 @@ html_show_sphinx     = True
 html_show_copyright  = True
 html_last_updated_fmt = '%b %d, %Y'
 html_show_sourcelink = False
-
+html_copy_source = False
 html_theme_options = {'analytics_id': '',
                       'logo_only': False,
                       'prev_next_buttons_location': 'bottom',

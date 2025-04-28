@@ -164,7 +164,7 @@ Parallel Performance and Scalability
 Strong-scaling performance
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Part (a) of :numref:`fig.nl03` shows strong-scaling results for two CPU-only architectures (*NERSC Cori* (KNL) and *TACC Stampede2* (Skylake)) and three hybrid-CPU/GPU architectures (*OLCF Summit*, *NERSC Perlmutter*, and *OLCF Frontier*).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case :math:`(\nlc)` is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with :math:`(N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)`. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.
+Part (a) of :numref:`fig.nl03` shows strong-scaling results for two CPU-only architectures (*NERSC Cori* (KNL) and *TACC Stampede2* (Skylake)) and three hybrid-CPU/GPU architectures (*OLCF Summit*, *NERSC Perlmutter*, and *OLCF Frontier*).  For clarity, we restrict ourselves to simple node-based comparisons.  The benchmark test case ``nl03`` is broadly representative of our targeted simulations at coarser resolution, being somewhere between traditional ion-scale resolution and full multiscale resolution with :math:`(N_x,N_y,N_\theta,N_\xi, N_v, N_a) = (512,128,32,24,8,3)`. All systems scale well, with Frontier and Perlmutter by far the best performers on both a per-node and maximum performance basis.
 
 .. subfigure:: AB
    :name: fig.nl03
@@ -175,7 +175,7 @@ Part (a) of :numref:`fig.nl03` shows strong-scaling results for two CPU-only arc
    .. image:: images/performance/nl03_strong_frontier.png
    .. image:: images/performance/nl03_bar_frontier.png
 
-   The (a) Multi-platform strong-scaling comparison for CGYRO test case \texttt{nl03}, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis. Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.
+   The (a) Multi-platform strong-scaling comparison for CGYRO test case ``nl03``, showing wallclock time vs. number of nodes. Frontier is by far the best performer on both a per-node and maximum performance basis. (b) Kernel-level analysis. Left (darker) bars indicate compute time; right (faded) bars indicate the communication time.  Data is normalized to the total time, such  that total bar area is constant (1.0). Lower compute-to-communication ratio on GPU systems reflects the extremely high performance of the GPUs.  Note the significant improvement in communication management from Summit/Perlmutter to Frontier.
 
 
 Kernel-based performance analysis

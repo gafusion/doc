@@ -2,7 +2,7 @@ all:
 	cd src ; make html
 
 sync:
-	rsync -a --exclude-from='exclude.txt' src/_build/html/ ../docs/
+	rsync --delete -a src/_build/html/ ../docs/
 
 clean:
 	cd src ; make clean
