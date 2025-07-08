@@ -22,9 +22,14 @@ GACODE refers to a collection of serial and HPC software developed by the Theory
    :caption: Codes
    :hidden:
 
+   cgyro
    neo
    tgyro
-   cgyro
+
+.. toctree::
+   :caption: Legacy tools
+   :hidden:
+
    gyro
    tglf
    prgen

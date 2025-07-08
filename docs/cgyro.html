@@ -25,8 +25,8 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="GYRO" href="gyro.html" />
-    <link rel="prev" title="PLOT" href="tgyro/plot.html" /> 
+    <link rel="next" title="NEO" href="neo.html" />
+    <link rel="prev" title="References" href="zreferences.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,20 +57,33 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codes</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CGYRO</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#brief-description">Brief description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#simulation-images">Simulation images</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#cgyro-source-code">CGYRO Source Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#past-and-future">Past and Future</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-input">Data input</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#data-output-and-plotting">Data output and plotting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#normalization">Normalization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-cases">Running Cases</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#brief-description">Brief description</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#core-developers">Core developers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#notable-publications">Notable publications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-source-repository">GitHub source repository</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#input-parameters">Input parameters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#normalization">Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tabular-list">Tabular list</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#output-data">Output data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#python-interface">Python interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-images">Simulation images</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy tools</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
@@ -114,7 +127,9 @@
 <h1>CGYRO<a class="headerlink" href="#cgyro" title="Link to this heading"></a></h1>
 <section id="brief-description">
 <h2>Brief description<a class="headerlink" href="#brief-description" title="Link to this heading"></a></h2>
-<p>CGYRO is a global-spectral gyrokinetic code. Core developers are</p>
+<p>CGYRO is a global-spectral gyrokinetic code.</p>
+<section id="core-developers">
+<h3>Core developers<a class="headerlink" href="#core-developers" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Emily Belli, <a class="reference external" href="https://www.ga.com/">General Atomics</a></p></li>
 <li><p>Jeff Candy, <a class="reference external" href="https://www.ga.com/">General Atomics</a></p></li>
@@ -122,69 +137,75 @@
 <li><p>Igor Sfiligoi, <a class="reference external" href="https://www.sdsc.edu/">SDSC</a></p></li>
 </ul>
 </section>
-<section id="simulation-images">
-<h2>Simulation images<a class="headerlink" href="#simulation-images" title="Link to this heading"></a></h2>
-<p>Simulation data courtesy Nathan Howard (MIT)</p>
-<a class="reference internal image-reference" href="_images/b250.png"><img alt="b250" src="_images/b250.png" style="width: 48%;" />
-</a>
-<a class="reference internal image-reference" href="_images/b990.png"><img alt="b990" src="_images/b990.png" style="width: 48%;" />
-</a>
-<a class="reference internal image-reference" href="_images/b1020.png"><img alt="b1020" src="_images/b1020.png" style="width: 48%;" />
-</a>
-<a class="reference internal image-reference" href="_images/b1480.png"><img alt="b1480" src="_images/b1480.png" style="width: 48%;" />
-</a>
+<section id="notable-publications">
+<h3>Notable publications<a class="headerlink" href="#notable-publications" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id18">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text"><strong>List of CGYRO algorithm publications</strong></span><a class="headerlink" href="#id18" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 80.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>A high-accuracy Eulerian gyrokinetic solver for collisional plasmas</p></td>
+<td><p><span id="id2">[<a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:10.1016/j.jcp.2016.07.039.">CBB16</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Implications of advanced collision operators for gyrokinetic simulation</p></td>
+<td><p><span id="id3">[<a class="reference internal" href="zreferences.html#id87" title="E.A. Belli and J. Candy. Implications of advanced collision operators for gyrokinetic simulation. Plasma Phys. Control. Fusion, 59:045005, 2017. doi:10.1088/1361-6587/aa5c94.">BC17</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Spectral treatment of gyrokinetic shear flow</p></td>
+<td><p><span id="id4">[<a class="reference internal" href="zreferences.html#id194" title="J. Candy and E.A. Belli. Spectral treatment of gyrokinetic shear flow. J. Comput. Phys., 356:448, 2018. doi:10.1016/j.jcp.2017.12.020.">CB18</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Spectral treatment of gyrokinetic profile curvature</p></td>
+<td><p><span id="id5">[<a class="reference internal" href="zreferences.html#id196" title="J. Candy, E.A. Belli, and G. Staebler. Spectral treatment of gyrokinetic profile curvature. Plasma Phys. Control. Fusion, 62:042001, 2020. doi:10.1088/1361-6587/ab759c.">CBS20</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Paradigm for global gyrokinetic turbulence</p></td>
+<td><p><span id="id6">[<a class="reference internal" href="zreferences.html#id197" title="J. Candy, A. Dudkovskaia, and E.A. Belli. Paradigm for global gyrokinetic turbulence. Phys. Rev. E, 111:L053201, 2025. doi:10.1103/PhysRevE.111.L053201.">CDB25</a>]</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id19">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text"><strong>List of CGYRO performance optimization publications</strong></span><a class="headerlink" href="#id19" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 80.0%" />
+<col style="width: 20.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Title</p></th>
+<th class="head"><p>Link</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Multiscale-optimized plasma turbulence simulation on petascale architechtures</p></td>
+<td><p><span id="id7">[<a class="reference internal" href="zreferences.html#id195" title="J. Candy, I. Sfiligoi, E. Belli, K. Hallatschek, C. Holland, N. Howard, and E.D`Azevedo. Multiscale-optimized plasma turbulence simulation on petascale architechtures. Computers &amp; Fluids, 188:125, 2019. doi:10.1016/j.compfluid.2019.04.016.">CSB+19</a>]</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>Comparing single-node and multi-node performance of an important fusion HPC code benchmark</p></td>
+<td><p><span id="id8">[<a class="reference internal" href="zreferences.html#id92" title="E.A. Belli, J. Candy, I. Sfiligoi, and F. Würthwein. Comparing single-node and multi-node performance of an important fusion HPC code benchmark. PEARC '22: Practice and Experience in Advanced Research Computing, 10:1, 2022. doi:10.1145/3491418.3535130.">BCSWurthwein22</a>]</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Optimization and portability of a fusion OpenACC-based HPC code from NVIDIA to AMD GPUs</p></td>
+<td><p><span id="id9">[<a class="reference internal" href="zreferences.html#id968" title="I. Sfiligoi, E. Belli, J. Candy, and R.D. Budiardja. Optimization and portability of a fusion OpenACC-based HPC code from NVIDIA to AMD GPUs. In PEARC '23: Practice and Experience in Advanced Research Computing, Association for Computing Machinery, pages 246-250, 2023.">SBCB23</a>]</span></p></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="cgyro-source-code">
-<h2>CGYRO Source Code<a class="headerlink" href="#cgyro-source-code" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="http://github.com/gafusion/gacode">CGYRO source code</a>  is available at GitHub.</p>
+<section id="github-source-repository">
+<h3>GitHub source repository<a class="headerlink" href="#github-source-repository" title="Link to this heading"></a></h3>
+<p>Released under Apache2 license:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone git@github.com:gafusion/gacode.git
+</pre></div>
+</div>
 </section>
-<section id="past-and-future">
-<h2>Past and Future<a class="headerlink" href="#past-and-future" title="Link to this heading"></a></h2>
-<p><strong>The past: GYRO</strong></p>
-<p>Over the past two decades, the fusion community has focused its modeling efforts
-primarily on the core region. A popular kinetic code used for this purpose
-was GYRO <span id="id3">[<a class="reference internal" href="zreferences.html#id189" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>, <a class="reference internal" href="zreferences.html#id178" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:doi.org/10.1016/S0021-9991(03)00079-2.">CW03a</a>, <a class="reference internal" href="zreferences.html#id179" title="J. Candy and R.E. Waltz. Anomalous transport in the DIII-D tokamak matched by supercomputer simulation. Phys. Rev. Lett., 91:045001-1, 2003. doi:doi.org/10.1103/PhysRevLett.91.045001.">CW03b</a>, <a class="reference internal" href="zreferences.html#id180" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:doi.org/10.1063/1.1695358.">CWD04</a>]</span>.
-Thousands of nonlinear simulations with GYRO have informed the fusion community’s understanding of
-core plasma turbulence <span id="id4">[<a class="reference internal" href="zreferences.html#id515" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:doi.org/10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id597" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id598" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id599" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span>
-and provided a <em>transport database</em> for the calibration of reduced transport models
-such as TGLF <span id="id5">[<a class="reference internal" href="zreferences.html#id1020" title="G.M. Staebler, J.E. Kinsey, and R.E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14:055909, 2007.">SKW07</a>]</span>.  GYRO was the first global electromagnetic solver,
-and pioneered the development of numerical algorithms for the GK equations
-with kinetic electrons.  It is formulated in real space and like all global solvers
-requires <em>ad hoc</em> absorbing-layer boundary conditions when simulating cases
-with profile variation.  This approach is suitable for core turbulence simulations,
-which cover a large radial region and are dominated by low wavenumbers.</p>
-<p><strong>The future: CGYRO</strong></p>
-<p>As the understanding of core transport has become increasingly complete, the
-cutting edge of research moved radially toward the pedestal region, where plasmas are
-characterized by larger collisionality and steeper pressure gradients that
-greatly modify the turbulent phenomena at play. This motivated the development,
-from scratch, of the CGYRO code <span id="id6">[<a class="reference internal" href="zreferences.html#id87" title="E.A. Belli and J. Candy. Implications of advanced collision operators for gyrokinetic simulation. Plasma Phys. Control. Fusion, 59:045005, 2017. doi:doi.org/10.1088/1361-6587/aa5c94.">BC17</a>, <a class="reference internal" href="zreferences.html#id88" title="E.A. Belli and J. Candy. Impact of centrifugal drifts on ion turbulent transport. Phys. Plasmas, 25:032301, 2018. doi:doi.org/10.1063/1.5020298.">BC18</a>, <a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:doi.org/10.1016/j.jcp.2016.07.039.">CBB16</a>, <a class="reference internal" href="zreferences.html#id195" title="J. Candy, I. Sfiligoi, E. Belli, K. Hallatschek, C. Holland, N. Howard, and E.D`Azevedo. Multiscale-optimized plasma turbulence simulation on petascale architechtures. Computers &amp; Fluids, 188:125, 2019. doi:doi.org/10.1016/j.compfluid.2019.04.016.">CSB+19</a>]</span>
-to complement GYRO.  CGYRO is an Eulerian GK solver specifically designed and
-optimized for <strong>collisional, electromagnetic, multiscale simulation</strong>.
-A key algorithmic aspect of CGYRO is the <strong>radially spectral formulation</strong>
-used to reduce the complicated integral gyroaveraging kernel into a
-multiplication in wavenumber space, but retaining the ability to treat profile
-variation important for edge plasmas <span id="id7">[<a class="reference internal" href="zreferences.html#id194" title="J. Candy and E.A. Belli. Spectral treatment of gyrokinetic shear flow. J. Comput. Phys., 356:448, 2018. doi:doi.org/10.1016/j.jcp.2017.12.020.">CB18</a>, <a class="reference internal" href="zreferences.html#id196" title="J. Candy, E.A. Belli, and G. Staebler. Spectral treatment of gyrokinetic profile curvature. Plasma Phys. Control. Fusion, 62:042001, 2020. doi:doi.org/10.1088/1361-6587/ab759c.">CBS20</a>]</span>.  A new coordinate system that is more
-suitable for the highly collisional and shaped edge regime was adopted from
-the NEO code <span id="id8">[<a class="reference internal" href="zreferences.html#id79" title="E.A. Belli and J. Candy. Kinetic calculation of neoclassical transport including self-consistent electron and impurity dynamics. Plasma Phys. Control. Fusion, 50:095010, 2008. doi:doi.org/10.1088/0741-3335/50/9/095010.">BC08</a>, <a class="reference internal" href="zreferences.html#id83" title="E.A. Belli and J. Candy. Full linearized Fokker-Planck collisions in neoclassical transport simulations. Plasma Phys. Control. Fusion, 54:015015, 2012. doi:doi.org/10.1088/0741-3335/54/1/015015.">BC12</a>]</span>, which is the community standard for
-calculation of collisional transport in toroidal geometry.</p>
 </section>
-<section id="data-input">
-<h2>Data input<a class="headerlink" href="#data-input" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="cgyro/cgyro_table.html"><span class="doc">Tabular list</span></a></p></li>
-<li><p><a class="reference internal" href="cgyro/cgyro_list.html"><span class="doc">Alphabetical list</span></a></p></li>
-<li><p>Profile data: <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
-</ul>
-</section>
-<section id="data-output-and-plotting">
-<h2>Data output and plotting<a class="headerlink" href="#data-output-and-plotting" title="Link to this heading"></a></h2>
-<p>Although there is a description of <a class="reference internal" href="cgyro/outputs.html"><span class="doc">output data</span></a>, it is suggested that users use the python interface to output data.</p>
-</section>
+<section id="input-parameters">
+<h2>Input parameters<a class="headerlink" href="#input-parameters" title="Link to this heading"></a></h2>
 <section id="normalization">
-<h2>Normalization<a class="headerlink" href="#normalization" title="Link to this heading"></a></h2>
-<table class="docutils align-default" id="id9">
-<caption><span class="caption-number">Table 18 </span><span class="caption-text"><strong>CGYRO Normalization</strong></span><a class="headerlink" href="#id9" title="Link to this table"></a></caption>
+<h3>Normalization<a class="headerlink" href="#normalization" title="Link to this heading"></a></h3>
+<table class="docutils align-default" id="id20">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text"><strong>CGYRO Normalization</strong></span><a class="headerlink" href="#id20" title="Link to this table"></a></caption>
 <colgroup>
 <col style="width: 33.3%" />
 <col style="width: 25.0%" />
@@ -224,17 +245,936 @@ calculation of collisional transport in toroidal geometry.</p>
 </tbody>
 </table>
 </section>
-<section id="running-cases">
-<h2>Running Cases<a class="headerlink" href="#running-cases" title="Link to this heading"></a></h2>
+<section id="tabular-list">
+<h3>Tabular list<a class="headerlink" href="#tabular-list" title="Link to this heading"></a></h3>
 <ul class="simple">
-<li><p><a class="reference internal" href="cgyro/running_cases.html"><span class="doc">running cases</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-shape"><span class="std std-ref">Plasma shape/geometry</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-advshape"><span class="std std-ref">Advanced shape parameters</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-control"><span class="std std-ref">Control parameters</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-fields"><span class="std std-ref">Fields</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-resolution"><span class="std std-ref">Numerical Resolution</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-dissipation"><span class="std std-ref">Numerical Dissipation</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-time"><span class="std std-ref">Time Stepping</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-species"><span class="std std-ref">Species-related parameters</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-collisions"><span class="std std-ref">Collisions</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-rotation"><span class="std std-ref">Rotation physics</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-global"><span class="std std-ref">Global-spectral parameters</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-output"><span class="std std-ref">Output file control</span></a></p></li>
+<li><p><a class="reference internal" href="#tab-optimization"><span class="std std-ref">Optimization related parameters</span></a></p></li>
+</ul>
+<span id="tab-shape"></span><table class="docutils align-default" id="id21">
+<caption><span class="caption-number">Table 6 </span><span class="caption-text"><strong>Plasma shape/geometry</strong></span><a class="headerlink" href="#id21" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a></p></td>
+<td><p>Geometry model selector</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmin"><span class="std std-ref">RMIN</span></a></p></td>
+<td><p>Normalized minor radius</p></td>
+<td><p>0.5</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rmaj"><span class="std std-ref">RMAJ</span></a></p></td>
+<td><p>Normalized major radius</p></td>
+<td><p>3.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shift"><span class="std std-ref">SHIFT</span></a></p></td>
+<td><p>Shafranov shift</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-kappa"><span class="std std-ref">KAPPA</span></a></p></td>
+<td><p>Elongation</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-kappa"><span class="std std-ref">S_KAPPA</span></a></p></td>
+<td><p>Elongation shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta"><span class="std std-ref">DELTA</span></a></p></td>
+<td><p>Triangularity</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-delta"><span class="std std-ref">S_DELTA</span></a></p></td>
+<td><p>Triangularity shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zeta"><span class="std std-ref">ZETA</span></a></p></td>
+<td><p>Squareness</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s-zeta"><span class="std std-ref">S_ZETA</span></a></p></td>
+<td><p>Squareness shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zmag"><span class="std std-ref">ZMAG</span></a></p></td>
+<td><p>Elevation</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dzmag"><span class="std std-ref">DZMAG</span></a></p></td>
+<td><p>Gradient of elevation</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-q"><span class="std std-ref">Q</span></a></p></td>
+<td><p>Safety factor</p></td>
+<td><p>2.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-s"><span class="std std-ref">S</span></a></p></td>
+<td><p>Magnetic shear</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-btccw"><span class="std std-ref">BTCCW</span></a></p></td>
+<td><p>Field orientation</p></td>
+<td><p>-1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ipccw"><span class="std std-ref">IPCCW</span></a></p></td>
+<td><p>Current orientation</p></td>
+<td><p>-1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-udsymmetry-flag"><span class="std std-ref">UDSYMMETRY_FLAG</span></a></p></td>
+<td><p>Enforce up-down symmetry</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-advshape"></span><table class="docutils align-default" id="id22">
+<caption><span class="caption-number">Table 7 </span><span class="caption-text"><strong>Advanced shape parameters</strong></span><a class="headerlink" href="#id22" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos0"><span class="std std-ref">SHAPE_COS0</span></a></p></td>
+<td><p>Tilt</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos0"><span class="std std-ref">SHAPE_S_COS0</span></a></p></td>
+<td><p>Tilt shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos1"><span class="std std-ref">SHAPE_COS1</span></a></p></td>
+<td><p>Ovality</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos1"><span class="std std-ref">SHAPE_S_COS1</span></a></p></td>
+<td><p>Ovality shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos2"><span class="std std-ref">SHAPE_COS2</span></a></p></td>
+<td><p>2nd antisymmetric moment</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos2"><span class="std std-ref">SHAPE_S_COS2</span></a></p></td>
+<td><p>2nd antisymmetric moment shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-cos3"><span class="std std-ref">SHAPE_COS3</span></a></p></td>
+<td><p>3rd antisymmetric moment</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-cos3"><span class="std std-ref">SHAPE_S_COS3</span></a></p></td>
+<td><p>3rd antisymmetric moment shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-sin3"><span class="std std-ref">SHAPE_SIN3</span></a></p></td>
+<td><p>3rd symmetric moment</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-shape-s-sin3"><span class="std std-ref">SHAPE_S_SIN3</span></a></p></td>
+<td><p>3rd symmetric moment shear</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-control"></span><table class="docutils align-default" id="id23">
+<caption><span class="caption-number">Table 8 </span><span class="caption-text"><strong>Control parameters</strong></span><a class="headerlink" href="#id23" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-profile-model"><span class="std std-ref">PROFILE_MODEL</span></a></p></td>
+<td><p>Profile input selector</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-quasineutral-flag"><span class="std std-ref">QUASINEUTRAL_FLAG</span></a></p></td>
+<td><p>Toggle quasineutrality</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nonlinear-flag"><span class="std std-ref">NONLINEAR_FLAG</span></a></p></td>
+<td><p>Toggle nonlinear simulation</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-zf-test-mode"><span class="std std-ref">ZF_TEST_MODE</span></a></p></td>
+<td><p>Control zonal flow testing</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-silent-flag"><span class="std std-ref">SILENT_FLAG</span></a></p></td>
+<td><p>Toggle silent output</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-amp"><span class="std std-ref">AMP</span></a></p></td>
+<td><p>Initial <span class="math notranslate nohighlight">\(n&gt;0\)</span> amplitude</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-amp0"><span class="std std-ref">AMP0</span></a></p></td>
+<td><p>Initial <span class="math notranslate nohighlight">\(n=0\)</span> amplitude</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-fields"></span><table class="docutils align-default" id="id24">
+<caption><span class="caption-number">Table 9 </span><span class="caption-text"><strong>Fields</strong></span><a class="headerlink" href="#id24" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-field"><span class="std std-ref">N_FIELD</span></a></p></td>
+<td><p>Number of fields to evolve</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-betae-unit"><span class="std std-ref">BETAE_UNIT</span></a></p></td>
+<td><p>Electron beta</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-betae-unit-scale"><span class="std std-ref">BETAE_UNIT_SCALE</span></a></p></td>
+<td><p>Electron beta scaling parameter</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-beta-star-scale"><span class="std std-ref">BETA_STAR_SCALE</span></a></p></td>
+<td><p>Pressure gradient scaling factor</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-lambda-debye"><span class="std std-ref">LAMBDA_DEBYE</span></a></p></td>
+<td><p>Debye length</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-lambda-debye-scale"><span class="std std-ref">LAMBDA_DEBYE_SCALE</span></a></p></td>
+<td><p>Debye length scaling factor</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-resolution"></span><table class="docutils align-default" id="id25">
+<caption><span class="caption-number">Table 10 </span><span class="caption-text"><strong>Numerical Resolution</strong></span><a class="headerlink" href="#id25" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-radial"><span class="std std-ref">N_RADIAL</span></a></p></td>
+<td><p>Number of radial <span class="math notranslate nohighlight">\(k_x^0\)</span> wavenumbers</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-box-size"><span class="std std-ref">BOX_SIZE</span></a></p></td>
+<td><p>Radial domain size</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-toroidal"><span class="std std-ref">N_TOROIDAL</span></a></p></td>
+<td><p>Number of binormal <span class="math notranslate nohighlight">\(k_y\)</span> wavenumbers</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-ky"><span class="std std-ref">KY</span></a></p></td>
+<td><p>Binormal wavenumber or domain size</p></td>
+<td><p>0.3</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-theta"><span class="std std-ref">N_THETA</span></a></p></td>
+<td><p>Number of poloidal <span class="math notranslate nohighlight">\(\theta\)</span> gridpoints</p></td>
+<td><p>24</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-xi"><span class="std std-ref">N_XI</span></a></p></td>
+<td><p>Number of pitch angle <span class="math notranslate nohighlight">\(\xi\)</span> gridpoints</p></td>
+<td><p>16</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-energy"><span class="std std-ref">N_ENERGY</span></a></p></td>
+<td><p>Number of energy <span class="math notranslate nohighlight">\(u\)</span> gridpoints</p></td>
+<td><p>8</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-e-max"><span class="std std-ref">E_MAX</span></a></p></td>
+<td><p>Maximum energy</p></td>
+<td><p>8.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nl-single-flag"><span class="std std-ref">NL_SINGLE_FLAG</span></a></p></td>
+<td><p>Use FP64 or FP32 math for nonlinear term</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-dissipation"></span><table class="docutils align-default" id="id26">
+<caption><span class="caption-number">Table 11 </span><span class="caption-text"><strong>Numerical Dissipation</strong></span><a class="headerlink" href="#id26" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-up-radial"><span class="std std-ref">UP_RADIAL</span></a></p></td>
+<td><p>Radial spectral upwind scaling</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-up-theta"><span class="std std-ref">UP_THETA</span></a></p></td>
+<td><p>Poloidal upwind scaling</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-up-alpha"><span class="std std-ref">UP_ALPHA</span></a></p></td>
+<td><p>Binormal spectral upwind scaling</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nup-radial"><span class="std std-ref">NUP_RADIAL</span></a></p></td>
+<td><p>Radial spectral upwind order</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nup-theta"><span class="std std-ref">NUP_THETA</span></a></p></td>
+<td><p>Poloidal upwind order</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nup-alpha"><span class="std std-ref">NUP_ALPHA</span></a></p></td>
+<td><p>Binormal spectral upwind order</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-upwind-single-flag"><span class="std std-ref">UPWIND_SINGLE_FLAG</span></a></p></td>
+<td><p>Use reduced precision communication</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-time"></span><table class="docutils align-default" id="id27">
+<caption><span class="caption-number">Table 12 </span><span class="caption-text"><strong>Time Stepping</strong></span><a class="headerlink" href="#id27" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta-t-method"><span class="std std-ref">DELTA_T_METHOD</span></a></p></td>
+<td><p>Time integrator selection</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta-t"><span class="std std-ref">DELTA_T</span></a></p></td>
+<td><p>Time step</p></td>
+<td><p>0.01</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-error-tol"><span class="std std-ref">ERROR_TOL</span></a></p></td>
+<td><p>Error tolerance</p></td>
+<td><p>1e-4</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-max-time"><span class="std std-ref">MAX_TIME</span></a></p></td>
+<td><p>Simulation time</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-freq-tol"><span class="std std-ref">FREQ_TOL</span></a></p></td>
+<td><p>Error tolerance for frequency</p></td>
+<td><p>0.001</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-print-step"><span class="std std-ref">PRINT_STEP</span></a></p></td>
+<td><p>Data output interval</p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-restart-step"><span class="std std-ref">RESTART_STEP</span></a></p></td>
+<td><p>Restart data output interval</p></td>
+<td><p>10</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-species"></span><table class="docutils align-default" id="id28">
+<caption><span class="caption-number">Table 13 </span><span class="caption-text"><strong>Species-related parameters</strong></span><a class="headerlink" href="#id28" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-species"><span class="std std-ref">N_SPECIES</span></a></p></td>
+<td><p>Number of GK species (ions plus electrons)</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-z"><span class="std std-ref">Z_*</span></a></p></td>
+<td><p>Species charge</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-mass"><span class="std std-ref">MASS_*</span></a></p></td>
+<td><p>Species mass</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dens"><span class="std std-ref">DENS_*</span></a></p></td>
+<td><p>Species density</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-temp"><span class="std std-ref">TEMP_*</span></a></p></td>
+<td><p>Species temperature</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dlnndr"><span class="std std-ref">DLNNDR_*</span></a></p></td>
+<td><p>Species density gradient</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-dlntdr"><span class="std std-ref">DLNTDR_*</span></a></p></td>
+<td><p>Species temperature gradient</p></td>
+<td><p>1.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-collisions"></span><table class="docutils align-default" id="id29">
+<caption><span class="caption-number">Table 14 </span><span class="caption-text"><strong>Collisions</strong></span><a class="headerlink" href="#id29" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nu-ee"><span class="std std-ref">NU_EE</span></a></p></td>
+<td><p>Electron-electron collision frequency</p></td>
+<td><p>0.1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-model"><span class="std std-ref">COLLISION_MODEL</span></a></p></td>
+<td><p>Collision model selector</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-field-model"><span class="std std-ref">COLLISION_FIELD_MODEL</span></a></p></td>
+<td><p>Toggle self-consistent field update</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-mom-restore"><span class="std std-ref">COLLISION_MOM_RESTORE</span></a></p></td>
+<td><p>Toggle momentum conservation</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-ene-restore"><span class="std std-ref">COLLISION_ENE_RESTORE</span></a></p></td>
+<td><p>Toggle energy conservation</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-ene-diffusion"><span class="std std-ref">COLLISION_ENE_DIFFUSION</span></a></p></td>
+<td><p>Toggle energy diffusion</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-kperp"><span class="std std-ref">COLLISION_KPERP</span></a></p></td>
+<td><p>Toggle so-called FLR term</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a></p></td>
+<td><p>Reduce Sugama memory use</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-rotation"></span><table class="docutils align-default" id="id30">
+<caption><span class="caption-number">Table 15 </span><span class="caption-text"><strong>Rotation physics</strong></span><a class="headerlink" href="#id30" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-rotation-model"><span class="std std-ref">ROTATION_MODEL</span></a></p></td>
+<td><p>Rotation model selector</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-e"><span class="std std-ref">GAMMA_E</span></a></p></td>
+<td><p>Dopper shearing rate (<span class="math notranslate nohighlight">\(E \times B\)</span> shear)</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-p"><span class="std std-ref">GAMMA_P</span></a></p></td>
+<td><p>Rotation shearing rate</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-mach"><span class="std std-ref">MACH</span></a></p></td>
+<td><p>Rotation speed (Mach number)</p></td>
+<td><p>0.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-e-scale"><span class="std std-ref">GAMMA_E_SCALE</span></a></p></td>
+<td><p>Doppler shearing rate scaling factor</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gamma-p-scale"><span class="std std-ref">GAMMA_P_SCALE</span></a></p></td>
+<td><p>Rotation shearing rate scaling factor</p></td>
+<td><p>1.0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-mach-scale"><span class="std std-ref">MACH_SCALE</span></a></p></td>
+<td><p>Rotation speed scaling factor</p></td>
+<td><p>1.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-global"></span><table class="docutils align-default" id="id31">
+<caption><span class="caption-number">Table 16 </span><span class="caption-text"><strong>Global-spectral parameters</strong></span><a class="headerlink" href="#id31" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-n-global"><span class="std std-ref">N_GLOBAL</span></a></p></td>
+<td><p>Global output resolution</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nu-global"><span class="std std-ref">NU_GLOBAL</span></a></p></td>
+<td><p>Source rate</p></td>
+<td><p>15.0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-output"></span><table class="docutils align-default" id="id32">
+<caption><span class="caption-number">Table 17 </span><span class="caption-text"><strong>Output file control</strong></span><a class="headerlink" href="#id32" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a></p></td>
+<td><p>Output of electromagnetic field components</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a></p></td>
+<td><p>Output of density and energy moments</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gflux-print-flag"><span class="std std-ref">GFLUX_PRINT_FLAG</span></a></p></td>
+<td><p>Output of global flux profiles</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-h-print-flag"><span class="std std-ref">H_PRINT_FLAG</span></a></p></td>
+<td><p>Output of distribution (single-mode only)</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<span id="tab-optimization"></span><table class="docutils align-default" id="id33">
+<caption><span class="caption-number">Table 18 </span><span class="caption-text"><strong>Optimization related parameters</strong></span><a class="headerlink" href="#id33" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 30.2%" />
+<col style="width: 58.1%" />
+<col style="width: 11.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>input.cgyro parameter</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-toroidals-per-proc"><span class="std std-ref">TOROIDALS_PER_PROC</span></a></p></td>
+<td><p>How many toroidal harmonics per MPI process</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-collision-precision-mode"><span class="std std-ref">COLLISION_PRECISION_MODE</span></a></p></td>
+<td><p>Use FP64 or FP32 constants for the cmat constants</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-nl-single-flag"><span class="std std-ref">NL_SINGLE_FLAG</span></a></p></td>
+<td><p>Use FP64 or FP32 math for nonlinear term</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-mpi-rank-order"><span class="std std-ref">MPI_RANK_ORDER</span></a></p></td>
+<td><p>Relative ordering of MPI ranks</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-velocity-order"><span class="std std-ref">VELOCITY_ORDER</span></a></p></td>
+<td><p>What internal velocity order to use</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-gpu-bigmem-flag"><span class="std std-ref">GPU_BIGMEM_FLAG</span></a></p></td>
+<td><p>Enable GPU offload when possible</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><a class="reference internal" href="cgyro/cgyro_list.html"><span class="doc">Alphabetical list</span></a></p></li>
+<li><p>Profile data: <a class="reference internal" href="input_gacode.html#input-gacode"><span class="std std-ref">input.gacode</span></a>.</p></li>
 </ul>
 </section>
-<section id="frequently-asked-questions">
-<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="cgyro/FAQ.html"><span class="doc">FAQ</span></a></p></li>
-</ul>
+</section>
+<section id="output-data">
+<h2>Output data<a class="headerlink" href="#output-data" title="Link to this heading"></a></h2>
+<section id="files">
+<h3>Files<a class="headerlink" href="#files" title="Link to this heading"></a></h3>
+<p>It is <strong>not recommended</strong> to read these files directly.  Rather, we encourage the use
+of the CGYRO python data interface.</p>
+<table class="docutils align-default" id="id34">
+<caption><span class="caption-number">Table 19 </span><span class="caption-text"><strong>Time-independent output</strong></span><a class="headerlink" href="#id34" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filename</p></th>
+<th class="head"><p>Short description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>out.cgyro.egrid</p></td>
+<td><p>Energy mesh and various weights</p></td>
+</tr>
+<tr class="row-odd"><td><p>out.cgyro.equilibrium</p></td>
+<td><p>Physics input data</p></td>
+</tr>
+<tr class="row-even"><td><p>out.cgyro.grids</p></td>
+<td><p>Mesh dimensions and coordinates</p></td>
+</tr>
+<tr class="row-odd"><td><p>out.cgyro.hosts</p></td>
+<td><p>MPI ranks and hostnames</p></td>
+</tr>
+<tr class="row-even"><td><p>out.cgyro.info</p></td>
+<td><p>Human-readable description of simulation</p></td>
+</tr>
+<tr class="row-odd"><td><p>out.cgyro.memory</p></td>
+<td><p>Memory usage statistics</p></td>
+</tr>
+<tr class="row-even"><td><p>out.cgyro.mpi</p></td>
+<td><p>Recommendations for choosing MPI tasks and OMP threads</p></td>
+</tr>
+<tr class="row-odd"><td><p>out.cgyro.version</p></td>
+<td><p>Version information and timestamp for simulation</p></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.geo</p></td>
+<td><p>GK equation coefficients versus <span class="math notranslate nohighlight">\(\theta\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id35">
+<caption><span class="caption-number">Table 20 </span><span class="caption-text"><strong>Common time-dependent output</strong></span><a class="headerlink" href="#id35" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 41.7%" />
+<col style="width: 25.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filename</p></th>
+<th class="head"><p>Short description</p></th>
+<th class="head"><p>Switch</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>out.cgyro.time</p></td>
+<td><p>Time and error vector</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>out.cgyro.timing</p></td>
+<td><p>Kernel timer data</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.freq</p></td>
+<td><p>Mode frequency vector</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>bin.cgyro.kxky_phi</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta\phi(k_x^0,k_y,t)\)</span></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.kxky_apar</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta A_\parallel(k_x^0,k_y,t)\)</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin.cgyro.kxky_bpar</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta B_\parallel(k_x^0,k_y,t)\)</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-field-print-flag"><span class="std std-ref">FIELD_PRINT_FLAG</span></a> = 1</p></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.kxky_n</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta n_a(k_x^0,k_y,t)\)</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin.cgyro.kxky_e</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta E_a(k_x^0,k_y,t)\)</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</p></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.kxky_v</p></td>
+<td><p><span class="math notranslate nohighlight">\(\delta v_a(k_x^0,k_y,t)\)</span></p></td>
+<td><p><a class="reference internal" href="cgyro/cgyro_list.html#cgyro-moment-print-flag"><span class="std std-ref">MOMENT_PRINT_FLAG</span></a> = 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin.cgyro.ky_flux</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Gamma_a, \Pi_a, Q_a\)</span> versus <span class="math notranslate nohighlight">\((k_y,t)\)</span></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>bin.cgyro.ky_cflux</p></td>
+<td><p><span class="math notranslate nohighlight">\(\Gamma_a, \Pi_a, Q_a\)</span> (half domain) versus <span class="math notranslate nohighlight">\((k_y,t)\)</span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="docutils align-default" id="id36">
+<caption><span class="caption-number">Table 21 </span><span class="caption-text"><strong>Restart data</strong></span><a class="headerlink" href="#id36" title="Link to this table"></a></caption>
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Filename</p></th>
+<th class="head"><p>Short description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>out.cgyro.tag</p></td>
+<td><p>Restart tag file (contains time index and value)</p></td>
+</tr>
+<tr class="row-odd"><td><p>bin.cgyro.restart</p></td>
+<td><p>Binary restart file</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>Normalization<a class="headerlink" href="#id10" title="Link to this heading"></a></h3>
+<p>Ion sound gyroradius</p>
+<div class="math notranslate nohighlight">
+\[\rho_{s,{\rm unit}} = \frac{c_s}{e B_{\rm unit}/(m_D c)}\]</div>
+<p>Ion sound speed</p>
+<div class="math notranslate nohighlight">
+\[c_s=\sqrt{T_e/m_D}\]</div>
+<p>gyroBohm particle flux</p>
+<div class="math notranslate nohighlight">
+\[\Gamma_{\rm GB} = n_e c_s (\rho_{s,{\rm unit}}/a)^2\]</div>
+<p>gyroBohm momentum flux</p>
+<div class="math notranslate nohighlight">
+\[\Pi_{\rm GB} = n_e a T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
+<p>gyroBohm energy flux</p>
+<div class="math notranslate nohighlight">
+\[Q_{\rm GB} = n_e c_s T_e (\rho_{s,{\rm unit}}/a)^2\]</div>
+</section>
+<section id="python-interface">
+<h3>Python interface<a class="headerlink" href="#python-interface" title="Link to this heading"></a></h3>
+<p>It is suggested that users use the python interface to read CGYRO output data.</p>
+</section>
+<section id="simulation-images">
+<h3>Simulation images<a class="headerlink" href="#simulation-images" title="Link to this heading"></a></h3>
+<p>Simulation data courtesy Nathan Howard (MIT)</p>
+<a class="reference internal image-reference" href="_images/b250.png"><img alt="b250" src="_images/b250.png" style="width: 48%;" />
+</a>
+<a class="reference internal image-reference" href="_images/b990.png"><img alt="b990" src="_images/b990.png" style="width: 48%;" />
+</a>
+<a class="reference internal image-reference" href="_images/b1020.png"><img alt="b1020" src="_images/b1020.png" style="width: 48%;" />
+</a>
+<a class="reference internal image-reference" href="_images/b1480.png"><img alt="b1480" src="_images/b1480.png" style="width: 48%;" />
+</a>
+</section>
+</section>
+<section id="faq">
+<h2>FAQ<a class="headerlink" href="#faq" title="Link to this heading"></a></h2>
+<div class="toggle-header docutils container">
+<p>What is <span class="math notranslate nohighlight">\(k_y \rho_s\)</span> and why does CGYRO modify <span class="math notranslate nohighlight">\(\rho_s\)</span> ?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>The fundamental definition of the wavenumber and unit gyroradius are given in <span id="id11">[<a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:10.1016/j.jcp.2016.07.039.">CBB16</a>]</span>.
+These are</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align}
+k_y \doteq &amp;~nq/r \; , \\
+\rho_s \doteq &amp;~\rho_{s,\rm{unit}} = \frac{e B_\rm{unit}}{m_D c} \; , \\
+B_\rm{unit} \doteq &amp;~\displaystyle \frac{q}{r} \frac{\partial \psi}{\partial r} \; .
+\end{align}\end{split}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(B_\rm{unit}\)</span> is the <em>Waltz effective magnetic field</em> which is standard
+across all GACODE tools/codes, and <span class="math notranslate nohighlight">\(r\)</span> is the midplane minor radius.  For a given
+value of <span class="math notranslate nohighlight">\(k_y \rho_s\)</span>, the gyrokinetic equations are invariant to the scaling
+<span class="math notranslate nohighlight">\(n \rightarrow \alpha n\)</span> and <span class="math notranslate nohighlight">\(\rho_s \rightarrow \rho_s/\alpha\)</span>,
+where <span class="math notranslate nohighlight">\(\alpha\)</span> is an arbitrary scaling parameter.</p>
+<p>The CGYRO input parameter KY is</p>
+<div class="math notranslate nohighlight">
+\[\mathtt{KY} \doteq \Delta(k_y \rho_s) = \Delta n \left(\frac{q}{r}\right) \rho_s \; .\]</div>
+<p>CGYRO enforces <span class="math notranslate nohighlight">\(\Delta n = 1\)</span>, which sets the (artificial) value of <span class="math notranslate nohighlight">\(\rho_s\)</span> to</p>
+<div class="math notranslate nohighlight">
+\[\rho_s \rightarrow \left(\frac{r}{q}\right) \mathtt{KY} \; .\]</div>
+<p>To see the physical values of key parameters, you can use profiles_gen:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ profiles_gen -i input.gacode -loc_rad 0.6
+INFO: (profiles_gen) input.gacode is autodetected as GACODE.
+INFO: (locpargen) Quasineutrality NOT enforced.
+INFO: (locpargen) rhos/a   =+2.44577E-03
+INFO: (locpargen) Te [keV] =+8.81550E-01
+INFO: (locpargen) Ti [keV] =+7.58644E-01
+INFO: (locpargen) Bunit    =+2.92020E+00
+INFO: (locpargen) beta_*   =+4.84003E-03
+INFO: -----&gt;  n=1: ky*rhos =-7.74754E-03
+INFO: (locpargen) Wrote input.*.locpargen
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="toggle-header docutils container">
+<p>How does adaptive time-stepping work?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>Time-stepping is controlled with the parameter <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta-t-method"><span class="std std-ref">DELTA_T_METHOD</span></a>. Setting the parameter
+to 0 gives the legacy fixed timestep, whereas values greater than 0 are adaptive methods. For the
+adaptive methods we recommend setting <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta-t"><span class="std std-ref">DELTA_T</span></a> = 0.01. Here is the recommendation:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">DELTA_T_METHOD</span><span class="o">=</span><span class="mi">1</span>
+<span class="n">DELTA_T</span><span class="o">=</span><span class="mf">0.01</span>
+<span class="n">PRINT_STEP</span><span class="o">=</span><span class="mi">100</span>
+</pre></div>
+</div>
+<p>The overall time-integration step is split between an explicit high-order step, and an implicit
+second-order step for collisions and trapping. When using the adaptive method, the value of
+<a class="reference internal" href="cgyro/cgyro_list.html#cgyro-delta-t"><span class="std std-ref">DELTA_T</span></a> is the size of the (large) implicit timestep. Then, the value of the explicit
+timestep is decreased to match the error tolerance, <a class="reference internal" href="cgyro/cgyro_list.html#cgyro-error-tol"><span class="std std-ref">ERROR_TOL</span></a> – the default value of
+which should be sufficient.</p>
+</div></blockquote>
+</div>
+<div class="toggle-header docutils container">
+<p>Why did you start over with CGYRO?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p><strong>The past: GYRO</strong></p>
+<p>Over the past two decades, the fusion community has focused its modeling efforts primarily on the
+core region. A popular kinetic code used for this purpose was
+GYRO <span id="id12">[<a class="reference internal" href="zreferences.html#id189" title="J. Candy and E. Belli. GYRO Technical Guide. General Atomics Technical Report, 2010.">CB10</a>, <a class="reference internal" href="zreferences.html#id178" title="J. Candy and R.E. Waltz. An Eulerian gyrokinetic-Maxwell solver. J. Comput. Phys., 186:545, 2003. doi:10.1016/S0021-9991(03)00079-2.">CW03a</a>, <a class="reference internal" href="zreferences.html#id179" title="J. Candy and R.E. Waltz. Anomalous transport in the DIII-D tokamak matched by supercomputer simulation. Phys. Rev. Lett., 91:045001-1, 2003. doi:10.1103/PhysRevLett.91.045001.">CW03b</a>, <a class="reference internal" href="zreferences.html#id180" title="J. Candy, R.E. Waltz, and W. Dorland. The local limit of global gyrokinetic simulations. Phys. Plasmas, 11:L25, 2004. doi:10.1063/1.1695358.">CWD04</a>]</span>. Thousands of nonlinear simulations
+with GYRO have informed the fusion community’s understanding of core plasma
+turbulence <span id="id13">[<a class="reference internal" href="zreferences.html#id516" title="N.T. Howard, C. Holland, A.E. White, M. Greenwald, and J. Candy. Multi-scale gyrokinetic simulation of tokamak plasmas: enhanced heat loss due to cross-scale coupling of plasma turbulence. Nucl. Fusion, 56(1):014004, 2016. doi:10.1088/0029-5515/56/1/014004.">HHW+16</a>, <a class="reference internal" href="zreferences.html#id597" title="J.E. Kinsey, R.E. Waltz, and J. Candy. Nonlinear gyrokinetic turbulence simulations of E×B shear quenching of transport. Phys. Plasmas, 12:062302, 2005.">KWC05</a>, <a class="reference internal" href="zreferences.html#id598" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of safety factor and magnetic shear on turbulent transport in nonlinear gyrokinetic simulations. Phys. Plasmas, 13:022305, 2006.">KWC06</a>, <a class="reference internal" href="zreferences.html#id599" title="J.E. Kinsey, R.E. Waltz, and J. Candy. The effect of plasma shaping on turbulent transport and E×B shear quenching in nonlinear gyrokinetic simulations. Phys. Plasmas, 14:102306, 2007.">KWC07</a>]</span> and provided a <em>transport database</em>
+for the calibration of reduced transport models such as TGLF <span id="id14">[<a class="reference internal" href="zreferences.html#id1009" title="G.M. Staebler, J.E. Kinsey, and R.E. Waltz. A theory-based transport model with comprehensive physics. Phys. Plasmas, 14:055909, 2007.">SKW07</a>]</span>.  GYRO was the
+first global electromagnetic solver, and pioneered the development of numerical algorithms for the
+GK equations with kinetic electrons.  It is formulated in real space and like all global solvers
+requires <em>ad hoc</em> absorbing-layer boundary conditions when simulating cases with profile variation.
+This approach is suitable for core turbulence simulations, which cover a large radial region and are
+dominated by low wavenumbers.</p>
+<p><strong>The future: CGYRO</strong></p>
+<p>As the understanding of core transport has become increasingly complete, the
+cutting edge of research moved radially toward the pedestal region, where plasmas are
+characterized by larger collisionality and steeper pressure gradients that
+greatly modify the turbulent phenomena at play. This motivated the development,
+from scratch, of the CGYRO code <span id="id15">[<a class="reference internal" href="zreferences.html#id87" title="E.A. Belli and J. Candy. Implications of advanced collision operators for gyrokinetic simulation. Plasma Phys. Control. Fusion, 59:045005, 2017. doi:10.1088/1361-6587/aa5c94.">BC17</a>, <a class="reference internal" href="zreferences.html#id88" title="E.A. Belli and J. Candy. Impact of centrifugal drifts on ion turbulent transport. Phys. Plasmas, 25:032301, 2018. doi:10.1063/1.5020298.">BC18</a>, <a class="reference internal" href="zreferences.html#id193" title="J. Candy, E.A. Belli, and R.V. Bravenec. A high-accuracy Eulerian gyrokinetic solver for collisional plasmas. J. Comput. Phys., 324:73, 2016. doi:10.1016/j.jcp.2016.07.039.">CBB16</a>, <a class="reference internal" href="zreferences.html#id195" title="J. Candy, I. Sfiligoi, E. Belli, K. Hallatschek, C. Holland, N. Howard, and E.D`Azevedo. Multiscale-optimized plasma turbulence simulation on petascale architechtures. Computers &amp; Fluids, 188:125, 2019. doi:10.1016/j.compfluid.2019.04.016.">CSB+19</a>]</span>
+to complement GYRO.  CGYRO is an Eulerian GK solver specifically designed and
+optimized for <strong>collisional, electromagnetic, multiscale simulation</strong>.
+A key algorithmic aspect of CGYRO is the <strong>radially spectral formulation</strong>
+used to reduce the complicated integral gyroaveraging kernel into a
+multiplication in wavenumber space, but retaining the ability to treat profile
+variation important for edge plasmas <span id="id16">[<a class="reference internal" href="zreferences.html#id194" title="J. Candy and E.A. Belli. Spectral treatment of gyrokinetic shear flow. J. Comput. Phys., 356:448, 2018. doi:10.1016/j.jcp.2017.12.020.">CB18</a>, <a class="reference internal" href="zreferences.html#id196" title="J. Candy, E.A. Belli, and G. Staebler. Spectral treatment of gyrokinetic profile curvature. Plasma Phys. Control. Fusion, 62:042001, 2020. doi:10.1088/1361-6587/ab759c.">CBS20</a>]</span>.  A new coordinate system that is more
+suitable for the highly collisional and shaped edge regime was adopted from
+the NEO code <span id="id17">[<a class="reference internal" href="zreferences.html#id79" title="E.A. Belli and J. Candy. Kinetic calculation of neoclassical transport including self-consistent electron and impurity dynamics. Plasma Phys. Control. Fusion, 50:095010, 2008. doi:10.1088/0741-3335/50/9/095010.">BC08</a>, <a class="reference internal" href="zreferences.html#id83" title="E.A. Belli and J. Candy. Full linearized Fokker-Planck collisions in neoclassical transport simulations. Plasma Phys. Control. Fusion, 54:015015, 2012. doi:10.1088/0741-3335/54/1/015015.">BC12</a>]</span>, which is the community standard for
+calculation of collisional transport in toroidal geometry.</p>
+</div></blockquote>
+</div>
+<div class="toggle-header docutils container">
+<p>How do you run a simple linear case?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -g reg08
+$ cd reg08
+$ cgyro -e .
+$ cgyro_plot -plot ball -field 1
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/out.cgyro.ball.png"><img alt="_images/out.cgyro.ball.png" src="_images/out.cgyro.ball.png" style="width: 90%;" />
+</a>
+</div></blockquote>
+</div>
+<div class="toggle-header docutils container">
+<p>How do I run a pre-existing template case?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>The input files and configuration for numerous linear and nonlinear cases can
+be auto-generated using the <code class="docutils literal notranslate"><span class="pre">-g</span></code> flag.  Often, it is easiest to find a template case
+that is close to what you would like to run, and then modify it accordingly.
+A list of all regression and template cases in generated by typing:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -g
+</pre></div>
+</div>
+<p>A very simple nonlinear case is <code class="docutils literal notranslate"><span class="pre">nl00</span></code>.  You can generate the template with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -g nl00
+</pre></div>
+</div>
+<p>It is <strong>strongly suggested</strong> that you first run your case in <em>test mode</em> using the <code class="docutils literal notranslate"><span class="pre">-t</span></code> flag:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cgyro -t nl00
+</pre></div>
+</div>
+<p>On the large systems at NERSC, ORNL and elsewhere, you will need to establish an <strong>interactive queue</strong>
+to execute the command above.  The result should be diagnostics printed to the screen plus a few output
+files.  Pay attention to the file <code class="docutils literal notranslate"><span class="pre">out.cgyro.mpi</span></code>. This shows the acceptable number of MPI tasks.</p>
+</div></blockquote>
+</div>
+<div class="toggle-header docutils container">
+<p>How do I submit a batch job?</p>
+</div>
+<div class="toggle-content docutils container">
+<blockquote>
+<div><p>On established platforms, the burden of writing batch script files and setting core counts is managed
+by the <code class="docutils literal notranslate"><span class="pre">gacode_qsub</span></code> script.  To generate a <code class="docutils literal notranslate"><span class="pre">batch.src</span></code> file, you could type:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gacode_qsub -e nl01 -n 512 -nomp 2 -queue regular -repo atom -w 0:09:00
+</pre></div>
+</div>
+<p>Additional flags are also accepted. Adding the <code class="docutils literal notranslate"><span class="pre">-s</span></code> flag to the above will submit the job.</p>
+</div></blockquote>
+</div>
 </section>
 </section>
 
@@ -242,15 +1182,15 @@ calculation of collisional transport in toroidal geometry.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="tgyro/plot.html" class="btn btn-neutral float-left" title="PLOT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gyro.html" class="btn btn-neutral float-right" title="GYRO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="zreferences.html" class="btn btn-neutral float-left" title="References" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="neo.html" class="btn btn-neutral float-right" title="NEO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2000-2025.
-      <span class="lastupdated">Last updated on Apr 27, 2025.
+      <span class="lastupdated">Last updated on Jul 07, 2025.
       </span></p>
   </div>
 

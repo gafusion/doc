@@ -57,9 +57,12 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Codes</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="neo.html">NEO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tgyro.html">TGYRO</a></li>
-<li class="toctree-l1"><a class="reference internal" href="cgyro.html">CGYRO</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legacy tools</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="gyro.html">GYRO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tglf.html">TGLF</a></li>
 <li class="toctree-l1"><a class="reference internal" href="prgen.html">profiles_gen</a></li>
@@ -113,7 +116,7 @@
 <section id="clebsch-coordinates">
 <h2>Clebsch coordinates<a class="headerlink" href="#clebsch-coordinates" title="Link to this heading"></a></h2>
 <p>GYRO/CGYRO/NEO use a right-handed (positively-oriented), field-aligned coordinate system
-<span class="math notranslate nohighlight">\((r,\theta,\alpha)\)</span> and the Clebsch field representation <span id="id1">[<a class="reference internal" href="zreferences.html#id638" title="M.D. Kruskal and R.M. Kulsrud. Equilibrium of a magnetically confined plasma in a toroid. Phys. Fluids, 1:265, 1958.">KK58</a>]</span></p>
+<span class="math notranslate nohighlight">\((r,\theta,\alpha)\)</span> and the Clebsch field representation <span id="id1">[<a class="reference internal" href="zreferences.html#id639" title="M.D. Kruskal and R.M. Kulsrud. Equilibrium of a magnetically confined plasma in a toroid. Phys. Fluids, 1:265, 1958.">KK58</a>]</span></p>
 <div class="math notranslate nohighlight">
 \[\B = \nabla\alpha\times\nabla\psi \quad \text{such that} \quad\B\cdot\nabla\alpha = \B\cdot\nabla\psi = 0\]</div>
 <p>where <span class="math notranslate nohighlight">\(\psi\)</span> is the poloidal flux divided by <span class="math notranslate nohighlight">\(2\pi\)</span> and</p>
@@ -147,7 +150,7 @@ moves counterclockwise along the flux-surface (shown in blue). In these coordina
 </section>
 <section id="bounding-box-method">
 <h2>Bounding-box method<a class="headerlink" href="#bounding-box-method" title="Link to this heading"></a></h2>
-<p>In the MXH parameterization <span id="id2">[<a class="reference internal" href="zreferences.html#id44" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2021. doi:doi.org/10.1088/1361-6587/abc63b.">ACB21</a>]</span>, we use the bounding-box method to define</p>
+<p>In the MXH parameterization <span id="id2">[<a class="reference internal" href="zreferences.html#id44" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2021. doi:10.1088/1361-6587/abc63b.">ACB21</a>]</span>, we use the bounding-box method to define</p>
 <ul class="simple">
 <li><p><strong>minor radius</strong> <span class="math notranslate nohighlight">\(r\)</span></p></li>
 <li><p><strong>major radius</strong> <span class="math notranslate nohighlight">\(R_0\)</span></p></li>
@@ -185,7 +188,7 @@ Z(r,\theta) &amp;= r \sin \theta \\\end{split}\]</div>
 <li><p>NEO: <a class="reference internal" href="neo/neo_list.html#neo-equilibrium-model"><span class="std std-ref">EQUILIBRIUM_MODEL</span></a> = 0</p></li>
 </ul>
 <p><strong>(2) Shaped Grad-Shafranov equilibrium</strong></p>
-<p>The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization <span id="id3">[<a class="reference internal" href="zreferences.html#id44" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2021. doi:doi.org/10.1088/1361-6587/abc63b.">ACB21</a>]</span>:</p>
+<p>The flux surfaces, which are local G-S equilibria, have the new MXH3 parameterization <span id="id3">[<a class="reference internal" href="zreferences.html#id44" title="R. Arbon, J. Candy, and E.A. Belli. Rapidly-convergent flux-surface shape parameterization. Plasma Phys. Control. Fusion, 63:012001, 2021. doi:10.1088/1361-6587/abc63b.">ACB21</a>]</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}R(r,\theta) &amp;= R_0(r) + r \cos \theta_R \\
 Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
@@ -395,7 +398,7 @@ Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
 </section>
 <section id="toroidal-and-poloidal-flux">
 <h2>Toroidal and poloidal flux<a class="headerlink" href="#toroidal-and-poloidal-flux" title="Link to this heading"></a></h2>
-<p>We can start from the general forms of the toroidal and poloidal fluxes <span id="id5">[<a class="reference internal" href="zreferences.html#id1198" title="W.D. D'haeseleer, W.N.G. Hitchon, J.D. Callen, and J.L. Shohet. Flux coordinates and magnetic field structure. Springer-Verlag, Berlin, 1991.">DhaeseleerHCS91</a>]</span></p>
+<p>We can start from the general forms of the toroidal and poloidal fluxes <span id="id5">[<a class="reference internal" href="zreferences.html#id1174" title="W.D. D'haeseleer, W.N.G. Hitchon, J.D. Callen, and J.L. Shohet. Flux coordinates and magnetic field structure. Springer-Verlag, Berlin, 1991.">DhaeseleerHCS91</a>]</span></p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\Psi_t \doteq &amp;~\iint\limits_{S_t} \B \cdot d{\bf S} = \frac{1}{2\pi} \iiint\limits_{V_t} \B \cdot \nabla\varphi \, dV \; , \\
 \Psi_p \doteq &amp;~\iint\limits_{S_p} \B \cdot d{\bf S} = \frac{1}{2\pi} \iiint\limits_{V_p} \B \cdot \nabla\theta \, dV \; .\end{split}\]</div>
@@ -430,7 +433,7 @@ Z(r,\theta) &amp;= Z_0(r) + \kappa(r) r \sin \theta\end{split}\]</div>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2000-2025.
-      <span class="lastupdated">Last updated on Apr 27, 2025.
+      <span class="lastupdated">Last updated on Jul 07, 2025.
       </span></p>
   </div>
 
