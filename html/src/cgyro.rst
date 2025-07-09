@@ -11,8 +11,8 @@ Core developers
 
 * Emily Belli, `General Atomics <https://www.ga.com/>`_ 
 * Jeff Candy, `General Atomics <https://www.ga.com/>`_
-* Klaus Hallatschek, `IPP <https://www.ipp.mpg.de/>`_ 
 * Igor Sfiligoi, `SDSC <https://www.sdsc.edu/>`_ 
+* Klaus Hallatschek, `IPP <https://www.ipp.mpg.de/>`_ 
 
 Notable publications
 ^^^^^^^^^^^^^^^^^^^^
