@@ -8,7 +8,6 @@
 \newcommand\qgbj{Q_{{\rm GB},j}}
 \newcommand\vpr{V^\prime}
 \newcommand\qhat{\widehat{Q}}
-\newcommand{\sj}{{\sigma,j}}
 %--------------------------------------
 
 \begin{document}
@@ -47,6 +46,11 @@ Q_\sigma = Q_\sigma^{\rm turb} + Q_\sigma^{\rm neo} \; ,
 with $Q^{\rm turb}_\sigma$ from TGLF and, at present,
 $Q^{\rm neo}_\sigma = 0$.
 
+The channels couple only pointwise, through the local flux and the
+sources.  We therefore drop $\sigma$: $z$, $T$, $Q$ and $A$ are read as
+vectors over the $n_c$ channels at each radius, and every operation
+below acts on them componentwise.
+
 \section{Normalization}
 
 \begin{equation}
@@ -54,56 +58,53 @@ $Q^{\rm neo}_\sigma = 0$.
 \qquad
 c_s = \sqrt{\frac{T_e}{m_D}} \; ,
 \qquad
-\rho_s = \frac{m_D c_s}{e B_{\rm unit}} \; ,
+\rho_s = \frac{c_s}{\Omega_{ci}} = \frac{m_D c_s c}{e B_{\rm unit}} \; ,
 \end{equation}
 %
-with $a$ the minor radius of the last closed flux surface.  Explicitly,
+with $a$ the minor radius of the last closed flux surface and $\Omega_{ci}
+= e B_{\rm unit}/(m_D c)$ the deuterium cyclotron frequency (Gaussian
+units).  Explicitly,
 %
 \begin{equation}
-\qgb = \frac{m_D^{1/2}}{e^2 a^2 B_{\rm unit}^2} \; n_e \, T_e^{5/2} \; .
+\qgb = \frac{m_D^{1/2} c^2}{e^2 a^2 B_{\rm unit}^2} \; n_e \, T_e^{5/2} \; .
 \label{eq.qgb}
 \end{equation}
 %
 Writing $\qhat \doteq Q/\qgb$, the normalized target is
 %
 \begin{equation}
-\qhat^T_\sigma = \frac{P_\sigma}{\vpr \, \qgb} \; ,
+\qhat^T = \frac{P}{\vpr \, \qgb} \; ,
 \label{eq.qhattarget}
 \end{equation}
 %
-which depends on the solution through $\qgb$ even when $S_\sigma$ does
-not.
+which depends on the solution through $\qgb$ even when $S$ does not.
 
 \section{Scale-length formulation}
 
 With $x \doteq r/a$, the unknown is
 %
 \begin{equation}
-z_\sigma(x) \doteq - \frac{\partial \ln T_\sigma}{\partial x} \; .
+z(x) \doteq - \frac{\partial \ln T}{\partial x} \; .
 \label{eq.zdef}
 \end{equation}
 %
-Integrating (\ref{eq.zdef}) determines the profile {\it shape}
+Integrating (\ref{eq.zdef}) outward from the origin,
 %
 \begin{equation}
-\Phi_\sigma(x;z) = \exp \left( \int_x^{x_{\rm ref}} dx^\prime \,
- z_\sigma(x^\prime) \right) \; ,
+\ln T(x) = \ln A - \int_0^{x} dx^\prime \, z(x^\prime) \; ,
 \qquad
-T_\sigma \propto \Phi_\sigma \; ,
-\label{eq.shape}
+A \doteq T(0) \; ,
+\label{eq.integrate}
 \end{equation}
 %
-fixed by $z_\sigma$ alone.  The reference radius $x_{\rm ref}$ is
-arbitrary, so $\Phi_\sigma$ is defined only up to a multiplicative
-constant.  Note $\Phi_\sigma > 0$ for every $z_\sigma$: positivity of
-$T_\sigma$ is automatic.
+so $z$ determines the profile up to the single constant $A$.
 
 \subsection{Axis condition}
 
-$T_\sigma$ is even in $x$, so $z_\sigma$ is odd:
+$T$ is even in $x$, so $z$ is odd:
 %
 \begin{equation}
-z_\sigma(0) = 0 \; .
+z(0) = 0 \; .
 \label{eq.axis}
 \end{equation}
 %
@@ -113,137 +114,135 @@ This is imposed, not solved for.
 
 \begin{equation}
 x_0 = 0 \; , \qquad x_1 < x_2 < \dots < x_N \; ,
-\qquad x_1 \ge 0.2 \; ,
 \label{eq.grid}
 \end{equation}
 %
 non-uniform, with resolution concentrated toward the edge.  The
-integral in (\ref{eq.shape}) is a linear functional of $z_\sigma$, so
-for any quadrature with weights $W$,
+integral in (\ref{eq.integrate}) is a linear functional of $z$, so for
+any quadrature with weights $W$,
 %
 \begin{equation}
 \boxed{\;
-\ln \Phi_{\sj} = \sum_{m=0}^{N} W_{jm} \, z_{\sigma,m} \; ,
-\qquad z_{\sigma,0} = 0 \; . }
+T_j(z,A) = A \exp \left( - \sum_{m=0}^{j} W_{jm} \, z_m \right) \; ,
+\qquad z_0 = 0 \; . }
 \label{eq.W}
 \end{equation}
 %
-$W$ is known, built once from the grid, and requires no flux
-evaluation.  Positivity holds for any $W$.
+$W_{jm}$ is the cumulative quadrature weight for $\int_0^{x_j}$, so
+$W_{jm} = 0$ for $m > j$: $W$ is lower triangular, and $T_j$ depends on
+$z$ only at radii interior to $x_j$.  Positivity of $T$ is automatic.
 
 \section{Boundary condition}
 \label{sec.bc}
 
-Any {\it linear} condition on the discrete profile $T_\sigma = \{
-T_{\sj} \}$ may be written, without loss of generality, as
+Any {\it linear} condition on the discrete profile $T = \{ T_j \}$ may
+be written, without loss of generality, as
 %
 \begin{equation}
-B_\sigma \cdot T_\sigma = 1 \; ,
+B \cdot T = 1 \; ,
 \label{eq.linbc}
 \end{equation}
 %
-with $B_\sigma$ a known vector.  Since $T_\sigma \propto \Phi_\sigma$,
-this fixes the constant of proportionality, and the profile follows
-from $z$ alone:
+with $B$ a known vector.  By (\ref{eq.W}), $T$ is linear in $A$, so
+(\ref{eq.linbc}) determines $A$:
 %
 \begin{equation}
 \boxed{\;
-T_\sigma = \frac{\Phi_\sigma(z)}{B_\sigma \cdot \Phi_\sigma(z)} \; }
+A = \left[ \sum_{j} B_j \, \exp \left(
+ - \sum_{m=0}^{j} W_{jm} \, z_m \right) \right]^{-1} \; }
 \label{eq.profile}
 \end{equation}
+
+\subsection{The classic case}
+
+Write $T_*$ for the prescribed boundary value at $x_N$.  The Dirichlet
+condition $T_N = T_*$ is $B_j = \delta_{jN}/T_*$.  Only the $j=N$ term
+survives in (\ref{eq.profile}),
 %
-The right side is homogeneous of degree zero in $\Phi_\sigma$, so the
-reference radius $x_{\rm ref}$ cancels identically.
+\begin{equation}
+A = T_* \exp \left( \sum_{m=0}^{N} W_{Nm} \, z_m \right) \; ,
+\end{equation}
+%
+and substituting into (\ref{eq.W}),
+%
+\begin{equation}
+T_j = T_* \exp \left( \sum_{m=0}^{N}
+ \bigl( W_{Nm} - W_{jm} \bigr) \, z_m \right) \; .
+\label{eq.dirichlet}
+\end{equation}
+%
+For the trapezoidal rule the cumulative weights are
+%
+\begin{equation}
+W_{j0} = \frac{x_1-x_0}{2} \; , \qquad
+W_{jm} = \frac{x_{m+1}-x_{m-1}}{2} \quad (0 < m < j) \; , \qquad
+W_{jj} = \frac{x_j-x_{j-1}}{2} \; ,
+\label{eq.trap}
+\end{equation}
+%
+with $W_{jm} = 0$ for $m > j$.  The difference $W_{Nm} - W_{jm}$
+collapses to the panels outside $x_j$, and (\ref{eq.dirichlet}) is
+%
+\begin{equation}
+\boxed{\;
+T_j = T_* \exp \left( \sum_{m=j+1}^{N}
+ \frac{x_m - x_{m-1}}{2} \bigl( z_m + z_{m-1} \bigr) \right) \; }
+\label{eq.dirichlettrap}
+\end{equation}
+%
+the trapezoidal quadrature of $\int_{x_j}^{x_N} dx \, z$.  $T_j$ is
+independent of $z$ interior to $x_j$, and (\ref{eq.axis}) never enters.
 
 \section{Discrete problem}
 
-With $n_c$ channels the unknown vector is
+For one channel the unknown is
 %
 \begin{equation}
-z = \{ z_\sj \} \in \mathbb{R}^{N n_c} \; ,
+z = \{ z_j \} \in \mathbb{R}^{N} \; ,
 \qquad
-z_\sj \doteq z_\sigma(x_j) \; ,
+z_j \doteq z(x_j) \; ,
 \end{equation}
 %
-and the $N n_c$ equations to be solved are
+and the $N$ equations to be solved are
 %
 \begin{equation}
 \boxed{\;
-\qhat_\sj(z) = \qhat^T_\sj(z) \; }
+\qhat_j(z) = \qhat^T_j(z) \; }
 \label{eq.match}
 \end{equation}
 %
 both sides evaluated on the profile (\ref{eq.profile}) built from the
-same $z$.  The measure of departure from (\ref{eq.match}) is a property
-of the solution method, and is not specified here.
+same $z$.  Over all channels the system has dimension $N n_c$.
 
 \section{Structure}
+\label{sec.structure}
 
-The two sides of (\ref{eq.match}) have opposite structure.
-
-\noindent {\bf The flux is local.}  $\qhat_\sj$ depends on $z$ through
-the $n_c$ components at $x_j$ alone, and on the profile through two
-scalars:
+The flux is local in the pair $(z_j,T_j)$,
 %
 \begin{equation}
-\qhat_\sj = \qhat_\sigma \bigl( z_{\cdot,j} ;\; T_{e,j},\, T_{i,j}
- \bigr) \; ,
+\qhat_j = \qhat \bigl( z_j ;\, T_j \bigr) \; ,
 \label{eq.localflux}
 \end{equation}
 %
-with density, geometry and field fixed.  The profile enters through
-$\tau = T_i/T_e$, $\beta_e \propto n_e T_e/B_{\rm unit}^2$, $\nu_e
-\propto n_e T_e^{-2}$, the Debye length, and $\qgb \propto n_e
-T_e^{5/2}$.  This dependence is weak --- hence the gyroBohm
-normalization --- but nonzero.
+with density, geometry and field fixed.  $T_j$ enters through $\tau =
+T_i/T_e$, $\beta_e \propto n_e T_e/B_{\rm unit}^2$, $\nu_e \propto n_e
+T_e^{-2}$, the Debye length, and $\qgb \propto n_e T_e^{5/2}$: weak, but
+nonzero.
 
-\noindent {\bf The target is nonlocal.}  By (\ref{eq.target}),
+The locality is in $(z_j,T_j)$, not in $z$.  By (\ref{eq.W}) and
+(\ref{eq.profile}), $T_j$ depends on $z$ interior to $x_j$ through $W$,
+and on all of $z$ through $A$.  Hence $\qhat_j$ is a nonlinear, nonlocal
+functional of $z$, and (\ref{eq.match}) is coupled across the grid.
+
+The target is explicitly nonlocal,
 %
 \begin{equation}
-\qhat^T_\sj = \frac{1}{\vpr_j \, \qgbj}
- \int_0^{x_j} dx \, \vpr(x) \, S_\sigma(x) \; ,
+\qhat^T_j = \frac{1}{\vpr_j \, \qgbj}
+ \int_0^{x_j} dx \, \vpr(x) \, S(x) \; ,
 \label{eq.nonlocaltarget}
 \end{equation}
 %
-an integral over the volume enclosed by $x_j$.  Since $S_\sigma$
-depends on the local profile, $\qhat^T_\sj$ is a functional of
-$T_\sigma$ at every radius {\it interior} to $x_j$, and through
-$\qgbj$ of $T_{e,j}$.
-
-\noindent {\bf The profile is nonlocal in $z$.}  By (\ref{eq.profile}),
-$T_\sj$ depends on $z_\sigma$ at every radius: through $W$, and through
-the normalization $B_\sigma \cdot \Phi_\sigma$.
-
-\noindent Hence (\ref{eq.match}) is coupled across the grid.  Were the
-profile dependence of both sides absent, it would separate into $N$
-independent problems of dimension $n_c$.
-
-\noindent {\bf Stiffness.}  $\qhat_\sigma$ is small below a critical
-gradient and rises steeply above it.  Recovering $z$ from a given flux
-is therefore well conditioned above threshold, and ill-posed below it,
-where a root may be non-unique or absent.
-
-\section{Solver}
-
-EGYRO evaluates $\qhat_\sj(z)$ and $\qhat^T_\sj(z)$ and delegates the
-solve to a global, derivative-free method.  Relevant structure:
-%
-\begin{itemize}
-\item Every $z$ is admissible, so $0 \le z_\sj \le z_{\rm max}$ is a box
-domain with no constraints to enforce.
-\item One evaluation of (\ref{eq.match}) is $N$ independent flux
-calculations, dispatched concurrently: cost is measured in sequential
-batches, not flux calls.
-\item By (\ref{eq.localflux}), one evaluation samples the same local
-flux function at $N$ points --- $N$ training points per evaluation for
-a surrogate.
-\item Holding $T_\sj$ fixed separates (\ref{eq.match}) into $N$
-problems of dimension $n_c$; reintegrating then moves $T$ and the
-process repeats.  This is exact at the fixed point, and its cost is the
-outer iteration count, set by the temperature dependence above.
-\item Scaling $P_\sigma \to \epsilon P_\sigma$ and continuing $\epsilon:
-0 \to 1$ traces a path from the zero-flux state to the solution.
-\end{itemize}
+a functional of $T$ at every radius interior to $x_j$, since $S = S(T)$.
 
 \section{Implementation}
 
@@ -255,135 +254,70 @@ Module & Role \\
 \verb|api.py|                & flux and target (\ref{eq.match}); $z \to$ profile map \\
 \verb|transport/profiles.py| & profile load; grid; reintegration (\ref{eq.W}) \\
 \verb|transport/tglf_map.py| & profile state $\to$ TGLF inputs \\
-\verb|transport/fluxes.py|   & concurrent flux evaluation; $\qhat_\sj$ \\
-\verb|transport/sources.py|  & target $\qhat^T_\sj$, Eq.~(\ref{eq.qhattarget}) \\
+\verb|transport/fluxes.py|   & concurrent flux evaluation; $\qhat_j$ \\
+\verb|transport/sources.py|  & target $\qhat^T_j$, Eq.~(\ref{eq.qhattarget}) \\
 \verb|transport/output.py|   & diagnostic output \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\section{Current restrictions}
-
-\begin{enumerate}
-\item $S_e$, $S_i$ are evaluated once from the experimental profiles
-rather than at each iteration --- a convenience for method development,
-not a property of the formulation.  The code therefore misses the
-nonlocality of (\ref{eq.nonlocaltarget}), retaining only the dependence
-of $\qhat^T_\sj$ on $T_{e,j}$ through $\qgbj$.
-\item $Q_\sigma^{\rm neo} = 0$.
-\item Energy channels only: density gradients are held fixed; no
-particle or momentum channel.
-\item Each ion species carries an independent gradient against a single
-ion target, split evenly.  The physical formulation is one ion
-temperature with the summed ion flux matched to $Q^T_i$, $n_c = 2$.
-\item Only the Dirichlet condition at $x_N$ is implemented;
-Sec.~\ref{sec.bc} is not.
-\item $W$ is the trapezoidal rule on a uniform grid: second order, and
-in error by $26\%$ in $T_e$ at $N=4$ ($5\%$ at $N=8$), amplified by
-$5/2$ in $\qhat^T$.
-\item Eq.~(\ref{eq.axis}) is not enforced; the interpolated
-experimental value is carried at $x=0$.
-\item $q$, $s$, $B_{\rm unit}$ and $\partial \ln p_{\rm tot}/\partial r$
-are not updated as the profiles evolve.
-\label{item.frozen}
-\end{enumerate}
-
 \section{A learned inverse}
+\label{sec.inverse}
 
-Existing surrogate methods (PORTALS) fit a model of the {\it forward}
-map (\ref{eq.localflux}), $z \mapsto \qhat$, and then solve
+Existing surrogate methods (PORTALS) fit the {\it forward} map
+(\ref{eq.localflux}), $z \mapsto \qhat$, and solve
 %
 \begin{equation}
-\qhat^{\rm model}_\sj (z) = \qhat^T_\sj
+\qhat^{\rm model}_j (z) = \qhat^T_j
 \end{equation}
 %
-for $z$ by numerical root-finding, at every iteration.  We propose to
-fit the {\it inverse} map instead.
-
-\subsection{The inverse map}
-
-At fixed $T_{\cdot,j}$, (\ref{eq.localflux}) is $n_c$ equations in the
-$n_c$ unknowns $z_{\cdot,j}$, and may be inverted:
+for $z$ by root-finding at every iteration.  Consider fitting the {\it
+inverse} map instead.  At fixed $T_j$, (\ref{eq.localflux}) is $n_c$
+equations in the $n_c$ unknowns $z_j$, and may be inverted:
 %
 \begin{equation}
 \boxed{\;
-z_{\cdot,j} = \zeta \bigl( \qhat_{\cdot,j},\, T_{\cdot,j} ;\, g_j
- \bigr) \; }
+z_j = \zeta \bigl( \qhat_j,\, T_j \bigr) \; }
 \label{eq.inverse}
 \end{equation}
 %
-$\zeta$ returns the gradient required to carry a {\it given} flux.
-Since the target $\qhat^T$ is known and cheap to compute, the gradient
-that matches it is obtained by {\it evaluating} $\zeta$ --- no
-root-finding is performed at any stage.
-
-\subsection{Why the inverse is the easier function}
-
-By Sec.~6 the flux is stiff: $\qhat_\sigma$ spans orders of magnitude
-over a narrow range of $z$.  Two consequences, in opposite directions:
-%
-\begin{itemize}
-\item $\qhat(z)$ is steep, hence expensive to fit accurately, and a
-small error in the fitted flux is {\it amplified} when it is inverted
-to recover $z$.
-\item $\zeta(\qhat)$ is flat, hence cheap to fit accurately, and an
-error in the fitted gradient is {\it not} amplified --- it is the
-answer.
-\end{itemize}
-%
-The existing approach fits the hard direction and then does work to
-invert it.  Eq.~(\ref{eq.inverse}) fits the easy direction and reads
-the answer off.
-
-The training data are identical.  Each flux evaluation at $x_j$ yields
-a pair $(z_{\cdot,j}, T_{\cdot,j}) \to \qhat_{\cdot,j}$.  For a forward
-model this is input $(z,T)$, output $\qhat$; for the inverse it is
-input $(\qhat,T)$, output $z$.  The same samples, relabelled, at no
-additional cost.
-
-\subsection{The iteration}
-
-With $\zeta$ in hand, flux matching is a fixed point in the profile
-alone:
+$\zeta$ returns the gradient that carries a given flux.  Since $\qhat^T$
+is known, the matching gradient is obtained by {\it evaluating} $\zeta$,
+and (\ref{eq.match}) becomes a fixed point in the profile alone,
 %
 \begin{equation}
-z^{(k+1)}_{\cdot,j} = \zeta \bigl( \qhat^T_{\cdot,j}(z^{(k)}),\,
- T_{\cdot,j}(z^{(k)}) ;\, g_j \bigr) \; ,
+z^{(k+1)}_j = \zeta \bigl( \qhat^T_j(z^{(k)}),\, T_j(z^{(k)}) \bigr)
+ \; ,
 \label{eq.picard}
 \end{equation}
 %
-with $T(z)$ from (\ref{eq.W}) and (\ref{eq.profile}).  Each pass
-evaluates the target, evaluates $\zeta$ at every radius, and
-reintegrates.  Were $T$ exact, one pass would suffice; the residual
-inconsistency is only the {\it weak} temperature dependence of Sec.~6,
-which sets the rate.  There is no optimization in $N n_c$ dimensions,
-no acquisition function, and no Jacobian.
+with $T(z)$ from (\ref{eq.W}) and (\ref{eq.profile}).  Were $T$ exact,
+one pass would suffice: the iteration resolves only the nonlocality of
+$T_j(z)$, which (\ref{eq.inverse}) holds fixed, and whose effect on
+$\qhat$ is weak.
 
-\subsection{Amortization}
+The training data are those of the forward map: each flux evaluation at
+$x_j$ yields $(z_j,T_j) \to \qhat_j$, read as input $(\qhat,T)$ and
+output $z$.  $\zeta$ is a fixed function of its $2 n_c$ arguments, and
+may be trained offline.
 
-At fixed $g_j$, $\zeta$ is a fixed function of $2 n_c$ arguments, the
-same for every discharge.  Since TGLF is cheap, it may be trained
-offline over the dimensionless input space once and for all, rather
-than refitted per radius and per discharge from the samples of a single
-run.
-
-\subsection{Open}
-
-$\zeta$ is single-valued only above the critical gradient; below it
-$\qhat_\sigma \simeq 0$, the flux carries no information about the
-gradient, and the inverse is ill-posed (Sec.~6).  The contraction rate
-of (\ref{eq.picard}) is unmeasured.
+The flux is stiff: small below a critical gradient, rising steeply above
+it.  $\qhat(z)$ is steep, so an error in a fitted $\qhat$ is amplified
+on inversion; $\zeta(\qhat)$ is flat, and an error in $\zeta$ is not.
+But $\zeta$ is single-valued only above the critical gradient: below it
+$\qhat \simeq 0$ and the inverse is ill-posed.  The contraction rate of
+(\ref{eq.picard}) is unmeasured.
 
 \section{Edge boundary condition}
 
 EGYRO solves to the separatrix.  ELM-free and without a pedestal, there
-is no pedestal top at which to pin $T_\sigma$, and the edge temperature
-is set by parallel transport in the scrape-off layer,
+is no pedestal top at which to pin $T$, and $T_*$ is no longer
+prescribed: it is set by parallel transport in the scrape-off layer,
 %
 \begin{equation}
-T_{\sigma,N} = f_\sigma \bigl( P_{\rm sep} \bigr) \; ,
+T_* = f \bigl( P_{\rm sep} \bigr) \; ,
 \qquad
-T_{\sigma,N} \sim P_{\rm sep}^{2/7} \; ,
+T_* \sim P_{\rm sep}^{2/7} \; ,
 \label{eq.sol}
 \end{equation}
 %
@@ -391,28 +325,24 @@ the exponent following from $q_\parallel = -\kappa_0 T^{5/2} \partial_s
 T$.  But the power crossing the separatrix,
 %
 \begin{equation}
-P_{\rm sep} = \int_0^1 dx \, \vpr(x) \, S_\sigma(x) \; ,
+P_{\rm sep} = \int_0^1 dx \, \vpr(x) \, S(x) \; ,
 \end{equation}
 %
-is a functional of the profile, since $S_\sigma = S_\sigma(T)$.  The
-edge amplitude and the integrated source therefore close on each other:
-$B_\sigma$ in (\ref{eq.linbc}) is itself a function of $z$, and the
-closed form (\ref{eq.profile}) is unavailable.
-
-Take $x_{\rm ref} = x_N$, so that $A_\sigma = T_{\sigma,N}$ and
-$T_\sigma = A_\sigma \Phi_\sigma(z)$.  Promote $A_\sigma$ to an unknown
-and append (\ref{eq.sol}):
+is a functional of the profile, since $S = S(T)$.  Hence $B$ in
+(\ref{eq.linbc}) depends on $z$, and (\ref{eq.profile}) is unavailable:
+$A$ can no longer be eliminated.  Promote it to an unknown and append
+(\ref{eq.sol}),
 %
 \begin{align}
-\qhat_\sj(z,A) = &~ \qhat^T_\sj(z,A) \; ,
+\qhat_j(z,A) = &~ \qhat^T_j(z,A) \; ,
  && N n_c \ \text{equations} \; , \\
-A_\sigma - f_\sigma \bigl( P_{\rm sep}[A_\sigma \Phi_\sigma(z)] \bigr)
+T_N(z,A) - f \bigl( P_{\rm sep}[T(z,A)] \bigr)
  = &~ 0 \; , && n_c \ \text{equations} \; ,
 \label{eq.augmented}
 \end{align}
 %
 with $(z,A) \in \mathbb{R}^{N n_c + n_c}$.  The appended rows require no
-flux evaluation.  The $2/7$ exponent makes $T_{\sigma,N}$ respond weakly
-to $P_{\rm sep}$, so the added nonlinearity is soft.
+flux evaluation, and the $2/7$ exponent makes the added nonlinearity
+weak.
 
 \end{document}
