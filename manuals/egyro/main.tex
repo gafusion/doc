@@ -308,6 +308,104 @@ But $\zeta$ is single-valued only above the critical gradient: below it
 $\qhat \simeq 0$ and the inverse is ill-posed.  The contraction rate of
 (\ref{eq.picard}) is unmeasured.
 
+\section{Fixed-source limit}
+\label{sec.constsource}
+
+Take a single ion channel ($n_c=1$), evolve only $z(x) = -\partial_x \ln
+T_i$, and freeze the density, geometry, field and electron profile.  Let
+the source be fixed in time: $S = S(x)$, a prescribed function of radius
+that does not follow the profile.
+
+\subsection{The target becomes fixed data}
+
+The power is then a known quadrature, independent of the profile,
+%
+\begin{equation}
+P(x) = \int_0^x dx^\prime \, \vpr(x^\prime) \, S(x^\prime) \; ,
+\end{equation}
+%
+so from (\ref{eq.qhattarget})
+%
+\begin{equation}
+\qhat^T_j = \frac{P(x_j)}{\vpr_j \, \qgbj} \;\equiv\; g_j \; .
+\label{eq.gj}
+\end{equation}
+%
+Since $\qgb \propto n_e T_e^{5/2}$ with $n_e,T_e$ fixed, $\qgbj$ is fixed,
+and both $P(x_j)$ and $g_j$ are \emph{known constants, precomputed once}.
+This is the payoff of a time-independent source: the target loses both
+its profile dependence and the nonlinearity $S = S(T)$ that makes
+(\ref{eq.nonlocaltarget}) nonlocal.
+
+\subsection{The problem}
+
+With the classic Dirichlet map (\ref{eq.dirichlettrap}) written as
+%
+\begin{equation}
+T_j = T_* \exp\bigl( (Uz)_j \bigr) \; ,
+\qquad
+(Uz)_j = \sum_{m=j+1}^{N} \frac{x_m - x_{m-1}}{2} \, (z_m + z_{m-1}) \; ,
+\label{eq.Umap}
+\end{equation}
+%
+$U$ strictly upper triangular ($T_j$ depends on $z$ only \emph{exterior}
+to $x_j$), the discrete problem (\ref{eq.match}) is
+%
+\begin{equation}
+\boxed{\;
+F_j(z) \doteq \qhat\bigl( z_j ;\, T_j(z) \bigr) - g_j = 0 \; ,
+\qquad j = 1,\dots,N \; , }
+\label{eq.constF}
+\end{equation}
+%
+with $g$ fixed and the flux local in $(z_j,T_j)$ (\ref{eq.localflux}).
+
+\subsection{Structure}
+
+The Jacobian is diagonal plus a small one-sided coupling,
+%
+\begin{equation}
+\frac{\partial F_j}{\partial z_k}
+ = \partial_z \qhat \big|_j \, \delta_{jk}
+ + \partial_T \qhat \big|_j \, U_{jk} \; ,
+\end{equation}
+%
+the first term stiff and diagonal, the second weak and upper triangular.
+Dropping the weak term decouples the system completely: with $\zeta$ the
+local inverse (\ref{eq.inverse}),
+%
+\begin{equation}
+z_j = \zeta(g_j) \qquad \text{independently at every node,}
+\end{equation}
+%
+a one-shot solution with no coupling and no iteration.
+
+The triangular $U$ admits an exact sweep from edge to axis.  At $j=N$,
+$T_N = T_*$ exactly, so $z_N = \zeta(g_N, T_*)$.  Given $z_{j+1},\dots,z_N$,
+the node value $T_j$ depends on the unknown $z_j$ through the last panel
+alone,
+%
+\begin{equation}
+T_j = T_* \exp\Bigl( c_j + \tfrac{1}{2} h_j \, z_j \Bigr) \; ,
+\qquad
+h_j = x_{j+1} - x_j \; ,
+\end{equation}
+%
+with $c_j$ known, so each node is a \emph{scalar} fixed point
+%
+\begin{equation}
+\boxed{\;
+z_j = \zeta\Bigl( g_j,\; T_* \exp\bigl( c_j + \tfrac{1}{2} h_j z_j \bigr)
+ \Bigr) \; , }
+\label{eq.sweep}
+\end{equation}
+%
+one scalar root-find per node in a fixed order.  The $N \times N$
+nonlinear solve collapses to $N$ scalar problems coupled only through a
+single quadrature panel.  Where $g_j$ falls below the critical gradient,
+$\zeta$ is ill-posed ($\qhat \simeq 0$) and $z_j$ is pinned to the
+critical gradient rather than solved.
+
 \section{Edge boundary condition}
 
 EGYRO solves to the separatrix.  ELM-free and without a pedestal, there
@@ -344,5 +442,134 @@ T_N(z,A) - f \bigl( P_{\rm sep}[T(z,A)] \bigr)
 with $(z,A) \in \mathbb{R}^{N n_c + n_c}$.  The appended rows require no
 flux evaluation, and the $2/7$ exponent makes the added nonlinearity
 weak.
+
+\section{Solution by active-learning surrogate}
+\label{sec.surrogate}
+
+Each evaluation of $\qhat$ is a gyrokinetic (or TGLF) run whose cost
+exceeds everything else by orders of magnitude, so the count of flux
+evaluations is the only cost that matters.  The sweep (\ref{eq.sweep})
+is then better read not as $N$ independent root-finds but as recovery of
+a single smooth curve $z^\star(x)$: with $g_j$ fixed data (\ref{eq.gj}),
+the target is
+%
+\begin{equation}
+\qhat\bigl( x,\, z^\star(x) \bigr) = g(x) \; ,
+\label{eq.rootcurve}
+\end{equation}
+%
+and the fluxes and gradients are smooth in radius.  The number of
+evaluations should therefore scale with the complexity of $z^\star(x)$,
+not with $N$.
+
+\subsection{How the solver works}
+
+Represent $z(x)$ through a cheap predictor $\widehat Q(x,z)$ of the flux
+that also reports its uncertainty, and spend each slow, noisy call
+$Q(x,z)$ where it teaches the most:
+%
+\begin{verbatim}
+data = {}                     # runs so far: (x, z, Q)
+seed with a few (x, z0, Q) at spread-out radii
+
+repeat:
+    fit Qhat(x,z) to data     # smooth in x; mean + error
+    pick (x,z): near target Qhat=g, most uncertain
+    data += (x, z, Q(x,z))    # one slow call
+until confident everywhere
+
+return z(x) where Qhat(x,z) = g(x)
+\end{verbatim}
+%
+Smoothness in $x$ lets one call inform a band of radii, so a handful pin
+the curve; the fit (not interpolation) averages out noise; and where $Q
+\simeq 0$ the matching $z$ is undetermined and is pinned to the critical
+gradient.
+
+\subsection{Surrogate}
+
+Model the forward flux as a Gaussian process over radius and gradient,
+%
+\begin{equation}
+\boxed{\;
+\qhat(x,z) \sim \mathcal{GP}\bigl( \mu,\;
+ k_x(x,x^\prime)\, k_z(z,z^\prime) \bigr) \; , }
+\label{eq.gp}
+\end{equation}
+%
+the object the code actually returns: a gradient $z$ at radius $x$ is
+mapped to one noisy $\qhat$.  The code is never inverted; the
+\emph{surrogate} is, cheaply, in place of $\zeta$ (\ref{eq.inverse}).
+The weak nonlocal dependence on $T_j(z)$ is lagged through the sweep
+between surrogate updates, keeping (\ref{eq.gp}) two-dimensional; $T$ is
+promoted to a third input only if the lag drifts.
+
+\subsection{Priors}
+
+Three physical facts enter as structure, and each lowers the evaluation
+count:
+%
+\begin{itemize}
+\item $k_x$ smooth (Mat\'ern-$5/2$ or squared-exponential): one run at
+$x_j$ constrains the flux over a band of neighboring radii, decoupling
+the evaluation count from $N$.
+\item Monotonicity may be imposed only for a single channel: for one
+species $\partial_z \qhat > 0$ above the critical gradient (stiffness),
+which makes the surrogate root in (\ref{eq.rootcurve}) unique and
+stabilizes the inversion.  For $n_c > 1$ the flux is a vector map
+$\qhat_\sigma(z_1,\dots,z_{n_c})$ whose off-diagonal transport couples
+the channels and can change sign; the Jacobian $\partial \qhat_\sigma /
+\partial z_{\sigma^\prime}$ is not sign-definite, the map is not
+monotone, and uniqueness is not guaranteed.  The multichannel surrogate
+therefore rests on smoothness alone, with the local inversion resolving
+branches from the current iterate.
+\item The flat-then-steep threshold is nonstationary; fit
+$\operatorname{asinh} \qhat$ or warp the $z$ input.  Below the critical
+gradient $\qhat \simeq 0$ and the inverse is ill-posed
+(\S\ref{sec.inverse}); the posterior variance diverges there and flags
+it, and those radii are pinned to the critical gradient rather than
+sampled.
+\end{itemize}
+
+\subsection{Acquisition}
+
+The unknown is a contour, not an optimum: the zero level set of $\qhat -
+g$.  Place each run where the posterior crossing is least certain, by the
+straddle rule
+%
+\begin{equation}
+\boxed{\;
+(x,z)_{\rm next} = \arg\max \bigl[\, \sigma(x,z)
+ - \kappa \, | \mu(x,z) - g(x) | \,\bigr] \; , }
+\label{eq.straddle}
+\end{equation}
+%
+with $\mu,\sigma$ the GP posterior mean and standard deviation.  Through
+$k_x$ a single run collapses uncertainty across a neighborhood of radii.
+Iterate until $\operatorname{Var}[ z^\star(x) ]$ is below tolerance
+everywhere --- a principled minimum-evaluation stopping rule rather than
+a fixed budget.
+
+\subsection{Noise}
+
+A GP with an observation-noise term regresses rather than interpolates,
+which is required for the saturated-flux statistics of a gyrokinetic
+run.  Take the noise heteroscedastic, $\sigma_n(x,z)$ growing toward
+marginality where fluxes are small and intermittent; (\ref{eq.straddle})
+then discounts those points automatically.  Noise tolerance is thus
+intrinsic: it may be ignored initially and enabled later with no change
+of structure.
+
+\subsection{Relation to the forward and inverse maps}
+
+This is the disciplined form of a PORTALS-style surrogate: the same
+forward fit (\ref{eq.localflux}), but the acquisition targets the root
+contour and the kernel carries radial smoothness (and, for a single
+channel, monotonicity), so far fewer runs are needed.  It realizes the
+inverse of \S\ref{sec.inverse} safely --- the forward surrogate is
+inverted locally, only where (\ref{eq.straddle}) has already judged a run
+worthwhile, avoiding the ill-posed branch of a globally fitted $\zeta$.  The triangular sweep
+(\ref{eq.sweep}) is the cheap inner correction that threads the $T_j(z)$
+coupling between surrogate updates.
 
 \end{document}
